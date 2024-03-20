@@ -1,0 +1,19 @@
+"countdown": 
+    {
+        "content_id": "blt20a46f0f1d2b0b3c_en-us",
+        "content_type": "countdown",
+        "countdown_title": "Rally is purpose built for enterprise agility at scale.",
+        "countdown_type": "Event",
+        "start_date_time": "09:30:00 PST",        
+        "image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+            "width": 1920,
+            "height": 455,
+            "title": "hero-rally-software.jpg",
+            "alt": "hero-rally-software.jpg",
+            "enlarge": "false"
+        },
+        "locale": "en-us",
+        "created_date": "2021-04-01T18:58:03.306000Z",
+        "updated_date": "2022-07-06T02:30:02.276000Z"
+    }

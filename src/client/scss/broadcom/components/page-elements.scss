@@ -1,0 +1,15 @@
+/*
+* components/page-elements.scss
+*/
+// mostly search results with pagination but can hold any page element in PageElements.jsx
+
+
+@import "../base/variables";
+@import "../base/link";
+
+.intro-content{
+	max-width: 700px;
+	font-size: $font-size-lg;
+	margin-bottom: 25px;
+  }
+  

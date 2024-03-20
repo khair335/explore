@@ -1,0 +1,700 @@
+/*
+* components/main-nav.scss
+*/
+// main master menu in header
+
+@import "../base/variables";
+
+
+// main menu in header 
+#header .navMenu .navbar-collapse { 
+    z-index: 1040; 
+
+    button.menuClose {  //mobile, default hidden
+        display: none;
+    }
+}
+
+// main level 0 menu buttons in header
+#header {
+    .navbar {
+            > li{
+                &.dropdown-item{
+                    &.nav-item{
+                        &:focus,
+                        &:hover,
+                        &:active,
+                        &.active{
+                            background-color: transparent;
+                            outline:none;
+                        }
+                        > .nav-item{
+                            > .nav-link{
+                                color: $color-primary;
+                                padding-right: 2px;
+                                padding-left: 2px;
+                                display: inline-block;
+                                .bi-plus{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    // each top-level button: products, solutions, etc.
+    .mainMenuItem {
+        button, a {
+            color: $color-primary;      //mod to _buttons.scss
+            background: transparent;    //mod to _buttons.scss
+            padding: 0 2px;             //mod to _buttons.scss
+            //font-weight: 400;           //mods <a/> link-style  _base.scss + _variables.scss            //metro-mod
+            margin-left: .5em;
+            margin-right: .5em;
+            position: relative;
+            font-weight: 300;            //metro-mod
+            letter-spacing: .5px;        //metro-mod
+            font-kerning: normal;        //metro-mod
+            
+        
+            &.active::before{           // red up caret that points to active button
+                content: "";
+                position: absolute;
+                bottom: calc(100% - 53px);
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                transform: translateX(-50%);
+                border-bottom: 9px solid $color-primary;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+            }
+        }
+    }
+}
+
+// applied to <body> when menu open to stop scrolling because the header will scroll away from the menuWindow 
+.stopBodyScroll {
+    position: fixed;
+    width: 100%;
+}
+
+
+//font-size control for diff screen sizes
+#menuWindow {
+    .windowControl, .windowView.view_open{
+        .menuBack button.back span{font-size: 26px}
+        h4 {font-size: $font-size-lg;}
+        .menuTitle, .searchTitle {
+            h2 {font-size: 26px;}
+            h3 {font-size: 22px;}
+        }
+    }
+    
+    .windowView {
+        .results { h4 {font-size: $font-size-lg;}}
+        h2, h2 a {font-size: 24px;}
+        h3, h4 a { font-size: $font-size-lg;}
+        .allLinks a {font-size: $font-size-md;}                     //mods _link.scss
+        ul {font-size: $font-size-lg;}
+    
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)){ // -1
+    #menuWindow {
+        .windowControl, .windowView.view_open{
+            .menuBack button.back span{font-size: 24px}
+            h4 {font-size: $font-size-md;}
+            .menuTitle, .searchTitle {
+                h2 {font-size: 24px;}
+                h3 {font-size: 20px;}
+            }
+        }
+        
+        .windowView {
+            .results { h4 {font-size: $font-size-md;}}
+            h2, h2 a {font-size: 22px;}
+            h3, h4 a { font-size: $font-size-md;}
+            .allLinks a {font-size: $font-size-sm;}          //mods _link.scss
+            ul, button {font-size: $font-size-md;}
+        
+        }
+    }
+}
+
+
+// wrapper for controlWindow & viewWindow
+#menuWindow {
+    min-width: 100%;
+    transform: translate(0,0);
+    transition: transform .3s ease-out;
+    position: fixed;
+    top: $header-height;
+    bottom: 0;
+    left: 0vw;
+    z-index: 1060;
+
+    //span.bi {font-size: .6em;}
+
+    ul {list-style: none;}
+
+    // left & right windows, elements in common
+    .windowControl, .windowView.view_open {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .menuBack {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            margin-top: .6em;
+            margin-bottom:20px;
+
+            &.searchTitle {
+                margin-bottom: .6em;
+            }
+  
+            button.back {
+                width: 60px;
+                padding-top: 3px;
+                opacity: 0.75;                  //mods button _button.scss
+    
+                span {
+                    color: $color-white;
+                }
+            }
+        }
+
+        .menuTitle, .searchTitle {
+
+            h2, h3 {
+                display: inline-block;
+            }
+
+            h2 {
+                padding-left: 5px;
+                letter-spacing: .5px;            //metro-mod
+                font-kerning: normal;            //metro-mod
+            }
+
+            h3 {  
+                color: $color-grey--800;
+                padding-left: 15px;
+                font-weight: 300;
+                a {
+                    color: inherit;
+                    font-size: inherit;
+                    text-transform: none;
+                    padding-left: 0;
+                    margin-left: 0;
+
+                    &:hover {
+                        color:$color-secondary;
+                    }
+                }
+            }
+        }
+    }
+   
+
+    .searchTitle.menuBack h3 {
+        padding-top: 6px;
+        padding-left: 0;
+    }
+
+    .windowView.view_open .menuBack button.back span {      // see about line 118 - overwrites white color otherwise selectors are same but this more specific
+        color: $color-grey--800;                            //mod to _buttons.scss
+    }
+
+    .windowControl .menuTitle {
+        margin-left:15px;
+    }
+
+
+    // left column window - controls right col content display
+    .windowControl {
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        left: -550px;
+        z-index: 1080;
+        padding-left: 0px;
+        background-color: $color-grey--800;
+        color: $color-white;
+
+        &.menu_open {
+            left: 0px;
+            -webkit-transition: all .9s ease;
+            -moz-transition: all .9s ease;
+            transition: all .9s ease;
+        }
+
+        h2 {color: $color-white}
+
+        ul {
+           padding-left: 0;
+
+            :first-child {
+                margin-top: 0;
+            }
+
+            li {
+                height: 3em;
+                border-left: $color-grey--800 solid 10px;
+                margin-top: .15em;
+                display:flex;
+                align-items: center;
+                width: 100%;
+                cursor: pointer;
+
+                    button, a { 
+                        color: $color-white;                //overwrite mod by .mainMenuItem button   - mods _link.scss
+                        height:100%;
+                        width: 90%;
+                        padding-left:5px;                   //mods button
+                        text-align: left;                   //mods button
+                        margin-right: 10px;
+                    }
+
+                    a {
+                        height: unset;
+                    }
+
+                    span.brcmicon-play {
+                        display: none;
+                    }
+
+                &.active, &:hover {                             //hover/active for control window items 
+                    background-color: $color-white;
+                    color: $color-grey--900;
+                    border-left: $color-primary solid 10px;
+                     @include fadein(500ms);
+
+                    button, a {
+                       // background-color: $color-white;
+                        color: $color-grey--900;          //mods _link.scss
+                    }
+
+                }
+            }
+
+            li a:hover {
+                color: $color-secondary;
+                &:hover {
+                    color: $color-secondary;
+                    text-decoration: underline solid transparent; 
+                    text-decoration-thickness: 2px; 
+                    animation: link-fadeinout 1.5s linear forwards; 
+                }
+            }
+        }
+
+        .searchMenu {
+            margin-left: 10px;
+            width: 94%;
+
+            button {
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 0;
+                background-color: $color-white;         //mods clear-bttn-sm & search-bttn-sm
+                opacity: .75;                           //mods clear-bttn-sm & search-bttn-sm
+
+                &.clear-bttn-sm {
+                    span.brcmicon-times {
+                       visibility: hidden;
+
+                        &.show {
+                            visibility: visible;
+                        }
+                    }
+                }
+
+                &.search-bttn-sm {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+            }
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                opacity: 0.75;
+            }
+            input:focus {
+                opacity: 1;
+            }
+        }
+    }
+
+    // right col / results window
+    .windowView {
+        background-color: $color-white;
+        border-left: none;
+       left: -1300px; 
+       z-index: 1070; 
+       top: 0;
+       bottom: 0;
+       position: absolute;
+
+       &.view_open {
+           left: 450px;
+           height: 100%;
+           -webkit-transition: all 0.5s ease;
+           -moz-transition: all 0.5s ease;
+           transition: all 0.5s ease;
+           overflow-y: auto;
+           overflow-x: hidden;
+           box-shadow: 2px 3px 8px;
+       }
+
+        .menuResults, .searchResults, .results {
+            height:100%; //  ************** ??
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        // menu results window - grows/shrinks w/content
+        .resultsView_sm, .resultsView_lg {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
+        .resultsView_sm {
+            width: 450px;
+            padding-right: 5px
+        }
+        .resultsView_lg {
+            width: 850px;
+            padding-right: 5px
+        }
+ 
+        .searchResults {
+            column-count: 2;
+            overflow-x: scroll;
+            height: 84vh;
+            border-top: 2px $color-grey--700 solid;
+            padding-top: 10px;
+
+            h4 {
+                line-height: 1.25em;
+                font-weight: 400;
+                    a {
+                        color:  $color-secondary; //$color-grey--900;
+                        width: 100%;
+                        text-transform: none;
+                        &:visited {
+                            color: $color-grey--700;
+                            //color: $color-secondary--dark;
+                        }
+                       
+                    }
+                }
+        }
+
+        // content in the menu results window
+        .results {
+           padding-top: .5em;
+           padding-right:10px;
+
+          li {padding: unset;}
+
+            button, a {
+                width: 100%;
+                min-height: 2em;
+                color: $color-grey--900;
+                text-transform: unset;
+                padding: 0;
+                padding-top: .25em;
+                padding-left: 1em;
+                margin: 0;
+                text-align: left;
+                word-wrap: break-word;
+                white-space: normal;
+                &:hover{
+                    color: $color-secondary;
+                    text-decoration: underline solid transparent; 
+                    text-decoration-thickness: 2px; 
+                    animation: link-fadeinout 1.5s linear forwards; 
+
+                }
+
+                span.bi {
+                    float: right;
+                    margin-right: 1em;
+                    margin-top: .4em;
+                    color: $color-grey--700;
+                }
+            }
+
+            .menuGroup li a:hover {
+                color: $color-secondary;
+                @include fadein(500ms);
+                text-decoration: underline solid transparent; 
+                text-decoration-thickness: 2px; 
+                animation: link-fadeinout 1.5s linear forwards; 
+            }
+
+           h4 {
+               word-wrap: break-word;
+               white-space: normal;
+               color: $color-primary;
+               font-weight: 300;
+
+               &.noGroup, &.noGroup a {
+                color: $color-grey--900;
+                font-weight: 300;
+                padding-top: .5em;
+               }
+
+               a {
+                  display:inline-block;
+                  padding-left: 0;
+                  color: inherit;
+
+                    &:hover {
+                        color: $color-secondary;
+                        @include fadein(500ms);
+                    }
+               }
+            }
+        }
+
+        h2, h2 a {
+            margin: 10px 20px 10px 0;
+            color: $color-grey--700;
+        }
+
+        h3 {
+            color: $color-primary;
+        }
+
+        .allLinks {                      // product & solutions landing page links
+            margin-top: 10px;
+            margin-right:10px;
+
+            a {
+                display: block;
+                text-align: right;
+                &:hover {
+                    color:  $color-secondary;
+                }
+            }
+        }
+
+        ul {
+            word-wrap: break-word;
+            white-space: normal;
+            font-weight: 400;
+            width: 100%;
+            margin-bottom: 1em;
+
+            li {
+               padding: .35em .25em .35em .25em;
+            } 
+
+            a, .nav-link {                  // overrides bootstrap for nav-link
+                color: $color-grey--900;
+                display:block;
+                padding: 0 0 0 1em;
+            }
+
+            &.level_2, &.level_3, &.level_4  {
+                a {
+                    min-height: 2em;
+                    padding-top: .25em;
+                    width:90%; 
+                    word-wrap: break-word;
+                    white-space: normal;
+                
+                    &:hover {
+                        color: $color-secondary;
+                        text-decoration: underline solid transparent; 
+                        text-decoration-thickness: 2px; 
+                        animation: link-fadeinout 1.5s linear forwards; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)){ // -1
+    .stopBodyScroll {
+        width: calc(100vw);
+    }
+
+    #header .navMenu .navbar-collapse {         // container for main menu (lvl 0)
+        width: 450px;
+        margin-left: -15px;
+    }
+
+    #header .mainMenuItem {                             // lvl 0 items
+        width: 100%;
+    
+        nav button {
+            background-color: $color-grey--500;
+            padding: .6em;
+            width: 100%;
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+
+
+
+    #menuWindow {                           // the dropdown portion of the menu
+
+        .windowControl button.back, .windowView.view_open button.back {
+            margin-top: .25em;
+            background-color: transparent;
+        }
+
+        .windowControl {                    // level 1 menu
+
+            .searchMenu {
+                margin-top: 5px;
+                margin-bottom: 10px;
+
+                button {
+                    padding: 0;
+                    width: 2em;
+                    height: 30px;
+                    margin: 0;
+                    border-radius: 0;       //mods button  _buttons.scss
+                }
+            }
+
+            .menuTitle h2 {
+                margin-bottom: .5em;
+               
+            }
+            
+            ul {
+                padding-left:0;
+            
+                li {
+                    margin-top: .6em;
+
+                    span.bi {
+                        display: none;
+                    }
+
+                    span.bi-play {
+                        display: inline-block;
+                        margin-left: -25px;
+                        color: $color-grey--700;
+                        z-index: 2000;
+                    }
+
+                    button, a {
+                        color: $color-grey--900;
+                        padding-left: .6em;
+                        text-align: center;
+                        height: 100%;
+                        margin-top: .0;
+                        margin-bottom: 0;
+                      
+                        
+                            
+                    }
+
+                    a {
+                        padding-top:.7em;
+                    }
+
+                    &:focus,
+                    &:hover,
+                    &:active {
+                        border-left: none;
+                        background-color: unset;
+                       // text-decoration: none!important;
+                    }
+
+                }
+            }
+
+            h4 {
+                color: $color-white;
+                margin-top: 1em;
+                background-color: transparent;
+                display: inline-block;
+            }
+    
+            button, a {
+                padding: .3em 1em;
+                border-radius: 4px;
+                background-color: $color-grey--600; //was #eee
+              
+        
+                span.bi {
+                    //font-size: 2.5em;
+                    //color: $color-white;
+                    float: none;
+                }
+            }
+
+        }
+
+        .windowView {
+            left: -550px;
+            -webkit-transition: all .5s ease 0.1s;
+            -moz-transition: all .5s ease 0.1s;
+            transition: all .5s ease 0.1s;
+
+            .menuResults, .searchResults, .results {
+                overflow-y: scroll;
+                padding-left: 5px;
+
+                .menuGroup {
+                    
+                    button {
+                        background-color: $color-white;
+                    }
+                    
+                }
+            }
+
+            .allLinks{ 
+                margin-left: 35%;
+
+                a {
+                    text-align: unset;
+                    color: $color-secondary;
+                }
+            }
+
+            .searchResults {
+                column-count: 1;
+
+            }
+
+            &.view_open {
+                left:0;
+                width:100%;
+                z-index: 6000;
+            }
+        }
+    }
+}
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, sm) - 1){ 
+
+    #header .navMenu .navbar-collapse {         // container for main menu (lvl 0)
+        width: 100%;
+    }
+
+    #menuWindow .windowControl {
+        width: 100vw;
+        padding-top: 0;
+    }
+}
+

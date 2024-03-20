@@ -1,0 +1,81 @@
+/*
+* pages/general-page2column.scss
+*/
+// 
+
+@import "../base/variables";
+
+#GeneralPage2Column {
+	.content-block {
+		margin-bottom: 60px;
+	}
+	
+	// Specific to the CA pages. stage http://localhost:3001/support/services-support/ca-services/mainframe-services
+	.TextPromo {
+		background-color: $color-grey--500;
+		padding: 1.5em;
+		.textpromo-title, .textpromo-body {
+			padding: 0 24px;
+		}
+		
+		.textpromo-title {
+			padding-top: 0.5em;
+		}
+		
+		.TextCard {
+			background-color: $color-grey--500;
+		}
+	}
+
+	// general-page-wrap for general 2 columns template
+	// JD - This seems to be very page specific. stage http://localhost:3001/support/services-support/ca-services/mainframe-services
+	.general-page-wrap{
+	  h3 {
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 20px;
+		color:$color-grey--800;
+	  }
+	  .image-right {
+		float: right;
+	  }
+	  .Promo {
+		clear: left;
+		width: 100%;
+		overflow: hidden;
+		font-family: $font-family--primary;
+		h2{
+		  color:$color-grey--800;
+		  font-size: 22px;
+		  margin-bottom: 26px;
+		  font-family: $font-family--primary;
+		  font-weight: 500;
+		}
+		}
+	  .SingleColumn, .TwoColumn, .ListOfLinks{
+		margin-top:50px;
+		 h3{
+		  color:$color-grey--800;
+		  font-size: 22px;
+		  margin-bottom: 20px;
+		  font-family: $font-family--primary;
+		  font-weight: 500;
+		}
+
+		.document-list{
+		  padding-left: 15px;
+		}
+	  }
+	  .general-page-wrap-body{
+		h3{
+		  margin-top:0;
+		}
+		ul{
+			
+			padding: 0 0 10px 40px;
+			
+		}
+	  }
+	}
+
+}

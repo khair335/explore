@@ -1,0 +1,88 @@
+/*
+* pages/logo-request-page.scss
+*/
+
+
+
+@import "../base/variables";
+@import "../components/document-link";
+
+#LogoRequest {
+    padding-bottom: 15px;
+
+
+
+    .form-group-logos fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 10px;
+        justify-content: space-between;
+        padding: 0 15px;
+        width: 100%;
+
+        .form-check {           // Make the first one the main logo and on it's own line      
+            width: 265px;       // Make all the columns even.      
+            &:first-child {
+                width: 100%;      
+                border-bottom: 2px dotted $color-grey--675;
+                padding-bottom: 30px;
+            }
+        }
+
+        .form-check-label {
+            margin-top: 2px;        // Align the label with the radio.
+            img {
+                width: 140px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    // JD - Remove bootstrap green color when validated.
+    .was-validated .form-check-input:valid ~ .form-check-label {
+        color: $color-grey--900;
+    }
+}
+
+
+#LogoRequestTermsAndConditions {
+    #tnc-accept {
+        margin-top: 4px;
+    }
+
+    .logo-request-tnc-buttons {
+        display: flex;
+        gap: 0 10px;
+        margin-top: 15px;
+    }
+}
+
+#LogoRequestDeclined {
+    .logo-request-declined-buttons {
+        display: flex;
+        gap: 0 10px;
+        margin-top: 15px;
+    }
+}
+
+#LogoRequestDownload {
+    .logo-request-download-guideline {
+        display: flex;
+        flex-direction: column;
+        gap: 0 10px;
+
+        div {
+            margin-top: auto;
+        }
+    }
+
+    .logo-request-download-images {
+        display: flex;
+        gap: 0 10px;
+ 
+    }
+
+   
+    
+
+}

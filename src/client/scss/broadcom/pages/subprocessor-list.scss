@@ -1,0 +1,56 @@
+/**
+ *  @file subprocessor-list.scss
+ *  @brief BE12-5 Subprocessors. SubProcessorList.jsx
+ *  
+ */
+@import "../base/variables";
+
+#SubProcessorList {
+    
+   
+     // Header
+    .thead-label, .thead-arrow{ 
+        button {
+            font-weight:600;                    //mods button _buttons.scss
+            background-color: transparent;      //mods button
+        }
+        
+        th {
+            text-align: center;
+            vertical-align: top;   
+            background-color: $color-primary;
+            color:$color-white; 
+            font-family: $font-family--secondary;
+            border-right: 1px solid $color-white;
+            border-top:0!important;
+            border-bottom:0!important;     
+        }
+
+        .th-supplier_address {
+            width: 240px;           // Resize the address column.
+        }
+        .th-supplier_name {
+            width: 190px;
+        }
+    }
+    .thead-arrow th {
+        padding:0 0 5px 0!important
+    }
+
+    .td-supplier-address {
+        address {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    // Remove padding from contacts.
+    .contact {
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        address {
+            margin: 0;
+        }
+    }
+}

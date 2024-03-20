@@ -1,0 +1,86 @@
+/*
+* components/video.scss
+*/
+// styling for videos
+
+
+@import "../base/variables";
+@import "../base/link";
+
+.brightcove-wrapper {
+
+	position: relative;
+
+	.vjs-big-play-button {
+		//.vjs-icon-placeholder {
+		position: absolute;
+		background-color: transparent;
+		height: 54px;
+		width: 54px;
+		top: 50%;
+		left: 50%;
+		margin-top: -28px;
+		margin-left: -28px;
+		//z-index: -1;
+		//border: none;
+		line-height: inherit;
+
+		background-color: rgba(0, 0, 0, 0.75);
+		border-radius: 50%;
+		border: 4px $color-white solid;
+
+		&:before {
+			//content: "\e95b";		// added this as a class name bi-play-circle in BrightcoveVideo.jsx - "/e95b" is risky becasue it can change when the icon file is updated
+			color: $color-white;
+			font-size: 52px;
+			//font-family: 'Broadcom-General-icon-Fonts';
+			margin-top: -3px; // hide our background. 
+			margin-left: -1px;
+		}
+
+		//}
+	}
+
+	// Show the volume on small screens.
+	.video-js {
+
+		&.vjs-layout-small,
+		&.vjs-layout-x-small,
+		&.vjs-layout-tiny {
+			.vjs-volume-control {
+				display: block;
+			}
+		}
+	}
+
+	.brightcove-player {
+		&.fadestart {
+			opacity: 0; // Let us fade in.
+			visibility: hidden;
+		}
+	}
+
+	// Loading icon before player is loaded.
+	.brightcove-loading-wrapper {
+		position: relative;
+		height: 0;
+		padding-bottom: 56.25%; // Aspect ratio of 16:9. We need to set a height for the container.
+
+
+		.brightcove-loading {
+			position: absolute;
+			left: -50%;
+			top: calc(50% - 60px); // The mid point of both the container and the icon.
+			width: 100%;
+		}
+	}
+}
+
+// HACK - JD On local environment, the height of the audio player is set to zero, I'm unsure why, so just set it ourselves.
+.video-audio {
+	.brightcove-player {
+		.video-js {
+			height: 45px;
+		}
+	}
+}

@@ -1,0 +1,348 @@
+{
+  "$comment": "----- Jonathan's version ----",
+  "events": [
+    {
+      "date": "2024-08-21T15:00:00.000Z",
+      "$comment": "## array of events",
+      "tracks": [
+        {
+          "title": "Sessions",
+          "background_color": "## hex code",
+          "$comment": "## array of sessions",
+          "sessions": [{
+            "title": "Global Parner Forum",
+            "start_time": "2024-08-21T15:00:00.000Z",
+            "end_time": "2024-08-21T23:00:00.000Z",
+            "description": "## Used for info popup 'Box Lunch'",
+            "link": {
+              "$comment": "Standard link. See content blocks for link structure",
+              "title": "View sessions",
+              "url": "https://event.vmware.com/flow/vmware/explore2023lv/content/page/catalog?tab.day=20230821&search.sessiontype=partnersession",
+              "content_id":	"bltb455cabde03c0bae_en-us",
+              "target": "_self",
+              "subtype": "landing_pages"
+
+            }
+            }
+          ]
+        }, {
+          "title": "Hands on Learning",
+          "$comment": "## array of sessions",
+          "sessions": [
+            {}
+          ]
+        }
+      ],
+    }
+  ],
+  "$comment": "----- Suresh's version ----",
+  "tracks": [
+    {
+      "track_title": "Sessions",
+      "_metadata": {
+        "uid": "cs88579a10d36247b8"
+      },
+      "agenda_block": [
+        {
+          "agenda": {
+            "track_date": "2023-05-21",
+            "_metadata": {
+              "uid": "csd7e50711dbd01a39"
+            },
+            "color": "#b9ffff",
+            "events": [
+              {
+                "event_title": "Global Partner Forum",
+                "start_time": "2024-08-21T15:00:00.000Z",
+                "end_time": "2024-08-21T23:00:00.000Z",
+                "event_abstract": "",
+                "view_sessions": [
+                  {
+                    "event_title": "SpringOne",
+                    "start_time": "2024-08-21T15:00:00.000Z",
+                    "end_time": "2024-08-21T23:00:00.000Z",
+                    "event_abstract": "",
+                    "view_sessions": []
+                  },
+                  {
+                    "event_title": "Tutorials",
+                    "start_time": "2024-08-21T17:00:00.000Z",
+                    "end_time": "2024-08-21T22:30:00.000Z",
+                    "event_abstract": "",
+                    "view_sessions": []
+                  },
+                  {
+                    "event_title": "Industry Forum",
+                    "start_time": "2024-08-21T20:00:00.000Z",
+                    "end_time": "2024-08-21T21:30:00.000Z",
+                    "event_abstract": "",
+                    "view_sessions": []
+                  }
+                ]
+              },
+              {
+                "event_title": "SpringOne",
+                "start_time": "2024-08-21T15:00:00.000Z",
+                "end_time": "2024-08-21T23:00:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Tutorials",
+                "start_time": "2024-08-21T17:00:00.000Z",
+                "end_time": "2024-08-21T22:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Industry Forum",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-22",
+            "_metadata": {
+              "uid": "csd5bab3fd22382066"
+            },
+            "color": "#af8888",
+            "events": [
+              {
+                "event_title": "General Session",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "track_title": "Hands On Learning",
+      "_metadata": {
+        "uid": "csb17996b8297a6f0b"
+      },
+      "agenda_block": [
+        {
+          "agenda": {
+            "track_date": "2023-05-21",
+            "_metadata": {
+              "uid": "cs15707f5cbf9f8e58"
+            },
+            "color": "#985252",
+            "events": [
+              {
+                "event_title": "Hands On Labs",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Certification Exam Center",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Meet the Experts",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-22",
+            "_metadata": {
+              "uid": "cs1724c4d79eba4c63"
+            },
+            "color": "#a27c7c",
+            "events": [
+              {
+                "event_title": "Hands on Labs",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Certification Exam Center",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Meet the Experts",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-23",
+            "_metadata": {
+              "uid": "csb468763facf0b362"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Hands on Lab",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Certification Exam Center",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              },
+              {
+                "event_title": "Meet the Experts",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "track_title": "Meals and Networking",
+      "_metadata": {
+        "uid": "cs1b549b248f12cfd6"
+      },
+      "agenda_block": [
+        {
+          "agenda": {
+            "track_date": "2023-05-21",
+            "_metadata": {
+              "uid": "csc57a416239e0c8fd"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Box Lunch",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-21",
+            "_metadata": {
+              "uid": "cs09f9781566e3b3ed"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Welcome Reception",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-22",
+            "_metadata": {
+              "uid": "cs8700327090771584"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Breakfast",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-22",
+            "_metadata": {
+              "uid": "cs96108d8a30a574f3"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Lunch",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        },
+        {
+          "agenda": {
+            "track_date": "2023-05-22",
+            "_metadata": {
+              "uid": "cs538ac4e356dabc79"
+            },
+            "color": "#000000",
+            "events": [
+              {
+                "event_title": "Hall Crawl",
+                "start_time": "2024-08-21T20:00:00.000Z",
+                "end_time": "2024-08-21T21:30:00.000Z",
+                "event_abstract": "",
+                "view_sessions": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "track_title": "Destinations",
+      "_metadata": {
+        "uid": "cs94754c389fb4be32"
+      },
+      "agenda_block": [
+        {
+          "agenda": {
+            "track_date": null,
+            "_metadata": {
+              "uid": "csab8a1da8ccac9dd7"
+            },
+            "color": "#000000",
+            "events": []
+          }
+        }
+      ]
+    }
+  ]
+}

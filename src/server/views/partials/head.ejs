@@ -1,0 +1,87 @@
+<title><%= title %></title>
+<link rel="icon" type="image/png" href="<%= favicons[0] %>">
+<link rel="icon" type="image/png" href="<%= favicons[0] %>" sizes="32x32">
+<link rel="icon" type="image/png" href="<%= favicons[1] %>" sizes="48x48">
+<link rel="icon" type="image/png" href="<%= favicons[2] %>" sizes="96x96">
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge"> <% if (typeof(last_modified) !== "undefined" && last_modified) { %>
+<meta http-equiv="Last-Modified" content="<%= last_modified %>"><% } %> <% if (meta) { %>
+<meta property="og:title" content="<%= meta["og:title"] %>" />
+<meta name="description" content="<%= meta["meta_description"] %>">
+<meta property="og:description" content="<%= meta["og:description"] %>" />
+<meta property="og:image" content="<%= meta["og:image"] %>" />
+<meta name="keywords" content="<%= meta["meta_keywords"] %>">
+<meta name="twitter:card" content="<%= meta["twitter:card"] %>" />
+<meta name="twitter:site" content="<%= meta["twitter:site"] %>" />
+<meta property="og:url" content="<%= meta["og:url"] %>" />
+<% if (typeof(meta["robots"]) !== "undefined" && meta["robots"]) { %><meta name="robots" content="<%= meta["robots"] %>"><% } %>
+
+<link rel="canonical" href="<%= meta["canonical"] %>" />
+<% if (meta["alternate_urls"] && meta["alternate_urls"].length > 0) { %> <% for (var i=0; i<meta["alternate_urls"].length; i++) { %>
+<link rel="alternate" href="<%= meta["alternate_urls"][i].href %>" hreflang="<%= meta["alternate_urls"][i].hreflang %>" /> <% } %> <% } %> <% } %>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="preload" href="/css/fonts/Fonts/a3dac99c-9132-4c77-bc18-2df40293d361.woff2" as="font" crossorigin="anonymous" />	<!-- Arial - basic -->
+<link rel="preload" href="/css/fonts/metro/woff2/Metropolis-Light.woff2" as="font" crossorigin="anonymous" />			<!-- Metro 300 for menus -->
+<link rel="preload" href="/css/fonts/metro/woff2/Metropolis-SemiBold.woff2" as="font" crossorigin="anonymous" />		<!-- Metro 500 for btns -->
+
+<link href="/css/fonts/metro_fonts.css" rel="preload" as="style">
+<link href="/css/fonts/metro_fonts.css" rel="stylesheet">
+
+<link href="/css/fonts/fonts_com_fonts.css" rel="preload" as="style">
+<link href="/css/fonts/fonts_com_fonts.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://static.broadcom.com">
+<script nonce="brcm229OD7z5eg5hA1voZew9TQ==">
+	var gLocale = "<%= locale %>";
+	var gSubLocale = "<%= sublocale %>";
+	var gLocalizedLabels = <%- translations %>;
+	var gStatus = "<%= status %>";
+	var gCopyright = "<%= copyright %>";
+	var gMicrosite = <%- microsite -%>;
+</script>
+
+<!-- OneTrust Cookies Consent Notice start for www.broadcom.com -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" defer type="text/javascript" charset="UTF-8" data-domain-script="<%= onetrust_script %>" nonce="brcm229OD7z5eg5hA1voZew9TQ=="></script>
+<script type="text/javascript" nonce="brcm229OD7z5eg5hA1voZew9TQ==">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for www.broadcom.com -->
+
+<% if (env === "qa" || env === "local") { %>
+<!-- QA SNIPPET Google Tag Manager -->
+<script id="gtmScript" nonce="brcm229OD7z5eg5hA1voZew9TQ==" data-nonce="brcm229OD7z5eg5hA1voZew9TQ==">
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=u-9xkcygtJTmu9ln0bPP9g&gtm_preview=env-45&gtm_cookies_win=x'; var n = d.querySelector('[nonce]');
+<%#	//Cardinal Paths			'https://www.googletagmanager.com/gtm.js?id=' + i + dl; var n = d.querySelector('[nonce]'); %>
+		n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce')); f.parentNode.insertBefore(j, f);
+<%#	//Cardinal Paths	})(window, document, 'script', 'dataLayer', 'GTM-TPS29TDN'); %>
+<%#	//Mine })(window, document, 'script', 'dataLayer', 'GTM-WSXZKNV5'); %>		
+	})(window, document, 'script', 'dataLayer', 'GTM-KF7XWD'); 
+</script>
+<!-- End Google Tag Manager -->
+<% } else { %>
+<!-- PROD GOOGLE TAG SNIPPET -->
+<!-- Google Tag Manager -->
+<script id="gtmScript" nonce="brcm229OD7z5eg5hA1voZew9TQ==" data-nonce="brcm229OD7z5eg5hA1voZew9TQ==">
+	(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; var n = d.querySelector('[nonce]');
+		n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce')); f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-KF7XWD');
+</script>
+<!-- End Google Tag Manager -->
+	
+<% } %>

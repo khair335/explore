@@ -1,0 +1,107 @@
+"content_block_list":{
+    "_version": 1,
+    "locale": "en-us",
+    "uid": "blta32f8c4588ba965f",
+    "_in_progress": false,
+    "background_color": {
+        "color": null
+    },
+    "background_image": {
+        "file": null,
+        "tooltip": "",
+        "enlarge": "False"
+    },
+    "bottom_body": "",
+    "card_width": null,
+    "cards": [
+        {
+            "uid": "bltd6b26ea45c8216d6",
+            "_content_type_uid": "content_block_list"
+        },
+        {   
+            "content_id": "blt2y2gst531bccc_en",
+            "content_type": "carousel_block",
+            "body": "",
+            "template": "Carousel",
+            "carousel_block_title": "Featured Collections- Carousel",
+            "carousel_options": "Standard",
+            "display_carousel_controls": "Yes",
+            "links": [],
+            "no_of_rows": "1",
+            "section_title": "",
+            "width": "4",
+            "content_blocks": {
+                "modular_blocks": [
+                    {
+                        "videos": {
+                            "video": [
+                                {
+                                    "video_id": "blt6ee203c65231e068",
+                                    "video_url": "/video/blt6ee203c65231e068"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "videos": {
+                            "video": [
+                                {
+                                    "video_id": "blt80062e020d80cd5a",
+                                    "video_url": "/video/blt80062e020d80cd5a"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "videos": {
+                            "video": [
+                                {
+                                    "video_id": "blt1ab8ea71eb4917a3",
+                                    "video_url": "/video/blt1ab8ea71eb4917a3"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "videos": {
+                            "video": [
+                                {
+                                    "video_id": "bltf088e37080145f68",
+                                    "video_url": "/video/bltf088e37080145f68"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "videos": {
+                            "video": [
+                                {
+                                    "video_id": "blt04cf416e2f5d52c2",
+                                    "video_url": "/video/blt04cf416e2f5d52c2"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "content_block_title": "Featured Collections",
+    "content_metadata": {
+        "start_date": null,
+        "end_date": null,
+        "internal_notes": ""
+    },
+    "created_at": "2024-02-15T02:38:15.548Z",
+    "created_by": "bltefa20e0d4da1d210",
+    "description": "",
+    "image_position": "",
+    "links": [],
+    "section_title": "",
+    "stripe_color": null,
+    "tags": [],
+    "template": "Content List",
+    "title": "Featured Collections -CBL",
+    "updated_at": "2024-02-15T02:38:15.548Z",
+    "updated_by": "bltefa20e0d4da1d210"
+}

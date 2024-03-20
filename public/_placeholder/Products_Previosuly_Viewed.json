@@ -1,0 +1,50 @@
+{
+	"cookieList": "1211167075756,1211098000868,1211088855358,1211190199188,1211171624987,1211189924519",
+	"items": [{
+		"title": "ACMD-6225",
+		"description": "The Broadcom ACMD-6225 is a highly miniaturized duplexer designed for use in Band 25 (1850.25 - 1914.75 MHz UL, 1930.25 - 1994.75 MHz DL) targetinghandsets and mobile data terminals.\r\n\r\n\r\n\r\nLow Insertion Loss in the Tx channel minimizes current drain from the power amplifier while low Rx channel Insertion Loss improves receiver sensitivity.\r\n\r\n<br \/>\r\n<br \/>\r\n\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/wireless\/fbar\/duplexer\/acmd-6225",
+		"image": "https:\/\/www.broadcom.com\/media\/1211167154522\/150x150-acmd-6107_(241x241).png"
+	}, {
+		"title": "ACMD-7411",
+		"description": "The Broadcom <strong>ACMD-7411<\/strong> is a highly miniaturized duplexer designed for use in <strong>UMTS Band 2<\/strong> (1850 &ndash; 1909MHz UL, 1930 &ndash; 1989MHz DL) handsets and mobile data terminals.<br \/>\r\n<br \/>\r\n<strong>ACMD-7411<\/strong> enhances the sensi tivity and dynamic range of handset receivers by providing high isolation of the transmitted signal from the receiver input and high rejection of transmit-generated noise in the receive band.",
+		"url": "https:\/\/www.broadcom.com\/products\/wireless\/fbar\/duplexers\/acmd-7411",
+		"image": "https:\/\/www.broadcom.com\/media\/1211097432207\/150x150-acmd-7411thumb.png"
+	}, {
+		"title": "ASMT-AR30-AST00",
+		"description": "This 3W Power LED Light Source is a high performance<br \/>\r\nenergy efficient device which can handle high thermal<br \/>\r\nand high driving current. The exposed pad design enables<br \/>\r\nexcellent heat transfer from the package to the motherboard.<br \/>\r\nOption with electrically isolated metal slug is also<br \/>\r\navailable.<br \/>\r\n<br \/>\r\nThe White Power LED is available in the range of color<br \/>\r\ntemperature from 2700K to 10000K.<br \/>\r\n<br \/>\r\n<br \/>\r\nThe low profile package design is suitable for a wide variety<br \/>\r\nof applications especially where height is a constraint.<br \/>\r\n<br \/>\r\nThe package is compatible with reflow soldering process.<br \/>\r\nThis part has a foot print that is compatible to most of the<br \/>\r\nhigh power LED in the market today.",
+		"url": "https:\/\/www.broadcom.com\/products\/leds-and-displays\/high-power-leds\/3w-led-emitter\/asmt-ar30-ast00",
+		"image": "https:\/\/www.broadcom.com\/media\/1210906924983\/150x150-asmt-ar00_wht_175x175thumb.png"
+	}, {
+		"title": "MegaRAID 9480-8i8e",
+		"description": "Direct attached, high-connectivity applications require increased bandwidth, increased IOPS performance and advanced data protection. The MegaRAID 9480-8i8e Tri-Mode internal\/external Storage Adapter is a 12Gb\/s SAS\/SATA\/PCIe (NVMe) controller card that addresses these needs by delivering internal connectivity and external scalability, proven flexibility, performanceand RAID data protection for a range of server storage applications.\r\n\r\nBroadcom&rsquo;s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.\r\n\r\n<ul>\r\n\t<li>Connect up to 240SAS\/SATA devices or 24NVMe devices per controller<\/li>\r\n\t<li>Fits into rack-mounted servers with low-profile form factor and side-mounted SAS connectors<\/li>\r\n\t<li>Provides internal storage, external JBOD expansion and RAID data protection to address a wide range of storage performance and capacity requirements<\/li>\r\n\t<li>Support critical, high-bandwidth applications with PCIe® 3.1 connectivity<\/li>\r\n\t<li>Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50, and 60<\/li>\r\n\t<li>Add more protection and peace of mind with CacheVault® flash cache protection<\/li>\r\n<\/ul>\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/storage\/raid-controllers\/megaraid-9480-8i8e",
+		"image": "https:\/\/www.broadcom.com\/media\/1211190111234\/150x150-9480-8i8e_angled_(1)thumb.png"
+	}, {
+		"title": "ALMD-EL1E-Z2002",
+		"description": "The new ALMD-Ex1E series is essentiallya conventional high brightness through holeLED in theform of surface mount device. It can be assembled using common SMT assembly processes and iscompatible with industrial reflow soldering processes.\r\n\r\n<br \/>\r\nThe LEDs are made with an advanced optical grade epoxy for superior performance in outdoor signapplications. For easy pick and place assembly, the LEDs are shipped in tape and reel. Every reel is shipped from a single intensity and color bin for better uniformity\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/leds-and-displays\/high-brightness\/surface-mount\/almd-el1e-z2002",
+		"image": "https:\/\/www.broadcom.com\/media\/1210941475054\/150x150-almd-xx3d_round_whtthumb.png"
+	}, {
+		"title": "MegaRAID 9460-16i",
+		"description": "Data center, cloud and high-performance computing environments not only require large amounts of storage capacity, they also must provide the data protection, flexibility and performance today&rsquo;s applications and end users demand. The MegaRAID 9460-16i Tri-Mode Storage Adapter is a 12Gb\/s SAS\/SATA\/PCIe (NVMe) controller card that addresses these needs by delivering proven performanceand RAID data protection for a range of high-end server storage applications.\r\n\r\nBroadcom&rsquo;s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.\r\n\r\n<ul>\r\n\t<li>Connect up to 240SAS\/SATA devices or 24NVMe devices per controller<\/li>\r\n\t<li>Fits into rack-mounted servers with low-profile form factor and side-mounted SAS connectors<\/li>\r\n\t<li>Support critical, high-bandwidth applications with PCIe<sup>®<\/sup> 3.1connectivity<\/li>\r\n\t<li>Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50, and 60<\/li>\r\n\t<li>Add more protection and peace of mind with CacheVault<sup>®<\/sup> flash cache protection<\/li>\r\n<\/ul>\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/storage\/raid-controllers\/megaraid-9460-16i",
+		"image": "https:\/\/www.broadcom.com\/media\/1211183941472\/150x150-mr_9460-16i_angle_(1).png"
+	},
+	{
+		"title": "MegaRAID 9480-8i8e",
+		"description": "Direct attached, high-connectivity applications require increased bandwidth, increased IOPS performance and advanced data protection. The MegaRAID 9480-8i8e Tri-Mode internal\/external Storage Adapter is a 12Gb\/s SAS\/SATA\/PCIe (NVMe) controller card that addresses these needs by delivering internal connectivity and external scalability, proven flexibility, performanceand RAID data protection for a range of server storage applications.\r\n\r\nBroadcom&rsquo;s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.\r\n\r\n<ul>\r\n\t<li>Connect up to 240SAS\/SATA devices or 24NVMe devices per controller<\/li>\r\n\t<li>Fits into rack-mounted servers with low-profile form factor and side-mounted SAS connectors<\/li>\r\n\t<li>Provides internal storage, external JBOD expansion and RAID data protection to address a wide range of storage performance and capacity requirements<\/li>\r\n\t<li>Support critical, high-bandwidth applications with PCIe® 3.1 connectivity<\/li>\r\n\t<li>Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50, and 60<\/li>\r\n\t<li>Add more protection and peace of mind with CacheVault® flash cache protection<\/li>\r\n<\/ul>\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/storage\/raid-controllers\/megaraid-9480-8i8e",
+		"image": "https:\/\/www.broadcom.com\/media\/1211190111234\/150x150-9480-8i8e_angled_(1)thumb.png"
+	}, {
+		"title": "ALMD-EL1E-Z2002",
+		"description": "The new ALMD-Ex1E series is essentiallya conventional high brightness through holeLED in theform of surface mount device. It can be assembled using common SMT assembly processes and iscompatible with industrial reflow soldering processes.\r\n\r\n<br \/>\r\nThe LEDs are made with an advanced optical grade epoxy for superior performance in outdoor signapplications. For easy pick and place assembly, the LEDs are shipped in tape and reel. Every reel is shipped from a single intensity and color bin for better uniformity\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/leds-and-displays\/high-brightness\/surface-mount\/almd-el1e-z2002",
+		"image": "https:\/\/www.broadcom.com\/media\/1210941475054\/150x150-almd-xx3d_round_whtthumb.png"
+	}, {
+		"title": "MegaRAID 9460-16i",
+		"description": "Data center, cloud and high-performance computing environments not only require large amounts of storage capacity, they also must provide the data protection, flexibility and performance today&rsquo;s applications and end users demand. The MegaRAID 9460-16i Tri-Mode Storage Adapter is a 12Gb\/s SAS\/SATA\/PCIe (NVMe) controller card that addresses these needs by delivering proven performanceand RAID data protection for a range of high-end server storage applications.\r\n\r\nBroadcom&rsquo;s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.\r\n\r\n<ul>\r\n\t<li>Connect up to 240SAS\/SATA devices or 24NVMe devices per controller<\/li>\r\n\t<li>Fits into rack-mounted servers with low-profile form factor and side-mounted SAS connectors<\/li>\r\n\t<li>Support critical, high-bandwidth applications with PCIe<sup>®<\/sup> 3.1connectivity<\/li>\r\n\t<li>Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50, and 60<\/li>\r\n\t<li>Add more protection and peace of mind with CacheVault<sup>®<\/sup> flash cache protection<\/li>\r\n<\/ul>\r\n",
+		"url": "https:\/\/www.broadcom.com\/products\/storage\/raid-controllers\/megaraid-9460-16i",
+		"image": "https:\/\/www.broadcom.com\/media\/1211183941472\/150x150-mr_9460-16i_angle_(1).png"
+	}]
+}

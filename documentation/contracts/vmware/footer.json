@@ -1,0 +1,76 @@
+"footer": {
+    "content_id": "bltf9a8d7ca45241e61_en-us",
+    "content_type": "footer",
+    "template": "Explorer",
+    "footer_text": "Copyright © 2005-2024 Broadcom. All Rights Reserved. The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.",        
+    "footer_logo": {
+        "image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/footer.jpg",
+            "width": 192,
+            "height": 45,
+            "title": "footer.jpg",
+            "alt": "footer.jpg",
+            "enlarge": "false"
+        },
+        "url": "/us/home"
+    },
+    "navigation": [
+        {
+            "section": "Company",
+            "links": [
+                {
+                    "title": "Contact",
+                    "url": "/eu/contact.html"
+                },
+                {
+                    "title": "VMware Explore Video Library",
+                    "url": "/us/videolibrary"
+                }
+            ]
+        },
+        {
+            "section": "",
+            "links": [
+                {
+                    "title": "Code of Conduct",
+                    "url": "/us/codeofconduct"
+                },
+                {
+                    "title": "VMware Explore Blog",
+                    "url": "/us/blogs"
+                }
+            ]
+        }
+    ],
+
+    "$comment": "## Same as broadcom. Terms of Use, Privacy, Feedback. No need to change this.""footer_links",
+    "footer_links": [
+        {
+            "title": "Terms of Use",
+            "url": "https://www.broadcom.com/termsofuse"
+        },
+        {
+            "title": "Privacy",
+            "url": "https://www.broadcom.com/company/legal/privacy"
+        },
+        {
+            "title": "Feedback",
+            "url": "/feedback"
+        }
+    ],
+    "social": [
+        {
+                "name": "Facebook",
+                "image": {
+                    "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/facebook.jpg",
+                    "width": 20,
+                    "height": 5,
+                    "title": "facebook.jpg",
+                    "alt": "facebook.jpg",
+                    "enlarge": "false"
+                },
+               "url": "/us/home"
+        },
+        
+    ]
+}

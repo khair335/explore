@@ -1,0 +1,225 @@
+{
+	"_url_": "products/wireless/",
+	"content_id": "1210946577724",
+	"content_type": "AVG_Product_P",
+	"template": "SoftwareProductDetail",
+	"locale": "en-us",
+	"title": "Wireless Embedded Solutions and RF Components",
+	"short_title": null,
+	"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"body2": null,
+	"MetaKeywords": "microwave devices, rf microwave, rf and microwave",
+	"MetaDescription": "Broadcom RF and microwave devices have been driving the wireless revolution with products including amplifiers,  FBAR filters, multipliers, switches, and embedded processors.",
+	"BrowserTitle": null,
+	"BreadcrumbList": [
+		{
+			"position": 1,
+			"item": {
+				"name": "Products",
+				"_url_": "products",
+				"target": "_self"
+			},
+			"ShowInNavigation": "Yes"
+		},
+		{
+			"position": 2,
+			"item": {
+				"name": "Wireless Embedded Solutions and RF Components",
+				"_url_": "products/wireless"
+			},
+			"ShowInNavigation": "Yes"
+		}
+	],
+	"HeroBanner": {
+		"$ref": "#/SoftwareProductGroup/HeroBanner"
+	},
+	"body_highlights": [
+		{
+			"$comment": "Ignore comment. 1 to many body highlights in a vertical list",
+			"highlight_title": "## 5/29/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/29/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "HighlightList",
+			"title": "## 5/23/2019 String. HighlightList title ##",
+			"body": "## 5/23/2019 String. Optional. Body description. ##",
+			"highlights": [
+				{
+					"$ref": "#/SoftwareProductGroup/Promo"
+				},
+				{
+					"$ref": "#/SoftwareProductGroup/Promo"
+				}
+			]
+		},
+		{
+			"$comment": "### 06/04/2019. Ignore comment. 1 to many cards in a column.",
+			"highlight_title": "## 5/29/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/29/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "HighlightColumns",
+			"title": "## 5/23/2019 String. HighlightList title ##",
+			"body": "## 5/23/2019 String. Optional. Body description. ##",
+			"columns": [
+				[
+					{
+						"$comment": "### 06/04/2019. Ignore comment. 'card' is equivalant to a template",
+						"card": "TextCard",
+						"title" : "## String. Column1Row1##",
+						"description" : "## String. Required: ##",
+						"links" : [{
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}, {
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}
+						]
+					},{
+						"card": "ImageCard",
+						"$comment": "### 06/04/2019. Ignore comment. VerticalPromo, HorizontalPromo, CaseStudy, ",
+						"title" : "## String. Column1Row2 ##",
+						"description" : "## String. Required: ##",
+						"position": "## String. top, left, bottom, right",
+						"image" : "## Image. Required: ##",
+						"$comment": "### 06/04/2019. 1 to many links",
+						"links" : [{
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link 'Go to Case Study' ##",
+								"alt" : "## String. Alt title of link ##"
+							}, {
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}
+						]
+					}
+				],
+				[
+					{
+						"card": "BlogCard",
+						"title" : "## String. Column1Row2 ##",
+						"description" : "## String. Required: ##",
+						"image" : "## Image. Required: ##",
+						"_url_" : "## String. Required ##",
+						"author" : "## String. Author of the blog post ##",
+						"date" : "## String. Published date ##"
+					}
+				]
+			]
+		},
+		{
+			"highlight_title": "## 5/23/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/23/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "ProductSupportLinks",
+			"title": "## 5/23/2019 String. ProductSupportLink title ##",
+			"body": "## 5/23/2019 String. Body description ##",
+			"links": [
+				{
+					"_url_": "## String. ##",
+					"title": "## String. Title of link ##",
+					"alt": "## String. Alt title of link ##"
+				},
+				{
+					"_url_": "## String. ##",
+					"title": "## String. Title of link ##",
+					"alt": "## String. Alt title of link ##"
+				}
+			]
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/Promo"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/Promo"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/VerticalPromo"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/TextPromo  ## TODO: ???? Two-column blocks Can we recycle?"
+		},
+		{
+			"$ref": "#/SoftwareProductFamily/Testimonial"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/Promo"
+		},
+		{
+			"highlight_title": "## 5/23/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/23/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "UseCases",
+			"title": "## 5/23/2019 String. UseCases title ##",
+			"body": "## 5/23/2019 String. Body description ##",
+			"options": [
+				{
+					"label": "## 5/23/2019 String. ##",
+					"_url_": "## String. ##"
+				},
+				{
+					"label": "## 5/23/2019 String. ##",
+					"_url_": "## String. ##"
+				}
+			],
+			"case_styles": "## TODO ##",
+			"cases": [
+				{
+					"title": "## String. ##",
+					"description": "## String. Required: ##",
+					"links": [
+						{
+							"_url_": "## String. ##",
+							"title": "## String. Title of link ##",
+							"alt": "## String. Alt title of link ##"
+						},
+						{
+							"_url_": "## String. ##",
+							"title": "## String. Title of link ##",
+							"alt": "## String. Alt title of link ##"
+						}
+					]
+				},
+				{
+					"title": "## String. ##",
+					"description": "## String. Required: ##",
+					"links": [
+						{
+							"_url_": "## String. ##",
+							"title": "## String. Title of link ##",
+							"alt": "## String. Alt title of link ##"
+						},
+						{
+							"_url_": "## String. ##",
+							"title": "## String. Title of link ##",
+							"alt": "## String. Alt title of link ##"
+						}
+					]
+				}
+			]
+		},
+		{
+			"highlight_title": "## 5/23/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/23/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "IframeWidget",
+			"title": "## 5/23/2019 String. Optional##",
+			"body": "## 5/23/2019 String. Optional ##",
+			"_url_": "## String. URL to iframe"
+		},
+		{
+			"highlight_title": "## 5/23/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName": "## 5/23/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template": "IframeWidget",
+			"title": "## 5/23/2019 String. Optional##",
+			"body": "## 5/23/2019 String. Optional ##",
+			"_url_": "## String. URL to iframe"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/VerticalPromo"
+		},
+		{
+			"$ref": "#/SoftwareProductGroup/TextPromo"
+		},
+		{
+			"$ref": "#/SoftwareProductFamily/BlogPosts"
+		}
+	]
+}

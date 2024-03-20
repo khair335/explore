@@ -1,0 +1,309 @@
+@font-face {
+  font-family: 'brcm';
+  src:  url('fonts/brcm.eot?asebsd');
+  src:  url('fonts/brcm.eot?asebsd#iefix') format('embedded-opentype'),
+    url('fonts/brcm.ttf?asebsd') format('truetype'),
+    url('fonts/brcm.woff?asebsd') format('woff'),
+    url('fonts/brcm.svg?asebsd#brcm') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="brcmicon-"], [class*=" brcmicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'brcm' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brcmicon-ent_software:before {
+  content: "\e957";
+}
+.brcmicon-ethernet_switch:before {
+  content: "\e958";
+}
+.brcmicon-fibre_channel:before {
+  content: "\e959";
+}
+.brcmicon-mainframe:before {
+  content: "\e95a";
+}
+.brcmicon-about:before {
+  content: "\e900";
+}
+.brcmicon-aboutus:before {
+  content: "\e901";
+}
+.brcmicon-apps:before {
+  content: "\e902";
+}
+.brcmicon-auto_adas:before {
+  content: "\e903";
+}
+.brcmicon-auto_antenna:before {
+  content: "\e904";
+}
+.brcmicon-auto_infotainment:before {
+  content: "\e905";
+}
+.brcmicon-auto_telematics:before {
+  content: "\e906";
+}
+.brcmicon-automotivesystems:before {
+  content: "\e907";
+}
+.brcmicon-back_to_top:before {
+  content: "\e908";
+}
+.brcmicon-blogs:before {
+  content: "\e909";
+}
+.brcmicon-brcm_chip:before {
+  content: "\e90a";
+}
+.brcmicon-brcm_pulse_black .path1:before {
+  content: "\e90b";
+  color: rgb(0, 0, 0);
+}
+.brcmicon-brcm_pulse_black .path2:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.brcmicon-brcm_pulse_black .path3:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.brcmicon-brcm_pulse_red .path1:before {
+  content: "\e90e";
+  color: rgb(204, 9, 47);
+}
+.brcmicon-brcm_pulse_red .path2:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(204, 9, 47);
+}
+.brcmicon-brcm_pulse_red .path3:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.brcmicon-careers:before {
+  content: "\e911";
+}
+.brcmicon-communities:before {
+  content: "\e912";
+}
+.brcmicon-connectedaudiovideo:before {
+  content: "\e913";
+}
+.brcmicon-corpresponsibility:before {
+  content: "\e914";
+}
+.brcmicon-csr_comm:before {
+  content: "\e915";
+}
+.brcmicon-csr_cust-part:before {
+  content: "\e916";
+}
+.brcmicon-csr_enviro:before {
+  content: "\e917";
+}
+.brcmicon-csr_gov-eth:before {
+  content: "\e918";
+}
+.brcmicon-csr_reporting:before {
+  content: "\e919";
+}
+.brcmicon-csr_workplace:before {
+  content: "\e91a";
+}
+.brcmicon-custlogin:before {
+  content: "\e91b";
+}
+.brcmicon-document:before {
+  content: "\e91c";
+}
+.brcmicon-downloads:before {
+  content: "\e91d";
+}
+.brcmicon-email:before {
+  content: "\e91e";
+}
+.brcmicon-extlink:before {
+  content: "\e91f";
+}
+.brcmicon-fs_ceo_cto:before {
+  content: "\e920";
+}
+.brcmicon-fs_flag:before {
+  content: "\e921";
+}
+.brcmicon-fs_ip_portfolio:before {
+  content: "\e922";
+}
+.brcmicon-fs_rd:before {
+  content: "\e923";
+}
+.brcmicon-fs_revenue:before {
+  content: "\e924";
+}
+.brcmicon-fs_stockgraph:before {
+  content: "\e925";
+}
+.brcmicon-fs_top_honors:before {
+  content: "\e926";
+}
+.brcmicon-globe:before {
+  content: "\e927";
+}
+.brcmicon-info:before {
+  content: "\e928";
+}
+.brcmicon-investors:before {
+  content: "\e929";
+}
+.brcmicon-iot_audio:before {
+  content: "\e92a";
+}
+.brcmicon-iot_automotive:before {
+  content: "\e92b";
+}
+.brcmicon-iot_beacons_tags:before {
+  content: "\e92c";
+}
+.brcmicon-iot_health_fitness:before {
+  content: "\e92d";
+}
+.brcmicon-iot_home_automation:before {
+  content: "\e92e";
+}
+.brcmicon-iot_industrial:before {
+  content: "\e92f";
+}
+.brcmicon-iot_medical:before {
+  content: "\e930";
+}
+.brcmicon-iot_others:before {
+  content: "\e931";
+}
+.brcmicon-lightbulb:before {
+  content: "\e932";
+}
+.brcmicon-link:before {
+  content: "\e933";
+}
+.brcmicon-loc_distrib:before {
+  content: "\e934";
+}
+.brcmicon-loc_manufacturers:before {
+  content: "\e935";
+}
+.brcmicon-loc_salesoffices:before {
+  content: "\e936";
+}
+.brcmicon-location_detect:before {
+  content: "\e937";
+}
+.brcmicon-locmarker:before {
+  content: "\e938";
+}
+.brcmicon-mission:before {
+  content: "\e939";
+}
+.brcmicon-pdf:before {
+  content: "\e93a";
+}
+.brcmicon-press_nobg:before {
+  content: "\e93b";
+}
+.brcmicon-press:before {
+  content: "\e93c";
+}
+.brcmicon-pressreleases:before {
+  content: "\e93d";
+}
+.brcmicon-products:before {
+  content: "\e93e";
+}
+.brcmicon-productsmenu:before {
+  content: "\e93f";
+}
+.brcmicon-quote:before {
+  content: "\e940";
+}
+.brcmicon-register:before {
+  content: "\e941";
+}
+.brcmicon-search_nobg:before {
+  content: "\e942";
+}
+.brcmicon-slider_arrow_l:before {
+  content: "\e943";
+}
+.brcmicon-slider_arrow_r:before {
+  content: "\e944";
+}
+.brcmicon-smartdevices:before {
+  content: "\e945";
+}
+.brcmicon-socfb:before {
+  content: "\e946";
+}
+.brcmicon-socli:before {
+  content: "\e947";
+}
+.brcmicon-socpin:before {
+  content: "\e948";
+}
+.brcmicon-soctwitter:before {
+  content: "\e949";
+}
+.brcmicon-socyt:before {
+  content: "\e94a";
+}
+.brcmicon-somethingelse:before {
+  content: "\e94b";
+}
+.brcmicon-support:before {
+  content: "\e94c";
+}
+.brcmicon-switchingproducts:before {
+  content: "\e94d";
+}
+.brcmicon-techpages:before {
+  content: "\e94e";
+}
+.brcmicon-trending:before {
+  content: "\e94f";
+}
+.brcmicon-values:before {
+  content: "\e950";
+}
+.brcmicon-vision:before {
+  content: "\e951";
+}
+.brcmicon-wc_automotive:before {
+  content: "\e952";
+}
+.brcmicon-wc_custloyalty:before {
+  content: "\e953";
+}
+.brcmicon-wc_mobileadvert:before {
+  content: "\e954";
+}
+.brcmicon-wc_retail:before {
+  content: "\e955";
+}
+.brcmicon-wirelessaccesspoints:before {
+  content: "\e956";
+}

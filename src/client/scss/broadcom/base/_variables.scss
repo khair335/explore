@@ -1,0 +1,156 @@
+/* _variables.scss */
+// global variables and mixins - these have scope across all selectors
+// /css/fonts/hco_fonts.css contains font-family file declarations - assigned in head <link> see server/view/partials/head.ejs
+
+// VARIABLES
+// ======================================================================================
+
+// COLORS
+$color-primary: hsl(348, 92%, 42%);			//#cc092f;
+$color-primary--dark: hsl(351, 74%, 37%);		//#a6192e;
+$color-secondary: hsl(200, 100%, 27%);			//#005C8A; 	// JD - New design for accessibiliy approved by team. //#0092b2;
+$color-secondary--dark: hsl(191, 100%, 31%);	//#0083a0;	// link and button hover color
+$color-warn: hsl(34, 100%, 44%);				//#de7c00;
+$color-archive: hsl(21, 79%, 47%);				//#d55c19;
+ 															// $color-table-head: #b5283a; old - here for reference
+$color-grey--900: hsl(0, 0%, 20%);				//#333;		// default color for all body copy and non-header text
+$color-grey--800: hsl(214, 4%, 34%);			//#53565a; 	// backgrounds and secondary titles
+$color-grey--700: hsl(0, 0%, 53%);				//#878787; 	//used for background and secondary title 
+$color-grey--675: hsl(220, 2%, 66%);			// pantone cool gray 6 - #a8a8aa
+$color-grey--650: hsl(180, 1%, 74%);			// pantone cool gray 4 - bcbcbc
+$color-grey--625: hsl(60, 1%, 79%);			// pantone cool gray 3 - #c8c8c8
+$color-grey--600: hsl(180, 1%, 92%);			//#e8e9e9;	//used for background, borders, and trim (stripe color)
+$color-grey--500: hsl(0, 0%, 97%);				//#f6f6f6;	//used for background, borders, and trim (stripe color)
+
+$color-white: hsl(0, 0%, 100%);				//#fff;
+$color-black: hsl(0, 0%, 0%);					//#000;
+$color-highlight-yellow: hsl(43, 35%, 88%);	//#f4db9e;
+$color-body: $color-grey--900;
+
+$color-active: $color-secondary;					// active highlight color
+$color-link: $color-secondary--dark;				// all links
+
+// SOCIAL COLORS
+$color-social--linkedin: hsl(201, 100%, 47%);	//#0077b5;
+$color-social--facebook: hsl(221, 61%, 38%);	//#3b5998;
+$color-social--twitter: hsl(203, 88%, 63%);	//#1da1f2;
+$color-social--youtube: hsl(0, 85%, 45%);		//#cd201f;
+$color-social--google: hsl(7, 74%, 53%);		//#dd4b39;
+$color-social--email: hsl(77, 97%, 59%);		//#6f9a05;
+$color-social--rss: hsl(19, 86%, 61%);			//#f26522;
+
+// BOOTSTRAP BREAKPOINTS
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+
+// TYPOGRAPHY
+$font-family--primary: "Arial W01 Regular903292", sans-serif;
+$font-family--primeBold: "Arial W01 Bold903304";
+$font-family--secondary: "Metropolis", sans-serif;			// see server/views/partials/head.js for font assignment - css file kept with fonts in public
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+
+
+
+// LAYOUT
+$section-striped-dark: ".section-striped section:nth-of-type(3n+2), .section-striped section:nth-of-type(3n+3)"; // Sections. Used this to style specifc striped sections.
+
+// FOOTER
+$footer-height: 360px;		// xs & sm
+$footer-height-md: 184px;
+$footer-height-lg: 140px;
+$footer-height-xl: 122px;
+$autopilot-height: 158px;
+$autopilot-height-md: 155px;
+$autopilot-footer-height: $footer-height + $autopilot-height;
+$autopilot-footer-height-md: $footer-height-md + $autopilot-height-md;
+$autopilot-footer-height-lg: 292px;
+$autopilot-footer-height-xl: 275px;
+
+// MIXINS
+// ======================================================================================
+
+@mixin base-style {						//buttons, table heads, etc.
+	background-color: $color-primary;
+	color: $color-white;
+	font-family: $font-family--secondary;
+	&:hover {
+		background-color: $color-secondary;
+		color: $color-white;
+	}
+}
+
+@mixin prime-style {					// primary buttons, table heads, etc.
+	background-color: $color-primary;
+	color: $color-white;
+	font-family: $font-family--secondary;
+	&:hover {
+		background-color: $color-primary--dark;
+	}
+} 
+
+@mixin second-style {					// cta buttons, table heads, etc.
+	background-color: $color-secondary;
+	color: $color-white;
+	font-family: $font-family--secondary;
+	&:hover {
+		background-color: $color-secondary--dark;
+	}
+}
+
+@mixin archive-style {
+    background-color:$color-archive;
+    color:$color-white;	
+}
+
+@mixin link-style {						// buttons, links
+	background-color: transparent;
+	font-family: $font-family--secondary;
+	color: $color-primary;
+	font-weight: 500;            		//metro-mod
+	letter-spacing: .25px;            	//metro-mod
+		&:hover {
+			color: #000;
+			text-decoration: underline;
+			text-decoration-color: transparent;
+			text-decoration-line: underline;
+			text-decoration-style: solid;
+			text-decoration-thickness: 2px;
+			animation: link-fadeinout 1.5s linear forwards;
+		}
+}
+
+@mixin basic-table { // basic table with header, striped rows, and borders
+	width: 100%;
+	border: 1px solid darken($color-white,5%);
+	border-spacing: 2px;
+	tbody{
+		th, td{
+		  border: 0 none;
+		  padding-left: 13px;
+		  border-bottom-width: 2px;
+		}
+		td{
+		  padding: 13px;
+		  vertical-align: top;
+		}
+		tr:nth-of-type(2n+1){
+		  background-color: darken($color-white,2%);
+		}
+	  }
+    thead th {
+      vertical-align: top;
+      border-bottom: 2px solid $color-grey--500;
+	  padding: 15px;
+	  font-family: $font-family--secondary;
+  
+	  &:last-child{
+		border-right: 0 none;
+	  }
+    }
+	tbody + tbody {
+     
+	  border-bottom: 2px solid $color-grey--500;
+    }
+}
+

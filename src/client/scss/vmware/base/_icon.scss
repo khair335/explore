@@ -1,0 +1,58 @@
+/*
+* base/_icon.scss
+*/
+// modifier classes for broadcom's custom icon file - see also base/_icons.scss
+// any mods to classes in _icons.scss should be added here
+// DO NOT add styling to _icons.scss as that file is over-written everytime there is an update to the icon data file
+
+ // update: removed => .icon selector, all icons are now: brcmicon-   [class^="brcmicon-"], [class*=" brcmicon-"],
+
+ @import "_icons.scss";
+
+.bi {         // Broadcom Icon (replaces .fa, .fas, .far) use in same manner
+    font-family: 'brcm'; // JD - This was important but overriding fontawesome, so removed !fontawesome for vmware.
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    display:inline-block;
+    font-style:normal;
+    font-variant:normal;
+    text-rendering:auto;
+    line-height:1
+  }
+  
+  .bi-rotate-45{ transform:rotate(45deg);transform:rotate(90deg)}
+  .bi-rotate-90{ transform:rotate(90deg);transform:rotate(90deg)}
+  .bi-rotate-180{ transform:rotate(180deg);transform:rotate(180deg)}
+  .bi-rotate-270{ transform:rotate(270deg);transform:rotate(270deg)}
+  
+  .bi-spin{-webkit-animation:bi-1 2s infinite linear;animation:a 2s infinite linear}
+  @keyframes bi-1{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}
+  
+  .bi-inverse{color:$color-white}
+  .bi-stack{display:inline-block;height:2em;line-height:2em;position:relative;vertical-align:middle;width:2em}
+  .bi-stack-1x,.bi-stack-2x{left:0;position:absolute;text-align:center;width:100%}
+  .bi-stack-1x{line-height:inherit}
+  .bi-stack-2x{font-size:2em}
+  
+  .bi-1x{font-size:1em}
+  .bi-2x{font-size:2em}
+  .bi-3x{font-size:3em}
+  .bi-4x{font-size:4em}
+  .bi-5x{font-size:5em}
+  .bi-6x{font-size:6em}
+  .bi-7x{font-size:7em}
+  .bi-8x{font-size:8em}
+  .bi-9x{font-size:9em}
+  .bi-10x{font-size:10em}
+  
+
+  // HACK: JD - The testimonial .quote needs the icon content but 
+  %brcmicon-quote-beginning {
+    content: "\e97b";
+  }
+
+  %brcmicon-quote-end {
+    content: "\e97c";
+  }
+ 
+  

@@ -1,0 +1,35 @@
+/*
+* pages/oem-partner.scss
+*/
+// Styling for oem support detail pages
+
+
+@import "../base/variables";
+
+.oem-qualified-wrap{
+    margin:0px 0px 25px;
+    padding: 15px 15px 15px 30px;
+    a {
+      line-height: 2.1;
+       &:hover{
+        text-decoration:underline;
+      }
+    }
+  }
+
+  // OEMS Support Heading Text
+#OEMSupportDetail{
+    .base-info{
+    margin-bottom: 25px;
+    font-size: $font-size-lg;
+      h3{
+      color:$color-primary--dark;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      }
+      strong{
+        font-weight: 900;
+       }
+    }
+  }

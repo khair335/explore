@@ -1,0 +1,39 @@
+/**
+ *  @file image-base.scss
+ *  @brief ImageBase.jsx
+ */
+ @import "../base/variables";
+
+.modal {
+    .image-enlarge-modal {
+        max-width: fit-content;
+        .modal-header {
+            border: none;
+        }
+
+        .modal-body {
+            // Make the image scroll if it's large.
+            overflow: auto;
+        }
+    }
+}
+
+// Used for click to enlarge image. 
+.image-enlarge {
+    img {
+      margin-bottom: 10px;
+      cursor: zoom-in;
+    }
+
+    button {
+        font-style: italic;         //mods link-bttn-no-hover _buttons.scss
+    }
+   
+  }
+
+
+// Default Content Block. Centers image.
+.imageCenter {
+    display: flex;
+    justify-content: center;
+}

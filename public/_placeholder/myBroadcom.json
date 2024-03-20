@@ -1,0 +1,408 @@
+{
+	"content_id" : "1211126175716",
+	"content_type" : "Page",
+	"template" : "myBroadcomLanding",
+	"locale" : "avg_en",
+	"CTA" : [{
+			"content_id" : "1421089852415",
+			"content_type" : "AVG_Highlight_C",
+			"title" : "Request Info",
+			"_url_" : "https://avagoresponsecenter.com/693/",
+			"target" : "_blank",
+			"is_iframe_modal" : "Yes"
+		}, {
+			"content_id" : "1211173714976",
+			"content_type" : "Page",
+			"title" : "Contact Us",
+			"_url_" : "company/contact/",
+			"target" : "_self",
+			"is_iframe_modal" : "No",
+			"ShowInNavigation" : "Yes",
+			"ShortTitle" : "Contact Us"
+		}
+	],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "myBroadcom",
+				"_url_" : "#",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"show_distributionDashboard_title" : true,
+	"leftNav" : {},
+	"company_CompanyName" : "RYOYO ELECTRO CORPORATION(Americas)",
+	"company_logo" : {
+		"content_id" : "1206560808118",
+		"content_type" : "AVG_Image_C",
+		"ImageName" : "ryoyo.gif",
+		"AltText" : "RYOYO ELECTRO CORPORATION",
+		"Image_url_" : "/media/1206560808118/1452C0",
+		"Image_file_name" : "476/675/145,0"
+	},
+	"company_Message" : null,
+	"distributionDashboard_title" : "Distribution Dashboard",
+	"body" : "<div>\r\n<p>&nbsp;</p>\r\n</div>\r\n",
+	"Title" : "mybroadcom: Choose Your Product",
+	"BrowserTitle" : "mybroadcom: Choose Your Product",
+	"body_highlights" : [{
+			"content_id" : "1234567890",
+			"Title" : "Applications",
+			"template" : "MyBroadcomApplications",
+			"links" : [{
+					"Title" : "Brocade Products",
+					"External_Links" : [{
+							"content_id" : "1211217794079",
+							"content_type" : "Page",
+							"title" : "Doc Safe",
+							"_url_" : "https://www.ca.com/us/products/security.html",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794093",
+							"content_type" : "Page",
+							"title" : "Case Management (BRCD)",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794284",
+							"content_type" : "Page",
+							"title" : "Support Portal Case Management (CA Tech)",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "CA Technologies Software",
+					"External_Links" : [{
+							"content_id" : "1211217794079",
+							"content_type" : "Page",
+							"title" : "Doc Safe",
+							"_url_" : "https://www.ca.com/us/products/security.html",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794093",
+							"content_type" : "Page",
+							"title" : "Case Management (BRCD)",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794397",
+							"content_type" : "Page",
+							"title" : "CA Mainframel Community",
+							"_url_" : "https://communities.ca.com/community/ca-workload-automation",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794284",
+							"content_type" : "Page",
+							"title" : "Support Portal Case Management (CA Tech)",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "Data Center Storage Products",
+					"External_Links" : [{
+							"content_id" : "1211217794079",
+							"content_type" : "Page",
+							"title" : "Doc Safe",
+							"_url_" : "https://www.ca.com/us/products/security.html",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794205",
+							"content_type" : "Page",
+							"title" : "Case Management ",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "PCIe Switches and Bridges",
+					"External_Links" : [{
+							"content_id" : "1211217794079",
+							"content_type" : "Page",
+							"title" : "Doc Safe",
+							"_url_" : "https://www.ca.com/us/products/security.html",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794205",
+							"content_type" : "Page",
+							"title" : "Case Management ",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "Components, SOCs, Custom Products",
+					"External_Links" : [{
+							"content_id" : "1211217794079",
+							"content_type" : "Page",
+							"title" : "Doc Safe",
+							"_url_" : "https://www.ca.com/us/products/security.html",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}, {
+							"content_id" : "1211217794205",
+							"content_type" : "Page",
+							"title" : "Case Management ",
+							"_url_" : "https://www.ca.com/us/why-ca/agile-management.html?intcmp=headernav",
+							"target" : "_blank",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}
+			]
+		}, {
+			"content_id" : "12345647890",
+			"Title" : "Communities",
+			"template" : "MyBroadcomCommunities",
+			"links" : [{
+					"Title" : "Brocade Fibre Channel Community",
+					"Image" : [{
+							"content_id" : "1211167553791",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "2016 Electronica",
+							"AltText" : "2016 Electronica",
+							"Image_url_" : "/media/1211167553791/2016_electronica.png",
+							"Image_file_name" : "877/83/2016 electronica.png",
+							"ProductThumbnailFile5_url_" : "/media/1211167553791/100x145-2016_electronica.png",
+							"ProductThumbnailFile5_file_name" : "877/83/2016 electronica,3.png",
+							"ProductThumbnailFile3_url_" : "/media/1211167553791/150x150-2016_electronica.png",
+							"ProductThumbnailFile3_file_name" : "877/83/2016 electronica,0.png"
+						}
+					],
+					"External_Links" : [{
+							"content_id" : "1211217794366",
+							"content_type" : "Page",
+							"title" : "Brocade Fibre Channel Community",
+							"_url_" : "https://communities.ca.com/welcome",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "CA Mainframe Community",
+					"Image" : [{
+							"content_id" : "1211171574013",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "2017 CES",
+							"AltText" : "2017 CES",
+							"Image_url_" : "/media/1211171574013/ces-header-logo_140px_28129.jpg",
+							"Image_file_name" : "632/437/ces-header-logo_140px (1).jpg",
+							"ProductThumbnailFile5_url_" : "/media/1211171574013/632/437/ces-header-logo_140px (1),2.png",
+							"ProductThumbnailFile5_file_name" : "632/437/ces-header-logo_140px (1),2.png",
+							"ProductThumbnailFile3_url_" : "/media/1211171574013/150x150-ces-header-logo_140px_28129.png",
+							"ProductThumbnailFile3_file_name" : "632/437/ces-header-logo_140px (1).png"
+						}
+					],
+					"External_Links" : [{
+							"content_id" : "1211217794397",
+							"content_type" : "Page",
+							"title" : "CA Mainframel Community",
+							"_url_" : "https://communities.ca.com/community/ca-workload-automation",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "Ethernet Switch Community",
+					"Image" : [{
+							"content_id" : "1211171574013",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "2017 CES",
+							"AltText" : "2017 CES",
+							"Image_url_" : "/media/1211171574013/ces-header-logo_140px_28129.jpg",
+							"Image_file_name" : "632/437/ces-header-logo_140px (1).jpg",
+							"ProductThumbnailFile5_url_" : "/media/1211171574013/632/437/ces-header-logo_140px (1),2.png",
+							"ProductThumbnailFile5_file_name" : "632/437/ces-header-logo_140px (1),2.png",
+							"ProductThumbnailFile3_url_" : "/media/1211171574013/150x150-ces-header-logo_140px_28129.png",
+							"ProductThumbnailFile3_file_name" : "632/437/ces-header-logo_140px (1).png"
+						}
+					],
+					"External_Links" : [{
+							"content_id" : "1211217794428",
+							"content_type" : "Page",
+							"title" : "Ethernet Switch Community",
+							"_url_" : "https://communities.ca.com/community/ca-workload-automation",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}, {
+					"Title" : "CA Enterprise Software Commutnity",
+					"Image" : [{
+							"content_id" : "1211167553791",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "2016 Electronica",
+							"AltText" : "2016 Electronica",
+							"Image_url_" : "/media/1211167553791/2016_electronica.png",
+							"Image_file_name" : "877/83/2016 electronica.png",
+							"ProductThumbnailFile5_url_" : "/media/1211167553791/100x145-2016_electronica.png",
+							"ProductThumbnailFile5_file_name" : "877/83/2016 electronica,3.png",
+							"ProductThumbnailFile3_url_" : "/media/1211167553791/150x150-2016_electronica.png",
+							"ProductThumbnailFile3_file_name" : "877/83/2016 electronica,0.png"
+						}
+					],
+					"External_Links" : [{
+							"content_id" : "1211217794335",
+							"content_type" : "Page",
+							"title" : "CA Enterprise Software Commutnity",
+							"_url_" : "https://communities.ca.com/welcome",
+							"target" : "_self",
+							"is_iframe_modal" : "No",
+							"ShowInNavigation" : "Yes"
+						}
+					]
+				}
+			]
+		}, {
+			"content_id" : "1223456789",
+			"Title" : "Tradeshows and Events",
+			"template" : "MyBroadcomEvents",
+			"links" : {
+				"template" : "TradeShows",
+				"content_id" : "1211127149590",
+				"content_type" : "AVG_Highlight_C",
+				"locale" : "avg_en",
+				"subtype" : "LatestEvents",
+				"highlight_title" : "Tradshow Events",
+				"Events" : [{
+						"Title" : "ArrowFest 2019 Los Angeles ",
+						"Image" : null,
+						"Date" : "May 02-17, 2019",
+						"RelatedURL" : "http://www.arrownac.com/offers/arrowfest/index.html",
+						"EventTimestamp" : null,
+						"DisplayTimestamp" : "No",
+						"BoothNumber" : null,
+						"Abstract" : null,
+						"Body" : null,
+						"NewWindow" : null,
+						"LinkTitle" : null,
+						"location" : null
+					}
+				]
+			}
+		}, {
+			"content_id" : "1211126236983",
+			"content_type" : "Page",
+			"template" : "MyAvagoNewsList",
+			"title" : "What's New",
+			"links" : [{
+					"content_id" : "1211205485644",
+					"content_type" : "AVG_News_C",
+					"Title" : "Broadcom Expands Ethernet Switch Software Suite with Industry\u2019s First Fully Open Source Software Development Kit ",
+					"Date" : "February 25, 2019",
+					"vanity_url" : "news/product-releases/broadcom-expands-ethernet-switch-software"
+				}
+			]
+		}, {
+			"content_id" : "1211190355811",
+			"content_type" : "Page",
+			"template" : "MyAvagoGeneralPage",
+			"title" : "Customer Support Portal",
+			"body" : "<div class=\"image-left image-wrapper\"><img src='/media/1211177946132/broadband_supportchip-thumb.png' title='Support - Broadcom Chip' alt='Support - Broadcom Chip'>\r\n\n<p>For customers needing access to product collateral and support from subject matter experts, Broadcom Limited provides access to product data sheets, application notes, schematics, reference designs, drivers and SDK via <a href=\"https://csp.broadcom.com/group/customers/csp\" target=\"_self\">Documents and Software Downloads</a>.</p>\n\n<p>Read tech support articles in the Knowledge Base or contact applications engineers by visiting&nbsp;<a href=\"https://broadcomcsm.service-now.com\">Issue Management and Knowledge Base</a>.</p>\n</div>\n"
+		}, {
+			"content_id" : "1211126236436",
+			"content_type" : "Page",
+			"template" : "MyAvagoGeneralPage",
+			"title" : "Price List Information",
+			"body" : "<p>\r\n\t<strong>Please contact your Broadcom Sales representative or Customer Service to receive the Broadcom Price List.</strong></p>\r\n"
+		}, {
+			"content_id" : "1211126237180",
+			"content_type" : "Page",
+			"template" : "MyAvagoInlineLinks",
+			"title" : "Sales Tools",
+			"links" : [{
+					"content_id" : "1211126715003",
+					"content_type" : "Page",
+					"title" : "Design Registration Part Numbers",
+					"_url_" : "#",
+					"target" : "_self",
+					"is_iframe_modal" : "No",
+					"ShowInNavigation" : "Yes"
+				}
+			]
+		}, {
+			"content_id" : "1211126238673",
+			"content_type" : "Page",
+			"template" : "MyAvagoInlineLinks",
+			"title" : "Business Center",
+			"links" : [{
+					"content_id" : "1211126239396",
+					"content_type" : "Page",
+					"title" : "Environmental, Lead (Pb)-Free and RoHS Information",
+					"_url_" : "pages/mybroadcom/business_center/lead_free_rohs/",
+					"target" : "_self",
+					"is_iframe_modal" : "No",
+					"ShowInNavigation" : "Yes",
+					"ShortTitle" : "Lead (Pb)-free & RoHS"
+				}, {
+					"content_id" : "1211126684381",
+					"content_type" : "Page",
+					"title" : "Online Order Information Services",
+					"_url_" : "#",
+					"target" : "_self",
+					"is_iframe_modal" : "No",
+					"ShowInNavigation" : "Yes"
+				}
+			]
+		}, {
+			"content_id" : "1211126240264",
+			"content_type" : "Page",
+			"template" : "MyAvagoDocumentList",
+			"title" : "Business Process",
+			"view_all_title" : "View All",
+			"view_all_link" : "pages/mybroadcom/business_process",
+			"Link_url" : "pages/mybroadcom/business_process",
+			"links" : []
+		}
+	],
+	"home_page_json_tree_time" : 0.776978,
+	"TimeTakenToExecuteEndPointUrl" : {
+		"1211126175716_myAvagoHomepage" : 0.779565
+	},
+	"siteribbon" : {
+		"ribbon_link" : {
+			"content_id" : "1421089854194",
+			"content_type" : "Page",
+			"title" : "Governance and Ethics",
+			"_url_" : "company/governance-and-ethics",
+			"target" : "_self",
+			"is_iframe_modal" : "No",
+			"ShowInNavigation" : "Yes",
+			"ShortTitle" : " Governance and Ethics"
+		},
+		"display_ribbon" : "Yes"
+	},
+	"timetaken_for_total_generic_json" : 0.96622,
+	"timestamp_Generic_json_Generated_on" : "2019-05-15 20:14:45 - GMT",
+	"meta_description" : "mybroadcom: Choose Your Product"
+}

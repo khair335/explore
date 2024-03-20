@@ -1,0 +1,202 @@
+{
+  "AssetType": "Page",
+  "AssetID": "1421089863645",
+  "Template": "ApplicationLanding",
+  "Locale": "avg_en",
+  "CTA": [
+    {
+      "AssetType": "Page",
+      "AssetID": "1211173714976",
+      "CTA_Name": "Contact Sales",
+      "_url_": "https://www.broadcom.com/company/contact/sales",
+      "target_window": "blank"
+    },
+    {
+      "AssetType": "Page",
+      "AssetID": "1211131435457",
+      "CTA_Name": "Request Info",
+      "_url_": "http://avagoresponsecenter.com/693/",
+      "target_window": "Modal Window"
+    }
+  ],
+  "BreadcrumbList": [
+    {
+      "position": 1,
+      "item": {
+        "name": "Applications",
+        "_url_": "https://www.broadcom.com/applications/"
+      }
+    },
+    {
+      "position": 2,
+      "item": {
+        "name": "Industrial and Automative",
+        "_url_": "https://www.broadcom.com/applications/industrial-automotive/"
+      }
+    },
+    {
+      "position": 3,
+      "item": {
+        "name": "Motor Control",
+        "_url_": ""
+      }
+    }
+  ],
+  "title": "Applications",
+  "PageTitle": "Broadcom Applications | Networking, Broadband, Storage, Communications & Industrial",
+  "ShortTitle": "Applications",
+  "body": "Broadcom products serve four primary target markets: wireless communications, enterprise storage, wired infrastructure, and industrial. Applications for our products in these target markets include data center networking, home connectivity, set-top box, broadband access, telecommunications equipment, smartphones and base stations, data center servers and storage, factory automation, power generation and alternative energy systems, and electronic displays.",
+  "body2": "Broadcom's product portfolio serves multiple applications within four primary end markets: wired infrastructure, wireless communications, enterprise storage and industrial & others.",
+  "meta_keywords": "",
+  "meta_description": "Our products serve applications within four primary end markets: wired infrastructure, wireless communications, enterprise storage and industrial & other.",
+  "ApplicationCategories": [
+    {
+      "AssetID": "1210946577724",
+      "AssetType": "AVG_Application_P",
+      "CategoryName": "Wireless Embedded Solutions and RF Components",
+      "PageTitle": "Wireless Embedded Solutions and RF Components",
+      "CategoryAbstract": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.",
+      "_url_": "https://cmsstaging.broadcom.com/products/wireless/",
+      "FeaturedImage": {
+        "AssetID": "1421089855151",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Embedded Solutions and RF Components",
+        "AltText": "Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1421089855151/prod-wireless.jpg"
+      },
+      "Select_Applications": [
+        {
+          "CategoryName": "Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+        },
+        {
+          "CategoryName": "Demo Boards",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/demo-boards/"
+        },
+        {
+          "CategoryName": "Diodes",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/diodes/"
+        },
+        {
+          "CategoryName": "FBAR Devices",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/fbar/"
+        },
+        {
+          "CategoryName": "Handset Power Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/handset-pa/"
+        }
+      ]
+    },
+    {
+      "AssetID": "1210946577724",
+      "AssetType": "AVG_Application_P",
+      "CategoryName": "Wireless Embedded Solutions and RF Components",
+      "PageTitle": "Wireless Embedded Solutions and RF Components",
+      "CategoryAbstract": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.",
+      "_url_": "https://cmsstaging.broadcom.com/products/wireless/",
+      "FeaturedImage": {
+        "AssetID": "1421089855151",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Embedded Solutions and RF Components",
+        "AltText": "Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1421089855151/prod-wireless.jpg"
+      },
+      "Select_Applications": [
+        {
+          "CategoryName": "Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+        },
+        {
+          "CategoryName": "Demo Boards",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/demo-boards/"
+        },
+        {
+          "CategoryName": "Diodes",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/diodes/"
+        },
+        {
+          "CategoryName": "FBAR Devices",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/fbar/"
+        },
+        {
+          "CategoryName": "Handset Power Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/handset-pa/"
+        }
+      ]
+    },
+    {
+      "AssetID": "1210946577724",
+      "AssetType": "AVG_Application_P",
+      "CategoryName": "Wireless Embedded Solutions and RF Components",
+      "PageTitle": "Wireless Embedded Solutions and RF Components",
+      "CategoryAbstract": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.",
+      "_url_": "https://cmsstaging.broadcom.com/products/wireless/",
+      "FeaturedImage": {
+        "AssetID": "1421089855151",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Embedded Solutions and RF Components",
+        "AltText": "Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1421089855151/prod-wireless.jpg"
+      },
+      "Select_Applications": [
+        {
+          "CategoryName": "Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+        },
+        {
+          "CategoryName": "Demo Boards",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/demo-boards/"
+        },
+        {
+          "CategoryName": "Diodes",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/diodes/"
+        },
+        {
+          "CategoryName": "FBAR Devices",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/fbar/"
+        },
+        {
+          "CategoryName": "Handset Power Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/handset-pa/"
+        }
+      ]
+    },
+    {
+      "AssetID": "1210946577724",
+      "AssetType": "AVG_Application_P",
+      "CategoryName": "Wireless Embedded Solutions and RF Components",
+      "PageTitle": "Wireless Embedded Solutions and RF Components",
+      "CategoryAbstract": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.",
+      "_url_": "https://cmsstaging.broadcom.com/products/wireless/",
+      "FeaturedImage": {
+        "AssetID": "1421089855151",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Embedded Solutions and RF Components",
+        "AltText": "Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1421089855151/prod-wireless.jpg"
+      },
+      "Select_Applications": [
+        {
+          "CategoryName": "Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+        },
+        {
+          "CategoryName": "Demo Boards",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/demo-boards/"
+        },
+        {
+          "CategoryName": "Diodes",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/diodes/"
+        },
+        {
+          "CategoryName": "FBAR Devices",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/fbar/"
+        },
+        {
+          "CategoryName": "Handset Power Amplifiers",
+          "_url_": "https://cmsstaging.broadcom.com/products/wireless/handset-pa/"
+        }
+      ]
+    }
+  ]
+}

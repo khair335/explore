@@ -1,0 +1,146 @@
+{
+	"_url_" : "products/",
+	"content_id" : "1421089863645",
+	"content_type" : "Page",
+	"template" : "CaseStudyDetail",
+	"locale" : "en-us",
+	"title" : "Case Study Detail",
+	"ShortTitle" : "Case Study Detail",
+	"body2" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"meta_keywords" : "data center, networking, infrastructure software, broadband, wireless, storage and industrial",
+	"meta_description" : "Broadcom's product portfolio serves multiple applications within seven primary target markets: data center, networking, software, broadband, wireless, storage and industrial.",
+	"CTA" : [],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"$comment" : "The image for the page",
+	"image" : "## Image. Required",
+	"leftNav" : {},
+	"body_highlights" : [{
+			"highlight_title" : "## 5/29/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/29/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template" : "HighlightColumns",
+			"title" : "## 5/23/2019 String. HighlightList title ##",
+			"body" : "## 5/23/2019 String. Optional. Body description. ##",
+			"$comment" : "Use the same ImageCard",
+			"columns" : [
+				[{
+						"card" : "ImageCard"
+					}
+				], [{
+						"card" : "ImageCard"
+					}
+				], [{
+						"card" : "ImageCard"
+					}
+				]
+			]
+
+		}, {
+			"highlight_title" : "## 5/29/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/29/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template" : "HighlightColumns",
+			"title" : "## 5/23/2019 String. HighlightList title ##",
+			"body" : "## 5/23/2019 String. Optional. Body description. ##",
+			"columns" : [
+				[{
+						"$comment" : "### 06/04/2019. Ignore comment. Already implemented 'card' is equivalant to a template",
+						"card" : "TextCard",
+						"title" : "## String. Column1Row1##",
+						"description" : "## String. Required: ##",
+						"links" : [{
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}, {
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}
+						]
+					}
+				], [{
+						"card" : "VideoCard",
+						"$comment" : "### 06/20/2019. Ignore comment. New card",
+						"title" : "## String. Column1Row2 ##",
+						"description" : "## String. Required: ##",
+						"video" : "## Video. Required: ##",
+						"$comment" : "### 06/04/2019. 1 to many links",
+						"links" : [{
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link 'Go to Case Study' ##",
+								"alt" : "## String. Alt title of link ##"
+							}, {
+								"_url_" : "## String. ##",
+								"title" : "## String. Title of link ##",
+								"alt" : "## String. Alt title of link ##"
+							}
+						]
+					}
+				]
+			]
+
+		}, {
+			"content_id" : "1211218554957",
+			"content_type" : "AVG_Highlight_C",
+			"template" : "Testimonial",
+			"subtype" : "PromoList",
+			"locale" : "en-us",
+			"hashTagName" : "Testimonial",
+			"title" : "Testimonial",
+			"body" : null,
+			"columns" : [
+				[{
+						"content_id" : "1211218554924",
+						"content_type" : "AVG_Highlight_C",
+						"card" : "TestimonialCard",
+						"subtype" : "Testimonial",
+						"locale" : "en-us",
+						"highlight_title" : null,
+						"author" : "- IT administrator, Global 500 insurance company (Source: TechValidate.",
+						"template" : "Testimonial",
+						"body" : "<p><strong>&ldquo;CA mainframe security solutions provide us with insights and control for our ever-changing environment. We are able to detect, respond and support security events and needs at a level that brings greater benefit to the organization.&rdquo;</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n"
+					}
+				],
+				[{
+						"content_id" : "1211218536268",
+						"content_type" : "AVG_Highlight_C",
+						"card" : "TextCard",
+						"template" : "TextOnlyPromo",
+						"title" : "Build better requirements.",
+						"description" : "<p>Get testing tools that improve the quality of requirements for testing with CA Agile Requirements Designer.</p>\r\n"
+					}
+				]
+
+			]
+		}, {
+			"highlight_title" : "## 5/29/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/29/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template" : "HighlightColumns",
+			"title" : "## 5/23/2019 String. HighlightList title ##",
+			"body" : "## 5/23/2019 String. Optional. Body description. ##",
+			"$comment" : "Use the same Textcards",
+			"columns" : [
+				[{
+						"card" : "Textcard"
+					}
+				], [{
+						"card" : "Textcard"
+					}
+				], [{
+						"card" : "Textcard"
+					}
+				]
+			]
+
+		}
+	]
+}

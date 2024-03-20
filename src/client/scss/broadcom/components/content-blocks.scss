@@ -1,0 +1,448 @@
+/*
+* components/captcha.scss
+*/
+// Styling for broadcom custom content blocks
+
+@import "../base/variables";
+@import "../components/accordion";
+@import "../components/testimonial";
+@import "../components/in-page-navigation";
+
+@import "../base/transitions";
+
+// -----------------------------------------------------------------------------
+// ---- Content Blocks Global Element 
+// -----------------------------------------------------------------------------
+
+
+$card-padding: 1rem;
+$card-border: 1px solid rgba(0, 0, 0, 0.125);
+
+.content-block {margin-bottom: 30px;padding: 0;
+    ul:not([class]) {
+        padding: 0px 0px 10px 40px;
+        li{
+        line-height: 1.8;
+        }
+    }
+}
+.content-block-title {
+    margin-bottom: 16px;
+    color: $color-black;
+    font-size: 32px;
+    font-weight: 300;                       //metro-mod
+    letter-spacing: .5px;                   //metro-mod
+}
+
+.content-block-center {
+    .content-block-image {
+        margin-bottom: 1.5rem;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// ---- Content Blocks Sectuon Title
+// -----------------------------------------------------------------------------
+
+@mixin section-title{
+    margin-top: 0;
+    text-align: center;
+    color: $color-grey--800;
+    font-family: $font-family--secondary;
+    font-weight: 300;                       //metro-mod
+    letter-spacing: .5px;                   //metro-mod
+    margin-bottom: 25px !important;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:after, &:before {
+        content: '';
+        border-top: 0.8px solid $color-primary;
+        margin: 0 20px 0 0;
+        flex: 1 0 20px;
+        }
+    &:after {
+        margin: 0 0 0 20px;
+    }
+
+}
+
+.section-title {
+    @include section-title;
+}
+
+// -----------------------------------------------------------------------------
+// ---- Content Blocks - CTA links
+// -----------------------------------------------------------------------------
+
+.cb-cta-link {
+    width:fit-content;
+    li:only-child, li:last-child {
+        border-bottom:none;
+    }
+	li {
+        list-style: none;
+        padding-left:0px!important;
+        padding: 8px 0 10px 0;
+        border-bottom: 1px solid $color-grey--600;
+	    a, button {          
+           // display: inline-block;
+            //font-size: $font-size-lg;
+            //font-weight: 500;
+            @include link-style;                    //bootstrap overwrites .card-link with text:no-decoration - unnecessary if no bootstrap or no card-link css class
+        }
+    }
+}
+// -----------------------------------------------------------------------------
+// Analyst report ladning page CTA
+// -----------------------------------------------------------------------------
+.AnalystReportCard {
+/* a {font-family: $font-family--secondary;
+    font-size: 16px;
+    font-weight: 500;
+} */
+}
+// -----------------------------------------------------------------------------
+// Content Block - List of links
+// -----------------------------------------------------------------------------
+.ListOfLInks {
+    .document-list-item {
+     padding-bottom: 20px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Content Card - two column
+// -----------------------------------------------------------------------------
+.ContentCardTwoColumn {
+    .ImageCard{
+     background: none;
+     border:none;
+    }
+     .card-body, .card-footer {
+        padding:0;     
+     }
+ }
+ 
+ // -----------------------------------------------------------------------------
+// Content list with icons
+// -----------------------------------------------------------------------------
+ .ContentListWithIcons {
+    .content-block-image {
+        // For each media screen size
+        &.col-md-4 {max-width: 12%}
+        &.col-lg-4 {max-width: 12%}
+        &.col-sm-12 {max-width: 12%}
+
+        @media only screen and (max-width: 767px) {
+        &.col-md-4 {max-width: 100%}
+        &.col-lg-4 {max-width: 100%}
+        &.col-sm-12 {max-width: 100%}
+        padding-bottom:15px
+           
+        }
+    }
+    .content-block-right {
+        .col-sm-12 {
+            text-align: right;
+        }
+        picture {
+            display: inline-block;
+        }
+    }
+    .icon-row{
+        border-bottom: 1px solid $color-grey--650;
+        padding-top:25px
+    }
+    .icon-row:last-of-type {
+        border-bottom: none;
+    }
+   
+}
+
+// -----------------------------------------------------------------------------
+// ContentCard - standarlized height, border and backgorund
+/// -----------------------------------------------------------------------------
+.ContentCard {
+   .card {
+        height: 100%;
+		border: 1px solid rgba(0, 0, 0, 0.125) !important;
+    }
+} 
+
+
+// -----------------------------------------------------------------------------
+// ---- Content Blocks Use Cases - need to know where is this used - OZ
+// -----------------------------------------------------------------------------
+.UseCases {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    p {
+        margin-bottom: 20px;
+        margin-top:10px;
+    }
+    .promoCard {
+        background-color: $color-white;
+        
+    }
+}
+
+.UseCases {
+    .titles {
+        padding-bottom: 20px;
+        width:100%;
+        h2, h3, div.dropdown {
+            margin: 0 auto;
+            width:max-content;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+        div.dropdown {
+            font-size: $font-size-lg;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// ---- BrowseByUseCaseWidget - need to know where is this used for - OZ
+// -----------------------------------------------------------------------------
+
+.BrowseByUseCaseWidget {
+    span.dropIcon {
+        margin-left: -30px;
+        font-size: 18px;
+        color: $color-white;
+		padding-left:.5em
+    }
+	
+	.select-wrapper {
+		position: relative;	
+		display: inline-block;		
+		&::after {	
+			display: inline-block;
+			content: "";
+			border-top: 8px solid;
+			border-right: 8px solid transparent;
+			border-bottom: 0;
+			border-left: 8px solid transparent;
+			position: absolute;
+			right: 9px;
+			top: 24px;
+			color: $color-white;
+			pointer-events: none;
+		}
+	}
+    select {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 18px;
+        font-family: sans-serif;
+        font-weight: 700;
+        color: $color-white;
+        line-height: 1.8;
+        padding: .6em 1.4em .5em .6em;
+        margin: 20px 0 20px 0;
+        width: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+        border-radius: 0.25rem;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: $color-secondary--dark ;
+        background-image: linear-gradient(to bottom, $color-secondary--dark  0%,$color-secondary--dark  100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+        ::-ms-expand {
+            display:none;
+        }	
+        :hover {
+            color:$color-primary;
+        }
+        :focus {
+            border-color: $color-grey--650;
+            box-shadow: 0 0 1px 3px $color-secondary--dark;
+            box-shadow: 0 0 0 3px -moz-mac-focusring;
+            color: $color-grey--900;
+            outline: none;	
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// ----  Iframe 
+// -----------------------------------------------------------------------------
+// TODO: We are fixing the height of the Iframe.
+.Iframe {
+    .embed-responsive-content-block::before {       // See bootstrap. This is a custom aspect ratio.
+        padding-top: 460px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// normalize image card, video card and text card title spacing
+// -----------------------------------------------------------------------------
+
+.ImageCard, .VideoCard {
+    padding:0!important;
+    .card-body {
+        padding-bottom:0;
+    }
+    .card-footer{
+        background: none;
+        border:none;
+    }
+    .card-title{
+        color: $color-primary;
+        text-align: center;
+        padding-top:12px;
+        font-weight: 300;
+        a {font-size:18px}
+    }
+}
+
+.LeftImageCard, .RightImageCard {
+    padding:0!important;
+    .card-footer{
+        background: none;
+        border:none;
+        padding:15px 0;
+    }
+    .card-title{
+        margin-top:0!important;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// CAPartnerLocator - should move this to other place - OZ
+// -----------------------------------------------------------------------------
+.CAPartnerLocator {
+	section {
+		margin-top: 0 !important;			// Remove our margin because we recycled this component from ContactDetails.
+	}
+	
+	.capartnerlocator-cmp {
+		display: inline-block;
+		background-color: $color-grey--500;
+		padding:  4px 8px;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// ProductCard - will review again when more pages are in place in stg -oz
+// -----------------------------------------------------------------------------
+.ProductCard {
+	padding: 15px;
+
+	p {
+	text-align:left;
+	}
+	img {
+	margin:auto;
+	}
+    
+    .product-link { // for content card product link
+     margin: 12px 0;
+     text-align: center;
+     font-size:large
+    }
+}
+
+
+.ContentCard-section {
+    .TestimonialCard {background:$color-white}
+    }
+
+
+
+// -----------------------------------------------------------------------------
+// CaseCard
+// -----------------------------------------------------------------------------
+
+#{$section-striped-dark} {
+	.CaseCard {
+		&.card {
+			padding: 0;		// Remove default padding.
+		}
+	}
+}
+
+.CaseCard {
+    height: 100%;
+   
+    &.card {
+        height: 100%;
+		border: $card-border;
+		padding: 1rem 0 0;
+        .card-footer {
+            border: none;
+            font-size: $font-size-lg !important;
+            font-family: $font-family--secondary;
+            font-weight: 300;                   //metro-mod
+
+        }
+    }
+}   
+.CaseStudy{
+    .more-casestudy {
+        padding:30px 5px 0 5px;
+        }
+}
+
+
+
+// -----------------------------------------------------------------------------
+// AnalystReportCard
+// -----------------------------------------------------------------------------
+.AnalystReportCard {
+    .card-body {
+        position: relative;
+        padding-bottom: 2rem;
+        .analystReportCard-published {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+}
+
+
+//not sure what is this for, need review remove - OZ
+.ContactBasicFilter select { //training by country	
+		font-size: 14px;
+	}
+
+// -----------------------------------------------------------------------------
+//---- Media Queries
+// -----------------------------------------------------------------------------
+@media screen and (min-width: 992px){
+	#SolutionsLayout {
+	  .content-block {
+		  .card {
+			height: 100%; 
+			margin-bottom: 0px;
+		  }
+		}
+		.resources {
+			text-align: center;
+			 }
+	}
+	#SoftwareProductLayout, #SWBlogLanding, #AnalystReportLanding {
+		.card {
+			  height: 100%;
+
+		}
+	}
+	#SoftwareProductLayout{
+		.promoCard {
+			height: 100%;
+		}
+	}
+
+}

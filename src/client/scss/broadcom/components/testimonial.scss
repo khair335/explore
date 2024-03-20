@@ -1,0 +1,63 @@
+/*
+* components/testimonial.scss
+*/
+// Styling for broadcom custom testimonial
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/icons";
+
+
+
+
+.TestimonialCard, .blog-module-testimonial {
+    border: none;
+    background:none;
+    padding: 25px 15px 0px 15px;
+	.card-body{
+		padding: 12px 10px;              
+	}
+	.quote {
+		font-size: 22px;
+		font-style: italic;
+		margin-bottom: 20px;
+		position: relative;
+		padding: 0 40px;
+		max-width: fit-content;
+		&::before {
+			@extend .bi;
+			@extend %brcmicon-quote-beginning;		// HACK: .brcmicon-quote-beginning:before is not compiling correctly due to no compound selectors. Fix.
+			font-weight: bold;
+			left: 0;
+			position: absolute;
+			color: $color-primary;
+			top: -5px;
+		}
+		&:after {
+			@extend .bi;
+			@extend %brcmicon-quote-end;		// HACK: .brcmicon-quote-beginning:before is not compiling correctly due to no compound selectors. Fix.
+			font-weight: bold;
+			right: 0;
+			position: absolute;
+			color: $color-primary;
+			bottom: -5px;
+		}
+	}
+	.signature {
+        font-family: $font-family--secondary;
+		font-size: $font-size-lg;
+		font-weight: 500;
+		padding-left: 40px;
+	}
+    .source {
+        font-family: $font-family--secondary;
+		font-size: $font-size-lg;
+		font-weight: 400;
+		padding-left: 40px;
+    }
+    .testimonial-cta{
+        padding: 15px 0 0 40px;
+    }
+    
+}

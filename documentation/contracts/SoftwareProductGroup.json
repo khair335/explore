@@ -1,0 +1,191 @@
+{
+	"_url_" : "products/wireless/",
+	"content_id" : "1210946577724",
+	"content_type" : "AVG_Product_P",
+	"template" : "SoftwareProductGroup",
+	"locale" : "en-us",
+	"title" : "Wireless Embedded Solutions and RF Components",
+	"short_title" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"body2" : null,
+	"MetaKeywords" : "microwave devices, rf microwave, rf and microwave",
+	"MetaDescription" : "Broadcom RF and microwave devices have been driving the wireless revolution with products including amplifiers,  FBAR filters, multipliers, switches, and embedded processors.",
+	"BrowserTitle" : null,
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}, {
+			"position" : 2,
+			"item" : {
+				"name" : "Wireless Embedded Solutions and RF Components",
+				"_url_" : "products/wireless"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"HeroBanner" : [{
+			"$comment" : "## Ignore comment. Hero banner can have 1 to many. If more than one, then slider controls exists. See /lte-carrier-aggregation ##",
+			"content_id" : "1211160651376",
+			"content_type" : "AVG_Highlight_C",
+			"highlight_title" : "Take the Avago Way to Higher Speed LTE Carrier Aggregration",
+			"highlight_description" : null,
+			"_url_" : ["lte-carrier-aggregation"],
+			"link_title" : null,
+			"ThumbnailImage" : "media/1211160651376/667/908/4-home-hero-carrieraggregation,0.jpg",
+			"hero_image" : {
+				"content_id" : "1211160651298",
+				"content_type" : "AVG_Image_C",
+				"ImageName" : "home-hero-carrieraggregation",
+				"AltText" : "home-hero-carrieraggregation",
+				"Image_url_" : "/media/1211160651298/4-home-hero-carrieraggregation.jpg",
+				"Image_file_name" : "667/908/4-home-hero-carrieraggregation,1.jpg",
+				"ProductThumbnailFile5_url_" : "/media/1211160651298/667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile5_file_name" : "667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile3_url_" : "/media/1211160651298/150x150-4-home-hero-carrieraggregationthumb.png",
+				"ProductThumbnailFile3_file_name" : "667/908/4-home-hero-carrieraggregationThumb.png"
+			}
+		}
+	],
+	"body_highlights" : [{
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Benefits title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "Benefits",
+			"benefits" : [{
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}, {
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}
+			]
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Horizontal Promo title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "HorizontalPromo",
+			"promos" : [{
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}, {
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}
+			]
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Text Promo title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "TextPromo",
+			"promos" : [{
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"links" : [{
+							"_url_" : "## String. ##",
+							"title" : "## String. Title of link ##",
+							"alt" : "## String. Alt title of link ##"
+						}, {
+							"_url_" : "## String. ##",
+							"title" : "## String. Title of link ##",
+							"alt" : "## String. Alt title of link ##"
+						}
+					]
+				}, {
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"links" : [{
+							"_url_" : "## String. ##",
+							"title" : "## String. Title of link ##",
+							"alt" : "## String. Alt title of link ##"
+						}, {
+							"_url_" : "## String. ##",
+							"title" : "## String. Title of link ##",
+							"alt" : "## String. Alt title of link ##"
+						}
+					]
+				}
+			]
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Case study title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "CaseStudy",
+			"cases" : [{
+					"image" : "## Image. Required: ##",
+					"description" : "## String. Required: ##",
+					"_url_" : "## String. Required: ##"
+				}, {
+					"image" : "## Image. Required: ##",
+					"description" : "## String. Required: ##",
+					"_url_" : "## String. Required: ##"
+				}
+			]
+		}, {
+			"$comment" : "## Ignore comment. Component exists. See /support page of live use. ##",
+			"content_id" : "1211163873781",
+			"content_type" : "AVG_Highlight_C",
+			"locale" : null,
+			"template" : "Promo",
+			"subtype" : "Promo",
+			"highlight_title" : "Customer Support Portal",
+			"Image" : {
+				"content_id" : "1211177946132",
+				"content_type" : "AVG_Image_C",
+				"ImageName" : "Support - Broadcom Chip",
+				"AltText" : "Support - Broadcom Chip",
+				"Image_url_" : "/media/1211177946132/broadband_supportchip-thumb.png",
+				"Image_file_name" : "886/922/Broadband SupportChip-Thumb,0.png",
+				"ProductThumbnailFile5_url_" : "/media/1211177946132/886/922/Broadband SupportChip-ThumbThumb,7.png",
+				"ProductThumbnailFile5_file_name" : "886/922/Broadband SupportChip-ThumbThumb,7.png",
+				"ProductThumbnailFile3_url_" : "/media/1211177946132/150x150-broadband_supportchip-thumbthumb.png",
+				"ProductThumbnailFile3_file_name" : "886/922/Broadband SupportChip-ThumbThumb,4.png"
+			},
+			"image_position" : "Left",
+			"Body" : "<p>Customer Support Portal via myBroadcom for Broadcom enterprise customers.</p>\n",
+			"link_title" : "Login to the Support Portal",
+			"link" : {
+				"content_id" : "1211126175716",
+				"content_type" : "Page",
+				"title" : "myBroadcom",
+				"_url_" : "mybroadcom/"
+			},
+			"video_display" : null,
+			"video" : null
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Verticle Promo title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "VerticalPromo",
+			"promos" : [{
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}, {
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Optional: CTA ##"
+				}
+			]
+		}
+	]
+}

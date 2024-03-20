@@ -1,0 +1,38 @@
+ /*
+* pages/download-detail.scss
+*/
+// style for security center security download detail page
+
+@import "../base/variables";
+
+#DownloadDetail {
+    .downloaddetail-package{
+        padding: 20px 20px;
+        border: 1px solid $color-grey--500;
+		box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+        + hr{
+            display: none;
+        }   
+        table{		
+            thead{
+                tr{
+                    th{
+                        a{
+                            color: $color-white;			//mods _link.scss
+                        }
+                    }
+                }
+            }
+            
+        }
+        ul{
+            list-style: disc;
+            padding-left: 25px;
+            li{
+                margin-bottom: 5px;
+                position: relative;
+            }
+        }
+    }
+}

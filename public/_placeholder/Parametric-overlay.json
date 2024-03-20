@@ -1,0 +1,88 @@
+
+ [
+    {
+      "attribute_name": "productline",
+      "attribute_description": "Product Line",
+      "attribute_values": [
+         {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "1206561990467",
+          "label": "Flat-Top Subminature LEDs"
+        },
+        {
+          "value": "1206561991119",
+          "label": "Dome Resistor Subminiature LEDs"
+        },
+        {
+          "value": "1211126371494",
+          "label": "Dome Subminiature LEDs"
+        }
+      ]
+    },
+    {
+      "attribute_name": "COLOR",
+      "attribute_description": "Color",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "Flat",
+          "label": "Flat"
+        },
+        {
+          "value": "90",
+          "label": "90"
+        },
+        {
+          "value": "35",
+          "label": "35"
+        }
+      ]
+    },
+    {
+      "attribute_name": "DIMENSION_LXWXH_IN_MM",
+      "attribute_description": "Dimension Lxwxh In Mm",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "3.2 x 2.4 x 2.4",
+          "label": "3.2 x 2.4 x 2.4"
+        },
+        {
+          "value": "2.2 x 2.1 x 2.9",
+          "label": "2.2 x 2.1 x 2.9"
+        }
+      ]
+    },
+    {
+      "attribute_name": "VIEWING_ANGLE_IN_DEGREES",
+      "attribute_description": "Viewing Angle (degree)",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "Flat",
+          "label": "Flat"
+        },
+        {
+          "value": "90",
+          "label": "90"
+        },
+        {
+          "value": "35",
+          "label": "35"
+        }
+      ]
+    }
+  ]
+  

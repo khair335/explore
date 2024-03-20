@@ -1,0 +1,20 @@
+/*
+* pages/transparency-notice-docs.scss
+*/
+// These classes are dups of same in site-map-product.scss but all the other classes there not needed for page
+// maybe these should be paart of a general columns mixin
+
+@import "../base/variables";
+
+#TransparencyNoticeDocs { 
+    .columns { 
+      columns: 3 auto;
+      margin-bottom: 20px;
+  }
+  
+  .col-head {
+    border-bottom: 1px solid $color-grey--700;
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+  }
+  }

@@ -1,0 +1,165 @@
+/**
+ *  @file base/_table.scss
+ *  @brief Reusable code for tables
+ */
+
+ @import "variables";
+ @import "~bootstrap/scss/mixins/breakpoints";
+
+// Basic table: gray header, striped rows, with borders
+.table{                        
+	@include basic-table;
+    thead th {
+	  background: #e9ecef; //need color variable
+	  border-color: #dee2e6; //need color variable
+	  border-right: 1px solid #dee2e6; //need color variable
+    }
+  }
+  
+// Primary Table: red header, striped rows, with borders
+  .table-primary { 
+	@include basic-table;                       
+    thead th {
+		@include prime-style;
+
+	border-color: $color-white;
+	border-right: 1px solid $color-white;
+    }	
+  }
+  
+// Product Compare Table (used for product comparision from parametric search )
+.table-compare{
+	border:1px solid $color-grey--500;
+	width: 100%;
+	tbody{
+		tr{
+			&:nth-child(odd) {
+				background-color: $color-grey--500;
+			}
+			th {
+				background-color: $color-primary;
+				color:$color-white;
+				border-bottom: 1px solid $color-grey--500 !important;
+				padding: 8px;
+				width: 190px;
+				font-size: 13px;
+			}
+			th, td {
+				border-top: none; 
+				min-width: 110px;
+			}
+			th, td {
+				border-right: 1px solid $color-grey--500;
+				padding: 8px 6px 8px 20px;
+			}
+			// When compare and there is a difference we need to highlight.
+			&.table-active, &:nth-child(odd).table-active{
+				background-color: $color-highlight-yellow;
+			}
+		}
+		
+	}
+    
+}
+
+//Product Collapse table - moved out of parametric search
+.collapse-table{
+    &.table {
+        margin-bottom: 0px;
+        margin-top: 15px;
+        border: 1px solid $color-grey--500;
+
+        thead  {
+            background-color: $color-primary;
+
+            th{
+               color: $color-white;
+               vertical-align: top;
+               padding: 5px 5px 30px !important;
+               text-align: center;
+               font-weight: 800;
+               vertical-align: top !important;
+               border-left: 1px solid $color-white;
+           }
+        }
+        tbody{
+            tr{
+                td {
+                    border-left: 2px solid $color-grey--500 !important;
+                    font-size: $font-size-md;
+                }
+            }
+        }
+        th {
+            height: 0px;
+            font-size: 13px;
+        }
+        th, td{
+            vertical-align: middle;
+            min-width: 70px;
+            font-size: 11px;
+            border-top:none;
+            padding: 8px;
+        }
+        &.table-striped{
+            > tbody{
+                > tr{
+                    &:nth-child(even) {
+                        background-color: $color-grey--500;
+                    }
+                    &:nth-of-type(2n+1) {
+                        background-color: $color-white;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+// Table sorting - moved out of base.scss file - used for documetnt and download table
+table {
+	thead {
+		.sorting {
+			padding-right: 10px;
+			cursor: pointer;
+			position: relative;
+			// Grey out our sort.
+			.bi-sort {    // obsolete as per design group meeting 19jan22
+				color: $color-grey--700;
+				padding-left: 10px;
+			}
+			&.asc, &.desc {
+				border-bottom: 2px solid $color-secondary;
+			}
+
+		}
+	}
+}
+
+// Responsive tables
+// JD - Copied from bootstrap. The main thing this adds is the overflow-x.
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $grid-breakpoints);
+      $infix: breakpoint-infix($next, $grid-breakpoints);
+  
+      &#{$infix} {
+        @include media-breakpoint-down($breakpoint) {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+  
+          // Prevent double border on horizontal scroll due to use of `display: block;`
+          > .table-bordered {
+            border: 0;
+          }
+        }
+      }
+    }
+  }

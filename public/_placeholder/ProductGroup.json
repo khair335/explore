@@ -1,0 +1,399 @@
+{
+	"_comment": "Sample Product Group -https://www.broadcom.com/products/wireless/ ",
+	"AssetType": "AVG_Product_P",
+	"AssetID": "1210946577724",
+	"Template": "ProductGroup",
+	"Locale": "avg_en",
+	"CTA": [{
+			"AssetType": "Page",
+			"AssetID": "1211173756366",
+			"CTA_Name": "Contact Sale",
+			"_url_": "https://www.broadcom.com/company/contact/sales",
+			"target_window": "blank"
+		},
+		{
+			"AssetType": "Page",
+			"AssetID": "1211131435457",
+			"CTA_Name": "Request Info",
+			"_url_": "http://avagoresponsecenter.com/693/",
+			"target_window": "Modal Window"
+		}
+	],
+	"BreadcrumbList": [{
+		"position": 1,
+		"item": {
+			"name": "Products",
+			"_url_": "https://www.broadcom.com/products/"
+		}
+	}, {
+		"position": 2,
+		"item": {
+			"name": "Wireless Embedded Solutions and RF Components",
+			"_url_": ""
+		}
+	}],
+
+	"title": "Wireless Embedded Solutions and RF Components",
+	"ShortTitle": "",
+	"body": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.Broadcom leads the industry in technical innovation across many wireless disciplines from RF front end systems to baseband transceiver SoCs. Broadcom’s wireless product portfolio includes a broad array of advanced RF components for wireless and microwave systems and highly differentiated wireless connectivity solutions for LTE, Wi-Fi, Bluetooth and GNSS applications. Download the AppCAD Design Assistant.",
+	"body2": "",
+	"meta_keywords": "microwave devices, rf microwave, rf and microwave",
+	"meta_description": "Broadcom RF and microwave devices have been driving the wireless revolution with products including amplifiers,  FBAR filters, multipliers, switches, and embedded processors.",
+	"CategoryTitle": "Wireless Embedded Solutions and RF Components",
+	"CategoryAbstract": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smart phones, tablets, internet gateway routers and enterprise access points.",
+	"CategoryDescription": "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smart phones, tablets, internet gateway routers and enterprise access points.Broadcom leads the industry in technical innovation across many wireless disciplines from RF front end systems to baseband transceiver SoCs. Broadcom's wireless product portfolio includes a broad array of advanced RF components for wireless and microwave systems and highly differentiated wireless connectivity solutions for LTE, Wi-Fi, Bluetooth and GNSS applications.Download the AppCAD Design Assistant.",
+	"BrowserTitle": "",
+	"AdditionalDescription": "",
+	"CategorySummary":"",
+	"display_search_bar": "Yes or No or blank",
+	"DisplayStandaloneProducts": "Yes or No or blank",
+	"show_compare_button": "Yes or No or blank",
+	"ParametricListAttributes": [
+			{
+				"item": {
+					"Value": "Product Line"
+				}
+			},
+			{
+				"item": {
+					"Value": "PartNumber"
+				}
+			},
+			{
+				"item": {
+					"Value": "DataSheet"
+				}
+			},
+			{
+				"item": {
+					"Value": "Frequency(GHz)"
+				}
+			},
+			{
+				"item": {
+					"Value": "BiasCondition(V@mA)"
+				}
+			}	
+		],
+		"ParametricFilterAttributes": [
+			
+			{
+				"item": {
+					"Value": "PartNumber"
+				}
+			},
+			{
+				"item": {
+					"Value": "DataSheet"
+				}
+			},
+			{
+				"item": {
+					"Value": "LifeCycle"
+				}
+			},
+			{
+				"item": {
+					"Value": "BiasCondition(V@mA)"
+				}
+			}	
+		],
+	"CrossLinkpage": [{
+		"AssetType": "Page",
+		"AssetID": "1211173756366",
+		"CTA_Name": "Contact Sale",
+		"_url_": "https://www.broadcom.com/company/contact/sales"
+	}],
+	"RelatedResources": [{
+		"item": {
+			"Type": "Video",
+			"AssetID": "1211138400213",
+			"AssetType": "AVG_Image_C",
+			"Title": "Small Cells... The Next Big Thing video",
+			"_url_": "TBD"
+		}
+	}, {
+		"item": {
+			"Type": "PDF",
+			"AssetID": "1211106470412",
+			"AssetType": "AVG_Document_C",
+			"Title": "Small Cell Product Solutions",
+			"_url_": "https://docs.broadcom.com/docs/AV00-0277EN"
+		}
+	}],
+	"CategoryList": [{
+			"AssetID": "1210946608190",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/amplifiers/",
+			"CategoryName": "Wireless - Amplifiers",
+			"CategoryAbstract": "<strong>These parts are at end of life and should not be used in new designs.</strong> Broad selection of RF amplifiers including gain blocks/drivers, low noise amplifiers (LNAs) and variable gain amplifiers (VGAs) for cellular applications and diverse markets.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1421089855893",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Amps",
+				"AltText": "Wireless Amps",
+				"Image_url_": "https://www.broadcom.com/media/1421089855893/prod-wireless-amps.jpg"
+			},
+			"Select_Products": [{
+					"CategoryName": "GPS/GNSS",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/GPS/GNSS/"
+				},
+				{
+					"CategoryName": "Gain Blocks & Drivers",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/gain-block-and-drivers/"
+				},
+				{
+					"CategoryName": "Small Cell Power Amplifiers",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/linear-power/"
+				},
+				{
+					"CategoryName": "Low Noise",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/low-noise/"
+				},
+				{
+					"CategoryName": "Variable Gain",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/variable-gain-amplifiers/"
+
+				},
+				{
+					"CategoryName": "Wafer Scale Packaged",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/wafer-scale-packaged/"
+				},
+				{
+
+					"CategoryName": "WiFi/LTE",
+					"_url_": "https://www.broadcom.com/products/wireless/amplifiers/wifi-lte/"
+				}
+			]
+		},
+		{
+			"AssetID": "1210952487042",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/demo-boards/",
+			"CategoryName": "Wireless RF & Microwave Demo Boards",
+			"CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1421089856110",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Demos",
+				"AltText": "Wireless Demos",
+				"Image_url_": "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+
+			},
+			"Select_Products": []
+		},
+		{
+			"AssetID": "1210946608565",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/diodes/",
+			"CategoryName": "Diodes",
+			"CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> An extremely broad product portfolio of Schottky and PIN diodes for use in wireless communications.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211126510510",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Diodes",
+				"AltText": "Wireless Diodes",
+				"Image_url_": "https://www.broadcom.com/media/1211126510510/prod-wireless-diodes.jpg"
+
+			},
+			"Select_Products": [{
+					"CategoryName": "Schottky",
+					"_url_": "https://www.broadcom.com/products/wireless/diodes/schottky/"
+				},
+				{
+					"CategoryName": "PIN",
+					"_url_": "https://www.broadcom.com/products/wireless/diodes/pin/"
+				},
+				{
+					"CategoryName": "PIN Attenuator",
+					"_url_": "https://www.broadcom.com/products/wireless/diodes/attenuator/"
+				}
+			]
+		},
+		{
+			"AssetID": "1210946608939",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/fbar/",
+			"CategoryName": "FBAR Devices",
+			"CategoryAbstract": "Broadcom FBAR technology filters, duplexers, and multiplexers designed for smartphone handset applications.",
+
+
+			"CategoryThumbnail": {
+				"AssetID": "1421089856327",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Fbar Multiplex",
+				"AltText": "Wireless Fbar Multiplex",
+				"Image_url_": "https://www.broadcom.com/media/1421089856327/prod-wireless-fbar-multiplex.jpg"
+
+			},
+			"Select_Products": [{
+					"CategoryName": "Duplexers",
+					"_url_": "https://www.broadcom.com/products/wireless/fbar/duplexers/"
+				},
+				{
+					"CategoryName": "Filters",
+					"_url_": "https://www.broadcom.com/products/wireless/fbar/filters/"
+				},
+				{
+					"CategoryName": "Multiplexers",
+					"_url_": "https://www.broadcom.com/products/wireless/fbar/multiplexers/"
+				}
+			]
+		},
+		{
+			"AssetID": "1211125948660",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/handset-pa/",
+			"CategoryName": "Handset Power Amplifiers",
+			"CategoryAbstract": "Power amplifiers specifically designed for use in cell phone handsets and enabling today's 4G mobile devices and smartphones.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211172086965",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Handset Power Amps",
+				"AltText": "Wireless Amps",
+				"Image_url_": "https://www.broadcom.com/media/1211130635639/prod-wireless-handsetamps.jpg"
+
+			},
+			"Select_Products": [{
+					"CategoryName": "Multimode Single-band PA",
+					"_url_": "https://www.broadcom.com/products/wireless/handset-pa/multimode-single-band-pa/"
+				},
+				{
+					"CategoryName": "Multimode Multi-band PA",
+					"_url_": "https://www.broadcom.com/products/wireless/handset-pa/multimode-amplifiers/"
+				}
+			]
+		},
+		{
+			"AssetID": "1211126045155",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/millimeter-wave/",
+			"CategoryName": "Millimeter Wave",
+			"CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Comprehensive line of millimeter wave (MMW) MMICs designed for next-generation communication networks.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1421089856354",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Mmwave",
+				"AltText": "Wireless Mmwave",
+				"Image_url_": "https://www.broadcom.com/media/1421089856354/prod-wireless-mmwave.jpg"
+
+			},
+			"Select_Products": [{
+					"CategoryName": "Amplifiers",
+					"_url_": "https://www.broadcom.com/products/wireless/millimeter-wave/amplifiers/"
+				},
+				{
+					"CategoryName": "Mixers",
+					"_url_": "https://www.broadcom.com/products/wireless/millimeter-wave/mixers/"
+				},
+				{
+					"CategoryName": "Multipliers",
+					"_url_": "https://www.broadcom.com/products/wireless/millimeter-wave/multipliers/"
+				},
+				{
+					"CategoryName": "Switch",
+					"_url_": "https://www.broadcom.com/products/wireless/millimeter-wave/switches/"
+				}
+			]
+
+		},
+		{
+			"AssetID": "1210946609687",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/transistors/",
+			"CategoryName": "Transistors",
+			"CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Broad selection of silicon bipolar and GaAs FETs transistors for infrastructure and diverse market applications.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1421089856603",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Transistors",
+				"AltText": "Wireless Transistors",
+				"Image_url_": "https://www.broadcom.com/media/1421089856603/prod-wireless-transistors.jpg"
+
+			},
+			"Select_Products": [{
+					"CategoryName": "Silicon Bipolar",
+					"_url_": "https://www.broadcom.com/products/wireless/transistors/silicon-bipolar/"
+				},
+				{
+					"CategoryName": "GaAs FET",
+					"_url_": "https://www.broadcom.com/products/wireless/transistors/fet/"
+				}
+			]
+		},
+		{
+			"AssetID": "1211168515622",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/bluetooth-socs",
+			"CategoryName": "Bluetooth SoCs",
+			"CategoryAbstract": "These single-chip solutions for Bluetooth® applications are highly integrated System-on-a-Chip (SoC) devices designed to take full advantage of the way consumers interact with smart audio devices in our environment today.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211171644365",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless Transistors",
+				"AltText": "Wireless Bluetooth SoCs",
+				"Image_url_": "https://www.broadcom.com/media/1211171644365/wireless_-_bluetooth_socs.jpg"
+
+			},
+			"Select_Products": []
+
+		},
+		{
+			"AssetID": "1211168520621",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/gnss-gps-socs",
+			"CategoryName": "GNSS/GPS SoCs",
+			"CategoryAbstract": "Products that include GNSS/GPS functionality are consumer favorites, with the technology now integrated into smartphones, wearables, automobiles and IoT devices.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211172091700",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless - GNSS_GPS SoCs",
+				"AltText": "Wireless - GNSS_GPS SoCs",
+				"Image_url_": "https://www.broadcom.com/media/1211172091700/wireless_-_gnss_gps_socs.jpg"
+
+			},
+			"Select_Products": []
+		},
+		{
+			"AssetID": "1211168521761",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/wireless-lan-bluetooth",
+			"CategoryName": "Wireless LAN/Bluetooth Combo",
+			"CategoryAbstract": "Broadcom's WLAN/BT combo portfolio consists of highly integrated, industry-leading SoCs. These products provide the industry's best connectivity solutions for use in mobile phones and mobile accessories where small form factor and low power consumption are essential.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211172092706",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless - Wireless LAN_Bluetooth Combo",
+				"AltText": "Wireless - Wireless LAN_Bluetooth Combo",
+				"Image_url_": "https://www.broadcom.com/media/1211172092706/wireless_-_wireless_lan_bluetooth_combo.jpg"
+			},
+			"Select_Products": []
+		},
+		{
+			"AssetID": "1211168520965",
+			"AssetType": "AVG_Product_P",
+			"_url_": "https://www.broadcom.com/products/wireless/wireless-lan-infrastructure/",
+			"CategoryName": "Wireless LAN Infrastructure",
+			"CategoryAbstract": "Broadcom is a worldwide leading provider of solutions for wireless LAN infrastructure, developing SoC solutions for 802.11 Wi-Fi routers, service provider gateways and enterprise access points.",
+
+			"CategoryThumbnail": {
+				"AssetID": "1211172092202",
+				"AssetType": "AVG_Image_C",
+				"ImageName": "Wireless - Wireless LAN Infrastructure",
+				"AltText": "Wireless - Wireless LAN Infrastructure",
+				"Image_url_": "https://www.broadcom.com/media/1211172092202/wireless_-_wireless_lan_infrastructure.jpg"
+
+			},
+			"Select_Products": []
+		}
+	]
+}

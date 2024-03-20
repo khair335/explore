@@ -1,0 +1,35 @@
+/*
+* pages/security-update-list.scss
+*/
+// styling for security update list page
+
+@import "../base/variables";
+
+#DefinitionsList {
+    .definitions-severity {
+        color: $color-warn;
+    }
+}
+#SecurityUpdatesList{
+    .form-control:focus{
+        box-shadow: none;
+    }
+    .updated-date{
+        padding: 15px 0 10px;
+    }
+    .date-filter-wrap{
+        .btn{
+            padding: 5px;
+            font-size: 18px;
+
+            &.active{  
+            }
+        }
+    }
+}
+#SecurityUpdatesList {
+	.SecurityUL ul {
+    list-style: inside;
+    margin: 15px 0 15px 25px;
+	}
+}

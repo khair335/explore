@@ -1,0 +1,54 @@
+{
+	"content_id": "1211172738781",
+	"locale": "en-us",
+	"template": "ContactBasic",
+	"highlight_title": "## String. Optional",
+	"tab_title": "## String. Optional",
+	"tabbedpageName": "## String. Optional",
+	"hashTagName": "## String. Optional",
+	"body": "## String. Optional. Ckeditor string",
+	"title": "## String. Optional. Title of this highlight",
+	"$comment": "## columns is an array with limit of 2 items",
+	"columns": [
+		{
+			"title": "Blogs",
+			"summary": "## String.",
+			"$comment": "## An array of links. 1 to many",
+			"items": [{
+				"title": "## String. Required.",
+				"date": "## String. Required. Formated date.",
+				"thumb": {
+						"content_id" : "1211160651298",
+						"content_type" : "AVG_Image_C",
+						"ImageName" : "## String.",
+						"AltText" : "## String.",
+						"Image_url_" : "## String.",
+						"Image_file_name" : "667/908/4-home-hero-carrieraggregation,1.jpg",
+						"ProductThumbnailFile5_url_" : "## String.",
+						"ProductThumbnailFile5_file_name" : "## String.",
+						"ProductThumbnailFile3_url_" : "## String.",
+						"ProductThumbnailFile3_file_name" : "## String."
+					},
+				"_url_": "## String. Required."
+			}],
+			"more": {
+				"title": "Read More Blogs",
+				"_url_": "## String. Required."
+			}
+		},
+		{
+			"title": "Connect Forum Discussions",
+			"$comment": "## An array of links. 1 to many",
+			"items": [{
+				"title": "## String. Required.",
+				"date": "## String. Required. Formated date.",
+				"_url_": "## String. Required."
+			}],
+			"more": {
+				"title": "More Discussions",
+				"_url_": "## String. Required."
+			}
+		}
+	]
+}
+	

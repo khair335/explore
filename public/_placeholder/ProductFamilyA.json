@@ -1,0 +1,261 @@
+{
+  "_comment": "Sample Product Group -https://www.broadcom.com/products/wireless/amplifiers/",
+  "AssetType": "AVG_Product_P",
+  "AssetID": "1210946608190",
+  "Template": "ProductFamilyA",
+  "Locale": "avg_en",
+  "CTA": [
+    {
+      "AssetType": "Page",
+      "AssetID": "1211173714976",
+      "CTA_Name": "Contact Sales",
+      "_url_": "https://www.broadcom.com/company/contact/sales",
+      "target_window": "blank"
+    },
+    {
+      "AssetType": "Page",
+      "AssetID": "1211131435457",
+      "CTA_Name": "Request Info",
+      "_url_": "http://avagoresponsecenter.com/693/",
+      "target_window": "Modal Window"
+    }
+  ],
+  "BreadcrumbList": [
+    {
+      "position": 1,
+      "item": {
+        "name": "Products",
+        "_url_": "https://www.broadcom.com/products/"
+      }
+    },
+    {
+      "position": 2,
+      "item": {
+        "name": "Wireless Embedded Solutions and RF Components",
+        "_url_": "https://www.broadcom.com/products/wireless/"
+      }
+    },
+    {
+      "position": 3,
+      "item": {
+        "name": "Amplifiers",
+        "_url_": ""
+      }
+    }
+  ],
+  "_url_": "https://www.broadcom.com/products/wireless/amplifiers/",
+  "title": "Amplifiers",
+  "ShortTitle": "",
+  "body": "These parts are at end of life and should not be used in new designs.Product Obsolescence Notice OBS120117WSD3, Dec. 2017Broadcom offers a broad selection of RF and microwave amplifiers including Power Amplifiers (PAs), Gain Blocks/Drivers, Low Noise Amplifiers (LNAs) and variable gain amplifiers (VGAs) for cellular applications and diverse markets such as wireless infrastructure, WiMAX, WLAN, test & measurement and other wireless microwave applications.Broadcom is leveraging its experience in handsets and base stations to offer new wireless products targeted at small cell base stations, macrocell base stations, and portable GPS/GNSS systems.",
+  "body2": "",
+  "meta_keywords": "rf and microwave amplifiers, rf amplifiers, microwave amplifiers, rf amplifier",
+  "meta_description": "Broadcom offers a broad selection of rf and microwave amplifiers including power amplifiers, gain blocks and drivers, low noise amplifiers and variable gain amplifiers",
+  "CategoryName": "Amplifiers",
+  "BrowserTitle": "",
+  "dbd_OEMQualifiedDownloads": "",
+  "dbd_CategoryOEMList": "",
+  "CategoryTitle": "Amplifiers",
+  "CategorySummary": "Broadcom offers a broad selection of rf and microwave amplifiers including Power Amplifiers (PAs), Gain Blocks/Drivers, Low Noise Amplifiers (LNAs) and variable gain amplifiers (VGAs) for cellular applications and diverse markets such as wireless infrastructure, WiMAX, WLAN, test & measurement and other wireless microwave applications. Broadcom is leveraging its experience in handsets and base stations to offer new wireless products targeted at small cell base stations, macrocell base stations, and portable GPS/GNSS systems.Power amplifiers in the MGA-43x28 series are ideal as a final stage PA for Picocell and Enterprise Femtocell systems with a PCB footprint 50% smaller than comparable devices. The MGA-43428, 43528, and 43628 target 3GPP bands 5, 2, and 1, respectively. The MGA-16x16 series of balanced ultra-low-noise amplifiers are designed for cellular infrastructure applications with industry-standard performance and twice the linearity of competing devices. The MGA-16116, 16216, and 16316 target the 450-1450 MHz, the 1440-2350 MHz, and the 1950-2700 MHz frequency bands, respectively.",
+  "CategoryAbstract": "<strong>These parts are at end of life and should not be used in new designs.</strong> Broad selection of RF amplifiers including gain blocks/drivers, low noise amplifiers (LNAs) and variable gain amplifiers (VGAs) for cellular applications and diverse markets.",
+  "CategoryDescription": "These parts are at end of life and should not be used in new designs.Product Obsolescence Notice OBS120117WSD3, Dec. 2017 Broadcom offers a broad selection of RF and microwave amplifiers including Power Amplifiers (PAs), Gain Blocks/Drivers, Low Noise Amplifiers (LNAs) and variable gain amplifiers (VGAs) for cellular applications and diverse markets such as wireless infrastructure, WiMAX, WLAN, test & measurement and other wireless microwave applications.Broadcom is leveraging its experience in handsets and base stations to offer new wireless products targeted at small cell base stations, macrocell base stations, and portable GPS/GNSS systems.",
+  "AdditionalDescription": "",
+  "display_search_bar": "Yes or No or blank",
+  "DisplayStandaloneProducts": "Yes or No or blank",
+  "show_compare_button": "Yes or No or blank",
+  "multiline": "Yes or No or blank",
+  "View": "List or Grid",
+  "doclbl": "Datasheet",
+  "ShowDocumentText": "Yes or No or blank",
+  "ShowProductLine": "Yes or No or blank ",
+  "dbd_Parametric_Parts": "",
+  "ParametricOverlay_Attributes": [
+    {
+      "attribute_name": "productline",
+      "attribute_label": "Product Line",
+      "attribute_values": [
+         {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "1206561990467",
+          "label": "Flat-Top Subminature LEDs"
+        },
+        {
+          "value": "1206561991119",
+          "label": "Dome Resistor Subminiature LEDs"
+        },
+        {
+          "value": "1211126371494",
+          "label": "Dome Subminiature LEDs"
+        }
+      ]
+    },
+    {
+      "attribute_name": "COLOR",
+      "attribute_description": "Color",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "Flat",
+          "label": "Flat"
+        },
+        {
+          "value": "90",
+          "label": "90"
+        },
+        {
+          "value": "35",
+          "label": "35"
+        }
+      ]
+    },
+    {
+      "attribute_name": "DIMENSION_LXWXH_IN_MM",
+      "attribute_description": "Dimension Lxwxh In Mm",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "3.2 x 2.4 x 2.4",
+          "label": "3.2 x 2.4 x 2.4"
+        },
+        {
+          "value": "2.2 x 2.1 x 2.9",
+          "label": "2.2 x 2.1 x 2.9"
+        }
+      ]
+    },
+    {
+      "attribute_name": "VIEWING_ANGLE_IN_DEGREES",
+      "attribute_description": "Viewing Angle (degree)",
+      "attribute_values": [
+        {
+          "value": "All",
+          "label": "All"
+        },
+        {
+          "value": "Flat",
+          "label": "Flat"
+        },
+        {
+          "value": "90",
+          "label": "90"
+        },
+        {
+          "value": "35",
+          "label": "35"
+        }
+      ]
+    }
+  ],
+  "ParametricListAttributes": [],
+  "ParametricFilterAttributes": [],
+  "CrossLinkpage": [],
+  "Related Resources": [],
+  "CategoryList": [
+    {
+      "AssetID": "1421089865231",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/GPS/GNSS/",
+      "CategoryName": "GPS/GNSS Wireless Amplifiers",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Amplifiers specifically designed for applications such as small cell base stations, macrocell base stations, and portable GPS/GNSS systems.",
+      "CategoryThumbnail": {
+        "AssetID": "1211126510606",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless GPS/GNSS",
+        "AltText": "Wireless Diodes",
+        "Image_url_": "https://www.broadcom.com/media/1211126510606/prod-wireless-amps-gpsgnss.jpg"
+      }
+    },
+    {
+      "AssetID": "1210951706055",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/gain-block-and-drivers/",
+      "CategoryName": "Gain Block & Drivers Millimeter Wave Amplifiers",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Gain Block and Driver amplifiers covering DC to 6GHz applications.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089855922",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Gainblock",
+        "AltText": "Wireless Amps Gainblock",
+        "Image_url_": "https://www.broadcom.com/media/1421089855922/prod-wireless-amps-gainblock.jpg"
+      }
+    },
+    {
+      "AssetID": "1210951707852",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/linear-power/",
+      "CategoryName": "Small Cell Power Amplifiers",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Ideal for wireless infrastructure and mobile applications, these small cell amplifiers are designed for excellent linearity and high efficiency.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089855973",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Lineark",
+        "AltText": "Wireless Amps Linear",
+        "Image_url_": "https://www.broadcom.com/media/1421089855973/prod-wireless-amps-linear.jpg"
+      }
+    },
+    {
+      "AssetID": "1210951705434",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/low-noise/",
+      "CategoryName": "Low Noise",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> A broad selection of low-noise amplifiers (LNAs) that have the industry’s best noise figure combined with excellent gain and linearity.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089856001",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Lonoise",
+        "AltText": "Wireless Amps Lonoise",
+        "Image_url_": "https://www.broadcom.com/media/1421089856001/prod-wireless-amps-lonoise.jpg"
+      }
+    },
+    {
+      "AssetID": "1210951712236",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/variable-gain-amplifiers/",
+      "CategoryName": "Variable Gain",
+      "CategoryAbstract": "<strong>These parts are at end of life and should not be used in new designs.</strong> Variable gain amplifiers designed for use in wireless cellular applications.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089856029",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Variable",
+        "AltText": "Wireless Amps Variable",
+        "Image_url_": "https://www.broadcom.com/media/1421089856029/prod-wireless-amps-variable.jpg"
+      }
+    },
+    {
+      "AssetID": "1211125825296",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/wafer-scale-packaged/",
+      "CategoryName": "Wafer Scale Packaged",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Broadcom offers a variety of amplifiers in wafer scaled packages including low noise and driver amplifiers covering 0.5 to 18GHz applications.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089856056",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Wafer",
+        "AltText": "Wireless Amps Wafer",
+        "Image_url_": "https://www.broadcom.com/media/1421089856056/vmmk_wht.jpg"
+      }
+    },
+    {
+      "AssetID": "1210946608752",
+      "AssetType": "AVG_Product_P",
+      "_url_": "https://www.broadcom.com/products/wireless/amplifiers/wifi-lte/",
+      "CategoryName": "Wafer Scale Packaged",
+      "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> WiFi/LTE product solutions that are designed for use in a range of personal computers, laptops, smartphones and others.",
+      "CategoryThumbnail": {
+        "AssetID": "1421089856083",
+        "AssetType": "AVG_Image_C",
+        "ImageName": "Wireless Amps Wifilte",
+        "AltText": "Wireless Amps Wifilte",
+        "Image_url_": "https://www.broadcom.com/media/1421089856083/prod-wireless-amps-wifilte.jpg"
+      }
+    }
+  ]
+}

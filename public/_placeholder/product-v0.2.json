@@ -1,0 +1,194 @@
+{
+	"content_id" : "1206562894835",
+	"content_type" : "AVG_Product_C",
+	"site" : "AVG2",
+	"referenced_contents" : {
+		"1206560736218" : {
+			"content_id" : "1206560736218",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"template" : "DisplayImage",
+				"fw_uid" : "0cbc8739-208c-433a-b397-02c865556208",
+				"ImageName" : "Attachment2467",
+				"ImageFile" : {
+					"file_name" : "482/276/HSMF_C1114_wht,0.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138202&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_wht%252C0.jpg%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_wht%252C0.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/hsmf_c1114_wht.jpg"
+				},
+				"AltText" : "HSMF-C114",
+				"ProductThumbnailFile3" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138203&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/150x150-hsmf_c1114_whtthumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138204&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138205&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/60x60-hsmf_c1114_whtthumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138206&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"CopyTemplate" : "DisplayImage",
+				"ProductThumbnailFile2" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138207&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/80x80-hsmf_c1114_whtthumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "Image"
+		},
+		"1210943128012" : {
+			"content_id" : "1210943128012",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0603-1.6-x-0.88mm-top-mount/hsma-c130",
+				"template" : "ProductDetail",
+				"fw_uid" : "301fcf0f-52d3-4f3a-9db7-3adc1ccf3e77",
+				"PartNumber" : "HSMA-C130",
+				"ProductName" : "Low Profile ChipLED",
+				"Description" : "<ul>This&nbsp;ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.6 X 0.8 mm) device. Apart from the membrane switch application,&nbsp;it is also suitable for use in application whereby low height is required<br />\r\n    <br />\r\n    The part is intensity binned and color binned (except for red color). They come in 8 mm conductive&nbsp;tape and 7 inch diameter reel with 4000 units per reel which makes them compatible for automatic placement.</ul>",
+				"Features" : "<ul>\r\n    <li>High brightness AlInGaP material</li>\r\n    <li>Small&nbsp;size with extremely low profile&nbsp;</li>\r\n    <li>0603 industry standard footprint with 0.35 mm height for top emitting packages</li>\r\n    <li>Diffused optics</li>\r\n    <li>Compatible with IR soldering</li>\r\n    <li>Available in 8 mm conductive&nbsp;tape on 7&quot; diameter reel</li>\r\n    <li>Reel sealed in zip locked&nbsp; moisture barrier bags</li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Membrane switch indicator</li>\r\n    <li>LCD backlighting</li>\r\n    <li>Push button backlighting</li>\r\n    <li>Front panel indicator</li>\r\n    <li>Symbol backlighting</li>\r\n    <li>Keypad backlighting</li>\r\n</ul>",
+				"COLOR" : "Amber",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "This ;ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"DIMENSION_LXWXH_IN_MM" : "1.6 x 0.8 x 0.35",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"PACKAGE" : "Top Mount Very Low Profile",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "2.05",
+				"DOMINANT_WAVELENGTH_IN_NM" : "589",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "87",
+				"VIEWING_ANGLE_IN_DEGREES" : "110\u00b0",
+				"nApplication" : [],
+				"CopyTemplate" : "ProductDetail"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		},
+		"1206562502878" : {
+			"content_id" : "1206562502878",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0603-1.6-x-0.88mm-top-mount/hsma-c197",
+				"template" : "ProductDetail",
+				"fw_uid" : "a1720b23-6889-4c8a-bcd0-a8a9402f42bd",
+				"PartNumber" : "HSMA-C197",
+				"ProductName" : "Low Profile ChipLED",
+				"Description" : "<ul>The HSMx-C197 ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.6 X 0.8 mm) device. Apart from the membrane switch application, the HSMx-C197 is also suitable for use in application whereby low height is required<br />\r\n    The part is intensity binned and color binned. They come in 8 mm tape and 7 inch diameter reel with 4000 units per reel which makes them compatible for automatic placement.</ul>",
+				"Features" : "<ul>\r\n    <li>High brightness AlInGaP material</li>\r\n    <li>0805 or 0603 industry standard footprint with 0.4 mm height for top emitting packages</li>\r\n    <li>Also available in right angle emitting and reverse mounting packages</li>\r\n    <li>Diffused optics</li>\r\n    <li>Operating temperature range of &ndash;40&deg;C to 85&deg;C</li>\r\n    <li>Compatible with IR soldering</li>\r\n    <li>Available in&nbsp;7 colors</li>\r\n    <li>Available in 8 mm tape on 7&quot; diameter reel</li>\r\n    <li>Reel sealed in zip locked moisture barrier bags</li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Membrane switch indicator </li>\r\n    <li>LCD backlighting </li>\r\n    <li>Push button backlighting </li>\r\n    <li>Front panel indicator </li>\r\n    <li>Symbol backlighting </li>\r\n    <li>Keypad backlighting </li>\r\n</ul>",
+				"COLOR" : "Amber",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "HSMA-C197 Low Profile ChipLED",
+				"MetaKeywords" : "Low Profile ChipLED",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"DIMENSION_LXWXH_IN_MM" : "1.6 x 0.8 x 0.4",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"LENS_TYPE" : "Flat Top, Diffused, Untinted",
+				"PEAK_OUTPUT_CURRENT_MIN" : "1999",
+				"PEAK_OUTPUT_CURRENT_MIN_UOM" : "2a",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"NUMBER_OF_COLORS" : "Single",
+				"PACKAGE" : "Top Mount Very Low Profile",
+				"ROHS5_NonLeadFree" : "Y",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "1.9",
+				"DOMINANT_WAVELENGTH_IN_NM" : "592",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "90",
+				"VIEWING_ANGLE_IN_DEGREES" : "130\u00b0",
+				"nApplication" : [],
+				"PEAK_OUTPUT_CURRENT_MIN_Measure" : "1999 2a",
+				"CopyTemplate" : "ProductDetail"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		}
+	},
+	"attributes" : {
+		"vanity_url" : "products/leds-and-displays/chip-leds/multi-color-surface-mount/hsmf-c114",
+		"template" : "AVG2/AVG2_Layout",
+		"fw_uid" : "95502023-4efe-40e9-b455-ec15904a1177",
+		"PartNumber" : "HSMF-C114",
+		"ProductName" : "Surface Mount Tricolor ChipLEDs",
+		"Description" : "<p>The HSMF-C114 tricolor chip-type LED is designed in an ultra small package for miniaturization. It is the first of its kind to achieve such small packaging and be the thinnest package in the industry for tricolor package. With the freedom to have any combination of colors from mixing of the 3 primary colors, this will yield a wide variety of colors to suit every application and product theme.<br />\r\nThe small size, narrow footprint, and low profile make this LED excellent for back-lighting, status indication and front panel illumination applications. </p>\r\n<p>In order to facilitate pick and place operation, this ChipLED is shipped in tape and reel, with 4000 units per reel. The package is compatible with reflow soldering and binned by both color and intensity.</p>",
+		"Features" : "<ul>\r\n    <li>Common anode </li>\r\n    <li>Small 1.6 x 1.5 x 0.35 mm package </li>\r\n    <li>Diffused optics </li>\r\n    <li>Red/Green/Blue color combination </li>\r\n    <li>Available in 8 mm tape on 7&Atilde;&sbquo;&Acirc;&rdquo; diameter reels </li>\r\n    <li>High brightness using AlInGaP and InGaN die technology </li>\r\n    <li>Compatible with reflow soldering </li>\r\n</ul>",
+		"Applications" : "<ul>\r\n    <li>Backlighting </li>\r\n    <li>Status Indicator </li>\r\n    <li>Front Panel Indicator </li>\r\n    <li>Office Automation, Home Appliances, Industrial Equipment </li>\r\n</ul>",
+		"Benefits" : "<ul>\r\n    <li>Viewing angle designed for wide field of view applications </li>\r\n    <li>Superior performance for outdoor environments </li>\r\n</ul>",
+		"ProductImage" : [{
+				"content_id" : "1206560736218",
+				"content_type" : "AVG_Image_C",
+				"complex_attr" : true
+			}
+		],
+		"RelatedProducts" : [{
+				"content_id" : "1210943128012",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1206562502878",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}
+		],
+		"MetaDescription" : "Surface Mount Tricolor ChipLEDs",
+		"MetaKeywords" : "Surface Mount Tricolor ChipLEDs",
+		"Lifecycle" : "Active",
+		"DistributorInventory" : "Yes",
+		"COLOR" : "Red, Green & Blue",
+		"COLOR_BIN_SELECTION" : "Open",
+		"INTENSITY_BIN_SELECTION" : "2",
+		"LEAD_BEND_CONFIGURATION" : "Right Angle",
+		"LEAD_FREE_STATUS" : "Y",
+		"LED_CHIP_TYPE" : "GaP",
+		"LENS_TYPE" : "Diffused, Untinted",
+		"PEAK_OUTPUT_CURRENT_MIN" : "1",
+		"PEAK_OUTPUT_CURRENT_MIN_UOM" : "1",
+		"MOUNTING_DIRECTION" : "Top",
+		"MOUNTING_METHOD" : "Through-hole",
+		"NUMBER_OF_COLORS" : "Tricolor",
+		"PACKAGE" : "Top Mount Low Profile",
+		"ROHS5_NonLeadFree" : "Y",
+		"TYPICAL_FORWARD_VOLTAGE_IN_V" : "3.6",
+		"DOMINANT_WAVELENGTH_IN_NM" : "626 & 525 & 470",
+		"TYP_LUMINOUS_INTENSITY_IN_MCD" : "85 & 180 & 70",
+		"VIEWING_ANGLE_IN_DEGREES" : "140\u00b0 & 145\u00b0 & 145\u00b0",
+		"nApplication" : [],
+		"PEAK_OUTPUT_CURRENT_MIN_Measure" : "1 1",
+		"CopyTemplate" : "ParametricSearch"
+	},
+	"named_associations" : {},
+	"unnamed_associations" : [],
+	"category" : "SurfaceMntChipLED-MultiClrSeries"
+}

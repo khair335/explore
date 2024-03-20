@@ -1,0 +1,83 @@
+/*
+* components/subheader.scss
+*/
+// stying for subheader used on most pages  
+// watch for modifiers: solutions, knowledgebase, parametric-search
+
+@import "../base/variables";
+@import 'breadcrumbs.scss';
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@import "../base/transitions";
+
+
+// #subHead => modifiers: site-map, products, knowledgebase, 
+
+.page-subtitle {
+  //for subtitle below page title above left nav
+  font-weight: 700; // modifier: solutions, 
+  font-size: 18px;
+  margin: 15px 0 20px 0;
+}
+
+.stacked-page-subtitle {
+  //for the subtuitle and body same line as left nav and not above it
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.head-btns {
+
+  //mods in: knowledgebase.scss, parametric-search.scss
+  li {
+    margin-left: 10px;
+    list-style:none;
+  }
+
+}
+
+.modal-dialog.cta-modal.modal-check-inventory {
+  @include media-breakpoint-up(lg) {
+    max-width: map-get($grid-breakpoints, 'xl');
+  }
+
+  .modal-content {
+    min-height: 200px;    // BCCS6 Check inventory. Loading is empty for modal so create a min height.
+  }
+
+  .netcomponents-logo {
+    margin-top: 20px;
+    display: flex;
+    gap: 6px;
+
+    span {
+      margin-top: auto;
+    }
+  }
+}
+
+.subheader-check-inventory { // BCCS6 Check inventory.
+  td {
+    font-size: $font-size-md;
+  }
+  .link-bttn {
+    font-size: $font-size-md;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .head-btns {
+    li {
+      margin: 0 10px 10px 0;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    .btn {
+      font-size: $font-size-sm;
+    }
+  }
+}
+

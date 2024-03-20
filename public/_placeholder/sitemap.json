@@ -1,0 +1,113 @@
+{
+  "_comment": "Sample Page https://www.broadcom.com/sitemap",
+  "AssetID": "1211138781372",
+  "AssetType": "Page",
+  "Locale": "avg_en",
+  "Template": "SiteMapThreeColumn",
+  "url": "/sitemap",
+  "CTA": [],
+  "BreadcrumbList": [
+    {
+      "position": 1,
+      "item": {
+        "name": "SiteMap",
+        "_url_": ""
+      }
+    }
+  ],
+  "title": "Sitemap",
+  "ShortTitle": "",
+  "BodyTitle": "",
+  "BrowserTitle": "",
+  "body": "",
+  "show_leftnav": "Yes or No",
+  "ShowInNavigation": "Yes or No",
+  "leftNavPreference": "siblings OR sibglings and children OR This page and its children",
+  "body_bottom": "",
+  "meta_keywords": "",
+  "meta_description": "",
+  "description": "",
+  "BannerImage": {},
+  "_url_": "https://www.broadcom.com/sitemap",
+  "sitemap": {
+    "AssetID": "1421089852253",
+    "AssetType": "Page",
+    "locale": "avg_en",
+    "title": "Broadcom Limited | Connecting Everything",
+    "url": "/home",
+    "sub_pages": [
+      {
+        "title": "Products",
+        "_url_": "/products",
+        "children": [
+          {
+            "title": "Wireless Embedded Solutions and RF Components",
+            "_url_": "/products/wireless"
+          },
+          {
+            "title": "Storage Adapters, Controllers, and ICs",
+            "_url_": "/products/storage/"
+          }
+        ],
+        "view_all_products_label":"View All Products",
+        "view_all_products_url":"/sitemap-products"
+      },
+      {
+        "title": "Applications",
+        "_url_": "/applications",
+        "children": [
+          {
+            "title": "All Applications",
+            "_url_": "/applications"
+          },
+          {
+            "title": "Data Center Networking",
+            "_url_": "/applications/datacenter-networking/"
+          }
+        ]
+      },
+      {
+        "title": "Support",
+        "_url_": "/support",
+        "children": [
+          {
+            "_url_": "#",
+            "title": "My Blog"
+          },
+          {
+            "_url_": "#",
+            "title": "GitHub"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "_url_": "/company",
+        "children": [
+          {
+            "_url_": "/company/about-us",
+            "title": "My Blog"
+          },
+          {
+            "_url_": "#",
+            "title": "GitHub"
+          }
+        ]
+      },
+      {
+        "title": "How to Buy",
+        "_url_": "/how-to-buy",
+        "children": [
+          {
+            "_url_": "/how-to-buy/sales",
+            "title": "Sales"
+          },
+          {
+            "_url_": "/how-to-buy/distributors",
+            "title": "Distributors"
+          }
+        ]
+      }
+    ]
+  }
+}

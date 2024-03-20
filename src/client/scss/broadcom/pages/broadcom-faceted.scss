@@ -1,0 +1,30 @@
+ /*
+* pages/broadcom-faceted.scss
+*/
+// broadcom-faceted-search.jsx, BlogSearch.jsx
+
+
+// @import "base/variables";
+
+.faceted-search {
+	.faceted-list {
+		.dropdown-menu{
+		overflow: initial !important;
+			.dropdown-item{
+			position: relative;
+			}
+		}
+	}
+	.resultlist{
+		margin-bottom: 15px;
+		.resultlist-left {
+			float: left;
+			font-size: 22px;
+			margin-right:15px;
+		}
+		.resultlist-right {
+			overflow: hidden;
+		}
+	}
+	
+}

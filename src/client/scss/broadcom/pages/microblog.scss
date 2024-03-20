@@ -1,0 +1,300 @@
+/*
+* pages/microblog.scss
+*/
+// styling for security center - Protection Bulletins page (support/ProtectionBulletinListing.jsx)
+
+@import "../base/variables";
+
+#ProtectionBulletinListing {
+    .accordion .CollapseBox .card {
+        background-color: $color-grey--500;
+        border: none;
+        padding: 20px 10px 10px 10px;
+
+        img {
+            width: 100%;
+            height: auto
+        }
+
+        .card-body ul {
+            margin: 0 0 10px 40px;
+        }
+
+
+        .carousel-item {
+            padding: 15px;
+        }
+    }
+
+    .postBody {
+        background-color: $color-grey--500;
+        border: none;
+    }
+
+    .mBlogHeader {
+        display: flex;
+    }
+
+    .mBlogDate {
+        color: $color-primary;
+        font-size: $font-size-md;
+        font-weight: 600;
+        padding-bottom: 10px;
+        text-align: left;
+    }
+
+    .mBlogTitle {
+        color: $color-secondary;
+        font-size: $font-size-lg;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .microblog-left-navigation {
+        border: 1px solid $color-grey--500;
+        padding: 10px;
+        margin-bottom: 35px;
+
+        button.left-nav-toggle {
+            font-weight: bold;
+            width: 100%
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+
+                a,
+                button.recentYear {
+                    font-size: $font-size-lg; //used to overwrite .left-nav-toggle below - this whole block (microblog-left-navigation) needs a rewrite
+                    color: $color-secondary;
+                    font-weight: bold;
+                }
+
+                button.recentYear {
+                    //special case Recent Posts year treatment
+                    background-color: $color-grey--500; //mods button _buttons.scss
+                }
+            }
+        }
+
+        .left-nav-collapse {
+            padding: 0px 15px;
+        }
+
+        padding: 0px;
+
+        .left-nav-toggle {
+            padding: 10px 15px;
+            color: $color-grey--800;
+
+            .plus-icon .bi {
+                color: $color-grey--800;
+                font-size: 12px;
+                float: right;
+                width: 5%
+            }
+        }
+
+        .plus-icon {
+            float: right;
+            padding-top: 7px;
+        }
+
+        .list-group {
+            margin: 0px;
+
+            button {
+                width: 100%;
+                padding: 8px 0 8px 15px; //mods link-bttn-no-hover  _buttons.scss
+            }
+
+            li button.activeMonth {
+                background-color: $color-grey--500; //mods link-bttn-no-hover
+            }
+
+            li button.noMonth {
+                //special case Recent Posts month treatment
+                display: none;
+            }
+        }
+
+        // Hide our + for custom navigation.
+        .microblog-left-custom {
+            .plus-icon {
+                display: none;
+            }
+        }
+
+    }
+
+    .Microblog-list {
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            transition: none;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: $color-black !important;
+        }
+    }
+
+    .micro-blog-results {
+        position: relative;
+    }
+
+    .CollapseBox {
+        border-radius: 5px;
+        margin: 10px 0;
+
+        &.mBlogHighlight {
+            border: 2px solid $color-primary;
+            background-color: $color-white;
+            margin: 10px 0;
+
+            .card {
+                background-color: $color-white;
+            }
+
+            .mBlogHeader {
+                position: relative;
+                padding-left: 65px;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    background-image: url(/img/icon-protection.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 50px;
+                    width: 45px;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            &.open {
+                .card {
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        background-image: url(/img/icon-corner-halftone.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: bottom right;
+                        height: 80px;
+                        width: 80px;
+                        bottom: 0;
+                        right: 0;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        .card-body {
+            .col-3 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .microblog-left-navigation {
+        li.microblog-left-custom-highlights {
+            button.left-nav-toggle {
+                padding-left: 40px;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    background-image: url(/img/icon-protection.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 24px;
+                    width: 24px;
+                    top: 8px;
+                    left: 10px;
+                }
+            }
+        }
+    }
+
+    .icon-bttn {
+        padding-right: 0;       // Remove padding from icon-bttn
+    }
+
+    .pb-copy-link-wrapper {
+        margin-left: 0;
+    }
+
+}
+
+#ProtectionBulletinDetail {
+    #subHead {
+        margin-bottom: 10px;
+    }
+
+    .highlight {
+        font-size: 22px;
+        font-weight: 600;
+        padding-left: 50px;
+        position: relative;
+        font-family: $font-family--secondary;
+        margin-bottom: 20px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            background-image: url(/img/icon-protection.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 50px;
+            width: 40px;
+            top: -4px;
+            left: 5px;
+        }
+    }
+
+    .date-copy-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .date {
+        font-weight: 600;
+        color: $color-primary;
+        padding-bottom: 15px;
+        font-size: $font-size-md;
+        font-family: $font-family--secondary;
+    }
+
+    .body-description {
+        img {
+            width: 100%;
+            height: auto
+        }
+    }
+
+    .back-to-result {
+        margin-top: 10px;
+    }
+
+}
+
+.pb-copy-link-wrapper {
+    display: flex;
+
+    justify-content: right;
+    .getLink {
+        margin-bottom: 15px;       
+        text-align: right; //mods link-bttn-no-hover       
+    }
+}

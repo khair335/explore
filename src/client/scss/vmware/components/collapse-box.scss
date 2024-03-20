@@ -1,0 +1,27 @@
+/*
+* components/collapse-box.scss
+*/
+// for type-ahead used with swiftype
+
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+// support downlaod - in support collapse listing and download
+.CollapseBox{
+	margin-bottom: 24px;
+	.card{
+	  border: 2px solid $color-grey--100;
+	  cursor: pointer;
+	  .card-body{
+		padding: 0px 10px;
+  
+		  .card-head{
+			 padding: 32px 10px;
+		  }
+		  ul{
+			  li{line-height: 1.8}
+		  }
+	   }
+	}
+  }

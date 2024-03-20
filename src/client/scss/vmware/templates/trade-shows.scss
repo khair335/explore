@@ -1,0 +1,34 @@
+/*
+* templates/trade-shows.scss
+*/
+// styling for tradeshows widget 
+
+
+.tradeshow-wrap{
+    .card{
+      border:1px solid $color-grey--500;
+      .card-title {
+        font-weight: 700;
+      }
+        .trade-img{
+          border-right:1px solid $color-grey--500;
+          width: 100%;
+          height: 100%;
+        }
+      .card-body{padding: 20px 15px 15px 0px}
+      .tradeshow-link{
+        display: inline-block;
+        margin-bottom: 30px;
+        &:hover{
+          color: lighten($color-grey--800, 20%);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 767px){
+    .tradeshow-wrap{
+        .card{
+            .card-body{padding: 20px 15px 15px 15px}
+        }
+      }
+    }

@@ -1,0 +1,101 @@
+{
+	"_url_" : "products/wireless/",
+	"content_id" : "1210946577724",
+	"content_type" : "AVG_Product_P",
+	"template" : "SoftwareProductFamily",
+	"locale" : "en-us",
+	"title" : "Wireless Embedded Solutions and RF Components",
+	"short_title" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"body2" : null,
+	"MetaKeywords" : "microwave devices, rf microwave, rf and microwave",
+	"MetaDescription" : "Broadcom RF and microwave devices have been driving the wireless revolution with products including amplifiers,  FBAR filters, multipliers, switches, and embedded processors.",
+	"BrowserTitle" : null,
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}, {
+			"position" : 2,
+			"item" : {
+				"name" : "Wireless Embedded Solutions and RF Components",
+				"_url_" : "products/wireless"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"HeroBanner" : {
+		"$ref" : "#/SoftwareProductGroup/HeroBanner"
+	},
+	"body_highlights" : [{
+			"$comment" : "## 6/04/2019. Ignore comment. InPageNav will use 'highlight_title' and 'hashTagName' to create anchor tags for the in page navigation. Reflecting API",
+			"template" : "InPageNavigation",
+			"navigation" :[{
+				"content_id":	"1211218473789",
+				"content_type":	"AVG_Highlight_C",
+				"highlight_title":	"Or browse products by solution",
+				"hashTagName":	"Benefits"
+			}]				
+		}, {
+			"$ref" : "#/SoftwareProductGroup/Benefits"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/TextPromo"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/TextPromo"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/CaseStudy"
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template" : "Testimonial",
+			"quote" : "## 5/21/2019 String. Quote ##",
+			"source" : "## 5/21/2019 String. Source of the quote. ie. 'Juan Pablo Uribe, Senior IT Project Manager, Pacífico Seguros' ##",
+			"styles" : {
+				"background-color" : "## 5/23/2019 String. CSS value",
+				"color" : "## 5/23/2019 String. CSS value",
+				"font-size" : "## 5/23/2019 String. CSS value",
+				"font-family" : "## 5/23/2019 String. CSS value"
+			},
+			"promo": {
+				"$comment" : "## 5/28/2019. Ignore comment. Optional. ##",
+				"title" : "## 5/23/2019 String. Testimonial title ##",
+				"body" : "## 5/23/2019 String. Body description ##",
+				"image" : "## Image. ##",
+				"_url_" : "## String. ##"
+			}
+		}, {
+			"$ref" : "#/SoftwareProductGroup/Promo"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/VerticalPromo"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/VerticalPromo"
+		}, {
+			"$ref" : "#/SoftwareProductGroup/TextPromo"
+		}, {
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"template" : "BlogPosts",
+			"posts" : [{
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Required ##",
+					"author" : "## String. Author of the blog post ##",
+					"date" : "## String. Published date ##"
+				}, {
+					"title" : "## String. ##",
+					"description" : "## String. Required: ##",
+					"image" : "## Image. Required: ##",
+					"_url_" : "## String. Required ##",
+					"author" : "## String. Author of the blog post ##",
+					"date" : "## String. Published date ##"
+				}
+			]
+		}
+	]
+
+}

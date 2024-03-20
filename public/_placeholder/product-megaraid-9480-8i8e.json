@@ -1,0 +1,181 @@
+{
+	"content_id" : "1211190199188",
+	"content_type" : "AVG_Product_C",
+	"site" : "AVG2",
+	"referenced_contents" : {
+		"1211190111234" : {
+			"content_id" : "1211190111234",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "6983e655-14e7-43d4-b2a2-90c9c37098bb",
+				"ImageName" : "MegaRAID 9480-8i8e",
+				"ImageFile" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1),0.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371518&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529%252C0.jpg%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529%252C0.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190111234/9480-8i8e_angled_%281%29.jpg"
+				},
+				"AltText" : "MegaRAID SAS 9480-8i8e",
+				"ProductThumbnailFile3" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1)Thumb,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371519&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529Thumb%252C4.png%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529Thumb%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190111234/150x150-9480-8i8e_angled_%281%29thumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1)Thumb,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371520&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529Thumb%252C5.png%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529Thumb%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1)Thumb,6.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371522&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529Thumb%252C6.png%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529Thumb%252C6.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190111234/60x60-9480-8i8e_angled_%281%29thumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1)Thumb,7.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371524&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529Thumb%252C7.png%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529Thumb%252C7.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "235/363/9480-8i8e_Angled (1)Thumb,8.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191371526&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%229480-8i8e_Angled%2B%25281%2529Thumb%252C8.png%22%3Bfilename*%3DUTF-8%27%279480-8i8e_Angled%2B%25281%2529Thumb%252C8.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190111234/80x80-9480-8i8e_angled_%281%29thumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "Image"
+		},
+		"1211131211057" : {
+			"content_id" : "1211131211057",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/storage/raid-controllers/megaraid-safestore-software",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "4540c7a2-66c7-4110-87d4-663597431cb5",
+				"ProductName" : "Manage self-encrypting drives attached to MegaRAID controller cards for higher levels of security",
+				"ProductImage" : [{
+						"content_id" : "1211130629934",
+						"content_type" : "AVG_Image_C",
+						"complex_attr" : true
+					}
+				],
+				"PartNumber" : "MegaRAID SafeStore Software",
+				"ProductSummary" : "Manage self-encrypting drives attached to MegaRAID controller cards for higher levels of security",
+				"Description" : "<div>\r\n<div>\r\n<div>\r\n<div>Self-encrypting drives (SEDs) constantly perform encryption and decryption of all drive contents, but it takes an authentication key to lock a drive so that its contents remain safely beyond the reach of hackers and thieves. MegaRAID&reg; SafeStore&nbsp;software helps to create and locally manage those authentication keys.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<ul>\r\n\t<li>Help keep data constantly encrypted and safe from prying eyes with the SafeStore Auto Lock functionality</li>\r\n\t<li>Use the Instant Secure Erase feature to delete authentication keys and effectively wipe all drive contents &mdash; a far quicker and more effective solution for drive disposal or repurposing than many conventional methods</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n",
+				"Specifications" : "<table class=\"column-2 table table-responsive table-striped tablesorter tablesorter-default\" role=\"grid\">\r\n\t<tbody aria-live=\"polite\" aria-relevant=\"all\">\r\n\t\t<tr class=\"odd\" role=\"row\">\r\n\t\t\t<td class=\"text-bold\"><strong>Software License MPN</strong></td>\r\n\t\t\t<td><strong>MR SAFESTOREOCS&nbsp;</strong>- Compatible with MegaRAID SAS controllers series 9260, 9261, 9265, 9266, 9270, 9271, 9280, 9285, 9286, 9361, 9380, 9460, 9480</td>\r\n\t\t</tr>\r\n\t\t<tr class=\"odd\" role=\"row\">\r\n\t\t\t<td class=\"text-bold\"><strong>Physical Key MPN</strong></td>\r\n\t\t\t<td><strong>L5-25150-00&nbsp;</strong>- Compatible with MegaRAID SAS 9260 (-4i, -8i, -16i), 9280 (-4i4e, -16i4e, -24i4e)<br />\r\n\t\t\t<strong>L5-25188-01</strong>- Compatible with MegaRAID SAS 9265-8i, 9266 (-4i, -8i), 9270-8i, 9271 (-4i, -8i, -8iCC), 9285 (-8e, CV-8e), 9286 (-8e, CV-8e, CV-8eCC), 9361 (-4i, -8i, -16i), 9380 (-4i4i, -8e), 9460 (-16i, -8i), 9480 (-8i8e)</td>\r\n\t\t</tr>\r\n\t\t<tr class=\"odd\" role=\"row\">\r\n\t\t\t<td class=\"text-bold\"><strong>Supported Operating Systems</strong></td>\r\n\t\t\t<td>Compatible with all operating systems supported by MegaRAID controllers</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n",
+				"MetaDescription" : "Self-encrypting drives (SEDs) constantly perform encryption and decryption of all drive contents, but it takes an authentication key to lock a drive so that its contents remain safely beyond the reach of hackers and thieves.",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "No",
+				"AssetLocale" : "avg_en"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "RAID Controllers"
+		},
+		"1211130629934" : {
+			"content_id" : "1211130629934",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "89e8b2e2-a7ac-4644-8bd9-380aad48224c",
+				"ImageName" : "MegaRAID SafeStore Software",
+				"ImageDescription" : "MegaRAID SafeStore Software",
+				"ImageFile" : {
+					"file_name" : "196/508/megaraid-safestore-software.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302569&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software.jpg%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211130629934/megaraid-safestore-software.jpg"
+				},
+				"AltText" : "MegaRAID SafeStore Software",
+				"ProductThumbnailFile3" : {
+					"file_name" : "196/508/megaraid-safestore-software.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302570&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software.png%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211130629934/150x150-megaraid-safestore-software.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "196/508/megaraid-safestore-software,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302571&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software%252C0.png%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "196/508/megaraid-safestore-software,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302572&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software%252C1.png%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211130629934/60x60-megaraid-safestore-software.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "196/508/megaraid-safestore-software,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302573&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software%252C2.png%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "196/508/megaraid-safestore-software,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191302574&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22megaraid-safestore-software%252C3.png%22%3Bfilename*%3DUTF-8%27%27megaraid-safestore-software%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211130629934/80x80-megaraid-safestore-software.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"category" : "Image"
+		}
+	},
+	"attributes" : {
+		"vanity_url" : "products/storage/raid-controllers/megaraid-9480-8i8e",
+		"template" : "/AVG2_Layout",
+		"fw_uid" : "7df39a43-72b7-4b94-8027-8aaf4f421f79",
+		"ProductName" : "Provide increased bandwidth, IOPS performance and data protection with internal connectivity and external scalability to direct attached high connectivity applications ",
+		"ProductImage" : [{
+				"content_id" : "1211190111234",
+				"content_type" : "AVG_Image_C",
+				"complex_attr" : true
+			}
+		],
+		"PartNumber" : "MegaRAID 9480-8i8e",
+		"ProductSummary" : "Provide increased bandwidth, IOPS performance and data protection with internal connectivity and external scalability to direct attached high connectivity applications \r\n",
+		"Description" : "<p>Direct attached, high-connectivity applications require increased bandwidth, increased IOPS performance and advanced data protection. The MegaRAID 9480-8i8e Tri-Mode internal/external Storage Adapter is a 12Gb/s SAS/SATA/PCIe (NVMe) controller card that addresses these needs by delivering internal connectivity and external scalability, proven flexibility, performance&nbsp;and RAID data protection for a range of server storage applications.</p>\r\n\r\n<p>Broadcom&rsquo;s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.</p>\r\n\r\n<ul>\r\n\t<li>Connect up to 255 SAS/SATA devices or 24* NVMe devices per controller</li>\r\n\t<li>Fits into rack-mounted servers with low-profile form factor and side-mounted SAS connectors</li>\r\n\t<li>Provides internal storage, external JBOD expansion and RAID data protection to address a wide range of storage performance and capacity requirements</li>\r\n\t<li>Support critical, high-bandwidth applications with PCIe&reg; 3.1 connectivity</li>\r\n\t<li>Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50, and 60</li>\r\n\t<li>Add more protection and peace of mind with CacheVault&reg; flash cache protection</li>\r\n</ul>\r\n\r\n<p>*Feature available at a later release</p>\r\n",
+		"Specifications" : "<table align=\"left\" class=\"column-2 table table-responsive table-striped tablesorter tablesorter-default\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Product</th>\r\n\t\t\t<th scope=\"col\">Manufacturer Part #</th>\r\n\t\t\t<th scope=\"col\">What&#39;s in the Box</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>MegaRAID 9480-8i8e</td>\r\n\t\t\t<td><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /><meta http-equiv=\"Content-Style-Type\" content=\"text/css\" /><meta name=\"Generator\" content=\"Cocoa HTML Writer\" /><meta name=\"CocoaVersion\" content=\"1348.17\" />\r\n\t\t\t<style type=\"text/css\">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Calibri; -webkit-text-stroke: #000000}\r\nspan.s1 {font-kerning: none}\r\n\t\t\t</style>\r\n\t\t\t<p>05-50031-00</p>\r\n\t\t\t</td>\r\n\t\t\t<td>\r\n\t\t\t<p>MegaRAID 9480-8i8e, QIG, LP bracket</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>CacheVault CVPM05</td>\r\n\t\t\t<td>05-50039-00</td>\r\n\t\t\t<td>CacheVault Power Module (CVPM05) with 24&quot; remote extender</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n",
+		"RelatedProducts" : [{
+				"content_id" : "1211131211057",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}
+		],
+		"MetaDescription" : "Direct attached, high-connectivity applications require increased bandwidth, increased IOPS performance and advanced data protection. The MegaRAID 9480-8i8e Tri-Mode internal/external Storage Adapter is a 12Gb/s SAS/SATA/PCIe (NVMe) controller card that addresses these needs by delivering internal connectivity and external scalability, proven flexibility, performance\u00a0and RAID data protection for a range of server storage applications.\r\n\r\nBroadcom\u2019s Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.",
+		"Lifecycle" : "Active",
+		"DistributorInventory" : "No",
+		"EXTERNAL_CONNECTORS" : "2 Mini-SAS HD SFF8644",
+		"MANAGEMENT_SOFTWARE" : "LSI Storage Authority (LSA), StorCLI (Command-Line Interface), HII (UEFI Human Interface Infrastructure)",
+		"CACHE_PROTECTION" : "CacheVault CVPM05",
+		"PHYSICAL_DIMENSIONS" : [],
+		"HOST_BUS_TYPE" : "x8 lane PCI Express\u00ae 3.1",
+		"CACHE_MEMORY" : "4GB 2133 MHz DDR4 SDRAM",
+		"DEVICES_SUPPORTED" : "SAS/SATA: 255, NVMe: 4 x4, up to 24 x2 or x4*",
+		"INTERNAL_CONNECTORS" : "2 Mini-SAS HD x4 SFF-8643",
+		"OPERATING_TEMPERATURE" : "10\u00b0 to 55\u00b0 C",
+		"OPERATING_VOLTAGE" : [],
+		"OperatingSystem" : "Microsoft Windows. Contact Oracle support for Oracle Solaris driver or software support. See www.broadcom.com/support/down-load-serach for details on versions.",
+		"REGULATORY_CERTIFICATIONS" : [],
+		"WARRANTY" : "3 years, free technical support, advanced replacement option at broadcom.com/support/warranty/internal-raid-hba",
+		"I/O_Processor_/_SAS_Controller" : "SAS3516 dual-core RAID-on-Chip (ROC)",
+		"AssetLocale" : "avg_en"
+	},
+	"named_associations" : {},
+	"unnamed_associations" : [],
+	"category" : "RAID Controllers"
+}

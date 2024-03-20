@@ -1,0 +1,1164 @@
+{
+  "AssetType": "Page",
+  "AssetID": "1421089857644",
+  "Title": "Document Library",
+  "BodyHighlights": [
+    {
+      "AssetType": "AVG_Highlight_C",
+      "AssetID": "1211127499146",
+      "HighlightTitle": "Featured Documents",
+      "HighlightType": "FeaturedDocuments",
+      "TabTitle": "Featured",
+      "SortBy": "Newest",
+      "Categories": [
+        {
+          "AssetID": "1210946577724",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Wireless Embedded Solutions and RF Components"
+        },
+        {
+          "AssetID": "1211125816204",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Storage Adapters, Controllers, and ICs"
+        },
+        {
+          "AssetID": "1211201325216",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fibre Channel Networking"
+        },
+        {
+          "AssetID": "1211168464503",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Broadband: CPE-Gateway, Infrastructure, and Set-top Box"
+        },
+        {
+          "AssetID": "1211168463873",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Embedded and Networking Processors"
+        },
+        {
+          "AssetID": "1211162032881",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Ethernet Connectivity, Switching, and PHYs"
+        },
+        {
+          "AssetID": "1211125816270",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "PCIe Switches and Bridges"
+        },
+        {
+          "AssetID": "1210944795545",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fiber Optic Modules and Components"
+        },
+        {
+          "AssetID": "1206561994328",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "LEDs and Displays"
+        },
+        {
+          "AssetID": "1206562181941",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Motion Control Encoders"
+        },
+        {
+          "AssetID": "1206561994411",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Optical Sensors"
+        },
+        {
+          "AssetID": "1206561994443",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Optocouplers and Opto-Isolators"
+        }
+      ],
+      "featured_Items": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV00-0281EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV00-0281EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211111752356",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV00-0281EN"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Avago Product Solutions for Data Centers",
+          "Description": "Avago products empower the ever-expanding data center with fast data speed, extended data links, high density connectivity and greater storage capacity.",
+          "DocumentImage": "https://www.broadcom.com/media/1211147240653/data-center-broch-thumb.jpg"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/alternative_energy_brochure",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/alternative_energy_brochure",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210961839841",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/alternative_energy_brochure"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Alternative Energy Generation",
+          "Description": "Avago Technologies offers a wide range of fiber optic transmitters, receivers, and transceivers, and IGBT/Power MOSFET gate drivers, isolation amplifier products, and motor position encoders for wind turbine, wind farm and solar electric power inverter and power generation applications.",
+          "DocumentImage": "https://www.broadcom.com/media/1211141491716/alternative-energy-gen-thumb.jpg"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/electric_trains_brochure",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/electric_trains_brochure",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210961843601",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/electric_trains_brochure"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Electric Trains & Locomotives",
+          "Description": "Avago Technologies provides several solutions for electric or dieselelectric powered trains and locomotives including inverters and motor controls that can use Avago IGBT gate drivers and isolation amplifiers.",
+          "DocumentImage": "https://www.broadcom.com/media/1211141499674/electric-trains-locomotives-thumb.jpg"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/industrial_networking_brochure",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/industrial_networking_brochure",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210961844030",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/industrial_networking_brochure"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Industrial Networking",
+          "Description": "Avago Technologies Solutions for Industrial Networking",
+          "DocumentImage": "https://www.broadcom.com/media/1211141500315/industrial-networking-thumb.jpg"
+        }
+      ],
+      "Documents": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210919029286",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-1909EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Safety Considerations When Using Optocouplers and Alternative Isolators for Providing Protection Against Electrical Hazards",
+          "Description": "Optocouplers and alternative isolation technologies find widespread use in a variety of products for signal isolation and high voltage level shifting. These devices may also be used to provide safety related insulation. Considering these electrical concerns, it is necessary to understand the safety related characteristics of the optocoupler or alternative isolator."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211209206503",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "02/04/2018",
+          "Title": "Brocade Time & Materials Policy Frequently Asked Questions"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201595502",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Brocade X6 Director Frequently Asked Questions",
+          "Description": "This document answers frequently asked questions about the Brocade X6 Director family."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211131979796",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV00-0315EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "Selection Guide"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Storage Solutions Selection Guide",
+          "Description": "Whether you need to protect data, power your storage solutions, or deliver the performance needed by critical applications, Broadcom’s 12Gb/s SAS MegaRAID® controller cards and Host Bus Adapters (HBAs), and Advanced Software Options are the smart choice."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201727276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Maximize the All-Flash Data Center with Brocade Gen 6 Fibre Channel White Paper",
+          "Description": "Maximize All Flash DC with Brocade Gen 6-FC"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211208619572",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Automating the Fibre Channel Data Center",
+          "Description": "Leveraging Brocade’s Automation Technology to Deliver a Modern Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201643271",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Benefits of Gen 6 Fibre Channel for the All-Flash Data Center",
+          "Description": "This document describes the benefits of Gen 6 Fibre Channel for the All-Flash Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        }
+      ]
+    },
+    {
+      "AssetType": "AVG_Highlight_C",
+      "AssetID": "1211127196230",
+      "HighlightType": "FeaturedWhitePapers",
+      "HighlightTitle": "White Papers",
+      "TabTitle": "White Papers",
+      "SortBy": "Newest",
+      "Categories": [
+        {
+          "AssetID": "1210946577724",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Wireless Embedded Solutions and RF Components"
+        },
+        {
+          "AssetID": "1211125816204",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Storage Adapters, Controllers, and ICs"
+        },
+        {
+          "AssetID": "1211201325216",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fibre Channel Networking"
+        },
+        {
+          "AssetID": "1211168464503",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Broadband: CPE-Gateway, Infrastructure, and Set-top Box"
+        },
+        {
+          "AssetID": "1211168463873",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Embedded and Networking Processors"
+        },
+        {
+          "AssetID": "1211162032881",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Ethernet Connectivity, Switching, and PHYs"
+        },
+        {
+          "AssetID": "1211125816270",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "PCIe Switches and Bridges"
+        },
+        {
+          "AssetID": "1210944795545",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fiber Optic Modules and Components"
+        },
+        {
+          "AssetID": "1206561994328",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "LEDs and Displays"
+        },
+        {
+          "AssetID": "1206561994443",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Optocouplers and Opto-Isolators"
+        },
+        {
+          "AssetID": "1206562181941",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Motion Control Encoders"
+        },
+        {
+          "AssetID": "1206561994411",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Optical Sensors"
+        }
+      ],
+      "Documents": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210919029286",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-1909EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Safety Considerations When Using Optocouplers and Alternative Isolators for Providing Protection Against Electrical Hazards",
+          "Description": "Optocouplers and alternative isolation technologies find widespread use in a variety of products for signal isolation and high voltage level shifting. These devices may also be used to provide safety related insulation. Considering these electrical concerns, it is necessary to understand the safety related characteristics of the optocoupler or alternative isolator."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211209206503",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "02/04/2018",
+          "Title": "Brocade Time & Materials Policy Frequently Asked Questions"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201595502",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Brocade X6 Director Frequently Asked Questions",
+          "Description": "This document answers frequently asked questions about the Brocade X6 Director family."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211131979796",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV00-0315EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "Selection Guide"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Storage Solutions Selection Guide",
+          "Description": "Whether you need to protect data, power your storage solutions, or deliver the performance needed by critical applications, Broadcom’s 12Gb/s SAS MegaRAID® controller cards and Host Bus Adapters (HBAs), and Advanced Software Options are the smart choice."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201727276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Maximize the All-Flash Data Center with Brocade Gen 6 Fibre Channel White Paper",
+          "Description": "Maximize All Flash DC with Brocade Gen 6-FC"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211208619572",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Automating the Fibre Channel Data Center",
+          "Description": "Leveraging Brocade’s Automation Technology to Deliver a Modern Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201643271",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Benefits of Gen 6 Fibre Channel for the All-Flash Data Center",
+          "Description": "This document describes the benefits of Gen 6 Fibre Channel for the All-Flash Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        }
+      ]
+    },
+    {
+      "AssetType": "AVG_Highlight_C",
+      "AssetID": "1211127794982",
+      "HighlightType": "FeaturedWhitePapers",
+      "HighlightTitle": "Selection Guide",
+      "TabTitle": "Selection Guides",
+      "SortBy": "Newest",
+      "Categories": [
+        {
+          "AssetID": "1210946577724",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Wireless Embedded Solutions and RF Components"
+        },
+        {
+          "AssetID": "1211125816204",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Storage Adapters, Controllers, and ICs"
+        },
+        {
+          "AssetID": "1211201325216",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fibre Channel Networking"
+        },
+        {
+          "AssetID": "1211168463873",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Embedded and Networking Processors"
+        },
+        {
+          "AssetID": "1211162032881",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Ethernet Connectivity, Switching, and PHYs"
+        },
+        {
+          "AssetID": "1211125816270",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "PCIe Switches and Bridges"
+        },
+        {
+          "AssetID": "1210944795545",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Fiber Optic Modules and Components"
+        },
+        {
+          "AssetID": "1206561994328",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "LEDs and Displays"
+        },
+        {
+          "AssetID": "1206562181941",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Motion Control Encoders"
+        },
+        {
+          "AssetID": "1206561994443",
+          "AssetType": "AVG_Product_P",
+          "CategoryName": "Optocouplers and Opto-Isolators"
+        }
+      ],
+      "Documents": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-1909EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1210919029286",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-1909EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Safety Considerations When Using Optocouplers and Alternative Isolators for Providing Protection Against Electrical Hazards",
+          "Description": "Optocouplers and alternative isolation technologies find widespread use in a variety of products for signal isolation and high voltage level shifting. These devices may also be used to provide safety related insulation. Considering these electrical concerns, it is necessary to understand the safety related characteristics of the optocoupler or alternative isolator."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211209206503",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "02/04/2018",
+          "Title": "Brocade Time & Materials Policy Frequently Asked Questions"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201595502",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "FAQs"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Brocade X6 Director Frequently Asked Questions",
+          "Description": "This document answers frequently asked questions about the Brocade X6 Director family."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV00-0315EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211131979796",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV00-0315EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581291",
+            "SubtypeName": "Selection Guide"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Storage Solutions Selection Guide",
+          "Description": "Whether you need to protect data, power your storage solutions, or deliver the performance needed by critical applications, Broadcom’s 12Gb/s SAS MegaRAID® controller cards and Host Bus Adapters (HBAs), and Advanced Software Options are the smart choice."
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201727276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Maximize the All-Flash Data Center with Brocade Gen 6 Fibre Channel White Paper",
+          "Description": "Maximize All Flash DC with Brocade Gen 6-FC"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211208619572",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Automating the Fibre Channel Data Center",
+          "Description": "Leveraging Brocade’s Automation Technology to Deliver a Modern Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211201643271",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "06/14/2018",
+          "Title": "Benefits of Gen 6 Fibre Channel for the All-Flash Data Center",
+          "Description": "This document describes the benefits of Gen 6 Fibre Channel for the All-Flash Data Center"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        },
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211168569166",
+          "_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-type": "regular",
+          "data-expired": "false",
+          "data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+          "data-target": "#download_modal",
+          "data-resid": "drv1211059839276",
+          "data-toggle": "modal",
+          "data-layer": {
+            "event": "eventTracker",
+            "eventVal": "0",
+            "eventCat": "Assets",
+            "eventAct": "pdf",
+            "eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+            "TemplateName": "whitepaper",
+            "Section": "Body"
+          },
+          "DocumentSubtype": {
+            "AssetType": "AVG_Document_P",
+            "AssetID": "1206560581395",
+            "SubtypeName": "White Papers"
+          },
+          "PublishDate": "01/24/2018",
+          "Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+          "Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+        }
+      ]
+    }
+  ],
+  "MetaDescription": "MetaDescription",
+  "MetaKeywords": "MetaKeywords",
+  "_comment": "If required following documents get based on tab filter selection, by default fist/active tab All category documents",
+  "LoadMore": true
+}

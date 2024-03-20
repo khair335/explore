@@ -1,0 +1,325 @@
+{
+  "AssetType": "AVG_Highlight_C",
+  "AssetID": "1211130459093",
+  "Template": "WebinarsJson",
+  "featured_Items": [
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "Title",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "WebinarLink": {
+        "LimelightVideo": {
+          "AssetType": "AVG_News_C",
+          "AssetID": "1211137976839",
+          "SubType": "LimelightVideo",
+          "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "AltText": "AltText",
+          "MediaDescription": "MediaDescription",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        },
+        "Link": {
+          "AssetType": "AVG_Highlight_C",
+          "AssetID": "1211138354905",
+          "SubType": "Link",
+          "*link_href": "http://www.chinawebinar.com/landing/305087.HTM",
+          "link_title": "View Webinar",
+          "link_name": "Designing with Current Sense Optocouplers in Motor Drive Systems",
+          "target_window": "Yes",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        }
+      }
+    },
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "Title",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "WebinarLink": {
+        "LimelightVideo": {
+          "AssetType": "AVG_News_C",
+          "AssetID": "1211137976839",
+          "SubType": "LimelightVideo",
+          "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "AltText": "AltText",
+          "MediaDescription": "MediaDescription",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        },
+        "Link": {
+          "AssetType": "AVG_Highlight_C",
+          "AssetID": "1211138354905",
+          "SubType": "Link",
+          "*link_href": "http://www.chinawebinar.com/landing/305087.HTM",
+          "link_title": "View Webinar",
+          "link_name": "Designing with Current Sense Optocouplers in Motor Drive Systems",
+          "target_window": "Yes",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        }
+      }
+    },
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "Title",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "WebinarLink": {
+        "LimelightVideo": {
+          "AssetType": "AVG_News_C",
+          "AssetID": "1211137976839",
+          "SubType": "LimelightVideo",
+          "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "AltText": "AltText",
+          "MediaDescription": "MediaDescription",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        },
+        "Link": {
+          "AssetType": "AVG_Highlight_C",
+          "AssetID": "1211138354905",
+          "SubType": "Link",
+          "*link_href": "http://www.chinawebinar.com/landing/305087.HTM",
+          "link_title": "View Webinar",
+          "link_name": "Designing with Current Sense Optocouplers in Motor Drive Systems",
+          "target_window": "Yes",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        }
+      }
+    }
+  ],
+  "Webinars": [
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "ATitle",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "LimelightVideo": {
+        "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "AltText": "AltText",
+        "MediaDescription": "MediaDescription",
+        "VideoDate": "VideoDate",
+        "VideoDuration": "18:05"
+      }
+    },
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "BTitle",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "LimelightVideo": {
+        "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "AltText": "AltText",
+        "MediaDescription": "MediaDescription",
+        "VideoDate": "VideoDate",
+        "VideoDuration": "18:05"
+      }
+    },
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "Title",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "LimelightVideo": {
+        "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+        "AltText": "AltText",
+        "MediaDescription": "MediaDescription",
+        "VideoDate": "VideoDate",
+        "VideoDuration": "18:05"
+      }
+    },
+    {
+      "AssetType": "AVG_News_C",
+      "AssetID": "1211137976839",
+      "SubType": "Webinars",
+      "Category": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory",
+        "CategoryName": "Webinars"
+      },
+      "Title": "Title",
+      "PageTitle": "PageTitle",
+      "Body": "Body ... ",
+      "PublishDate": "",
+      "Status": "",
+      "RelatedImage": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "MetaDescription": "MetaDescription",
+      "MetaKeywords": "MetaKeywords",
+      "Video": {
+        "AssetType": "AVG_News_P",
+        "AssetID": "1211137976839",
+        "SubType": "NewsCategory"
+      },
+      "WebinarLink": {
+        "LimelightVideo": {
+          "AssetType": "AVG_News_C",
+          "AssetID": "1211137976839",
+          "SubType": "LimelightVideo",
+          "VideoThumb": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "LimelightURL": "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+          "AltText": "AltText",
+          "MediaDescription": "MediaDescription",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        },
+        "Link": {
+          "AssetType": "AVG_Highlight_C",
+          "AssetID": "1211138354905",
+          "SubType": "Link",
+          "*link_href": "http://www.chinawebinar.com/landing/305087.HTM",
+          "link_title": "View Webinar",
+          "link_name": "Designing with Current Sense Optocouplers in Motor Drive Systems",
+          "target_window": "Yes",
+          "VideoDate": "VideoDate",
+          "VideoDuration": "18:05"
+        }
+      }
+    }
+  ]
+}

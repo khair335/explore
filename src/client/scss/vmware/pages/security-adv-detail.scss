@@ -1,0 +1,26 @@
+/*
+* pages/security-adv-detail.scss
+*/
+// styling for BSN security advisory page
+
+
+@import "../base/variables";
+
+// table for securityadvisory page
+
+.securityadvisory{
+    .table {
+      th, td {
+      width: 25%;
+      }
+    }
+  }
+  //security advisory detail page Disclaimer // could be global
+  .disclaimer-text{
+    p {
+      padding-top: 10px;
+      font-family: $font-family--primary;
+      font-size: 11px;
+      line-height: 20px;
+      }
+  }

@@ -1,0 +1,28 @@
+@import "../base/variables";
+@import "../base/transitions";
+@import "main-nav.scss";
+@import "../base/buttons";
+
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
+
+.card-footer{
+background-color: $color-white;
+border: 0;
+padding-bottom: 24px;
+}
+
+.card-footer ul li{ 
+   list-style: none;
+    }
+
+.card{
+    box-shadow: 0px 8px 16px 0px #1145861F;
+    border: 0;
+}
+
+.card-text{
+color: #565656;
+}
+

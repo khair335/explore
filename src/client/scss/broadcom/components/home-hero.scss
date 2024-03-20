@@ -1,0 +1,190 @@
+/*
+* components/home-hero.scss
+*/
+// Styling for broadcom homepage hero banner style
+
+@import "../base/variables";
+@import "../base/_transitions";
+
+$carousel-indicator-height: 20px;
+ 
+.top-banner{
+  overflow: hidden;
+  position: relative;
+  .carousel.slide{
+    padding: 0px;
+  }
+  .carousel-indicators{
+    display: none;
+  }
+}
+
+
+
+ 
+.top-banner, #banner{
+ .carousel-inner {
+	background: $color-grey--500;
+	> .carousel-item {
+      //transition: transform .6s ease-in-out;
+      backface-visibility: hidden;
+      perspective: 1000px;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: url(/img/wwwHero_Gradient2_1920x455.png) left center no-repeat;
+        //transition: background-image 0.5s ease-in;
+        background-size: contain;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        @include fadein(2000ms);
+        @media only screen and (max-width: 992px) {
+          display: none;
+        }
+        
+	  }
+      img {
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        min-height: 22vw;     // JD - We have lazy loading and the image doesn't appear for the banner, so it pops.
+        @media only screen and (max-width: 992px) {
+          transform: none;
+          height: auto;
+        }
+    }	
+    .container {
+	    @media only screen and (max-width: 992px) {
+		  padding: 0;
+		  max-width: none;
+		}
+	  }		
+    }
+  }
+   // Slider and Hero banner caption text start
+  .caption {
+    position: absolute;
+    width: 560px;
+    left: auto;
+    padding: 0;
+		min-height: 150px;
+		margin: 0;
+		top: 45%;
+		transform: translate(0, -50%);
+		z-index: 2;
+      @media only screen and (max-width: 992px) {
+        max-width: none;
+        position: static;
+        padding: 0px 15px 15px;
+        width: 100%;
+        transform: none;
+        text-align: center!important;
+			  background: $color-primary;
+      }
+      div {
+        color: $color-white;
+        font-family: $font-family--secondary;
+        font-weight: 400;
+        font-size: 19px;
+      }
+      h1 {
+        padding: 20px 6px 10px 0;
+        //font-size: 34px;
+        color: $color-white!important;
+        //font-family: $font-family--secondary;		//already set in base.scss
+        //font-weight: 400;		                    //already set in base.scss
+        @media only screen and (max-width: 992px) {
+				font-size: 28px;
+      }
+			@media only screen and (max-width: 786px) {
+				font-size: 24px;
+			}
+		
+    }
+      .teaser{
+        margin-bottom: 20px;
+        a {
+            margin-bottom: 10px; //for CA hero banner with more than one CTA
+          }
+      }
+       a.lnk {
+        font-size: 16px;
+        color: $color-primary;                          //mods _link.scss
+        display: block;
+        width: fit-content;
+        border: 2px solid $color-white;
+        border-radius: 4px;
+        padding: 5px 20px;
+        background: $color-white;         //mods _link.scss
+        margin-top: 5px;
+        margin-bottom: 5px;
+        float: left;
+        clear: both;
+        text-decoration: none;
+        line-height: 1.5;
+		@media only screen and (max-width: 992px) {
+      float: none;
+      display: block;
+			width: fit-content;
+			margin: auto;
+		}
+		@media only screen and (max-width: 786px) {
+      font-size: $font-size-md;                      //mods _link.scss
+      width: fit-content;
+      background: $color-white;             //mods _link.scss
+      &:hover {
+        border: 2px solid $color-white;
+      }
+		}
+		span {
+			display: none;
+		}
+      &:hover {
+        color: $color-white;
+        background: $color-primary;
+        text-decoration: none;
+      }
+      .bi {
+        font-size: $font-size-md;
+        border: none;
+        margin-left: 5px;
+      }
+    }
+  }
+
+// Indicators For Both Home and other banner
+	.carousel-indicators {
+		background-color: $color-grey--625;
+		height: $carousel-indicator-height;
+		margin-bottom: 0;
+		width: 100%;
+		left: 0;
+		margin: 0;
+		bottom: 0;
+		display: block;
+		li {
+			background: $color-grey--675;
+			width: 33.33%;
+			height: $carousel-indicator-height;
+			margin: 0;
+			display: inline-block;
+			border: none;  // added to overwrite new styling from latest BootStrap
+			&:nth-child(2) {
+				background: $color-grey--650;
+			}
+			&:nth-child(3) {
+				background: $color-grey--625;
+			}
+			
+			.progress-bar {
+				height: 100%;
+				background-color: $color-grey--600;
+			}
+			
+		}
+	}
+}

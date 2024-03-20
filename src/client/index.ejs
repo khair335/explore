@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+	<!-- Fallback for IE -->
+	<script nomodule>
+		window.location.href = '/browser-not-supported';
+	</script>
+
+	<%- include ('../partials/head') -%>
+
+</head>
+<body>
+	<% if (env === "qa") { %>
+	<!-- QA version -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe
+			src="https://www.googletagmanager.com/ns.html?id=GTM-KF7XWD&gtm_auth=u-9xkcygtJTmu9ln0bPP9g&gtm_preview=env-45&gtm_cookies_win=x"
+			height="0" width="0" style="display:none;visibility:hidden">
+		</iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<% } else { %>
+	<!-- PROD Version-->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe 
+			src="https://www.googletagmanager.com/ns.html?id=GTM-KF7XWD"
+			height="0" width="0" style="display:none;visibility:hidden">
+		</iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<% } %>
+
+	<div id="root"></div>
+	
+	<%- include ('../partials/footer') -%>
+</body>
+</html>

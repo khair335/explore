@@ -1,0 +1,58 @@
+/*
+* pages/security-threat-list.scss
+*/
+// styling for security center threat a-z page
+
+@import "../base/variables";
+
+#ThreatList_a2z {
+    ul.threatMenu {                            // NOT USED WITH SEARCH BOX VERSION - THIS IS FOR MENU VERSION OF THIS PAGE
+            margin: 0 auto 20px auto;
+
+            li{
+                display: inline-block;
+                border: none;
+                border-right: solid 1px $color-grey--900;
+
+                button{
+                    padding-left: .5em;         //mods link-bttn  _buttons.scss
+                    padding-right: .5em;        //mods link-bttn
+                    
+                    &.activeButton {
+                        color: $color-primary;  //mods link-bttn
+                    }
+                }
+            }
+    }
+
+    .threatList {                           // USED BY BOTH VERSIONS
+        columns: 4;
+        margin-top: 10px;
+        @media screen and (max-width: map-get($grid-breakpoints, sm) - 1) {
+            columns: 1;
+        }
+    }
+
+    button.clear-bttn {                     //see clear-bttn  _buttons.scss
+        position: absolute;
+        right: 16px;
+        bottom: 40px;
+        font-size: $font-size-lg;           //mods clear-bttn
+    }
+}
+
+
+#ThreatList_a2z ul.threatMenu li:last-child {   // this was in the block above as &:last-child but would not work - was over written by border-right in first declaration
+    border-right: none;                         // NOT USED WITH SEARCH BOX VERSION THIS IS FOR MENU VERSION OF THIS PAGE
+}
+
+.warning {
+    color: $color-grey--900;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+}
+
+.pageButtons button{
+    margin: 20px 20px 20px 0;
+}

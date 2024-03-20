@@ -1,0 +1,112 @@
+/*
+* components/brcm-share.scss
+*/
+// styling for custom broadcom share widget found at top of most pages and on blogs, images, and videos
+
+@import "../base/variables";
+
+
+.social-share{
+    padding: 10px;
+    background-color: $color-grey--500;
+  
+    > span{
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  
+    .nav-item{
+      margin-right: 14px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+  
+      & > button, span{
+        font-size: 30px;                   //mods button in _buttons.scss
+        padding: 0;
+      }
+      .other-share{
+        > .bttn, button{                   //mods button in _buttons.scss
+          font-size: 30px;
+          color: $color-secondary--dark;
+          padding: 0;
+        }
+        .dropdown-menu{
+          max-height: 250px;
+          overflow-y: auto;
+          z-index: 1000;
+          .dropdown-item{
+            
+            button, .bttn {                   //mods button in _buttons.scss
+              padding: 0 15px;
+              font-size: $font-size-lg;
+              color: $color-grey--900;
+            }
+          }
+        }
+      }
+      .brcmicon-twitter{
+        color: $color-social--twitter;
+      }
+      .brcmicon-facebook{
+        color: $color-social--facebook;
+      }
+      .brcmicon-linkedin{
+        color: $color-social--linkedin;
+      }
+      .brcmicon-envelope{
+        color: $color-social--email;
+      }
+      .brcmicon-rss{
+        color: $color-social--rss;
+      }
+    }
+  }
+
+  .bs_sprite {
+    background-image: url('/img/bs_sprite.jpg');
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+    &.bs_email {background-position: 64px 16px}
+    &.bs_twitter {background-position: 144px 0px}
+    &.bs_facebook {background-position: 32px 0px}
+    &.bs_linkedin {background-position: 32px 48px}
+    &.bs_rss {background-position: 48px 16px}
+    &.bs_googleplus {background-position: 96px 48px}
+    &.bs_googlebookmarks {background-position: 112px 48px}
+    &.bs_reddit {background-position: 112px 32px}
+    &.bs_tumblr {background-position: 144px 16px}
+    &.bs_pinterest {background-position: 144px 32px}
+    &.bs_blogger {background-position: 128px 0px}
+    &.bs_livejournal {background-position: 16px 48px}
+    &.bs_evernote {background-position: 48px 0px}
+    &.bs_add.this {background-position: 0px 0px}
+    &.bs_getpocket {background-position: 144px 48px}
+    &.bs_hackernews {background-position: 80px 48px}
+    &.bs_stumbleupon {background-position: 48px 32px}
+    &.bs_digg {background-position: 80px 0px}
+    &.bs_buffer {background-position: 112px 0px}
+    &.bs_flipboard {background-position: 0px 48px}
+    &.bs_instapaper {background-position: 64px 48px}
+    &.bs_surfingbirdru {background-position: 32px 32px}
+    &.bs_flattr {background-position: 16px 0px}
+    &.bs_diaspora {background-position: 96px 0px}
+    &.bs_qzone {background-position: 128px 32px}
+    &.bs_vk {background-position: 128px 16px}
+    &.bs_weibo {background-position: 112px 16px}
+    &.bs_ok.ru {background-position: 0px 32px}
+    &.bs_douban {background-position: 64px 0px}
+    &.bs_xing {background-position: 96px 16px}
+    &.bs_renren {background-position: 96px 32px}
+    &.bs_threema {background-position: 0px 32px}
+    &.bs_sms {background-position: 64px 32px}
+    &.bs_lineme {background-position: 48px 48px}
+    &.bs_skype {background-position: 80px 32px}
+    &.bs_telegramme {background-position: 16px 32px}
+    &.bs_gmail {background-position: 128px 48px}
+    &.bs_yahoo {background-position: 80px 16px}
+}

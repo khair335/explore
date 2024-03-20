@@ -1,0 +1,92 @@
+{
+	"_url_" : "blog/",
+	"content_id" : "1421089863645",
+	"content_type" : "Page",
+	"template" : "BlogDetail",
+	"locale" : "en-us",
+	"title" : "Blog Detail",
+	"ShortTitle" : "Blog Detail",
+	"body2" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"meta_keywords" : "data center, networking, infrastructure software, broadband, wireless, storage and industrial",
+	"meta_description" : "Broadcom's product portfolio serves multiple applications within seven primary target markets: data center, networking, software, broadband, wireless, storage and industrial.",
+	"CTA" : [],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Blog",
+				"_url_" : "blog",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"leftNav" : {},
+	"$comment" : "## Array. Required. Flat array of categories for navigation.",
+	"navigation" : {
+		"active_category": "## String. Required. content_id below",
+		"active_subcategory": "## String. Required. content_id below",
+		"categories" : [{
+				"content_id": "##String. Required. Unique identifier",
+				"title" : "## String. Required. The category name",
+				"_url_" : "## String. Required. The url to this category",
+				"$comment" : "## Array. Required. Flat array of subcategories for this category.",
+				"sub_categories" : [{
+					"content_id": "##String. Required. Unique identifier",
+					"title" : "## String. Required. The category name",
+					"_url_" : "## String. Required. The url to this category"
+				}]
+			}]
+	},
+	"$comment" : "## Required. A single post.",
+	"post" : {
+		"content_id" : "##String. Required. Unique identifier",
+		"image" : "## image. Required",
+		"title" : "## String. Required",
+		"description" : "## String. Required",
+		"_url_" : "## String. Required. Url to this post",
+		"author" : {
+			"title" : "## String. Author's name",
+			"_url_" : "## String. URL to author's page"
+		},
+		"published" : "## String. Date this post was published"
+	},
+	"$comment" : "## Array, Required. A list of recent posts. 1 to many",
+	"recent_posts" : [{
+			"content_id" : "##String. Required. Unique identifier",
+			"title" : "## String. Required",
+			"_url_" : "## String. Required. Url to this post"
+		}
+	],
+	"related_posts" : {
+		"posts" : [{
+				"content_id" : "##String. Required. Unique identifier",
+				"image" : "## image. Required",
+				"title" : "## String. Required",
+				"description" : "## String. Required",
+				"_url_" : "## String. Required. Url to this post",
+				"author" : {
+					"title" : "## String. Author's name",
+					"_url_" : "## String. URL to author's page"
+				},
+				"published" : "## String. Date this post was published"
+			}, {
+				"content_id" : "##String. Required. Unique identifier",
+				"image" : "## image. Required",
+				"title" : "## String. Required",
+				"description" : "## String. Required",
+				"_url_" : "## String. Required. Url to this post",
+				"author" : {
+					"title" : "## String. Author's name",
+					"_url_" : "## String. URL to author's page"
+				},
+				"published" : "## String. Date this post was published"
+			}
+		],
+		"$comment" : "## Required. A link to see more linking to either category or subcategoy.",
+		"see_more" : {
+			"title" : "## String. Required. The text of the more button",
+			"_url_" : "## String. Required. The URL to API to grab more"
+		}
+	}
+}

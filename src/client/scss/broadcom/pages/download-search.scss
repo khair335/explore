@@ -1,0 +1,195 @@
+/*
+* pages/download-search.scss
+*/
+// styles search box used on many pages
+// DocumentDownloads.jsx, DocumentLink.jsx, Icon.jsx, broadcom-faceted-search.jsx, site-search.jsx, AnalystReportLanding,
+// CaseStudyLanding, ProductDetail, DocumentDownloads
+
+@import "../base/variables";
+
+//  main class
+.download-search-wrapper {
+    padding: 20px;
+    h3 {
+        font-size: $font-size-md;
+        color: $color-primary;
+    }
+ }
+
+// The minimize button. Make it long so the whole role is clickable.
+.download-search-min {
+	width: 100%;
+	text-align: right;
+}
+
+ //  download-search-section
+.download-search-section{
+    margin-top: 20px;
+        .dropdown-menu {
+            width: 100%;
+            border: 1px solid $color-grey--700;
+            box-shadow: 1px 8px 8px $color-grey--700;
+            padding: 0px;
+            border-radius: 0px;
+            max-height: 200px;
+            overflow: auto;
+        }
+}
+
+
+ //  selectdownloadproduct
+.selectdownloadproduct {
+    
+    margin-bottom: 10px;
+    .dropdown-toggle {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color:$color-white;
+        color: $color-grey--900;
+        position: relative;
+        padding: 8px 30px 8px 10px;
+		height: auto;
+		width: 100%;
+		text-align: left;
+        border: 2px solid transparent;      // Remove the shifting of this element when the required below is turned on.
+         &::after {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translate(0%, -50%);
+            -ms-transform: translate(0%, -50%);
+        }
+        span{
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translate(0%, -50%);
+            -ms-transform: translate(0%, -50%); 
+        }
+    }
+    .search-input-in {
+        width: 100%;
+        margin: 0px 0px 10px 0px;
+        padding: 7px;
+        border: 1px solid $color-grey--700;
+    }
+	.dropdown-menu{
+        width: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+        padding: 10px;
+    
+        .dropdown-item{
+            padding: 4px 20px 5px 5px;
+            white-space: normal;
+            font-size: $font-size-md;			    //mods _link.scss
+            a{
+                color: $color-grey--800;			//mods _link.scss
+                &:hover{
+                color: $color-grey--700;			//mods _link.scss
+                //background: transparent;
+                }
+            }
+        }
+    }
+
+    &.selectdownloadproduct-required {
+        button.dropdown-shown {                            // Highlight our required dropdown
+            border: solid 2px $color-primary;
+        }
+    }
+}
+
+
+//  multidownloadproduct
+.multidownloadproduct{
+    padding: 3px 5px;
+    background-color: $color-white;
+    margin-bottom: 10px;
+    border: 2px solid transparent;      // Stop the required field from causing a shift.
+    input{
+        width: 100%;
+        height: 34px;
+        border: 1px solid $color-grey--700;
+        padding: 5px;
+    }
+    .pulldown-bttn {                //see pulldown-bttn _buttons.scss
+        display: block;                 //mods pulldown-bttn
+        margin-bottom: 6px;
+    }
+    .bttn.clear-bttn{                //see clear-bttn _buttons.scss
+        position: absolute;             //mods clear-bttn
+        top: 5px;
+        right: 5px;
+        font-weight: bold;              //mods clear-bttn
+        font-size: $font-size-md;       //mods clear-bttn
+        background-color: transparent;  //mods clear-bttn =>just looked better without the grey circle and that is production version now
+    }
+
+    &.multidownloadproduct-required {           // Highlight if required.
+        border: 2px solid $color-primary;
+        border-radius: 4px;
+    }
+}
+
+
+// dropdown-download-seacrh
+.dropdown-download-seacrh {
+    width: 100%;
+    max-height: 165px;
+    //overflow: auto;
+        h4{
+            padding: 6px;
+        }
+      
+        .dropdown-item {
+            font-size: $font-size-md;
+            display: block;
+            padding: 5px 20px;
+            white-space: initial;
+            line-height: 1.4;
+
+                &:first-child{
+                    border-radius: 0px;
+                }
+                &:hover{
+                    background-color:lighten($color-secondary,10%);
+                    color: $color-white;
+                }
+        }
+}
+
+// search-download-button
+.search-download-button{
+    margin-top: 25px;
+    .download-search-justproduct & {       // Legal Dnd page
+        margin-top: 17px;
+    }
+
+    button {
+        padding: 12px 24px;                // mods button _buttons.scss
+        margin-left: 15px;                 // mods button _buttons.scss
+    }
+}
+
+//search-box
+.search-box{
+    margin-top: 20px;
+    .bc-input{
+        height: 35px;
+    }
+}
+.top-label {
+    font-family: $font-family--secondary;
+    font-size:$font-size-lg;
+    margin: 0 0 5px 5px;
+}
+@media screen and (max-width: map-get($grid-breakpoints, sm) - 1){
+    .search-download-button{
+         button{
+            padding: 12px 18px;         //mods button
+         }
+    }
+}
+

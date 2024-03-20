@@ -1,0 +1,101 @@
+{
+	"_url_" : "products/",
+	"content_id" : "1421089863645",
+	"content_type" : "Page",
+	"template" : "ProductLandingMulti",
+	"locale" : "en-us",
+	"title" : "Products",
+	"ShortTitle" : "Products",
+	"body2" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"meta_keywords" : "data center, networking, infrastructure software, broadband, wireless, storage and industrial",
+	"meta_description" : "Broadcom's product portfolio serves multiple applications within seven primary target markets: data center, networking, software, broadband, wireless, storage and industrial.",
+	"display_search_bar" : "No",
+	"body_highlights " : [{
+			"highlight_title" : "## 5/21/2019 String. Title for anchor tags in sub menu ##",
+			"hashTagName" : "## 5/21/2019 String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+			"title" : "## 5/21/2019 String. Category title ##",
+			"body" : "## 5/21/2019 String. Body description ##",
+			"template" : "ProductCard",
+			"categories" : [{
+					"content_id" : "1210946577724",
+					"content_type" : "AVG_Product_P",
+					"CategoryTitle" : "Wireless Embedded Solutions and RF Components",
+					"CategoryAbstract" : "Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points.",
+					"_url_" : "products/wireless/",
+					"CategoryThumbnail" : [{
+							"content_id" : "1421089855151",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "Wireless Embedded Solutions and RF Components",
+							"AltText" : "Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+							"Image_url_" : "/media/1421089855151/prod-wireless.jpg",
+							"Image_file_name" : "71/381/prod-wireless,0.jpg",
+							"ProductThumbnailFile5_url_" : "/media/1421089855151/71/381/prod-wirelessThumb,7.png",
+							"ProductThumbnailFile5_file_name" : "71/381/prod-wirelessThumb,7.png",
+							"ProductThumbnailFile3_url_" : "/media/1421089855151/150x150-prod-wirelessthumb.png",
+							"ProductThumbnailFile3_file_name" : "71/381/prod-wirelessThumb,4.png"
+						}
+					],
+					"select_products" : [{
+							"CategoryName" : "Amplifiers",
+							"_url_" : "products/wireless/amplifiers/"
+						}, {
+							"CategoryName" : "Demo Boards",
+							"_url_" : "products/wireless/demo-boards/"
+						}
+					]
+				}, {
+					"content_id" : "1211215233076",
+					"content_type" : "AVG_Product_P",
+					"CategoryTitle" : "CA Technologies Software Products",
+					"CategoryAbstract" : "Get the agility you need to drive change\u2014from the boardroom to development. ",
+					"_url_" : "products/ca-technologies-sw-products/",
+					"CategoryThumbnail" : [{
+							"content_id" : "1211216196502",
+							"content_type" : "AVG_Image_C",
+							"ImageName" : "CA Technologies Software Products Thumbnail",
+							"AltText" : "CA Technologies Software Products",
+							"Image_url_" : "/media/1211216196502/icon-150x150_ca_software.jpg",
+							"Image_file_name" : "424/337/Icon-150x150_CA_Software.jpg",
+							"ProductThumbnailFile5_url_" : "/media/1211216196502/424/337/Icon-150x150_CA_SoftwareThumb,2.png",
+							"ProductThumbnailFile5_file_name" : "424/337/Icon-150x150_CA_SoftwareThumb,2.png",
+							"ProductThumbnailFile3_url_" : "/media/1211216196502/150x150-icon-150x150_ca_softwarethumb.png",
+							"ProductThumbnailFile3_file_name" : "424/337/Icon-150x150_CA_SoftwareThumb.png"
+						}
+					],
+					"select_products" : "## Array || null. Business Rule: if null then display link with _url_ and default text 'Select Products' ##"
+				}
+			]
+		}
+	],
+	"TimeTakenToExecuteEndPointUrl" : {
+		"1421089863645_ProductLanding" : 0.343324
+	},
+	"siteribbon" : {
+		"ribbon_link" : {
+			"content_id" : "1211208995337",
+			"content_type" : "Page",
+			"title" : "Cookie Policy",
+			"_url_" : "company/legal/cookie-policy",
+			"target" : "_self",
+			"is_iframe_modal" : "No",
+			"ShowInNavigation" : "Yes",
+			"ShortTitle" : "Cookie Policy"
+		},
+		"display_ribbon" : "Yes"
+	},
+	"CTA" : [],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"leftNav" : {},
+	"timetaken_for_total_generic_json" : 1.553819,
+	"timestamp_Generic_json_Generated_on" : "2019-05-21 17:00:34 - GMT"
+}

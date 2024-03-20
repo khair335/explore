@@ -1,0 +1,47 @@
+/**
+ *  @file base/link.scss
+ *  @brief Reusable code for links.
+ */
+
+ /*
+base/_reset.scss sets these properties for <a/>:
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+    &:hover{text-decoration: none;}
+    &.underlined{text-decoration: none;
+        &:hover{text-decoration: underline;}
+  }
+*/
+
+@use "../base/variables";
+
+a, a.lnk:not(.bttn) {                       //NOT inline links - bold, 2nd color, 2nd fontfamily, lg size, red line hover, etc. 
+    @include link-style;                            //see also SiteLink.jsx className (assigns "lnk" to all <a/>)
+}
+
+a {                                         //inline links - RTE mostly, or in a paragraph of hard code - same as above but prime fontfamily and not bold
+    font-family: $font-family--primary;
+    font-weight: 400;
+}
+
+@keyframes link-fadeinout { 
+    0%, 100% { 
+        text-decoration-color: transparent; 
+    } 
+    50% { 
+        text-decoration-color: $color-primary; 
+    }
+}
+
+@mixin link-hover($color: $color-black) {
+    &:hover{
+        color: $color;                      //$color-black;
+        text-decoration: underline;         // Edge support
+        text-decoration-color: transparent; 
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 2px; 
+        animation: link-fadeinout 1.5s linear forwards; 
+    }
+}

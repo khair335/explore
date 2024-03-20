@@ -1,0 +1,29 @@
+{
+  "content_blocks": [
+
+    {
+      "content_id": "blt6a5bf167ac8779fd_en-us",
+      "content_type": "content_block",
+      "locale": "en-us",
+      "template": "Testimonial",
+      "theme":"Standard",
+      "section_title": "Testimonial",
+      "hash_tag_name": "Testimonial",
+      "title": null,
+      "author": "Senior Infrastructure Architect, Kyndryl",
+      "theme": "light",
+      "links": null,
+      "source": null,
+      "body": "<p>With the solution, the team has been able to realize dramatic reductions in alarm noise and enhanced root cause analysis, so it can speed mean time to resolution.</p>",
+      "tab_title": "Testimonial",
+      "image": {
+        "src": "/media/blt4ac44e0e6c6d8341/blte391ffd8adf82251/645c2a828dbb825b3a33f739/key-features-in-content-analysis-infographic.png",
+        "width": 640,
+        "height": 569,
+        "title": "content-analysis-infograph.png",
+        "alt": "content-analysis-infograph.png",
+        "enlarge": "true"
+      }
+    }
+  ]
+}

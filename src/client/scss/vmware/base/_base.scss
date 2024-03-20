@@ -1,0 +1,574 @@
+@import "variables";
+@import "reset";
+@import "transitions";
+@import "icon";
+@import "../components/brcm-share";
+@import "link";
+@import "loading";
+@import "table";
+@import "buttons";
+
+// Fontawesome
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  font-family: $font-family--secondary;
+}
+.h1, h1 {
+	font-size: 50px;
+	font-weight: 300;            //metro-mod
+	font-kerning: normal;        //metro-mod
+}
+.h2, h2 {
+	font-size: 40px;
+}
+.h3, h3 {
+	font-size: 32px
+}
+.h4, h4 {
+	font-size: 25px
+}
+.h5,h5 {
+	font-size: 20px
+}
+.h6, h6 {
+	font-size: 18px
+}
+.h6-bold {
+	font-weight: 500;
+}
+
+label {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+body{
+  font-size: $font-size-lg;
+  color: $color-body;
+  font-family: $font-family--primary;
+  min-height: 100%;
+  padding-bottom: $footer-height;    // footer
+  position: relative;
+  line-height: 1.42857143;
+  overflow-y: scroll;
+  font-weight: 300;
+  // footer heights so we need padding. See heights in Footer.jsx
+
+  .section-title {
+   text-align: center;
+   margin-bottom: 16px;
+  }
+  .content-block-title {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+
+  &.autopilot-show {
+    padding-bottom: $autopilot-footer-height;
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    padding-bottom: $footer-height-md;
+    &.autopilot-show {
+      padding-bottom: $autopilot-footer-height-md;
+    }
+  }
+  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+    padding-bottom: $footer-height-lg;
+    &.autopilot-show {
+      padding-bottom: $autopilot-footer-height-lg;
+    }
+  }
+  @media screen and (min-width: map-get($grid-breakpoints, xl)) {
+    padding-bottom: $footer-height-xl;
+    &.autopilot-show {
+      padding-bottom: $autopilot-footer-height-xl;
+    }
+  }
+
+}
+
+#main {
+  padding-bottom: 60px;   // Add padding so that there's room for the scroll to top and it doesn't hover over content.
+}
+
+#main h4 {
+  line-height: 1.8;
+}
+img {
+	max-width: 100%;
+}
+
+// Global Number List 
+ol:not([class]) {
+  list-style-type: decimal;
+  padding-left: 18px;
+}
+ul.list-indent {
+   padding: 0 0 10px 40px
+}
+// Global Paragraph Spacing
+p {
+  margin: 0px 0px 10px;
+}
+
+strong{
+  font-weight: 600;
+}
+
+// deskop view container
+.container {
+  @media screen and (min-width: map-get($grid-breakpoints, xl)){
+    max-width: 1170px;
+    padding: 0px;
+  }
+}
+
+/* a {                    //MOVED to base/_link.scss - base loads this component at top
+  @include link-style;
+} */
+
+.bc-input{
+  height: 30px;
+  font-size: $font-size-md;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: none;
+  font-family: $font-family--primary;
+  font-weight: normal;
+  line-height: normal;
+  background-color: $color-grey--500;
+  color: $color-grey--900;
+  div:not([class*=bc--color_gray]) &{
+    background-color: $color-white;
+  }
+}
+
+.bc-button_content{
+  position: relative;
+  z-index: 3;
+}
+
+::selection{
+  background-color:  $color-highlight-yellow;
+  color: $color-black;
+}
+
+.bc--{
+  &color_{
+    &white{
+      color: $color-white;
+    }
+    &primary{
+      color: $color-primary;
+    }
+    &secondary{
+      color: $color-secondary;
+    }
+    &warn{
+      color: $color-warn
+    }
+    &gray900{
+      color: $color-grey--900
+    }
+    &gray800{
+      color: $color-grey--800
+    }
+    &gray700{
+      color: $color-grey--700
+    }
+    &gray600{
+      color: $color-grey--600
+    }
+    &gray500{
+      color: $color-grey--500
+    }
+  }
+  &bg_{
+    &white{
+      background-color: $color-white;
+    }
+    &accent{
+      background-color: $color-primary;
+    }
+    &secondary{
+      background-color: $color-secondary;
+    }
+    &warn{
+      background-color: $color-warn
+    }
+    &gray900{
+      background-color: $color-grey--900
+    }
+    &gray800{
+      background-color: $color-grey--800
+    }
+    &gray700{
+      background-color: $color-grey--700
+    }
+    &gray600{
+      background-color: $color-grey--600
+    }
+    &gray500{
+      background-color: $color-grey--500
+    }
+  }
+
+  &text_{
+    &center{
+      text-align: center;
+    }
+
+    &uppercase{
+      text-transform: uppercase;
+    }
+  }
+
+  
+
+  &fw_{
+    &extra-light{
+      font-weight: 300;
+    }
+    &light{
+      font-weight: 400;
+    }
+    &semi-bold,
+    &medium{
+      font-weight: 500;
+    }
+    &bold,
+    b{
+      font-weight: bold;
+    }
+  }
+
+  &ff_{
+    &secondary{
+      font-family: $font-family--secondary;
+    }
+  }
+
+  &raunded{
+    border-radius: 4px;
+  }
+  &no-raunded{
+    border-radius: 0;
+  }
+}
+
+.no-uppercase{
+text-transform: lowercase;
+}
+
+.scrollto-top-container {
+  position: fixed;
+  bottom: 20px;   
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    position: static;   // ie11
+    position: sticky;   // All other browsers
+    position: -webkit-sticky; // Safari    
+  }
+
+  .scrollto-top-wrapper {
+    float: right;
+    text-align: right;
+    margin-top: -50px;  // Space above the
+    
+  }
+}
+
+.scrollto-top{
+    .bi{ 
+        margin-left: 5px;       //mods button _buttons.scss
+    }
+
+    &.bttn {
+      font-size: 14px;          //mods button
+    }
+
+    &:hover {
+      color: $color-white;
+    }
+}
+
+//fancy checkbox  with red color
+.check-wrap{                    // base style for this element
+  display: inline-block;        // used with modifiers by swiftyperesults.jsx, doc-alert.jsx, productFamilyC.jsx
+  cursor: pointer;              // see products.scss, doc-alert.scss
+	.check-icon{
+		height: 12px;
+		width: 12px;
+		border: 1px solid $color-grey--700;
+		border-radius: 1px;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.checkbox{
+		opacity: 0;                 // Accessibility, visible but hide.
+    display: inline-block;
+    margin-left: -9px;
+    cursor: pointer;
+
+    // Second one is for facet side bar.
+		&:checked + label .check-icon, &:checked + div .check-icon, &:checked + .check-icon {
+      background-color: $color-primary;
+		}
+
+    & + label {
+      display: inline-block;
+      margin-left: -14px;     
+    }
+
+    &:focus + label .check-icon {
+      border: 2px $color-primary solid;    // Accessibilty
+    }
+
+	}
+}
+
+
+// application-category-overview start
+
+@media screen and (max-width: map-get($grid-breakpoints, xs) - 1){
+  .resources{
+      ul{
+        li {
+          line-height: 1.4 !important;
+        }
+      }
+    }
+}
+//application page popover
+.application-popup {
+  .popover-header {
+   h3 {
+   font-size: 14px;
+   color:$color-primary;
+   font-weight:500;
+   }
+   a {
+   font-size: 14px;       //mods _link.scss
+   }
+}
+}
+
+// global element
+.body-description {
+   margin-bottom: 20px; 
+   h2 { line-height: 1.5;
+   }
+   h3, h4 {line-height: 1.8;}
+   ul{
+			padding: 0px 0px 10px 40px;
+		}
+}
+
+// tabs
+.tabs{
+  .tab-content{
+    p{
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: outside;
+      padding-left: 15px;
+    }
+    li {
+      padding-left: 7px;
+      margin-bottom: 10px;
+    }
+
+  }
+}
+
+// Box listing style(Same as product listing style)
+.box-list-wrap{             //OBSOLETE?? None of these class names show up in a jsx search
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+	 .box-list-item-wrap {
+  margin-bottom: 30px;
+  }
+  .box-list-item{
+    border: 1px solid $color-grey--600;
+    display: flex;
+    margin-bottom: 0px;
+	  height: 100%;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    .box-list-img{
+      width: 122px;
+      border-right: 1px solid $color-grey--600;
+      display: flex;
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important;
+      height: 100%;
+    }
+    .box-list-content{
+      padding: 15px;
+      flex: 1;
+
+      h4{
+        min-height: 25px;
+        font-size: $font-size-lg;             //this is button styling - is this a button? - adding className="bttn secondary" to h4 in template will produce same result
+        font-weight: 500;
+        font-family: $font-family--secondary;
+        color: $color-secondary;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+//  Alignment in  Same line for filter select
+.sidebar-filter-row{
+  .sidebar-filter-col{
+    position: relative;
+    padding-bottom: 34px;
+
+    .custom-button-dropdown{
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      bottom: 0;
+    }
+  }
+}
+
+// horizontal line with Gradient and Spacing
+hr.custom-line {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba($color-black, 0), rgba($color-black, 0.75), rgba($color-black, 0));
+  margin: 20px 0px;
+
+}
+hr.custom-line-gray {
+  border: 0;
+  height: 2px;
+  color: $color-grey--500;
+  margin: 20px 0px;
+}
+
+// Optanon-cookie-policys Start
+#optanon-cookie-policy {
+	.optanon-cookie-policy-group {
+			margin-bottom: 15px;
+		h2.optanon-cookie-policy-group-name, p.optanon-cookie-policy-cookies-used  {
+			font-size: $font-size-md;
+			margin-bottom: 10px;
+			font-weight: 600;
+		}
+	}
+	.optanon-cookie-policy-subgroup-table {
+		border: 1px solid $color-grey--500;
+		text-align: center;
+		th{
+		text-align:center;
+		font-weight: bold!important;
+		border-right: 1px solid $color-white;
+			p {
+				font-size: 13px !important;
+			}
+		}
+		td{
+			padding: 13px !important;
+			height: auto !important;
+			p{
+				font-size: 13px !important;
+				margin-bottom: 0px !important;
+				}
+		}
+		p:empty {
+			display: none;
+		}
+	}
+	br {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 991px){
+  .container{
+    max-width: 100%;
+  }
+}
+
+
+// TODO: Make component.
+.input-group-append-clear {   //used by MainNav anmd CaseStudyLanding
+  position: relative;
+  .invisibile {
+    display: none;
+  }
+}
+
+/* Sections 
+	See // Sections in _variables.
+*/
+
+
+//remove extra space, need to review all pages to see if ok OZ
+.section-striped section:first-child {
+padding-top:15px!important;
+padding-bottom:10px!important;
+}
+.section-striped section {
+	padding: 40px 0;
+}
+
+// Preload banner gradient. Since we lazy load and optimizations, the gradient was popping in.
+// body::after{
+//   position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+//   content:url(/img/wwwHero_Gradient2_1920x455.png);   // load images
+// }
+
+// BCCN-18 Global notification.
+#global-notification {
+  position: fixed;
+  z-index: 2001;
+  bottom: 74px;
+  right: 10px;
+  width: 400px;
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 20px;
+
+  .global-notification-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+// Alerts
+.alert-danger {
+  color: $color-primary;
+}
+@media only screen and (max-width: 320px) {
+  #subHead, #subhead-title {
+      overflow: hidden;
+  }
+  #subHead h1, #subHead h5, #subhead-title h1, #subhead-title h5 {
+      font-size: 20px;
+  }
+  #subHead .head-btns .bttn,  #subhead-title .head-btns .bttn {
+      font-size: 11px;
+  }
+  .answer p a, .body-description p a, .content-block p a {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+}

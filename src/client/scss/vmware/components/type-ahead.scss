@@ -1,0 +1,47 @@
+/*
+* components/type-ahead.scss
+*/
+// input-group-append has several versions/modifiers in header and other search inputs
+
+@import "../base/variables";
+
+.typeahead.dropdown{
+    .input-group-append{
+      font-family: $font-family--primary;
+      position: relative;
+    }
+    .bc-input{padding-right: 50px;}
+  
+    .dropdown-menu{
+      max-height: 300px;
+      overflow-y: auto;
+      width: 100%;
+      font-size: $font-size-md;
+      color: $color-secondary;
+      padding: 0;
+      margin: 1px 0 0 0;
+      border: 1px solid $color-grey--500;
+      border-radius: 4px;
+      .dropdown-item{
+        line-height: 1.4;
+        padding: 10px;
+        font-weight: 600;
+        color: currentColor;
+        white-space: normal;
+        font-size: $font-size-md;
+        &:not(:last-of-type){
+          border-bottom: 1px solid $color-grey--500;
+        }
+        &:hover{
+          background-color: $color-grey--500;
+          color: $color-grey--900;
+        }
+      }
+    }
+  
+    .bc--dropdown-lg &{
+      .bc-input{
+        height: 35px;
+      }
+    }
+  }

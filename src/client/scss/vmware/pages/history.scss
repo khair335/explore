@@ -1,0 +1,104 @@
+/*
+* pages/history.scss
+*/
+// Styling for about us- history page 
+ 
+ @import "~bootstrap/scss/mixins/breakpoints";
+
+ @import "../base/variables";
+
+%history-timeline-line {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 8px;
+	right: -5px;
+	background-color: $color-white;
+	height: 50%;
+	z-index: 1;
+}
+.history-timeline-card{
+	.card{
+		background-color:lighten($color-grey--600, 13%);
+		border: none;
+	}
+}
+.history-timeline-card{
+	.card{
+		background-color:lighten($color-grey--600, 13%);
+		border: none;
+	}
+}
+.history-timeline-wrapper {
+	padding-top:10px;
+	.history-timeline {
+	
+		&:first-of-type {			// Remove the line from the first child.
+			.history-timeline-label {
+				&:after {
+					@extend %history-timeline-line;
+					top: 0;
+				}
+			}
+		}
+		&:last-of-type {			// Remove the line from the last child.
+			.history-timeline-label {
+				&:after {
+					@extend %history-timeline-line;
+					bottom: 0;
+				}
+				
+			}
+		}
+	
+		&:hover {
+			.history-timeline-label {
+				color: $color-primary;
+			}
+		}
+		ul {
+		 list-style-type: disc;
+		}
+		
+		.history-timeline-label {
+			
+			font-size: 26px;
+			font-weight: 700;
+			color: $color-grey--600;
+			vertical-align: middle;
+			border-right: 2px solid $color-grey--600;
+			width: 116px;
+			display: -webkit-box;       
+			display: -moz-box;         
+			display: -ms-flexbox;       
+			display: -webkit-flex;      
+			display: flex;  
+			align-items: center;
+			position: relative;
+			
+			
+			.history-timeline-dot {
+				position: absolute;
+				right: -13px;
+				z-index: 4;
+			}
+			
+			// Remove our top lines when we break
+			&:after {
+				@include media-breakpoint-down(md) {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 8px;
+					right: -5px;
+					background-color: $color-white;
+					height: 50%;
+					z-index: 1;
+					top:0;					
+				}
+			}
+			
+		}
+	}
+}
+

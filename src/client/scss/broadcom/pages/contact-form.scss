@@ -1,0 +1,299 @@
+/*
+* pages/contact-form.scss
+*/
+// see also components/dropdown.scss
+
+
+@import "../base/variables";
+
+.contactform {
+    background-color: $color-grey--500;
+    padding: 20px;
+
+    h3 {
+        font-size: $font-size-md; //mods h3 _base.scss
+        color: $color-primary;
+    }
+}
+
+.select-type-contact {
+    margin-top: 20px;
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    .dropdown-toggle {
+        background-color: $color-white !important;
+        height: 44px;
+        padding-right: 15px;
+        line-height: 1.4;
+        padding: 6px 0px;
+    }
+
+    //.dropdown {
+    //   background-color:$color-white;
+    //   border: 1px solid $color-grey--500;
+    //    border-radius: 4px;
+    //    height: 44px;
+    //    line-height: 44px;
+    //    padding: 0px 0px 0px 8px;
+    //}
+
+    //.dropdown-toggle{
+    //    &::after{
+    //        right: 9px;
+    //        position: absolute;
+    //        top: 50%;
+    //        color:$color-grey--800;
+    //    }
+    //}
+    //.contact-select {
+    //    .contact-s-search{
+    //        margin: 0px 8px;
+    //    }
+    //    input {
+    //        border: 1px solid $color-grey--700;
+    //    }
+    //    :nth-child(even) {
+    //        background-color: darken($color-grey--700, 1%);;
+    //        color:$color-black;
+    //            .dropdown-item {
+    //                font-size: $font-size-md;
+    //                padding: 10px;
+    //            } 
+    //    }
+    //    .dropdown-item {
+    //        font-size: $font-size-md;
+    //        padding: 10px;
+    //    }
+    //}
+}
+
+.view-from-button {
+    margin-top: 18px;
+    width: 200px;
+
+    &:disabled {
+        background-color: $color-grey--800
+    }
+
+    .space-b {
+        margin-right: 10px;
+    }
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+// The field description.
+.form-control-description {
+    font-size: $font-size-md;
+    margin-top: 10px;
+}
+
+.contact-details {
+    padding: 15px 0px; // Removed left and right padding because row/col already sets gutters.
+
+    .fillCheat {
+        background-color: $color-grey--500;
+        height: 16px;
+        width: 100%;
+    }
+
+    h3 {
+        margin: 15px 0;
+        color: $color-primary;
+    }
+
+    .form-group {
+        //margin-bottom: 10px;
+        //padding-top: 6px;
+        padding-bottom: 10px;
+        background-color: $color-grey--500;
+        margin: 0;
+
+        &:first-child {
+            padding-top: 10px;
+        }
+    }
+
+    .form-control {
+        color: $color-grey--800;
+        // HACK: JD .contact-details is overriding the bootstrap padding so that labels and fields are not vertically aligned. Keep at rem.
+        padding: .375rem .75rem;
+        margin-top: 3px;
+        height: auto;
+        background-color: $color-white;
+        border: 1px solid $color-grey--700;
+        font-size: $font-size-md;
+        box-shadow: none;
+        border-radius: 4px;
+
+        &:focus {
+            border-color: $color-grey--700 ;
+            box-shadow: 0 0 10px $color-grey--700;
+        }
+    }
+
+    label,
+    .form-check {
+        .text-danger {
+            font-size: 18px;
+        }
+    }
+
+    // Select for contact dropdown
+    .contact-select-wrap {
+        position: relative;
+        background-color: $color-white;
+        border-radius: 4px;
+        border: 1px solid $color-grey--700;
+        margin-top: 3px;        // Make the select box middle align with the label.
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 8px solid $color-grey--800;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            right: 5px;
+            pointer-events: none;
+        }
+
+        select {
+            border: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            margin-top: 0px;        // Negate our form-control margin due to the shadow.
+        }
+
+        // HACK: Don't know how to put the invalid feedback outside, so just styling it.
+        .invalid-feedback {
+            padding: 0 0 10px 10px;
+        }
+    }
+
+    .text-message-input {
+        &:focus {
+            outline: none;
+            border-color: $color-grey--700 !important;
+            box-shadow: inset 0 1px 1px rgba($color-black, .8), 0 0 8px rgba($color-black, .6);
+        }
+    }
+
+    .form-check {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .text-message {
+        //margin-bottom: 15px;
+        padding-bottom: 20px;
+
+        label {
+            margin-bottom: 15px;
+        }
+
+        .form-control-description {
+            margin-top: 0;
+        }
+    }
+
+    .devide {
+        width: 100%;
+        display: inline-block;
+        border-bottom: 2px solid lighten($color-grey--700, 20%);
+        padding-bottom: 20px;
+        margin: 25px;
+    }
+
+    .submit-form {
+        padding: 10px 30px;
+    }
+
+    // Custom radio button
+
+    .radio-contact-check-form {
+        padding-left: 24px;
+        cursor: pointer;
+
+        &:hover * {
+            cursor: pointer; // BCCS8-2: Logo request, we wanted the logos to have a pointer when hovered.
+        }
+
+        // Due to accessibility, we can't have a custom radio button.
+        // input[type=radio] {
+        //     visibility: hidden;
+        //     position: absolute;
+        //     + label:before {
+        //         height: 12px;
+        //         width: 12px;
+        //         margin-right: 16px;
+        //         content: " ";
+        //         display: inline-block;
+        //         vertical-align: baseline;
+        //         border: 1px solid $color-grey--700;
+        //         background-color: $color-white;
+        //         cursor: pointer;    
+        //     }
+        //     &:checked + label:before {
+        //         background: $color-primary;
+        //         border: 1px solid $color-grey--500;
+        //     }
+        //     + label:before {
+        //         border-radius: 50%;
+        //     }
+        // }
+    }
+
+}
+
+.form-section {
+    .form-section-description {
+        margin-bottom: 15px;
+    }
+}
+
+// Thankyou for contact page
+.thankyou-support {
+    margin-top: -10px;
+
+    .thankyou-body {
+        margin-top: 30px;
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+    .select-type-contact {
+        .dropdown {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .challengepics {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

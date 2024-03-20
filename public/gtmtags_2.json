@@ -1,0 +1,592 @@
+
+[
+    {
+    "id":"N001",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "header",
+    "menu_item_name": "logo",
+    "link_url": ""
+    },
+    {
+    "id":"N002",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "header",
+    "menu_item_name": "",
+    "link_url": ""
+    },
+    {
+    "id":"N003",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "eyebrow",
+    "menu_item_name": "login",
+    "link_url": ""
+    },
+    {
+    "id":"N003b",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "eyebrow",
+    "menu_item_name": "register",
+    "link_url": ""
+    },
+    {
+    "id":"N003c",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "eyebrow",
+    "menu_item_name": "forgot password",
+    "link_url": ""
+    },
+    {
+    "id":"N004",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "eyebrow",
+    "menu_item_name": "language",
+    "link_url": ""
+    },
+    {
+    "id": "N006",
+    "status":true,
+    "event": "cta",
+    "cta_type": "subhead",
+    "page_title": "",
+    "link_url": ""
+    },
+    {
+    "id": "N007",
+    "status":true,
+    "event": "share",
+    "share_type": "subhead",
+    "click_text": "print",
+    "link_url": ""
+    },
+    {
+    "id":"N009",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "footer",
+    "menu_item_name": "",
+    "link_url": ""
+    },
+    {
+    "id":"N010",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "footer",
+    "menu_item_name": "",
+    "link_url": ""
+    },
+    {
+    "id":"N014",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "tab",
+    "menu_item_name": "" ,
+    "link_url": ""
+    },
+    {
+    "id":"N017",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "breadcrumb",
+    "menu_item_name":  "",
+    "link_url": ""
+    },
+    {
+    "id":"N030",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "search",
+    "search_term": "",
+    "link_url": ""
+    },
+    {
+    "id":"N031",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "header",
+    "menu_item_name": "closed menu",
+    "search_term": ""
+    },
+    {
+    "id":"N032",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "left column",
+    "menu_item_name": "",
+    "link_url": ""
+    },
+    {
+    "id":"N033",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "search",
+    "menu_item_name": "magnify glass click",
+    "search_term": ""
+    },
+    {
+    "id":"N034",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "in page",
+    "menu_item_name": "",
+    "link_url": ""
+    },
+    {
+    "id":"N035",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "interactive diagram",
+    "menu_item_name": "<title_main>",
+    "link_url": "<url>"
+    },
+    {
+    "id": "I002",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "social share",
+    "social_network": "<social network name>",
+    "link_url": "<url>"
+    },
+    {
+    "id": "I004",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "download filter",
+    "dropdown_box_item": "<dropdown box items>",
+    "link_url": "<url>"
+    },
+    {
+    "id": "I004b",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "download sort",
+    "dropdown_box_item": "<dropdown box items>",
+    "link_url": "<url>"
+    },
+    {
+    "id": "I004d",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "download document",
+    "document_type": "<type>",
+    "document_title": "<title>"
+    },
+    {
+    "id": "I009",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "video",
+    "video_interaction": "<play | pause | watch to end>",
+    "video_title": "<video title>"
+    },
+    {
+    "id": "I010",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "video",
+    "video_interaction": "browse",
+    "dropdown_box_item": "<dropdown box items>",
+    "video_title": "<video title>"
+    },
+    {
+    "id": "I011",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "video",
+    "video_interaction": "video list",
+    "video_title": "<video title>"
+    },
+    {
+    "id": "I012",
+    "status":false,
+    "event": "interaction",
+    "interaction_type": "webinar",
+    "webinar_interation": "select",
+    "webinar_title": "<webinar_title>"
+    },
+    {
+    "id": "I013",
+    "status":false,
+    "event": "interaction",
+    "interaction_type": "webinar",
+    "webinar_interation": "browse",
+    "dropdown_box_item": "<dropdown box items>"
+    },
+    {
+    "id": "I014",
+    "status":false,
+    "event": "interaction",
+    "interaction_type": "webinar",
+    "webinar_interation": "sort",
+    "dropdown_box_item": "<dropdown box items>",
+    "webinar_title": "<webinar_title>"
+    },
+    {
+    "id": "I015",
+    "status":false,
+    "event": "interaction",
+    "interaction_type": "webinar",
+    "webinar_interation": "featured",
+    "webinar_title_click": "<clicked_webinar_title>",
+    "webinar_title": "<webinar_title>"
+    },
+    {
+    "id": "I018",
+    "status":false,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "video",
+    "link_url": "<url>"
+    },
+    {
+    "id": "I019",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "upgrade part",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I020",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "replacement part",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I022",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "previously viewed image",
+    "product_image": "<product_image>",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I022b",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "previously viewed title",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I024",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "end of life",
+    "product_title": "<product_title>",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I035",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "optional products title",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I036",
+    "status":true,
+    "event": "interaction",
+    "interaction_type": "product",
+    "product_interaction": "optional products image",
+    "product_image": "<product_image>",
+    "product_name": "<product_name>"
+    },
+    {
+    "id": "I037",
+    "status":true,
+    "event":"lazy_load_video",
+    "player_id":"<PLAYER ID>",
+    "autoplay":"<BOOLEAN>"
+    },
+    {
+    "id": "P001",
+    "status":true,
+    "event": "site_search",
+    "search_keyword": "<keyword>",
+    "link_url": "<url>"
+    },
+    {
+    "id": "P003a",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "criteria remove",
+    "search_interaction_detail": "<attribute>"
+    },
+    {
+    "id": "P004",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "refine search",
+    "search_interaction_detail": "<reset || refine>"
+    },
+    {
+    "id": "P006",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "display options",
+    "search_interaction_detail": "<grid || list>"
+    },
+    {
+    "id": "P007",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "products per page",
+    "item_per_page": "<# per page>"
+    },
+    {
+    "id": "P009",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "clear all",
+    "search_interaction_detail": "<item checked>"
+    },
+    {
+    "id": "P010",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "download table",
+    "search_interaction_detail": "<item checked>"
+    },
+    {
+    "id": "P012",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "sort",
+    "search_interaction_detail": "<ascending || decending>",
+    "sort_by":"<column title>"
+    },
+    {
+    "id": "P015",
+    "status":true,
+    "event": "part_search_grid",
+    "search_interaction": "compare",
+    "search_interaction_detail": "<items>"
+    },
+    {
+    "id": "P016",
+    "status":true,
+    "event": "part_search_grid",
+    "search_interaction": "remove from compare",
+    "search_interaction_detail": "<item>"
+    },
+    {
+    "id": "P017",
+    "status":true,
+    "event": "part_search_grid",
+    "search_interaction": "compare",
+    "search_interaction_detail": "<PartNumber>"
+    },
+    {
+    "id": "P018",
+    "status":true,
+    "page_type": "404",
+    "source_of_404": "<referring url>"
+    },
+    {
+    "id": "U001",
+    "status":true,
+    "event": "list_group",
+    "click_section": "select",
+    "title": "<title>"
+    },
+    {
+    "id": "U002",
+    "status":true,
+    "event": "list_group",
+    "click_section": "<image || title>",
+    "title": "<title>"
+    },
+    {
+    "id": "U003",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "highlight differences",
+    "search_interaction_detail": "<on || off>"
+    },
+    {
+    "id": "U004",
+    "status":true,
+    "event": "site_search",
+    "search_interaction": "filter",
+    "search_interaction_detail": "<title>"
+    },
+    {
+    "id": "U006",
+    "status":true,
+    "event": "hero_banner",
+    "click_type": "call to action",
+    "title": "<title>"
+    },
+    {
+    "id": "U009",
+    "event":"news",
+    "title":"All Product Release"
+    },
+    {
+    "id": "U010",
+    "event":"financial_news",
+    "title":"<title>"
+    },
+    {
+    "id": "U011",
+    "event":"more_financial_news",
+    "title": "<title>"
+    },
+    {
+    "id": "R043",
+    "event":"product card",
+    "section_title":"<title>",
+    "clicked_resource":"<clicked resource>",
+    "resource_link":"<resource line>"
+    },
+    {
+    "id": "R045",
+    "status":true,
+    "event": "solutions",
+    "click_section": "select",
+    "title":"<title>"
+    },
+    {
+    "id": "R035",
+    "status":true,
+    "event": "news",
+    "click_section": "click",
+    "title": "<title>"
+    },
+    {
+    "id": "U012",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "content",
+    "menu_item_name": "back",
+    "title": "to executives landing"
+    },
+    {
+    "id": "U013",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "content",
+    "menu_item_name": "execitive detail - name",
+    "title": "<name>"
+    },
+    {
+    "id": "U014",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "content",
+    "menu_item_name": "execitive detail - image",
+    "title": "<name>"
+    },
+    {
+    "id": "U015",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "content",
+    "menu_item_name": "product category - image",
+    "title": "<title>"
+    },
+    {
+    "id": "U015a",
+    "status":true,
+    "event": "navigation",
+    "menu_name": "content",
+    "menu_item_name": "product category - name",
+    "title": "<title>"
+    },
+    {
+    "id": "U016",
+    "status":true,
+    "event": "product_list",
+    "click_section":"select",
+    "part_number": "<Part Number>"
+    },
+    {
+    "id": "U017",
+    "status":true,
+    "event": "product_list",
+    "click_section": "select - image",
+    "part_number": "<Part Number>"
+    },
+    {
+    "id": "U017a",
+    "status":true,
+    "event": "product_list",
+    "click_section": "click",
+    "part_number": "<Part Number>"
+    },
+    {
+    "id": "U018a",
+    "status":true,
+    "event": "document",
+    "click_section": "alert - unsubscribe",
+    "content_id": "<content id>"
+    },
+    {
+    "id": "U019",
+    "status":true,
+    "event": "document",
+    "click_section": "knowledge base faq - download",
+    "name": "<name>"
+    },
+    {
+    "id": "U020",
+    "status":true,
+    "event": "document",
+    "click_section": "knowledge results list",
+    "title": "<title>"
+    },
+    {
+    "id": "U021",
+    "status":true,
+    "event": "oem_support",
+    "title": "<title>"
+    },
+    {
+    "id": "U022",
+    "status":true,
+    "event": "security",
+    "security_action": "security advisory",
+    "link_url": "<url>"
+    },
+    {
+    "id": "U023",
+    "status":true,
+    "event": "security",
+    "security_action": "security micro blog - micro blog",
+    "year": "<year>",
+    "month":"<month"
+    },
+    {
+    "id": "U024",
+    "status":true,
+    "event": "security",
+    "security_action": "security micro blog - open post",
+    "title": "<title>"
+    },
+    {
+    "id": "U025",
+    "status":true,
+    "event": "security",
+    "security_action": "security micro blog - get link",
+    "title": "<title>"
+    }
+]
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+<% if (autopilot && autopilot.length> 0) { %>
+    <div>
+        <% for (var i=0; i<autopilot.length; i++) { %>
+            <a href="<%= autopilot[i].url %>"><%= autopilot[i].anchor_text %></a>
+        <% } %>
+    </div>
+<% } %>

@@ -1,0 +1,327 @@
+/*
+* pages/solutions.scss
+*/
+// styling for solution landing, solution details pages
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+#ApplicationLanding {
+	.product-list-group .products .products-dropdown a.btn-white {
+		width: 100%;		// Select Applications button on applications landing.
+	}
+}
+.page-subtitle {
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+    color: $color-primary;
+    font-weight:500;
+}
+
+.solution-page{
+    .body-description, .application-page-solutions{
+        h3{
+            font-size: $font-size-sm * 2;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: $color-primary;
+        }
+        p{
+            color: $color-grey--900;
+            margin-bottom: 10px;
+         }
+    }
+    
+ 
+    .application-page-solutions{
+		// The i icon
+		.application-interactive-stack {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		
+        .application-interactive-legend {
+             margin-right: $font-size-sm;
+             color: $color-primary;
+             font-size: $font-size-lg + 2;
+
+                &:hover{
+                    -webkit-transform: scale(1.05);
+                    transform: scale(1.05);
+                    box-shadow: 0 0 19px lighten($color-grey--900, 9%);
+                    background-color: transparent;
+                    border-radius: 50%;
+                }
+        }
+        .solution-map{
+			margin-top: $font-size-sm;
+            .bi {
+                color: $color-primary;
+                font-size: $font-size-lg + 10;
+            }
+		}
+    }
+}
+
+//solution sub category page layout
+.solution-category-row {
+    margin-bottom: 30px;
+    .solution-item{
+        border: 1px solid $color-grey--600;
+        display: flex;
+        //margin-bottom: 25px;
+        height: 100%;
+        
+    
+        .solution-image{
+            width: 122px;
+            border-right: 1px solid $color-grey--600;
+            background:$color-white;
+            padding-top: 15px;
+        }
+        .solution-content{
+            padding: 10px;
+            flex: 1;
+        
+            
+            h4{
+                
+                font-size: $font-size-lg;                   //mods h4 _base.scss
+                //font-weight: 500;
+                //font-family: $font-family--secondary;
+                color: $color-secondary;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    
+}
+
+.ProductCard {
+    > .row {
+		height: 100%;
+		display: block;
+		> .col-lg-8 {
+			height: 100px;
+			width: 100px;
+			margin: 0 auto;
+			max-width: none;
+			flex: none;
+			padding: 0;
+			border-radius: 50%;
+		}
+		> .col-lg-12 {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			min-width: 0;
+			height: calc(100% - 100px);
+			.card-text {
+				flex: 1 1 auto;
+			}
+		}
+	}
+    .card-footer {
+        padding: 0;
+        background: none;
+        border-top:none;
+    }
+    h4 {margin: 12px 0;}
+    img {
+        max-height: 100px;
+    }
+
+}
+.products-solution{
+    background-color: $color-grey--500;
+    padding: 18px 18px 1px;
+    margin-top: 20px;
+    h3 {
+        color:$color-grey--800;
+        margin-bottom: 20px;
+        font-size: 18px;
+		font-weight: 500;
+    }
+    .products-solution-inner{
+        margin-bottom: 20px;
+         img{
+            overflow: hidden;
+        }
+        h4{
+            //font-size: 18px;
+            //font-family:$font-family--secondary;
+            margin-bottom: 10px;
+            a{
+             color:$color-primary;
+            }
+        }
+        .more{
+            color:$color-grey--800;
+            margin-top: 10px;
+                .bi{
+                    font-size: $font-size-sm;
+                    margin-left: 5px;
+                }
+            
+        }
+    }
+}
+
+.product-category-item {
+        margin-top: 15px; 
+        align-items: center;
+        display: flex;
+        .product-category-item-img {
+            max-width: 60px;        // all the images are different sizes. so fix it.
+            margin-right: 15px;
+        }
+}
+
+/* .application-popup{                //OBSOLETE?? These classes not found in jsx
+	min-width: 300px;
+    border-radius: 0;
+    //border: 4px solid rgba($color-black,.41) !important;
+    //box-shadow: 0 5px 10px rgba($color-black, .2);
+    .popover {
+		border: 0;
+		box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+		&.bs-popover-right {
+			margin-left: 20px;
+			.arrow:after {
+				left: -10px;
+				border-width: 0.7rem 1.2rem 0.7rem 0;
+			}
+		}
+		&.bs-popover-left {
+			margin-right: 20px;
+			.arrow:after {
+				right: -10px;
+				border-width: 0.7rem 0 0.7rem 1.2rem;
+			}
+		}
+		&.bs-popover-top {
+			margin-bottom: 20px;
+			.arrow:after {
+				bottom: -10px;
+				border-width: 1.2rem 0.7rem 0;
+			}
+		}
+		&.bs-popover-bottom {
+			margin-top: 20px;
+			.arrow:after {
+				top: -13px;
+				border-width: 0 0.7rem 1.2rem 0.7rem;
+			}
+		}
+ 		.popover-header {               //not found in jsx
+			font-family: $font-family--secondary;
+			font-size: 16px;
+			background-color: $color-primary;
+			color: $color-white;
+			font-weight: 500;
+			border-radius: 0;
+			text-align: center;
+			text-shadow: none!important;
+			&:before {
+				display: none;
+			}
+		} 
+ 		.popover-body {                 //OBSOLETE?? These classes not found in jsx
+            
+			.devide-border {
+				border-bottom: 0;
+				margin-bottom: 10px;
+				a {
+                    font-family: $font-family--secondary;
+					font-weight: 500;
+					font-size: 16px;
+				}
+			}
+		} 
+		span.arrow {
+			border-right: 0;
+			&:before {
+				border-right: 0;
+				border-left: 0;
+				display: none;
+			}
+		}
+	}
+    .devide-border {
+        border-bottom: 1px solid $color-grey--500;
+        margin-bottom: 15px;
+        padding: 5px 0px;
+         &:last-child{
+            border-bottom: none; 
+        }
+        img{
+           max-width:60px;    
+        }
+        a{
+           word-wrap: break-word;
+		   font-size: $font-size-md;
+           line-height: 1.4;
+           display: block;
+        }
+       
+    }
+  
+} */
+//moved out from products.scss row 83
+.product-list-large {
+	.product-list-group {
+        .products {
+            .products-image {
+                width: 100%;
+                padding-right: 0;
+                @include media-breakpoint-up(md) { 
+                    width: 175px;
+                }
+                @include media-breakpoint-up(lg) { 
+                    width: 375px;
+                }			
+            }
+        }
+	}
+}
+.solutionslanding {
+	.products{
+		.products-dropdown{
+			.btn-white{
+				padding: 15px;
+				width: auto !important;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, xl) - 1){ 
+    .solution-map {
+        img{
+            margin-bottom:20px;
+        }
+    }
+    
+}
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1){ 
+
+    .products-solution{
+        .products-solution-inner{
+            .col-3 {
+                padding-right: 0;
+            }
+            h4{
+                font-size: $font-size-md ;
+    
+            }
+        }
+       
+    }
+}
+
+ 
+ 
+ 
+ 

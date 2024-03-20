@@ -1,0 +1,34 @@
+/*
+* pages/product-familly-c.scss
+*/
+// 
+
+@import "../base/buttons";
+
+#ProductFamilyA {
+
+    .search-btn-wrap .search-bttn{
+        width: 100%;                            //mods search-bttn
+        height: unset;							//mods search-bttn _buttons.scss
+        max-width: 350px;
+        padding: 10px;							//mods search-bttn
+        border-radius: 4px;						//mods search-bttn
+
+        .bi{
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+    }
+
+    button {
+        &.clear-bttn {
+          @extend .clear-bttn-lrg;		//TypeAhead can be large or small input box
+        }
+        &.search-bttn {
+          @extend .search-bttn-lrg;		//TypeAhead can be large or small input box
+        }
+      
+      }
+}
+

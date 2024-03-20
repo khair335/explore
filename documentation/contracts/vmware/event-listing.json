@@ -1,0 +1,252 @@
+{
+    "content_id": "blt12a537cfbe03f6b9_en-us",
+    "content_type": "landing_pages",
+    "template": "EventListing",
+    "url": "/company/events",
+    "locale": "en-us",
+    "title": "VMware Events | Watch Virtual Conferences",
+    "page_title": "VMware Events",
+    "short_title": null,
+    "browser_title": "VMware Events | Watch Virtual Conferences",
+    "body": "<h4>Learn how Broadcom helps organizations drive digital business success</h4><br><p>Broadcom infrastructure software solutions help companies worldwide drive enterprise-wide productivity, offering differentiated user experiences and opening new growth opportunities. Read about customers\u2019 success with mainframe, enterprise and cybersecurity software in the case studies library, accessible below. Filter by solution, product or sort by location.</p>",
+    "hero_banner": null,
+    "meta_description": "Broadcom solutions empower our customers success. Power your future with Broadcom.",
+    "breadcrumb_list": [
+        {
+            "position": 2,
+            "item": {
+                "name": "Company",
+                "url": "/company/Events & Broadcasts",
+                "target": "_self"
+            },
+            "show_in_navigation": true
+        }
+    ],
+    "content_blocks": [
+        {
+            "template": "ContentBlocks",
+            "locale": "en-us",
+            "navigation": [
+                {
+                    "content_id": "blt05fadcc7fcd4e7fd_en-us",
+                    "content_type": "content_block_list",
+                    "section_title": "Customer Successes",
+                    "hash_tag_name": "Customer Successes"
+                },
+                {
+                    "content_id": "blt132c4fc9a43c38f6_en-us",
+                    "content_type": "content_block_list",
+                    "section_title": "Services & Support",
+                    "hash_tag_name": "Services & Support"
+                },
+                {
+                    "content_id": "bltb0f4b9076d040b11_en-us",
+                    "content_type": "content_block_list",
+                    "section_title": "Resources",
+                    "hash_tag_name": "Resources"
+                }
+            ]
+        },
+        {
+            "content_id": "blt86941bd92dd94ab4_en-us",
+            "content_type": "content_block",
+            "template": "Default",
+            "locale": "en-us",
+            "title": "IT asset management software to help manage and optimize IT hardware and software assets.",
+            "section_title": null,
+            "tab_title": null,
+            "hash_tag_name": "IT asset management software to help manage and optimize IT hardware and software assets.",
+            "body": "<p>Our IT asset management software can help you deliver proven ROI and control IT spending, enable regulatory and policy compliance and improve service delivery. We want you to get the most out of your IT assets while enabling \u201cstock-on-hand-inventory\u201d fulfillment.</p><p>Our IT asset management software determines what you\u2019re paying in hardware fees to help you optimize your cost structure and reallocate underutilized assets.</p><p>The extensive features of this IT asset management software provide a proven solution to help you proactively manage the lifecycle of your assets. This robust IT solution also helps improve service delivery by supporting the automated review, approval and fulfillment processes for hardware requests. Business consumers, power users and decision makers are provided with a modern self-service user experience where they can view their IT assets, request new assets and services, collaborate with other users and resolve issues in a single place.</p>",
+            "image": null,
+            "image_position": null,
+            "inline_video_display": "No",
+            "links": [
+                {
+                    "content_id": "blt3ff18ef885beef7d_en-us",
+                    "content_type": "links",
+                    "uid_orginal": "blt3ff18ef885beef7d",
+                    "title": "Calculate ROI",
+                    "url": "https://calculators.broadcom.com/itambenefits/",
+                    "target": "_blank",
+                    "subtype": "links",
+                    "no_follow ": true,
+                    "show_in_navigation": "Yes"
+                }
+            ],
+            "description": "<p>Our IT asset management software can help you deliver proven ROI and control IT spending, enable regulatory and policy compliance and improve service delivery. We want you to get the most out of your IT assets while enabling \u201cstock-on-hand-inventory\u201d fulfillment.</p><p>Our IT asset management software determines what you\u2019re paying in hardware fees to help you optimize your cost structure and reallocate underutilized assets.</p><p>The extensive features of this IT asset management software provide a proven solution to help you proactively manage the lifecycle of your assets. This robust IT solution also helps improve service delivery by supporting the automated review, approval and fulfillment processes for hardware requests. Business consumers, power users and decision makers are provided with a modern self-service user experience where they can view their IT assets, request new assets and services, collaborate with other users and resolve issues in a single place.</p>",
+            "asset_type": "content_block"
+        },
+        {
+            "content_id": "bltc187b90b3a6109d1_en-us",
+            "content_type": "content_block_list",
+            "template": "ContentCard",
+            "locale": "en-us",
+            "title": "CA Asset Portfolio Management. Real results, right now.",
+            "section_title": null,
+            "tab_title": "CA Asset Portfolio Management. Real results, right now.",
+            "hash_tag_name": "CA Asset Portfolio Management. Real results, right now.",
+            "body": null,
+            "promo_color": null,
+            "card_width": null,
+            "categories": [],
+            "image_position": "Above",
+            "columns": [
+                [
+                    {
+                        "content_id": "blt295e20260a69fa9e_en-us",
+                        "content_type": "content_block",
+                        "template": "Default",
+                        "locale": "en-us",
+                        "title": "Deliver business value. Reduce risks and costs.",
+                        "section_title": null,
+                        "tab_title": null,
+                        "hash_tag_name": "Deliver business value. Reduce risks and costs.",
+                        "body": "<p>Get visibility and control of your IT asset base with financial, vendor, contract and license management.</p>\n",
+                        "image": null,
+                        "image_position": null,
+                        "inline_video_display": "No",
+                        "links": [
+                            {
+                                "content_id": "bltdb2324784f6392eb_en-us",
+                                "content_type": "document",
+                                "uid_orginal": "bltdb2324784f6392eb",
+                                "title": "CA Asset Portfolio Management",
+                                "url": "https://docs.broadcom.com/docs/ca-asset-portfolio-management",
+                                "target": "_self",
+                                "subtype": "document",
+                                "no_follow ": false,
+                                "secured": "no",
+                                "entitled": "no",
+                                "file_size": "277 KB",
+                                "type": "pdf",
+                                "language": "English",
+                                "os": "NA",
+                                "asset_version": "NA",
+                                "alert": null,
+                                "tooltip": null,
+                                "author": null,
+                                "content_owner": "CA Contact",
+                                "archive_asset": null,
+                                "translation": null,
+                                "doc_status": "Current",
+                                "doc_type_description": "Provides information on device features, signal descriptions, electrical characteristics, packaging, and pinout information.",
+                                "doc_type": "Data Sheet",
+                                "asset_read_me_link": {
+                                    "url": null
+                                },
+                                "locale": "en-us",
+                                "description": null,
+                                "display_date": "08/23/2019",
+                                "publish_date": "2019-08-23T18:30:00.000000Z",
+                                "product_type": null,
+                                "document_author": null,
+                                "publication_number": "ca-asset-portfolio-management",
+                                "data-type": "regular",
+                                "data-expired": false,
+                                "data-url": "https://docs.broadcom.com/docs/ca-asset-portfolio-management",
+                                "data-target": "#download_modal",
+                                "data-resid": "drvbltdb2324784f6392eb_en-us",
+                                "data-toggle": "modal",
+                                "document_subtype": {
+                                    "content_type": "document_subtype",
+                                    "content_id": "bltc4a02206a00a0e21_en-us",
+                                    "subtype_name": "Data Sheet",
+                                    "description": "Provides information on device features, signal descriptions, electrical characteristics, packaging, and pinout information."
+                                }
+                            }
+                        ],
+                        "description": "<p>Get visibility and control of your IT asset base with financial, vendor, contract and license management.</p>\n",
+                        "asset_type": "content_block"
+                    }
+                ],
+                [
+                    {
+                        "content_id": "blte352e391c0840169_en-us",
+                        "content_type": "content_block",
+                        "template": "Default",
+                        "locale": "en-us",
+                        "title": "Maximize the value of your IT assets.",
+                        "section_title": null,
+                        "tab_title": null,
+                        "hash_tag_name": "Maximize the value of your IT assets.",
+                        "body": "<p>Determine precisely what you&rsquo;re paying in hardware and software fees to help you optimize your cost structure and reallocate underutilized assets.</p>\r\n",
+                        "image": null,
+                        "image_position": null,
+                        "inline_video_display": "No",
+                        "description": "<p>Determine precisely what you&rsquo;re paying in hardware and software fees to help you optimize your cost structure and reallocate underutilized assets.</p>\r\n",
+                        "asset_type": "content_block"
+                    }
+                ],
+                [
+                    {
+                        "content_id": "blt6b0d40cd5894fd18_en-us",
+                        "content_type": "content_block",
+                        "template": "Default",
+                        "locale": "en-us",
+                        "title": "Streamline efficiency and responsiveness.",
+                        "section_title": null,
+                        "tab_title": null,
+                        "hash_tag_name": "Streamline efficiency and responsiveness.",
+                        "body": "<p>Enable the automation of review, approval and fulfillment processes for hardware and software requests.</p>\r\n",
+                        "image": null,
+                        "image_position": null,
+                        "inline_video_display": "No",
+                        "description": "<p>Enable the automation of review, approval and fulfillment processes for hardware and software requests.</p>\r\n",
+                        "asset_type": "content_block"
+                    }
+                ]
+            ]
+        }
+    ],
+    "events": [
+        {
+            "content_id": "blt14edc967c5a6a7bc_en-us",
+            "content_type": "event",
+            "event": "Mobile World Congress Barcelona | Stand 3M11",
+            "date_range":"02/26/2024 - 02/29/2024",
+            "formate":"In Person",
+            "location":"Barcelona, Spain",
+            "info & register":{
+                "link_title":"Learn More",
+                "url":"https://engage.vmware.com/mwc24"
+            },
+            "filters": {
+                "format": [ #Event Subtype
+                    "Online",
+                    "In Person"
+                ],
+                "location": [
+                    "Barcelona",
+                    "Spain"
+                ],
+                "event_type": [
+                    "Conference",
+                    "Industry Event",
+                    "Local Seminars"
+                ],
+                "topic": [
+                    "Anywhere Workspace",
+                    "App Moderinization",
+                    "Big Data",
+                    "Cloud",
+                    "Converged infrastructure",
+                    "Data Center",
+                    "End User"
+                ],
+                "results_per_page": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ]
+            }
+        }
+        
+    ],
+    "site_ribbon": {
+        "cookie_alt_message": "<p><em>This content is not loading because you've chosen to block \"Targeting\" cookies on this website, which are required for this content to be displayed. You can adjust this restriction on this site by following these steps:</em></p><ul><li>Go to the <a href=\"https://www.broadcom.com/company/legal/cookie-policy\" target=\"_blank\">Cookie Policy</a> page</li><li>Click on \u201cCookie settings\u201d</li><li>Select \"Targeting Cookies\" from the left side</li><li>Toggle the switch on the right</li><li>Click on \u201cConfirm My Choices\u201d</li></ul>"
+    },
+    "date_time": "02/16/2024, 18:16:21",
+    "timetaken_for_getmetadata": 13.332684
+}

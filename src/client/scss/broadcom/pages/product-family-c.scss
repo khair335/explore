@@ -1,0 +1,63 @@
+/*
+* pages/product-family-c.scss
+*/
+// ProductFamilyC.jsx   
+
+@import "../base/variables";
+
+#ProductFamilyC {
+  h3 {
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0px 10px 0px;
+    font-weight: 600;
+  }
+
+  .application-page-standal {
+    ul {
+      padding-bottom: 10px;
+      padding-left: 15px;
+      margin: 0px;
+
+      li {
+        margin: 5px;
+
+        p {
+          font-size: $font-size-md;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .related {
+      margin: 0px 15px;
+    }
+  }
+
+  .compare-action-col button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .bc-result-sidebar {
+    .bc-result-sidebar-collapse {
+      margin-left: 20px;
+    }
+
+    .check-wrap .checkbox+label {
+
+      // Fix wrapping issues when labeles are 2 lines.
+      @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+        width: 189px;
+      }
+    }
+  }
+
+  .list-item {
+    .check-wrap {
+      margin-top: 4px;      // Align our checkbox with the top of the link.
+    }
+  }
+}

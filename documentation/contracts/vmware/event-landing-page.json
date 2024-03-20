@@ -1,0 +1,271 @@
+{
+    "content_id": "bltdec6b05f34b48eb3_en-us",
+    "content_type": "event_landing",
+    "name": "Las Vegas Event page",
+    "template": "Event Landing",
+    "title": "Las Vegas Event page",
+    "body": null,
+    "url": "/events/lasvegas",
+    "browser_title": "Las Vegas Event page",
+    "meta_description": null,
+    "content_after_event": [
+        {
+            
+            "content_id": "blt297ee51b5610843b_en-us",
+            "content_type": "content_block",
+            "template": "Default",
+            "locale": "en-us",
+            "title": "Measure what matters most",
+            "section_title": "Overview",
+            "tab_title": null,
+            "hash_tag_name": "Overview",
+            "body": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "image": {
+                "src": "/media/blt4ac44e0e6c6d8341/blt426f19aaf5dc5838/659845bd0543c552548f3521/Overview_V2.jpg",
+                "width": 1920,
+                "height": 1080,
+                "title": "Overview_V2.jpg",
+                "alt": "Overview_V2.jpg",
+                "enlarge": "true"
+            },
+            "image_position": "Right",
+            "inline_video_display": "Yes",
+            "description": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "asset_type": "content_block"
+            
+        }
+    ],
+    "content_before_event": [
+        {
+            "content_id": "blt297ee51b5610843b_en-us",
+            "content_type": "content_block",
+            "template": "Default",
+            "locale": "en-us",
+            "title": "Measure what matters most",
+            "section_title": "Overview",
+            "tab_title": null,
+            "hash_tag_name": "Overview",
+            "body": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "image": {
+              "src": "/media/blt4ac44e0e6c6d8341/blt426f19aaf5dc5838/659845bd0543c552548f3521/Overview_V2.jpg",
+              "width": 1920,
+              "height": 1080,
+              "title": "Overview_V2.jpg",
+              "alt": "Overview_V2.jpg",
+              "enlarge": "true"
+            },
+            "image_position": "Right",
+            "inline_video_display": "Yes",
+            "description": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "asset_type": "content_block"
+          }
+    ],
+    "content_during_event": [
+        {
+            "content_id": "blt297ee51b5610843b_en-us",
+            "content_type": "content_block",
+            "template": "Default",
+            "locale": "en-us",
+            "title": "Measure what matters most",
+            "section_title": "Overview",
+            "tab_title": null,
+            "hash_tag_name": "Overview",
+            "body": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "image": {
+              "src": "/media/blt4ac44e0e6c6d8341/blt426f19aaf5dc5838/659845bd0543c552548f3521/Overview_V2.jpg",
+              "width": 1920,
+              "height": 1080,
+              "title": "Overview_V2.jpg",
+              "alt": "Overview_V2.jpg",
+              "enlarge": "true"
+            },
+            "image_position": "Right",
+            "inline_video_display": "Yes",
+            "description": "<p>ValueOp Insights puts predictability on the map for software development and delivery by presenting real-time metrics and data visualization. ValueOps Insights effortlessly gathers data from all the tools that run your value streams and organizes it using its Common Data Model. With normalized data, ValueOps Insights provides automated reports and real-time dashboards that offer early and ongoing insights into business operations across all of your value streams. Decision makers across the organization can now see the same data to identify trends, bottlenecks, issues, and constraints that impact business outcomes and slow down value delivery.</p>",
+            "asset_type": "content_block"
+          }
+    ],
+    "content_metadata": {
+        "start_date": null,
+        "end_date": null,
+        "internal_notes": ""
+    },
+    "event_name": "Las Vegas Event page",
+    "event_timer": [{
+        "locale": "en-us",
+        "uid": "blt27ae0d0ba232eae0",
+        "countdown_title": "Las Vegas Timer",
+        "countdown_type": "Event",
+        "image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt426f19aaf5dc5838/659845bd0543c552548f3521/Overview_V2.jpg",
+              "width": 720,
+              "height": 180,
+              "title": "Overview_V2.jpg",
+              "alt": "Overview_V2.jpg",
+              "enlarge": "true"
+        },
+        "start_date_and_time": "2024-03-10T16:00:00.000Z",
+        "title": "Las vegas timer"
+    }],
+    "header": [{
+        "content_id": "blt4a210d9f24ee6a72_en-us",
+        "content_type": "header",
+        "title": "explore home header",
+        "header_name": "explore home header",
+        "logo_abstract": "LAS VEGAS | THE VENETIAN\nAUGUST 26 – 29, 2024",
+        "url": "/info/vmware",
+        "image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+            "width": 1920,
+            "height": 455,
+            "title": "hero-rally-software.jpg",
+            "alt": "hero-rally-software.jpg",
+            "enlarge": "false"
+        },
+        "navigation": [
+            {
+                "navigation_title": "Overview",
+                "url":"/explore/us.html"
+            },
+            {
+                "navigation_title": "2023 Resources",
+                "navigation_link": "/videolibrary"
+            }
+        ],
+        "show_search": true,
+        "header_cta": {
+            "cta_title": "Watch On Demand",
+            "url": "/explore/videolibrary"
+        },
+        "header_links": [
+            {
+                "links_title": "Contact Us",
+                "url": "/info/contactus",
+                "sub_navigation": []
+            },
+            {
+                "links_title": "Select Event",
+                "links": [],
+                "sub_navigation": [
+                    {
+                        "link_title": "Las Vegas",
+                        "url": "/explore/us.html",
+                    },
+                    {
+                        "link_title": "Barcelona",
+                        "url": "/explore/eu.html",
+                    },
+                    {
+                        "link_title": "VMware Explore Video Library",
+                        "url":"/explore/videolibrary",
+                    }
+                ]
+            }
+        ]
+    }],
+    "hero_banner": [
+        {
+          "content_id": "blt1e6522f88b3873c4_en-us",
+          "content_type": "hero_banner",
+          "title": "Value Stream Intelligence",
+          "banner_name": null,
+          "banner_headline": "Value Stream Intelligence",
+          "description": "<p>Understand and align your organization with real-time analytics that represent all data in your value streams</p>",
+          "url": "https://enterprise-software.broadcom.com/valueops-connectall-insights",
+          "links": [
+            {
+              "content_id": "blt562bbec48213eeb1_en-us",
+              "content_type": "links",
+              "uid_orginal": "blt562bbec48213eeb1",
+              "title": "Request a Demo",
+              "url": "https://enterprise-software.broadcom.com/valueops-connectall-insights",
+              "target": "_blank",
+              "subtype": "links",
+              "no_follow ": true,
+              "show_in_navigation": "Yes"
+            }
+          ],
+          "hero_image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt74a6994b5cc2d611/6581ea56dc76621a5f7e8ad9/wwwHero_ValueOps_Insights.jpg?branch=main",
+            "width": 1920,
+            "height": 455,
+            "title": "wwwHero_ValueOps_Insights.jpg",
+            "alt": "wwwHero_ValueOps_Insights.jpg",
+            "enlarge": "false"
+          },
+          "locale": "en-us",
+          "created_date": "2023-12-04T17:51:13.326000Z",
+          "updated_date": "2023-12-19T19:10:21.617000Z",
+          "end_date": "2054-01-01",
+          "start_date": "2019-01-10"
+        }
+      ],
+      "locale": "en-us",
+    "other_content": [
+        {
+            "uid": "blte1cc6efb2e5e6536",
+            "_content_type_uid": "content_block"
+        }
+    ],
+    "breadcrumb_list": [
+        {
+          "position": 1,
+          "item": {
+            "name": "Products",
+            "url": "/products"
+          },
+          "show_in_navigation": true,
+          "content_id": "blt6040da594064c14a_en-us",
+          "content_type": "landing_pages"
+        },
+        {
+          "position": 2,
+          "item": {
+            "name": "Enterprise Software",
+            "url": "/products/enterprise-software"
+          },
+          "show_in_navigation": true,
+          "content_id": "blt909dd35b85dbbce2_en-us",
+          "content_type": "product_category"
+        },
+        {
+          "position": 3,
+          "item": {
+            "name": "Value Stream Management",
+            "url": "/products/software/value-stream-management"
+          },
+          "show_in_navigation": true,
+          "content_id": "blt1802a861832425b2_en-us",
+          "content_type": "product_category"
+        },
+        {
+          "position": 4,
+          "item": {
+            "name": "ValueOps Insights",
+            "url": "/products/software/value-stream-management/valueops-insights"
+          },
+          "show_in_navigation": true
+        }
+      ],
+      "cta": [
+        {
+          "content_id": "blt9ff948839b408cab_en-us",
+          "content_type": "links",
+          "uid_orginal": "blt9ff948839b408cab",
+          "title": "Contact Us",
+          "url": "https://enterprise-software.broadcom.com/contact-us",
+          "target": "_self",
+          "subtype": "links",
+          "no_follow ": true,
+          "show_in_navigation": "Yes",
+          "linked_text_title": "Contact Us"
+        }
+      ],
+      "time": 0.030107,
+      "previously_viewed_json_url": "/api/productdetail/previouslyviewed",
+      "site_ribbon": {
+        "cookie_alt_message": "<p><em>This content is not loading because you've chosen to block \"Targeting\" cookies on this website, which are required for this content to be displayed. You can adjust this restriction on this site by following these steps:</em></p><ul><li>Go to the <a href=\"https://www.broadcom.com/company/legal/cookie-policy\" target=\"_blank\">Cookie Policy</a> page</li><li>Click on \u201cCookie settings\u201d</li><li>Select \"Targeting Cookies\" from the left side</li><li>Toggle the switch on the right</li><li>Click on \u201cConfirm My Choices\u201d</li></ul>"
+      },
+      "date_time": "02/21/2024, 01:16:52",
+      "timetaken_for_getmetadata": 0.11089
+}

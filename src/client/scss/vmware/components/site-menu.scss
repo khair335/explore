@@ -1,0 +1,147 @@
+/*
+* components/site-menu.scss
+*/
+// Styling for broadcom custom left navigation
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.left-navigation{
+    border: 1px solid darken($color-white, 10%);
+    padding: 10px;
+    margin-bottom: 35px;
+
+	// Always show on screen sizes greater than lg (See RowLeftNav <Col lg="3">)
+	@include media-breakpoint-up(lg) {
+		.collapse {
+			display: block !important;	// HACK: JD		
+		}
+	}
+	
+	.left-nav-toggle {                          //this is a button - see below for full defs
+		width: 100%;		
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+	
+    h2 {
+        font-size: 18px;
+        font-weight: 500;                                //mods h2 _base.scss
+        line-height: 25px;
+        padding: 5px 0 0 10px;
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: $color-primary;                          //mods h2 _base.scss
+        
+        a.lnk{
+            color: $color-primary;                      //mods _link.scss
+            &:hover {
+            color:$color-secondary;                     //mods _link.scss
+            }
+        }
+    }
+    .list-group{
+        list-style: none;
+        padding: 0 0 0 15px;
+        margin: 0 0 20px;
+
+        li{
+            font-family: $font-family--secondary;
+            line-height: 25px;
+            padding: 0 0px;
+
+/*             .current{
+                font-weight: 500;				
+            } */
+
+            a.lnk{
+              color: $color-black;                      //mods _link.scss
+              font-weight: 400;                         //mods link
+
+                &:hover,
+                &:focus{
+                    color: $color-secondary;           //mods _link.scss
+                }
+            }
+            &.current > a.lnk{
+                font-weight: 500;                      //mods _link.scss
+				a.lnk{
+                    &:hover,
+                    &:focus{
+                        color: $color-secondary;      //mods _link.scss
+                    } 
+                }
+            }
+            .list-group{
+                margin-bottom: 0;
+                padding: 0 10px 0 20px;
+            }       
+
+            ul{
+                padding-left: 30px;
+				list-style: none;
+                li{
+                    a.lnk{
+                        
+                        font-weight: 400;                               //mods _link.scss
+                        &:hover,
+                        &:focus{
+                            color: $color-secondary!important;         //mods _link.scss
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 991px){
+    .left-navigation{
+       .left-nav-collapse {
+            padding: 0px 15px;
+            box-shadow: 0 6px 12px rgba($color-black,.175);}
+        padding: 0px;
+        .left-nav-toggle{                                               //this is a button, see _buttons.scss for base  (this is a one-off)
+            border-bottom: 1px solid darken($color-white, 10%);             //mods button
+            padding: 10px 15px;
+            color:$color-grey--800;                                         //mods button
+            background-color: transparent;                                  //mods button
+            .bi {
+                color: $color-grey--800;
+            }
+            .text-right{
+                font-size: 18px;
+            }
+        }
+        h2{
+            padding: 20px 0 10px 0;
+        }
+        .list-group{
+            padding: 0 0 20px;
+            margin:0px;
+            li{
+                padding: 0;
+            }
+        }
+    }
+}
+
+// BCCA integration
+.midPageNav{
+    color: $color-black;
+    font-weight: 600;
+    background-color:$color-grey--600;
+
+    ul li {
+        margin-right:20px;
+        a{
+            //cursor: pointer;
+            &:hover {
+                color: $color-secondary;        //mods _link.scss
+            }
+        }
+    }
+
+}

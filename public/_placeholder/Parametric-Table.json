@@ -1,0 +1,399 @@
+{
+  "_comment": "Sample Parametric Search -https://cmsstaging.broadcom.com/products/wireless/amplifiers/GPS/GNSS/",
+  "AssetType": "AVG_Product_P",
+  "AssetID": "1210951706055",
+  "Template": "ParametricSearch",
+  "Locale": "avg_en",
+  "CTA": [
+    {
+      "AssetType": "Page",
+      "AssetID": "1211130599008",
+      "CTA_Name": "CONTACT SALES",
+      "_url_": "https://cmsstaging.broadcom.com/how-to-buy/#sales",
+      "target_window": "_blank"
+    },
+    {
+      "AssetType": "Page",
+      "AssetID": "1211131435457",
+      "CTA_Name": "REQUEST INFO",
+      "_url_": "http://avagoresponsecenter.com/693/",
+      "target_window": "Modal Window"
+    }
+  ],
+  "BreadcrumbList": [
+    {
+      "position": 1,
+      "item": {
+        "name": "Products",
+        "_url_": "https://cmsstaging.broadcom.com/products/"
+      }
+    },
+    {
+      "position": 2,
+      "item": {
+        "name": "Wireless Embedded Solutions and RF Components",
+        "_url_": "https://cmsstaging.broadcom.com/products/wireless/"
+      }
+    },
+    {
+      "position": 3,
+      "item": {
+        "name": "Amplifiers",
+        "_url_": "https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+      }
+    },
+    {
+      "position": 4,
+      "item": {
+        "name": "Gain Block & Drivers",
+        "_url_": ""
+      }
+    }
+  ],
+  "CategoryName": "Gain Block & Drivers Millimeter Wave Amplifiers",
+  "CategoryLevel": "",
+  "OEMQualifiedDownloads": "Yes or No or blank",
+  "CategoryOEMList": [
+    "Cisco",
+    "Dell",
+    "EMC",
+    "Emulux",
+    "HPE"
+  ],
+  "ParametricList_Attributes": [
+    {
+      "Select": "Select"
+    },
+    {
+      "productline": "Product Line"
+    },
+    {
+      "PartNumber": "PartNumber"
+    },
+    {
+      "DataSheet": "DataSheet"
+    },
+    {
+      "DistribInventory": "Distrib.Inventory"
+    },
+    {
+      "LifeCycle": "LifeCycle"
+    },
+    {
+      "COLOR": "Color"
+    },
+    {
+      "DIMENSION_LXWXH_IN_MM": "Dimension Lxwxh In Mm"
+    }
+  ],
+  "ParametricListFilter_Attributes": [
+    {
+      "PartNumber": "PartNumber",
+      "values":["Part1","Part2","Part3"]
+    },
+    {
+      "DistribInventory": "Distrib.Inventory",
+      "values":["Yes","No"]
+    },
+    {
+      "LifeCycle": "LifeCycle",
+      "values":["Active"]
+    },
+    {
+      "DIMENSION_LXWXH_IN_MM": "Dimension Lxwxh In Mm",
+      "values":["3.2 x 2.4 x 2.4","3.2 x 2.4 x 2.4","3.2 x 2.4 x 2.4"]
+    }
+  ],
+  "ParametricOverlay_Attributes_EndPointURL": "/api/tbd",
+  "Parametric_Parts": [],
+  "ShowProductLine": "Yes or No or blank",
+  "RelatedDocuments": [],
+  "ShowDocumentText": "Yes or No or blank",
+  "doclbl": "",
+  "View": "Grid or List or blank",
+  "multiline": "Yes or No or blank",
+  "display_search_bar": "Yes or No or blank",
+  "CategoryThumbnail": [],
+  "CategoryTitle": "Gain Block & Drivers Millimeter Wave Amplifiers",
+  "ShortTitle": "Gain Block & Drivers",
+  "BrowserTitle": "",
+  "Product-Line": "Gain Block & Drivers Millimeter Wave Amplifiers",
+  "CategorySummary": "Broadcom offers a broad selection of Gain Blocks and Driver amplifiers housed in industry standard packages to support various wireless infrastructure and other RF front-end design needs. These product solutions leverage Broadcom's extensive design knowledge, technical leadership, manufacturing expertise, and superior quality.",
+  "CategoryAbstract": "<strong> These parts are at end of life and should not be used in new designs.</strong> Gain Block and Driver amplifiers covering DC to 6GHz applications.",
+  "CategoryDescription": "These parts are at end of life and should not be used in new designs.Product Obsolescence Notice OBS120117WSD3, Dec. 2017 Broadcom offers a broad selection of Gain and Block Driver Amplifiers housed in industry standard packages to support various wireless infrastructure and other RF front-end design needs. These product solutions leverage Broadcom's extensive design knowledge, technical leadership, manufacturing expertise, and superior quality.",
+  "AdditionalDescription": "",
+  "multilineparametric": "Yes or No or blank",
+  "Body2": "",
+  "RelatedPromoTitle": "",
+  "RelatedPromoBody": "",
+  "CategoryList": [],
+  "RelatedResources": [],
+  "DisplayStandaloneProducts": "Yes or No or blank",
+  "MetaDescription": "Broadcom offers a broad selection of Gain Blocks and Driver amplifiers housed in industry standard packages to support various wireless infrastructure and other RF front-end design needs.",
+  "MetaKeywords": "Gain Blocks",
+  "CrossLinkpage": [],
+  "ShowCompareButton": "Yes or No or blank",
+  "products": [
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "DataSheet": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    },
+    {
+      "AssetType": "AVG_Product_C",
+      "AssetID": "1211190199188",
+      "Subtype": "SubType",
+      "Locale": "avg_en",
+      "productline": "Thorough-hole",
+      "PartNumber": "MegaRAID 9480-8i8e",
+      "RelatedDataSheets": [
+        {
+          "AssetType": "AVG_Document_C",
+          "AssetID": "1211209950041",
+          "_url_": "https://docscmsstaging.broadcom.com/docs/VMware_Megaraid-7.706.08.00-Readme.txt"
+        }
+      ],
+      "DistribInventory": "No",
+      "LifeCycle": "Active",
+      "COLOR": "Red",
+      "DIMENSION_LXWXH_IN_MM": "3.2 x 2.4 x 2.4",
+      "ProductName": "0.52 7-Segment Single Digit LED Display (Red, CA)",
+      "Description": "The Broadcom HDSP-H5E1 is part of a 0.52-inch height series of through-hole, 7-segment single digit, PCB-based LED display devices. The HDSP-H5E1 provides a red numeric character with right hand decimal and has a common anode (CA).",
+      "_url_": "https://www.broadcom.com/products/leds-and-displays/7-segment/through-hole/hdsp-h5e1",
+      "ProductImage": {
+        "AssetID": "1211190111234",
+        "AssetType": "AVG_Image_C",
+        "AltText": "MegaRAID 9480-8i8e",
+        "Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+      },
+      "buynow_url": "http://www.digikey.com/product-search/en?WT.z_cid=sp_516_buynow&amp;keywords=/search?kw=HDSP-H5E1"
+    }
+  ]
+}

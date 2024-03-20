@@ -1,0 +1,166 @@
+/*
+* components/tab-page.scss
+*/
+// the style for tabbed pages
+
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+.nav-tabs{
+	border-bottom: 0;
+    width: 100%;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+
+    > li{
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right:0px;
+        position: relative;
+        &:after{
+            content: "";
+            height: 20px;
+            width: 1px;
+            background-color: $color-grey--625;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+             &:after{
+                display: none;
+            }
+        }   
+        a.lnk{												//custom button/link  see _link.scss for base
+            line-height: 1.9;
+             display: inline-block;
+             padding: 3px 0px;
+             position: relative;
+			 &:hover {  
+				color: $color-black;
+				text-decoration:none;        				//mods _link.scss - necessary to keep from having double red lines on hover
+                border-bottom: 2px solid $color-primary;
+			 }
+
+            &.active{										//mods _link.scss
+                color: $color-black;
+                border-bottom: 2px solid $color-primary;
+            }
+        }
+    }
+}
+
+// moved out of base.scss file
+.tabs-product {
+	margin-bottom: 40px !important;
+  }
+
+@media (max-width: 767px) {
+    .nav-tabs{
+        > li.nav-item{
+            padding-left: 0;
+            padding-right: 20px;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+// Mobile version of tabs. (Duplicate of left-nav)
+@include media-breakpoint-up(lg) {
+	.tab-page {
+		.tab-page-toggle-title {
+			display: none;
+		}
+		
+		.tab-page-toggle {
+			display: none;
+		}
+		
+		// Always show us for desktop.
+		.tab-page-collapse.collapse:not(.show) {
+			display: block;
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.tab-page {
+		.tab-page-toggle-title {
+			font-size: 16px;
+			margin: 1em 0;
+		}
+
+		.tab-page-collapse-wrapper {
+			
+			box-shadow: 0 6px 12px rgba($color-black,.175);
+			margin-bottom: 3em;
+			
+			.tab-page-collapse {
+				padding: 15px 0;			// Let the children have the left/right padding.
+			}
+			
+			// HACK: JD - important the important.
+			.tabs-product {
+				margin-bottom: 0 !important;
+			}
+				
+			.nav-tabs {
+				margin-top: 0;
+				flex-direction: column;		// Make it verticle.
+				
+				> li, > li:first-child {
+					padding-left: 0px;
+					padding-right: 0px;
+					margin: 0;
+					width: 100%;
+				}
+				
+				// Reverse our look and feel.
+				> li a {
+					font-size: 14px;
+					font-weight: 400;
+					color: $color-grey--900;
+					text-transform: none;
+					font-family: $font-family--primary;
+					padding: 0 20px;
+					width: 100%;
+					
+					&:hover {
+						color: $color-white;
+						background-color: $color-active;
+					}
+					
+					&.active {
+						border: none;
+						background-color: $color-active;
+						color: $color-white;
+					}
+				}
+			}
+		}
+		
+		.tab-page-toggle {												//this is a button
+			width: 100%;	
+			border: 1px solid darken($color-white, 10%);					//mods button
+			border-bottom: 2px solid darken($color-white, 10%);				//mods button
+			padding: 10px 15px;		
+			color:$color-grey--800;											//mods button
+			background-color: transparent;									//mods button
+			.text-right{
+				font-size: 18px;
+			}
+			i.bi {
+				color: $color-grey--800;
+			}
+		}
+	}
+}

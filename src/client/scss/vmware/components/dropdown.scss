@@ -1,0 +1,63 @@
+/*
+* components/dropdown.scss
+*/
+// styling for the dropdown style in search on page top, products, and resource library pages etc. 
+
+@import "../base/variables";
+
+.custom-button-dropdown{
+    position: relative;
+
+    .dropdown-toggle{
+        display: block;
+        width: 100%;
+        text-align: left;
+        color: $color-grey--900;                    //mods button _buttons.scss
+        height: 34px;
+        padding-left: 6px;
+		text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:after{
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translate(0,-50%);
+            color: $color-grey--900;                    //mods button _buttons.scss
+            border-top: 0.5em solid;
+            border-right: 0.5em solid transparent;
+            border-left: 0.5em solid transparent;
+        }
+    }
+	.search-input-in {
+        width: 96%;
+        margin: 5px;
+        padding: 6px;
+        border: 1px solid $color-grey--700;
+    }
+    .dropdown-menu{
+        width: 100%;
+        max-height: 165px;
+        overflow: hidden;
+        overflow-y: auto;
+    
+        .dropdown-item{
+            padding: 4px 20px 5px 12px;
+            white-space: normal;
+            font-size: $font-size-md;
+            a{
+                color: $color-grey--800;								//mods _link.scss
+                &:hover{
+                    color: $color-grey--700;
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+// TEMP: JD - just adding for selected drop down.
+.selected.dropdown-item {
+	background-color: $color-grey--500;
+}

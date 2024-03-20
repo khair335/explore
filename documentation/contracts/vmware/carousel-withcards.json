@@ -1,0 +1,83 @@
+"carousel": {
+    "content_id": "blt2y2gst531bccc_en",
+    "content_type": "carousel_block",
+    "template": "carousel",
+    "section_title":"some title here",
+    "carousel_block_title":"block title here",
+    "carousel_option":"standard",
+    "width":"1", #no. of items displayed can be 1, 2, 3 or 4.
+    "rows":"1",
+    "display_carousel_controls":"yes", #options: yes / no
+    "content_blocks":[  # content blocks section can be of type content block, images, testimonials, content block list.
+        {
+            "content_id": "blt1a67c43f13b1bccc_en-us",
+            "content_type": "content_block",
+            "locale": "en-us",
+            "template": "Testimonial",
+            "theme":"Standard",
+            "section_title": "Testimonial",
+            "hash_tag_name": "Testimonial",
+            "title": null,
+            "author": "- Steve Nolen, Lead Product Manager, Lumen",
+            "theme": "light",
+            "links": null,
+            "source": "<p>Boeing</p>",
+            "body": "<p>VMware Cloud Foundation allows Lumen the flexibility to meet a much broader suite of solutions and opportunities for our customers.</p>",
+            "tab_title": "Testimonial",
+            "image": {
+                "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+                "width": 1920,
+                "height": 455,
+                "title": "hero-rally-software.jpg",
+                "alt": "hero-rally-software.jpg",
+                "enlarge": "false"
+            }
+        },
+        {
+            "content_id": "blt1a67c43f13b1bccc_en-us",
+            "content_type": "content_block",
+            "locale": "en-us",
+            "template": "Testimonial",
+            "section_title": "Testimonial",
+            "hash_tag_name": "Testimonial",
+            "title": null,
+            "author": "Program Manager, Portfolio Management Systems",
+            "theme": "light",
+            "links": null,
+            "source": "<p>Boeing</p>",
+            "body": "<p>We saved hundreds of millions of dollars in the first two years with ValueOps.</p>",
+            "tab_title": "Testimonial",
+            "image": {
+                "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+                "width": 1920,
+                "height": 455,
+                "title": "hero-rally-software.jpg",
+                "alt": "hero-rally-software.jpg",
+                "enlarge": "false"
+            }
+        },
+        {
+            "content_id": "blt1a67c43f13b1bccc_en-us",
+            "content_type": "content_block",
+            "locale": "en-us",
+            "template": "Testimonial",
+            "section_title": "Testimonial",
+            "hash_tag_name": "Testimonial",
+            "title": null,
+            "author": "Program Manager, Portfolio Management Systems",
+            "theme": "light",
+            "links": null,
+            "source": "<p>Boeing</p>",
+            "body": "<p>We saved hundreds of millions of dollars in the first two years with ValueOps.</p>",
+            "tab_title": "Testimonial",
+            "image": {
+                "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+                "width": 1920,
+                "height": 455,
+                "title": "hero-rally-software.jpg",
+                "alt": "hero-rally-software.jpg",
+                "enlarge": "false"
+            }
+        }
+    ]
+}

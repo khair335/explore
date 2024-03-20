@@ -1,0 +1,115 @@
+/*
+* components/breadcrumbs.scss
+*/
+// used by subHeder for breadcrumbs at top of page
+
+
+@import "../base/variables";
+
+.bc-breadcrumbs .bc-breadcrumbs_item a.lnk {
+	color: $color-grey--900;						//mods a.lnk  _link.scss
+	font-weight: 300;								//mods a.lnk	       //metro-mod
+	letter-spacing: .35px;       //metro-mod
+}
+
+.bc-breadcrumbs, .bc-breadcrumbs a {
+
+	color: $color-grey--900;						//mods a.lnk  _link.scss
+	font-size: $font-size-sm;						//mods a.lnk
+	font-family: $font-family--secondary;
+	font-weight: 300;								//mods a.lnk		       //metro-mod
+	letter-spacing: .35px;							//metro-mod
+
+	.breadcumbs-page-links {
+		max-width: 80%;
+		.bc-breadcrumbs_item{
+				display: inline-block;
+		}
+	}
+
+	&_item{
+		&:not(:last-of-type)::after{
+		content: "/";
+				padding: 0 5px;
+				font-size: $font-size-lg;
+				color:$color-grey--700;
+		}
+	}
+}
+
+#subhead-navigation {	
+	.bc-breadcrumbs {
+		@media only screen and (max-width: 992px) {
+			.breadcrumbMobile{
+				display:none;
+			}
+		}
+		ul {
+			float: right;
+			li {
+				display: inline-block;
+				&:first-child {
+					margin-right: 10px;
+				}
+				a {
+					font-size: $font-size-sm;					//mods _link.scss
+					color: $color-grey--900;					//mods link
+				}
+				div.dropdown-menu {
+					padding: 0;
+					height: 200px;
+					overflow-y: scroll;
+					font-size: $font-size-md;
+					top: auto;
+					left: auto;
+					border: 1px solid rgba($color-black, .15);
+					border-radius: 4px;
+					box-shadow: 0 6px 12px rgba($color-black, .175);
+					background-clip: padding-box;
+					.dropdown-item {
+						&:active {
+							background: transparent;
+						}
+						a {
+							padding: 0 0 6px 6px;
+						}
+						button {
+							padding: 0 10px;	// mods button _buttons.scss
+						}
+					}
+				}
+				button {
+					font-size: $font-size-sm;	// mods button _buttons.scss
+					.bi {
+						//padding-left: 5px;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+// JD: There were dup IDs using subhead and I subdivided them.
+#subHead, #subhead-title {
+	margin-bottom: 10px;
+	h1, h5 {
+		@media only screen and (max-width: 992px) {
+			font-size: 25px;
+		}
+	}
+	h5 {
+		font-size:18px;
+	}
+	.head-btns {
+		white-space: nowrap;
+	}
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)){
+	.breadcrumbMobile{
+		&.print, &.other-share{
+			display: none;
+		}
+	}	
+}

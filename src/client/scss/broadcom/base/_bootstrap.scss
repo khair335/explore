@@ -1,0 +1,794 @@
+ @import "~bootstrap/scss/functions";
+ @import "~bootstrap/scss/variables";
+ @import "~bootstrap/scss/mixins";
+ @import "~bootstrap/scss/root";
+ @import "~bootstrap/scss/reboot";
+ @import "~bootstrap/scss/type";
+ @import "~bootstrap/scss/images";
+ @import "~bootstrap/scss/code";
+ @import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/tables";
+ @import "~bootstrap/scss/forms";
+//  @import "~bootstrap/scss/buttons";
+ @import "~bootstrap/scss/transitions";
+ @import "~bootstrap/scss/dropdown";
+//  @import "~bootstrap/scss/button-group";
+ @import "~bootstrap/scss/input-group";
+ @import "~bootstrap/scss/custom-forms";
+ @import "~bootstrap/scss/nav";
+ @import "~bootstrap/scss/navbar";
+ @import "~bootstrap/scss/card";
+ @import "~bootstrap/scss/breadcrumb";
+ @import "~bootstrap/scss/pagination";
+ @import "~bootstrap/scss/badge";
+ //@import "~bootstrap/scss/jumbotron";
+ //@import "~bootstrap/scss/alert";
+ @import "~bootstrap/scss/progress";
+ @import "~bootstrap/scss/media";
+ @import "~bootstrap/scss/list-group";
+ @import "~bootstrap/scss/close";
+ @import "~bootstrap/scss/modal";
+ @import "~bootstrap/scss/tooltip";
+ @import "~bootstrap/scss/popover";
+ @import "~bootstrap/scss/carousel";
+ @import "~bootstrap/scss/utilities";
+ @import "~bootstrap/scss/print";
+ 
+
+@import "~bootstrap/scss/bootstrap-grid"; 
+
+// Extra css for Bug Fixing ipad version
+// flex css
+.row{
+    display: -webkit-box;  
+    display: -moz-box;         
+    display: -ms-flexbox;     
+    display: -webkit-flex;     
+    display: flex;            
+    -webkit-flex-wrap: wrap; 
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .d-flex{
+    display: -webkit-box;       
+    display: -moz-box;         
+    display: -ms-flexbox;       
+    display: -webkit-flex;      
+    display: flex;               
+  }
+  .nav{
+    display: -webkit-box;  
+    display: -moz-box;         
+    display: -ms-flexbox;     
+    display: -webkit-flex;     
+    display: flex;            
+    -webkit-flex-wrap: wrap; 
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .align-self-baseline {
+    align-self: baseline !important;
+    -webkit-align-self: baseline;
+  }
+  .input-group{
+    display: -webkit-box;  
+    display: -moz-box;         
+    display: -ms-flexbox;     
+    display: -webkit-flex;     
+    display: flex;            
+    -webkit-flex-wrap: wrap; 
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .justify-content-between {
+    justify-content: space-between !important;
+    -webkit-justify-content: space-between;
+  }
+  .align-items-center {
+    align-items: center !important;
+    -webkit-align-items: center !important;
+  }
+  .flex-grow-1 {
+    flex-grow: 1 !important;
+    -webkit-flex-grow: 1 !important;
+  }
+  // flex css
+
+
+// // column wise css
+// .col-1,
+// .col-2,
+// .col-3,
+// .col-4,
+// .col-5,
+// .col-6,
+// .col-7,
+// .col-8,
+// .col-9,
+// .col-10,
+// .col-11,
+// .col-12,
+// .col,
+// .col-auto,
+// .col-sm-1,
+// .col-sm-2,
+// .col-sm-3,
+// .col-sm-4,
+// .col-sm-5,
+// .col-sm-6,
+// .col-sm-7,
+// .col-sm-8,
+// .col-sm-9,
+// .col-sm-10,
+// .col-sm-11,
+// .col-sm-12,
+// .col-sm,
+// .col-sm-auto,
+// .col-md-1,
+// .col-md-2,
+// .col-md-3,
+// .col-md-4,
+// .col-md-5,
+// .col-md-6,
+// .col-md-7,
+// .col-md-8,
+// .col-md-9,
+// .col-md-10,
+// .col-md-11,
+// .col-md-12,
+// .col-md,
+// .col-md-auto,
+// .col-lg-1,
+// .col-lg-2,
+// .col-lg-3,
+// .col-lg-4,
+// .col-lg-5,
+// .col-lg-6,
+// .col-lg-7,
+// .col-lg-8,
+// .col-lg-9,
+// .col-lg-10,
+// .col-lg-11,
+// .col-lg-12,
+// .col-lg,
+// .col-lg-auto,
+// .col-xl-1,
+// .col-xl-2,
+// .col-xl-3,
+// .col-xl-4,
+// .col-xl-5,
+// .col-xl-6,
+// .col-xl-7,
+// .col-xl-8,
+// .col-xl-9,
+// .col-xl-10,
+// .col-xl-11,
+// .col-xl-12,
+// .col-xl,
+// .col-xl-auto {
+// 	position: relative;
+// 	width: 100%;
+// 	min-height: 1px;
+// 	padding-right: 15px;
+// 	padding-left: 15px
+// }
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-auto {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}
+
+.col-1 {
+    flex: 0 0 8.33333%;
+    -webkit-box-flex:  0 0 8.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex:  0 0 8.33333%;         /* OLD - Firefox 19- */
+    -webkit-flex:  0 0 8.33333%;          /* Chrome */
+    -ms-flex:  0 0 8.33333%;              /* IE 10 */
+     max-width: 8.33333%
+}
+
+.col-2 {
+    flex: 0 0 16.66667%;
+    -webkit-box-flex: 0 0 16.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 16.66667%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 16.66667%;          /* Chrome */
+    -ms-flex: 0 0 16.66667%;              /* IE 10 */
+	max-width: 16.66667%
+}
+
+.col-3 {
+    flex: 0 0 25%;
+    -webkit-box-flex: 0 0 25%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 25%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 25%;          /* Chrome */
+    -ms-flex: 0 0 25%;              /* IE 10 */
+	max-width: 25%
+}
+
+.col-4 {
+    flex: 0 0 33.33333%;
+    -webkit-box-flex: 0 0 33.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 33.33333%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 33.33333%;          /* Chrome */
+    -ms-flex: 0 0 33.33333%;              /* IE 10 */
+	max-width: 33.33333%
+}
+
+.col-5 {
+    flex: 0 0 41.66667%;
+    -webkit-box-flex: 0 0 41.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 41.66667%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 41.66667%;          /* Chrome */
+    -ms-flex: 0 0 41.66667%;              /* IE 10 */
+	max-width: 41.66667%
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    -webkit-box-flex: 0 0 50%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 50%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 50%;          /* Chrome */
+    -ms-flex: 0 0 50%;              /* IE 10 */
+	max-width: 50%
+}
+
+.col-7 {
+    flex: 0 0 58.33333%;
+    -webkit-box-flex: 0 0 58.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 58.33333%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 58.33333%;          /* Chrome */
+    -ms-flex: 0 0 58.33333%;              /* IE 10 */
+	max-width: 58.33333%
+}
+
+.col-8 {
+    flex: 0 0 66.66667%;
+    -webkit-box-flex: 0 0 66.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 66.66667%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 66.66667%;          /* Chrome */
+    -ms-flex: 0 0 66.66667%;              /* IE 10 */
+	max-width: 66.66667%
+}
+
+.col-9 {
+    flex: 0 0 75%;
+    -webkit-box-flex: 0 0 75%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 75%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 75%;          /* Chrome */
+    -ms-flex: 0 0 75%;              /* IE 10 */
+	max-width: 75%
+}
+
+.col-10 {
+    flex: 0 0 83.33333%;
+    -webkit-box-flex: 0 0 83.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 83.33333%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 83.33333%;          /* Chrome */
+    -ms-flex: 0 0 83.33333%;              /* IE 10 */
+	max-width: 83.33333%
+}
+
+.col-11 {
+    flex: 0 0 91.66667%;
+    -webkit-box-flex: 0 0 91.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 91.66667%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 91.66667%;          /* Chrome */
+    -ms-flex: 0 0 91.66667%;              /* IE 10 */
+	max-width: 91.66667%
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    -webkit-box-flex: 0 0 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 100%;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 100%;          /* Chrome */
+    -ms-flex: 0 0 100%;              /* IE 10 */
+	max-width: 100%
+}
+
+ 
+
+@media (min-width: 576px) {
+	.col-sm {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        max-width: 100%;
+	}
+	.col-sm-auto {
+        flex: 0 0 auto;
+        -webkit-box-flex: 0 0 auto;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 auto;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 auto;          /* Chrome */
+        -ms-flex: 0 0 auto;              /* IE 10 */
+		width: auto;
+		max-width: none
+	}
+	.col-sm-1 {
+        flex: 0 0 8.33333%;
+        -webkit-box-flex: 0 0 8.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 8.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 8.33333%;          /* Chrome */
+        -ms-flex: 0 0 8.33333%;              /* IE 10 */
+		max-width: 8.33333%
+	}
+	.col-sm-2 {
+        flex: 0 0 16.66667%;
+        -webkit-box-flex: 0 0 16.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 16.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 16.66667%;          /* Chrome */
+        -ms-flex: 0 0 16.66667%;              /* IE 10 */
+		max-width: 16.66667%
+	}
+	.col-sm-3 {
+        flex: 0 0 25%;
+        -webkit-box-flex: 0 0 25%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 25%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 25%;          /* Chrome */
+        -ms-flex: 0 0 25%;              /* IE 10 */
+		max-width: 25%
+	}
+	.col-sm-4 {
+        flex: 0 0 33.33333%;
+        -webkit-box-flex: 0 0 33.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 33.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 33.33333%;          /* Chrome */
+        -ms-flex: 0 0 8.33333%;              /* IE 10 */
+		max-width: 33.33333%
+	}
+	.col-sm-5 {
+        flex: 0 0 41.66667%;
+        -webkit-box-flex: 0 0 41.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 41.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 41.66667%;          /* Chrome */
+        -ms-flex: 0 0 41.66667%;              /* IE 10 */
+		max-width: 41.66667%
+	}
+	.col-sm-6 {
+        flex: 0 0 50%;
+        -webkit-box-flex: 0 0 50%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 50%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 50%;          /* Chrome */
+        -ms-flex: 0 0 50%;              /* IE 10 */
+		max-width: 50%
+	}
+	.col-sm-7 {
+        flex: 0 0 58.33333%;
+        -webkit-box-flex: 0 0 58.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 58.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 58.33333%;          /* Chrome */
+        -ms-flex: 0 0 58.33333%;              /* IE 10 */
+		max-width: 58.33333%
+	}
+	.col-sm-8 {
+        flex: 0 0 66.66667%;
+        -webkit-box-flex: 0 0 66.6666766.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 66.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 66.66667%;          /* Chrome */
+        -ms-flex: 0 0 66.66667%;              /* IE 10 */
+		max-width: 66.66667%
+	}
+	.col-sm-9 {
+        flex: 0 0 75%;
+        -webkit-box-flex: 0 0 75%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 75%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 75;          /* Chrome */
+        -ms-flex: 0 0 75%;              /* IE 10 */
+		max-width: 75%
+	}
+	.col-sm-10 {
+        flex: 0 0 83.33333%;
+        -webkit-box-flex: 0 0 83.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 83.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 83.33333%;          /* Chrome */
+        -ms-flex: 0 0 83.33333%;              /* IE 10 */
+		max-width: 83.33333%
+	}
+	.col-sm-11 {
+        flex: 0 0 91.66667%;
+        -webkit-box-flex: 0 0 91.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 91.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 91.66667%;          /* Chrome */
+        -ms-flex: 0 0 91.66667%;              /* IE 10 */
+		max-width: 91.66667%
+	}
+	.col-sm-12 {
+        flex: 0 0 100%;
+        -webkit-box-flex: 0 0 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 100%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 100%;          /* Chrome */
+        -ms-flex: 0 0 100%;              /* IE 10 */
+		max-width: 100%
+	}
+	 
+}
+
+@media (min-width: 768px) {
+		.col-md {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        max-width: 100%;
+    }
+	.col-md-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none
+	}
+	.col-md-1 {
+        flex: 0 0 8.33333%;
+        -webkit-box-flex: 0 0 8.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 8.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 8.33333%;          /* Chrome */
+        -ms-flex: 0 0 8.33333%;              /* IE 10 */
+		max-width: 8.33333%
+	}
+	.col-md-2 {
+        flex: 0 0 16.66667%;
+        -webkit-box-flex: 0 0 16.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 16.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 16.66667%;          /* Chrome */
+        -ms-flex: 0 0 16.66667%;              /* IE 10 */
+		max-width: 16.66667%
+	}
+	.col-md-3 {
+        flex: 0 0 25%;
+        -webkit-box-flex: 0 0 25%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 25%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 25%;          /* Chrome */
+        -ms-flex: 0 0 25%;              /* IE 10 */
+		max-width: 25%
+	}
+	.col-md-4 {
+        flex: 0 0 33.33333%;
+        -webkit-box-flex: 0 0 33.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 33.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 33.33333%;          /* Chrome */
+        -ms-flex: 0 0 33.33333%;              /* IE 10 */
+		max-width: 33.33333%
+	}
+	.col-md-5 {
+        flex: 0 0 41.66667%;
+        -webkit-box-flex: 0 0 41.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 41.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 41.66667%;          /* Chrome */
+        -ms-flex: 0 0 41.66667%;              /* IE 10 */
+		max-width: 41.66667%
+	}
+	.col-md-6 {
+        flex: 0 0 50%;
+        -webkit-box-flex: 0 0 50%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 50%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 50%;          /* Chrome */
+        -ms-flex: 0 0 50%;              /* IE 10 */
+		max-width: 50%
+	}
+	.col-md-7 {
+        flex: 0 0 58.33333%;
+        -webkit-box-flex: 0 0 58.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 58.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 58.33333%;          /* Chrome */
+        -ms-flex: 0 0 58.33333%;              /* IE 10 */
+		max-width: 58.33333%
+	}
+	.col-md-8 {
+        flex: 0 0 66.66667%;
+        -webkit-box-flex: 0 0 66.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 66.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 66.66667%;          /* Chrome */
+        -ms-flex: 0 0 66.66667%;              /* IE 10 */
+		max-width: 66.66667%
+	}
+	.col-md-9 {
+        flex: 0 0 75%;
+        -webkit-box-flex: 0 0 75%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 75%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 75%;          /* Chrome */
+        -ms-flex: 0 0 75%;              /* IE 10 */
+		max-width: 75%
+	}
+	.col-md-10 {
+        flex: 0 0 83.33333%;
+        -webkit-box-flex: 0 0 83.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 83.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 83.33333%;          /* Chrome */
+        -ms-flex: 0 0 83.33333%;              /* IE 10 */
+		max-width: 83.33333%
+	}
+	.col-md-11 {
+        flex: 0 0 91.66667%;
+        -webkit-box-flex: 0 0 91.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 91.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 91.66667%;          /* Chrome */
+        -ms-flex: 0 0 91.66667%;              /* IE 10 */
+		max-width: 91.66667%
+	}
+	.col-md-12 {
+        flex: 0 0 100%;
+        -webkit-box-flex: 0 0 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 100%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 100%;          /* Chrome */
+        -ms-flex: 0 0 100%;              /* IE 10 */
+		max-width: 100%
+	}
+ 
+}
+
+@media (min-width: 992px) {
+		.col-lg {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        max-width: 100%;
+	}
+	.col-lg-auto {
+        flex: 0 0 auto;
+        -webkit-box-flex: 0 0 auto;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 auto;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 auto;          /* Chrome */
+        -ms-flex: 0 0 auto;  
+		width: auto;
+		max-width: none
+	}
+ 
+    .col-lg-1 {
+        flex: 0 0 8.33333%;
+        -webkit-box-flex: 0 0 8.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 8.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 8.33333%;          /* Chrome */
+        -ms-flex: 0 0 8.33333%;              /* IE 10 */
+		max-width: 8.33333%
+	}
+	.col-lg-2 {
+        flex: 0 0 16.66667%;
+        -webkit-box-flex: 0 0 16.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 16.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 16.66667%;          /* Chrome */
+        -ms-flex: 0 0 16.66667%;              /* IE 10 */
+		max-width: 16.66667%
+	}
+	.col-lg-3 {
+        flex: 0 0 25%;
+        -webkit-box-flex: 0 0 25%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 25%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 25%;          /* Chrome */
+        -ms-flex: 0 0 25%;              /* IE 10 */
+		max-width: 25%
+	}
+	.col-lg-4 {
+        flex: 0 0 33.33333%;
+        -webkit-box-flex: 0 0 33.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 33.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 33.33333%;          /* Chrome */
+        -ms-flex: 0 0 33.33333%;              /* IE 10 */
+		max-width: 33.33333%
+	}
+	.col-lg-5 {
+        flex: 0 0 41.66667%;
+        -webkit-box-flex: 0 0 41.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 41.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 41.66667%;          /* Chrome */
+        -ms-flex: 0 0 41.66667%;              /* IE 10 */
+		max-width: 41.66667%
+	}
+	.col-lg-6 {
+        flex: 0 0 50%;
+        -webkit-box-flex: 0 0 50%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 50%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 50%;          /* Chrome */
+        -ms-flex: 0 0 50%;              /* IE 10 */
+		max-width: 50%
+	}
+	.col-lg-7 {
+        flex: 0 0 58.33333%;
+        -webkit-box-flex: 0 0 58.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 58.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 58.33333%;          /* Chrome */
+        -ms-flex: 0 0 58.33333%;              /* IE 10 */
+		max-width: 58.33333%
+	}
+	.col-lg-8 {
+        flex: 0 0 66.66667%;
+        -webkit-box-flex: 0 0 66.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 66.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 66.66667%;          /* Chrome */
+        -ms-flex: 0 0 66.66667%;              /* IE 10 */
+		max-width: 66.66667%
+	}
+	.col-lg-9 {
+        flex: 0 0 75%;
+        -webkit-box-flex: 0 0 75%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 75%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 75%;          /* Chrome */
+        -ms-flex: 0 0 75%;              /* IE 10 */
+		max-width: 75%
+	}
+	.col-lg-10 {
+        flex: 0 0 83.33333%;
+        -webkit-box-flex: 0 0 83.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 83.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 83.33333%;          /* Chrome */
+        -ms-flex: 0 0 83.33333%;              /* IE 10 */
+		max-width: 83.33333%
+	}
+	.col-lg-11 {
+        flex: 0 0 91.66667%;
+        -webkit-box-flex: 0 0 91.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 91.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 91.66667%;          /* Chrome */
+        -ms-flex: 0 0 91.66667%;              /* IE 10 */
+		max-width: 91.66667%
+	}
+	.col-lg-12 {
+        flex: 0 0 100%;
+        -webkit-box-flex: 0 0 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 100%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 100%;          /* Chrome */
+        -ms-flex: 0 0 100%;              /* IE 10 */
+		max-width: 100%
+	}
+	 
+}
+
+@media (min-width: 1200px) {
+		.col-xl {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+        max-width: 100%;
+	}
+	.col-xl-auto {
+        flex: 0 0 auto;
+        -webkit-box-flex: 0 0 auto;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 auto;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 auto;          /* Chrome */
+        -ms-flex: 0 0 auto;  
+		width: auto;
+		max-width: none
+	}
+ 
+    .col-xl-1 {
+        flex: 0 0 8.33333%;
+        -webkit-box-flex: 0 0 8.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 8.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 8.33333%;          /* Chrome */
+        -ms-flex: 0 0 8.33333%;              /* IE 10 */
+		max-width: 8.33333%
+	}
+	.col-xl-2  {
+        flex: 0 0 16.66667%;
+        -webkit-box-flex: 0 0 16.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 16.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 16.66667%;          /* Chrome */
+        -ms-flex: 0 0 16.66667%;              /* IE 10 */
+		max-width: 16.66667%
+	}
+	.col-xl-3 {
+        flex: 0 0 25%;
+        -webkit-box-flex: 0 0 25%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 25%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 25%;          /* Chrome */
+        -ms-flex: 0 0 25%;              /* IE 10 */
+		max-width: 25%
+	}
+	.col-xl-4 {
+        flex: 0 0 33.33333%;
+        -webkit-box-flex: 0 0 33.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 33.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 33.33333%;          /* Chrome */
+        -ms-flex: 0 0 33.33333%;              /* IE 10 */
+		max-width: 33.33333%
+	}
+	.col-xl-5 {
+        flex: 0 0 41.66667%;
+        -webkit-box-flex: 0 0 41.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 41.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 41.66667%;          /* Chrome */
+        -ms-flex: 0 0 41.66667%;              /* IE 10 */
+		max-width: 41.66667%
+	}
+	.col-xl-6 {
+        flex: 0 0 50%;
+        -webkit-box-flex: 0 0 50%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 50%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 50%;          /* Chrome */
+        -ms-flex: 0 0 50%;              /* IE 10 */
+		max-width: 50%
+	}
+	.col-xl-7 {
+        flex: 0 0 58.33333%;
+        -webkit-box-flex: 0 0 58.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 58.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 58.33333%;          /* Chrome */
+        -ms-flex: 0 0 58.33333%;              /* IE 10 */
+		max-width: 58.33333%
+	}
+	.col-xl-8 {
+        flex: 0 0 66.66667%;
+        -webkit-box-flex: 0 0 66.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 66.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 66.66667%;          /* Chrome */
+        -ms-flex: 0 0 66.66667%;              /* IE 10 */
+		max-width: 66.66667%
+	}
+	.col-xl-9 {
+        flex: 0 0 75%;
+        -webkit-box-flex: 0 0 75%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 75%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 75%;          /* Chrome */
+        -ms-flex: 0 0 75%;              /* IE 10 */
+		max-width: 75%
+	}
+	.col-xl-10 {
+        flex: 0 0 83.33333%;
+        -webkit-box-flex: 0 0 83.33333%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 83.33333%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 83.33333%;          /* Chrome */
+        -ms-flex: 0 0 83.33333%;              /* IE 10 */
+		max-width: 83.33333%
+	}
+	.col-xl-11 {
+        flex: 0 0 91.66667%;
+        -webkit-box-flex: 0 0 91.66667%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 91.66667%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 91.66667%;          /* Chrome */
+        -ms-flex: 0 0 91.66667%;              /* IE 10 */
+		max-width: 91.66667%
+	}
+	.col-xl-12 {
+        flex: 0 0 100%;
+        -webkit-box-flex: 0 0 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 100%;         /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 100%;          /* Chrome */
+        -ms-flex: 0 0 100%;              /* IE 10 */
+		max-width: 100%
+    }
+    .navbar-nav{
+        display: -webkit-box;       
+        display: -moz-box;         
+        display: -ms-flexbox;       
+        display: -webkit-flex;      
+        display: flex;     
+    }
+	 
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {  
+        display: flex !important;
+        flex-basis: auto;
+        display: -webkit-box;       
+        display: -moz-box;         
+        display: -ms-flexbox;       
+        display: -webkit-flex;      
+        display: flex;   
+    }
+    
+    }
+.flex-shrink-1 {
+    flex-shrink: 1 !important; 
+	-webkit-flex-grow:1 !important;
+  }
+

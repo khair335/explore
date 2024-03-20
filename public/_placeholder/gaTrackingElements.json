@@ -1,0 +1,739 @@
+{
+   "eventitem": [
+      {
+         "ReqID": "R001",
+         "EventCat": "Logo",
+         "EventAct": "Click",
+         "Eventlbl": "Main Logo",
+         "TemplateName": "Header",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R002",
+         "EventCat": "Top Navigation Menu",
+         "EventAct": "Level <#>",
+         "Eventlbl": "<title 0> - <title 1> ?",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R003",
+         "EventCat": "Eyebrow Navigation Menu",
+         "EventAct": "Log in",
+         "TemplateName": "<template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R004",
+         "EventCat": "Print or Share",
+         "EventAct": "Print",
+         "Eventlbl": "<Page Title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R005",
+         "EventCat": "Sub Navigation Menu",
+         "EventAct": "Click",
+         "Eventlbl": "<Title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R006",
+         "EventCat": "Breadcrumb",
+         "EventAct": "Level <#>",
+         "Eventlbl": "<title 0> - <title 1> ?",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R007",
+         "EventCat": "Left Navigation Menu",
+         "EventAct": "Click",
+         "Eventlbl": "<title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Left Panel"
+      },
+      {
+         "ReqID": "R008",
+         "EventCat": "Footer Navigation Menu",
+         "EventAct": "Click",
+         "Eventlbl": "<title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Footer"
+      },
+      {
+         "ReqID": "R009",
+         "EventCat": "Footer Navigation Menu",
+         "EventAct": "Click",
+         "Eventlbl": "<title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Footer"
+      },
+      {
+         "ReqID": "R010",
+         "EventCat": "Social Profiles",
+         "EventAct": "<socialNetwork> Profile",
+         "Eventlbl": "<Profile URL>"
+      },
+      {
+         "ReqID": "R011",
+         "EventCat": "Social Share",
+         "EventAct": "<Social Network Name>",
+         "Eventlbl": "<Current Page URL>"
+      },
+      {
+         "ReqID": "R012",
+         "EventCat": "Assets",
+         "EventAct": "<file extension>",
+         "Eventlbl": "<File URL>"
+      },
+      {
+         "ReqID": "R013",
+         "EventCat": "Assets",
+         "EventAct": "<file extension>",
+         "Eventlbl": "<File URL>"
+      },
+      {
+         "ReqID": "R014",
+         "EventCat": "Assets",
+         "EventAct": "Filter By",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "Doc Library",
+         "Section": "Featured Tab, Whitepapers Tab, or Selection Guides Tab"
+      },
+      {
+         "ReqID": "R015",
+         "EventCat": "Outbound Links",
+         "EventAct": "Click",
+         "Eventlbl": "<Destination URL>"
+      },
+      {
+         "ReqID": "R016",
+         "EventCat": "Email Links",
+         "EventAct": "Click",
+         "Eventlbl": "<Email Address>"
+      },
+      {
+         "ReqID": "R017",
+         "EventCat": "Phone Links",
+         "EventAct": "Click",
+         "Eventlbl": "<Phone Number>"
+      },
+      {
+         "ReqID": "R018",
+         "EventCat": "Hero Banner",
+         "EventAct": "Call to Action",
+         "Eventlbl": "<slide title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R019",
+         "EventCat": "Hero Banner",
+         "EventAct": "Carousel Selector",
+         "Eventlbl": "<Slide Title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R020",
+         "EventCat": "Content Navigation",
+         "EventAct": "Click",
+         "Eventlbl": "Enterprise Storage",
+         "TemplateName": "<Template Name>",
+         "Section": "What Are You Designing Today"
+      },
+      {
+         "ReqID": "R021",
+         "EventCat": "Content Navigation",
+         "EventAct": "Click",
+         "Eventlbl": "Support",
+         "TemplateName": "<Template Name>",
+         "Section": "What Are You Designing Today"
+      },
+      {
+         "ReqID": "R022",
+         "EventCat": "Tabs",
+         "EventAct": "Click",
+         "Eventlbl": "<tab title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Navigation Tabs"
+      },
+      {
+         "ReqID": "R023",
+         "EventCat": "Videos",
+         "EventAct": "<Play|Pause|Watch to End>",
+         "Eventlbl": "<Video Title>"
+      },
+      {
+         "ReqID": "R024",
+         "EventCat": "Videos",
+         "EventAct": "Browse Video Categories",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "Videos and Webinars",
+         "Section": "Videos Tab"
+      },
+      {
+         "ReqID": "R025",
+         "EventCat": "Webinars",
+         "EventAct": "Webinar Selected",
+         "Eventlbl": "<Webinar Title>",
+         "TemplateName": "Videos and Webinars",
+         "Section": "Webinars Tab"
+      },
+      {
+         "ReqID": "R026",
+         "EventCat": "Webinars",
+         "EventAct": "Browse Webinar Categories",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "Videos and Webinars",
+         "Section": "Webinars Tab"
+      },
+      {
+         "ReqID": "R027",
+         "EventCat": "OEM Partners",
+         "EventAct": "Select Partner",
+         "Eventlbl": "<Partner Name>",
+         "TemplateName": "OEM Partner Page",
+         "Section": "Right Pane"
+      },
+      {
+         "ReqID": "R028",
+         "EventCat": "Content Navigation",
+         "EventAct": "Link Click",
+         "Eventlbl": "<Link Title>",
+         "TemplateName": "Support Landing",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R029",
+         "EventCat": "Content Navigation",
+         "EventAct": "Image Click",
+         "Eventlbl": "<Image Title>",
+         "TemplateName": "Support Landing",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R030",
+         "EventCat": "How to Buy",
+         "EventAct": "Visit Web Page",
+         "Eventlbl": "<Location Name>",
+         "TemplateName": "How to Buy",
+         "Section": "Sales Tab"
+      },
+      {
+         "ReqID": "R031",
+         "EventCat": "How to Buy",
+         "EventAct": "Find a Distributor Region",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "How to Buy",
+         "Section": "Distributors Tab"
+      },
+      {
+         "ReqID": "R032",
+         "EventCat": "How to Buy",
+         "EventAct": "Visit Web Page",
+         "Eventlbl": "<Distributor Name>",
+         "TemplateName": "How to Buy",
+         "Section": "<Tab Name>"
+      },
+      {
+         "ReqID": "R033",
+         "EventCat": "Contact Us",
+         "EventAct": "Visit Web Page",
+         "Eventlbl": "<Location Name>",
+         "TemplateName": "Contact Us",
+         "Section": "Sales Tab"
+      },
+      {
+         "ReqID": "R034",
+         "EventCat": "Contact Us",
+         "EventAct": "Visit Web Page",
+         "Eventlbl": "<Location Name>",
+         "TemplateName": "Contact Us",
+         "Section": "Locations Tab"
+      },
+      {
+         "ReqID": "R035",
+         "EventCat": "News",
+         "EventAct": "Click",
+         "Eventlbl": "<News Title>",
+         "TemplateName": "News Landing Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R036",
+         "EventCat": "News",
+         "EventAct": "Click",
+         "Eventlbl": "<News Title>",
+         "TemplateName": "myBroadcom",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R037",
+         "EventCat": "News",
+         "EventAct": "Show Results",
+         "Eventlbl": "Back to Top",
+         "TemplateName": "News Landing Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R038",
+         "EventCat": "Tradeshows & Events",
+         "EventAct": "Click",
+         "Eventlbl": "<Tradeshow Selected>",
+         "TemplateName": "Tradeshows Events",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R039",
+         "EventCat": "Executives",
+         "EventAct": "Click",
+         "Eventlbl": "<Executive Name>",
+         "TemplateName": "Executives Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R040",
+         "EventCat": "Executives",
+         "EventAct": "Click",
+         "Eventlbl": "Back To Executives",
+         "TemplateName": "Executives Details",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R041",
+         "EventCat": "Applications",
+         "EventAct": "Show Results",
+         "Eventlbl": "More Related Products",
+         "TemplateName": "Application Detail Page",
+         "Section": "Right Panel"
+      },
+      {
+         "ReqID": "R042",
+         "EventCat": "Applications",
+         "EventAct": "Show Results",
+         "Eventlbl": "Hide Related Products",
+         "TemplateName": "Application Detail Page",
+         "Section": "Right Panel"
+      },
+      {
+         "ReqID": "R043",
+         "EventCat": "Applications",
+         "EventAct": "Show Results",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Application Detail Page",
+         "Section": "Interactive Diagram"
+      },
+      {
+         "ReqID": "R044",
+         "EventCat": "Applications",
+         "EventAct": "Select Application",
+         "Eventlbl": "<Application Name>",
+         "TemplateName": "Application Landing",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R045",
+         "EventCat": "Applications",
+         "EventAct": "Select Application",
+         "Eventlbl": "<Application Name>",
+         "TemplateName": "Application Category",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R046",
+         "EventCat": "Products",
+         "EventAct": "Overview",
+         "Eventlbl": "Image",
+         "TemplateName": "Product Detail Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R047",
+         "EventCat": "Products",
+         "EventAct": "Replacement Part",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Detail Page",
+         "Section": "Lifecycle Status"
+      },
+      {
+         "ReqID": "R048",
+         "EventCat": "Products",
+         "EventAct": "Data Sheet Download",
+         "Eventlbl": "<Doc Title>",
+         "TemplateName": "Product Detail Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R049",
+         "EventCat": "Products",
+         "EventAct": "Compare Selected Products",
+         "Eventlbl": "Highlight Differences: <On|Off>",
+         "TemplateName": "Parametric Comparison Page",
+         "Section": "Product Compare Table"
+      },
+      {
+         "ReqID": "R050",
+         "EventCat": "Products",
+         "EventAct": "Buy Now",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Parametric Comparison Page",
+         "Section": "Product Compare Table"
+      },
+      {
+         "ReqID": "R051",
+         "EventCat": "Products",
+         "EventAct": "Display Options",
+         "Eventlbl": "<Grid|List>",
+         "TemplateName": "Product Family - Compare",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R052",
+         "EventCat": "Products",
+         "EventAct": "Product Click - Link",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Family - Compare",
+         "Section": "Products ? List"
+      },
+      {
+         "ReqID": "R053",
+         "EventCat": "Products",
+         "EventAct": "Product Click - Image",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Family - Compare",
+         "Section": "Products - Grid"
+      },
+      {
+         "ReqID": "R054",
+         "EventCat": "Products",
+         "EventAct": "<Filter Type>",
+         "Eventlbl": "<Checkbox Items>",
+         "TemplateName": "Product Family - Compare",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R055",
+         "EventCat": "Products",
+         "EventAct": "Latest Products",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Home",
+         "Section": "Latest Products"
+      },
+      {
+         "ReqID": "R056",
+         "EventCat": "Products",
+         "EventAct": "Product Information",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Family Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R057",
+         "EventCat": "Products",
+         "EventAct": "Select Product",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Landing",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R058",
+         "EventCat": "Products",
+         "EventAct": "Select Product",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Product Categories",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R059",
+         "EventCat": "Resources",
+         "EventAct": "Related Resources",
+         "Eventlbl": "<Doc Title>",
+         "TemplateName": "<Template Name>",
+         "Section": "Right Panel"
+      },
+      {
+         "ReqID": "R060",
+         "EventCat": "Resources",
+         "EventAct": "Related Resources",
+         "Eventlbl": "Fewer Related Resources",
+         "TemplateName": "<Template Name>",
+         "Section": "Right Panel"
+      },
+      {
+         "ReqID": "R061",
+         "EventCat": "Resources",
+         "EventAct": "Popular Resources Download",
+         "Eventlbl": "<Doc Title>",
+         "TemplateName": "Product Detail Page",
+         "Section": "Popular Resources"
+      },
+      {
+         "ReqID": "R062",
+         "EventCat": "Site Search",
+         "EventAct": "Search",
+         "Eventlbl": "<Keyword>",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R063",
+         "EventCat": "Site Search",
+         "EventAct": "Filter By",
+         "Eventlbl": "<Filter Selected>",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R064",
+         "EventCat": "Site Search",
+         "EventAct": "Modified Date",
+         "Eventlbl": "<Date Selected>",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R065",
+         "EventCat": "Site Search",
+         "EventAct": "Suggestion Chosen",
+         "Eventlbl": "<none, item position in list>",
+         "TemplateName": "Search Result Page",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R066",
+         "EventCat": "Site Search",
+         "EventAct": "Sort by",
+         "Eventlbl": "<Sort Selected>",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R067",
+         "EventCat": "Site Search",
+         "EventAct": "Best Matches",
+         "Eventlbl": "All Products Results",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R068",
+         "EventCat": "Site Search",
+         "EventAct": "Best Matches",
+         "Eventlbl": "All Documents Results",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R069",
+         "EventCat": "Site Search",
+         "EventAct": "Best Matches",
+         "Eventlbl": "All Downloads Results",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R070",
+         "EventCat": "Site Search",
+         "EventAct": "Result Item",
+         "Eventlbl": "<Result Item Title>",
+         "TemplateName": "Search Result Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R071",
+         "EventCat": "Site Search",
+         "EventAct": "Search",
+         "Eventlbl": "Search Bar",
+         "TemplateName": "Content Listing Page",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R072",
+         "EventCat": "Site Search",
+         "EventAct": "Extend Overlay",
+         "Eventlbl": "Refine Search",
+         "TemplateName": "Parametric Overlay",
+         "Section": "Search Criteria"
+      },
+      {
+         "ReqID": "R073",
+         "EventCat": "Site Search",
+         "EventAct": "Display Options",
+         "Eventlbl": "<Grid|List>",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R074",
+         "EventCat": "Site Search",
+         "EventAct": "Compare",
+         "Eventlbl": "Compare Button",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Filter Options"
+      },
+      {
+         "ReqID": "R075",
+         "EventCat": "Site Search",
+         "EventAct": "Comparison Checks",
+         "Eventlbl": "<Item Checked>",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Filter Options"
+      },
+      {
+         "ReqID": "R076",
+         "EventCat": "Site Search",
+         "EventAct": "Sort By",
+         "Eventlbl": "<Sort Option Clicked> - <Ascending/Descending>",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R077",
+         "EventCat": "Site Search",
+         "EventAct": "Data Sheet Download",
+         "Eventlbl": "<Doc Title>",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R078",
+         "EventCat": "Site Search",
+         "EventAct": "Search",
+         "Eventlbl": "Search Bar",
+         "TemplateName": "Parametric Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R079",
+         "EventCat": "Site Search",
+         "EventAct": "Display Options",
+         "Eventlbl": "<Grid|List>",
+         "TemplateName": "Part Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R080",
+         "EventCat": "Site Search",
+         "EventAct": "Grid Display - Comparison Checks",
+         "Eventlbl": "<Item Checked>",
+         "TemplateName": "Part Search Results",
+         "Section": "Search Results GRID Display"
+      },
+      {
+         "ReqID": "R081",
+         "EventCat": "Site Search",
+         "EventAct": "Part Number",
+         "Eventlbl": "<part number>",
+         "TemplateName": "Part Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R082",
+         "EventCat": "Site Search",
+         "EventAct": "Grid Display - Buy Now",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Part Search Results",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R083",
+         "EventCat": "Site Search",
+         "EventAct": "Product Group",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search"
+      },
+      {
+         "ReqID": "R084",
+         "EventCat": "Site Search",
+         "EventAct": "Product Name",
+         "Eventlbl": "<Product Name>",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search"
+      },
+      {
+         "ReqID": "R085",
+         "EventCat": "Site Search",
+         "EventAct": "Submit",
+         "Eventlbl": "Search",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search"
+      },
+      {
+         "ReqID": "R086",
+         "EventCat": "Site Search",
+         "EventAct": "Submit",
+         "Eventlbl": "Search",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search"
+      },
+      {
+         "ReqID": "R087",
+         "EventCat": "Site Search",
+         "EventAct": "Expand",
+         "Eventlbl": "Expand All",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search"
+      },
+      {
+         "ReqID": "R088",
+         "EventCat": "Site Search",
+         "EventAct": "Sign In",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Secure Assets Access"
+      },
+      {
+         "ReqID": "R089",
+         "EventCat": "Site Search",
+         "EventAct": "Create Alert",
+         "Eventlbl": "<Doc Title>",
+         "TemplateName": "Documents & Downloads",
+         "Section": "Search Results"
+      },
+      {
+         "ReqID": "R090",
+         "EventCat": "myBroadcom Account",
+         "EventAct": "Login",
+         "Eventlbl": "Go",
+         "TemplateName": "<Template Name>",
+         "Section": "Header"
+      },
+      {
+         "ReqID": "R091",
+         "EventCat": "Registration",
+         "EventAct": "Type of User",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R092",
+         "EventCat": "Registration",
+         "EventAct": "Primary Job Role",
+         "Eventlbl": "<Dropdown Box Items>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R093",
+         "EventCat": "Registration",
+         "EventAct": "Product Categories",
+         "Eventlbl": "<checkbox items>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      },
+      {
+         "ReqID": "R094",
+         "EventCat": "Registration",
+         "EventAct": "Registration",
+         "Eventlbl": "<Success|failure>",
+         "TemplateName": "<Template Name>",
+         "Section": "Body"
+      }
+   ]
+}

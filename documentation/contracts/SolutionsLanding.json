@@ -1,0 +1,149 @@
+{
+	"_url_" : "solutions/",
+	"content_id" : "1421089863645",
+	"content_type" : "Page",
+	"template" : "SolutionsLanding",
+	"locale" : "en-us",
+	"title" : "Solutions Landing",
+	"ShortTitle" : "Solutions Landing",
+	"body2" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"meta_keywords" : "data center, networking, infrastructure software, broadband, wireless, storage and industrial",
+	"meta_description" : "Broadcom's product portfolio serves multiple applications within seven primary target markets: data center, networking, software, broadband, wireless, storage and industrial.",
+
+	"CTA" : [],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"leftNav" : {},
+
+	"$comment": "Copied from applications JSON, did not change the attribute names.",
+	"SolutionsCategories" : [{
+			"content_id" : "1206561985802",
+			"content_type" : "AVG_Application_P",
+			"CategoryName" : "Wireless and Mobile Communications",
+			"CategoryOrder" : 40,
+			"CategoryAbstract" : "Broadcom's innovative, market-leading communication solutions are enabling next-generation mobile devices, cellular networks, and data center solutions.",
+			"_url_" : "applications/wireless-mobile-communications/",
+			"image" : [{
+					"content_id" : "1211090631215",
+					"content_type" : "AVG_Image_C",
+					"ImageName" : "Wireless and Mobile Communications",
+					"AltText" : "Wireless and Mobile Communications Applications",
+					"Image_url_" : "/media/1211090631215/wirelessmobilecomm.jpg",
+					"Image_file_name" : "31/597/WirelessMobileComm,0.jpg",
+					"ProductThumbnailFile5_url_" : "/media/1211090631215/31/597/WirelessMobileCommThumb,2.png",
+					"ProductThumbnailFile5_file_name" : "31/597/WirelessMobileCommThumb,2.png",
+					"ProductThumbnailFile3_url_" : "/media/1211090631215/150x150-wirelessmobilecommthumb.png",
+					"ProductThumbnailFile3_file_name" : "31/597/WirelessMobileCommThumb.png"
+				}
+			],
+			"solutions" : [{
+					"name" : "Smartphones",
+					"_url_" : "applications/wireless/smart-phones"
+				}, {
+					"name" : "Innovative Wireless Solutions",
+					"_url_" : "applications/wireless-mobile-communications/new-wireless-frontiers"
+				}
+			]
+		}, {
+			"content_id" : "1206561985875",
+			"content_type" : "AVG_Application_P",
+			"CategoryName" : "Industrial and Automotive",
+			"CategoryOrder" : 10,
+			"CategoryAbstract" : "Broadcom industrial products effectively address the current and emerging technical challenges of numerous industrial markets.",
+			"_url_" : "applications/industrial-automotive/",
+			"image" : [{
+					"content_id" : "1211090631153",
+					"content_type" : "AVG_Image_C",
+					"ImageName" : "Industrial Applications",
+					"AltText" : "Industrial Applications",
+					"Image_url_" : "/media/1211090631153/industrialauto.jpg",
+					"Image_file_name" : "219/999/IndustrialAuto,0.jpg",
+					"ProductThumbnailFile5_url_" : "/media/1211090631153/219/999/IndustrialAuto,2.png",
+					"ProductThumbnailFile5_file_name" : "219/999/IndustrialAuto,2.png",
+					"ProductThumbnailFile3_url_" : "/media/1211090631153/150x150-industrialauto.png",
+					"ProductThumbnailFile3_file_name" : "219/999/IndustrialAuto.png"
+				}
+			],
+			"solutions" : [{
+					"name" : "Industrial Networking",
+					"_url_" : "applications/industrial-automotive/industrial-networking"
+				}, {
+					"name" : "Automotive Solutions",
+					"_url_" : "applications/industrial-automotive/automotive-solutions"
+				}, {
+					"name" : "Industrial Ethernet",
+					"_url_" : "applications/industrial-automotive/industrial-ethernet"
+				}, {
+					"name" : "Medical Systems & Equipment",
+					"_url_" : "applications/industrial/med-systems-equipment"
+				}, {
+					"name" : "Motor Drive Solutions",
+					"_url_" : "applications/industrial-automotive/motor-drive-solutions"
+				}, {
+					"name" : "Solar Power",
+					"_url_" : "applications/industrial-automotive/solar-power"
+				}, {
+					"name" : "Wind Power",
+					"_url_" : "applications/industrial-automotive/wind-turbine"
+				}
+			]
+		}, {
+			"content_id" : "1211215230465",
+			"content_type" : "AVG_Application_P",
+			"CategoryName" : "CA Technologies Infrastructure Software Products and Solutions",
+			"CategoryOrder" : 7,
+			"CategoryAbstract" : "Infrastructure software solutions provide application development & testing, integration & data management, IT operations management & automation and security for mission critical applications spanning from mobile, cloud to mainframe.",
+			"_url_" : "applications/ca-technologies-infrastructure-software-solutions/",
+			"image" : [{
+					"content_id" : "1211216196223",
+					"content_type" : "AVG_Image_C",
+					"ImageName" : "CA Technologies Software Products and Solutions",
+					"AltText" : "CA Technologies Software Products and Solutions",
+					"Image_url_" : "/media/1211216196223/casoftwaresolutions.jpg",
+					"Image_file_name" : "488/67/CASoftwareSolutions.jpg",
+					"ProductThumbnailFile5_url_" : "/media/1211216196223/488/67/CASoftwareSolutionsThumb,2.png",
+					"ProductThumbnailFile5_file_name" : "488/67/CASoftwareSolutionsThumb,2.png",
+					"ProductThumbnailFile3_url_" : "/media/1211216196223/150x150-casoftwaresolutionsthumb.png",
+					"ProductThumbnailFile3_file_name" : "488/67/CASoftwareSolutionsThumb.png"
+				}
+			],
+			"solutions" : []
+		}
+	],
+
+	"HeroBanner" : [{
+			"$comment" : "## Ignore comment. Hero banner can have 1 to many. If more than one, then slider controls exists. See /lte-carrier-aggregation ##",
+			"content_id" : "1211160651376",
+			"content_type" : "AVG_Highlight_C",
+			"highlight_title" : "Take the Avago Way to Higher Speed LTE Carrier Aggregration",
+			"highlight_description" : null,
+			"_url_" : ["lte-carrier-aggregation"],
+			"link_title" : null,
+			"ThumbnailImage" : "media/1211160651376/667/908/4-home-hero-carrieraggregation,0.jpg",
+			"hero_image" : {
+				"content_id" : "1211160651298",
+				"content_type" : "AVG_Image_C",
+				"ImageName" : "home-hero-carrieraggregation",
+				"AltText" : "home-hero-carrieraggregation",
+				"Image_url_" : "/media/1211160651298/4-home-hero-carrieraggregation.jpg",
+				"Image_file_name" : "667/908/4-home-hero-carrieraggregation,1.jpg",
+				"ProductThumbnailFile5_url_" : "/media/1211160651298/667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile5_file_name" : "667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile3_url_" : "/media/1211160651298/150x150-4-home-hero-carrieraggregationthumb.png",
+				"ProductThumbnailFile3_file_name" : "667/908/4-home-hero-carrieraggregationThumb.png"
+			}
+		}
+	],
+	
+	
+	"insights": "$comment: Per Webops, we are tabling this section off."
+}

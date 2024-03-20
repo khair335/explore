@@ -1,0 +1,54 @@
+"hero_banner": [  # Even though hero banner is a single component, making it as array to align with Broadcom hero banner.
+    {
+        "content_id": "blt4a210d9f24ee6a72_en-us",
+        "content_type": "hero_banner",
+        "title": "We’ve got 2024 in our sights.",
+        "banner_name": "VMware home page hero banner",
+        "banner_headline": "We’ve got 2024 in our sights.",
+        "description": "Save the date to continue your journey in the multi-cloud universe.",
+        "url": "/info/vmware",
+        "links": [
+            {
+                "content_id": "blt43407850a333f173_en-us",
+                "content_type": "link",
+                "uid_orginal": "blt43407850a333f173",
+                "title": "Learn More",
+                "hero_banner_title":"Las Vegas",
+                "hero_banner_abstract":"August 26 - 29, 2024\br\ The Venetian Convention and Expo Center",
+                "url": "/us",
+                "target": "_self",
+                "subtype": "landing_pages",
+                "no_follow ": false,
+                "show_in_navigation": "Yes",
+                "short_title": "VMware by Broadcom"
+            },
+            {
+                "content_id": "blt43407850a333f173_en-us",
+                "content_type": "link",
+                "uid_orginal": "blt43407850a333f173",
+                "title": "Learn More",
+                "hero_banner_title":"Barcelona",
+                "hero_banner_abstract":"August 26 - 29, 2024\br\ The Venetian Convention and Expo Center",
+                "url": "/us",
+                "target": "_self",
+                "subtype": "landing_pages",
+                "no_follow ": false,
+                "show_in_navigation": "Yes",
+                "short_title": "VMware by Broadcom"
+            }
+        ],
+        "hero_image": {
+            "src": "/media/blt4ac44e0e6c6d8341/blt0718492ee22e3114/651f2a769f3cb1661e550ac4/wwwHero_VMware_Day1_dark.jpg",
+            "width": 1920,
+            "height": 455,
+            "title": "VMware by Broadcom",
+            "alt": "wwwHero_VMware_Day1_dark.jpg",
+            "enlarge": "false"
+        },
+        "locale": "en-us",
+        "created_date": "2023-10-25T00:07:43.478000Z",
+        "updated_date": "2023-10-25T00:07:43.478000Z",
+        "end_date": "2053-11-14",
+        "start_date": "2018-11-23"
+    }
+]

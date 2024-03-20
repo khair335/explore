@@ -1,0 +1,32 @@
+/*
+* components/accordion.scss
+*/
+// Styling for broadcom custom accordion
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.accordion-content-block, .accordion {
+    .CollapseBox {
+        margin-bottom:5px!important;
+        .card-head {
+        padding:0!important;
+        font-size: $font-size-lg;
+        font-family: $font-family--secondary;
+        font-weight: 400!important;                   //metro-mod
+        letter-spacing: .5px;                       //metro-mod
+        }
+        .card {padding:14px 14px;
+            &:hover{
+                background-color: $color-grey--500;
+            }
+        }
+        .bc--color_secondary {font-weight:500}
+    .cta-link {
+        padding: 20px 0 0 7px
+    }
+    }     
+   .accordion-title {
+    padding-bottom: 15px;
+   }
+}

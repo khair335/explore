@@ -1,0 +1,62 @@
+/*
+* components/resource-widget.scss
+*/
+// Styling for resource widget on the product group pages
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.resources{
+  background-color: $color-grey--500;
+  padding: 15px;
+  text-align:center;
+  margin-bottom: 20px;
+  ul{
+    list-style-type: none !important;
+    padding-left: 0 !important;
+       li{
+          margin-bottom: 15px;
+		  align-items: center;
+		  a.lnk, button{
+              //word-break: break-all;
+              display: -webkit-box;
+              display: -moz-box;
+              display: -ms-flexbox;
+              display: -webkit-flex;
+              display: flex;                      //mods button _buttons.scss
+              text-align:left;                    //mods button _buttons.scss
+              font-family: $font-family--primary; //mods button _buttons.scss - as per web-team nov22
+              line-height: 1.25;                  //mod
+              font-weight: 400;                   //mods link-bttn @link-stye _buttons.scss  -mods _link.scss
+			        align-items: center;
+
+              &.link-bttn .bi {
+                color: $color-white;          //mods link-bttn _buttons.scss  -/mods _link.scss
+              }
+          }
+          span{                               //icon in front of link usually handled via .bi - very specific w/ lots of mods, so just leaving
+              width: 35px;
+              height: 35px;
+              text-align: center;
+              background-color:lighten($color-grey--800, 9%);
+              border-radius: 100px;
+              margin-right: 10px;
+              margin-left: 0;
+              line-height: 35px;
+              font-size: 25px;
+              display: inline-table;
+			        flex: none;
+          }
+
+      }
+    }
+	.resources-more{
+    color:$color-secondary;               //mods icon-bttn _buttons.scss
+    font-weight: 500;
+    span{
+    margin-left: 5px;
+    }
+  }
+}
+
+

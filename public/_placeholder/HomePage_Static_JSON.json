@@ -1,0 +1,2347 @@
+{
+	"content_id" : "1421089852253",
+	"content_type" : "Page",
+	"site" : "AVG2",
+	"referenced_contents" : {
+		"1211130673248" : {
+			"content_id" : "1211130673248",
+			"content_type" : "AdvCols",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "32e8da7a-a038-47e2-a94a-5caf7ee8ec47",
+				"Manualrecs" : [{
+						"confidence" : "1.0",
+						"content_id" : "1211195138557",
+						"content_type" : "AVG_Highlight_C",
+						"complex_attr" : true
+					}, {
+						"confidence" : "0.99",
+						"content_id" : "1211197655495",
+						"content_type" : "AVG_Highlight_C",
+						"complex_attr" : true
+					}, {
+						"confidence" : "0.98",
+						"content_id" : "1211191944671",
+						"content_type" : "AVG_Highlight_C",
+						"complex_attr" : true
+					}
+				],
+				"selruleset" : "<?XML VERSION=\"1.0\"?>\n<!DOCTYPE RULESET SYSTEM \"ruleset.dtd\">\n<RULESET NAME=\"Selection_$(this?:x)\"><ENCODING>NUMSEGS=0,ADVCOLMODE=List,ADVCOLTYPE=manual,RULESETTYPE=ui,;</ENCODING><IMPORT CLASS=\"com.openmarket.gator.ruleobjects.*\"/><RULE NAME=\"R1_$(this?:x)\"><IF><EXISTS ID=\"ManualGenerator:$(this?:x)\" NAME=\"a\" CLASS=\"ManualGenerator\"/><EXISTS ID=\"RecommendationAccumulator:$(this?:x)\" NAME=\"b\" CLASS=\"RecommendationAccumulator\"/><NOTEXISTS ID=\"Signal:Return_$(this?:x)\"/></IF><THEN><ACTION>b.setRecommendations(&#34;main&#34;,a.getList())</ACTION><ACTION>b.setDependencies(&#34;main&#34;,a.getDependencies())</ACTION><UNDOACTION>b.clear(&#34;main&#34;)</UNDOACTION><UNDOACTION>b.setDependencies(&#34;main&#34;,a.getDependencies())</UNDOACTION></THEN></RULE></RULESET>",
+				"types" : [],
+				"mapstyle" : "C",
+				"ovrdable" : "T",
+				"style" : "H"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {}
+		},
+		"1211195138557" : {
+			"content_id" : "1211195138557",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "d5d5792e-bfc3-4038-9f76-e5706d93ea76",
+				"hero_image" : {
+					"content_id" : "1211195138707",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"ThumbnailImage" : {
+					"file_name" : "186/532/Hero_Brocade_1920x455_final.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115695&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"highlight_title" : "Broadcom Limited Completes Acquisition of Brocade Communications Systems, Inc.",
+				"link_title" : "Read More"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211203588295",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211130673303" : {
+					"content_id" : "1211130673303",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "HeroBanner"
+		},
+		"1211195138707" : {
+			"content_id" : "1211195138707",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "72213ade-e4e3-4253-a10e-71b323be1b28",
+				"ImageName" : "Hero Brocade Banner",
+				"ImageDescription" : "Hero Brocade Banner",
+				"ImageFile" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115628&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2%252C0.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211195138707/hero_brocade_1920x455_final-2.png"
+				},
+				"AltText" : "Hero Brocade Banner",
+				"ProductThumbnailFile3" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2Thumb,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115629&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2Thumb%252C4.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2Thumb%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211195138707/150x150-hero_brocade_1920x455_final-2thumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2Thumb,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115630&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2Thumb%252C5.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2Thumb%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211195138707/480x720-hero_brocade_1920x455_final-2thumb.png"
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2Thumb,6.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115631&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2Thumb%252C6.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2Thumb%252C6.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211195138707/60x60-hero_brocade_1920x455_final-2thumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2Thumb,7.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115632&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2Thumb%252C7.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2Thumb%252C7.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "31/742/Hero_Brocade_1920x455_final-2Thumb,8.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115633&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Brocade_1920x455_final-2Thumb%252C8.png%22%3Bfilename*%3DUTF-8%27%27Hero_Brocade_1920x455_final-2Thumb%252C8.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211195138707/80x80-hero_brocade_1920x455_final-2thumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1210884150453" : {
+					"content_id" : "1210884150453",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211203588295" : {
+			"content_id" : "1211203588295",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "bca64372-40ec-4575-85f1-04326e9b339a",
+				"SPTParent" : {
+					"content_id" : "1211157778396",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "Brocade News Release",
+				"PageTitle" : "Brocade News Release",
+				"URL" : "http://investors.broadcom.com/phoenix.zhtml?c=203541&p=irol-newsArticle&ID=2317715",
+				"NewWindow" : "No"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "ExternalLink"
+		},
+		"1211197655495" : {
+			"content_id" : "1211197655495",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "a5a4afd0-1652-48ce-9c47-ea9a80d04189",
+				"hero_image" : {
+					"content_id" : "1211197655363",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"ThumbnailImage" : {
+					"file_name" : "475/891/Automotive-150x150.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115818&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Automotive-150x150.jpg%22%3Bfilename*%3DUTF-8%27%27Automotive-150x150.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"highlight_title" : "ADVANCING NEXT-GENERATION AUTOMOTIVE ELECTRONICS",
+				"highlight_description" : "<p>OEMs set their sights on in-vehicle electronics.</p>\r\n",
+				"link_title" : "Learn More"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211197661154",
+					"content_type" : "AVG_Blog_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211130673303" : {
+					"content_id" : "1211130673303",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "HeroBanner"
+		},
+		"1211197655363" : {
+			"content_id" : "1211197655363",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "6323ee1b-663c-4f9e-9c33-dacea81c0d74",
+				"ImageName" : "Industrial Automotive Solutions Hero Banner Image",
+				"ImageFile" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_final,1.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115752&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_final%252C1.jpg%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_final%252C1.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197655363/hero_automotive_1920x455_final.jpg"
+				},
+				"AltText" : "Hero Automotive",
+				"ProductThumbnailFile3" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_finalThumb,9.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115753&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_finalThumb%252C9.png%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_finalThumb%252C9.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197655363/150x150-hero_automotive_1920x455_finalthumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_finalThumb,10.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115754&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_finalThumb%252C10.png%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_finalThumb%252C10.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197655363/480x720-hero_automotive_1920x455_finalthumb.png"
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_finalThumb,11.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115755&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_finalThumb%252C11.png%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_finalThumb%252C11.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197655363/60x60-hero_automotive_1920x455_finalthumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_finalThumb,12.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115756&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_finalThumb%252C12.png%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_finalThumb%252C12.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "305/619/Hero_Automotive_1920x455_finalThumb,13.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115757&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero_Automotive_1920x455_finalThumb%252C13.png%22%3Bfilename*%3DUTF-8%27%27Hero_Automotive_1920x455_finalThumb%252C13.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197655363/80x80-hero_automotive_1920x455_finalthumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1210884150453" : {
+					"content_id" : "1210884150453",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211197661154" : {
+			"content_id" : "1211197661154",
+			"content_type" : "AVG_Blog_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "blog/automotive-electronics-embracing-the-disruptive-future",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "d4001b43-28e2-4343-b7d2-90a81d34a8c5",
+				"Title" : "Automotive electronics: Embracing the disruptive future",
+				"SubHeaderTitle" : "Broadcom drives innovation, advancing next-generation infotainment, ADAS, powertrain and body electronics",
+				"Summary" : "<p>The automotive industry has witnessed unprecedented changes in the last two decades driven heavily by the rapid adoption of in-vehicle electronics. Modern vehicles are equipped with advanced safety, security, infotainment, and a whole host of features for comfort and convenience to make driving easier, safer and more enjoyable. As vehicles become increasingly advanced and connected, semiconductors will play an ever more important role in the automotive ecosystem.</p>\r\n\r\n<p>The next several decades promise more semiconductor opportunities and challenges as new and emerging technologies are introduced to the automotive market. Numerous disruptive technologies such as artificial intelligence (AI), augmented reality (AR), V2X communications, and autonomous driving are starting to revolutionize the automotive industry. Drivers will be able to rely on AI to take over the steering wheel in the event they are not able to drive. Future cars will be equipped with AR capabilities in the windshield to provide unobstructed views of the vehicle surroundings to help make driving safer and easier. V2X technology will connect cars together wirelessly and provide an efficient traffic controlling ecosystem that optimizes traffic flow and minimizes accidents.</p>\r\n\r\n<p>As auto manufacturers embrace digital disruption, Broadcom continues to drive innovation and develop new solutions to advance next generation automotive electronics.</p>\r\n\r\n<p>&gt;&gt;&gt; INSERT IMAGE of CAR HERE &lt;&lt;&lt;</p>\r\n\r\n<p>Broadcom offers a broad portfolio of automotive semiconductor solutions addressing a wide range of needs in vehicle connectivity and networking, optical isolation and sensing, wireless communications, and LED lighting. Refer to the Automotive Solutions application page for a comprehensive view of Broadcom&rsquo;s automotive offerings.</p>\r\n\r\n<p>&gt;&gt;&gt; INSERT TABLE HERE &lt;&lt;&lt;</p>\r\n",
+				"Author" : "Khanh Lam",
+				"Body" : "<p>The automotive industry has witnessed unprecedented changes in the last two decades driven heavily by the rapid adoption of in-vehicle electronics. Modern vehicles are equipped with advanced safety, security, infotainment, and a whole host of features for comfort and convenience to make driving easier, safer and more enjoyable. As vehicles become increasingly advanced and connected, semiconductors will play an ever more important role in the automotive ecosystem.</p>\r\n\r\n<p>The next several decades promise more semiconductor opportunities and challenges as new and emerging technologies are introduced to the automotive market. Numerous disruptive technologies such as artificial intelligence (AI), augmented reality (AR), V2X communications, and autonomous driving are starting to revolutionize the automotive industry. Drivers will be able to rely on AI to take over the steering wheel in the event they are not able to drive. Future cars will be equipped with AR capabilities in the windshield to provide unobstructed views of the vehicle surroundings to help make driving safer and easier. V2X technology will connect cars together wirelessly and enable&nbsp;an efficient traffic controlling ecosystem that optimizes traffic flow and minimizes accidents.</p>\r\n\r\n<p>As auto manufacturers embrace digital disruption, Broadcom continues to drive innovation and develop new solutions to advance next generation automotive electronics.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table class=\"column-2 hr-visible table table-striped\" role=\"grid\" style=\"background-color:#f3f3f3; border-style:solid; border-top-color:#bbbcbc; border-top-width:8px\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width:80px\">&nbsp;</td>\r\n\t\t\t<td>\r\n\t\t\t<h4 style=\"text-align: center; width:600px\">Broadcom&rsquo;s Automotive Solutions</h4>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211197727508&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211197727508;Type:AVG_Image_C)]</em></span></td>\r\n\t\t\t<td>\r\n\t\t\t<p><strong>In-Vehicle Infotainment</strong>&mdash;From LTE to GPS, Broadcom provides a variety of high-performance RF components addressing various technical challenges in the RF front end. Broadcom&rsquo;s BroadR-Reach&reg; and fiber optic MOST Tx/Rx solutions provide reliable and robust connectivity delivering optimized multimedia of entertainment and information. Broadcom&rsquo;s LED and optical sensing solutions can greatly enhance the user interface with unique lighting and gesture sensing, enabling a richer and more connected infotainment experience.</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211197726868&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211197726868;Type:AVG_Image_C)]</em></span></td>\r\n\t\t\t<td>\r\n\t\t\t<p><strong>Advanced Driver Assistance System</strong>&mdash;Broadcom&rsquo;s BroadR-Reach and fiber optic MOST Tx/Rx solutions enable robust connectivity and networking of cameras, sensors, and application processors that serve a multitude of ADAS applications such as lane departure warning, blind spot detection, and autonomous emergency braking.</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211197727784&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211197727784;Type:AVG_Image_C)]</em></span></td>\r\n\t\t\t<td>\r\n\t\t\t<p><strong>Powertrain</strong>&mdash;Broadcom&rsquo;s R&sup2;Coupler&reg; optocouplers and fiber optic short-link devices provide unrivaled high voltage isolation for various electronic modules used in powertrain and battery management systems, such as DC/DC converter, inverter, battery monitor, and CAN bus interface.</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211197727989&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211197727989;Type:AVG_Image_C)]</em></span></td>\r\n\t\t\t<td>\r\n\t\t\t<p><strong>Body Electronics</strong>&mdash;Broadcom offers a wide array of products for the body electronics. Broadcom&rsquo;s BroadR-Reach is a cost effective solution for many in-vehicle controls such as interior lighting and temperature settings, opening and closing of doors and windows, and seat position adjustments. Broadcom&rsquo;s LED and optical sensing products have many applications for both the vehicle interior and exterior to enhance driving safety, comfort, and convenience.</p>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</thead>\r\n</table>\r\n\r\n<p><strong>LEARN MORE</strong></p>\r\n\r\n<p>Broadcom offers a broad portfolio of automotive semiconductor solutions addressing a wide range of needs in vehicle connectivity and networking, optical isolation and sensing, wireless communications, and LED lighting. Refer to the <span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DAutomotive%2520Solutions%2520application%2520page&amp;_cid_=1211197508652&amp;_c_=AVG_Application_C&amp;_subtype_=Application&amp;_deps_=exists\"><em>[Asset Included(Id:1211197508652;Type:AVG_Application_C)]</em></span>&nbsp;for a comprehensive view of Broadcom&rsquo;s automotive offerings.</p>\r\n\r\n<p>&nbsp;</p>\r\n",
+				"Thumbnail" : {
+					"content_id" : "1211197661217",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"AssetLocale" : "avg_en"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211171540392" : {
+					"content_id" : "1211171540392",
+					"content_type" : "AVG_Blog_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "BlogArticle"
+		},
+		"1211191944671" : {
+			"content_id" : "1211191944671",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "e200e4ba-1216-45e5-8de8-bdf00353a444",
+				"hero_image" : {
+					"content_id" : "1211191944743",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"ThumbnailImage" : {
+					"file_name" : "291/466/blog-broadband-thumb-150x150,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115863&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22blog-broadband-thumb-150x150%252C1.png%22%3Bfilename*%3DUTF-8%27%27blog-broadband-thumb-150x150%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"highlight_title" : "CONNECTING THE GIGABIT BROADBAND INFRASTRUCTURE",
+				"highlight_description" : "<p>Global service providers successfully deploy tomorrow&rsquo;s broadband technologies today.&nbsp;</p>\r\n",
+				"link_title" : "Learn More"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211191943895",
+					"content_type" : "AVG_Blog_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211130673303" : {
+					"content_id" : "1211130673303",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "HeroBanner"
+		},
+		"1211191944743" : {
+			"content_id" : "1211191944743",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "4839bb28-849d-40f9-9c11-3cd75a5ab910",
+				"ImageName" : "gigabit broadband hero banner image",
+				"ImageFile" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124763&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2%252C0.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191944743/hero-broadband-1920x455v2.png"
+				},
+				"AltText" : "View of Earth from space",
+				"ProductThumbnailFile3" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2Thumb,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124764&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2Thumb%252C4.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2Thumb%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191944743/150x150-hero-broadband-1920x455v2thumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2Thumb,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124765&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2Thumb%252C5.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2Thumb%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191944743/480x720-hero-broadband-1920x455v2thumb.png"
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2Thumb,6.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124766&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2Thumb%252C6.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2Thumb%252C6.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191944743/60x60-hero-broadband-1920x455v2thumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2Thumb,7.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124767&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2Thumb%252C7.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2Thumb%252C7.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "834/309/Hero-Broadband-1920x455v2Thumb,8.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206124768&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Hero-Broadband-1920x455v2Thumb%252C8.png%22%3Bfilename*%3DUTF-8%27%27Hero-Broadband-1920x455v2Thumb%252C8.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191944743/80x80-hero-broadband-1920x455v2thumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1210884150453" : {
+					"content_id" : "1210884150453",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211191943895" : {
+			"content_id" : "1211191943895",
+			"content_type" : "AVG_Blog_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "blog/gigabit-broadband-access-drives-tomorrow-s-broadband-application",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "042482bd-9378-4941-9a72-623933b594df",
+				"Title" : "Gigabit Broadband Access Drives Tomorrows Broadband Applications",
+				"Summary" : "<p>.</p>\n",
+				"Author" : "Khanh Lam",
+				"Body" : "<p>Global Internet traffic continues to grow by leaps and bounds. By 2020, four&nbsp;billion people will be using the Internet and immersed in a world where 26 billion electronic devices are connected [See Figure 1]. The amount of data demanded from these Internet-connected devices will be astronomical. Digital consumers will need faster broadband speeds to access and enjoy rich multimedia web content in real time.</p>\n\n<p style=\"float:left; margin-bottom:5px;\"><span style=\"width:100%\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211191944295&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211191944295;Type:AVG_Image_C)]</em></span></span></p>\n\n<div style=\"width: 340px; height:144px;\">&nbsp;</div>\n\n<p><strong><span style=\"font-size:11px; margin-left:30px\">Figure 1: Global IP Traffic &amp; Service Adoption Drivers (Source: Cisco VNI 2016)</span></strong></p>\n\n<p>Next generation broadband access networks must be gigabit-capable in order to handle the deluge of Internet traffic and support bandwidth-intensive applications that are essential to the modern digital lifestyle, such as:</p>\n\n<p>&nbsp;</p>\n\n<ul>\n\t<li>High Definition Video Conference</li>\n\t<li>4K/8K Video Streaming</li>\n\t<li>Real Time Virtual Reality (VR)</li>\n\t<li>Massively Multiplayer Online Gaming</li>\n\t<li>Remote Medicine</li>\n\t<li>Distance Learning</li>\n\t<li>Cloud Data Access</li>\n</ul>\n\n<p>&nbsp;</p>\n\n<p>Successfully supporting these bandwidth-intensive applications requires a gigabit broadband infrastructure that reliably delivers data from the core of service provider networks to the access points. By and large, the bottlenecks that inhibit consumers from accessing gigabit broadband services are in the &ldquo;last mile&rdquo; links between the customer premise and the operator broadband infrastructure. There are several leading technology implementations across the cable, DSL and fiber infrastructure that enable high data rate broadband in the &ldquo;last mile&rdquo; [See Figure 2]. Each implementation has its own technical and cost challenges.</p>\n\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211191944413&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211191944413;Type:AVG_Image_C)]</em></span></p>\n\n<p><strong><span style=\"font-size:11px\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Figure 2: Leading &ldquo;Last Mile&rdquo; Technology Implementations</span></strong></p>\n\n<p>&nbsp;</p>\n\n<p>Broadcom offers the industry&rsquo;s most comprehensive portfolio of broadband access solutions addressing &ldquo;last mile&rdquo; challenges for global service providers. From broadband modem ICs for the customer premise to the CMTS/CCAP, DSLAM and OLT SoC platform solutions for the operator broadband infrastructure, Broadcom&rsquo;s products enable global service providers to deploy next generation broadband access technologies across multiple standards and drive tomorrow&rsquo;s broadband applications and services. Refer to the&nbsp;<span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DBroadband%2520Access%2520Solutions%2520application%2520page&amp;_cid_=1211190314309&amp;_c_=AVG_Application_C&amp;_subtype_=Application&amp;_deps_=exists\"><em>[Asset Included(Id:1211190314309;Type:AVG_Application_C)]</em></span> for more information.</p>\n",
+				"Thumbnail" : {
+					"content_id" : "1211191944168",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"AssetLocale" : "avg_en"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211171540491" : {
+					"content_id" : "1211171540491",
+					"content_type" : "AVG_Blog_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "BlogArticle"
+		},
+		"1211168816142" : {
+			"content_id" : "1211168816142",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "12b27ab9-9eed-4687-8f91-81b9b925d3d2",
+				"highlight_title" : "Support Portal",
+				"Body" : "<p>Customer Support Portal for Broadcom enterprise customers now available via myBroadcom</p>\r\n",
+				"link_title" : "SUPPORT"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211126175716",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211161006773" : {
+					"content_id" : "1211161006773",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Promo"
+		},
+		"1211126175716" : {
+			"content_id" : "1211126175716",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "mybroadcom/",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "dba3dede-b465-437d-b5b1-e47551c958bc",
+				"SPTParent" : {
+					"content_id" : "1421089854937",
+					"content_type" : "SitePlan",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "myBroadcom"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "FW_DEFAULT"
+		},
+		"1211168816482" : {
+			"content_id" : "1211168816482",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "7dd8505d-b903-44c9-ae98-82498feee1e1",
+				"highlight_title" : "Documents + Downloads",
+				"Body" : "<p>Access our library of product documentation and software downloads</p>\r\n",
+				"link_title" : "DOCUMENTS+DOWNLOADS"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211128364570",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211161006773" : {
+					"content_id" : "1211161006773",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Promo"
+		},
+		"1211128364570" : {
+			"content_id" : "1211128364570",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "support/download-search",
+				"template" : "DocumentDownloads",
+				"fw_uid" : "052db5bd-1db9-431e-b527-a27f30adccd4",
+				"SPTParent" : {
+					"content_id" : "1421089866025",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "Support Documents and Downloads",
+				"ShortTitle" : "Support Documents and Downloads",
+				"product_categories" : [{
+						"content_id" : "1210946577724",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211125816204",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211201325216",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168464503",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168463873",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211162032881",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211125816270",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1210944795545",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561994328",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206562181941",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561994443",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561994411",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211104051694",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211178431073",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}
+				],
+				"show_leftnav" : "No",
+				"meta_description" : "Search technical documentation and downloads including firmware and drivers. "
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1211173714976",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "General"
+		},
+		"1421089866025" : {
+			"content_id" : "1421089866025",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "support/find-help",
+				"template" : "Stacked",
+				"fw_uid" : "26bf1690-9609-49e9-a12b-b50603a68bf3",
+				"SPTParent" : {
+					"content_id" : "1211163833087",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "Find Help",
+				"ShortTitle" : "Find Help",
+				"BodyTitle" : "Find Documentation and Downloads",
+				"body" : "<ul>\n\t<li>\n\t\t<a href=\"/support/download-search\">Support Documents and Downloads</a></li>\n\t<li>\n\t\t<a href=\"/support/interop-compatibility\">Check Interoperability and Compatibility</a></li>\n\t<li>\n\t\t<a href=\"http://partfinder.avagotech.com/Broadcom/\">Cross Reference Search</a></li>\n</ul>\n<p>\n\t&nbsp;</p>\n",
+				"show_leftnav" : "No",
+				"ShowInNavigation" : "No",
+				"meta_description" : "Find support documentation and downloads, check interoperability and compatibility, or check competitor part equivalents with cross reference search"
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089854206",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "General"
+		},
+		"1210946577724" : {
+			"content_id" : "1210946577724",
+			"content_type" : "AVG_Product_P",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/wireless/",
+				"template" : "ProductGroup",
+				"fw_uid" : "4cfcad2f-ace2-4c81-be3f-802a3510086f",
+				"flexgrouptemplateid" : {
+					"content_id" : "1201882308074",
+					"content_type" : "AVG_Product_PD",
+					"complex_attr" : true
+				},
+				"CategoryName" : "Wireless Embedded Solutions and RF Components",
+				"CategoryLevel" : "ProductGroup-L1",
+				"WebProperties" : {
+					"content_id" : "1421089854508",
+					"content_type" : "AVG_WebProp_C",
+					"complex_attr" : true
+				},
+				"RelatedDocuments" : [{
+						"content_id" : "1206560953580",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561077982",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560938646",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560938598",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560914508",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560940701",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561075841",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561077241",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560952543",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561041930",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560925643",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560878165",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560996061",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560995423",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560957394",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560972765",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560972092",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560957578",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560935531",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561041450",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561082979",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560949183",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561072748",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560992852",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206560973342",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}
+				],
+				"AssetLocale" : "avg_en",
+				"Product-Group" : "Wireless Embedded Solutions and RF Components",
+				"CopyCategoryId" : [],
+				"CopyTemplate" : "ProductGroup"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "ProductCategory"
+		},
+		"1211170385942" : {
+			"content_id" : "1211170385942",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "5d4188d9-fb1f-41e1-a370-87c15c7afd2e",
+				"highlight_title" : "Cloud Scale Networks",
+				"ApplicationImage" : {
+					"content_id" : "1211190754187",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"home_app_design" : {
+					"content_id" : "1211168464049",
+					"content_type" : "AVG_Application_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211168816077" : {
+					"content_id" : "1211168816077",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "ApplicationHighlight"
+		},
+		"1211190754187" : {
+			"content_id" : "1211190754187",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "5e452e4e-9a0e-4905-b35d-6c21e149745d",
+				"ImageName" : "Cloud Scale Networking",
+				"ImageFile" : {
+					"file_name" : "135/967/Icon-CloudScale-inverse,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377757&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverse%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverse%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754187/icon-cloudscale-inverse.png"
+				},
+				"AltText" : "Cloud scale networking solution icon",
+				"ProductThumbnailFile3" : {
+					"file_name" : "135/967/Icon-CloudScale-inverseThumb,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377758&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverseThumb%252C4.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverseThumb%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754187/150x150-icon-cloudscale-inversethumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "135/967/Icon-CloudScale-inverseThumb,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377759&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverseThumb%252C5.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverseThumb%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "135/967/Icon-CloudScale-inverseThumb,6.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377760&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverseThumb%252C6.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverseThumb%252C6.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754187/60x60-icon-cloudscale-inversethumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "135/967/Icon-CloudScale-inverseThumb,7.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377761&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverseThumb%252C7.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverseThumb%252C7.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "135/967/Icon-CloudScale-inverseThumb,8.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377762&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-CloudScale-inverseThumb%252C8.png%22%3Bfilename*%3DUTF-8%27%27Icon-CloudScale-inverseThumb%252C8.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754187/80x80-icon-cloudscale-inversethumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206573457348" : {
+					"content_id" : "1206573457348",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211168464049" : {
+			"content_id" : "1211168464049",
+			"content_type" : "AVG_Application_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "applications/datacenter-networking/cloud-scale-networking",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "f0b6928e-d017-4d68-8904-482f69493fc3",
+				"ApplicationName" : "Cloud Scale Networking  ",
+				"PageTitle" : "Cloud Scale Networking | Data Center Neworking | Applications | Broadcom Limited",
+				"Description" : "<h4 class=\"sub-page-title\">Best-in-class infrastructure built on Broadcom networking solutions.</h4>\n\n<div>Network operators are facing workloads that are changing in unpredictable ways. Users are demanding massive increases in data volume while expecting to pay lower prices. These forces can choke networks, straining service-level agreements (SLA) and lowering asset utilization. Networks are also prone to inefficiencies in scaling, which unnecessarily increase capex and opex.</div>\n\n<div>&nbsp;</div>\n\n<div>\n<div><strong>Feature Rich Solutions</strong><br />\nTo help operators face these challenges, Broadcom offers a range of solutions starting with the new StrataXGS&reg; Tomahawk&trade; single-chip switch, providing up to 3.2 Tb/s of bandwidth with 128 x 25G ports that can be combined into 32 x 100G ports. In conjunction with the market-leading StrataXGS&reg; Trident II single-chip Top-of-Rack switches, the Tomahawk&trade; family offers OEMs, data center operators and service providers the ability to provide a vast array of configurations and deployment of best-fit physical networking elements in a fast, fat and flat connection topology.</div>\n\n<div>&nbsp;</div>\n\n<div>Network operators can also evaluate cloud-scale blueprints for efficient network design with Broadcom&#39;s Cloud Scale Network Configurator. Activating the right services and features of the physical network elements can enable high performance and scale for all workloads, even in the face of unpredictability. And, the ability to integrate software-defined networking (SDN) and network function virtualization (NFV) services on top of the infrastructure allows operators to dynamically provision their networks for rapid deployment and innovation velocity. In a nutshell, this is what Cloud Scale Networking is all about.</div>\n\n<div>&nbsp;</div>\n\n<div id=\"csn_configurator\">\n<div style=\"background-color: #eeeeee; width: 100%; padding: 20px; color: #0092b2; margin: 20px 0px;\">\n<div class=\"text-center\">\n<h4 style=\"color: #0092b2;\">CLOUD SCALE NETWORK CONFIGURATOR</h4>\n</div>\n\n<div>Helping network operators evaluate the tradeoffs required when building the optimal cloud architecture for their workload needs.The Configurator leverages leading-edge networking solutions such as the StrataXGS<sup>&reg;</sup> Tomahawk<sup>&trade;</sup> &mdash; and can provide valuable insights for planning next-generation networks.</div>\n\n<div>\n<div class=\"text-center\" style=\"margin-top: 20px; font-size: 16px;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DTry%2520It%2520Now&amp;_cid_=1211170496155&amp;_c_=AVG_Application_C&amp;_subtype_=Application&amp;_deps_=exists\"><em>[Asset Included(Id:1211170496155;Type:AVG_Application_C)]</em></span></div>\n</div>\n</div>\n</div>\n\n<div>&nbsp;&nbsp;\n<div>\n<div class=\"row\">\n<div class=\"col-md-4 col-sm-4 col-xs-12\"><strong>SDN AND NFV SERVICES</strong>\n\n<ul style=\"padding-left: 20px;\">\n\t<li><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DOCP%2520reference%2520Design&amp;_cid_=1211168557612&amp;_c_=AVG_Product_C&amp;_subtype_=SOC-IC-Base&amp;_deps_=exists\"><em>[Asset Included(Id:1211168557612;Type:AVG_Product_C)]</em></span>, Open NFV Platform, GitHub OpenFlow 1.3.1 reference design</li>\n\t<li>OVS acceleration, NFV Acceleration, and Service Chaining</li>\n\t<li><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DOpenFlow%2520Data%2520Plane%2520Abstraction%2520(OF-DPA)%25201.3.1&amp;_cid_=1211168556721&amp;_c_=AVG_Product_C&amp;_subtype_=EthernetAdapters&amp;_deps_=exists\"><em>[Asset Included(Id:1211168556721;Type:AVG_Product_C)]</em></span></li>\n\t<li>Future-proofed Support for Emerging Protocols for SDN/NFV</li>\n\t<li>Hardware-Based Network Virtualization, Overlay Aware Load Balancing</li>\n</ul>\n</div>\n\n<div class=\"col-md-8 col-sm-8  col-xs-12\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211169263050&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211169263050;Type:AVG_Image_C)]</em></span></div>\n</div>\n\n<div class=\"row\">\n<div class=\"col-md-4 col-sm-4 col-xs-12\"><strong>NETWORK SERVICES</strong>\n\n<ul style=\"padding-left: 20px;\">\n\t<li>Advanced Multipathing and Load Balancing</li>\n\t<li>Low latency, Smart Buffers and Lossless Performance</li>\n\t<li>Flexible Scale for L2, L3 and Large Policy Tables</li>\n\t<li>Security in PHYs, Switches and Processors</li>\n\t<li>Network instrumentation and monitoring with SDN APIs</li>\n</ul>\n</div>\n\n<div class=\"col-md-8 col-sm-8 col-xs-12\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211169263326&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211169263326;Type:AVG_Image_C)]</em></span></div>\n</div>\n\n<div class=\"row\">\n<div class=\"col-md-4 col-sm-4 col-xs-12\"><strong>PHYSICAL LAYER ELEMENTS</strong>\n\n<ul style=\"padding-left: 20px;\">\n\t<li><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DHigh%2520Bandwidth%2520and%2520Port%2520Count%2520Leaf%2520and%2520Spine%2520Switches&amp;_cid_=1211168561245&amp;_c_=AVG_Product_C&amp;_subtype_=SOC-IC-Base&amp;_deps_=exists\"><em>[Asset Included(Id:1211168561245;Type:AVG_Product_C)]</em></span></li>\n\t<li><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DControl%2520Plane%2520Solutions%2520and%2520Data%2520Plane%2520%252F%2520NFV%2520processors&amp;_cid_=1211168463873&amp;_c_=AVG_Product_P&amp;_subtype_=ProductCategory&amp;_deps_=exists\"><em>[Asset Included(Id:1211168463873;Type:AVG_Product_P)]</em></span></li>\n\t<li>Cloud-optimized NICs and storage controllers</li>\n\t<li><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DBroad%2520Portfolio%2520of%2520Physical%2520Connectivity%2520Options&amp;_cid_=1211162032881&amp;_c_=AVG_Product_P&amp;_subtype_=ProductCategory&amp;_deps_=exists\"><em>[Asset Included(Id:1211162032881;Type:AVG_Product_P)]</em></span></li>\n</ul>\n</div>\n\n<div class=\"col-md-8 col-sm-8 col-xs-12\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211169263430&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211169263430;Type:AVG_Image_C)]</em></span></div>\n</div>\n\n<div class=\"row\">\n<div class=\"col-md-4 col-sm-4 col-xs-12\"><strong>EFFICIENT, HIGH-PERFORMANCE NETWORKS</strong><br />\nNetwork operators can build the highest performance and most efficient cloud-scale networks using Broadcom technologies &mdash; by deploying best-of-breed physical layer elements, enabling advanced network services and features on those elements, and applying SDN and NFV services for greater operational agility. Expand the links below to learn more about Broadcom&#39;s solutions for Cloud Scale Networking.</div>\n\n<div class=\"col-md-8 col-sm-8 col-xs-12\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211169263590&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211169263590;Type:AVG_Image_C)]</em></span></div>\n</div>\n</div>\n\n<div>&nbsp;</div>\n\n<div>\n<div><strong>INDUSTRY-LEADING TECHNOLOGIES</strong><br />\nRecognizing the dramatic shifts in how networks need to be designed and future-proofed, network architects, service providers and their equipment suppliers are turning to Broadcom&#39;s industry-leading solutions to manage the massive new bandwidth, scale, and feature requirements of cloud scale networks.</div>\n\n<div>&nbsp;</div>\n\n<div><strong>25/50/100 GBE</strong><br />\nThe unprecedented bandwidth, port radix and endpoint scale of the StrataXGS&reg; Tomahawk&trade; Series enables data center operators to achieve disruptive cloud-scale economics through the deployment of capex- and opex-efficient server/storage networking fabrics using cutting-edge 25G, 50G and 100G Ethernet. Broadcom is the first to deliver high-density 25G and 50G switching based on the specification it authored and co-founded as part of the 25G Ethernet Consortium.</div>\n\n<div>&nbsp;</div>\n\n<div><strong>TRUFLOW&trade;</strong><br />\nThe TruFlow&trade; flow processing engine is integrated into the NetXtreme&reg; C-Series Ethernet controllers. These advanced Ethernet controllers are optimized for next-generation cloud data centers. TruFlow&trade; implements the fundamental SDN protocol constructs of classification/match/action processing in hardware, including the latest OpenFlow standard. It distributes flow processing into the server endpoints, allowing data center growth without impacting network and application performance. And TruFlow&trade; provides accelerated vSwitch data plane processing, increasing application performance up to 50 percent.</div>\n\n<div>&nbsp;</div>\n\n<div><strong>FLEXGS&trade;</strong><br />\nThe FleXGS&trade; flow processing engine supports flexibly partitioned forwarding/match/action database scaling to enable 12x higher flow capacity vs. prior-generation products for dense, multi-protocol forwarding, lookup key extraction and packet classification. Operators can choose to deploy native FleXGS&trade; forwarding constructs in the Broadcom switch SDK or map to OpenFlow 1.3+ using Broadcom OpenFlow Data Plane Abstraction (OF-DPA) 2.0 software.</div>\n\n<div>&nbsp;</div>\n\n<div><strong>BROADVIEW&trade; INSTRUMENTATION</strong><br />\nIntegrated BroadView&trade; network instrumentation provides opex-critical network analytics for rapid operator response, including leaf-spine load balancing state, link utilization and health, application flow statistics, network congestion detection, and internal packet probing for flow diagnosis/debug. BroadView&trade; includes full ecosystem support for switching platforms via northbound SDK APIs to cloud-operating systems, SDN controllers and other third-party agents/applications &mdash; giving rise to powerful new network monitoring tools or enhanced capabilities of existing ones.</div>\n\n<div>&nbsp;</div>\n\n<div><strong>SMARTSWITCH&trade;</strong><br />\nThe StrataXGS&reg; Tomahawk&trade; and StrataXGS&reg; Trident II series feature SmartSwitch&trade; technologies designed to break through traditional silicon and system-imposed performance barriers in cloud-scale networking. Increased performance needs for server-to-server and server-to-storage communication are driving the need for fast, fat and flat networks. Dynamic workload placement and the need for granular traffic visibility, load balancing and diagnostics are similarly driving more flexible software defined networks (SDN). The SmartSwitch&trade; technologies include:</div>\n\n<div>&nbsp;</div>\n\n<div style=\"margin-top:20px; text-align: center;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211169264977&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211169264977;Type:AVG_Image_C)]</em></span></div>\n\n<ul style=\"list-style: none;\">\n\t<li style=\"padding-bottom: 20px;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DSmartNV%25E2%2584%25A2&amp;_cid_=1211168570096&amp;_c_=AVG_Document_C&amp;_subtype_=Document&amp;_deps_=exists\"><em>[Asset Included(Id:1211168570096;Type:AVG_Document_C)]</em></span>\n\n\t<div style=\"margin-left: 34px; margin-top: -10px;\">Enables cloud-scale network infrastructure virtualization using advanced Layer 2 over Layer 3 (L2oL3) network virtualization technologies such as VxLAN and NVGRE, delivering up to 4X greater scale</div>\n\t</li>\n\t<li style=\"padding-bottom: 20px;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DSmartBuffer&amp;_cid_=1211168584109&amp;_c_=AVG_Document_C&amp;_subtype_=Document&amp;_deps_=exists\"><em>[Asset Included(Id:1211168584109;Type:AVG_Document_C)]</em></span>\n\t<div style=\"margin-left: 34px; margin-top: -10px;\">Delivers up to 5X higher packet buffer utilization and burst absorption performance using innovative traffic load-based intelligent and dynamic allocation schemes</div>\n\t</li>\n\t<li style=\"padding-bottom: 20px;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DSmartTable&amp;_cid_=1211168567739&amp;_c_=AVG_Document_C&amp;_subtype_=Document&amp;_deps_=exists\"><em>[Asset Included(Id:1211168567739;Type:AVG_Document_C)]</em></span>\n\t<div style=\"margin-left: 34px; margin-top: -10px;\">Delivers highest Layer 2 and Layer 3 forwarding scale with network topology-based profiling for maximum deployment flexibility</div>\n\t</li>\n\t<li style=\"padding-bottom: 20px;\"><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DSmartHash%25E2%2584%25A2&amp;_cid_=1211168584202&amp;_c_=AVG_Document_C&amp;_subtype_=Document&amp;_deps_=exists\"><em>[Asset Included(Id:1211168584202;Type:AVG_Document_C)]</em></span>\n\t<div style=\"margin-left: 34px; margin-top: -10px;\">Eliminates polarization and load imbalances in fat-tree networks possessing heavy and diverse traffic patterns</div>\n\t</li>\n</ul>\n</div>\n</div>\n</div>\n",
+				"ApplicationSummary" : "Best-in-class cloud scale networking infrastructure built on Broadcom networking solutions.",
+				"ApplicationImage" : {
+					"content_id" : "1211172427232",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"Status" : "Active",
+				"RelatedDocuments" : [{
+						"content_id" : "1211168566713",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168569445",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168570096",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168584109",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168567739",
+						"content_type" : "AVG_Document_C",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "Best-in-class cloud scale networking infrastructure built on Broadcom networking solutions. ",
+				"RelatedResources" : {
+					"content_id" : "1211169354440",
+					"content_type" : "AdvCols",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211126847583" : {
+					"content_id" : "1211126847583",
+					"content_type" : "AVG_Application_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Application"
+		},
+		"1211177417974" : {
+			"content_id" : "1211177417974",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "8e75a157-dcd5-48aa-9a70-6791f1bd6abc",
+				"highlight_title" : "5G-HD Enterprise WiFi",
+				"ThumbnailImage" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115537&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211177417974/icon-5gwifi-inverse.png"
+				},
+				"ApplicationImage" : {
+					"content_id" : "1211190754277",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"home_app_design" : {
+					"content_id" : "1211172565195",
+					"content_type" : "AVG_Application_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211168816077" : {
+					"content_id" : "1211168816077",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "ApplicationHighlight"
+		},
+		"1211190754277" : {
+			"content_id" : "1211190754277",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "9728cd46-fbc7-4fef-8bbf-c2a9f756b8bd",
+				"ImageName" : "5G-HD Enterprise WiFi ",
+				"ImageDescription" : "5G-HD Enterprise WiFi ",
+				"ImageFile" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377869&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754277/icon-5gwifi-inverse.png"
+				},
+				"AltText" : "5G-HD Enterprise WiFi ",
+				"ProductThumbnailFile3" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377870&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C1.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754277/150x150-icon-5gwifi-inverse.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377871&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C2.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377872&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C3.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754277/60x60-icon-5gwifi-inverse.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377873&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C4.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "89/78/Icon-5GWiFi-inverse,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191377874&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-5GWiFi-inverse%252C5.png%22%3Bfilename*%3DUTF-8%27%27Icon-5GWiFi-inverse%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754277/80x80-icon-5gwifi-inverse.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206573457348" : {
+					"content_id" : "1206573457348",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211172565195" : {
+			"content_id" : "1211172565195",
+			"content_type" : "AVG_Application_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "applications/broadband-wired-networking/5G-HD",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "fdd247ac-ac3a-4b4c-8085-f4454ccdb348",
+				"ApplicationName" : "5G-HD Enterprise Wi-Fi",
+				"PageTitle" : "5G-HD Enterprise Wi-Fi Platform for Next Generation Enterprises | Broadband and Wired Networking | Applications | Broadcom Limited",
+				"Description" : "<div class=\"image-right image-wrapper\">\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211173013658&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211173013658;Type:AVG_Image_C)]</em></span></p>\n</div>\n\n<div>Enterprise Wi-Fi has evolved from a pure access technology to a user engagement platform. Digital stadiums are now capable of delivering truly immersive experiences for fans during game days. University campuses need to provide pervasive coverage and access to students. Travelers are demanding reliable, high-quality Wi-Fi while waiting on the road. And businesses are exploring ways to interact with shoppers and personalize shopping experiences for repeat customers at shopping malls.\n<div class=\"image-left image-wrapper\">\n<p>&nbsp;<span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211173013846&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211173013846;Type:AVG_Image_C)]</em></span></p>\n</div>\n\n<p>&nbsp;</p>\n\n<p><strong>What is 5G-HD Wi-Fi?</strong></p>\n\n<p>The fifth generation, lightning fast technology required to meet the demands for these high-density environments has driven Broadcom&rsquo;s development of its 5G-HD Wi-Fi platform. The needs of enterprise Wi-Fi environments have grown, in both the number of users requiring access as well as to support multi-media rich applications and data on a mix of client devices with differing capabilities. The Broadcom 5G-HD platform, built on the new <a href=\"/products/wireless/wireless-lan-socs/bcm49408/\">BCM49408</a> quad-core CPU and <a href=\"/products/wireless/wireless-lan-infrastructure/bcm43465\">BCM43465</a> Wave 2 11ac radios, is ideal as it enables different configurations for the most versatile Wave-2 5G-HD access point (AP) platforms. When used as a Dual-band, Dual-Concurrent AP, configurations of 2.4+5 or 5+5 GHz can be chosen for either mainstream or high-density modes. Tri-Radio AP can also be chosen at 2.4+5+5 GHz, which provides dedicated radio access for 2.4GHz users, while concurrently supporting dual 5G capability, enabling the ultimate 5G Wi-Fi network.</p>\n\n<p>By supporting the 5G-HD platform with its dual-channel architecture, client devices can be grouped based on capability to ensure each can maintain high performance within the most densely packed Wi-Fi environments. Those who have the latest generation of 5G 11ac-capable smart phones, tablets, and laptops can enjoy the fastest access possible, while at the same time legacy client devices can maintain the performance they are used to. Dual-channel architecture is like now having two lanes on a highway for use. Slow client devices can drive on the right lane and fast devices to the left. Since each client device has its own road, slower legacy clients will no longer reduce the performance or get in the way of those with faster 5G Wi-Fi devices.</p>\n\n<p>&nbsp;</p>\n\n<div class=\"image-right image-wrapper\">\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG_Image_C%2Fembed&amp;_cid_=1211173013616&amp;_c_=AVG_Image_C&amp;_subtype_=Image&amp;_deps_=exists\"><em>[Asset Included(Id:1211173013616;Type:AVG_Image_C)]</em></span>&nbsp; &nbsp;</p>\n\n<p>The demand for data shows no signs of slowing. ABI Research has estimated that by 2020, there will be 30 billion wireless connected devices, and every worker will have an average of 2.8 devices. With its 5G-HD Wi-Fi platform and dual-channel architecture, Broadcom will continue to develop the enterprise Wi-Fi solutions required to meet the needs of connected users everywhere.</p>\n</div>\n\n<p><strong>Related:</strong></p>\n\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DLifehacker%2520List%253A%25205G%2520WiFi-Powered%2520Routers%2520Make%2520the%2520Cut&amp;_cid_=1211171569570&amp;_c_=AVG_Blog_C&amp;_subtype_=BlogArticle&amp;_deps_=exists\"><em>[Asset Included(Id:1211171569570;Type:AVG_Blog_C)]</em></span></p>\n\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DBroadcom's%25205G%2520WiFi%253A%25205%2520Ways%2520it%2520Improves%2520Your%2520Internet%2520Experience&amp;_cid_=1211171575430&amp;_c_=AVG_Blog_C&amp;_subtype_=BlogArticle&amp;_deps_=exists\"><em>[Asset Included(Id:1211171575430;Type:AVG_Blog_C)]</em></span></p>\n\n<p><span id=\"_CSEMBEDTYPE_=inclusion&amp;_PAGENAME_=AVG2%2FAVG2_Link&amp;_ADDITIONALPARAMS_=Target_Window%3DBlank_Window%26link_name%3DAre%2520You%2520Wi-Fi%2520Ready%253F%2520Smart%2520Devices%2520Need%2520Robust%25205G%2520Wi-Fi%2520to%2520Maximize%2520Their%2520Potential&amp;_cid_=1211171567885&amp;_c_=AVG_Blog_C&amp;_subtype_=BlogArticle&amp;_deps_=exists\"><em>[Asset Included(Id:1211171567885;Type:AVG_Blog_C)]</em></span></p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n</div>\n",
+				"ApplicationSummary" : "Digital stadiums, university campuses and travelers are demanding reliable, high-quality Wi-Fi. These high-density environments are optimized by Broadcom's 5G-HD Wi-Fi, now a true user-engagement platform.",
+				"ApplicationImage" : {
+					"content_id" : "1211172565275",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"Status" : "Active",
+				"ProductCategories" : [{
+						"content_id" : "1211168520965",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "5G enterprise Wi-Fi needs have grown in stadiums, universities and for travelers. These environments drive Broadcom\u2019s development of enterprise 5G Wi-Fi network solutions."
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089852415",
+					"content_type" : "AVG_Highlight_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211160341523" : {
+					"content_id" : "1211160341523",
+					"content_type" : "AVG_Application_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Application"
+		},
+		"1211191990188" : {
+			"content_id" : "1211191990188",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "ca95045b-467f-4fdc-b79d-3bd44bf0c047",
+				"highlight_title" : "Broadband Access Solutions",
+				"ThumbnailImage" : {
+					"file_name" : "769/923/Icon-Broadband-inverse,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206115964&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverse%252C3.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverse%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191990188/icon-broadband-inverse.png"
+				},
+				"ApplicationImage" : {
+					"content_id" : "1211191989612",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"home_app_design" : {
+					"content_id" : "1211190314309",
+					"content_type" : "AVG_Application_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211168816077" : {
+					"content_id" : "1211168816077",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "ApplicationHighlight"
+		},
+		"1211191989612" : {
+			"content_id" : "1211191989612",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "527e4f89-404c-424f-881b-32064370ea95",
+				"ImageName" : "Broadband Access Solutions",
+				"ImageDescription" : "Broadband Access Solutions",
+				"ImageFile" : {
+					"file_name" : "769/923/Icon-Broadband-inverse.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464446&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverse.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverse.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191989612/icon-broadband-inverse.png"
+				},
+				"AltText" : "Broadband Access Solutions",
+				"ProductThumbnailFile3" : {
+					"file_name" : "769/923/Icon-Broadband-inverseThumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464447&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverseThumb.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverseThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191989612/150x150-icon-broadband-inversethumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "769/923/Icon-Broadband-inverseThumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464448&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverseThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverseThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "769/923/Icon-Broadband-inverseThumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464449&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverseThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverseThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191989612/60x60-icon-broadband-inversethumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "769/923/Icon-Broadband-inverseThumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464450&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverseThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverseThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "769/923/Icon-Broadband-inverseThumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211192464451&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Broadband-inverseThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27Icon-Broadband-inverseThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211191989612/80x80-icon-broadband-inversethumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206573457348" : {
+					"content_id" : "1206573457348",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211190314309" : {
+			"content_id" : "1211190314309",
+			"content_type" : "AVG_Application_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "applications/broadband-wired-networking/broadband-access-solutions",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "d6faac6a-61fc-4cc4-8af0-9b2c9cf9ed4e",
+				"ApplicationName" : "Broadband Access Solutions",
+				"PageTitle" : "Connecting the Gigabit Broadband Infrastructure",
+				"Description" : "<div>\r\n<h3>Connecting the Gigabit Broadband Infrastructure</h3>\r\n</div>\r\n\r\n<p>Getting broadband data to the end consumer requires a robust, high bandwidth infrastructure that reliably delivers data from the core of service provider networks to the access points. By and large, the bottlenecks that inhibit consumers from accessing gigabit broadband services are in the &ldquo;last mile&rdquo; links between the customer premise and the operator broadband infrastructure. There are several leading technology implementations across the cable, DSL and fiber infrastructure that enable high data rate broadband in the &ldquo;last mile.&rdquo; Each implementation has its own technical and cost challenges.</p>\r\n\r\n<p>With one of the industry&rsquo;s broadest IP portfolios and extensive product experience in broadband applications, Broadcom offers a comprehensive portfolio of broadband access solutions addressing &ldquo;last mile&rdquo; challenges for global service providers. From broadband modem ICs for the customer premise to the CMTS/CCAP, DSLAM and OLT SoC platform solutions for the operator broadband infrastructure, Broadcom&rsquo;s products enable global service providers to deploy next generation broadband access technologies across multiple standards to deliver more bandwidth and faster data speeds to consumers.</p>\r\n",
+				"ApplicationSummary" : "Broadband access solutions that enable global service providers to deploy next generation broadband technologies across multiple standards to deliver more bandwidth and faster data speeds to consumers.",
+				"ApplicationImage" : {
+					"content_id" : "1211190314400",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"BlockDiagram" : {
+					"content_id" : "1211191859751",
+					"content_type" : "AVG_Block_P",
+					"complex_attr" : true
+				},
+				"Status" : "Active",
+				"ProductCategories" : [{
+						"content_id" : "1211168467629",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168469515",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168468138",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211168469290",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1211106288654",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "Broadcom\u2019s broadband access solutions includes broadband modem ICs for the customer premise to the CMTS/CCAP, DSLAM and OLT SoC platform solutions for the operator broadband infrastructure.",
+				"RelatedResources" : {
+					"content_id" : "1211191861664",
+					"content_type" : "AdvCols",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089852415",
+					"content_type" : "AVG_Highlight_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211160341523" : {
+					"content_id" : "1211160341523",
+					"content_type" : "AVG_Application_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Application"
+		},
+		"1211170386345" : {
+			"content_id" : "1211170386345",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "02493111-9461-4f78-8cdf-903583a85e83",
+				"highlight_title" : "Smart Phones",
+				"ThumbnailImage" : {
+					"file_name" : "439/759/Icon-Smartphone-inverse.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206116008&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverse.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverse.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211170386345/icon-smartphone-inverse.png"
+				},
+				"ApplicationImage" : {
+					"content_id" : "1211190754475",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"home_app_design" : {
+					"content_id" : "1206561987774",
+					"content_type" : "AVG_Application_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211168816077" : {
+					"content_id" : "1211168816077",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "ApplicationHighlight"
+		},
+		"1211190754475" : {
+			"content_id" : "1211190754475",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "cccb51e4-80a0-4fdd-9fec-a96172196ba9",
+				"ImageName" : "Smart Phones",
+				"ImageDescription" : "Smart Phones",
+				"ImageFile" : {
+					"file_name" : "439/759/Icon-Smartphone-inverse,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378031&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverse%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverse%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754475/icon-smartphone-inverse.png"
+				},
+				"AltText" : "Smart Phones",
+				"ProductThumbnailFile3" : {
+					"file_name" : "439/759/Icon-Smartphone-inverseThumb,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378032&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverseThumb%252C4.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverseThumb%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754475/150x150-icon-smartphone-inversethumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "439/759/Icon-Smartphone-inverseThumb,5.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378033&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverseThumb%252C5.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverseThumb%252C5.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "439/759/Icon-Smartphone-inverseThumb,6.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378034&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverseThumb%252C6.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverseThumb%252C6.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754475/60x60-icon-smartphone-inversethumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "439/759/Icon-Smartphone-inverseThumb,7.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378035&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverseThumb%252C7.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverseThumb%252C7.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "439/759/Icon-Smartphone-inverseThumb,8.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191378036&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Smartphone-inverseThumb%252C8.png%22%3Bfilename*%3DUTF-8%27%27Icon-Smartphone-inverseThumb%252C8.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211190754475/80x80-icon-smartphone-inversethumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206573457348" : {
+					"content_id" : "1206573457348",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1206561987774" : {
+			"content_id" : "1206561987774",
+			"content_type" : "AVG_Application_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "applications/wireless/smart-phones",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "070247e1-00bf-46f2-9b4a-fa81a02bc282",
+				"ApplicationName" : "Smartphones",
+				"PageTitle" : "Smartphones | Wireless and Mobile Communications | Applications | Broadcom Limited",
+				"Description" : "<div>The smartphone is a marvel of wireless engineering. Many wireless technologies, such as LTE, Wi-Fi, Bluetooth, GNSS and proximity sensors, are prevalent in today&rsquo;s smartphones, enabling everyday wireless applications like voice/text communications, location-based applications, contactless gesture recognition, wireless audio, video streaming and internet connectivity. Broadcom leads the industry in technical innovation across many wireless disciplines and offers a unique portfolio of mobile wireless solutions.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div>Broadcom&rsquo;s innovative solutions enable handset OEMs to deliver a wireless experience like no other. From advanced RF front end solutions that optimize cellular communications performance to leading-edge connectivity solutions that maximize wireless data transfer, the advantages of Broadcom wireless solutions are manifested in smartphones through better end user experience: strong signal reception, high data throughput, fast wireless connection, accurate GPS and navigation, robust gesture recognition&nbsp;and long battery life.</div>\r\n",
+				"ApplicationSummary" : "Broadcom provides cutting-edge mobile wireless solutions enabling the world\u2019s most prominent handset manufacturers to enrich the smartphone user experience.",
+				"ApplicationImage" : {
+					"content_id" : "1211132962195",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"BlockDiagram" : {
+					"content_id" : "1206560839563",
+					"content_type" : "AVG_Block_P",
+					"complex_attr" : true
+				},
+				"Status" : "Active",
+				"ProductCategories" : [{
+						"content_id" : "1210946577724",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206561994411",
+						"content_type" : "AVG_Product_P",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "Broadcom\u2019s mobile wireless solutions include RF front-end components, Wi-Fi/Bluetooth combo transceivers, GNSS receivers, and proximity sensors.",
+				"RelatedResources" : {
+					"content_id" : "1211126614752",
+					"content_type" : "AdvCols",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089852415",
+					"content_type" : "AVG_Highlight_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206561985802" : {
+					"content_id" : "1206561985802",
+					"content_type" : "AVG_Application_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Application"
+		},
+		"1211197662435" : {
+			"content_id" : "1211197662435",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "2ccb6922-515f-435a-8f06-6614de13bcc1",
+				"highlight_title" : "Automotive Solutions",
+				"ThumbnailImage" : {
+					"file_name" : "110/1007/Icon-MedicalSys-inverse,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206116052&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-MedicalSys-inverse%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-MedicalSys-inverse%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197662435/icon-medicalsys-inverse.png"
+				},
+				"ApplicationImage" : {
+					"content_id" : "1211197662296",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"home_app_design" : {
+					"content_id" : "1211197508652",
+					"content_type" : "AVG_Application_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211168816077" : {
+					"content_id" : "1211168816077",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "ApplicationHighlight"
+		},
+		"1211197662296" : {
+			"content_id" : "1211197662296",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "3f4c8bb1-6f60-46da-b06c-2b3d1887f18d",
+				"ImageName" : "Automotive Solutions-WAYDT image",
+				"ImageDescription" : "Automotive Solutions-WAYDT image",
+				"ImageFile" : {
+					"file_name" : "871/597/Icon-Automotive-inverse.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101787&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverse.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverse.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197662296/icon-automotive-inverse.png"
+				},
+				"AltText" : "Automotive Solutions",
+				"ProductThumbnailFile3" : {
+					"file_name" : "871/597/Icon-Automotive-inverseThumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101788&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverseThumb.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverseThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197662296/150x150-icon-automotive-inversethumb.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "871/597/Icon-Automotive-inverseThumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101789&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverseThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverseThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "871/597/Icon-Automotive-inverseThumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101790&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverseThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverseThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197662296/60x60-icon-automotive-inversethumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "871/597/Icon-Automotive-inverseThumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101791&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverseThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverseThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "871/597/Icon-Automotive-inverseThumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211201101792&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22Icon-Automotive-inverseThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27Icon-Automotive-inverseThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211197662296/80x80-icon-automotive-inversethumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206573457348" : {
+					"content_id" : "1206573457348",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211197508652" : {
+			"content_id" : "1211197508652",
+			"content_type" : "AVG_Application_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "applications/industrial-automotive/automotive-solutions",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "5021cd17-0b54-4e86-9188-ff8030aa2d1a",
+				"ApplicationName" : "Automotive Solutions",
+				"PageTitle" : "Automotive Electronics | Applications | Broadcom Limited",
+				"Description" : "<div>\n<h3>Advancing Next Generation Automotive Electronics</h3>\n</div>\n\n<p>Advances in electronics are revolutionizing the automotive industry. Electronics now play a vital role in almost every part of the vehicle, from the body to the powertrain to the infotainment system. As consumers demand more innovation in advanced safety, security, infotainment, comfort, and convenience features and federal fuel economy standards keep increasing, next generation vehicles will have a greater number of electronic components. As such, semiconductor content will grow across many different electronic modules and subsystems. Key applications driving automotive innovation and growth include:</p>\n\n<ul>\n\t<li>Infotainment System</li>\n\t<li>Advanced Driver Assistance System (ADAS)</li>\n\t<li>Powertrain</li>\n\t<li>Body Electronics</li>\n</ul>\n\n<p>Broadcom is a leading provider of automotive semiconductor solutions addressing a wide range of needs in vehicle connectivity and networking, optical isolation and sensing, wireless communications, and LED lighting. Built on proven platforms combined with extensive product experience in automotive applications, Broadcom&rsquo;s automotive solutions enable OEMs to bring innovative electronics to next generation vehicles and enhance the overall driving experience and safety for consumers.</p>\n",
+				"ApplicationSummary" : "Broadcom\u2019s automotive solutions address a wide range of needs in vehicle connectivity and networking, optical isolation and sensing, wireless communications, and LED lighting.",
+				"ApplicationImage" : {
+					"content_id" : "1211197455956",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"BlockDiagram" : {
+					"content_id" : "1211197455550",
+					"content_type" : "AVG_Block_P",
+					"complex_attr" : true
+				},
+				"Status" : "Active",
+				"MetaDescription" : "Broadcom\u2019s automotive solutions address a wide range of applications: Infotainment, ADAS, Powertrain, Body Electronics, Battery Management, Lighting, etc.",
+				"RelatedResources" : {
+					"content_id" : "1211197721830",
+					"content_type" : "AdvCols",
+					"complex_attr" : true
+				}
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089852415",
+					"content_type" : "AVG_Highlight_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206561985875" : {
+					"content_id" : "1206561985875",
+					"content_type" : "AVG_Application_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Application"
+		},
+		"1206562502878" : {
+			"content_id" : "1206562502878",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0603-1.6-x-0.88mm-top-mount/hsma-c197",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "a1720b23-6889-4c8a-bcd0-a8a9402f42bd",
+				"PartNumber" : "HSMA-C197",
+				"ProductName" : "Low Profile ChipLED",
+				"Description" : "<ul>The HSMx-C197 ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.6 X 0.8 mm) device. Apart from the membrane switch application, the HSMx-C197 is also suitable for use in application whereby low height is required<br />\r\n    The part is intensity binned and color binned. They come in 8 mm tape and 7 inch diameter reel with 4000 units per reel which makes them compatible for automatic placement.</ul>",
+				"Features" : "<ul>\r\n    <li>High brightness AlInGaP material</li>\r\n    <li>0805 or 0603 industry standard footprint with 0.4 mm height for top emitting packages</li>\r\n    <li>Also available in right angle emitting and reverse mounting packages</li>\r\n    <li>Diffused optics</li>\r\n    <li>Operating temperature range of &ndash;40&deg;C to 85&deg;C</li>\r\n    <li>Compatible with IR soldering</li>\r\n    <li>Available in&nbsp;7 colors</li>\r\n    <li>Available in 8 mm tape on 7&quot; diameter reel</li>\r\n    <li>Reel sealed in zip locked moisture barrier bags</li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Membrane switch indicator </li>\r\n    <li>LCD backlighting </li>\r\n    <li>Push button backlighting </li>\r\n    <li>Front panel indicator </li>\r\n    <li>Symbol backlighting </li>\r\n    <li>Keypad backlighting </li>\r\n</ul>",
+				"COLOR" : "Amber",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "HSMA-C197 Low Profile ChipLED",
+				"MetaKeywords" : "Low Profile ChipLED",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"LENS_TYPE" : "Flat Top, Diffused, Untinted",
+				"PEAK_OUTPUT_CURRENT_MIN" : "1999",
+				"PEAK_OUTPUT_CURRENT_MIN_UOM" : "2a",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"NUMBER_OF_COLORS" : "Single",
+				"PACKAGE" : "Top Mount Very Low Profile",
+				"ROHS5_NonLeadFree" : "Y",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "1.9",
+				"DOMINANT_WAVELENGTH_IN_NM" : "592",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "90",
+				"VIEWING_ANGLE_IN_DEGREES" : "130\u00b0",
+				"nApplication" : [],
+				"PEAK_OUTPUT_CURRENT_MIN_Measure" : "1999 2a",
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206561991361" : {
+					"content_id" : "1206561991361",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		},
+		"1210943128012" : {
+			"content_id" : "1210943128012",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0603-1.6-x-0.88mm-top-mount/hsma-c130",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "301fcf0f-52d3-4f3a-9db7-3adc1ccf3e77",
+				"PartNumber" : "HSMA-C130",
+				"ProductName" : "Low Profile ChipLED",
+				"Description" : "<ul>This&nbsp;ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.6 X 0.8 mm) device. Apart from the membrane switch application,&nbsp;it is also suitable for use in application whereby low height is required<br />\r\n    <br />\r\n    The part is intensity binned and color binned (except for red color). They come in 8 mm conductive&nbsp;tape and 7 inch diameter reel with 4000 units per reel which makes them compatible for automatic placement.</ul>",
+				"Features" : "<ul>\r\n    <li>High brightness AlInGaP material</li>\r\n    <li>Small&nbsp;size with extremely low profile&nbsp;</li>\r\n    <li>0603 industry standard footprint with 0.35 mm height for top emitting packages</li>\r\n    <li>Diffused optics</li>\r\n    <li>Compatible with IR soldering</li>\r\n    <li>Available in 8 mm conductive&nbsp;tape on 7&quot; diameter reel</li>\r\n    <li>Reel sealed in zip locked&nbsp; moisture barrier bags</li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Membrane switch indicator</li>\r\n    <li>LCD backlighting</li>\r\n    <li>Push button backlighting</li>\r\n    <li>Front panel indicator</li>\r\n    <li>Symbol backlighting</li>\r\n    <li>Keypad backlighting</li>\r\n</ul>",
+				"COLOR" : "Amber",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "This ;ChipLED is design specifically for the membrane switch application. The request is to have the height as low as possible while retaining the footprint at the optimal size of a 0603 (1.",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"DIMENSION_LXWXH_IN_MM" : "1.6 x 0.8 x 0.35",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"PACKAGE" : "Top Mount Very Low Profile",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "2.05",
+				"DOMINANT_WAVELENGTH_IN_NM" : "589",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "87",
+				"VIEWING_ANGLE_IN_DEGREES" : "110\u00b0",
+				"nApplication" : [],
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206561991361" : {
+					"content_id" : "1206561991361",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		},
+		"1206562894835" : {
+			"content_id" : "1206562894835",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/multi-color-surface-mount/hsmf-c114",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "95502023-4efe-40e9-b455-ec15904a1177",
+				"PartNumber" : "HSMF-C114",
+				"ProductName" : "Surface Mount Tricolor ChipLEDs",
+				"Description" : "<p>The HSMF-C114 tricolor chip-type LED is designed in an ultra small package for miniaturization. It is the first of its kind to achieve such small packaging and be the thinnest package in the industry for tricolor package. With the freedom to have any combination of colors from mixing of the 3 primary colors, this will yield a wide variety of colors to suit every application and product theme.<br />\r\nThe small size, narrow footprint, and low profile make this LED excellent for back-lighting, status indication and front panel illumination applications. </p>\r\n<p>In order to facilitate pick and place operation, this ChipLED is shipped in tape and reel, with 4000 units per reel. The package is compatible with reflow soldering and binned by both color and intensity.</p>",
+				"Features" : "<ul>\r\n    <li>Common anode </li>\r\n    <li>Small 1.6 x 1.5 x 0.35 mm package </li>\r\n    <li>Diffused optics </li>\r\n    <li>Red/Green/Blue color combination </li>\r\n    <li>Available in 8 mm tape on 7&Atilde;&sbquo;&Acirc;&rdquo; diameter reels </li>\r\n    <li>High brightness using AlInGaP and InGaN die technology </li>\r\n    <li>Compatible with reflow soldering </li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Backlighting </li>\r\n    <li>Status Indicator </li>\r\n    <li>Front Panel Indicator </li>\r\n    <li>Office Automation, Home Appliances, Industrial Equipment </li>\r\n</ul>",
+				"Benefits" : "<ul>\r\n    <li>Viewing angle designed for wide field of view applications </li>\r\n    <li>Superior performance for outdoor environments </li>\r\n</ul>",
+				"ProductImage" : [{
+						"content_id" : "1206560736218",
+						"content_type" : "AVG_Image_C",
+						"complex_attr" : true
+					}
+				],
+				"RelatedProducts" : [{
+						"content_id" : "1210943128012",
+						"content_type" : "AVG_Product_C",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206562502878",
+						"content_type" : "AVG_Product_C",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "Surface Mount Tricolor ChipLEDs",
+				"MetaKeywords" : "Surface Mount Tricolor ChipLEDs",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"COLOR" : "Red, Green & Blue",
+				"COLOR_BIN_SELECTION" : "Open",
+				"INTENSITY_BIN_SELECTION" : "2",
+				"LEAD_BEND_CONFIGURATION" : "Right Angle",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "GaP",
+				"LENS_TYPE" : "Diffused, Untinted",
+				"PEAK_OUTPUT_CURRENT_MIN" : "1",
+				"PEAK_OUTPUT_CURRENT_MIN_UOM" : "1",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Through-hole",
+				"NUMBER_OF_COLORS" : "Tricolor",
+				"PACKAGE" : "Top Mount Low Profile",
+				"ROHS5_NonLeadFree" : "Y",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "3.6",
+				"DOMINANT_WAVELENGTH_IN_NM" : "626 & 525 & 470",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "85 & 180 & 70",
+				"VIEWING_ANGLE_IN_DEGREES" : "140\u00b0 & 145\u00b0 & 145\u00b0",
+				"nApplication" : [],
+				"PEAK_OUTPUT_CURRENT_MIN_Measure" : "1 1",
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211125963316" : {
+					"content_id" : "1211125963316",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "SurfaceMntChipLED-MultiClrSeries"
+		},
+		"1206560736218" : {
+			"content_id" : "1206560736218",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"template" : "DisplayImage",
+				"fw_uid" : "0cbc8739-208c-433a-b397-02c865556208",
+				"ImageName" : "Attachment2467",
+				"ImageFile" : {
+					"file_name" : "482/276/HSMF_C1114_wht,0.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138202&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_wht%252C0.jpg%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_wht%252C0.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/hsmf_c1114_wht.jpg"
+				},
+				"AltText" : "HSMF-C114",
+				"ProductThumbnailFile3" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138203&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/150x150-hsmf_c1114_whtthumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138204&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138205&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/60x60-hsmf_c1114_whtthumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138206&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"CopyTemplate" : "DisplayImage",
+				"ProductThumbnailFile2" : {
+					"file_name" : "482/276/HSMF_C1114_whtThumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191138207&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMF_C1114_whtThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27HSMF_C1114_whtThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560736218/80x80-hsmf_c1114_whtthumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206560721189" : {
+					"content_id" : "1206560721189",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1206562503950" : {
+			"content_id" : "1206562503950",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/multi-color-surface-mount/hsmf-c118",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "e2bedf73-d820-4c30-8295-e454b7dcaf1e",
+				"PartNumber" : "HSMF-C118",
+				"ProductName" : "Tri-color Surface Top Mount chipLED",
+				"Description" : "The HSMF-C118 tricolor chip-type LED is designed in an ultra small package for miniaturization. It is the first of its kind to achieve such small packaging for 3 dies. With the freedom to have any combination of colors from mixing of the 3 primary colors, this will yield a wide variety of colors to suit every application and product theme. The small size, narrow footprint, and low profile make this LED excellent for back-lighting, status indication, and front panel illumination applications. In order to facilitate pick and place operation, this ChipLED is shipped in tape and reel, with 3000 units per reel. The package is compatible with IR soldering and binned by both color and intensity.",
+				"Features" : "<ul>\r\n    <li>Common anode </li>\r\n    <li>Small 3.2 x 2.7 x 1.1 mm package </li>\r\n    <li>Diffused optics </li>\r\n    <li>Red/Green/Blue color combination </li>\r\n    <li>Available in 8 mm tape on 7 inch (178 mm) diameter reels </li>\r\n    <li>High brightness using AlInGaP and InGaN die technology </li>\r\n    <li>Compatible with reflow soldering </li>\r\n</ul>",
+				"Applications" : "<ul>\r\n    <li>Backlighting </li>\r\n    <li>Status indicator </li>\r\n    <li>Front panel indicator </li>\r\n    <li>Office automation, home appliances, industrial equipment </li>\r\n</ul>",
+				"Benefits" : "<ul>\r\n    <li>Viewing angle designed for wide field of view applications </li>\r\n    <li>Superior performance for outdoor environments </li>\r\n</ul>",
+				"ProductImage" : [{
+						"content_id" : "1206560760093",
+						"content_type" : "AVG_Image_C",
+						"complex_attr" : true
+					}
+				],
+				"MetaDescription" : "Tri-color Surface Top Mount chipLED",
+				"MetaKeywords" : "Tri-color Surface Top Mount chipLED",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"COLOR" : "Red, Green & Blue",
+				"COLOR_BIN_SELECTION" : "Open",
+				"DIMENSION_LXWXH_IN_MM" : "3.2 x 2.7 x 1.1",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "GaP",
+				"LENS_TYPE" : "Flat Top, Diffused, Untinted",
+				"PEAK_OUTPUT_CURRENT_MIN" : "1999",
+				"PEAK_OUTPUT_CURRENT_MIN_UOM" : "2a",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"NUMBER_OF_COLORS" : "Tricolor",
+				"PACKAGE" : "Tri-Color",
+				"ROHS5_NonLeadFree" : "Y",
+				"TYPICAL_FORWARD_VOLTAGE_IN_V" : "3.6",
+				"DOMINANT_WAVELENGTH_IN_NM" : "626 & 525 & 471",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "90 & 120 & 140",
+				"VIEWING_ANGLE_IN_DEGREES" : "140\u00b0 & 145\u00b0 & 145\u00b0",
+				"nApplication" : [],
+				"PEAK_OUTPUT_CURRENT_MIN_Measure" : "1999 2a",
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211125963316" : {
+					"content_id" : "1211125963316",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "SurfaceMntChipLED-MultiClrSeries"
+		},
+		"1206560760093" : {
+			"content_id" : "1206560760093",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"template" : "DisplayImage",
+				"fw_uid" : "c7708727-6941-47d2-896a-0882a203c4ac",
+				"ImageName" : "Attachment636",
+				"ImageFile" : {
+					"file_name" : "432/817/hsmfc118_wht,0.jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253470&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_wht%252C0.jpg%22%3Bfilename*%3DUTF-8%27%27hsmfc118_wht%252C0.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560760093/hsmfc118_wht.jpg"
+				},
+				"AltText" : "HSMF-C118 TriColor ChipLED",
+				"ProductThumbnailFile3" : {
+					"file_name" : "432/817/hsmfc118_whtThumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253471&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_whtThumb.png%22%3Bfilename*%3DUTF-8%27%27hsmfc118_whtThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560760093/150x150-hsmfc118_whtthumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "432/817/hsmfc118_whtThumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253472&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_whtThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27hsmfc118_whtThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "432/817/hsmfc118_whtThumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253473&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_whtThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27hsmfc118_whtThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560760093/60x60-hsmfc118_whtthumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "432/817/hsmfc118_whtThumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253474&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_whtThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27hsmfc118_whtThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"CopyTemplate" : "DisplayImage",
+				"ProductThumbnailFile2" : {
+					"file_name" : "432/817/hsmfc118_whtThumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211191253475&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22hsmfc118_whtThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27hsmfc118_whtThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1206560760093/80x80-hsmfc118_whtthumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206560721189" : {
+					"content_id" : "1206560721189",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211203614346" : {
+			"content_id" : "1211203614346",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0402-1.0-x-0.5mm-top-mount/hsmc-c290",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "136ebc61-e7bf-45b9-ab12-b355f697122c",
+				"PartNumber" : "HSMC-C290",
+				"ProductName" : "0402 Top Mount ChipLEDs",
+				"Description" : "<p>HSMC-C290 is a surface mount chipLED that comes in an industrial standard 1.0-mm &times; 0.5-mm footprint. Its small form factor allows flexible board design, and the chipLED can be closely mounted, thus offering maximum miniaturization benefits to the user.&nbsp;The low 0.25-mm height makes it&nbsp;very suitable for use in small handheld portable devices&nbsp;and in applications such as wearables where space is a constraint. This chipLED has a wide viewing angle and high light output performance with the use of efficient AlInGaP materials. It is compatible with industry standard automatic machine placement and reflow soldering.</p>\r\n",
+				"Features" : "<p>&bull; LED with AlInGaP die<br />\r\n&bull; Surface-mount device with 0402 footprint<br />\r\n&bull; Compatible with reflow soldering<br />\r\n&bull; Tape in 8-mm carrier tape on a 7-in. diameter reel</p>\r\n",
+				"Applications" : "<p>&bull; Backlighting<br />\r\n&bull; Indicator</p>\r\n",
+				"ProductImage" : [{
+						"content_id" : "1211205118761",
+						"content_type" : "AVG_Image_C",
+						"complex_attr" : true
+					}
+				],
+				"COLOR" : "Red",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "HSMC-C290; 0402 Top Mount ChipLEDs\r\n\r\n",
+				"MetaKeywords" : "HSMC-C290; 0402 Top Mount ChipLEDs",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"DIMENSION_LXWXH_IN_MM" : "1.00 x 0.50 x 0.25",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"NUMBER_OF_COLORS" : "Single",
+				"PACKAGE" : "Tape and Reel",
+				"DOMINANT_WAVELENGTH_IN_NM" : "624",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "97",
+				"VIEWING_ANGLE_IN_DEGREES" : "135\u00b0",
+				"nApplication" : [],
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206575315574" : {
+					"content_id" : "1206575315574",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		},
+		"1211205118761" : {
+			"content_id" : "1211205118761",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "c27be437-6926-4b3d-8bcf-3d12904e5ddd",
+				"ImageName" : "HSMG-C290 ",
+				"ImageFile" : {
+					"file_name" : "325/646/HSMG-C290 .jpg",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118876&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2B.jpg%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2B.jpg&blobheadervalue1=image%2Fjpeg&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211205118761/hsmg-c290_.jpg"
+				},
+				"AltText" : "HSMG-C290 ",
+				"ProductThumbnailFile3" : {
+					"file_name" : "325/646/HSMG-C290 Thumb.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118877&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2BThumb.png%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2BThumb.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211205118761/150x150-hsmg-c290_thumb.png"
+				},
+				"CopyFileType" : "JPG",
+				"CopyMimeType" : "image/jpeg",
+				"blogbannerfile" : {
+					"file_name" : "325/646/HSMG-C290 Thumb,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118878&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2BThumb%252C0.png%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2BThumb%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211205118761/480x720-hsmg-c290_thumb.png"
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "325/646/HSMG-C290 Thumb,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118879&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2BThumb%252C1.png%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2BThumb%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211205118761/60x60-hsmg-c290_thumb.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "325/646/HSMG-C290 Thumb,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118880&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2BThumb%252C2.png%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2BThumb%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "325/646/HSMG-C290 Thumb,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211205118881&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22HSMG-C290%2BThumb%252C3.png%22%3Bfilename*%3DUTF-8%27%27HSMG-C290%2BThumb%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211205118761/80x80-hsmg-c290_thumb.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206560721189" : {
+					"content_id" : "1206560721189",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		},
+		"1211203623807" : {
+			"content_id" : "1211203623807",
+			"content_type" : "AVG_Product_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "products/leds-and-displays/chip-leds/0402-1.0-x-0.5mm-top-mount/hsml-c290",
+				"template" : "AVG2/AVG2_Layout",
+				"fw_uid" : "ef2ab5c6-035c-4cf8-b88d-642af4b0c772",
+				"PartNumber" : "HSML-C290",
+				"ProductName" : "0402 Top Mount ChipLEDs",
+				"Description" : "<p>HSML-C290 is a surface mount chipLED that comes in an industrial standard 1.0-mm &times; 0.5-mm footprint. Its small form factor allows flexible board design, and the chipLED can be closely mounted, thus offering maximum miniaturization benefits to the user.&nbsp;The low 0.25-mm height makes it&nbsp;very suitable for use in small handheld portable devices&nbsp;and in applications such as wearables where space is a constraint. This chipLED has a wide viewing angle and high light output performance with the use of efficient AlInGaP materials. It is compatible with industry standard automatic machine placement and reflow soldering.</p>\r\n",
+				"Features" : "<p>&bull; LED with AlInGaP die<br />\r\n&bull; Surface-mount device with 0402 footprint<br />\r\n&bull; Compatible with reflow soldering<br />\r\n&bull; Tape in 8-mm carrier tape on a 7-in. diameter reel</p>\r\n",
+				"Applications" : "<p>&bull; Backlighting<br />\r\n&bull; Indicator</p>\r\n",
+				"ProductImage" : [{
+						"content_id" : "1211205118761",
+						"content_type" : "AVG_Image_C",
+						"complex_attr" : true
+					}
+				],
+				"COLOR" : "Orange",
+				"COLOR_BIN_SELECTION" : "Open",
+				"MetaDescription" : "HSML-C290; 0402 Top Mount ChipLEDs\r\n\r\n",
+				"MetaKeywords" : "HSML-C290; 0402 Top Mount ChipLEDs",
+				"Lifecycle" : "Active",
+				"DistributorInventory" : "Yes",
+				"DIMENSION_LXWXH_IN_MM" : "1.00 x 0.50 x 0.25",
+				"INTENSITY_BIN_SELECTION" : "Open",
+				"LEAD_FREE_STATUS" : "Y",
+				"LED_CHIP_TYPE" : "AlInGaP",
+				"MOUNTING_DIRECTION" : "Top",
+				"MOUNTING_METHOD" : "Surface Mount",
+				"NUMBER_OF_COLORS" : "Single",
+				"PACKAGE" : "Tape and Reel",
+				"DOMINANT_WAVELENGTH_IN_NM" : "605",
+				"TYP_LUMINOUS_INTENSITY_IN_MCD" : "89",
+				"VIEWING_ANGLE_IN_DEGREES" : "135\u00b0",
+				"nApplication" : [],
+				"CopyTemplate" : "ParametricSearch"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1206575315574" : {
+					"content_id" : "1206575315574",
+					"content_type" : "AVG_Product_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "0603 (1.6 x 0.8mm) Packages"
+		},
+		"1211130685584" : {
+			"content_id" : "1211130685584",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "7601ac31-e1ad-4eba-8419-ba5207b76fad",
+				"highlight_title" : "News",
+				"news_category" : [{
+						"content_id" : "1206560249947",
+						"content_type" : "AVG_News_P",
+						"complex_attr" : true
+					}, {
+						"content_id" : "1206558851517",
+						"content_type" : "AVG_News_P",
+						"complex_attr" : true
+					}
+				],
+				"link_title" : "More News",
+				"more_link" : {
+					"content_id" : "1211130582511",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SortBy" : "Newest",
+				"news_source" : "Both",
+				"exclude_url" : []
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211130687908" : {
+					"content_id" : "1211130687908",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "LatestNews"
+		},
+		"1206560249947" : {
+			"content_id" : "1206560249947",
+			"content_type" : "AVG_News_P",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "034f856d-5048-458f-9e6c-a83bde4b7f50",
+				"flexgrouptemplateid" : {
+					"content_id" : "1201882312389",
+					"content_type" : "AVG_News_PD",
+					"complex_attr" : true
+				},
+				"CategoryName" : "Product News Releases",
+				"CopyCategoryId" : []
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "NewsCategory"
+		},
+		"1206558851517" : {
+			"content_id" : "1206558851517",
+			"content_type" : "AVG_News_P",
+			"site" : "AVG2",
+			"attributes" : {
+				"flexgrouptemplateid" : {
+					"content_id" : "1201882312389",
+					"content_type" : "AVG_News_PD",
+					"complex_attr" : true
+				},
+				"CategoryName" : "Financial News",
+				"CopyCategoryId" : []
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "NewsCategory"
+		},
+		"1211130582511" : {
+			"content_id" : "1211130582511",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "company/news/",
+				"template" : "NewsList",
+				"fw_uid" : "513dfd12-2c25-4546-b919-18aba421ffd6",
+				"SPTParent" : {
+					"content_id" : "1421089863668",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "News Room",
+				"ShortTitle" : "News",
+				"show_leftnav" : "Yes",
+				"left_nav_pref" : "This page and its children"
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1211173758454",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "General"
+		},
+		"1211130722477" : {
+			"content_id" : "1211130722477",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"template" : "LatestEvents",
+				"fw_uid" : "6fc2c760-9970-4e9c-bd2b-aa798f6d9d62",
+				"highlight_title" : "Coming Events",
+				"events_category" : [{
+						"content_id" : "1206558473460",
+						"content_type" : "AVG_News_P",
+						"complex_attr" : true
+					}
+				],
+				"link_title" : "More Events",
+				"more_link" : {
+					"content_id" : "1421089875529",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"home_preference" : "Promo",
+				"HomePromo" : {
+					"content_id" : "1211161006800",
+					"content_type" : "AVG_Highlight_C",
+					"complex_attr" : true
+				},
+				"CopyTemplate" : "LatestEvents"
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211130722757" : {
+					"content_id" : "1211130722757",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "LatestEvents"
+		},
+		"1206558473460" : {
+			"content_id" : "1206558473460",
+			"content_type" : "AVG_News_P",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "5568bbe8-5712-4798-baaa-163244ae83e9",
+				"flexgrouptemplateid" : {
+					"content_id" : "1201882312389",
+					"content_type" : "AVG_News_PD",
+					"complex_attr" : true
+				},
+				"CategoryName" : "Event",
+				"CopyCategoryId" : []
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "NewsCategory"
+		},
+		"1421089875529" : {
+			"content_id" : "1421089875529",
+			"content_type" : "Page",
+			"site" : "AVG2",
+			"attributes" : {
+				"vanity_url" : "company/tradeshows-and-events",
+				"template" : "SingleColStacked",
+				"fw_uid" : "06a8a23a-c904-49d0-acec-54dbb2376f07",
+				"SPTParent" : {
+					"content_id" : "1421089863668",
+					"content_type" : "Page",
+					"complex_attr" : true
+				},
+				"SPTNCode" : "Placed",
+				"title" : "Tradeshows & Events",
+				"show_leftnav" : "Yes",
+				"body_highlights" : [{
+						"content_id" : "1211127149590",
+						"content_type" : "AVG_Highlight_C",
+						"complex_attr" : true
+					}
+				]
+			},
+			"named_associations" : {
+				"CTAButtons" : {
+					"content_id" : "1421089854206",
+					"content_type" : "Page"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {},
+			"category" : "General"
+		},
+		"1211161006800" : {
+			"content_id" : "1211161006800",
+			"content_type" : "AVG_Highlight_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"template" : "Promo",
+				"fw_uid" : "a7c66cc3-8edc-4adb-9fac-836a11fddec7",
+				"image_position" : "Right",
+				"Body" : "<p>Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation, collaboration and<br />\r\nengineering excellence.</p>\r\n",
+				"video" : {
+					"content_id" : "1211195055029",
+					"content_type" : "AVG_Image_C",
+					"complex_attr" : true
+				},
+				"link_title" : "Watch Now",
+				"video_display" : "Yes",
+				"CopyTemplate" : "Promo"
+			},
+			"named_associations" : {
+				"link" : {
+					"content_id" : "1211195055029",
+					"content_type" : "AVG_Image_C"
+				}
+			},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211161006773" : {
+					"content_id" : "1211161006773",
+					"content_type" : "AVG_Highlight_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Promo"
+		},
+		"1211168817700" : {
+			"content_id" : "1211168817700",
+			"content_type" : "AVG_Image_C",
+			"site" : "AVG2",
+			"attributes" : {
+				"fw_uid" : "26647b9e-4767-4b6a-82ea-ae9d7f2a8bc9",
+				"ImageName" : "ImageHomePagePromo",
+				"ImageDescription" : "Broadcom  - Ridder Park Building",
+				"ImageFile" : {
+					"file_name" : "365/382/home_ridderpark.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118939&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211168817700/home_ridderpark.png"
+				},
+				"AltText" : "Broadcom  - Ridder Park Building",
+				"ProductThumbnailFile3" : {
+					"file_name" : "365/382/home_ridderpark,0.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118940&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark%252C0.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark%252C0.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211168817700/150x150-home_ridderpark.png"
+				},
+				"CopyFileType" : "Unknown filetype",
+				"CopyMimeType" : "image/png",
+				"blogbannerfile" : {
+					"file_name" : "365/382/home_ridderpark,1.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118941&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark%252C1.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark%252C1.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211168817700/480x720-home_ridderpark.png"
+				},
+				"ProductThumbnailFile" : {
+					"file_name" : "365/382/home_ridderpark,2.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118942&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark%252C2.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark%252C2.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211168817700/60x60-home_ridderpark.png"
+				},
+				"ProductThumbnailFile5" : {
+					"file_name" : "365/382/home_ridderpark,3.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118943&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark%252C3.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark%252C3.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : null
+				},
+				"ProductThumbnailFile2" : {
+					"file_name" : "365/382/home_ridderpark,4.png",
+					"folder_name" : "/data01/app/CS_shared/ccurl/",
+					"href" : "https://devi.aws.broadcom.com/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211206118944&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22home_ridderpark%252C4.png%22%3Bfilename*%3DUTF-8%27%27home_ridderpark%252C4.png&blobheadervalue1=image%2Fpng&blobcol=urldata&blobtable=MungoBlobs",
+					"vanity_url" : "media/1211168817700/80x80-home_ridderpark.png"
+				}
+			},
+			"named_associations" : {},
+			"unnamed_associations" : [],
+			"parents" : {
+				"1211162414639" : {
+					"content_id" : "1211162414639",
+					"content_type" : "AVG_Image_P",
+					"complex_attr" : true
+				}
+			},
+			"category" : "Image"
+		}
+	},
+	"attributes" : {
+		"vanity_url" : "home/",
+		"template" : "/AVG2_Layout",
+		"fw_uid" : "279a44c1-359a-4dac-9d86-95abcb6c26cd",
+		"SPTParent" : {
+			"content_id" : "1421089854937",
+			"content_type" : "SitePlan",
+			"complex_attr" : true
+		},
+		"SPTNCode" : "Placed",
+		"title" : "Broadcom Limited | Connecting Everything",
+		"ShortTitle" : "Broadcom Limited",
+		"abstract" : "Broadcom Limited is a leading designer, developer and global supplier of a broad range of digital and analog semiconductor connectivity solutions that serve the wired infrastructure, wireless communications, enterprise storage and industrial markets.",
+		"hero" : {
+			"content_id" : "1211130673248",
+			"content_type" : "AdvCols",
+			"complex_attr" : true
+		},
+		"home_promo" : [{
+				"content_id" : "1211168816142",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211168816482",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}
+		],
+		"Applications" : [{
+				"content_id" : "1211170385942",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211177417974",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211191990188",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211170386345",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211197662435",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}
+		],
+		"latest_prod_title" : "Latest Products",
+		"latest_products" : [{
+				"content_id" : "1206562502878",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1210943128012",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1206562894835",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1206562503950",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211203614346",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211203623807",
+				"content_type" : "AVG_Product_C",
+				"complex_attr" : true
+			}
+		],
+		"body_highlights" : [{
+				"content_id" : "1211130685584",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}, {
+				"content_id" : "1211130722477",
+				"content_type" : "AVG_Highlight_C",
+				"complex_attr" : true
+			}
+		],
+		"meta_keywords" : "semiconductors",
+		"meta_description" : "Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation, collaboration and engineering excellence.",
+		"brcm_info_img" : {
+			"content_id" : "1211168817700",
+			"content_type" : "AVG_Image_C",
+			"complex_attr" : true
+		},
+		"body" : "<div>Broadcom Limited is a leading designer, developer and global supplier of a broad range of digital and analog&nbsp;semiconductor connectivity solutions that serve the wired infrastructure, wireless communications, enterprise storage and industrial markets.</div>\r\n"
+	},
+	"named_associations" : {},
+	"unnamed_associations" : [],
+	"parents" : {},
+	"category" : "Home"
+}

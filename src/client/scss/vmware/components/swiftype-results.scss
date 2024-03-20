@@ -1,0 +1,78 @@
+/*
+* components/swifttype-results.scss
+*/
+// Styling for swifttype search results
+
+@import "../base/variables";
+
+
+.bc-result-sidebar-wrap{
+  width: 100%;
+  max-width: 100%;
+-webkit-box-flex: 100%;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 100%;         /* OLD - Firefox 19- */
+-webkit-flex: 100%;          /* Chrome */
+-ms-flex: 100%;              /* IE 10 */
+flex: 100%;
+}
+
+.bc-result-sidebar{
+    border: 1px solid $color-grey--500;
+      .filter-item{
+        margin: 3px 0;
+        .item-counter{
+          min-width: 50px;
+          border-radius: 4px;
+          margin-left: 5px;
+        }
+      .flex-grow-1 {
+          display: -webkit-flex;
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          word-wrap: break-word;
+          white-space: initial;
+      }
+    }
+    .bc-result-sidebar-collapse{
+      display: none;
+      padding-left: 0;    // Make it left align.
+    }
+    // bc-result-sidebar for collapse in responsive
+    @media screen and (max-width: map-get($grid-breakpoints, lg) - 1){
+      border:none;
+      padding: 0 !important;
+      .bc-result-sidebar-responsive{
+        border: 1px solid $color-grey--500;
+        display: block;
+        padding: 20px;
+      }
+      .bc-result-sidebar-collapse{
+        display: block;
+      }
+  
+     }
+
+     @media screen and (min-width: 991px){
+  
+      .collapse{
+          display: block;
+        }
+      }
+
+      .check-wrap .checkbox + label {        
+        // Fix wrapping issues when labeles are 2 lines.
+        @media screen and (min-width: map-get($grid-breakpoints, lg)) {  
+          width: 166px;
+        }
+      }
+  }
+
+  .bc-result-content{
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 767px){
+    .bc-result-sidebar-wrap + .bc-result-content{
+      margin-left: 0;
+    }
+  }

@@ -1,0 +1,27 @@
+/*
+* components/contact.scss
+*/
+//  Styling for broadcom custom contacts, partners, distributors
+
+
+@import "../base/variables";
+
+.contact{
+	padding: 15px 0px;
+	margin-bottom: 50px;
+    @media screen and (min-width: map-get($grid-breakpoints, md) -1){
+        margin-bottom: 30px;
+    }
+	address {
+		margin: 7px 0;
+	}
+}
+
+.contact-head{
+    color:$color-primary;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.contact-address{
+    margin-bottom: 50px;
+}

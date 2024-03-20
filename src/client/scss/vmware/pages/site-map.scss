@@ -1,0 +1,258 @@
+/*
+* pages/site-map.scss
+*/
+// styling for sitemap. There were 3 at one time, now 1. There may be legacy code still in jsx and scss.
+
+@import "../base/variables";
+
+.site-map-product {
+    font-family: $font-family--secondary;
+    h2.productFamily a.lnk {
+      color: $color-grey--800;
+    }
+    .sitemap li {
+      list-style:none
+    }
+    ul li a.lnk {
+      font-weight:400;
+      list-style-type: none;
+    }
+
+    ul li.sitemapHeader {
+        margin-top:10px;
+        .notlink {
+          font-weight: 500;
+        }
+        > a.lnk {
+          font-weight: 500;
+        }
+        
+      ul {
+        margin-left: 1em;
+        margin-bottom: 10px; 
+      }
+    }
+
+    .col-head {
+      border-bottom: 1px solid $color-grey--700;
+      padding-bottom: .5em;
+      margin-bottom: .5em;
+    }
+
+    .columns {
+      columns: 3 auto;
+      margin-bottom: 20px;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    .columns {
+      columns: 1 auto;
+    }
+  }
+
+  #subHead  {     //base element: components/subheader.scss
+    h1 {
+      padding-left: 0px;
+    }
+  }
+  .site-map-head {
+    padding: 0 0 10px 0;
+
+    h2 {
+        font-size: 30px;
+		    margin-top:25px;
+
+      a.lnk {
+        color: $color-primary;        //mods link _link.scss
+        font-weight: 400;             //mods link _link.scss
+      }
+      span{
+        float: right;
+        clear: left;
+        font-size: $font-size-md;
+        font-weight: 700;
+
+        a.lnk {
+          color: $color-grey--700;
+        }
+        span.bi {
+          margin-left:.5em;
+        }
+      }
+    }
+  }
+
+  .devide {
+    border-top: 2px solid $color-grey--500;
+    padding: 0px 0px 30px;
+  }
+  .sitemap-links {
+    .topicGroup{
+      margin-top: 15px;
+    }
+    h2 {
+      color:$color-grey--800;
+      font-size: $font-size-lg;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin-bottom: 20px !important;
+	  font-family: $font-family--primary;
+      li {
+        ul{
+          margin-bottom: 0px !important;
+
+          li {
+            a.lnk{
+              > span {
+                padding-left: 15px;
+                word-wrap: break-word;
+				        display: -webkit-inline-flex;
+                display: -ms-inline-flexbox;
+                display: inline-flex;
+                font-weight: 400;
+                }
+              h2 {
+                font-size: $font-size-lg;
+                color: $color-secondary;
+                font-weight: 700;
+                margin-bottom: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+    li{
+      list-style: none;
+    }
+    h3{
+      color:$color-secondary;
+      font-size: $font-size-lg;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-family: $font-family--secondary;
+
+      &:empty{
+        margin: 0;
+      }
+    }
+}
+/*   .backtotop {         //OBSOLETE??? This className does not appear in any jsx files
+    a {
+      color:$color-grey--700;
+      //text-transform: uppercase;
+      font-weight: 700;
+
+      &.right-back {
+        float: right;
+        margin-left: 10px;
+      }
+    }
+  } */
+}
+
+
+
+// site-map start           //Obsolete?? - these classes do not appear in jsx - believe this was old sitemap before update
+/* .site-map {
+  font-family: $font-family--secondary;
+
+  .site-map-inner {
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid $color-grey--500;
+      padding: 20px 0px;
+
+      a{
+        color: $color-primary--dark;
+      }
+    }
+    ul.sectionGroup {
+      li {
+        font-size: $font-size-lg;
+        padding: 0px 0px 10px 15px;
+        font-family: $font-family--primary;
+        font-weight: 600;
+
+        a {
+          color:$color-grey--800;
+        }
+        &.view-all-link{
+          a{
+            color: $color-grey--700;
+            //text-transform: uppercase;
+          }
+        }
+      }
+      ul.topicGroup {
+        margin-bottom: 15px;
+        padding-left: 15px;
+
+        li {
+          font-size:$font-size-md;
+          padding: 0px 0px 10px 0px;
+
+          &:last-child{
+            padding-bottom: 0;
+          }
+
+          a {
+            color:$color-secondary;
+            > span {
+              font-size: $font-size-md;
+              font-weight: 600;
+            }
+          }
+        }
+
+        > .link-group{
+          &:not(:first-child){
+            h3{
+              padding-top: 10px;
+            }
+          }
+        }
+      }
+    }
+    h3 {
+      color: $color-grey--800;
+      font-size: $font-size-md;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  }
+} */
+
+.site-map {                         //used by SitemapProducts_CA_a2z.jsx
+  section.sitemapSearch {
+    background-color: $color-grey--500;
+    padding-bottom: 30px;
+    h1, p {     
+      text-align: center;
+      margin: 20px 0 20px 0;
+    }
+    p {
+      font-size: $font-size-lg;
+    }
+  }
+  h3.columnHead, h2.columnTitle {
+    text-align: center;
+    vertical-align: middle;
+  }
+  h3.columnHead {
+    border-bottom: $color-grey--900 solid 1px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  h2.columnTitle {
+    margin: 20px 0 20px 0;
+  }
+  ul.columnItem {
+    font-family: $font-family--primary;
+    font-size: $font-size-lg;
+    line-height: 1.6em; 
+  }
+}

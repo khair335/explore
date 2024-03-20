@@ -1,0 +1,4 @@
+{
+	presets: ['@babel/preset-env',  '@babel/react'], // Transpiles JSX and ES6
+	plugins: ['@babel/plugin-proposal-object-rest-spread']
+}

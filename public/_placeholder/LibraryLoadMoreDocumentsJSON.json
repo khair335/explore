@@ -1,0 +1,456 @@
+{
+	"_comment": "If required following documents get based on tab filter selection, by default fist/active tab All category documents",
+	"Documents": [{
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/AV02-3344EN",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/AV02-3344EN",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211059839276",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/AV02-3344EN",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "Building Safe and Reliable Electrical Systems with Optocouplers White Paper",
+		"Description": "Electrical systems, no matter what their purpose, share three primary requirements: reliable, safe, and long life operation. To ensure safe operation, users must be double insulated from any dangerous high voltages the equipment employs. To ensure reliable and long life operation, control electronics must also be protected from hazards such as electromagnetic interference and voltage spikes. Broadcom optocouplers provide safety and protection unmatched by any other isolation technology"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/AV02-1909EN",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/AV02-1909EN",
+		"data-target": "#download_modal",
+		"data-resid": "drv1210919029286",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/AV02-1909EN",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "Safety Considerations When Using Optocouplers and Alternative Isolators for Providing Protection Against Electrical Hazards",
+		"Description": "Optocouplers and alternative isolation technologies find widespread use in a variety of products for signal isolation and high voltage level shifting. These devices may also be used to provide safety related insulation. Considering these electrical concerns, it is necessary to understand the safety related characteristics of the optocoupler or alternative isolator."
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/AV02-0835EN",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/AV02-0835EN",
+		"data-target": "#download_modal",
+		"data-resid": "drv1210934320151",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/AV02-0835EN",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "Building a Safe and Robust Industrial System with Broadcom Optocouplers White Paper",
+		"Description": "Should production line stoppage occur at an industrial automation company, millions of dollars and opportunity costs can be lost while trying to fix the problem and get the lines running again."
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/HBA-93xx-OT",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/HBA-93xx-OT",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211211345256",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/HBA-93xx-OT",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "HBA 93xx 12Gb/s SAS Storage Adapter Drive Compatibility Report Selection Guide"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/MR-93xx-OT",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/MR-93xx-OT",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211211344620",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/MR-93xx-OT",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "MegaRAID 93xx 12Gb/s SAS Storage Adapter Drive Compatibility Report Selection Guide"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211211344198",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "MegaRAID 94xx Tri-Mode Storage Adapter Drive Compatibility Report Selection Guide"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/12381743",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/12381743",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211210745124",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/12381743",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "01/24/2018",
+		"Title": "ESG: The Performance Benefits of Fibre Channel Compared to iSCSI for All-flash Storage Arrays Supporting Enterprise Workloads"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/MR-93xx-OT102",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/MR-93xx-OT102",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211210257420",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/MR-93xx-OT102",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "03/24/2018",
+		"Title": "MegaRAID 93xx 12Gb/s SAS Storage Adapter Drive Compatibility Report Selection Guide"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT104",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT104",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211210411928",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/MR-94xx-Tri-Mode-OT104",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "03/24/2018",
+		"Title": "MegaRAID 94xx Tri-Mode Storage Adapter Drive Compatibility Report Selection Guide"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/12381566",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/12381566",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211210289228",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/12381566",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "03/14/2018",
+		"Title": "Demartek NetApp Broadcom NVMe over Fibre Channel Evaluation"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/HBA-93xx-OT101",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/HBA-93xx-OT101",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211210243377",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/HBA-93xx-OT101",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "05/14/2018",
+		"Title": "HBA 93xx 12Gb/s SAS Storage Adapter Drive Compatibility Report Selection Guide",
+		"Description": "HBA 93xx 12Gb/s SAS Storage Adapter Drive Compatibility Report Selection Guide, June 20, 2018, HBA-93xx-OT101"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211209206503",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5373-02",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "FAQs"
+		},
+		"PublishDate": "02/04/2018",
+		"Title": "Brocade Time & Materials Policy Frequently Asked Questions"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211201595502",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/GA-FAQ-5740-06",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "FAQs"
+		},
+		"PublishDate": "06/14/2018",
+		"Title": "Brocade X6 Director Frequently Asked Questions",
+		"Description": "This document answers frequently asked questions about the Brocade X6 Director family."
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/AV00-0315EN",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/AV00-0315EN",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211131979796",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/AV00-0315EN",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581291",
+			"SubtypeName": "Selection Guide"
+		},
+		"PublishDate": "06/14/2018",
+		"Title": "Storage Solutions Selection Guide",
+		"Description": "Whether you need to protect data, power your storage solutions, or deliver the performance needed by critical applications, Broadcom’s 12Gb/s SAS MegaRAID® controller cards and Host Bus Adapters (HBAs), and Advanced Software Options are the smart choice."
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211201727276",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/GA-WP-5957-02",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "06/14/2018",
+		"Title": "Maximize the All-Flash Data Center with Brocade Gen 6 Fibre Channel White Paper",
+		"Description": "Maximize All Flash DC with Brocade Gen 6-FC"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211208619572",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/ESG-FCDC-WP100",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "06/14/2018",
+		"Title": "Automating the Fibre Channel Data Center",
+		"Description": "Leveraging Brocade’s Automation Technology to Deliver a Modern Data Center"
+	}, {
+		"AssetType": "AVG_Document_C",
+		"AssetID": "1211168569166",
+		"_url_": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+		"data-type": "regular",
+		"data-expired": "false",
+		"data-url": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+		"data-target": "#download_modal",
+		"data-resid": "drv1211201643271",
+		"data-toggle": "modal",
+		"data-layer": {
+			"event": "eventTracker",
+			"eventVal": "0",
+			"eventCat": "Assets",
+			"eventAct": "pdf",
+			"eventLbl": "https://docs.broadcom.com/docs/GA-DS-5544-02",
+			"TemplateName": "whitepaper",
+			"Section": "Body"
+		},
+		"DocumentSubtype": {
+			"AssetType": "AVG_Document_P",
+			"AssetID": "1206560581395",
+			"SubtypeName": "White Papers"
+		},
+		"PublishDate": "06/14/2018",
+		"Title": "Benefits of Gen 6 Fibre Channel for the All-Flash Data Center",
+		"Description": "This document describes the benefits of Gen 6 Fibre Channel for the All-Flash Data Center"
+	}],
+	"LoadMore": true
+}

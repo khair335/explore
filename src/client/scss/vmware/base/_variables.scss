@@ -1,0 +1,288 @@
+/* _variables.scss */
+// global variables and mixins - these have scope across all selectors
+// /css/fonts/hco_fonts.css contains font-family file declarations - assigned in head <link> see server/view/partials/head.ejs
+
+// VARIABLES
+// ======================================================================================
+
+// COLORS
+$color-primary: hsl(220, 65%, 33%); //#1D428A; //link button default color
+$color-primary--dark: #04314D; //link hover 
+
+
+$color-secondary: hsl(200, 100%, 43%); //#0091DA; 	// ocean, 
+$color-secondary--dark: hsl(200, 100%, 36%); //#007ab8;	// link hover color 
+
+$color-warn: hsl(34, 100%, 44%); //#de7c00;
+$color-archive: hsl(21, 79%, 47%); //#d55c19;
+$color-table-head: #b5283a; //old -not in use anymore
+
+
+$color-grey--900: hsl(0, 0%, 24%); //#3D3D3D; // change with $color-grey--700 in theme
+$color-grey--800: hsl(0, 0%, 24%); //#3D3D3D; // change with $color-grey--600 in theme
+$color-grey--700: hsl(0, 0%, 24%); //#3D3D3D;	// default color for all body copy and non-header text
+$color-grey--675: hsl(0, 0%, 34%);
+$color-grey--650: hsl(0, 0%, 34%);
+$color-grey--625: hsl(0, 0%, 34%);
+$color-grey--600: hsl(0, 0%, 34%); //#565656;	// default body text color
+$color-grey--500: hsl(255, 2%, 45%); //#717074; //used for background and secondary title 
+$color-grey--400: hsl(240, 1%, 56%); //#8D8D90	// 
+$color-grey--300: hsl(260, 2%, 67%); //#AAA9AC 
+$color-grey--200: hsl(240, 1%, 78%); //#C6C6C7 
+$color-grey--100: hsl(300, 2%, 89%); //#E3E2E3;
+$color-grey--50: hsl(0, 0%, 97%); //#f7f7f7;
+
+//Indigo colors
+$color-indigo-100: #D2D9E8;
+$color-indigo-200: #A5B3D0;
+$color-indigo-300: #778EB9;
+$color-indigo-400: #4A68A1;
+$color-indigo-500: #1D428A;
+
+//Ocean
+$color-ocean-100: #CCE9F8;
+$color-ocean-200: #99D3F0;
+$color-ocean-300: #66BDE9;
+$color-ocean-400: #33A7E1;
+$color-ocean-500: #0091DA;
+$color-ocean-600: #007AB8;
+$color-ocean-700: #005C8A;
+
+//Leaf
+$color-leaf-100: #E4F2D2;
+$color-leaf-200: #C9E5A6;
+$color-leaf-300: #AED879;
+$color-leaf-400: #93CB4D;
+$color-leaf-500: #78BE20;
+$color-leaf-600: #65A11B;
+$color-leaf-700: #528316;
+$color-leaf-800: #3C610F;
+
+//Plum
+$color-plum-100: #E5D7F0;
+$color-plum-200: #CCAEE0;
+$color-plum-300: #B286D1;
+$color-plum-400: #995DC1;
+$color-plum-500: #7F35B2;
+$color-plum-600: #7932A9;
+
+//Aqua
+$color-aqua-100: #CCF3F7;
+$color-aqua-200: #99E6EE;
+$color-aqua-300: #66DAE6;
+$color-aqua-400: #33CDDE;
+$color-aqua-500: #00C1D5;
+$color-aqua-600: #00A1B3;
+$color-aqua-700: #00818F;
+$color-aqua-800: #005C66;
+
+//Tangerine
+$color-tangerine-100: #FBE4CC;
+$color-tangerine-200: #F7C999;
+$color-tangerine-300: #F4AD66;
+$color-tangerine-400: #F09233;
+$color-tangerine-500: #EC7700;
+$color-tangerine-600: #E67300;
+$color-tangerine-700: #B85C00;
+$color-tangerine-800: #8A4500;
+
+//Crimson
+$color-crimson-100: #ECD4D9;
+$color-crimson-200: #D9A9B3;
+$color-crimson-300: #C57E8E;
+$color-crimson-400: #B25368;
+$color-crimson-500: #9F2842;
+
+//Gradient
+$g-plum-indigo: linear-gradient(45deg, #7F35B2 14.64%, #1D428A 85.36%);
+$g-indigo-ocean: linear-gradient(45deg, #1D428A 14.64%, #0091DA 85.36%);
+$g-ocean-indigo: linear-gradient(90deg, #008EDA -0.07%, #1D428A 99.93%);
+$g-ocean-indigo: linear-gradient(45deg, #7F35B2 14.64%, #0091DA 85.36%);
+$g-aqua-ocean: linear-gradient(45deg, #00C1D5 14.64%, #0091DA 85.36%);
+$g-leaf-aqua: linear-gradient(45deg, #78BE20 14.64%, #00C1D5 85.36%);
+$g-leaf-ocean: linear-gradient(45deg, #78BE20 14.64%, #0091DA 85.36%);
+
+//Background Color
+$background-color: #ffffff;
+$background-light-blue: #F4F8FA;
+$background-light-gray: #f7f7f7;
+
+//Shadow
+$shadow-1: 0 2px 4px 0 rgba(17,69,134, 0.24);
+$shadow-2: 0 4px 8px 0 rgba(17,69,134, 0.16);
+$shadow-3: 0 8px 16px 0 rgba(17,69,134, 0.12);
+$shadow-4: 0 16px 24px 0 rgba(17,69,134, 0.12);
+$shadow-5: 0 4px 12px 0 rgba(0,0,0, 0.15);
+
+// Base Color
+$color-white: hsl(0, 0%, 100%); //#fff;
+$color-black: hsl(0, 0%, 0%); //#000; text color for titles, 
+$color-body: $color-grey--600;
+
+
+$color-highlight-yellow: hsl(43, 35%, 88%); //#f4db9e; //not in use for now
+
+//link color
+$color-active: $color-ocean-700; // active highlight color
+$color-link: $color-ocean-700; // this is primary color, defalt link color
+$color-link-hover: #04314D; //this is ocean color, default link hover color
+
+// SOCIAL COLORS
+$color-social--linkedin: hsl(201, 100%, 47%); //#0077b5;
+$color-social--facebook: hsl(221, 61%, 38%); //#3b5998;
+$color-social--twitter: hsl(203, 88%, 63%); //#1da1f2;
+$color-social--youtube: hsl(0, 85%, 45%); //#cd201f;
+$color-social--google: hsl(7, 74%, 53%); //#dd4b39;
+$color-social--email: hsl(77, 97%, 59%); //#6f9a05;
+$color-social--rss: hsl(19, 86%, 61%); //#f26522;
+
+// BOOTSTRAP BREAKPOINTS
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
+
+// TYPOGRAPHY
+$font-family--primary: "Metropolis", sans-serif;
+$font-family--primeBold: "Metropolis", sans-serif;
+$font-family--secondary: "Metropolis", sans-serif; // see server/views/partials/head.js for font assignment - css file kept with fonts in public
+$font-size-sm: 12px; //not in use for now
+$font-size-md: 14px; //button text, button cta, breadcrumbs, lable, badge, banne title elebrow text, 
+$font-size-lg: 16px; // body text, body link, link text 
+
+// LAYOUT
+$padding-default: 20px; // block and card gap
+$padding-sm: 10px; // small gap, 
+
+
+
+
+$section-striped-dark: ".section-striped section:nth-of-type(3n+2), .section-striped section:nth-of-type(3n+3)"; // Sections. Used this to style specifc striped sections.
+
+// HEADER
+$header-height: 152px;
+
+// FOOTER
+$footer-height: 360px; // xs & sm
+$footer-height-md: 184px;
+$footer-height-lg: 140px;
+$footer-height-xl: 445px;
+$autopilot-height: 158px;
+$autopilot-height-md: 155px;
+$autopilot-footer-height: $footer-height + $autopilot-height;
+$autopilot-footer-height-md: $footer-height-md + $autopilot-height-md;
+$autopilot-footer-height-lg: 292px;
+$autopilot-footer-height-xl: 275px;
+
+
+// MIXINS
+// ======================================================================================
+
+
+
+@mixin prime-style {
+	// primary CTA buttons
+	background-color: $color-primary;
+	color: $color-white;
+	font-family: $font-family--secondary;
+	&:hover {
+		background-color: $color-white;
+		color: $color-primary;
+		border: 1px solid $color-primary
+	}
+}
+
+@mixin second-style {
+	// secondary CTA buttons
+	background-color: $color-white;
+	color: $color-primary;
+	font-family: $font-family--secondary;
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		border: 1px solid $color-white
+	}
+}
+
+@mixin archive-style {
+	background-color: $color-archive;
+	color: $color-white;
+}
+
+@mixin link-style {
+	// buttons, links
+	background-color: transparent;
+	font-family: $font-family--secondary;
+	color: $color-primary;
+	font-weight: 500; //metro-mod
+	letter-spacing: .25px; //metro-mod
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		text-decoration-line: underline;
+		text-decoration-style: solid;
+		text-decoration-thickness: 2px;
+		animation: link-fadeinout 1.5s linear forwards;
+	}
+}
+
+@mixin basic-table {
+	// stardard table 
+	width: 100%;
+	border-spacing: 2px;
+
+	tbody {
+
+		th,
+		td {
+			border: 0 none;
+			padding-left: 15px;
+			
+		}
+
+		td {
+			padding: 15px;
+			vertical-align: top;
+			border-bottom: 1px solid $color-grey--100;
+		}
+
+	}
+
+	thead th {
+		vertical-align: top;
+		padding: 15px;
+		font-size: 24px;
+		font-weight: 300;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+
+	tbody+tbody {
+
+		border-bottom: 2px solid $color-grey--500;
+	}
+}
+
+// Themes
+// https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995
+$bg: 'bg';
+$card-bg: 'card-bg';
+$text: 'text';
+$text-secondary: 'text-secondary';
+$link: 'link';
+$hover: 'hover';
+$logo: 'logo';
+$brand-blue: 'brand-blue';
+$brand-red: 'brand-red';
+$border: 'border';
+$button: 'button';
+
+.no-styles {
+	@include link-style;
+}
+

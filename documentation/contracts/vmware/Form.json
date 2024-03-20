@@ -1,0 +1,194 @@
+{
+
+
+  "form_fields": [
+    {
+      "content_id": "blt53912150fa9646a0_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Country]",
+      "display_name": "Location",
+      "required": "Yes",
+      "field_type": "Country",
+      "description": null,
+      "values": [ "Afghanistan", "Africa", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Asean", "Asia Pacific", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Brazzaville)", "Congo, Democratic Republic of", "Costa Rica", "Cote d Ivoire (Ivory Coast)", "Croatia", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Europe", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong, SAR", "Hungary", "Iceland", "India", "Indonesia", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea South", "Korea North", "Kuwait", "Kyrgyzstan", "Laos", "Latin America", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Maroc", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Middle East", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and The Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Suriname", "Swaziland", "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tchad", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United Republic of Tanzania", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Western Sahara", "Yemen", "Zimbabwe", "Zambia" ]
+    },
+    {
+      "content_id": "blt3c3cebd8a788e69f_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[First Name]",
+      "display_name": "First Name",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt54c94a9ae53fb394_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Last Name]",
+      "display_name": "Last Name",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt0f23882784405ec5_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Email]",
+      "display_name": "Email Address",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "bltc599e338e8a90cec_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Company Name]",
+      "display_name": "Company Name",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt96c4a0f9992d8ff2_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Address Line 1]",
+      "display_name": "Address Line 1",
+      "required": "No",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blta374d442995c99e3_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Address Line 2]",
+      "display_name": "Address Line 2",
+      "required": "No",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt05425a3582648133_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[City]",
+      "display_name": "City",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt6bfdab742bacdbdb_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[State]",
+      "display_name": "State",
+      "required": "No",
+      "field_type": "State",
+      "description": null,
+      "values": [ "N/A", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" ]
+    },
+    {
+      "content_id": "bltafd7beac41bed6a0_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Zip]",
+      "display_name": "Zip/Postal Code",
+      "required": "No",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "blt2cf2872e5f78e739_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Telephone]",
+      "display_name": "Telephone",
+      "required": "Yes",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "bltd9a456509e504422_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": null,
+      "field_name": "[Feedback]",
+      "display_name": "I have questions/ feedback about",
+      "required": "Yes",
+      "field_type": "Combo Box",
+      "description": null,
+      "values": [ "Accessibility", "Broken hyperlink or page not found", "File Download", "Incorrect or Missing Content", "Jobs at Broadcom", "Registration/Login/Password Problem", "Where to find something", "Other/General Feedback" ]
+    },
+    {
+      "content_id": "blt08d45a4d480bac4c_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Web Page]",
+      "display_name": "For comments about a specific page, enter URL",
+      "required": "No",
+      "field_type": "Text Field",
+      "description": null,
+      "values": null
+    },
+    {
+      "content_id": "bltd38ec1cb477a9db7_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": null,
+      "field_name": "[Respond]",
+      "display_name": "Would you like us to respond to your comments?",
+      "required": "Yes",
+      "field_type": "Radio Buttons",
+      "description": null,
+      "values": [ "Yes, please respond.", "No, a response is not necessary." ]
+    },
+    {
+      "content_id": "bltf59b06039ad3c11d_en-us",
+      "content_type": "form_fields",
+      "locale": "en-us",
+      "form_field_type": "Entry Field",
+      "field_name": "[Comments]",
+      "display_name": "Comments",
+      "required": "No",
+      "field_type": "Text Area",
+      "description": null,
+      "values": null
+    },
+    {
+      "field_type": "Checkbox",
+      "field_name": "[Agree Statement]",
+      "required": "yes",
+      "display_name": " I understand and agree to Broadcoms <a target=\"_blank\" href=\"/company/legal/terms-of-use\">Terms of Use</a> and <a target=\"_blank\" href=\"/company/legal/privacy-policy\">Privacy Statement</a>."
+    }
+  ],
+  "status": null,
+  "display_captcha": "Yes"
+}

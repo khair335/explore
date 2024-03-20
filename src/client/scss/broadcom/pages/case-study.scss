@@ -1,0 +1,138 @@
+/*
+* components/captcha.scss
+*/
+// Styling for broadcom custom case study and analyst report
+
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/variables";
+@import "../components/testimonial.scss";
+@import "../base/buttons";
+
+#CaseStudyLanding button {
+  &.clear-bttn {
+    @extend .clear-bttn-lrg;		//TypeAhead can be large or small input box
+  }
+  &.search-bttn {
+    @extend .search-bttn-lrg;		//TypeAhead can be large or small input box
+  }
+
+}
+
+
+#CaseStudy {
+	
+	.caseStudy-right-img {
+	text-align: center;
+	max-width: 300px;
+	float: right;
+		img { float: right; }
+	}
+	.casestudy-card-wrap {
+		background-color:  $color-grey--500;
+		.card {
+			background-color: $color-white;
+			padding: 20px 20px 20px 20px;
+			border: 1px solid $color-grey--600;
+			border-radius: 4px;
+			height: 100%;
+						
+		}
+		.card-title{
+		color: $color-primary;
+		text-align: center;
+		margin-top: 15px;
+		}
+	}
+ 
+	.CaseStudyCard {
+ 		padding: 0px;
+		@include media-breakpoint-down(md) {
+			
+ 		}
+		@include media-breakpoint-down(sm) {
+ 		}
+	}
+	
+	.learn-more {
+		background-color: $color-grey--500;
+		padding: 20px 0;
+		text-align: center;
+		h4 {
+			margin:15px 0;
+		}
+	}
+	.video-list-wrapper {		//modifier - base in  components/brightcove-video.scss
+		h3 { 
+			font-size: 18px;
+			margin-top: 20px; 
+		}
+		.social-share {
+			padding: 20px 0px;
+		}
+	}
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1){
+	#CaseStudy {
+		.casestudy-card-wrap {
+			.card {
+				margin-bottom: 30px;
+				height: auto;
+			}
+		}
+		.caseStudy-right-img {
+			text-align: center;
+			max-width: 100%;
+			float: none;
+			padding: 10px 0px 30px;
+			img { 
+			float: none;
+			margin: 0 auto; 			
+			}
+		}
+	}
+ }
+.casestudy-card-wrap {
+	background-color: $color-grey--500;
+    padding: 30px 0px;
+	ul {
+		list-style-type: disc;
+		padding-left: 20px;
+		text-align: left;
+	}
+}
+
+//  Report Landing page overview
+#AnalystReport  {
+	.analyst-overview	{
+		background-color: $color-grey--500;
+		padding: 30px 0px;
+		margin-top: 30px;
+		h2 {
+			text-align: center;	
+			margin-bottom: 20px;
+		}
+		a {
+			text-decoration: underline;
+		}
+		p{
+			font-size: $font-size-lg; 
+			margin-bottom: 15px;
+			> em {
+				font-size: $font-size-sm;
+			}
+		}
+		ul { 
+			display: block; 
+			list-style-type: disc;
+			 margin-inline-end: 0px; 
+			 padding-left: 40px;
+			  margin-top: 15px; 
+			  margin-bottom: 15px;
+			  li { 
+				  line-height: 1.5; 
+				  font-size: $font-size-lg; 
+				} 
+		} 
+	}
+}

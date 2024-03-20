@@ -1,0 +1,65 @@
+/*
+* pages/news.scss
+*/
+// Styling for news/press releasecd we page
+
+@import "../base/variables";
+
+#NewsList {
+    .tab-content {
+        a.lnk {
+        font-family: $font-family--primary;
+        font-weight: 400;
+        }
+    }
+}
+
+.news-list-block{
+    margin-bottom: 50px;
+
+    .news-list-title{
+        color: $color-primary;
+        font-size: 24px;
+        padding-bottom: 20px;
+        font-family: $font-family--secondary;
+        font-weight: 500;
+    }
+    .news-list{
+        padding-left: 15px;
+
+        li{
+            margin-bottom: 20px;
+            list-style: none;
+
+            .news-date{
+                float: left;
+                min-width: 140px;
+                padding-right: 10px;
+            }
+            .news-link{
+                overflow: hidden;
+
+            }
+        }
+    }
+    .view-all{
+        font-family: $font-family--secondary;
+        font-weight: 500;
+      
+    }
+}
+
+@media screen and (max-width: 768px){
+    .news-list-block{
+        .news-list{
+            padding-left: 0;
+
+            li{
+                .news-date{
+                    min-width: 0;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}

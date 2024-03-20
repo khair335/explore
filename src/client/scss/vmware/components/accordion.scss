@@ -1,0 +1,67 @@
+/*
+* components/accordion.scss
+*/
+// Styling for broadcom custom accordion
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+// Fontawesome
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
+
+.accordion-content-block,
+.accordion {
+    .accordion-title {
+         color:$color-body;
+     }
+    
+    // Use arrows instead of + -.
+    .brcmicon-plus {
+        @include fa-icon-solid($fa-var-chevron-right);
+        transition: 0.2s ease-in-out;
+    }
+    .brcmicon-window-minimize {
+        @include fa-icon-solid($fa-var-chevron-right);
+        transition: 0.2s ease-in-out;
+        transform: rotate(90deg);
+    }
+}
+
+// Theme
+.theme-content-block-line {
+    .accordion {
+        .CollapseBox {
+            margin-bottom: none!important;
+            .card {
+                border:none;
+                border-bottom: 2px solid $color-grey--100;
+                
+                .card-head {
+                    padding: 0 10px 20px!important;
+                 }
+                 .card-body {
+                    .collapse,.collapsing {
+						padding: 0px 10px 25px;
+					}
+                 }
+            }
+           
+           
+        }
+    }
+}
+
+.theme-content-block-standard {
+	.accordion {
+        .CollapseBox {
+			.card {
+				.card-body {
+					.collapse,.collapsing {
+						padding: 0px 10px 25px;
+					}
+				}
+            }
+		}
+	}
+}

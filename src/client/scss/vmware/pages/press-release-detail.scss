@@ -1,0 +1,35 @@
+/*
+* pages/press-release-detail.scss
+*/
+// styling for press release detail page
+
+
+@import "../base/variables";
+
+.pressreleasedetail {
+  //press release title
+    .pr-title {
+      color: $color-primary;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    //press release subtitle
+    h4 {margin-bottom:15px}
+
+    //press release subtitle from the pr feed when h4 subheader is not used
+    center {
+      font-family: $font-family--secondary;
+      color: $color-grey--900;
+      margin-bottom: 15px;
+      font-size:18px;
+      text-align: left;
+      strong, b {
+        font-weight: 500;
+      }
+    }
+    ul {
+      
+      padding: 0px 0 10px 40px;
+  
+    }
+  }

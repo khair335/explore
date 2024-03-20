@@ -1,0 +1,103 @@
+/*
+* base/loading.scss
+*/
+// pulse icon - loading icon that appears when browser is waiting for content
+//
+//	- icon classes declared in Loading.jsx
+//	- the default size is 60x60px if no value provided
+//	- to adjust size, add an iconSize prop to the Loading component like this:
+//	- <Loading isLoading={this.state.loading} iconSize={90}></Loading>
+//	- iconSize must be a NUMBER
+//	- IE11 NOTE: ie11 does not support css variables and has issues with calc - So icon size is limited to the default (60px) size for ie11
+
+ .loading-box {										// master container for centering in parent
+	position: fixed;
+	z-index: 999;
+	overflow: visible;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+ }
+
+ .loading-overlay {									// icon container centered(-ish) in master container 
+	background-color: rgba($color-white, 0.75);
+	position: absolute;
+	z-index: 1003;
+	top: 25%;
+	left: 50%;
+	text-align: center;
+}
+
+ .loading {
+	//margin-top: 40px;
+	--box-size: 60; 									// default icon size - this can be overwritten via props, see iconSize in Loading.jsx
+
+	& .loading-wrapper {
+		height: 59px;									// ie11 and other primitive browsers fall-back
+		width: 59px;									// ie11 and other primitive browsers fall-back
+		height:calc(var(--box-size) * 1px - 1px);
+		width:calc(var(--box-size) * 1px - 1px);
+		margin: auto;
+		border-radius: 50%;
+		overflow: hidden;								// hide the loading-anim overflow 
+		background-color: $color-white;
+		position: absolute;
+		top: 0;
+		right: -30px;									// Center the icon. half the size
+		z-index: 1;										// Safari, this needs to be on top.
+		//filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, .5)); 	//removed as per creative
+	  }
+
+	  & .icon-properties {								// position the icon and set size
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		font-size: 60px;								// ie11 and other primitive browsers fall-back
+		font-size: calc(var(--box-size) * 1px);
+		}
+
+	  & .icon-bg {										// pulse icon has 2 parts that leaves the pulse part transparent - this is a solid bg
+		height: 60px;									// ie11 and other primitive browsers fall-back
+		width: 60px;									// ie11 and other primitive browsers fall-back
+		height: calc(var(--box-size) * 1px);
+		width: calc(var(--box-size) * 1px);
+		display: block;
+		background-color: $color-white;
+	  }
+
+	& .loading-anim {									// slides a big color-primary box across the icon to animate
+		height: 120px;									// ie11 and other primitive browsers fall-back
+		width: 120px;									// ie11 and other primitive browsers fall-back
+		height: calc(var(--box-size) * 2px);
+		width: calc(var(--box-size) * 2px);
+		display: block;
+		background-color: $color-primary;
+		animation-name: left-right-wipe;
+		animation-duration: 1.25s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+	}
+
+  }
+  
+  @keyframes left-right-wipe {
+	from {transform: translate(-110%, -100%);}
+	to {transform: translate(110%, -100%)}
+	
+  }
+
+
+.page-loading {								// See page.jsx
+	.loading-overlay {
+		min-height: calc(100vh - 277px);	// This is only for desktop, need to calc the header and footer height 230px + cookie consent 47px
+	}
+}
+
+.loaded {
+	 animation: fadein 500ms;
+    -moz-animation: fadein 500ms; 				// Firefox 
+    -webkit-animation: fadein 500ms;			// Safari and Chrome 
+    -o-animation: fadein 500ms;				// Opera 
+}

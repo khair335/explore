@@ -1,0 +1,19 @@
+/*
+* pages/oem-partner.scss
+*/
+// Styling for oem partner pages
+
+@import "../base/variables";
+
+#OEMPartnerPage {
+    .content-block-title {
+    font-size: 26px;
+    color: $color-primary;
+    margin-bottom: 15px!important;
+    }
+  }
+  #OEMPartnerPage {
+    h3, h4 {
+      margin: 12px 0;
+    }
+  }

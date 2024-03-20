@@ -1,0 +1,361 @@
+/**
+ *  @file base/_butons.scss
+ *  @brief Reusable code for buttons
+ */
+
+// <button />                   : gray bg, no borders, white text
+// <button class="primary-bttn" />   : red bg, no borders, white text
+// <button class="secondary-bttn" /> : blue bg, no borders, white text
+
+// <button class="link-bttn" /> : transparent bg, blue text, uses hover animation to #333 text & red underline
+// <button class="icon-bttn" /> : transparent bg, dark or light grey text (optional), blue or grey icon (default grey, mod to blue), no hover/active
+//      - secondary border mod class="icon-bdr-bttn": white bg, blue border, #333 text, blue icon (default light grey, mod to blue or dark grey)
+
+//      - icon mod -just add a span to inner html of "link-bttn" button==> (".link-bttn span"): blue icon, #grey-800 text, all caps text?
+//      - icon mod2 ": #333-text /#333-icon ==> use button class=".link-bttn" then mod color in page/component scss
+
+//      - basic border mod: grey bg, grey border, #333 text, #333 icon
+//      - group-toggle-bttn mod: on/off style button => on=white bg /blue-text, off=grey bg /#333-text /inner shadow, grey border
+//              ?? button class="toggle-bttn": square layout, border - on=blue text, inner shadow, off=grey text, no shadow
+
+
+/*
+base/_reset.scss sets these properties for buttons:
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+
+    font-family: inherit; (1)
+    font-size: 100%;  (1)
+    line-height: normal; (1)
+    margin: 0; (2)
+    padding: 0;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    border-style: none;
+    outline: 1px dotted ButtonText;
+
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+
+    /* disabled button
+    &:disabled {
+        //filter: brightness(25%);
+        //cursor: not-allowed;
+        //background-color:lighten($color-grey--700, 7%);           //!!! verify color
+        //border:1px solid lighten($color-grey--700, 3%);
+    }
+*/
+
+/* these selectors are used in seting the buttons in reset.scss: 
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner 
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+
+*/
+
+
+@import "variables";
+
+.bttn, button {                                 //base style - use for cancel actions or low priority actions on a page such as background for magnifying glass in search bar
+    @include base-style;                        //see _variables.scss - details in base-style comments below
+    font-size: $font-size-lg;                   //16px
+    font-weight: 300;              //metro-mod       //normal font-weight as per Design Review group
+    letter-spacing: .35px;          //metro-mod
+    text-align: center;
+    vertical-align: middle;
+    text-transform: none;
+    border-radius: 4px;
+    padding: 10px 10px;                         //padding:10 10 is most common but these are problematic especially w/ link-bttn & icon-bttn so reset to 0 there - modify in page scss as needed
+    line-height: 1.5;
+    display: inline-block;
+    
+    //margin - need to determine default value, there are buttons that dont stack properly in mobile view - mod in pages' scss
+    // position - default?
+
+    //color: $color-white;                     //handled by base-style class
+    //background-color: $color-grey--700;      //handled by base-style
+    //font-family: $font-family--secondary;    //handled by base-style
+    //:hover                                   //handled by base-style
+
+    .bi {
+        color: $color-white;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    .bi-right {                                 //modifier - use for icons where you need white space on right
+        margin-right: 10px;
+    }
+
+    &.primary-bttn {                            //use for positive actions: Go, Submit, OK, Refine, etc.
+        @include prime-style;
+        .bi {
+            color: $color-white;
+            margin-left: 10px;
+        }
+
+        a {
+            color: $color-white;                //mods _link.scss
+        }
+    }
+
+    &.secondary-bttn {                           //use for CTAs, actions like Compare, Clear Filters, etc.
+        @include second-style;
+        .bi {
+            color: $color-white;
+            margin-left: 10px;
+        }
+
+        a {
+            color: $color-white;                //mods _link.scss
+        }
+    }
+
+    &.link-bttn {                               //Looks and acts like a link, for buttons that link to another page or location on a page
+        @include link-style;                            //bg:transparent, color:secondary, bold, :hover
+        padding: 0;                                     //for normal font weight mod at component scss
+        text-align: left;
+        .bi {                                           //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
+            //color: $color-secondary;
+        }
+    }
+
+    &.link-bttn-no-hover {                       //Looks and acts like a link but has no hover effects - used in collapse boxes, accordions, modals
+        background-color: transparent;
+        color: $color-primary;
+        font-weight: 400; //metro-mod
+        padding: 0;
+        text-align: left;
+    }
+
+    &.icon-bttn {                               //use for items like Print or Share Page in the subhead
+        background-color: transparent;              //transparent bg, dark or light grey text (optional), blue or grey icon (default grey, mod to blue), no hover/active
+        color: $color-grey--900;
+        padding-top: 0;
+        padding-bottom: 0;
+        .bi {
+            color: $color-grey--900;
+        }
+        .bi.primary {
+            color: $color-primary;
+        }
+        .bi.secondary {
+            color: $color-secondary;
+        }
+        .bi.bc--color_white {                   // bug where content-blocks overwrite - this corrects
+            color: $color-white;                //  -can be deleted if bug fixed    
+        }
+    }
+
+    &.icon-bordr-bttn {                         //used for compare/filter options in search results
+        @extend .icon-bttn;                         //transparent bg, blue border, #333 text, blue icon (default light grey, mod to blue or dark grey)
+        border: 1px solid $color-secondary;
+        padding: 1px 10px;
+        font-weight: 500;
+        font-size: $font-size-sm;
+    }
+
+    &.bordr-bttn {                              //used for search box buttons - example: blog search box category buttons
+        border: solid 1px $color-grey--700;         // white background, blue text, grey border
+        color: $color-secondary;
+        background-color: $color-white;
+    }
+
+    &.pulldown-bttn {
+        background: $color-grey--500;
+        color: $color-grey--900;
+        padding: 5px 10px;
+        font-size: $font-size-sm;
+        line-height: 1.5;
+    }
+
+    &.search-bttn {                             //used for in-page (not header) search bars submit button
+        background-color: $color-grey--700;             //grey background, white icon (or text), rounded right corners / sharp left corners
+        border-radius: 0 4px 4px 0; 
+        width: 55px;                                    //most common width - mod as needed
+        height: 35px;                                   //most common height, most input boxes this height and should match - mod as needed
+        padding: 0;
+    }
+
+    &.clear-bttn {                              //used for in-page search boxes to clear the contents
+        font-size: $font-size-sm;                       //AttackSignatures, ThreatList_a2z, blog, download-search
+        background-color: transparent;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        padding: 0;
+            .bi {                                       //brcmicon-times = dark grey X on a light grey circle button
+                color: $color-grey--900;                //brcmicon-window-close = dark grey square button with transparent X in it
+                margin-left: 0;
+            }                   
+    }
+
+    &.search-bttn-lrg {                             //used for in-page (not header) large search bars submit button - AttackSignatures, ThreatList_a2z, blog, download-search
+        background-color: $color-grey--700;             //grey background, white icon (or text), rounded right corners / sharp left corners
+        border-radius: 0 4px 4px 0;
+        width: 55px;                                    //most common width - mod as needed
+        height: 35px;                                   //most common height, most input boxes this height and should match - mod as needed
+        padding: 0;
+
+        .bi {
+            color: $color-white;
+            font-size: $font-size-lg;
+        }
+    }
+
+    &.clear-bttn-lrg {                              //used for in-page search boxes to clear the contents - for large/wide search boxes
+        background-color: $color-grey--700;                    //AttackSignatures, ThreatList_a2z, blog, download-search
+        border-radius: 4px 0 0 4px;
+        width: 35px;
+        height: 35px;
+        margin-right: 1px;
+        margin-left: 3px;
+        padding: 0;
+
+            .bi {
+                color: $color-white;
+                font-size: $font-size-lg;
+                margin-left: 0;
+            }
+    }
+
+    &.search-bttn-sm {                             //search submit button - used for small input boxes such as in header
+        background-color: transparent;                  //transparent background, grey icon (or text)
+        width: 30px;                                    //most common width - mod as needed
+        height: 30px;                                   //most common height, most input boxes this height and should match - mod as needed
+        padding: 0;
+
+            .bi {
+                color: $color-grey--900;
+                font-size: $font-size-md;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+    }
+
+    &.clear-bttn-sm {                              //search clear contents - used for small input boxes such as in header
+        background-color: transparent;                  //transparent background, grey icon (or text)
+        width: 30px;
+        height: 30px;
+        margin-right: 0;
+        padding: 0;
+
+            .bi {
+                color: $color-grey--900;
+                font-size: $font-size-md;
+            }
+    }
+
+    &.disabled-bttn {
+        opacity: 0.6;       // See products.scss for disabled values.
+        &:hover {
+            cursor: not-allowed;
+        }
+        cursor: not-allowed;
+    }
+
+}
+/*
+
+    color: #ffffff;
+    border-radius: 4px 0 0 4px;
+    height: 35px;
+    margin-right: 1px;
+
+*/
+
+.head-link {                                                // use when h1-h6 is a button (or any other element)
+	cursor: pointer;
+}
+
+.group-toggle-bttn {
+    .bttn, button {
+        font-size: 18px;									//mods button/bttn
+		height: 38px;                                       // normally handled via page mod but this size is most common - mod @page as normal
+		width: 38px;
+		line-height: 38px;
+		padding: 0;											//mods button/bttn
+		background-color: $color-white;						//mods button/bttn
+		border: 1px solid darken($color-grey--700,5%);		//mods button/bttn
+		border-right: 0 none;								//mods button/bttn
+        border-radius: 0;							        //mods button/bttn
+		color: $color-grey--800;							//mods button/bttn
+    }
+    label{
+		display: inline-block;
+		vertical-align: middle;
+
+		> input{
+			display: none;
+		}
+
+        .bi {                                               //all mods
+            color: $color-grey--800;
+            margin-left: 0;
+            vertical-align: unset;
+        }
+		
+		&.active {
+			.bttn{											//mods button/bttn
+				background-color: $color-grey--500;
+				box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.2);
+				color: $color-grey--800;
+			}
+		}
+
+        // Compare products screen. Highlight Differences.
+        &.bttn.active {
+            background-color: $color-grey--500;
+            box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.2);
+            color: $color-grey--800;
+		}
+		
+		&:last-child{
+			.bttn{
+				border-right: 1px solid darken($color-grey--700,5%);
+			}
+		}
+
+        // Compare products screen. Highlight Differences.
+        &:last-child{
+			border-right: 1px solid darken($color-grey--700,5%);
+		}
+	}
+}
+
+a.bttn:hover {                                              // override the <a> link hover - a.bttn looks/acts like a button  - mods _link.scss
+    text-decoration: none;                                  // this declaration turns off the commented properties below
+    text-decoration-color: transparent;
+        // text-decoration-line: none;
+        // text-decoration-style: reset;
+        // text-decoration-thickness: 2px;
+        // animation: link-fadeinout 1.5s linear forwards;
+}
+
+.modal-header .close{                                       //overwriting a bootstrap button - see document-box.scss
+    @extend .icon-bttn;
+}
+
+
+.divider {                                                  //decorative dividing line between two link-bttns
+    position: relative;
+    display: inline-block;
+    background-color: $color-grey--900;
+    width: 1px;
+    height: 1.3em;
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom: -6px;
+}

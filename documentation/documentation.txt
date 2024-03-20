@@ -1,0 +1,193 @@
+
+Flow
+    - index.js
+        - navigation (see Header)
+    - page.jsx
+
+
+Pages / Components / Templates
+
+=======================================
+Head (head.ejs)
+    Location: server/views/partials/head.ejs
+
+    On page load sets the title, meta, and script data for the page head.
+    See "SEO / Metadata / Event Tracking" for more.
+
+=======================================
+Header / Sub-header / Footer
+    location: client/components/
+    
+    Header (Header.jsx, index.js)
+        Displays logo, main menu, mybroadcom login, language settings & search box. Unpacks main menu data from state.navData passed in as props. 
+        Main menu unpacking uses 4 currying functions to iterate: mainMenu, supportMenu, menuItem, startGroup
+            - SupportLanding handles the unique formatting of the support menu, startGroup creates a sub-group with a title.
+         navData is unpacked into state in index.js where navigation.json is loaded. It uses these 3 functions:
+            - Loop : main currying function that loops through the json and starts a new loop when children > 0.
+            - filterNav & titleCase to filter the incoming titles and adjust to business rules of title case for specific items
+                - titleCase handles the exceptions such as 'OEM' or 'the'. TO ADD AN EXCEPTION (wrong case in a menu item):
+                    - a term you want left un-converted such as 'OEM' or 'PCIe', put in the variable: skip
+                    - title case word exceptions such as 'a', 'the', 'of', etc., put in the variable: except
+            - unpack functions add level classes to menu items for CSS. Level begins at 1 instead of 0 because logic reasons - it's complicated.
+            - During unpack their are 5 node types. The support menu is handled separately due to its unique formatting but uses the node logic.
+
+                Menu Nodes and logic
+
+                    dropdown level 1 :main menu top link
+                        - children && level < 2
+
+                   dropside :menu
+                        - children && level >= 2
+
+                    column :group of group-nodes (used for support menu)
+                        - column && level > 1
+
+                    group :h2 title / no link / starts a group of end-nodes
+                        - group && level > 2 
+                    
+                     title :Link
+                        - level > 1
+
+                    end :link 
+                        - no children
+
+    Footer (Footer.jsx)
+        Displays top level menu (except in mobile which displays to level 2), social, copyright, legal, sitemap, etc links.
+        Unpacks main menu data from state.navData passed in as props.
+        Currently,(ticket opened to change) the legal & share links are all hard coded.
+        Also currently, (ticket opened to change) the support menu has custom items which are accessed via a direct method:  get(['child', 0, 'child', 0, 'child', 2], item)
+            - FOOTER CAN BREAK IF DATA CHANGES because of this. Fixing this asap.
+
+    Simple Header / Footer (SimpleHeader.jsx, SimpleFooter.jsx)
+        Simplified versions of the header and footer for use by 3rd party sites such as Nasdaq. Main menu is only level 1 and is HARD-CODED.
+
+    Sub-header (subHeader.jsx, brcmShare.jsx)
+        Displays breadcrumbs, print, share, page title, and CTAs.
+        Breadcrumbs and CTAs are unpacked from the json in page.jsx and passed in as props. 
+            - Breadcrumbs display if showInNavigation = "yes" or "Yes"
+            - The last item in breadcrumb list is not active
+        Share uses brcmShare.jsx to build the dropdown build menu (See Share)
+
+=======================================
+Templates
+    Location: client/Templates
+
+    Generic templates that can be used on any page. The template name is passed in via the main page json, and and must match the template file name (case sensitive).
+
+=======================================
+Blog  (BlogLanding.jsx)
+    Location: client/blog/
+
+    Displays blog posts in preview / list and detail views. Blogs are consumed in blocks of 10 which is considered a 'page' of blogs. This number is tracked in the state object and used to control how many blogs show in a scrollable page, but the number of blogs retrieved on a fetch is currenlty controlled by the back-end. There is a state value that holds this amount (currently 10). It is used when the new fetches are sent to the server. Be aware that to change this value it needs to be done both in the component and on the back-end.
+
+    There are 4 primary components:
+        - BlogLanding: controller component that handles state changes between the other components including fetching more posts, filter changes, view changes.
+        - BlogList: the preview list
+        - BlogPaging: controls display logic for BlogList, page numbers, end of list, messages about end of list or view more, etc.
+        - BlogDetail: full view of a single post, also contains links & logic for Recent and Related Posts. 
+
+BlogLanding is well commented for additional logic and detail.
+
+=======================================
+Forms (FormBuilder.jsx, Contact_Form.jsx, InternalLink.jsx)
+    Location: client/support
+
+    FormBuilder.jsx
+        - {Contact_FormBuilder}: the actual form - handles all the different data types and manages state.
+
+    pages/support/Contact_Form.jsx
+        - Contact_FormSelect: puts form selector at top of page
+        - Contact_FormBuilder: loads dynamic values to build the selected form
+        - Contact_Form: paints the form, calls Contact_FormBuilder from FormBuilder OR calls an external iframe form
+            Active Content type (sales,support.other) is set on back-end with an attribute selected set to "true". If none defaults to support.
+
+    company/InternalLink.jsx
+        - InternalLink: Basically the same as Contact_Form but without the form selector at the top - form is for web group feedback
+
+=======================================
+Captcha (Captcha.jsx)
+    Location: client/components/
+
+Some really good info about spam bots and their tactics:
+Wikipedia under the Automated Techniques section: https://en.wikipedia.org/wiki/Anti-spam_techniques
+Technical Study on math captchas: http://cmp.felk.cvut.cz/~cernyad2/TextCaptchaPdf/Pitfalls%20in%20CAPTCHA%20design%20and%20implementation.pdf
+
+After doing a lot of research for the best captcha to use it became clear that any captcha that is custom
+is already ahead of the game. Spam bots looks for known patterns that tell them what kind of captcha they
+are up against. All of the services such as Googles Recaptcha, anything on WordPress, and open source 
+captchas are well known and even the average bots have ways around them. It's not worth the spammers 
+time to develop a way around a single custom blocker. 
+
+Our captcha has an open design that allows for additional tests to be added. In the future we intend to expand
+the tests probably adding number of hits from same ip, checksum, url filtering, time on page, time on form fields, 
+tarpits, mouse movements, etc.
+
+For now we have a simple start with 2 honeypots, and a false image test. In this case we put up two images and ask
+the bot to pick which one has a dog, cat, mouse etc in it. This is a common captcha pattern and the intent is to
+fool the bot into thinking it is one of those and into using a default a/b strategy. In reality the images don't show
+animals but are the math elements that the humans see.
+
+The submit button does not exist as a DOM element until the captcha succeeds. This is to get around another typical 
+bot strategy that seeks to enable the button directly. This was a vulnerability on our old production version 
+which used recaptcha.
+
+We accept all entries at some point. If we think it is a bot we flag it in the email subject line with text. The idea
+is that the email managers can set up a filter that dumps anything with this message into a spam folder. Periodically,
+they can check it to make sure there was no false positives. This is also bot strategy. Once we determine that the
+visitor is probably a bot we accept the entry and flag it. We want the bot to think it succeeded and go away.
+
+The Captcha code is extensively commented for additional info and details on logic.
+
+=======================================
+SEO / Metadata / Event Tracking
+
+    Metadata ( {setMeta} from utils.jsx, head.ejs )
+        Location: client/components/utils.jsx, server/views/partials/head.ejs
+
+        On initial page load, metadata is set in head.ejs. The data is received via a separate metadata fetch: getmetadata?vanityurl=&locale=en-us which can be used to get the data again if needed.
+        On content page changes, metadata is updated via the setMeta component. Canonical links are also updated with this component. SetMeta requires two props data (from page props), and path (current url). 
+
+
+GA track / schema tags
+    - SiteLink / ButtonTrack / ATrack
+
+=======================================
+Share (brcmShare.jsx)
+location: client/components/
+
+Builds a menu of social sites. Once a site is selected, the component builds the correct query string for the site selected and launches the site in a new tab.
+There are 3 types of menus (currently) available, blog, featured, and breadcrumb. Blog, returns the large format with the featured sites (such as Twitter) displayed
+with a '+' sign for a drop down menu that has the rest. The featured items are the first n items in the list. This value can be adjusted to get more or fewer
+featured items. The breadcrumb version returns just the dropdown menu seen when clicking on share in the breadcrumb menu.
+
+The number of featured items has a default value set as a state item in the constructor. 
+
+To use, pass in the view ('blog', 'featured', 'breadcrumb') and number of featured items (optional) as props. 
+     - "blog" = featured menu + breadcrumb version dropdown
+     - "featured" = just the featured items menu - not used so not built yet but hook is there (see update() case:featured)
+     - "breadcrumb" = just the breadcrumb dropdown (all the sites, button is a +)
+
+     example:
+        {
+            view: "blog",
+            featured: 3
+        }
+
+brcmShare.jsx has commenting throughout for additional logic.
+
+=======================================
+Application Interactive
+
+=======================================
+SCSS / Fonts / Icons
+
+_icons.scss defines the custom broadcom icons. Important! do not put styling in this file as it is overwritten when new icons are added. 
+When you update this file remember to add the no styles here warning at the top (see current version of file.)
+
+=======================================
+Video / Limelight
+
+
+
+
+

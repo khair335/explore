@@ -1,0 +1,110 @@
+[
+    {
+        "content_id": "1206560938216",
+        "content_type": "AVG_Document_C",
+        "site": "AVG2",
+        "referenced_contents": [
+            "AVG_Contact_C:1206560867230",
+            "AVG_Product_P:1206561994427",
+            "AVG_Product_C:1206562894835"
+        ],
+        "attributes": {
+            "template": "RenderDocument",
+            "PublicationNumber": "AV02-2451EN",
+            "Title": "HSMF-C114, Surface Mount Tricolor ChipLEDs",
+            "DocumentFile": {
+                "file_name": "459/101/AV02-2451EN DS HSMF-C114 18Apr2012,0.pdf",
+                "folder_name": "/data01/app/CS_shared/ccurl/",
+                "href": "http://bclocal.com:8080/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211134408233&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22AV02-2451EN%2BDS%2BHSMF-C114%2B18Apr2012%252C0.pdf%22%3Bfilename*%3DUTF-8%27%27AV02-2451EN%2BDS%2BHSMF-C114%2B18Apr2012%252C0.pdf&blobheadervalue1=application%2Fpdf&blobcol=urldata&blobtable=MungoBlobs",
+                "vanity_url": null
+            },
+            "ProductDivision": "LEDs",
+            "Oracle": "Yes",
+            "Author": "chee-wah.teoh@avagotech.com",
+            "ContentOwner": [
+                {
+                    "content_id": "1206560867230",
+                    "content_type": "AVG_Contact_C",
+                    "complex_attr": true
+                }
+            ],
+            "LeadFree_RoHS": "No",
+            "ProductFamily": [
+                {
+                    "content_id": "1206561994427",
+                    "content_type": "AVG_Product_P",
+                    "complex_attr": true
+                }
+            ],
+            "RelatedProducts": [
+                {
+                    "content_id": "1206562894835",
+                    "content_type": "AVG_Product_C",
+                    "complex_attr": true
+                }
+            ],
+            "CopyFileType": "PDF",
+            "CopyMimeType": "application/pdf",
+            "CopyFileSize": "87 KB",
+            "AssetLocale": "avg_en"
+        },
+        "named_associations": {},
+        "unnamed_associations": [],
+        "category": "Document"
+    },
+    {
+        "content_id": "1206561086545",
+        "content_type": "AVG_Document_C",
+        "site": "AVG2",
+        "referenced_contents": [
+            "AVG_Contact_C:1206560867076",
+            "AVG_Product_P:1206561994427",
+            "AVG_Product_C:1206562894835"
+        ],
+        "attributes": {
+            "template": "RenderDocument",
+            "PublicationNumber": "5661",
+            "Title": "PCN: V06-015-48475413-0A, June 2006",
+            "Description": "Parts Affected: HSMF-C114",
+            "DocumentFile": {
+                "file_name": "912/180/V06-015-48475413-0A,0.pdf",
+                "folder_name": "/data01/app/CS_shared/ccurl/",
+                "href": "http://bclocal.com:8080/cs/BlobServer?blobkey=id&blobnocache=true&blobwhere=1211135135730&blobheadername3=MDT-Type&blobheadername2=Content-Disposition&blobheadername1=Content-Type&blobheadervalue3=abinary%3B+charset%3DUTF-8&blobheadervalue2=attachment%3B+filename%3D%22V06-015-48475413-0A%252C0.pdf%22%3Bfilename*%3DUTF-8%27%27V06-015-48475413-0A%252C0.pdf&blobheadervalue1=application%2Fpdf&blobcol=urldata&blobtable=MungoBlobs",
+                "vanity_url": null
+            },
+            "ProductDivision": "LEDs",
+            "Keywords": "TriColor,Side Firing, Surface Mount LED, HSMF-C115, HSMF-C113,",
+            "Oracle": "No",
+            "ContentOwner": [
+                {
+                    "content_id": "1206560867076",
+                    "content_type": "AVG_Contact_C",
+                    "complex_attr": true
+                }
+            ],
+            "Source": "Lay Nee Tan",
+            "LeadFree_RoHS": "No",
+            "ProductFamily": [
+                {
+                    "content_id": "1206561994427",
+                    "content_type": "AVG_Product_P",
+                    "complex_attr": true
+                }
+            ],
+            "RelatedProducts": [
+                {
+                    "content_id": "1206562894835",
+                    "content_type": "AVG_Product_C",
+                    "complex_attr": true
+                }
+            ],
+            "CopyFileType": "PDF",
+            "CopyMimeType": "application/pdf",
+            "CopyFileSize": "110 KB",
+            "AssetLocale": "avg_en"
+        },
+        "named_associations": {},
+        "unnamed_associations": [],
+        "category": "Document"
+    }
+]

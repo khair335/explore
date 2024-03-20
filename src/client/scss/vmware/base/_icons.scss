@@ -1,0 +1,463 @@
+/*_icons.scss */
+// style rules for broadcoms' custom icon file - see also base/_icon.scss
+//  !!! IMPORTANT: DO NOT add styling to this file. This entire file is over-written when new icons are added
+//                 global icon styling should be added to _base.scss 
+
+@font-face {
+  font-family: 'brcm';
+  src:url("/css/icons/brcm.ttf");
+  src:url("/css/icons/brcm.svg");
+  src:url("/css/icons/brcm.woff");
+  src:url("/css/icons/brcm.woff2");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'brcm';  // JD - Removed  !important so we can overwrite with fontawesome;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brcmicon-angle-left:before {
+  content: "\e900";
+}
+.brcmicon-angle-right:before {
+  content: "\e901";
+}
+.brcmicon-slider_arrow_l:before {
+  content: "\e902";
+}
+.brcmicon-slider_arrow_r:before {
+  content: "\e903";
+}
+.brcmicon-arrow-circle-down:before {
+  content: "\e904";
+}
+.brcmicon-arrow-circle-left:before {
+  content: "\e905";
+}
+.brcmicon-arrow-circle-right:before {
+  content: "\e906";
+}
+.brcmicon-arrow-circle-top:before {
+  content: "\e907";
+}
+.brcmicon-arrow-stroke:before {
+  content: "\e908";
+}
+.brcmicon-trending:before {
+  content: "\e909";
+}
+.brcmicon-downloads:before {
+  content: "\e90a";
+}
+.brcmicon-arrow_circle:before {
+  content: "\e90b";
+}
+.brcmicon-chevron_circle_left:before {
+  content: "\e90c";
+}
+.brcmicon-chevron_circle_right:before {
+  content: "\e90d";
+}
+.brcmicon-loc_distrib:before {
+  content: "\e90e";
+}
+.brcmicon-caret-down:before {
+  content: "\e90f";
+}
+.brcmicon-caret-up:before {
+  content: "\e910";
+}
+.brcmicon-sort-up:before {
+  content: "\e911";
+}
+.brcmicon-sort-down:before {
+  content: "\e912";
+}
+.brcmicon-sort:before {
+  content: "\e913";
+}
+.brcmicon-switchingproducts:before {
+  content: "\e914";
+}
+.brcmicon-custlogin:before {
+  content: "\e915";
+}
+.brcmicon-extlink:before {
+  content: "\e916";
+}
+.brcmicon-download:before {
+  content: "\e917";
+}
+.brcmicon-redo:before {
+  content: "\e918";
+}
+.brcmicon-back_to_top:before {
+  content: "\e919";
+}
+.brcmicon-window-minimize:before {
+  content: "\e91a";
+}
+.brcmicon-play:before {
+  content: "\e91b";
+}
+.brcmicon-play-circle:before {
+  content: "\e91c";
+}
+.brcmicon-auto_infotainment:before {
+  content: "\e91d";
+}
+.brcmicon-auto_adas:before {
+  content: "\e91e";
+}
+.brcmicon-auto_antenna:before {
+  content: "\e91f";
+}
+.brcmicon-iot_automotive:before {
+  content: "\e920";
+}
+.brcmicon-auto_telematics:before {
+  content: "\e921";
+}
+.brcmicon-wc_automotive:before {
+  content: "\e922";
+}
+.brcmicon-automotivesystems:before {
+  content: "\e923";
+}
+.brcmicon-locmarker:before {
+  content: "\e924";
+}
+.brcmicon-iot_beacons_tags:before {
+  content: "\e925";
+}
+.brcmicon-ban-text-danger:before {
+  content: "\e926";
+  color: #cc092f;
+}
+.brcmicon-apps:before {
+  content: "\e927";
+}
+.brcmicon-bcm_chip:before {
+  content: "\e928";
+}
+.brcmicon-brcm_chip:before {
+  content: "\e929";
+}
+.brcmicon-chip_generic:before {
+  content: "\e92a";
+}
+.brcmicon-brcm_pulse_black .path1:before {
+  content: "\e92b";
+  color: rgb(0, 0, 0);
+}
+.brcmicon-brcm_pulse_black .path2:before {
+  content: "\e92c";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.brcmicon-brcm_pulse_black .path3:before {
+  content: "\e92d";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.brcmicon-brcm_pulse_red .path1:before {
+  content: "\e92e";
+  color: rgb(204, 9, 47);
+}
+.brcmicon-brcm_pulse_red .path2:before {
+  content: "\e92f";
+  margin-left: -1em;
+  color: rgb(204, 9, 47);
+}
+.brcmicon-brcm_pulse_red .path3:before {
+  content: "\e930";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.brcmicon-blogs:before {
+  content: "\e931";
+}
+.brcmicon-ceo_cto:before {
+  content: "\e932";
+}
+.brcmicon-user:before {
+  content: "\e933";
+}
+.brcmicon-loc_manufacturers:before {
+  content: "\e934";
+}
+.brcmicon-iot_audio:before {
+  content: "\e935";
+}
+.brcmicon-careers:before {
+  content: "\e936";
+}
+.brcmicon-communities:before {
+  content: "\e937";
+}
+.brcmicon-csr_comm:before {
+  content: "\e938";
+}
+.brcmicon-csr_cust-part:before {
+  content: "\e939";
+}
+.brcmicon-values:before {
+  content: "\e93a";
+}
+.brcmicon-csr_gov-eth:before {
+  content: "\e93b";
+}
+.brcmicon-check:before {
+  content: "\e93c";
+}
+.brcmicon-check-circle:before {
+  content: "\e93d";
+}
+.brcmicon-times:before {
+  content: "\e93e";
+}
+.brcmicon-times-circle:before {
+  content: "\e93f";
+}
+.brcmicon-window-close:before {
+  content: "\e940";
+}
+.brcmicon-info:before {
+  content: "\e941";
+}
+.brcmicon-info-circle:before {
+  content: "\e942";
+}
+.brcmicon-plus:before {
+  content: "\e943";
+}
+.brcmicon-plus-circle:before {
+  content: "\e944";
+}
+.brcmicon-minus:before {
+  content: "\e945";
+}
+.brcmicon-minus-circle:before {
+  content: "\e946";
+}
+.brcmicon-question-circle:before {
+  content: "\e947";
+}
+.brcmicon-support:before {
+  content: "\e948";
+}
+.brcmicon-press_nobg:before {
+  content: "\e949";
+}
+.brcmicon-press:before {
+  content: "\e94a";
+}
+.brcmicon-globe:before {
+  content: "\e94b";
+}
+.brcmicon-circle:before {
+  content: "\e94c";
+}
+.brcmicon-circle-notch:before {
+  content: "\e94d";
+}
+.brcmicon-square:before {
+  content: "\e94e";
+}
+.brcmicon-square-outline-2px:before {
+  content: "\e94f";
+}
+.brcmicon-square-outline-3px:before {
+  content: "\e98a";
+}
+.brcmicon-stockgraph:before {
+  content: "\e950";
+}
+.brcmicon-investors:before {
+  content: "\e951";
+}
+.brcmicon-csr_workplace:before {
+  content: "\e952";
+}
+.brcmicon-somethingelse:before {
+  content: "\e953";
+}
+.brcmicon-corpresponsibility:before {
+  content: "\e954";
+}
+.brcmicon-csr_enviro:before {
+  content: "\e955";
+}
+.brcmicon-techpages:before {
+  content: "\e956";
+}
+.brcmicon-ent_software:before {
+  content: "\e957";
+}
+.brcmicon-ethernet_switch:before {
+  content: "\e958";
+}
+.brcmicon-mainframe:before {
+  content: "\e959";
+}
+.brcmicon-fibre_channel:before {
+  content: "\e95a";
+}
+.brcmicon-wirelessaccesspoints:before {
+  content: "\e95b";
+}
+.brcmicon-smartdevices:before {
+  content: "\e95c";
+}
+.brcmicon-wc_mobileadvert:before {
+  content: "\e95d";
+}
+.brcmicon-file-image:before {
+  content: "\e95e";
+}
+.brcmicon-email:before {
+  content: "\e95f";
+}
+.brcmicon-envelope:before {
+  content: "\e960";
+}
+.brcmicon-filter:before {
+  content: "\e961";
+}
+.brcmicon-flag:before {
+  content: "\e962";
+}
+.brcmicon-image:before {
+  content: "\e963";
+}
+.brcmicon-iot_health_fitness:before {
+  content: "\e964";
+}
+.brcmicon-iot_home_automation:before {
+  content: "\e965";
+}
+.brcmicon-iot_industrial:before {
+  content: "\e966";
+}
+.brcmicon-iot_medical:before {
+  content: "\e967";
+}
+.brcmicon-iot_others:before {
+  content: "\e968";
+}
+.brcmicon-lightbulb:before {
+  content: "\e969";
+}
+.brcmicon-rd:before {
+  content: "\e96a";
+}
+.brcmicon-link:before {
+  content: "\e96b";
+}
+.brcmicon-bars:before {
+  content: "\e96c";
+}
+.brcmicon-list-ul:before {
+  content: "\e96d";
+}
+.brcmicon-menu-list:before {
+  content: "\e96e";
+}
+.brcmicon-th:before {
+  content: "\e96f";
+}
+.brcmicon-location_detect:before {
+  content: "\e970";
+}
+.brcmicon-top_honors:before {
+  content: "\e971";
+}
+.brcmicon-mission:before {
+  content: "\e972";
+}
+.brcmicon-document:before {
+  content: "\e973";
+}
+.brcmicon-csr_reporting:before {
+  content: "\e974";
+}
+.brcmicon-pdf:before {
+  content: "\e975";
+}
+.brcmicon-file-alt:before {
+  content: "\e976";
+}
+.brcmicon-file-archive:before {
+  content: "\e977";
+}
+.brcmicon-pressreleases:before {
+  content: "\e978";
+}
+.brcmicon-print:before {
+  content: "\e979";
+}
+.brcmicon-quote-circle:before {
+  content: "\e97a";
+}
+.brcmicon-quote-beginning:before {
+  content: "\e97b";
+}
+.brcmicon-quote-end:before {
+  content: "\e97c";
+}
+.brcmicon-register:before {
+  content: "\e97d";
+}
+.brcmicon-revenue:before {
+  content: "\e97e";
+}
+.brcmicon-search:before {
+  content: "\e97f";
+}
+.brcmicon-vision:before {
+  content: "\e980";
+}
+.brcmicon-wc_custloyalty:before {
+  content: "\e981";
+}
+.brcmicon-wc_retail:before {
+  content: "\e982";
+}
+.brcmicon-linkedin:before {
+  content: "\e983";
+}
+.brcmicon-reddit:before {
+  content: "\e984";
+}
+.brcmicon-twitter:before {
+  content: "\e985";
+}
+.brcmicon-youtube:before {
+  content: "\e986";
+}
+.brcmicon-pinterest:before {
+  content: "\e987";
+}
+.brcmicon-facebook .path1:before {
+  content: "\e988";
+  color: rgb(0, 0, 0);
+}
+.brcmicon-facebook .path2:before {
+  content: "\e989";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}

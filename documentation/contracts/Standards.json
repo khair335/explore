@@ -1,0 +1,23 @@
+{
+    "page": {
+        "$comment": "This object will hold common attributes to pages. Not limited to below",
+        "locale": "## The locale. ex. eng, ch, jp, etc... https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes##",
+        "page_title": "## The page title. Used in displaying in page. ##",
+        "browser_title": "## Title displayed in the browser. ##",        
+    },
+    "link": {
+        "$comment": "<a> Common link structure. This can be associated with images, text, etc...",
+        "url": "##href The url for this link. ##",
+        "target": "## target ##",
+        "rel": "## rel https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types ##",
+    },
+    "image": {
+        "$comment": "<img> Common image structure",
+        "alt": "## alt ##",
+        "title": "## title/tooltip ##",
+        "src": "## The url to the source ##",
+        "srcset": [
+            "$comment": "(optional) A list of sources with different sizes"
+        ]
+    },
+}

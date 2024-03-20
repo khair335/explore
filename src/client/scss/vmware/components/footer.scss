@@ -1,0 +1,485 @@
+/*
+* components/footer.scss
+*/
+// react footer for all pages
+// also contains styling for ONE-TRUST cookie widget
+@use "content-blocks" as content-blocks;
+@import "../base/variables";
+
+
+footer {
+  background-color: $color-white;
+  color: $color-body;
+  //padding: 30px 20px 50px;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -$footer-height; // Hide us first
+  transition: bottom 0.4s ease-in-out; // show footer on scroll
+  height: $footer-height;
+
+  &.footer-show {
+    bottom: 0;
+  }
+
+  .footer_menu {
+    .nav-item {
+      width: 100%;
+      padding: 15px 0;
+      margin: 20px 0 10px;
+
+      a {
+        font-size: $font-size-md; //mods _link.scss
+        color: currentColor;
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .copyright_text {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid $color-grey--500;
+    border-bottom: 1px solid $color-grey--500;
+    font-size: $font-size-sm;
+  }
+
+  .footer_secondaryNav {
+    padding-top: 15px;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding: 10px 10px;
+
+      a.lnk,
+      a {
+        //mods _link.scss
+        font-family: $font-family--primary; //mod as per web-team nov22
+        font-size: $font-size-sm; //mod
+        color: $color-body; //mod
+        font-weight: 400; //mod
+
+        &:hover {
+          text-decoration: none;
+          // color: $color-grey--600;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .social_nav {
+    list-style: none;
+    padding-left: 0;
+    font-size: 20px;
+    padding: 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+      display: block;
+      width: 100%;
+      padding: 0px;
+      text-align: center;
+
+      li {
+        display: inline-block;
+      }
+    }
+
+    li a,
+    li a.lnk {
+      width: 36px;
+      height: 36px;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-grey--800;
+
+      &:hover {
+        color: $color-white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Onetrust prevent layout shift.
+#onetrust-banner-sdk.otFlat {
+  min-height: 254px;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  footer {
+    padding: 0;
+    margin-top: 20px;
+    height: $footer-height-md; // JD: We need to fix the height because there's a weird bug in Chrome and the Onetrust banner. After accepting the cookies, the footer still stays tall.
+
+    .footer_right {
+      height: 120px; // Match height above.
+    }
+
+    .footer_left {
+      order: -1;
+    }
+
+    .footer_menu {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+      -webkit-justify-content: center;
+      padding-top: 4px;
+
+      .nav-item {
+        // padding: 0 10px;
+        margin: 0 10px;
+        width: auto;
+        border: none;
+      }
+    }
+
+    .mobileNav {
+      display: none;
+    }
+
+    .copyright_text {
+      border: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer_secondaryNav {
+      padding: 0;
+      margin: 0;
+    }
+
+    .social_nav {
+      margin-bottom: 0;
+
+      li {
+
+        a,
+        a.lnk {
+          margin: 0 10px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  // Onetrust prevent layout shift.
+  #onetrust-banner-sdk.otFlat {
+    min-height: 100px;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, lg)) {
+  footer {
+    overflow: hidden;
+    //background-color: $color-grey--700;
+    height: $footer-height-lg;
+    bottom: -$footer-height-lg; // Hide us first
+
+    .footer_right {
+      height: 120px; // Match height above.
+      display: flex;
+      align-items: center;
+    }
+
+    .footer_left {
+      //background-color: $color-grey--600;
+      position: relative;
+
+      &::before {
+        content: "";
+        height: 100%;
+        width: 100vw;
+        top: 0;
+        right: 100%;
+        position: absolute;
+        //background-color: $color-grey--600;
+      }
+    }
+
+    .social_nav {
+      li {
+
+        a,
+        a.lnk {
+          margin: 0 10px;
+          border-radius: 50%;
+          color: $color-primary; //mods _link.scss
+
+          &:hover {
+            color: $color-white; //mods _link.scss
+          }
+
+          &[href*="facebook.com"]:hover {
+            background-color: $color-social--facebook;
+          }
+
+          &[href*="twitter.com"]:hover {
+            background-color: $color-social--twitter;
+          }
+
+          &[href*="plus.google.com"]:hover {
+            background-color: $color-social--google;
+          }
+
+          &[href*="linkedin.com"]:hover {
+            background-color: $color-social--linkedin;
+          }
+
+          &[href*="youtube.com"]:hover {
+            background-color: $color-social--youtube;
+          }
+        }
+      }
+    }
+
+    .footer_menu {
+      justify-content: start;
+      padding-top: 8px;
+
+      .nav-item {
+        margin: 0 10px 0 0;
+      }
+    }
+
+    .mobileNav {
+      display: none;
+    }
+
+    .copyright_text {
+      text-align: left;
+    }
+
+    .footer_secondaryNav {
+      justify-content: start;
+
+      li {
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  // Onetrust prevent layout shift.
+  #onetrust-banner-sdk.otFlat {
+    min-height: 100px;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, xl)) {
+  footer {
+    height: $footer-height-xl;
+    bottom: -$footer-height-xl; // Hide us first
+
+    .footer_right {
+      height: 120px; // Match height above.
+    }
+
+    .footer_menu {
+      padding-top: 8px;
+    }
+
+  }
+
+  // Onetrust prevent layout shift.
+  #onetrust-banner-sdk.otFlat {
+    min-height: 67px;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md)) {
+  footer {
+
+    .footer_menu {
+      .nav-item {
+        padding: 0 0;
+        margin: 5px 0 5px;
+      }
+    }
+
+    .copyright_text {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .footer_secondaryNav {
+      li {
+        padding-right: 10px;
+      }
+    }
+
+    .mobileNav {
+      .nav-item a {
+        color: $color-secondary--dark; //mods _link.scss
+        font-size: 12px; //mods _link.scss
+        font-family: Arial W01 Regular903292, sans-serif; //mods _link.scss
+        font-style: normal;
+        font-weight: 400; //mods _link.scss
+        text-decoration: none;
+        background-color: transparent;
+        box-sizing: border-box;
+        line-height: normal;
+      }
+
+      ul {
+        -moz-column-count: 2;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 20px;
+        column-count: 2;
+        column-gap: 20px;
+        list-style: none;
+        padding-left: 0px;
+
+        li.nav-item {
+          margin-bottom: 15px;
+        }
+      }
+
+      border-top: 1px solid $color-grey--800;
+    }
+  }
+}
+
+@media print {
+  .print-none {
+    display: none;
+  }
+}
+
+// For the footer and onetrust.
+body[onetrust-banner="true"] {
+  //margin-bottom: 75px;    // Size of onetrust banner.
+}
+
+// footer.ribbon {
+//   height: 200px;   // Size of the footer plus the banner
+//   nav {
+//     height: 200px;
+//   }
+//   .footer_right {
+//      align-items: unset;
+//   }
+// }
+
+#onetrust-consent-sdk #onetrust-banner-sdk {
+  opacity: 0.85;
+}
+
+// Autopilot.
+.footer-show {
+  .autopilot {
+    //visibility: visible;    
+  }
+}
+
+.autopilot {
+  background-color: $color-white;
+  padding-bottom: 40px;
+  height: $autopilot-height;
+  border-top: 1px $color-grey--675 solid;
+
+  .autopilot-container {    
+    padding-top: 12px;
+  }
+
+  
+
+  .autopilot-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    column-gap: 20px;
+    row-gap: 10px;
+    font-size: $font-size-sm;
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    height: $autopilot-height-md;
+    
+
+    .autopilot-container {
+      padding-top: 16px;
+    }
+
+    .autopilot-links {
+      flex-direction: row;
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+.autopilot-show {
+  &.autopilot-transition {
+
+    // Hack delay the transition because autopilot is popping up do to the bottoms.
+    footer {
+      transition: bottom 0.4s ease-in-out; // show footer on scroll
+    }
+  }
+
+  footer {
+    height: $autopilot-footer-height;
+    bottom: -$autopilot-footer-height; // Hide us first
+    transition: none;
+
+    &.footer-show {
+      bottom: 0;
+      transition: bottom 0.4s ease-in-out; // show footer on scroll
+    }
+
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    footer {
+      height: $autopilot-footer-height-md;
+      bottom: -$autopilot-footer-height-md; // Hide us first
+    }
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
+    footer {
+      height: $autopilot-footer-height-lg;
+      bottom: -$autopilot-footer-height-lg; // Hide us first
+    }
+  }
+
+  @media screen and (min-width: map-get($grid-breakpoints, xl)) {
+    footer {
+      height: $autopilot-footer-height-xl;
+      bottom: -$autopilot-footer-height-xl; // Hide us first
+    }
+  }
+}

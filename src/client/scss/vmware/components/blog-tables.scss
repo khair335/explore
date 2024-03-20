@@ -1,0 +1,435 @@
+/*
+* pages/blog-tables.scss
+*/
+// allows content creators working in the RTE to add a single class at the <table> tag level that styles the entire table
+// original intent is for blog but could be used elsewhere...
+// table types: parametric, at-a-glance, by-the-numbers, comparison chart
+
+@import "../base/variables";
+@import "../base/transitions";
+
+/*========================== blog tables - common style ======================*/
+
+table.blog_Ptable, table.blog_Ptable tbody, table.blog_Ptable tr, table.blog_Ptable tr td, table.blog_Ptable thead, table.blog_Ptable th, 
+table.tbl_ataGlance, table.tbl_ataGlance tbody, table.tbl_ataGlance tr, table.tbl_ataGlance tr td, table.tbl_ataGlance thead, table.tbl_ataGlance th,
+table.comparisonChart, table.comparisonChart tbody, table.comparisonChart tr, table.comparisonChart tr td, table.comparisonChart thead, table.comparisonChart th  {
+      float: none;
+  }
+
+  table.tbl_ataGlance tbody {
+        display: table-row-group;
+  }
+
+  table.tbl_ataGlance tr, table.tbl_byTheNumbers tr {
+        display: table-row;
+  }
+
+  table.blog_Ptable thead th,  table.blog_Ptable tr td, table.tbl_ataGlance thead th,  table.tbl_ataGlance tr td {
+      display: table-cell;
+  }
+
+  table.blog_Ptable thead, table.blog_Ptable tbody,  table.tbl_ataGlance thead {
+      display: table-header-group;
+  }
+
+/*========================== blog tables - BRCM parametric style ======================*/
+
+table.blog_Ptable {
+    table-layout: auto;
+    margin-top: 0;
+    margin-bottom: 45px;
+    border: 1px solid $color-grey--500;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    display: table;
+    float: none;
+    thead{
+        tr{
+            position: static;
+            top: 0;
+            left: 0;
+            th {
+                padding-top: .5em;
+                padding-left: 1.1em;
+                padding-bottom: 20px;
+                padding-right: 5px;
+                border-left: 1px solid $color-white;
+                background: $color-primary;
+                color: $color-white;
+                vertical-align: top;
+                text-align: center;
+            }
+            td {
+                border-bottom: 2px;
+            }
+        }
+    }
+    tr {
+        width: 100%;
+        display: table-row;
+        td {
+            width: auto;
+            min-width: auto;
+            vertical-align: top;
+            padding: 13px;
+            padding-bottom: 0;
+        }
+    }
+    tbody{
+        tr{
+         &:nth-child(2n+1) {
+            background-color: lighten($color-grey--500, 1%);
+         }
+        }
+    }
+}
+
+/*========================== blog tables - ataGlance style ======================*/
+
+table.tbl_ataGlance {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border-collapse: separate;
+      border-spacing: 20px 0;
+      margin-left: -20px;
+      margin-right: -20px;
+      width: 100%;
+      border-collapse: collapse;
+      thead{
+        tr {
+            color: $color-secondary;
+            text-align: center;
+            background-color: lighten($color-grey--500, 1%);
+        }
+      }
+    td {
+         max-width: 220px;   /* plus left and right padding = 250 */
+    }
+    tr.ataGlance_top{
+        td{
+            img{
+                margin: auto;
+            }
+        }
+    }
+    tr.ataGlance_heads{
+        font-size: 1.5em;
+        //text-transform: uppercase;
+        font-family: $font-family--secondary;
+    }
+    tr.ataGlance_bottom {
+        font-size: .6em;
+        letter-spacing: .3em;
+        vertical-align: top;
+        height: 30px;
+    }
+    tr.ataGlance_bottom{
+        td{
+            &:before {
+                content: "................................";
+            }
+        }
+    }
+    tbody{
+        font-size: .8em;
+        background-color: lighten($color-grey--500, 1%);
+        td {
+            padding: 0 6px 6px 24px;
+            vertical-align: text-top;
+            line-height: 1.6;
+            font-family: $font-family--secondary;
+            &:before{
+                color: $color-secondary;
+                font-size: 1.2em;
+                content: "\2022";
+                margin-right: 6px;
+                margin-left:-12px;
+            }
+        }
+    }
+    tfoot{
+        tr.ankle{
+            background-color:lighten($color-grey--500, 1%);
+            height: 50px  
+        }
+        tr.foot{
+            td{
+                background-color:$color-secondary;
+                height: 8px;
+                line-height: 0;
+                padding: 0 !important; 
+            }
+        }
+    }
+  }
+table.tbl_byTheNumbers{
+    background-color: lighten($color-grey--500, 1%);
+    border-collapse: collapse;
+    width: 100%;
+    tr.byTheNumbers_head{
+        font-size: 1.5em;
+        //text-transform: uppercase;
+        font-family: $font-family--secondary;
+    }
+    td {
+        width: 50%;
+    }
+    tbody{
+        td{
+            padding: 0 6px 10px 30px;
+            vertical-align: text-top;
+            line-height: 1.4;
+            font-family: $font-family--secondary;
+        &:before{
+                color: $color-secondary;
+                font-size: 1.2em;
+                content: "\2022";
+                margin-right: 6px;
+                margin-left:-12px;
+            }
+            span {
+                color: $color-primary;
+                font-size: 1.5em;
+            }
+        }
+    }
+    tfoot{
+        tr.ankle{
+            background-color: lighten($color-grey--500, 1%);
+            height: 50px  
+        }
+        tr.foot{
+            td{
+                background-color: $color-secondary;
+                height: 8px;
+                line-height: 0;
+                padding: 0 !important; 
+            }
+        }
+    }
+}
+table.tbl_ataGlance {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+}
+
+  
+  /* ================== table properties for By the Numbers ====================== */
+  
+ 
+  
+   
+  table.tbl_btn_1col td {
+      width: 100%;
+  }
+  
+  tr.byTheNumbers_head, tr.byTheNumbers_bottom {
+      color: $color-secondary--dark;                                 /* notes said #53565A - but that is grey, should be blue  */
+  }
+  
+  tr.byTheNumbers_head {
+      height: 56px;
+      vertical-align: bottom;
+  }
+
+  tr.byTheNumbers_head th,  tr.byTheNumbers_bottom th {
+	text-align: center;
+}
+tr.byTheNumbers_head th {
+      font-family: $font-family--secondary;
+}
+
+  tr.byTheNumbers_bottom th {
+      font-size: .6em;
+      letter-spacing: .3em;
+      vertical-align: top;
+  }
+  
+  tr.byTheNumbers_bottom th:nth-child(2) {
+      text-align: left;
+  }
+  
+  tr.byTheNumbers_bottom th::before {
+      content: "......................................................................................................................................";
+  }
+  
+@media screen and (max-width: map-get($grid-breakpoints, md)){
+    table.tbl_byTheNumbers, table.tbl_byTheNumbers tbody, table.tbl_byTheNumbers td, table.tbl_byTheNumbers th, table.tbl_byTheNumbers thead, table.tbl_byTheNumbers tr {
+          float: none;
+    }
+    table.tbl_ataGlance, table.tbl_byTheNumbers {
+          display: table;
+          border-spacing: 10px 0;
+          table-layout: fixed;
+    }
+    table.tbl_byTheNumbers {
+          table-layout: fixed;
+    }
+    table.tbl_byTheNumbers thead {
+          display: table-row-group;
+    }
+    table.tbl_byTheNumbers thead tr.byTheNumbers_bottom th::before {
+          content: ".........................................................";
+      }
+    table.tbl_ataGlance thead tr.ataGlance_top, table.tbl_byTheNumbers thead tr {
+          display: table-row;
+          position: relative;
+          top: unset;
+          left: unset;
+          margin-bottom: 0;
+    }
+  table.tbl_ataGlance thead tr.ataGlance_top img {
+      height: 32px;
+      width: 32px;
+  }
+  table.tbl_ataGlance thead tr.ataGlance_heads {
+      font-size: 12px;
+      position: relative;
+      top: unset;
+      left: unset;
+    }
+    table.tbl_ataGlance tbody td {
+          padding: 0 6px 6px 14px;
+    }
+    table.tbl_ataGlance tbody tr {
+          margin-bottom: 0;
+    }
+    table.tbl_ataGlance tbody td::before,  table.tbl_byTheNumbers tbody td::before {
+          display: none;
+    }
+    table.tbl_byTheNumbers tbody td, table.tbl_byTheNumbers tfoot td {
+          width: 100%;
+    }
+ 
+  
+}
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1){
+    table.tbl_ataGlance {
+        tr.ataGlance_bottom{
+            td{
+                &:before {
+                    content: none !important;
+                }
+            }
+        }
+    }
+   
+}
+@media screen and (max-width: map-get($grid-breakpoints, sm)){
+    tr.byTheNumbers_bottom th::before {
+        content: "...................." !important;
+    }
+    table.tbl_ataGlance {
+        td {
+            width: 110px;   /* plus left and right padding = 250 */
+        }
+    }
+}
+
+  /* ================== table properties for Comparison Chart ====================== */
+
+  table.comparisonChart {
+      color: $color-white;
+      font-style: normal;
+      table-layout: fixed;
+      display: table; // because some other specific table overwrites - display:block in .table-responsive
+      width:100%;
+
+      thead tr th:first-child {
+          width: 40%;
+      }
+
+      thead tr th{
+        text-transform: none;
+        font-size: 14px;
+        font-family: $font-family--secondary;
+        padding: 10px 20px!important;  //ugh - because some other specific table overwrites: .body-description .table th in _base.scss
+        background-color: $color-grey--800;
+        
+      }
+
+      thead tr:first-child th {
+        //text-transform: uppercase;
+        font-size: 16px;
+        background-color:  $color-primary;
+        text-align: center;
+      }
+
+      tr:nth-child(even) {
+        background-color: $color-grey--600;
+      }
+      tr:nth-child(odd) {
+        background-color: $color-grey--500;
+      }
+      td.feature {
+        font-size: 14px;
+        font-family: $font-family--primary;
+        font-weight: 600;
+        padding: 10px 20px;
+        background-color: $color-grey--900;
+      }
+      td.compare {
+        font-size: 0;
+        height: 30px;
+        vertical-align: top;
+        padding: 4px;
+        padding-top:10px;
+        text-align: center;
+		position: relative;
+        span {
+            height:20px;
+            width: 20px;
+            background-color: $color-primary;
+            position: absolute;
+        }
+            span.compare_0 {
+                background-color: transparent;
+                border: 1px solid $color-primary;
+                border-radius: 100%;
+                -moz-border-radius:100%;
+                -webkit-border-radius: 100%;
+
+        }
+            span.compare_25 {
+                width:15px;
+                height:15px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 100%;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+
+        }
+            span.compare_50 {
+                background-color: transparent;
+                margin: 1em auto;
+                border-radius: 50%;
+                width: 22px;
+                height: 22px;
+                box-sizing: border-box;
+                border-width: 11px;
+                border-style: solid;
+                border-color:  $color-primary $color-primary transparent transparent;
+                transform: rotate(45deg);
+        }
+            span.compare_75 {
+                background-color: transparent;
+                margin: 1em auto;
+                border-radius: 50%;
+                width: 22px;
+                height: 22px;
+                box-sizing: border-box;
+                border-width: 11px;
+                border-style: solid;
+                border-color:  $color-primary $color-primary $color-primary transparent;
+                transform: rotate(45deg);
+
+        }        
+            span.compare_100 {
+                border-radius: 100%;
+                -moz-border-radius:100%;
+                -webkit-border-radius: 100%;
+        }
+    }
+  }

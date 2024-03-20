@@ -1,0 +1,42 @@
+/*
+* pages/standalone-video.scss
+*/
+// styling for stand alone video page
+
+@import "../base/variables";
+
+#StandaloneVideo {
+	.video-box {
+		.video-content {
+			padding: 10px 0;
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+
+			.video-title {
+				color: $color-secondary;
+				font-size: $font-size-lg;
+				font-weight: 700;
+				padding: 0px
+
+			}
+
+			.video-duration {
+				color: $color-secondary;
+				font-size: $font-size-lg;
+				font-weight: 700;
+			}
+
+			.video-description {
+				flex: 1 1 100%;		// Make the description it's own line.
+			}
+
+		}
+
+	}
+
+	// Hide everything first.
+	.loading-overlay {
+		background-color: $color-white;
+	}
+}

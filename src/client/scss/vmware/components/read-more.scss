@@ -1,0 +1,48 @@
+/*
+* components/read-more.scss
+*/
+// Styling for read more widget on the product group pages
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+//OBSOLETE?? I cannot figure out if this whole file is in use anywhere - i think it is replaced by others
+//moved out from base file, this is only used on solution pages and product pages
+.more{
+    color:$color-grey--800;
+    color:darken($color-grey--700, 9%);
+    //text-transform: uppercase;
+    font-family:$font-family--secondary;
+     .bi{
+          font-size: $font-size-sm;
+          margin-left: 5px;
+      }
+  }
+  .more-content{
+    table{
+      border: 1px solid $color-grey--500;
+  
+      &.table-striped{
+        thead{
+          tr > th{
+            background-color: $color-primary;
+            font-size: $font-size-sm + 1;
+            padding: 15px 13px;
+            vertical-align: top;
+            color: $color-white;
+            border-left: 1px solid $color-white;
+            line-height: 1.5;
+          }
+        }
+        tbody{
+          tr > td{
+            padding: 15px;
+            font-size: $font-size-md;
+          }
+          tr:nth-of-type(2n+1){
+            background-color: darken($color-white, 2%);
+          }
+        }
+      }
+    }
+  }

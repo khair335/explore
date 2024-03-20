@@ -1,0 +1,183 @@
+/*
+* components/document-box.scss
+*/
+// Styling for broadcom document box style, was called popover and modal box
+
+@import "../base/variables";
+
+.badge-archive {
+    .badge-warning{
+      @include archive-style;
+      font-weight: 700;
+    }
+  }
+
+.info-popover {
+    font-size: 18px;
+    color: $color-primary;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+// TODO: Move to it's own page. We wanted to isolate applicationinteractive.
+.application-popup {
+    .popover {
+        width: 300px;               // Fix the size.
+        max-width: 300px;
+    }
+}
+
+.popover{
+    border-radius: 0;
+    border: 4px solid $color-grey--800;
+    
+    &.bs-popover-right {        // Arrow on the left, but popover on the right.
+        >.arrow{
+            left: -14px;
+            border-right-color: $color-grey--800;
+
+            &:after{
+                left: 5px;
+            }
+        }
+    }
+    .popover-header{
+        background-color: transparent;
+        font-size: $font-size-md;
+        padding: 14px;
+        border-bottom: 1px solid $color-grey--600;
+        font-family: $font-family--primary;
+        color: $color-primary;
+        font-weight: bold;
+    }
+    .popover-body{
+        font-size: $font-size-md;
+        font-family: $font-family--primary;
+    }
+    &.bs-popover-left, 
+    &.bs-popover-auto[x-placement^="left"]{
+        .arrow{
+            &:before{
+                border-left-color: $color-grey--800;
+                right: -3px;
+            }
+            &:after{
+                right: 1px;
+            }
+        }
+    }
+    &.bs-popover-right, 
+    &.bs-popover-auto[x-placement^="right"]{
+        .arrow{
+            &:before{
+                border-right-color: $color-grey--800;
+            }
+            &:after{
+                left: 5px;
+            }
+        }
+    }
+    &.bs-popover-top, 
+    &.bs-popover-auto[x-placement^="top"]{
+        .arrow{
+            &:before{
+                border-top-color: $color-grey--800;
+            }
+            &:after{
+                 bottom: 4px;
+                 left: 0;
+            }
+        }
+    }
+    &.bs-popover-bottom, 
+    &.bs-popover-auto[x-placement^="bottom"]{
+        .arrow{
+            &:before{
+                border-bottom-color: $color-grey--800;
+            }
+            &:after{
+                top: 4px;
+                left: 0;
+            }
+        }
+    }
+}
+
+//the below code were in _modal.component.scss
+
+.modal-dialog{
+    max-width: 600px;
+	
+	// CTA's in SubHeader
+	&.modal-iframe {
+		max-width: 780px;
+	}
+}
+.modal-title{
+    color: $color-primary;
+    font-family: $font-family--primary;
+    font-weight: bold;
+}
+.modal-header{
+    border-radius: 0;
+    border-bottom: 0 none;
+    padding: 15px;
+
+    + .modal-body{
+        padding: 15px;
+        padding-top: 0;
+    }
+    .close{                                             //button - @extends .icon-bttn, see _buttons.scss
+        font-size: $font-size-lg + 2;
+        opacity: 0.2;
+    }
+}
+.modal-content{
+    border-radius: 0;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba($color-black, .5);
+}
+
+//moved out from products.scss 
+.gray-filter-box{
+	background-color: $color-grey--500;
+	margin-bottom: 15px;
+	padding: 10px 15px;
+
+	.row{
+		align-items: center;
+	}
+}
+.document-box-toggle{
+	label {
+		position: relative;
+		margin-right: 30px;
+		text-transform: capitalize;
+		cursor: pointer;
+		padding:5px; 
+		&.active{
+			color:$color-primary--dark;
+		}
+		&:hover{
+			background-color: $color-grey--500;
+		}
+		&:not(:last-child):before {
+			content: "";
+			display: block;
+			position: absolute;
+			right: -15px;
+			top: 2px;
+			bottom: 2px;
+			background-color: $color-grey--900;
+			width: 1px;
+			height: 15px;
+			top: 50%;
+			transform: translate(0,-50%);
+			-webkit-transform: translate(0,-50%);
+			-ms-transform: translate(0,-50%);
+		  }
+	  }
+      .group-toggle-bttn label:last-child {
+            border-right: none;                             //mods .group-toggle-bttn _buttons.scss
+      }
+} 

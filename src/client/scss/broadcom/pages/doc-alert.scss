@@ -1,0 +1,29 @@
+/*
+* pages/doc-alert.scss
+*/
+// Thank you Page for Subscriber
+
+
+.document-alert-wrap{
+    button {
+      margin-right: 25px;
+    }
+   
+    ul{
+      margin-top: 15px;
+      li {
+        margin-bottom: 15px;
+          .check-wrap {         // base style for check-wrap in base.scss
+            display: block;
+            float: left;
+            margin-right: 15px;
+          }
+          .form-check {
+            margin-bottom: 0;
+             vertical-align: middle;
+             padding-left: 0px;
+          }
+  
+      }
+    }
+  }

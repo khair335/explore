@@ -1,0 +1,208 @@
+{
+	"AssetType" : "AVG_Product_C",
+	"AssetID" : "1211190199188",
+	"Template" : "ProductDetail",
+	"Locale" : "avg_en",
+	"CTA" : [{
+			"AssetType" : "Page",
+			"AssetID" : "1211173714976",
+			"CTA_Name" : "Contact Us",
+			"_url_" : "https://cmsstaging.broadcom.com/company/contact/",
+			"target_window" : "blank"
+		}, {
+			"AssetType" : "Page",
+			"AssetID" : "1211131435457",
+			"CTA_Name" : "Request Info",
+			"_url_" : "http://avagoresponsecenter.com/693/",
+			"target_window" : "Modal Window"
+		}
+	],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "https://cmsstaging.broadcom.com/products/"
+			}
+		}, {
+			"position" : 2,
+			"item" : {
+				"name" : "Storage Adapters, Controllers, and ICs",
+				"_url_" : "https://cmsstaging.broadcom.com/products/storage/"
+			}
+		}, {
+			"position" : 3,
+			"item" : {
+				"name" : "RAID Controller Cards",
+				"_url_" : "https://cmsstaging.broadcom.com/products/storage/raid-controllers/"
+			}
+		}, {
+			"position" : 4,
+			"item" : {
+				"name" : "MegaRAID 9480-8i8e",
+				"_url_" : ""
+			}
+		}
+	],
+	"PartNumber" : "MegaRAID 9480-8i8e",
+	"ProductName" : "Provide increased bandwidth, IOPS performance and data protection with internal connectivity and external scalability to direct attached high connectivity applications",
+	"Vanity_url" : " https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9480-8i8e",
+	"Product_Tabs" : {
+		"Overview" : {
+			"Name" : "MegaRAID 9480-8i8e Tri-Mode Storage Adapter",
+			"Aliases" : "",
+			"PricingInformation" : "",
+			"Description" : "Direct attached, high-connectivity applications require increased bandwidth, increased IOPS performance and advanced data protection. The MegaRAID 9480-8i8e Tri-Mode internal/external Storage Adapter is a 12Gb/s SAS/SATA/PCIe (NVMe) controller card that addresses these needs by delivering internal connectivity and external scalability, proven flexibility, performance and RAID data protection for a range of server storage applications. Broadcom's Tri-Mode SerDes Technology enables the operation of NVMe, SAS or SATA devices in a single drive bay, allowing for endless design flexibility.Connect up to 240 SAS / SATA devices or 24 NVMe devices per controller Fits into rack - mounted servers with low - profile form factor and side - mounted SAS connectors Provides internal storage,external JBOD expansion and RAID data protection to address a wide range of storage performance and capacity requirements Support critical,high - bandwidth applications with PCIe® 3.1 connectivity. Balance protection and performance for critical applications with RAID levels 0, 1, 5, 6, 10, 50,and 60 Add more protection and peace of mind with CacheVault® flash cache protection",
+			"ProductImage" : [{
+					"Video-Image" : "TBD",
+					"AssetID" : "1211190111234",
+					"AssetType" : "AVG_Image_C",
+					"ImageName" : "MegaRAID 9480-8i8e",
+					"AltText" : "MegaRAID 9480-8i8e",
+					"Image_url_" : "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+
+				}, {
+					"AssetID" : "1211190111234",
+					"AssetType" : "AVG_Image_C",
+					"ImageName" : "MegaRAID 9480-8i9e",
+					"AltText" : "MegaRAID 9480-8i9e",
+					"Image_url_" : "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+
+				}
+			],
+			"Features" : "<ul><li>Features</li><li>0.28&rdquo; digit height</li><li>Low current operation</li><li>Excellent characters appearance</li><li>Available in CA and CC</li><li>1000 pieces per reel</li><li>Moisture Sensitivity Level: Level 3</li><li>RoHS compliant</li></ul>",
+
+			"Applications" : "<ul><li>Applications</li><li>0.28&rdquo; digit height</li><li>Low current operation</li><li>Excellent characters appearance</li><li>Available in CA and CC</li><li>1000 pieces per reel</li><li>Moisture Sensitivity Level: Level 3</li><li>RoHS compliant</li></ul>",
+			"Benefits" : "<ul><li>Benifits</li><li>0.28&rdquo; digit height</li><li>Low current operation</li><li>Excellent characters appearance</li><li>Available in CA and CC</li><li>1000 pieces per reel</li><li>Moisture Sensitivity Level: Level 3</li><li>RoHS compliant</li></ul>",
+
+			"data-sheet" : [{
+					"Name" : "BC00-0448EN",
+					"Title" : "MegaRAID® 9400 Series Tri-Mode Storage Adapters",
+					"_url_" : "https://docscmsstaging.broadcom.com/docs/BC00-0448EN"
+
+				}, {
+					"Name" : "BC-0497EN",
+					"Title" : "CacheVault Technology (CVM02, CVPM02 and CVPM05) Product Brief",
+					"_url_" : "https://docscmsstaging.broadcom.com/docs/12381212"
+				}
+			]
+		},
+		"Specification" : {
+			"Lifecycle" : "Active",
+			"DistribInventory" : "No",
+			"RoHS6Compliant" : "",
+			"Package" : "",
+			"Freq_Up_Link_MHz" : "1850-1915",
+			"Freq_Down_Link_MHz" : "1930-1995",
+			"Color" : "Red",
+			"Color_Temperature (K)" : "N/A",
+			"Typical_Luminous_Flux(lm)" : "51.7 - 87.4 Lumens",
+			"Metal_Slug" : "Electrically Non-neutral",
+			"Voltage" : "2.1 V",
+			"Test_Current(mA)" : "625",
+			"Viewing_Angle(degree)" : "140°"
+		},
+		"Documentation" : {
+			"DocumentSubtype" : {
+				"AssetType" : "AVG_Document_P",
+				"AssetID" : "1206560581239",
+				"SubtypeName" : "Product Brief",
+				"Description" : "Advocates a specific position or solution to a problem and how it might best address the issue."
+			},
+			"Documents" : [{
+					"AssetType" : "AVG_Document_C",
+					"AssetID" : "1211207386601",
+					"PublishDate" : "01/03/2018",
+					"Title" : "CacheVault Technology (CVM02, CVPM02 and CVPM05) Product Brief",
+					"Description" : "Learn how the CVM02, CVPM02 and CVPM05 optional accessory modules enable flash cache protection for 12Gb/s SAS/SATA/NVMe PCIe RAID controllers",
+					"Type" : "PDF",
+					"FileSize" : "296KB",
+					"Language" : "English",
+					"Doc_Status" : "Current",
+					"_url_" : "https://docscmsstaging.broadcom.com/docs/12381212",
+					"data-type" : "regular",
+					"data-expired" : "false",
+					"data-url" : "https://docscmsstaging.broadcom.com/docs/12381212",
+					"data-target" : "#download_modal",
+					"data-resid" : "drv1211207386601",
+					"data-toggle" : "modal",
+					"data-layer" : {
+						"event" : "eventTracker",
+						"eventVal" : "0",
+						"eventCat" : "Assets",
+						"eventAct" : "pdf",
+						"eventLbl" : "https://docscmsstaging.broadcom.com/docs/12381212",
+						"TemplateName" : "Document",
+						"Section" : "Body"
+					}
+				}, {
+					"AssetType" : "AVG_Document_C",
+					"AssetID" : "1211190204745",
+					"PublishDate" : "08/08/2017",
+					"Title" : "MegaRAID® 9400 Series Tri-Mode Storage Adapters",
+					"Description" : "MegaRAID® 9400 Series Tri-Mode Storage Adapters",
+					"Type" : "PDF",
+					"FileSize" : "479KB",
+					"Language" : "English",
+					"Doc_Status" : "Current",
+					"_url_" : "https://docscmsstaging.broadcom.com/docs/BC00-0448EN",
+					"data-type" : "regular",
+					"data-expired" : "false",
+					"data-url" : "https://docscmsstaging.broadcom.com/docs/BC00-0448EN",
+					"data-target" : "#download_modal",
+					"data-resid" : "drv1211190204745",
+					"data-toggle" : "modal",
+					"data-layer" : {
+						"event" : "eventTracker",
+						"eventVal" : "0",
+						"eventCat" : "Assets",
+						"eventAct" : "pdf",
+						"eventLbl" : "https://docscmsstaging.broadcom.com/docs/BC00-0448EN",
+						"TemplateName" : "Document",
+						"Section" : "Body"
+					}
+				}, {
+					"AssetType" : "AVG_Document_C",
+					"AssetID" : "1211211344198",
+					"PublishDate" : "09/10/2018",
+					"Title" : "MegaRAID 94xx Tri-Mode Storage Adapter Drive Compatibility Report Selection Guide",
+					"Description" : "",
+					"Type" : "PDF",
+					"FileSize" : "83KB",
+					"Language" : "English",
+					"Doc_Status" : "Current",
+					"_url_" : "https://docscmsstaging.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+					"data-type" : "regular",
+					"data-expired" : "false",
+					"data-url" : "https://docscmsstaging.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+					"data-target" : "#download_modal",
+					"data-resid" : "drv1211211344198",
+					"data-toggle" : "modal",
+					"data-layer" : {
+						"event" : "eventTracker",
+						"eventVal" : "0",
+						"eventCat" : "Assets",
+						"eventAct" : "pdf",
+						"eventLbl" : "https://docscmsstaging.broadcom.com/docs/MR-94xx-Tri-Mode-OT",
+						"TemplateName" : "Document",
+						"Section" : "Body"
+					}
+				}
+			]
+		},
+
+		"Optional Products" : [{
+			"PartNumber" : "MegaRAID SafeStore Software",
+			"ProductName" : "MegaRAID SafeStore Software",
+			"Description" : "Self-encrypting drives (SEDs) constantly perform encryption and decryption of all drive contents, but it takes an authentication key to lock a drive so that its contents remain safely beyond the reach of hackers and thieves. MegaRAID® SafeStore software helps to create and locally manage those authentication keys.Help keep data constantly encrypted and safe from prying eyes with the SafeStore Auto Lock functionalityUse the Instant Secure Erase feature to delete authentication keys and effectively wipe all drive contents — a far quicker and more effective solution for drive disposal or repurposing than many conventional methods",
+			"ProductImage" : "https://cmsstaging.broadcom.com/media/1211130629934/megaraid-safestore-software.jpg"
+		},
+		{
+			"PartNumber" : "MegaRAID SafeStore Software",
+			"ProductName" : "MegaRAID SafeStore Software",
+			"Description" : "Self-encrypting drives (SEDs) constantly perform encryption and decryption of all drive contents, but it takes an authentication key to lock a drive so that its contents remain safely beyond the reach of hackers and thieves. MegaRAID® SafeStore software helps to create and locally manage those authentication keys.Help keep data constantly encrypted and safe from prying eyes with the SafeStore Auto Lock functionalityUse the Instant Secure Erase feature to delete authentication keys and effectively wipe all drive contents — a far quicker and more effective solution for drive disposal or repurposing than many conventional methods",
+			"ProductImage" : "https://cmsstaging.broadcom.com/media/1211130629934/megaraid-safestore-software.jpg"
+		}]
+
+	}
+
+}

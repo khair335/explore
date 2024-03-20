@@ -1,0 +1,35 @@
+/*
+* pages/knowledgebase.scss
+*/
+// styling for KBFAQ.jsx, knowledgebase.jsx
+
+
+@import "../base/variables";
+@import "../base/link";
+
+
+.question, .answer {
+
+		h3 {	
+			color: $color_primary;
+			margin: 20px 0;
+			font-weight: 600;
+		}
+}
+ul{
+	padding: 0px 0px 10px 40px;
+}
+.title{
+	color: $color_primary;
+	}
+	.documents{
+		a{
+			margin-bottom: 15px;
+			display: block;		
+		}
+		
+	}
+
+.back-to-result {
+	margin: 20px 0;
+}

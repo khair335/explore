@@ -1,0 +1,82 @@
+{
+	"_url_" : "products/",
+	"content_id" : "1421089863645",
+	"content_type" : "Page",
+	"template" : "CaseStudyLanding",
+	"locale" : "en-us",
+	"title" : "Case Study",
+	"ShortTitle" : "Case Study",
+	"body2" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"meta_keywords" : "data center, networking, infrastructure software, broadband, wireless, storage and industrial",
+	"meta_description" : "Broadcom's product portfolio serves multiple applications within seven primary target markets: data center, networking, software, broadband, wireless, storage and industrial.",
+	"CTA" : [],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"leftNav" : {},
+	"HeroBanner" : [{
+			"$comment" : "## Ignore comment. Hero banner can have 1 to many. If more than one, then slider controls exists. See /lte-carrier-aggregation ##",
+			"content_id" : "1211160651376",
+			"content_type" : "AVG_Highlight_C",
+			"highlight_title" : "Take the Avago Way to Higher Speed LTE Carrier Aggregration",
+			"highlight_description" : null,
+			"_url_" : ["lte-carrier-aggregation"],
+			"link_title" : null,
+			"ThumbnailImage" : "media/1211160651376/667/908/4-home-hero-carrieraggregation,0.jpg",
+			"hero_image" : {
+				"content_id" : "1211160651298",
+				"content_type" : "AVG_Image_C",
+				"ImageName" : "home-hero-carrieraggregation",
+				"AltText" : "home-hero-carrieraggregation",
+				"Image_url_" : "/media/1211160651298/4-home-hero-carrieraggregation.jpg",
+				"Image_file_name" : "667/908/4-home-hero-carrieraggregation,1.jpg",
+				"ProductThumbnailFile5_url_" : "/media/1211160651298/667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile5_file_name" : "667/908/4-home-hero-carrieraggregationThumb,2.png",
+				"ProductThumbnailFile3_url_" : "/media/1211160651298/150x150-4-home-hero-carrieraggregationthumb.png",
+				"ProductThumbnailFile3_file_name" : "667/908/4-home-hero-carrieraggregationThumb.png"
+			}
+		}
+	],
+	"$comment" : "The list of cases",
+	"cases" : [{
+			"title" : "## String.  ##",
+			"description" : "## String. Required: ##",
+			"image" : "## Image. Required: ##",
+			"$comment" : "### 06/04/2019. 1 to many links",
+			"links" : [{
+					"_url_" : "## String. ##",
+					"title" : "## String. Title of link 'Go to Case Study' ##",
+					"alt" : "## String. Alt title of link ##"
+				}, {
+					"_url_" : "## String. ##",
+					"title" : "## String. Title of link ##",
+					"alt" : "## String. Alt title of link ##"
+				}
+			],
+			"$comment" : "The list of filters associated with this case study. Can have 0 to many",
+			"filters" : {
+				"solutions" : [
+					"API Managment",
+					"Cloud",
+					"DevOps"
+				],
+				"products" : [
+					"CA API Gateway",
+					"Agile Central"
+				],
+				"geographies" : [
+					"Africa",
+					"China"
+				]
+			}
+		}
+	]
+}

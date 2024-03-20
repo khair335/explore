@@ -1,0 +1,242 @@
+{
+	"AssetType": "Page",
+	"AssetID": "1421089863645",
+	"Template": "ProductLanding",
+	"Locale": "EN",
+	"CTA": [{
+			"AssetType": "Page",
+			"AssetID": "1211173714976",
+			"CTA_Name": "Contact Us",
+			"_url_": "https://cmsstaging.broadcom.com/company/contact/",
+			"target_window": "blank"
+		},
+		{
+			"AssetType": "Page",
+			"AssetID": "1211131435457",
+			"CTA_Name": "Request Info",
+			"_url_": "http://avagoresponsecenter.com/693/",
+			"target_window": "Modal Window"
+		}
+	],
+	"BreadcrumbList": [{
+			"position": 1,
+			"item": {
+				"name": "Products",
+				"_url_": "https://cmsstaging.broadcom.com/products/"
+			}
+		}],
+	"LabelList": [{
+			"Label": {
+				"key": "Read More",
+				"value": "Read More"
+			},
+			"Label": {
+				"key": "Select Product",
+				"value": "Select Product"
+			}
+		}],	
+	"title":"Products",
+	"ShortTitle":"",
+	"body":"Broadcom's product portfolio serves multiple applications within four primary end markets: wired infrastructure, wireless communications, enterprise storage and industrial & others. Its diverse product portfolio includes: Semiconductors for set-top/CMTS, cable modems, and PON/DSL, Ethernet NICs, filters and amplifiers, ASIC, wireless connectivity solutions, embedded processors, HDD/SSD controllers, enterprise SAS/SATA/Fibre Channel connectivity, data center switches and routers, optical isolation/motion encoders/LEDs, and fiber optic solutions.CA Technologies is now part of Broadcom. Visit the CA Technologies Products  page to learn more.",	
+	"body2": "Broadcom's product portfolio serves multiple applications within four primary end markets: wired infrastructure, wireless communications, enterprise storage and industrial & others.",
+	"meta_keywords":"",
+	"meta_description":"",
+	"display_search_bar": "Yes or No or blank",
+	"ProductCategories":[{
+					"AssetID":"1210946577724",
+					"AssetType":"AVG_Product_P",
+					"WebProperties":{
+						"AssetID":"1421089854528",
+						"AssetType":"AVG_WebProp_C",
+						"CategoryName":"Wireless Embedded Solutions and RF Components",
+						"CategoryAbstract":"Broadcom offers a broad range of wireless solutions for mobile and wireless infrastructure applications including smartphones, tablets, internet gateway routers and enterprise access points."
+					},
+					"_url_":"https://cmsstaging.broadcom.com/products/wireless/",
+					"CategoryThumbnail":{
+						   "AssetID":"1421089855151",
+						   "AssetType":"AVG_Image_C",
+						   "ImageName":"Wireless Embedded Solutions and RF Components",
+						   "AltText":"Wireless Embedded Solutions and RF Components - Product Category Thumbnail Image",
+						   "Image_url_":"https://cmsstaging.broadcom.com/media/1421089855151/prod-wireless.jpg"
+					
+					},
+					"Select_Products":[{
+							"CategoryName":"Amplifiers",
+							"_url_":"https://cmsstaging.broadcom.com/products/wireless/amplifiers/"
+					},
+					{
+							"CategoryName":"Demo Boards",
+							"_url_":"https://cmsstaging.broadcom.com/products/wireless/demo-boards/"
+					},
+					{
+							"CategoryName":"Diodes",
+							"_url_" : "https://cmsstaging.broadcom.com/products/wireless/diodes/"
+					},
+					{
+							"CategoryName":"FBAR Devices",
+							"_url_":"https://cmsstaging.broadcom.com/products/wireless/fbar/"
+					},
+					{
+							"CategoryName":"Handset Power Amplifiers",
+							"_url_":"https://cmsstaging.broadcom.com/products/wireless/handset-pa/"
+					}]		
+		   },
+		   {
+					"AssetID":"1211125816204",
+					"AssetType":"AVG_Product_P",
+					"WebProperties":{
+						"AssetID":"1421089854528",
+						"AssetType":"AVG_WebProp_C",
+						"CategoryName":"Storage Adapters, Controllers, and ICs",
+						"CategoryAbstract":"The broadest portfolio of highly reliable server storage products in the industry offers the connectivity, performance, and protection to support critical applications."
+					},
+					"_url_":"https://cmsstaging.broadcom.com/products/storage/",
+					"CategoryThumbnail":{
+						   "AssetID":"1421089856765",
+						   "AssetType":"AVG_Image_C",
+						   "ImageName":"Storage",
+						   "AltText":"Storage",
+						   "Image_url_":"https://cmsstaging.broadcom.com/media/1421089856765/prod-storage.jpg"
+					
+					},
+					"Select_Products":[{
+							"CategoryName":"SAS/SATA/NVMe Host Bus Adapters",
+							"_url_":"https://cmsstaging.broadcom.com/products/storage/host-bus-adapters/"
+					},
+					{
+							"CategoryName":"Fibre Channel Host Bus Adapters",
+							"_url_":"https://cmsstaging.broadcom.com/products/storage/fibre-channel-host-bus-adapters/"
+					},
+					{
+							"CategoryName":"RAID Controller Cards",
+							"_url_":"https://cmsstaging.broadcom.com/products/storage/raid-controllers/"
+					},
+					{
+							"CategoryName":"RAID-on-Chip ICs (ROCs)",
+							"_url_":"https://cmsstaging.broadcom.com/products/storage/raid-on-chip/"
+					},
+					{
+							"CategoryName":"SAS/SATA Storage I/O Controllers (IOCs)",
+							"_url_":"https://cmsstaging.broadcom.com/products/storage/sas-sata-controllers/"
+					}]		
+		  },
+		  {
+					"AssetID":"1211201325216",
+					"AssetType":"AVG_Product_P",
+					"WebProperties":{
+						"AssetID":"1211201325704",
+						"AssetType":"AVG_WebProp_C",
+						"CategoryName":"Fibre Channel Networking",
+						"CategoryAbstract":"Brocade Fibre Channel delivers the non-stop availability and exceptional performance required for tomorrow’s all-flash data centers. The Brocade Fibre Channel directors and switches deliver the performance, reliability, and scalability requirements of hyperscale virtualization, the all-flash data center, and next-generation storage technologies."
+					},
+					"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/",
+					"CategoryThumbnail":{
+						   "AssetID":"1211201504254",
+						   "AssetType":"AVG_Image_C",
+						   "ImageName":"Fibre Channel Networking",
+						   "AltText":"Fibre Channel Networking",
+						   "Image_url_":"https://cmsstaging.broadcom.com/media/1211201504254/fiber-channnel-networking.jpg"
+					
+					},
+					"Select_Products":[{
+							"CategoryName":"Directors",
+							"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/directors/"
+					},
+					{
+							"CategoryName":"Switches",
+							"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/switches/"
+					},
+					{
+							"CategoryName":"Extension",
+							"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/extension/"
+					},
+					{
+							"CategoryName":"SAN Analytics Monitoring Platform",
+							"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/monitoring-platform/"
+					},
+					{
+							"CategoryName":"SAN I/O Modules",
+							"_url_":"https://cmsstaging.broadcom.com/products/fibre-channel-networking/blade-server/"
+					}]		
+		  },
+		  {
+					"AssetID":"1211168464503",
+					"AssetType":"AVG_Product_P",
+					"WebProperties":{
+						"AssetID":"1211201325704",
+						"AssetType":"AVG_WebProp_C",
+						"CategoryName":"Broadband: CPE-Gateway, Infrastructure, and Set-top Box",
+						"CategoryAbstract":"Broadcom develops a broad range of digital subscriber line (DSL), Passive Optical Networking (xPON), cable modem and set-top box solutions."
+					},
+					"_url_":"https://cmsstaging.broadcom.com/products/broadband/",
+					"CategoryThumbnail":{
+						   "AssetID":"1211171704609",
+						   "AssetType":"AVG_Image_C",
+						   "ImageName":"Broadband_ CPE-Gateway",
+						   "AltText":"Broadband_ CPE-Gateway",
+						   "Image_url_":"https://cmsstaging.broadcom.com/media/1211171704609/broadband__cpe-gateway.jpg"
+					
+					},
+					"Select_Products":[{
+							"CategoryName":"Cable Broadband",
+							"_url_":"https://cmsstaging.broadcom.com/products/broadband/cable/"
+					},
+					{
+							"CategoryName":"Reference Designs",
+							"_url_":"https://cmsstaging.broadcom.com/products/broadband/reference-design"
+					},
+					{
+							"CategoryName":"Set-top Box Solutions",
+							"_url_":"https://cmsstaging.broadcom.com/products/broadband/set-top-box/"
+					},
+					{
+							"CategoryName":"xDSL",
+							"_url_":"https://cmsstaging.broadcom.com/products/broadband/xdsl/"
+					},
+					{
+							"CategoryName":"xPON",
+							"_url_":"https://cmsstaging.broadcom.com/products/broadband/xpon/"
+					}]		
+		  },
+		{
+					"AssetID":"1211168463873",
+					"AssetType":"AVG_Product_P",
+					"WebProperties":{
+						"AssetID":"1211168463918",
+						"AssetType":"AVG_WebProp_C",
+						"CategoryName":"Embedded and Networking Processors",
+						"CategoryAbstract":"One of the largest portfolios of processors in the industry, designed for VoIP, wireless infrastructure, IP network platform, security appliance, storage and cloud computing applications."
+					},
+					"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/",
+					"CategoryThumbnail":{
+						   "AssetID":"1211172086965",
+						   "AssetType":"AVG_Image_C",
+						   "ImageName":"Embedded and Networking Processors",
+						   "AltText":"Embedded and Networking Processors",
+						   "Image_url_":"https://cmsstaging.broadcom.com/media/1211172086965/embedded_and_networking_processors.jpg"
+					
+					},
+					"Select_Products":[{
+							"CategoryName":"Embedded Processors",
+							"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/embedded-socs"
+					},
+					{
+							"CategoryName":"Secure Processors",
+							"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/secure"
+					},
+					{
+							"CategoryName":"Communications Processors",
+							"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/communications"
+					},
+					{
+							"CategoryName":"Knowledge-Based Processors",
+							"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/knowledge-based/"
+					},
+					{
+							"CategoryName":"Multicore Processors",
+							"_url_":"https://cmsstaging.broadcom.com/products/embedded-and-networking-processors/multicore"
+					}]		
+		  }]
+}
+
+

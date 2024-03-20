@@ -1,0 +1,40 @@
+@import "base/variables";
+
+.sand-head{
+    margin: 30px 0;
+    a{
+        margin: 2px;
+    }
+} 
+.product-overview {
+     ul {
+        margin: 0px 0px 0px 40px;
+        list-style-position: outside;
+        list-style-type: disc;
+    }
+    ul.downloadable-links{
+        list-style-type: none;
+        margin: 0px;
+    }
+}
+ 
+.table-sandbox {
+    .table{
+       th{
+          padding: 5px 5px 30px 5px;
+       }
+    }
+}
+ 
+ @media screen and (max-width: 767px){
+	
+	.sand-head{
+		.btn-primary.btn {
+			font-size: 11px;
+			display: inline-block;
+			margin-top: 15px;
+			float: left;
+		}
+	}
+	
+}

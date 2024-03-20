@@ -1,0 +1,40 @@
+{
+	"_url_" : "solutions/",
+	"content_id" : "1210946577724",
+	"content_type" : "AVG_Product_P",
+	"template" : "TransparencyNoticeDocs",
+	"locale" : "en-us",
+	"title" : "TransparencyNoticeDocs",
+	"short_title" : null,
+	"body" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies eget enim ac accumsan.",
+	"body2" : null,
+	"MetaKeywords" : "microwave devices, rf microwave, rf and microwave",
+	"MetaDescription" : "Broadcom RF and microwave devices have been driving the wireless revolution with products including amplifiers,  FBAR filters, multipliers, switches, and embedded processors.",
+	"BrowserTitle" : null,
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Products",
+				"_url_" : "products",
+				"target" : "_self"
+			},
+			"ShowInNavigation" : "Yes"
+		}, {
+			"position" : 2,
+			"item" : {
+				"name" : "Wireless Embedded Solutions and RF Components",
+				"_url_" : "products/wireless"
+			},
+			"ShowInNavigation" : "Yes"
+		}
+	],
+	"$comment": "## Array. A list of documents",
+	"documents": [{
+		"content_id": "##",
+		"title": "## String. Title of link",
+		"link": {
+			"_url_": "## String. The URL",
+			"$comment": "Standard link values such as target, etc..."
+		}
+	}]
+}

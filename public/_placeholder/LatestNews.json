@@ -1,0 +1,30 @@
+{
+	"AssetType": "AVG_Highlight_C",
+	"AssetID": "1211130582511",
+	"Template": "LatestNews",
+	"highlight_title":"News",
+	"link_title":"More News",
+	"more_link":"https://www.broadcom.com/company/news/",
+	"LatestNews": [{
+			"AssetType": "AVG_News_C",
+			"ID": "2368275",
+			"_url_": "https://cmsstaging.broadcom.com/company/news/product-releases/2368275",
+			"Title": "Broadcom’s Industry Leading PAM-4 PHY Shipments Surpass 1 Million Ports",
+			"PublishDate": "10/08/2018"
+		},
+		{
+			"AssetType": "AVG_News_C",
+			"ID": "2367107",
+			"_url_": "https://cmsstaging.broadcom.com/company/news/product-releases/2367107",
+			"Title": "Broadcom Samples Thor, World’s First 200G Ethernet Controller with 50G PAM-4 and PCIe 4.0",
+			"PublishDate": "09/20/2018"
+		},
+		{
+			"AssetType": "AVG_News_C",
+			"ID": "2366659",
+			"_url_": "https://cmsstaging.broadcom.com/company/news/financial-releases/2366659",
+			"Title": "Broadcom to Present at Deutsche Bank Technology Conference",
+			"PublishDate": "09/12/2018"
+		}
+	]
+}

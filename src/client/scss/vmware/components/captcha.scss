@@ -1,0 +1,71 @@
+/*
+* components/captcha.scss
+*/
+// Styling for broadcom custom captcha
+
+@import "../base/variables";
+
+.captcha-wrap{
+    //width: 58%;
+    margin: 0px 0px 44px;
+	.emailverify{
+        display: none;
+    }
+    .challengepics {
+        -webkit-box-shadow: inset 0 8px 8px -8px rgba($color-black, 0.8);
+        -moz-box-shadow: inset 0 8px 8px -8px rgba($color-black, 0.8);
+        box-shadow: inset 0 8px 8px -8px rgba($color-black, 0.8);
+        padding: 14px;
+        display: inline-block;
+        margin-right: 10px;
+        .captcha-text {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold;
+            color:$color-black;
+            padding: 0px 5px;
+            font-family: $font-family--secondary;
+            font-size: 24px;
+
+        }
+        input {
+            display: inline-block;
+            width: 60px;
+            border: 1px solid $color-grey--500 !important;
+        }
+       
+    }
+    .button-group-wrap{
+        display: inline-block;
+        vertical-align: middle;
+        button{
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+            font-size: 24px;
+            padding: 0;                 // mods button _buttons.scss
+            &:hover{
+                background-color: $color-primary--dark;
+                color:$color-white;
+            }
+            .bi {
+                margin-left: 0;                 //mods button bi, bttn bi
+            }
+        }
+    }
+    .challenge {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg) - 1){
+    .captcha-wrap{
+        width: 66%;
+    }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1){
+    .captcha-wrap{
+        width: 100%;
+    }
+}

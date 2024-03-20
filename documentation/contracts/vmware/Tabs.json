@@ -1,0 +1,44 @@
+{
+  "template": "InPageNavigation",
+  "locale": "en-us",
+  "navigation": [
+    {
+      "content_id": "bltf46921b48ed66661_en-us",
+      "content_type": "content_block",
+      "section_title": "Features",
+      "hash_tag_name": "Features"
+    },
+    {
+      "content_id": "bltddf49a41e327a72e_en-us",
+      "content_type": "content_block_list",
+      "section_title": "Use Cases",
+      "hash_tag_name": "Use Cases"
+    },
+    {
+      "content_id": "blt283a1b27f62c9c4b_en-us",
+      "content_type": "content_block_list",
+      "section_title": "Pricing",
+      "hash_tag_name": "Pricing"
+    },
+    {
+      "content_id": "blt58efa7f385f2c6ce_en-us",
+      "content_type": "content_block",
+      "section_title": "Case Studies",
+      "hash_tag_name": "Case Studies"
+    },
+    {
+      "content_id": "blt6906518e1c60ef4f_en-us",
+      "content_type": "content_block_list",
+      "section_title": "Resources",
+      "hash_tag_name": "Resources"
+    },
+    {
+      "content_id": "blt6906518e1c60ef4f_en-us",
+      "content_type": "links",
+      "section_title": "Start Free Trail",
+      "hash_tag_name": "Start Free Trail",
+      "url": "/workspace-one/free-trial.html",
+      "target": "_self"
+    }
+  ]
+}

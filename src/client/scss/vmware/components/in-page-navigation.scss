@@ -1,0 +1,64 @@
+/*
+* components/in-page-navigation.scss
+*/
+// Styling for broadcom custom in page navigation
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+// -----------------------------------------------------------------------------
+// InPageNavigation 
+//////////
+
+.InPageNavigation {
+    background-color: transparent;
+   
+.navbar-nav{
+    border-bottom: 0;
+    width: 100%;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+   > li{
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right:0px;
+        position: relative;
+        &:after{
+            content: "";
+            height: 20px;
+            width: 1px;
+            background-color: $color-grey--650;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+             &:after{
+                display: none;
+            }
+        }   
+        a {
+            line-height: 2.2; 
+            padding: 6px 0px;
+          
+			 &:hover {  
+				color: $color-black;
+				text-decoration:none;        				//mods _link.scss - necessary to keep from having double red lines on hover
+                border-bottom: 2px solid $color-primary;
+                
+			 }
+
+            }
+        
+        }
+    }
+}
+
+

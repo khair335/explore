@@ -1,0 +1,123 @@
+{
+    "content_id": "1211240430819",
+    "content_type": "Page",
+    "locale": "en-us",
+    "template": "PartnerDistLocator",
+    "name": "Partner Distributor Locator",
+    "_url_": "company/partners/ca-technologies/symantec-partner-locator",
+    "title": "Partner Distributor Locator",
+    "ShortTitle": "Partner Distributor Locator",
+    "BodyTitle": null,
+    "BrowserTitle": null,
+    "body": null,
+    "body2": null,
+    "HeroBanner": null,
+    "BannerImage": null,
+    "partners": {       
+        "product_types": [   
+            { 
+                "$comment": "product_type is new. It's the first level.",
+                "product_type": "Hardware",
+                "$comment": "type is new. Can be Distibutor or Partner. Used to label drop down box.",
+                "type": "Distributor",
+                "region": [
+                    {
+                        "name": "Americas",
+                        "country": [
+                            {
+                                "country": "United States",
+                                "locations": [
+                                    {
+                                        "name": "1 Source IT Solutions",
+                                        "loc_name": "California",
+                                        "content_id": "1211240380904",
+                                        "addressLine1": "21800 Marylee Street, Unit 62",
+                                        "addressLine2": "Woodland Hills, California, 91367",
+                                        "addressLine3": null,
+                                        "email": null,
+                                        "phone": "+1 8185647513",
+                                        "phone2": null,
+                                        "fax": null,
+                                        "web": "http://www.1sourceits.com",
+                                        "State": null,
+                                        "Country": "United States",
+                                        "PostalCode": null,
+                                        "mapUrlTitle": "Get Directions",
+                                        "mapUrl": "https://www.google.com/maps?q=1 Source IT Solutions+21800 Marylee Street, Unit 62+Woodland Hills, California, 91367",
+                                        "filter": [
+                                            {
+                                                "$comment": "This is a list of partner/distributor",
+                                                "name": "Symantec Silver Partner"
+                                            }
+                                        ]
+                                    },
+                                ]
+                            }
+                        ]     
+                    }
+                ]
+            }
+        }
+    ],
+    "RelatedResources": [],
+    "body_bottom": null,
+    "meta_description": "Symantec Enterprise Partner Locator",
+    "TimeTakenToExecuteEndPointUrl": {
+        "1211240430819_GeneralPage2Column": 0.441162
+    },
+    "siteribbon": {
+        "ribbon_link": {
+            "content_id": "1211208995337",
+            "content_type": "Page",
+            "title": "Cookie Policy",
+            "_url_": "company/legal/cookie-policy",
+            "target": "_self",
+            "is_iframe_modal": "No",
+            "ShowInNavigation": "Yes",
+            "ShortTitle": "Cookie Policy"
+        },
+        "display_ribbon": "Yes"
+    },
+    "CTA": [],
+    "BreadcrumbList": [
+        {
+            "position": 1,
+            "item": {
+                "name": "Company",
+                "_url_": "/company/about-us",
+                "target": "_self"
+            },
+            "ShowInNavigation": "Yes"
+        },
+        {
+            "position": 2,
+            "item": {
+                "name": "Find a Partner",
+                "_url_": "company/oem-partners",
+                "target": "_self"
+            },
+            "ShowInNavigation": "Yes"
+        },
+        {
+            "position": 3,
+            "item": {
+                "name": "Partnering with CA Technologies",
+                "_url_": "company/partners/ca-technologies",
+                "target": "_self"
+            },
+            "ShowInNavigation": "Yes"
+        },
+        {
+            "position": 4,
+            "item": {
+                "name": "Symantec Partner Locator",
+                "_url_": "company/partners/ca-technologies/symantec-partner-locator",
+                "target": "_self"
+            },
+            "ShowInNavigation": "Yes"
+        }
+    ],
+    "leftNav": {},
+    "timetaken_for_total_generic_json": 1.026202,
+    "timestamp_Generic_json_Generated_on": "2020-05-28 08:29:22 - GMT"
+}

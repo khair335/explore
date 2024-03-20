@@ -1,0 +1,19 @@
+/*
+* templates/stackd.scss
+*/
+// styling for stacked page template 
+
+
+@import "../base/base";
+
+
+// Style for onetrust button. /company/legal/privacy/cookie-policy
+.support-stacked {
+    #ot-sdk-btn.ot-sdk-show-settings {
+        margin-top: 1rem !important;
+        @extend .bttn;
+        @extend .primary-bttn;
+        border: none;
+        color: $color-white;
+    }
+}

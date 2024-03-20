@@ -1,0 +1,30 @@
+/**
+ *  @file analyst-report-landing.scss
+ *  style for analyst report landing page
+ *  
+ */
+//
+//#AnalystReportLanding {
+    .AnalystReportCard {
+        .analyst-report-card-image {
+            height: 165px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        img {
+            position: absolute;
+            margin: auto !important;
+            display: inline-block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    #resultsFooter button{
+        padding-left: 0;            //mods button  _buttons.scss
+        padding-right: 0;           //mods button
+    }
+//}

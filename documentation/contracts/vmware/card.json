@@ -1,0 +1,45 @@
+"content_block":{
+    "content_id": "blted4a50c3de6b8c2a_en-us",
+    "content_type": "content_block",
+    "template": "Default",
+    "theme":"Standard",
+    "locale": "en-us",
+    "title": "Rally Software gives the business predictability and adaptability.",
+    "section_title": "Overview",
+    "tab_title": null,
+    "hash_tag_name": "Overview",
+    "body": "<p>When you have a source of truth, both on a macro and micro level, teams become informed, engaged and happy. Leadership is empowered to quickly pivot with data driven information and confidently speak about their company\u2019s future.</p>",
+    "image": {
+        "src": "/media/blt4ac44e0e6c6d8341/blt3ea0fe367afde7fc/60371c0c5e5e145d97c6ad14/hero-rally-software.jpg",
+        "width": 1920,
+        "height": 455,
+        "title": "hero-rally-software.jpg",
+        "alt": "hero-rally-software.jpg",
+        "enlarge": "false"
+    },
+    "image_position": "Right",
+    "video": {
+        "content_id": "blt618ad4e73c377098_en-us",
+        "content_type": "video",
+        "locale": "en-us",
+        "subtype": "Brightcove",
+        "media_id": "6328981531112",
+        "title": "Rally Software for Enterprise Agile Management",
+        "alt": "Rally Software for Enterprise Agile Management"
+    },
+    "inline_video_display": "Yes",
+    "links": [
+        {
+            "content_id": "blt618ad4e73c377098_en-us",
+            "content_type": "video",
+            "uid_orginal": "blt618ad4e73c377098",
+            "title": "Rally Software for Enterprise Agile Management",
+            "url": "/video/6328981531112",
+            "target": "_self",
+            "subtype": "Brightcove",
+            "no_follow ": false,
+            "media_id": "6328981531112",
+            "alt": "Rally Software for Enterprise Agile Management"
+        }
+    ]
+}

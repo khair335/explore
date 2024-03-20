@@ -1,0 +1,29 @@
+/*
+* components/featured.scss
+* Styling for vmware featured content block list on explore site. https://www.vmware.com/explore/us.html
+* 3 columns with left being transparent.
+*/
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/icons";
+
+
+.Featured {
+	
+
+	.featured-cards {
+		color: $color-white;
+
+		// JD - Test for the featured cards to be transparent.
+		.card {
+			background-color: transparent;
+			border: none;
+			.card-footer {
+				background-color: transparent;
+				border: none;
+			}
+		}
+	}
+}

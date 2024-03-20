@@ -1,0 +1,149 @@
+/*
+Copyright (c) 2015, Chris Simpson, with Reserved Font Name: "Metropolis".
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+*/
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-Thin.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-Thin.woff') format('woff');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-ThinItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-ThinItalic.woff') format('woff');
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-ExtraLight.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-ExtraLight.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-ExtraLightItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-ExtraLightItalic.woff') format('woff');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-Light.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-LightItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-LightItalic.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-SemiBold.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-SemiBold.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-SemiBoldItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-SemiBoldItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-Medium.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-Medium.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-MediumItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-MediumItalic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-Bold.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-BoldItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-BoldItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-Black.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-Black.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-BlackItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-BlackItalic.woff') format('woff');
+	font-weight: 800;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-ExtraBold.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-ExtraBold.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('./metro/woff2/Metropolis-ExtraBoldItalic.woff2') format('woff2'),
+		url('./metro/woff/Metropolis-ExtraBoldItalic.woff') format('woff');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}

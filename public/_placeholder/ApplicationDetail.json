@@ -1,0 +1,239 @@
+{
+	"_comment" : "Sample Page https://www.broadcom.com/applications/industrial-automotive/motor-control",
+	"AssetType" : "AVG_Application_C",
+	"AssetID" : "1211173624889",
+	"SubType" : "Application",
+	"Template" : "ApplicationDetail",
+	"Locale" : "avg_en",
+	"CTA" : [{
+			"AssetType" : "Page",
+			"AssetID" : "1211173714976",
+			"CTA_Name" : "Contact Sales",
+			"_url_" : "https://www.broadcom.com/company/contact/sales",
+			"target_window" : "blank"
+		}, {
+			"AssetType" : "Page",
+			"AssetID" : "1211131435457",
+			"CTA_Name" : "Request Info",
+			"_url_" : "http://avagoresponsecenter.com/693/",
+			"target_window" : "Modal Window"
+		}
+	],
+	"BreadcrumbList" : [{
+			"position" : 1,
+			"item" : {
+				"name" : "Applications",
+				"_url_" : "https://www.broadcom.com/applications/"
+			}
+		}, {
+			"position" : 2,
+			"item" : {
+				"name" : "Industrial and Automative",
+				"_url_" : "https://www.broadcom.com/applications/industrial-automotive/"
+			}
+		}, {
+			"position" : 3,
+			"item" : {
+				"name" : "Motor Control",
+				"_url_" : ""
+			}
+		}
+	],
+	"_url_" : "https://www.broadcom.com/applications/industrial-automotive/motor-control",
+	"ApplicationName" : "Motor Control",
+	"ApplicationOrder" : "3",
+	"PageTitle" : "Motor Control | Industrial | Applications | Broadcom Limited",
+	"Description" : "Broadcom industrial solutions help provide elements of a closed loop motor control system. Broadcom products cover a number of the elements of motor control systems including current sensing and control of the motor, encoders to sense the position and speed of the motor, and communications interfaces that couple the motor control logic to other parts of system.",
+	"Body2" : "",
+	"ApplicationSummary " : "Broadcom products cover a number of the elements of a closed loop motor control system including current sense and control, position and speed of the motor.",
+	"ApplicationImage" : {
+		"AssetID" : "1211169857804",
+		"AssetType" : "AVG_Image_C",
+		"ImageName" : "Hock E. Tan - new",
+		"AltText" : "Hock E. Tan",
+		"Image_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg",
+		"ProductThumbnailFile5_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg"
+	},
+	"BlockDiagram" : {
+		"AssetType" : "AVG_Block_P",
+		"AssetID" : "1211173624889",
+		"SubType" : "BlockDiagram",
+		"Template" : "",
+		"Locale" : "avg_en",
+		"BlockDiagramName" : "Motor Control",
+		"Description" : "",
+		"ApplicationImage" : {
+			"AssetID" : "1211169857804",
+			"AssetType" : "AVG_Image_C",
+			"ImageName" : "Block Diagram Motor Control",
+			"AltText" : "Block Diagram Motor Control",
+			"Image_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg",
+			"ProductThumbnailFile5_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg"
+		},
+		"Status" : "Active",
+		"Blocks" : [{
+				"AssetType" : "AVG_Block_P",
+				"AssetID" : "1211173624889",
+				"SubType" : "BlockDiagram",
+				"Template" : "",
+				"Locale" : "avg_en",
+				"BlockName" : "Gate Driver",
+				"Coordinates" : "(82,62);(85,113);(135,111);(134,67)",
+				"Iplacement" : "bottom",
+				"FeaturedProductCategories" : [{}, {}
+				]
+			}, {
+				"AssetType" : "AVG_Block_P",
+				"AssetID" : "1211173624889",
+				"SubType" : "BlockDiagram",
+				"Template" : "",
+				"Locale" : "avg_en",
+				"BlockName" : "Gate Driver",
+				"Coordinates" : "(82,62);(85,113);(135,111);(134,67)",
+				"Iplacement" : "bottom",
+				"FeaturedProductCategories" : [{}, {}
+				]
+			}, {
+				"AssetType" : "AVG_Block_P",
+				"AssetID" : "1211173624889",
+				"SubType" : "BlockDiagram",
+				"Template" : "",
+				"Locale" : "avg_en",
+				"BlockName" : "Gate Driver",
+				"Coordinates" : "(82,62);(85,113);(135,111);(134,67)",
+				"Iplacement" : "bottom",
+				"FeaturedProductCategories" : [{}, {}
+				]
+			}
+		]
+	},
+	"Status" : "Active",
+	"SocialMediaImage" : {
+		"AssetID" : "1211169857804",
+		"AssetType" : "AVG_Image_C",
+		"ImageName" : "Block Diagram Motor Control",
+		"AltText" : "Block Diagram Motor Control",
+		"Image_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg",
+		"ProductThumbnailFile5_url_" : "https://www.broadcom.com/media/1211169857804/landing-cl-hocktan.jpg"
+	},
+	"FeaturedProducts" : [{
+			"TBD" : "I think this is not in use"
+		}, {}, {}
+	],
+	"RelatedDocuments" : [{
+			"TBD" : "I think this is not in use"
+		}, {}
+	],
+	"ProductCategories" : [{
+			"AssetID" : "1210952487042",
+			"AssetType" : "AVG_Product_P",
+			"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+			"CategoryName" : "Wireless RF & Microwave Demo Boards",
+			"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+			"CategoryThumbnail" : {
+				"AssetID" : "1421089856110",
+				"AssetType" : "AVG_Image_C",
+				"ImageName" : "Wireless Demos",
+				"AltText" : "Wireless Demos",
+				"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+			},
+			"Child_Categories" : [{
+					"AssetID" : "1210952487042",
+					"AssetType" : "AVG_Product_P",
+					"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+					"CategoryName" : "Wireless RF & Microwave Demo Boards",
+					"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+					"CategoryThumbnail" : {
+						"AssetID" : "1421089856110",
+						"AssetType" : "AVG_Image_C",
+						"ImageName" : "Wireless Demos",
+						"AltText" : "Wireless Demos",
+						"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+					}
+				}, {
+					"AssetID" : "1210952487042",
+					"AssetType" : "AVG_Product_P",
+					"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+					"CategoryName" : "Wireless RF & Microwave Demo Boards",
+					"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+					"CategoryThumbnail" : {
+						"AssetID" : "1421089856110",
+						"AssetType" : "AVG_Image_C",
+						"ImageName" : "Wireless Demos",
+						"AltText" : "Wireless Demos",
+						"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+					}
+				}
+			]
+		}, {
+			"AssetID" : "1210952487042",
+			"AssetType" : "AVG_Product_P",
+			"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+			"CategoryName" : "Wireless RF & Microwave Demo Boards",
+			"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+			"CategoryThumbnail" : {
+				"AssetID" : "1421089856110",
+				"AssetType" : "AVG_Image_C",
+				"ImageName" : "Wireless Demos",
+				"AltText" : "Wireless Demos",
+				"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+			},
+			"Child_Categories" : [{
+					"AssetID" : "1210952487042",
+					"AssetType" : "AVG_Product_P",
+					"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+					"CategoryName" : "Wireless RF & Microwave Demo Boards",
+					"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+					"CategoryThumbnail" : {
+						"AssetID" : "1421089856110",
+						"AssetType" : "AVG_Image_C",
+						"ImageName" : "Wireless Demos",
+						"AltText" : "Wireless Demos",
+						"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+					}
+				}, {
+					"AssetID" : "1210952487042",
+					"AssetType" : "AVG_Product_P",
+					"_url_" : "https://www.broadcom.com/products/wireless/demo-boards/",
+					"CategoryName" : "Wireless RF & Microwave Demo Boards",
+					"CategoryAbstract" : "<strong> These parts are at end of life and should not be used in new designs.</strong> A wide range of demonstration circuit boards for use in testing the performance of MMICs and discrete solutions.",
+					"CategoryThumbnail" : {
+						"AssetID" : "1421089856110",
+						"AssetType" : "AVG_Image_C",
+						"ImageName" : "Wireless Demos",
+						"AltText" : "Wireless Demos",
+						"Image_url_" : "https://www.broadcom.com/media/1421089856110/prod-wireless-demos.jpg"
+					}
+				}
+			]
+		}
+	],
+	"PublishDate" : "Wednesday, May 2, 2007 7:00:00 PM CDT",
+	"MetaDescription" : "Broadcom's products cover a wide variety of application requirements in the motor control industry.",
+	"RelatedResources" : [{
+			"AssetType" : "AVG_Document_C",
+			"AssetID" : "1211168569166",
+			"SubType" : "Document",
+			"_url_" : "https://docs.broadcom.com/docs/electric_trains_brochure",
+			"data-type" : "regular",
+			"data-expired" : "false"
+		}, {
+			"AssetType" : "AVG_Document_C",
+			"AssetID" : "1211168569166",
+			"SubType" : "Document",
+			"_url_" : "https://docs.broadcom.com/docs/electric_trains_brochure",
+			"data-type" : "regular",
+			"data-expired" : "false"
+		}, {
+			"AssetType" : "AVG_News_C",
+			"AssetID" : "1211137976839",
+			"SubType" : "LimelightVideo",
+			"VideoThumb" : "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+			"LimelightURL" : "/images/544/611/1502485544611/Strategy_alternatives_2038x660_RF_GI-688086729_1023_1x.jpg",
+			"AltText" : "AltText",
+			"MediaDescription" : "MediaDescription",
+			"VideoDate" : "VideoDate",
+			"VideoDuration" : "18:05"
+		}
+	]
+}

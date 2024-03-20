@@ -1,0 +1,337 @@
+@import "../base/variables";
+@import "../base/link";
+@import "../base/icon";
+
+
+#video-library-loading {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    .loading {
+        position: absolute;
+        left: 50%;
+    }
+
+}
+
+#featured {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: linear-gradient(#474a4b, #101012);
+    z-index: 30;
+
+    .featured-info {
+        color: $color-white;
+        p a {
+            color: $color-social--twitter;  //mods <a> - normally color-secondary but that is too dark on black background - this is lighter blue
+        }
+        a:hover {
+          color: $color-secondary--dark;
+        }
+
+        h3 span {
+            display: block;
+            font-size: 18px;
+            margin-top: 10px;
+            color: $color-grey--650;
+        }
+    
+        & ul.social-share {
+            background: transparent;
+        }
+
+        button {
+            padding: 0;                             //mods button _buttons.scss
+            background-color: transparent;          //mods button
+        }
+    
+        .img-wrapper {
+            //aspect-ratio: 16 / 9;
+            width: 200px;
+            margin-top: 20px;
+        }
+    
+        .featured-also {
+            margin-top:20px;
+        }
+
+        h3.featured-also {
+            font-size:20px;
+        }
+    }
+}
+
+#playlist-title, #playlist-menu-btn {
+    background-color: $color-grey--800;
+    color: $color-white;
+    min-height: 44px;
+    z-index: 30;
+}
+
+#playlist-title h2 {
+        font-size: 24px;
+        color: inherit;
+        margin-top: 8px;
+    }
+
+#playlist-menu-btn {
+    
+    & .playlist-more {
+        font-size: 18px;                 //mods button _buttons.scss
+        right: 0;
+        top: 10px;
+        position: absolute;
+        margin-right: 1em;
+        padding: 0;                     //mods button _buttons.scss
+
+        & span {
+            margin-right: 6px;
+
+             &.brcmicon-caret-down::after {
+                content: " More Channels";
+                font-family: $font-family--secondary;
+             }
+
+             &.brcmicon-caret-up::after {
+                content: " Close Menu";
+                font-family: $font-family--secondary;
+             }
+        }
+
+        &:hover {
+            background-color: $color-grey--800;                 //mods button _buttons.scss
+        }
+
+    }
+}
+
+.allChannels {
+    position:absolute;
+    padding-top: 10px;
+
+    span {
+        margin-right: 6px;
+    }
+}
+
+#playlist-menu {
+    background-color: $color-grey--600;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    transform: translateY(-110%);
+    transition: transform .5s ease-in;
+    z-index: 20;
+    box-shadow: 0px 5px 3px #999;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+
+    &.show-menu {
+        transform: translateY(0%);
+        transition: transform .5s ease-in;
+        max-height: 600px;
+        transition: max-height 0.25s ease-in;
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    & li {
+        margin: .5em 1em;
+        list-style:none;
+    }
+
+    & button {
+
+        &.active {
+            color:$color-black;
+            border-bottom: 2px solid $color-primary;
+        }
+    }
+    
+
+}
+
+#all-playlists {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+
+    .paging-wrapper {
+        position: absolute;
+        bottom: -20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    button.link-bttn {                              // <== uses new button styling
+        color: $color-secondary;                    //TEMP STYLING till new buttons
+        font-size: $font-size-lg;                   //DELETE / MODIFY on install
+        font-family: $font-family--secondary;
+        background-color: transparent;
+        margin-right: 20px;
+    }
+
+    button.hide {display: none;}
+	
+}
+
+#playlist-view 
+    {position: relative;
+    
+        .loading-wrapper {
+            right: 50%;
+            margin-top: -50px;
+        }
+    }
+
+
+.channel-card, .video-card {
+    width: 250px;
+    border: 1px solid $color-grey--700;
+    margin: 2em 1%;
+
+    button {
+        text-align: left;
+    }
+    
+    & .img-wrapper {
+        z-index: 1000;
+        background-color: $color-white;
+        opacity: .99;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        & p {
+            height: 1.1em;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            text-overflow: ellipsis;
+            padding: 0 6px 0 6px;
+           background-color: $color-white;
+        }
+    }
+
+    & h4 {
+        color: $color-secondary--dark;
+        margin: .75em 6px .25em 6px;
+        line-height: 1.2!important;
+        z-index: 1000;
+    }
+
+    & h5 {
+        padding-top:15px
+    }
+
+    & p {
+       
+        padding: 8px;
+        z-index: 1000;    
+    }
+
+    & .desc-time {
+        font-size: 16px;
+        color: $color-grey--900;
+        display: inline-block;
+          
+    }
+}
+
+.channel-card {
+    position: relative;
+    overflow: hidden;
+
+    & button {
+        z-index: 1010;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    background-color: $color-white;
+
+
+    button {
+
+        h4 span {
+            display: block;
+            font-size: 14px;
+            color: $color-grey--650;
+        }
+    }
+
+    .info-wrap {
+        margin: 10px 0;
+        padding:0 5px;
+        display: flex;
+        justify-content: space-between;
+        cursor:pointer;
+
+        .info {
+            font-size: 18px;
+            color: $color-secondary;
+        }
+    }
+
+}
+
+.modal {
+
+}
+
+.modal-body {
+
+    font-size: 16px;
+
+    .modal_buttonWrap {
+        display: flex;
+        justify-content: space-evenly;
+
+        .play_modal {
+            margin: 15px 15px 7px 0px;
+            .lnk {color:$color-white}
+
+            span {
+                margin-left: 5px;
+            }
+        }
+    }
+
+}
+.modal-backdrop.show {
+    opacity: 0;
+}
+.modal-content{
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+    0 0  0 2px rgb(255,255,255),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);;
+    background-color: $color-grey--600;
+    border: 1px #999 solid;
+}
+
+
+

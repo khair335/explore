@@ -1,0 +1,577 @@
+{
+	"_comment": "Sample Parametric Search -https://cmsstaging.broadcom.com/products/storage/raid-controllers/",
+	"AssetType": "AVG_Product_P",
+	"AssetID": "1211125816395",
+	"Template": "ProductFamilyC",
+	"Locale": "avg_en",
+	"CTA": [{
+			"AssetType": "Page",
+			"AssetID": "1211130599008",
+			"CTA_Name": "CONTACT SALES",
+			"_url_": "https://cmsstaging.broadcom.com/how-to-buy/#sales",
+			"target_window": "_blank"
+		},
+		{
+			"AssetType": "Page",
+			"AssetID": "1211131435457",
+			"CTA_Name": "REQUEST INFO",
+			"_url_": "http://avagoresponsecenter.com/693/",
+			"target_window": "Modal Window"
+		}
+	],
+	"BreadcrumbList": [{
+			"position": 1,
+			"item": {
+				"name": "Products",
+				"_url_": "https://cmsstaging.broadcom.com/products/"
+			}
+		},
+		{
+			"position": 2,
+			"item": {
+				"name": "Storage Adapters, Controllers, and ICs",
+				"_url_": "https://cmsstaging.broadcom.com/products/storage/"
+			}
+		},
+		{
+			"position": 3,
+			"item": {
+				"name": "RAID Controller Cards",
+				"_url_": ""
+			}
+		}
+	],
+	"CategoryName": "RAID Controller Cards",
+	"OEMQualifiedDownloads": "Yes or No or blank",
+	"CategoryOEMList": [
+		"Cisco",
+		"Dell",
+		"EMC",
+		"Emulux",
+		"HPE"
+	],
+	"Parametric Overlay Attributes": [],
+	"ShowProductLine": "Yes or No or blank",
+	"Parametric Parts": [],
+	"ShowDocumentText": "Yes or No or blank",
+	"ParametricView": "Grid or List or blank",
+	"multilineparametric": "Yes or No or blank",
+	"DisplaySearchBar": "Yes or No or blank",
+	"CategoryTitle": "RAID Controller Cards",
+	"ShortTitle": "",
+	"BrowserTitle": "",
+	"CategorySummary": "",
+	"CategoryAbstract": "MegaRAID® controller cards are the most widely deployed RAID data protection architecture. Our RAID controllers address virtually all direct-attached storage (DAS) environments – SATA or SAS, NVMe (PCIe) hard drives or solid state drives (SSDs), internal or external connectivity.",
+	"AdditionalDescription": "",
+	"ReadMoreBody": "",
+	"RelatedPromoTitle": "",
+	"RelatedResources": [{
+		"item": {
+			"Type": "PDF",
+			"AssetID": "1211131979796",
+			"AssetType": "AVG_Document_C",
+			"Title": "Storage Solutions Selection Guide",
+			"_url_": "https://docs.broadcom.com/docs/AV00-0315EN"
+		}
+	}],
+	"DisplayStandaloneProducts": "Yes or No or blank",
+	"MetaDescription": "Our RAID controllers address virtually all direct-attached storage (DAS) environments – SATA or SAS, hard drives or solid state drives (SSDs)",
+	"MetaKeywords": "",
+	"CrossLinkpage": [],
+	"ShowCompareButton": "Yes or No or blank",
+	"CategoryDescription": "Ensure critical data is protected and available with the most widely deployed RAID data protection architecture. Our broad range of MegaRAID® controller cards address virtually all direct-attached storage (DAS) environments – SATA or SAS, NVMe (PCIe), hard disk drives (HDDs) or solid state drives (SSDs), server-based storage or external direct-attached JBODs and storage enclosures.MegaRAID® controller cards feature: Reliable, trusted RAID data protection for critical applications Performance to support the most demanding server storage workloads and solid state drives Architectural and deployment flexibility with internal and external connectivity options Broad interoperability with server and storage infrastructure to ease integration Additional peace of mind and performance with optional features including flash cache protection and self-encrypting drive management",
+	"ChildCategories": [{
+			"Category Name": "<span class=no-uppercase>12Gb/s</span> SATA + SAS RAID +NVM<span class=no-uppercase>e</span> Raid",
+			"ParametricList_Attributes": [{
+					"Select": "Select"
+				},
+				{
+					"PartNumber": "PartNumber"
+				},
+				{
+					"CACHE_PROTECTION": "CACHE_PROTECTION"
+				},
+				{
+					"RAID_MANAGEMENT_SOFTWARE": "RAID_MANAGEMENT_SOFTWARE"
+				},
+				{
+					"RAID-ON-CHIP_CONTROLLER": "RAID-ON-CHIP_CONTROLLER"
+				},
+				{
+					"CACHE_MEMORY": "CACHE_MEMORY"
+				},
+				{
+					"HOST_BUS_TYPE": "HOST_BUS_TYPE"
+				},
+				{
+					"PHYSICAL_DIMENSIONS": "PHYSICAL_DIMENSIONS"
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL_PORTS"
+				},
+				{
+					"DATA_TRANSFER_RATES": "DATA_TRANSFER_RATES"
+				},
+				{
+					"DEVICES_SUPPORTED": "DEVICES_SUPPORTED"
+				},
+				{
+					"EXTERNAL_CONNECTORS": "EXTERNAL_CONNECTORS"
+				},
+				{
+					"MTBF": "MTBF"
+				},
+				{
+					"OPERATING_TEMPERATURE": "OPERATING_TEMPERATURE"
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL_PORTS"
+				},
+				{
+					"INTERNAL_CONNECTORS": "INTERNAL_CONNECTORS"
+				},
+				{
+					"OperatingSystem": "OperatingSystem"
+				},
+				{
+					"OPERATING_VOLTAGE": "OPERATING_VOLTAGE"
+				},
+				{
+					"REGULATORY_CERTIFICATIONS": "REGULATORY_CERTIFICATIONS"
+				},
+				{
+					"WARRANTY": "WARRANTY"
+				}
+			],
+			"ParametricListFilter_Attributes": [{
+					"HOST_BUS_TYPE": "HOST BUS TYPE",
+					"values": ["x8 lane PCI Express® 3.0", "x8 lane PCI Express® 2.0"]
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL PORTS",
+					"values": ["16", "8"]
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL PORTS",
+					"values": ["8"]
+				}
+			],
+			"products": [{
+					"PartNumber": "MegaRAID 9560-16i",
+					"ProductSummary": "PCIe 4.0 RAID controller allows users to increase performance and maximize endless design flexibility with Tri-Mode connectivity and NVMe devices",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9467-16i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID 9560-8i",
+					"ProductSummary": "Ensure data protection for performance-hungry applications in high-end servers utilizing PCIe 4.0 and a mix of internal SAS, SATA or NVMe storage devices",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9467-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 2.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID 9580-8i8e",
+					"ProductSummary": "Boost performance and deploy a seamless operation of SAS, SATA and NVMe storage devices from any system with PCIe 4.0 RAID controller",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9487-8i8e",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "8",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID 9480-8i8e",
+					"ProductSummary": "Provide increased bandwidth, IOPS performance and data protection with internal connectivity and external scalability to direct attached high connectivity applications",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9480-8i8e",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 2.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID 9440-8i",
+					"ProductSummary": "Enables endless design flexibility with the ability to operate NVMe, SAS, or SATA storage devices in a single drive bay",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-9440-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				}
+			]
+		},
+		{
+			"Category Name": "<span class=no-uppercase>12Gb/s</span> SATA + SAS RAID",
+			"ParametricList_Attributes": [{
+					"Select": "Select"
+				},
+				{
+					"PartNumber": "PartNumber"
+				},
+				{
+					"CACHE_PROTECTION": "CACHE_PROTECTION"
+				},
+				{
+					"RAID_MANAGEMENT_SOFTWARE": "RAID_MANAGEMENT_SOFTWARE"
+				},
+				{
+					"RAID-ON-CHIP_CONTROLLER": "RAID-ON-CHIP_CONTROLLER"
+				},
+				{
+					"CACHE_MEMORY": "CACHE_MEMORY"
+				},
+				{
+					"HOST_BUS_TYPE": "HOST_BUS_TYPE"
+				},
+				{
+					"PHYSICAL_DIMENSIONS": "PHYSICAL_DIMENSIONS"
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL_PORTS"
+				},
+				{
+					"DATA_TRANSFER_RATES": "DATA_TRANSFER_RATES"
+				},
+				{
+					"DEVICES_SUPPORTED": "DEVICES_SUPPORTED"
+				},
+				{
+					"EXTERNAL_CONNECTORS": "EXTERNAL_CONNECTORS"
+				},
+				{
+					"MTBF": "MTBF"
+				},
+				{
+					"OPERATING_TEMPERATURE": "OPERATING_TEMPERATURE"
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL_PORTS"
+				},
+				{
+					"INTERNAL_CONNECTORS": "INTERNAL_CONNECTORS"
+				},
+				{
+					"OperatingSystem": "OperatingSystem"
+				},
+				{
+					"OPERATING_VOLTAGE": "OPERATING_VOLTAGE"
+				},
+				{
+					"REGULATORY_CERTIFICATIONS": "REGULATORY_CERTIFICATIONS"
+				},
+				{
+					"WARRANTY": "WARRANTY"
+				}
+			],
+			"ParametricListFilter_Attributes": [{
+					"HOST_BUS_TYPE": "HOST BUS TYPE",
+					"values": ["x8 lane PCI Express® 3.0"]
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL PORTS",
+					"values": ["28", "24", "16", "8", "4", "6"]
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL PORTS",
+					"values": ["8", "4"]
+				}
+			],
+			"products": [{
+					"PartNumber": "MegaRAID SAS 9341-8i",
+					"ProductSummary": "Add robust data protection to small and medium business (SMB) applications like email and file servers",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9341-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9365-28i",
+					"ProductSummary": "Configure high-density storage servers with up to 28 drives via direct connection inside the box",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9365-28i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9361-24i",
+					"ProductSummary": "Unlock storage performance with high-port count 12Gb/s SATA+SAS PCIe RAID controller.",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9361-24i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9380-8i8e",
+					"ProductSummary": "Deliver high-performance and increased throughput to external JBOD storage enclosures with internal and external connectivity",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9380-8i8e",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9361-16i",
+					"ProductSummary": "Configure high-density servers requiring inside-the-box design flexibility and scalability",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9361-16i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				}
+			]
+		},
+		{
+			"Category Name": "<span class=no-uppercase>6Gb/s</span> SATA + SAS RAID",
+			"ParametricList_Attributes": [{
+					"Select": "Select"
+				},
+				{
+					"PartNumber": "PartNumber"
+				},
+				{
+					"CACHE_PROTECTION": "CACHE_PROTECTION"
+				},
+				{
+					"RAID_MANAGEMENT_SOFTWARE": "RAID_MANAGEMENT_SOFTWARE"
+				},
+				{
+					"RAID-ON-CHIP_CONTROLLER": "RAID-ON-CHIP_CONTROLLER"
+				},
+				{
+					"CACHE_MEMORY": "CACHE_MEMORY"
+				},
+				{
+					"HOST_BUS_TYPE": "HOST_BUS_TYPE"
+				},
+				{
+					"PHYSICAL_DIMENSIONS": "PHYSICAL_DIMENSIONS"
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL_PORTS"
+				},
+				{
+					"DATA_TRANSFER_RATES": "DATA_TRANSFER_RATES"
+				},
+				{
+					"DEVICES_SUPPORTED": "DEVICES_SUPPORTED"
+				},
+				{
+					"EXTERNAL_CONNECTORS": "EXTERNAL_CONNECTORS"
+				},
+				{
+					"MTBF": "MTBF"
+				},
+				{
+					"OPERATING_TEMPERATURE": "OPERATING_TEMPERATURE"
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL_PORTS"
+				},
+				{
+					"INTERNAL_CONNECTORS": "INTERNAL_CONNECTORS"
+				},
+				{
+					"OperatingSystem": "OperatingSystem"
+				},
+				{
+					"OPERATING_VOLTAGE": "OPERATING_VOLTAGE"
+				},
+				{
+					"REGULATORY_CERTIFICATIONS": "REGULATORY_CERTIFICATIONS"
+				},
+				{
+					"WARRANTY": "WARRANTY"
+				}
+			],
+			"ParametricListFilter_Attributes": [{
+					"HOST_BUS_TYPE": "HOST BUS TYPE",
+					"values": ["x8 lane PCI Express® 3.0", "x8 lane PCI Express® 2.0"]
+				},
+				{
+					"INTERNAL_PORTS": "INTERNAL PORTS",
+					"values": ["8", "4"]
+				},
+				{
+					"EXTERNAL_PORTS": "EXTERNAL PORTS",
+					"values": ["8"]
+				}
+			],
+			"products": [{
+					"PartNumber": "MegaRAID SAS 9266-4i",
+					"ProductSummary": "Supply critical, high-throughput small and medium business (SMB) applications with the bandwidth to meet user demands",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9341-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9266-8i",
+					"ProductSummary": "Support the internal connectivity and bandwidth needs of applications like databases and digital media",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9266-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9270-8i",
+					"ProductSummary": "Data protection for performance-hungry applications in mid-range server storage environments",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9270-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9271-4i",
+					"ProductSummary": "Cost-effective hardware RAID data protection and performance for smaller disk configurations",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9271-4i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9271-8i",
+					"ProductSummary": "Data protection solution for performance-hungry applications in mid-range server storage environments",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9271-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				}
+			]
+		},
+		{
+			"Category Name": "<span class=no-uppercase>6Gb/s</span> SATA + SAS RAID Simple",
+			"products": [{
+					"PartNumber": "MegaRAID SAS 9266-4i",
+					"ProductSummary": "Supply critical, high-throughput small and medium business (SMB) applications with the bandwidth to meet user demands",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9341-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9266-8i",
+					"ProductSummary": "Support the internal connectivity and bandwidth needs of applications like databases and digital media",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9266-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				},
+				{
+					"PartNumber": "MegaRAID SAS 9270-8i",
+					"ProductSummary": "Data protection for performance-hungry applications in mid-range server storage environments",
+					"_url_": "https://cmsstaging.broadcom.com/products/storage/raid-controllers/megaraid-sas-9270-8i",
+					"HOST_BUS_TYPE": "x8 lane PCI Express® 3.0",
+					"INTERNAL_PORTS": "16",
+					"EXTERNAL_PORTS": "8",
+					"ProductImage": {
+						"AssetID": "1211190111234",
+						"AssetType": "AVG_Image_C",
+						"AltText": "MegaRAID 9480-8i8e",
+						"Image_url_": "https://cmsstaging.broadcom.com/media/1211190111234/9480-8i8e_angled_(1).jpg"
+					}
+				}
+			]
+
+
+		}
+	]
+
+}

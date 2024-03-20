@@ -1,0 +1,305 @@
+/*
+* pages/home.scss
+*/
+// Styling for Broadcom homepage 
+
+@import "../base/variables";
+@import "../base/link";
+@import "../base/transitions";
+
+
+#designToday {
+	h1 {
+		margin-top: 30px;
+		@media only screen and (max-width: 992px) {
+			text-align: center;
+		}
+	}
+	.home-cta {
+		margin-bottom: 10px;
+		text-align: center;
+		li {
+			max-width: 20%;
+			width: 15%;
+			//margin-right: 1%;
+			vertical-align: top;
+			margin-top: 30px;
+			display: inline-block;
+			text-align: center;
+			@media only screen and (max-width: 768px) {
+				width: 100%;
+				display: block;
+				max-width: none;
+			}
+			a {
+				&:hover{
+					picture {
+						background-color: transparent;
+						filter: invert(48%) sepia(50%) saturate(2997%) hue-rotate(162deg) brightness(88%) contrast(101%);
+						outline-width: 2px;
+						outline-style: solid;
+					}
+				}
+				.design-today-image {
+					position: relative;
+					display: block;
+					width: 82px;
+					height: 82px;
+					margin: 0 auto 10px;
+					border-radius: 50%;
+					overflow: hidden;
+					border-radius: 50%;
+		            transition: background-color 250ms linear;
+					background-color: $color-secondary;
+				}
+
+				img {
+					display: inline-block;
+				}
+				
+				span {
+					clear: both;
+					display: block;
+					padding-left: 3px;
+				}
+			}
+		}
+	}
+}
+
+#shortCuts {
+	background: $color-grey--500;
+	padding-top: 1px;
+
+	.col-12 {
+		text-align: center;
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+			display: block;
+			max-width: none;
+			flex: none;
+		}
+		&:nth-child(1) {
+			.btn {
+				&:before {
+					background: url(/img/home/icon_support_blue.svg) center no-repeat;
+				}
+				&:hover, &.active {
+					&:before {
+						background: url(/img/home/icon_support_white.svg) center no-repeat;
+					}
+				}
+			}
+		}
+		&:nth-child(2) {
+			.btn {
+				&:before {
+					background: url(/img/home/icon_doc_blue.svg) center no-repeat;
+				}
+				&:hover, &.active {
+					&:before {
+						background: url(/img/home/icon_doc_white.svg) center no-repeat;
+					}
+				}
+			}
+		}
+		&:nth-child(3) {
+			.btn {
+				&:before {
+					background: url(/img/home/icon_security_blue.svg) center no-repeat;
+				}
+				&:hover, &.active {
+					&:before {
+						background: url(/img/home/icon_security_white.svg) center no-repeat;
+					}
+				}
+			}
+		}
+
+		
+		p {
+			margin-bottom: 20px;
+			background: $color-grey--500;
+			padding: 10px 10px 30px;
+			color: $color-grey--800;
+		}
+		.shortcuts-box {
+			background: $color-grey--500;
+			padding-top:30px;
+			margin-top:20px;
+		}
+		.btn {
+			    display: block;
+				background: #fff;
+				padding: 10px 40px 10px 56px;
+				font-family: $font-family--secondary;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				color: #005c8a;
+				border: 1px solid #005c8a;
+				position: relative;
+				overflow: hidden;
+				z-index: 1;
+				transition: .5s ease-in-out;
+
+				&:before {
+					content: "";
+					position: absolute;
+					height: 19px;
+					width: 20px;
+					margin-left: -25px;
+					margin-top: 1px;
+					transition: 0.5s ease-in-out;
+					background-size: contain!important;
+				}
+				&:after {
+					content: '';
+					position: absolute;
+					left: -1px;
+					top: 0;
+					background-color: $color-secondary;
+					transform: translateX(-101%);
+					transition: 0.5s ease-in-out;
+					width: 100%;
+					height: 100%;
+					z-index: -1;
+				}
+				&:hover, &.active {
+					//background:$color-secondary--dark;
+					text-decoration:none;
+					color: $color-white;
+					&:after {
+						left: 0;
+						transform: translateX(0);
+					}
+				}
+				&:focus {		// ACCESSIBILITY: JD
+					border: 1px $color-primary dotted;
+				}
+		}
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	#featuredLinks {
+		background-image: none;
+	}
+}
+
+#featuredLinks {
+	color: $color-grey--800;
+	background-color:$color-grey--500 ;
+	padding-bottom: 80px;
+	//@extend .halftone-single;
+
+	.container {
+		//margin-top: 10px;
+		.content-block, .loaded { height: 100%; }
+		.loaded {
+			height: 100%;		// HACK: JD - Is this a hack? We needed a way to load dynamic content and we always have a wrapper class. This is just a fix for the home page.
+		}
+		.grey-container {
+			margin-top: 40px;
+    		background: $color-white;
+    		position: relative;
+    		height: 100%;
+			padding-bottom:15px;
+    		@media only screen and (max-width: 992px) {
+    			height: auto;
+    		}
+    		span.itemIcon {
+				font-size: 60px;
+				margin-top: 20px;
+				color: $color-primary;
+				position: relative;
+				left: calc(50% - 27px);
+				text-align: center;
+			}
+			h2 {
+				margin: 15px 0;
+				padding: 3px 15px;
+				font-weight: 500;						//mods h2 _base.scss
+				color: $color-primary;
+				font-size: 22px;						//mods h2
+				text-align: center;
+				letter-spacing: .35px;
+				font-kerning: normal;
+			}
+			ul {
+				padding: 0 15px;
+				float: left;
+				width: 100%;
+				display: block;
+				list-style-type: none;
+				.item {
+					margin-bottom: 20px;
+					float: left;
+					width: 100%;
+				}
+				li {
+					.date {
+						padding: 0;
+						font-size: $font-size-lg;
+						display: block;
+					}
+				}
+			}
+			.wrapper {
+				padding: 10px 15px;
+			}
+			.featuredNews {
+				ul {
+					li {
+						margin-bottom: 20px;
+					}
+				}
+			}
+			.featuredProducts {
+				ul {
+					&.moreProducts {
+						display: none;
+					}
+				}
+			}
+			.featuredVideo {
+				#mediaDescription {
+					margin: 10px 0 20px;
+				}				
+			}
+			.more {
+				position: absolute;
+				bottom: 35px;
+				left: 1px;
+				font-size: 20px;								//mods button _button.scss
+				text-align: center;								//mods link-bttn 
+				width: 100%;
+				@media only screen and (max-width: 992px) {
+					position: static;
+					display: block;
+    				padding-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+#aboutTag {
+	margin: 100px 0 -100px;
+	overflow: hidden;
+
+	@media only screen and (max-width: 992px) {
+		margin: 30px 0 30px;
+		.concentric-circles-right {
+			display: none;
+		}
+	}
+	img {
+		@media only screen and (max-width: 992px) {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+	}
+	p {
+		padding: 0 15px 10px;
+	}
+}

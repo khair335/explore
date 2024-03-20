@@ -1,0 +1,56 @@
+/*
+* pages/executives.scss
+*/
+// Styling for executives page
+
+@import "../base/variables";
+
+.executive-tab{
+    .nav-tabs{
+        margin: 0 0 30px;
+
+        .nav-item{
+            margin-bottom: 10px;
+        }
+    }
+    .executive-item{
+        min-height: 175px;
+        margin-bottom: 50px;
+        &--image{
+            float: left;
+            img{
+                border-radius: 4px;
+                width: 100px;
+                height: 145px;
+            }
+        }
+        &--content{
+            overflow: hidden; 
+            padding-left: 10px;
+            font-family: $font-family--secondary;
+            
+            h3{
+                font-size: 18px;
+                font-weight: 500;                       //mods h3 _base.scss
+                margin-bottom: 20px;
+
+               
+            }
+        }
+    }
+}
+.executive-detail {
+	.excutv-img-box {
+		img {
+			width: 100%;
+		}
+	}
+    h3{
+    color: $color-primary !important;
+    }
+    .executive-title {
+        padding: 15px 0 20px 0;
+        font-weight: 600;
+        line-height: 1.2!important;
+    }
+}

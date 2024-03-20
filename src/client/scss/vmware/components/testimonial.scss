@@ -1,0 +1,49 @@
+/*
+* components/testimonial.scss
+*/
+// Styling for broadcom custom testimonial
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/icons";
+
+
+
+
+.TestimonialCard, .TestimonialHorizontalCard {
+	border: 0;
+	.card-body {
+		padding: 50px 60px;
+	}
+	.quote {
+		font-size: 32px;
+		line-height: 42px;
+		text-align: center;
+		margin-bottom: 20px;
+		position: relative;
+		&:before {
+			content: "\201C";
+		}
+		&:after {
+			content: "\201D";
+		}
+		> * {
+			display: contents;
+		}
+		
+	}
+	.signature, .source{
+       font-size: 18px;
+	   line-height: 24px;
+	   font-style: italic;
+	   text-align: center;
+	}
+    
+	.quote-image img {
+		display: block;
+  		margin: auto;
+
+	}
+	
+}

@@ -1,0 +1,15 @@
+{
+	"body_hightlights": [
+	  {
+		"highlight_title": "## String. Title for anchor tags in sub menu ##",
+		"hashTagName": "## String. The anchor tag name, used by 'tabbedpageName' to link directly. Defaults to highlight_title if none exists ##",
+		"template": "Accordion",
+		"title": "## String. Optional. Title of this highlight. ##",
+		"$comment": "## Array. Required. items has one to many objects containing title and body",
+		"items": [{
+			"title": "## The title of the question.",
+			"body": "## The body of the question. CKeditor content"
+		}]
+	  }
+	]
+}
