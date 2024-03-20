@@ -241,3 +241,18 @@ export class BrightcoveVideoPlaylist extends Component {
             });
     }
 }
+
+/**
+ *  @brief Wrapper to get video data.
+ *  @details A promise to get the video.
+ *  @return {
+*     poster: // url to a poster image.
+*     views: // integer with number of views.
+*     title: // the title of the
+*     description: // the description
+*     session: // Session code.
+* }
+*/
+export const getBrightcoveMeta = (media_id) => {
+
+}

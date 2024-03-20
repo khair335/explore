@@ -3,8 +3,8 @@
  *  @brief Component for rendering a  video. Wrapper for any type of player..
  *  @details 
  */
-import React, { Component, PureComponent, Fragment } from 'react';
-import BrightcoveVideo, { BrightcoveVideoImage, BrightcoveVideoPlaylist } from 'components/BrightcoveVideo.jsx';
+import React, { Component, PureComponent, Fragment, useCase } from 'react';
+import BrightcoveVideo, { BrightcoveVideoImage, BrightcoveVideoPlaylist, getBrightcoveMeta } from 'components/BrightcoveVideo.jsx';
 import classnames from 'classnames';
 import { Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Playlist, msToTime } from 'components/LibraryElements.jsx';
@@ -350,4 +350,17 @@ export class VideoImage extends PureComponent {
     }
 }
 
-
+/**
+ *  @brief Wrapper to get video data.
+ *  @details A promise to get the video.
+ *  @return {
+ *     poster: // url to a poster image.
+ *     views: // integer with number of views.
+ *     title: // the title of the
+ *     description: // the description
+ *     session: // Session code.
+ * }
+ */
+export const getVideoMeta = (media_id) => {
+    return getBrightcoveMeta(media_id);
+}
