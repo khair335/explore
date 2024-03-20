@@ -1,0 +1,51 @@
+/*
+* components/carousel-standard.scss
+*/
+// Styling for broadcom custom testimonial
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/icons";
+
+$carousel-indicator-padding: 40px;
+
+.carousel-standard {
+
+    padding-bottom:  $carousel-indicator-padding;      // Give space for our indicator.
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(1) grayscale(100);
+
+    }
+
+    .carousel-indicators li {
+        background-color: $color-body;
+    }
+
+    // Featured card indicator
+    .featured-card-control {
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: relative;
+        }
+    }
+
+    .carousel-indicators-text, .carousel-indicators-image {
+        position: absolute;
+        right: 0;
+        bottom: -$carousel-indicator-padding;
+        left: 0;
+        z-index: 15;
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        margin-right: 15%;
+        margin-left: 15%;
+
+    }
+
+    
+}
