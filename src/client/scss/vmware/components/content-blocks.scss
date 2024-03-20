@@ -125,3 +125,37 @@
     }
   }
 }
+
+#continue-learning{
+  .section-title{
+    color: #fff;
+  }
+  .content-block-title{
+    color: #fff;
+  }
+  .featured-cards{
+    box-shadow: none;
+    padding: 0;
+  }
+  .card{
+    box-shadow: none;
+    padding: 0;
+  }
+  .lnk{
+    border: 1px solid hsl(0, 0%, 100%) !important;
+    color: hsl(0, 0%, 100%);
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    line-height: 1.8;
+    padding: 6px 23px !important;
+    &:after{
+      content: unset !important;
+    }
+    &:hover{
+      border-color: $color-white;
+      background-color: $color-white;
+      color: $color-ocean-700;
+    }
+  }
+}
