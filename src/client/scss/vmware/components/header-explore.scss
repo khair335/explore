@@ -126,6 +126,8 @@
   }
 
   .secondary_nav {
+    position: relative;
+    z-index: 10;
     .secondary-nav-top {
       display: flex;
 

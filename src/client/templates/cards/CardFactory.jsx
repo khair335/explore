@@ -4,7 +4,7 @@
  */
 import config from 'client/config.js';
 import utils, { scrollTrigger } from 'components/utils.jsx';
-import React, { Component, PureComponent, Suspense, lazy } from 'react';
+import React, { Component, PureComponent, Suspense, lazy, useState } from 'react';
 import Loading from 'components/Loading.jsx';
 import { Container, Row, Col, Card, CardBody, CardText, CardTitle } from 'reactstrap';
 import SiteLink from 'components/SiteLink.jsx';
@@ -13,6 +13,7 @@ import ImageBase from 'components/ImageBase.jsx';
 import { BodyResource } from 'components/Body.jsx';
 import Video, { VideoImageModal } from 'components/Video.jsx';
 import classnames from "classnames";
+
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
 
@@ -476,6 +477,24 @@ AnalystReportCard.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
+/**
+ *  @brief VideoCard
+ *  @details 
+ */
+export const VideoCard = (props) => {
+    return (
+        <div className="VideoCard card">
+            <div className="card-body">                
+                Video Card
+            </div>
+        </div>
+    );
+}
+
+/**
+ *  @brief The engine 
+ *  @details 
+ */
 // The available templates.
 const templates = {
     EmptyCard,
@@ -487,6 +506,7 @@ const templates = {
     TestimonialHorizontalCard,
     CaseCard,
     AnalystReportCard,
+    VideoCard,
 };
 
 /**
@@ -518,7 +538,7 @@ export function getCardFromTemplate(template, data, ...props) {
     }
 
     if (classes.length) {
-        
+
         return (
             <div className={classes.join(' ')}>
                 <Template data={data} {...props} />
@@ -527,6 +547,42 @@ export function getCardFromTemplate(template, data, ...props) {
     }
 
     return <Template data={data} {...props} />
+}
+
+export function applyCardType(card, default_type, image_position) {
+    let type = '';
+    switch (card.template) {
+        case "Default":
+            if (image_position === 'Left') {
+                type = 'LeftImageCard';
+            }
+            else if (image_position === 'Right') {
+                type = 'RightImageCard';
+            }
+            else {
+                type = default_type;
+            }
+            break;
+        case "Testimonial":
+            type = "TestimonialCard";
+            break;
+        case "TestimonialHorizontal":
+            type = "TestimonialHorizontalCard";
+            break;
+        case "video":
+            type = "VideoCard";
+            break;
+        default:
+            // Use the asset_type to determine card.
+            if (card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page') {
+                type = 'ProductCard';
+            }
+            else {
+                type = default_type;
+            }
+    }
+
+    return type || 'ImageCard';
 }
 
 /**
@@ -545,33 +601,7 @@ export function applyCardTypeToColumns(columns, default_type, image_position) {
         for (let row = 0; row < cards.length; row++) {
             for (let col = 0; col < cards[row].length; col++) {
                 if (cards[row][col]) {
-                    switch (cards[row][col].template) {
-                        case "Default":
-                            if (image_position === 'Left') {
-                                cards[row][col].card = 'LeftImageCard';
-                            }
-                            else if (image_position === 'Right') {
-                                cards[row][col].card = 'RightImageCard';
-                            }
-                            else {
-                                cards[row][col].card = default_type;
-                            }
-                            break;
-                        case "Testimonial":
-                            cards[row][col].card = "TestimonialCard";
-                            break;
-                        case "TestimonialHorizontal":
-                            cards[row][col].card = "TestimonialHorizontalCard";
-                            break;
-                        default:
-                            // Use the asset_type to determine card.
-                            if (cards[row][col].asset_type === 'Product' || cards[row][col].asset_type === 'ProductCategory' || cards[row][col].asset_type === 'Page') {
-                                cards[row][col].card = 'ProductCard';
-                            }
-                            else {
-                                cards[row][col].card = default_type;
-                            }
-                    }
+                    cards[row][col].card = applyCardType(cards[row][col], default_type, image_position);
                 }
 
             }

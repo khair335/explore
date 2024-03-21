@@ -71,11 +71,11 @@ $autopilot-footer-height-xl: 275px;
 // ======================================================================================
 
 @mixin base-style {						//buttons, table heads, etc.
-	background-color: $color-primary;
+	background-color: $color-grey--800;
 	color: $color-white;
 	font-family: $font-family--secondary;
 	&:hover {
-		background-color: $color-secondary;
+		background-color: $color-grey--700;
 		color: $color-white;
 	}
 }
@@ -106,7 +106,7 @@ $autopilot-footer-height-xl: 275px;
 @mixin link-style {						// buttons, links
 	background-color: transparent;
 	font-family: $font-family--secondary;
-	color: $color-primary;
+	color: $color-secondary;
 	font-weight: 500;            		//metro-mod
 	letter-spacing: .25px;            	//metro-mod
 		&:hover {
@@ -153,4 +153,3 @@ $autopilot-footer-height-xl: 275px;
 	  border-bottom: 2px solid $color-grey--500;
     }
 }
-

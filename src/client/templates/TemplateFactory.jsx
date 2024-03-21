@@ -6,6 +6,8 @@ import config from 'client/config.js';
 import { fetchAPI } from 'components/utils.jsx';
 import React, { Suspense, lazy } from 'react';
 import Loading from 'components/Loading.jsx';
+import classnames from 'classnames';
+
 const LatestNews = React.lazy(() => import('templates/LatestNews.jsx'));
 const LatestEvents = React.lazy(() => import('templates/LatestEvents.jsx'));
 const LatestProducts = React.lazy(() => import('templates/LatestProducts.jsx'));
@@ -41,8 +43,10 @@ const Iframe = React.lazy(() => import('templates/Iframe.jsx'));
 const Accordion = React.lazy(() => import('templates/AccordionPromo.jsx'));
 const ProductSuitesContentCard = React.lazy(() => import('templates/ProductSuitesContentCard.jsx'));		// BCCS10-6 Landing Product Suites
 const CarouselStandard = React.lazy(() => import('templates/CarouselStandard.jsx'));
-const CarouselFeatured = React.lazy(() => import('templates/CarouselFeatured.jsx'));
+const CarouselSplit = React.lazy(() => import('templates/CarouselStandard.jsx'));
+const CarouselFeatured = React.lazy(() => import('templates/CarouselStandard.jsx'));		// Same as split, but with arrows
 const Featured = React.lazy(() => import('templates/Featured.jsx'));		// https://www.vmware.com/explore/us.html Continue learning with fixed layout.
+const HorizontalTab = React.lazy(() => import('templates/HorizontalTab.jsx'));		// Same as split, but with arrows
 
 
 import(/* webpackPreload: true */ 'scss/components/content-blocks.scss');
@@ -85,8 +89,10 @@ const templates = {
 	Accordion,
 	ProductSuitesContentCard,
 	CarouselStandard,
+	CarouselSplit,
 	CarouselFeatured,
 	Featured,
+	HorizontalTab,
 };
 
 
@@ -196,10 +202,17 @@ export function getComponentFromTemplate(template, content_block, ...props) {
 	}
 
 	const theWrapper = (template, content_block, ...props) => {
+		let classes = ['content-block'];
+		
+		if (content_block.cta_style) {
+			classes.push(`theme-content-block-cta-${content_block.cta_style.toLowerCase()}`);
+		}
+		
+
 		if (content_block.hash_tag_name) {
 			return (
 				<div id={content_block.hash_tag_name} data-content-id={content_block.content_id}>
-					<div className="content-block">
+					<div className={classnames(classes)}>
 						{theTemplate(template, content_block, ...props)}
 					</div>
 				</div>
@@ -207,7 +220,7 @@ export function getComponentFromTemplate(template, content_block, ...props) {
 		}
 		else {
 			return (
-				<div className="content-block" data-content-id={content_block.content_id}>
+				<div className={classnames(classes)} data-content-id={content_block.content_id}>
 					{theTemplate(template, content_block, ...props)}
 				</div>
 			);
