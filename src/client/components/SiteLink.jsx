@@ -168,7 +168,7 @@ export default class SiteLink extends PureComponent {
 			if (!absolute.test(url) && !url.startsWith("/")) {
 				url = "/" + url;
 			}			
-			return <a {...rest} href={url} onClick={this.handleClick} className={classnames(this.props.newClassName ? null : "lnk", className)} />;
+			return <a {...rest} href={url} onClick={this.handleClick} className={classnames("lnk", className)} />;
 		}
 		
 		// Show the children, but don't make it a link.
@@ -178,17 +178,17 @@ export default class SiteLink extends PureComponent {
 
 		switch (type) {
 			case "external":
-				return <a {...rest} href={location} onClick={this.handleClick} className={classnames(this.props.newClassName ? null : "lnk", className)}/>;
+				return <a {...rest} href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;
 			case "document":
-				return <DocumentLink {...rest} href={location} gtmevent={gtmevent} onClick={onClick} className={classnames(this.props.newClassName ? null : "lnk", className)}/>; 
+				return <DocumentLink {...rest} href={location} gtmevent={gtmevent} onClick={onClick} className={classnames("lnk", className)}/>; 
 			case "nolink":
-				return <div {...rest} onClick={this.handleClick} className={classnames(this.props.newClassName ? null : "lnk", className)} />;
+				return <div {...rest} onClick={this.handleClick} className={classnames("lnk", className)} />;
 			case "brightcove":
-				return <VideoLink video={location} mediaid={mediaid} type="brightcove" gtmevent={gtmevent} {...rest} className={classnames(this.props.newClassName ? null : "lnk", className)}/>;
+				return <VideoLink video={location} mediaid={mediaid} type="brightcove" gtmevent={gtmevent} {...rest} className={classnames("lnk", className)}/>;
 			case "youtube":
-				return <VideoLink video={location} type="youtube" {...rest}className={classnames(this.props.newClassName ? null : "lnk", className)}/>;
+				return <VideoLink video={location} type="youtube" {...rest}className={classnames("lnk", className)}/>;
 			default:
-				return <Link {...rest} to={location} onClick={this.handleClick} className={classnames(this.props.newClassName ? null : "lnk", className)}/>; 
+				return <Link {...rest} to={location} onClick={this.handleClick} className={classnames("lnk", className)}/>; 
 		}
 	}
 }

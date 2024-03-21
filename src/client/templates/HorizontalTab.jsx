@@ -4,7 +4,7 @@
  */
 import config from 'client/config.js';
 import React, { useState, useCallback } from 'react';
-import { Container, Row, Col, Nav, NavLink, NavItem, TabContent, TabPane } from 'reactstrap';
+import { Container, Row, Col, Nav, NavLink, NavItem, TabContent, TabPane, Collapse } from 'reactstrap';
 import SiteLink from 'components/SiteLink.jsx';
 import { withLiveEvents } from 'components/liveEvents.js';
 import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
@@ -16,17 +16,29 @@ import 'scss/templates/horizontal-tab.scss';
 
 
 const HorizontalTab = (props) => {
-	const [active, setActive] = useState(0);
-
 	const cards = props?.content_block?.cards || [];
+	const getTabTitle = (card => {
+		if (!card) {
+			return "Invalid card for tab";
+		}
 
+		return card?.tab_title || card?.section_title || card?.title || "missing tab title";
+	});
 
-	const handleTabs = (event) => {
+	const [active, setActive] = useState(0);
+	const [active_tab_title, setActiveTitle] = useState(getTabTitle(cards[0]));
+	const [collapse, setCollapse] = useState(true);
+
+	
+
+	const handleTabs = (event, index) => {
 		event.preventDefault();
 
 		const tab = event.target.getAttribute('data-tab');
 
-		setActive(tab);
+		setActive(index);
+		setActiveTitle(getTabTitle(cards[index]));
+		setCollapse(true);
 	}
 
 	return (
@@ -36,19 +48,41 @@ const HorizontalTab = (props) => {
 				{props?.content_block.body && <p dangerouslySetInnerHTML={{ __html: props?.content_block.body }} />}
 
 
-				<Nav tabs>
-					{cards.map((card, index) =>
-						<NavItem key={card.content_id}>
-							<a
-								className={classnames('lnk', { active: active === index })}
-								onClick={() => setActive(index)} // see handleTabs for gtmevent
-								role="tab"
-								aria-selected={active === index ? "true" : "false"}
-							>
-								{card.tab_title || card.section_title || card.title || "missing tab title"}</a>
-						</NavItem>
-					)}
-				</Nav>
+				<div className="horizontal-tab">
+					<div className="horizontal-tab-toggle-title">Currently Viewing:</div>
+					<button onClick={() => setCollapse(!collapse)} className="horizontal-tab-toggle">
+						<Row>
+							<Col className="text-left col-9">
+								{active_tab_title}
+							</Col>
+							<Col className="text-right col-3">
+								{collapse
+									? <i className="bi brcmicon-caret-down"></i>
+									: <i className="bi brcmicon-caret-up"></i>
+								}
+							</Col>
+						</Row>
+					</button>
+					<div className="horizontal-tab-collapse-wrapper">
+						<Collapse isOpen={!collapse} className="horizontal-tab-collapse">
+							<Nav tabs>
+								{cards.map((card, index) =>
+									<NavItem key={card.content_id}>
+										<a
+											className={classnames('lnk', { active: active === index })}
+											onClick={(event) => handleTabs(event, index)} // see handleTabs for gtmevent
+											role="tab"
+											aria-selected={active === index ? "true" : "false"}
+										>
+											{getTabTitle(card)}</a>
+									</NavItem>
+								)}
+							</Nav>
+						</Collapse>
+					</div>
+				</div>
+
+
 				<TabContent activeTab={active}>
 					{cards.map((card, index) =>
 						<TabPane tabId={index} key={card.content_id}>
