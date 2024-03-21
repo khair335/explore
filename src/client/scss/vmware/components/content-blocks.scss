@@ -153,22 +153,24 @@
   }
 
   &.theme-content-block-imagedark {
-    .lnk {
+    .container {
+      >.cb-cta-link .lnk {
 
-      color: $color-white;
-      padding: 6px 24px !important;
-      width: max-content;
-      margin: 0 auto;
-      border: 1px solid $color-white !important;
-      background-color: transparent !important;
+        color: $color-white;
+        padding: 6px 24px !important;
+        width: max-content;
+        margin: 0 auto;
+        border: 1px solid $color-white !important;
+        background-color: transparent !important;
 
-      &:hover {
-        color: #0091DA !important;
-        background-color: $color-white !important;
-      }
+        &:hover {
+          color: #0091DA !important;
+          background-color: $color-white !important;
+        }
 
-      &:after {
-        content: unset !important;
+        &:after {
+          content: unset !important;
+        }
       }
     }
   }
@@ -193,25 +195,28 @@
     padding: 0;
   }
 
-  .lnk {
-    border: 1px solid hsl(0, 0%, 100%) !important;
-    color: hsl(0, 0%, 100%);
-    font-size: 14px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    line-height: 1.8;
-    padding: 6px 23px !important;
+  .featured-cards {
+    .lnk {
+      border: 1px solid hsl(0, 0%, 100%) !important;
+      color: hsl(0, 0%, 100%);
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      line-height: 1.8;
+      padding: 6px 23px !important;
 
-    &:after {
-      content: unset !important;
-    }
+      &:after {
+        content: unset !important;
+      }
 
-    &:hover {
-      border-color: $color-white;
-      background-color: $color-white;
-      color: $color-ocean-700;
+      &:hover {
+        border-color: $color-white;
+        background-color: $color-white;
+        color: $color-ocean-700;
+      }
     }
   }
+
 }
 
 .theme-content-block-gray {
