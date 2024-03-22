@@ -52,7 +52,7 @@ body{
   color: $color-body;
   font-family: $font-family--primary;
   min-height: 100%;
-  padding-bottom: $footer-height;    // footer
+  //padding-bottom: $footer-height;    // footer This is needed for animation of footer.
   position: relative;
   line-height: 1.42857143;
   overflow-y: scroll;
@@ -103,6 +103,10 @@ body{
 }
 img {
 	max-width: 100%;
+}
+
+#content, .page-loading {
+  min-height: 400px;    // We disabled the animated footer, so just give us some space.
 }
 
 // Global Number List 

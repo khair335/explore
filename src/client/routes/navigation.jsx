@@ -15,14 +15,16 @@ const NavigationContext = createContext(null);
 
 const NavigationProvider = ({ children }) => {
     const [navigation, setNavigation] = useState([]);
+    const [template, setTemplate] = useState('Broadcom');
     const [login, setLogin] = useState({
         loginUrl: config.okta.loginUrl,
         registrationUrl: config.mybroadcom.registerUrl,
         forgetUrl: config.mybroadcom.forgetUrl,
     });
     const [accessibility, setAccessibility] = useState('');
-    const [footer, setFooter] = useState([]);
+    const [footer, setFooter] = useState({});
     const [copyright, setCopyright] = useState('');
+    const [loaded, setLoaded] = useState(false);
 
     
     const filterNav = (url, title, template) => {
@@ -79,13 +81,35 @@ const NavigationProvider = ({ children }) => {
                     queries = queries ? `&${queries}` : '';
                 }
 
+                // VMware specific. Explore as different navigation headers.
+                if (config.navigation.site) {
+                    let nav_queries = '';
+                    let path = window.location.pathname.replace(/^\//g, '');
+
+                    
+                    nav_queries += `&url=${encodeURIComponent(path + window.location.search)}`;
+                    nav_queries += `&site=${config.navigation.site}`;
+
+                    if (queries) {
+                        queries = `&${nav_queries}${queries}`;
+                    }
+                    else {
+                        queries = nav_queries;
+                    }
+                }
+
                 fetch(`${config.api_url}navigation?locale=${config.locale}&bc_lang=${config.sublocale}&lastnavdate=${getpubdate ? getpubdate.lastnavdate : 0}${queries}`, { credentials: config.api_credentials })    //'http://cmsgwdev2.aws.broadcom.com/api/navigation?locale=en-us'   `${config.api_url}navigation?locale=${config.locale}&lastnavdate=${getpubdate?getpubdate.lastnavdate:0}`		'https://dev-ui.aws.broadcom.com/api/navigation?locale=en-us&lastnavdate=03-16-14:58:07'
                     .then(resp => resp.json())
                     .then(json => {
                         allNav = json.sub_pages;
 
                         setNavigation(loop(allNav));
-                        setFooter(json.footer_links);
+                        setFooter({
+                            logo: json.footer_logo?.image,
+                            links: json.footer_links,
+                            socials: json.footer_social_share,
+                            navigation: json.footer_navigation,
+                        });
                         setCopyright(json.footer_text);
                         setLogin({
                             loginUrl: json.login_url || login.loginUrl,
@@ -93,6 +117,13 @@ const NavigationProvider = ({ children }) => {
                             forgetUrl: json.forget_url || login.forgetUrl,
                         });
                         setAccessibility(json.accessibility_statement || '');
+                        let template = json?.template || 'Broadcom';
+                        if (template === "Home") {
+                            template = "Broadcom";      // Redefine it.
+                        }
+
+                        setTemplate(template);
+                        setLoaded(true);
 
                     })
                     .catch(error => {
@@ -106,13 +137,14 @@ const NavigationProvider = ({ children }) => {
         // Load only once.
         if (!navigation || navigation.length <=0) {
             loadData();         // Load our data.
+            
         }
 
         // Fetch our navigation data.
         // setTimeout(() => {
         //     setNavigation("hello");
         // }, 3000);
-    }, [navigation, footer, login, copyright, accessibility])            // Load only once
+    }, [navigation, footer, login, copyright, accessibility, template, loaded])            // Load only once
 
     return (
         <NavigationContext.Provider value={{
@@ -120,7 +152,9 @@ const NavigationProvider = ({ children }) => {
             login: login,
             footer: footer,
             accessibility: accessibility,
-            copyright: copyright
+            copyright: copyright,
+            template: template,
+            loaded: loaded,
         }
         }>
             {children}

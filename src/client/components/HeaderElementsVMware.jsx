@@ -71,6 +71,7 @@ export class ExploreHeaderSecondary extends Component {
 										className=""
 										gtmevent={{ "id": "N003c", "link_url": link.url }}
 										role="menuitem"
+										key={link.url}
 									>{link.title}</SiteLink>
 								);
 							})

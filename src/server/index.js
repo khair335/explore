@@ -169,10 +169,7 @@ const getHead = (locale, sublocale, data) => {
 		onetrust_script: onetrust_script,
 		translations: "{}",			//
 		autopilot: [],
-		microsite: JSON.stringify({
-			content_id: '111',
-			name: 'vm-explore',
-		}),
+		microsite: data.microsite || '',
 		favicons: favicons,
 	};
 }

@@ -1,12 +1,12 @@
 // footer, mini-menu, social links
-
+import config from 'client/config.js';
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import utils, { localizeText } from 'components/utils.jsx';
 import SiteLink from 'components/SiteLink.jsx';
 // import styles from 'bootstrap/scss/bootstrap.scss';
 import { Container, Row, Col, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { ResizeObserver } from '@juggle/resize-observer';
-const VMwareFooter = React.lazy(() => import('components/FooterVMware.jsx'));
+const ExploreFooter = React.lazy(() => import('components/FooterVMware.jsx'));
 
 import 'scss/components/footer.scss';
 import classNames from 'classnames';
@@ -263,7 +263,7 @@ const BroadcomFooter = (props) => {
 
                     <nav>
                         <ul className="footer_secondaryNav">
-                            {props?.navigation.footer && props?.navigation.footer.map(item => (
+                            {props?.navigation.footer && props?.navigation?.footer?.links?.map(item => (
                                 <li key={item.title}>
                                     <SiteLink
                                         to={item.url}
@@ -283,12 +283,12 @@ const BroadcomFooter = (props) => {
 }
 
 const templates = {
-	VMwareFooter,
-	BroadcomFooter,
+    ExploreFooter,
+    BroadcomFooter,
 }
 
 const NoTemplate = () => {
-    return (<div>No header template.</div>);
+    return (<div>No footer template.</div>);
 }
 /**
      *  @brief Brief
@@ -301,10 +301,10 @@ const Footer = (props) => {
     let navigation = useBroadcomNavigation();
     const [show, setShow] = useState(false);
 
-    const template = (navigation?.template || "VMware") + "Footer";		// Resolve name to local name.
-    let HeaderTemplate = templates[template] || NoTemplate;
+    let template = (navigation?.template || "Broadcom") + "Footer";		// Resolve name to local name.
+    let FooterTemplate = templates[template] || NoTemplate;
 
-
+    
     // Check on resize of the body.
     let resizeObserver = null;
     let observer = null;
@@ -438,13 +438,14 @@ const Footer = (props) => {
         )
     });
 
-
     return (
         <footer id="footer" className={classNames("print-none", { "footer-show": show })}>
 
             <Autopilot />
-            
-            <HeaderTemplate navigation={navigation} />
+            {/* HACK: JD - We don't have a header yet, so don't show us for explore */}
+            {((config.site === 'vm' && navigation.loaded) || config.site === 'broadcom') &&
+                <FooterTemplate navigation={navigation} />
+            }
 
         </footer>
 

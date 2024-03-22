@@ -335,7 +335,7 @@ export default class HomeHero extends Component {
 											}
 
 											return (
-												<div className="banner-cta">
+												<div className="banner-cta" key={link.url}>
 													{link.hero_banner_title &&
 														<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
 													}

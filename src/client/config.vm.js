@@ -12,8 +12,8 @@ class Config {
 		//	var ENVIRONMENT = "production";
 		//}
 
-		console.log("config.vm.js");
 		console.log('Environment: ', ENVIRONMENT);
+		this.site = 'vm';
 		this.environment = ENVIRONMENT;
 		this.api_url = '/api/';
 		this.api_credentials = 'same-origin';		// Fetch options.
@@ -107,6 +107,9 @@ class Config {
 			console.log("microsite", gMicrosite);
 			this.microsite = gMicrosite;
 		}
+
+		this.navigation = {};
+		this.navigation.site = 'vm';
 
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {

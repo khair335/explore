@@ -14,65 +14,72 @@ import classNames from 'classnames';
 
 
 const VMwareFooter = (props) => {
+    console.log(props.navigation.footer.navigation[0].links);
+
     return (
         <Container>
             <Row>
 
                 <Col>
                     <SiteLink to="/">
-                        <ImageBase src="https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/company/vmware-logo-grey.svg" />
+                        <ImageBase image={props.navigation?.footer?.logo} />
                     </SiteLink>
                 </Col>
                 <Col>
 
-                    <Nav navbar tag="div">
-                        <ul className="footer_menu nav">
-                            {props?.navigation.navigation && props?.navigation.navigation.map(item => (
-                                <li key={utils.uuidv4()} className="nav-item">
-                                    <SiteLink
-                                        gtmevent={{ "id": "N009", "menu_item_name": item.title, "link_url": item.url }}
-                                        to={item.url}
-                                    >{item.title}</SiteLink>
-                                    <div className="mobileNav">
-                                        <ul >
-                                            {/*this.subMenu(item)*/}
-                                        </ul>
+                    <Nav navbar tag="div" className="footer-menu nav">
+                        <Row>
+                            {props?.navigation.footer && props?.navigation?.footer?.navigation?.map((cols, index) => (
+                                <Col key={index}>
+                                    <div className="footer-menu-section-title">
+                                    {cols.section}
                                     </div>
+                                    
+                                    <ul className="footer-menu-cols">
+                                        {cols?.links?.map((item, index) => (
+                                            <li key={item.url+index} className="nav-item">
+                                                <SiteLink
+                                                    gtmevent={{ "id": "N009", "menu_item_name": item.title, "link_url": item.url }}
+                                                    to={item.url}
+                                                >
+                                                    {item.title}
+                                                </SiteLink>
 
-                                </li>
+                                            </li>
+                                        ))}
+
+                                    </ul>
+                                </Col>
+
                             ))}
-                        </ul>
+                        </Row>
                     </Nav>
                 </Col>
                 <Col>
-                    <ul className="social_nav">
-                        <li><SiteLink
-                            to="https://www.linkedin.com/company/broadcom"
-                            target="_blank"
-                            gtmevent={{ "id": "N011", "eventLbl": "https://www.linkedin.com/company/broadcom" }}
-                            aria-label="LinkedIn"
-                        ><span className="bi brcmicon-linkedin"></span></SiteLink></li>
-                        <li><SiteLink
-                            to="https://twitter.com/Broadcom"
-                            target="_blank"
-                            gtmevent={{ "id": "N011", "eventLbl": "https://twitter.com/Broadcom" }}
-                            aria-label="Twitter"
-                        ><span className="bi brcmicon-twitter"></span></SiteLink></li>
-                        <li><SiteLink
-                            to="https://www.youtube.com/user/BroadcomCorporation"
-                            target="_blank"
-                            gtmevent={{ "id": "N011", "eventLbl": "https://www.youtube.com/user/BroadcomCorporation" }}
-                            aria-label="YouTube"
-                        ><span className="bi brcmicon-youtube"></span></SiteLink></li>
+                    <ul className="social-nav">
+                        {props?.navigation?.footer?.socials?.map(social => (
+
+                            <li>
+                                <SiteLink
+                                    to={social.url}
+                                    target="_blank"
+                                    gtmevent={{ "id": "N011", "eventLbl": social.url }}
+                                    aria-label={social.name}
+                                >
+                                    <ImageBase image={social.image} />
+                                    {social.name}
+                                </SiteLink>
+                            </li>
+                        ))}
                     </ul>
                 </Col>
             </Row>
             <div>
-                <div className="copyright_text" dangerouslySetInnerHTML={{ __html: props?.navigation.copyright }} />
+                <div className="copyright-text" dangerouslySetInnerHTML={{ __html: props?.navigation.copyright }} />
 
                 <nav>
-                    <ul className="footer_secondaryNav">
-                        {props?.navigation.footer && props?.navigation.footer.map(item => (
+                    <ul className="footer-secondary-nav">
+                        {props?.navigation.footer && props?.navigation?.footer?.links?.map(item => (
                             <li key={item.title}>
                                 <SiteLink
                                     to={item.url}
@@ -85,7 +92,7 @@ const VMwareFooter = (props) => {
                 </nav>
             </div>
 
-        </Container>
+        </Container >
     );
 }
 

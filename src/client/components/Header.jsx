@@ -165,6 +165,10 @@ class BroadcomHeader extends Component {
 	}
 }
 
+const NoTemplate = () => {
+    return (<div>No header template.</div>);
+}
+
 const templates = {
 	ExploreHeader,
 	BroadcomHeader,
@@ -173,17 +177,12 @@ const templates = {
 const withNavigation = () => {
 	return () => {
 		let navigation = useBroadcomNavigation();
-		let template = (navigation?.template || "Explore") + "Header";		// Resolve name to local name.
+		let template = (navigation?.template || "Broadcom") + "Header";		// Resolve name to local name.
+		const HeaderTemplate = templates[template] || NoTemplate;
 
-		if (template) {
-			const HeaderTemplate = templates[template];
-			return <HeaderTemplate navData={navigation.navigation} loginData={navigation.login} accessibilityData={navigation.accessibility} />
+		if ((config.site === 'vm' && navigation.loaded) || config.site === 'broadcom') {
+			return <HeaderTemplate navData={navigation.navigation} loginData={navigation.login} accessibilityData={navigation.accessibility} />			
 		}
-		else {
-			return (<div>No header tempalte.</div>);
-		}
-
-
 	}
 }
 

@@ -12,7 +12,6 @@ class Config {
 
 		this.microsite = null;
 		if (gMicrosite) {
-			console.log("microsite", gMicrosite);
 			this.microsite = gMicrosite;
 
 			config = ConfigVMware;

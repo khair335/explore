@@ -106,7 +106,7 @@ const ExploreHeader = (props) => {
 										</div>
 									}
 
-									<div><i class="fa fa-search text-indigo mr-2 mr-lg-0" /></div>
+									<div><i className="fa fa-search text-indigo mr-2 mr-lg-0" /></div>
 									<div className='ml-2'>
 										<SiteLink to="/">Contact</SiteLink>
 									</div>

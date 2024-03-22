@@ -13,6 +13,7 @@ class Config {
 		//}
 
 		console.log('Environment: ', ENVIRONMENT);
+		this.site = 'broadcom';
 		this.environment = ENVIRONMENT;
 		this.api_url = '/api/';
 		this.api_credentials = 'same-origin';		// Fetch options.
@@ -103,9 +104,10 @@ class Config {
 		// Used to figure out what type of site to one off.
 		this.microsite = null;
 		if (gMicrosite) {
-			console.log("microsite", gMicrosite);
 			this.microsite = gMicrosite;
 		}
+
+		this.navigation = {};
 
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {

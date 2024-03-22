@@ -166,10 +166,14 @@ $section-striped-dark: ".section-striped section:nth-of-type(3n+2), .section-str
 $header-height: 152px;
 
 // FOOTER
-$footer-height: 360px; // xs & sm
-$footer-height-md: 184px;
-$footer-height-lg: 140px;
-$footer-height-xl: 445px;
+// $footer-height: 360px; // xs & sm
+// $footer-height-md: 184px;
+// $footer-height-lg: 140px;
+// $footer-height-xl: 445px;
+$footer-height: auto; // xs & sm
+$footer-height-md: auto;
+$footer-height-lg: auto;
+$footer-height-xl: auto;
 $autopilot-height: 158px;
 $autopilot-height-md: 155px;
 $autopilot-footer-height: $footer-height + $autopilot-height;
