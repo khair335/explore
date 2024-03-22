@@ -318,52 +318,6 @@
   padding: 100px 0 100px !important;
 }
 
-.content-block {
-  .HorizontalTab {
-    .container {
-      >h3 {
-        text-align: center;
-      }
-
-      .nav-tabs {
-        justify-content: center;
-        width: max-content;
-        margin: 0 auto 20px;
-
-        .nav-item {
-          .lnk {
-            padding: 5px 10px !important;
-            margin: 0px 0px !important;
-
-            &.active {
-              border-bottom: 3px solid #1d4486 !important;
-            }
-
-            &:after {
-              content: unset !important;
-            }
-            &:hover{
-              text-decoration: none !important;
-            }
-          }
-        }
-      }
-
-      .tab-content {
-        box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
-
-        .content-block-left {
-          padding: 40px 60px 40px;
-
-          .row {
-            align-items: center;
-          }
-        }
-
-      }
-    }
-  }
-}
 
 .top-banner {
 
@@ -400,3 +354,155 @@
   }
 }
 
+.top-banner {
+  .carousel-inner {
+    .size-large {
+      .caption {
+        width: 823px;
+
+        .featurette-heading {
+          font-size: 50px !important;
+        }
+
+        .teaser {
+          >div {
+            >p {
+              font-size: 32px;
+              margin-bottom: 30px;
+            }
+          }
+
+          .banner-cta {
+            h2 {
+              font-size: 50px;
+            }
+
+            >div {
+              >p {
+                font-size: 16px;
+                line-height: 24px;
+                margin: 0;
+                padding: 0;
+              }
+            }
+
+            .lnk {
+              margin-top: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Testimonial-section{
+  .cb-cta-link {
+    justify-content: center;
+    margin-top: 30px;
+
+    li:first-child {
+      a {
+        @include prime-style;
+        font-size: 14px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 6px 24px !important;
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        color: $color-white;
+        background: $color-ocean-700;
+
+        &:hover {
+          border-color: $color-ocean-700;
+          background-color: $color-white;
+          color: $color-ocean-700;
+        }
+
+        &:after {
+          content: unset !important;
+        }
+      }
+    }
+  }
+}
+
+.theme-content-block-standard {
+  .cb-cta-link {
+    justify-content: center;
+    margin-top: 30px;
+
+    li:first-child {
+      a {
+        @include prime-style;
+        font-size: 14px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 6px 24px !important;
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        color: $color-white;
+        background: $color-ocean-700;
+
+        &:hover {
+          border-color: $color-ocean-700;
+          background-color: $color-white;
+          color: $color-ocean-700;
+        }
+
+        &:after {
+          content: unset !important;
+        }
+      }
+    }
+
+    li:last-child {
+      a {
+        @include prime-style;
+        font-size: 14px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 6px 24px !important;
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        border: 1px solid $color-ocean-700;
+        color: $color-ocean-700;
+        background: $color-white;
+
+        &:hover {
+          border-color: $color-white;
+          color: $color-white;
+          background: $color-ocean-700;
+        }
+
+        &:after {
+          content: unset !important;
+        }
+      }
+    }
+  }
+}

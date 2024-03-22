@@ -11,57 +11,97 @@
 
 .HorizontalTab {
 
-    .nav-tabs{
+    .nav-tabs {
         border-bottom: 0;
         width: 100%;
-        -ms-flex-wrap: wrap; 
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         display: flex;
         justify-content: center;
-    
-        > li{
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right:0px;
+        margin-bottom: 1rem;
+
+        >li {
+            // padding-right: 15px;
+            // padding-left: 15px;
+            margin-right: 0px;
             position: relative;
-            &:after{
-                content: "";
-                height: 20px;
-                width: 1px;
-                background-color: $color-grey--625;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translate(0,-50%);
-            }
-            &:first-child{
+
+            // &:after{
+            //     content: "";
+            //     height: 20px;
+            //     width: 1px;
+            //     background-color: $color-grey--625;
+            //     position: absolute;
+            //     right: 0;
+            //     top: 50%;
+            //     transform: translate(0,-50%);
+            // }
+            &:first-child {
                 padding-left: 0;
             }
-            &:last-child{
+
+            &:last-child {
                 padding-right: 0;
-                 &:after{
+
+                &:after {
                     display: none;
                 }
-            }   
-            a.lnk{												//custom button/link  see _link.scss for base
+            }
+
+            a.lnk {
+                //custom button/link  see _link.scss for base
                 line-height: 1.9;
-                 display: inline-block;
-                 padding: 3px 0px;
-                 position: relative;
-                 &:hover {  
+                display: inline-block;
+                padding: 5px 10px !important;
+                position: relative;
+                border-bottom: 1px solid $color-primary;
+                margin: 0px 0px !important;
+
+                &:after {
+                    content: unset !important;
+                }
+
+                &:hover {
                     color: $color-black;
-                    text-decoration:none;        				//mods _link.scss - necessary to keep from having double red lines on hover
-                    border-bottom: 2px solid $color-primary;
-                 }
-    
-                &.active{										//mods _link.scss
-                    color: $color-black;
+                    text-decoration: none !important; //mods _link.scss - necessary to keep from having double red lines on hover
+                    border-bottom: 1px solid $color-primary;
+                    cursor: pointer;
+                }
+
+                &.active {
+                    //mods _link.scss
+                    // color: $color-black;
                     border-bottom: 2px solid $color-primary;
                 }
             }
         }
     }
-   
+
+    .container {
+        >h3 {
+            text-align: center;
+        }
+    }
+
+    .tab-content {
+        box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
+
+        .content-block-left {
+            padding: 40px 60px 40px;
+
+            .row {
+                align-items: center;
+            }
+
+            @include media-breakpoint-down(md) {
+                padding: 40px 16px 40px;
+            }
+        }
+
+        .lnk {
+            margin: 0 !important;
+        }
+    }
 
     @media (max-width: 767px) {
         .nav-tabs {
@@ -105,6 +145,8 @@
 
                 .horizontal-tab-collapse {
                     padding: 15px 0; // Let the children have the left/right padding.
+                    max-height: 125px;
+                    overflow-y: auto;
                 }
 
                 // HACK: JD - important the important.
@@ -131,8 +173,10 @@
                         color: $color-grey--900;
                         text-transform: none;
                         font-family: $font-family--primary;
-                        padding: 0 20px;
+                        padding: 0.25rem 1.5rem;
                         width: 100%;
+                        border: 0;
+                        text-align: left;
 
                         &:hover {
                             color: $color-white;
@@ -141,8 +185,24 @@
 
                         &.active {
                             border: none;
-                            background-color: $color-active;
-                            color: $color-white;
+                            position: relative;
+
+                            &:after {
+                                position: absolute;
+                                top: 6px;
+                                right: 15px;
+                                content: '' !important;
+                                display: block;
+                                width: 0.5em;
+                                height: 1em;
+                                border-style: solid;
+                                border-width: 0 0.26em 0.26em 0;
+                                -webkit-transform: rotate(45deg);
+                                -ms-transform: rotate(45deg);
+                                -o-transform: rotate(45deg);
+                                transform: rotate(45deg);
+
+                            }
                         }
                     }
                 }
@@ -151,18 +211,32 @@
             .horizontal-tab-toggle {
                 //this is a button
                 width: 100%;
-                border: 1px solid darken($color-white, 10%); //mods button
-                border-bottom: 2px solid darken($color-white, 10%); //mods button
-                padding: 10px 15px;
+
+                border-bottom: 2px solid $color-primary; //mods button
+                padding: 10px 5px 0;
                 color: $color-grey--800; //mods button
                 background-color: transparent; //mods button
+                justify-content: flex-start;
+                border-radius: 0;
 
                 .text-right {
                     font-size: 18px;
+                    padding-right: 0;
                 }
 
                 i.bi {
                     color: $color-grey--800;
+                }
+
+                >div {
+                    width: 100%;
+                    flex: 1;
+                }
+
+                &:focus {
+                    border-radius: 0;
+                    border: 0;
+                    border-bottom: 2px solid $color-primary;
                 }
             }
         }
