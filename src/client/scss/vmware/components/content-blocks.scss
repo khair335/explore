@@ -16,34 +16,6 @@
 // normalize image card, video card and text card title spacing
 // -----------------------------------------------------------------------------
 
-.ImageCard,
-.VideoCard {
-  padding: 0 !important;
-
-  .card-body {
-    padding-bottom: 0;
-  }
-
-  .card-footer {
-    background: none;
-    border: none;
-  }
-
-  .card-title {
-    padding-top: 12px;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 33px;
-  }
-}
-
-.theme-card-cta-secondary {
-  height: 100%;
-}
-
-.theme-card-cta-secondary .card {
-  height: 100%;
-}
 
 .content-block .lnk {
   font-size: 16px;
@@ -319,119 +291,11 @@
 }
 
 
-.top-banner {
-
-  .teaser {
-    margin-top: 60px;
-    margin-left: -30px;
-
-    p {
-      font-weight: 300;
-      padding: 10px 0;
-    }
-  }
-
-  .featurette-heading {
-    font-size: 40px !important;
-    text-transform: capitalize;
-  }
-
-}
-
-.top-banner .carousel-inner>.carousel-item .size-medium img,
-#banner .carousel-inner>.carousel-item .size-medium img {
-  height: auto;
-  object-fit: cover;
-  width: 100%;
-  height: 550px !important;
-}
-
 .brcmShare {
   .dropdown-item {
     display: flex !important;
     justify-content: start !important;
     align-items: center !important;
-  }
-}
-
-.top-banner {
-  .carousel-inner {
-    .size-large {
-      .caption {
-        width: 823px;
-
-        .featurette-heading {
-          font-size: 50px !important;
-        }
-
-        .teaser {
-          >div {
-            >p {
-              font-size: 32px;
-              margin-bottom: 30px;
-            }
-          }
-
-          .banner-cta {
-            h2 {
-              font-size: 50px;
-            }
-
-            >div {
-              >p {
-                font-size: 16px;
-                line-height: 24px;
-                margin: 0;
-                padding: 0;
-              }
-            }
-
-            .lnk {
-              margin-top: 28px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.Testimonial-section{
-  .cb-cta-link {
-    justify-content: center;
-    margin-top: 30px;
-
-    li:first-child {
-      a {
-        @include prime-style;
-        font-size: 14px;
-        border-radius: 3px;
-        text-align: center;
-        padding: 6px 24px !important;
-        line-height: 1.5;
-        font-weight: 400;
-        text-transform: uppercase;
-        transition: all 0.2s ease;
-        border: 1px solid transparent;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: max-content;
-        color: $color-white;
-        background: $color-ocean-700;
-
-        &:hover {
-          border-color: $color-ocean-700;
-          background-color: $color-white;
-          color: $color-ocean-700;
-        }
-
-        &:after {
-          content: unset !important;
-        }
-      }
-    }
   }
 }
 

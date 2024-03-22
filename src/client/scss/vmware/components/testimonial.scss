@@ -47,3 +47,42 @@
 	}
 	
 }
+
+.Testimonial-section{
+	.cb-cta-link {
+	  justify-content: center;
+	  margin-top: 30px;
+  
+	  li:first-child {
+		a {
+		  @include prime-style;
+		  font-size: 14px;
+		  border-radius: 3px;
+		  text-align: center;
+		  padding: 6px 24px !important;
+		  line-height: 1.5;
+		  font-weight: 400;
+		  text-transform: uppercase;
+		  transition: all 0.2s ease;
+		  border: 1px solid transparent;
+		  height: 45px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  width: max-content;
+		  color: $color-white;
+		  background: $color-ocean-700;
+  
+		  &:hover {
+			border-color: $color-ocean-700;
+			background-color: $color-white;
+			color: $color-ocean-700;
+		  }
+  
+		  &:after {
+			content: unset !important;
+		  }
+		}
+	  }
+	}
+  }

@@ -25,3 +25,31 @@ padding-bottom: 24px;
 color: #565656;
 }
 
+.ImageCard,
+.VideoCard {
+  padding: 0 !important;
+
+  .card-body {
+    padding-bottom: 0;
+  }
+
+  .card-footer {
+    background: none;
+    border: none;
+  }
+
+  .card-title {
+    padding-top: 12px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 33px;
+  }
+}
+
+.theme-card-cta-secondary {
+  height: 100%;
+}
+
+.theme-card-cta-secondary .card {
+  height: 100%;
+}
