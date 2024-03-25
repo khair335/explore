@@ -49,11 +49,11 @@ base/_reset.scss sets these properties for buttons:
     }
 */
 
-/* these selectors are used in seting the buttons in reset.scss: 
+/* these selectors are used in seting the buttons in reset.scss:
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner 
+[type="submit"]::-moz-focus-inner
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
@@ -236,7 +236,7 @@ button {
 
         .bi.bc--color_white {
             // bug where content-blocks overwrite - this corrects
-            color: $color-white; //  -can be deleted if bug fixed    
+            color: $color-white; //  -can be deleted if bug fixed
         }
     }
 
@@ -588,23 +588,23 @@ a.bttn:hover {
     @extend .bttn;
     @include primary-button;
 
-    // font-size: 14px !important;
-    // border-radius: 3px;
-    // text-align: center;
-    // padding: 10px 24px!important;
-    // line-height: 1.8 !important;
-    // font-weight: 400;
-    // text-transform: uppercase;
-    // transition: all 0.2s ease;
-    // border: 1px solid transparent;
-    // height: 45px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // width: max-content;
-    // border: 1px solid $color-ocean-700 !important;
-    // color: $color-ocean-700 !important;
-    // background: transparent !important;
+    font-size: 14px !important;
+    border-radius: 3px;
+    text-align: center;
+    padding: 10px 24px !important;
+    line-height: 1.8 !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    border: 1px solid $color-ocean-700 !important;
+    color: $color-ocean-700 !important;
+    background: transparent !important;
     @extend .bttn;
 
     &:after {
@@ -612,10 +612,10 @@ a.bttn:hover {
     }
 
     &:hover {
-        // border-color: $color-white !important;
-        // color: $color-white !important;
-        // background: $color-ocean-700 !important;
-        // text-decoration: none !important;
+        border-color: $color-white !important;
+        color: $color-white !important;
+        background: $color-ocean-700 !important;
+        text-decoration: none !important;
         @include secondary-hover;
     }
 
@@ -641,3 +641,498 @@ a.bttn:hover {
 }
 
 .theme-content-block-cta-card-link {}
+
+
+
+
+
+
+
+// theme-card-standard theme-card-cta-link
+.theme-card-cta-link .card-link {
+    @extend .bttn;
+    border: none !important;
+
+
+    // &:hover {
+    //     border: none !important;
+    //     color: $color-ocean-700 !important;
+    //     background: $color-white !important;
+    //     text-decoration: none !important;
+    //     // @include secondary-hover;
+    // }
+
+    &:after {
+        margin-top: -5px !important;
+        margin-left: 5px !important;
+    }
+}
+
+.ContentCard {
+    .container {
+        .cb-cta-link {
+            gap: 10px !important;
+
+            li {
+
+
+                &:first-child {
+                    .button {
+                        @extend .bttn;
+                        @include primary-button;
+                        font-size: 14px !important;
+                        border-radius: 3px;
+                        text-align: center;
+                        padding: 10px 24px !important;
+                        line-height: 1.8 !important;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        border: 1px solid transparent;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: max-content;
+                        border: 1px solid $color-ocean-700 !important;
+                        color: $color-white !important;
+                        background: $color-ocean-700 !important;
+
+
+                        &:after {
+                            content: unset !important;
+                        }
+
+                        &:hover {
+                            border-color: $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            text-decoration: none !important;
+                            @include secondary-hover;
+                        }
+
+                        @media screen and (min-width: 1980px) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    .button {
+
+
+                        @extend .bttn;
+                        @include secondary-button;
+                        font-size: 14px !important;
+                        border-radius: 3px;
+                        text-align: center;
+                        padding: 10px 24px !important;
+                        line-height: 1.8 !important;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        border: 1px solid transparent;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: max-content;
+                        border: 1px solid $color-ocean-700 !important;
+                        color: $color-ocean-700 !important;
+                        background: transparent !important;
+                        @extend .bttn;
+
+                        &:after {
+                            content: unset !important;
+                        }
+
+                        &:hover {
+                            border-color: $color-white !important;
+                            color: $color-white !important;
+                            background: $color-ocean-700 !important;
+                            text-decoration: none !important;
+                            @include secondary-hover;
+                        }
+
+                        @media screen and (min-width: 1980px) {
+                            font-size: 16px;
+                        }
+
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}
+
+.InPageNavigation {
+    .nav-item {
+        .lnk {
+            &:hover {
+                border: none !important;
+            }
+        }
+    }
+}
+
+.content-block-left {
+    .cb-cta-link {
+        .lnk {
+            &:hover {
+                border: none !important;
+            }
+
+        }
+    }
+}
+
+.scrollto-top-container {
+    .scrollto-top-wrapper {
+        .scrollto-top {
+            &:hover {
+                span {
+                    &:before {
+                        color: $color-ocean-700 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.ContentCard-section {
+    &.theme-content-block-light {
+        &.theme-content-block-cta-card-secondary {
+
+            .theme-card-standard {
+                &.theme-card-cta-link {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 0 !important;
+                                    background: transparent !important;
+                                    color: $color-ocean-700 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.theme-card-cta-primary {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 1px solid $color-ocean-700 !important;
+                                    background: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.theme-card-cta-secondary {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 1px solid $color-ocean-700 !important;
+                                    background: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.theme-content-block-dark {
+        &.theme-content-block-cta-card-primary {
+            .ContentCard {
+                .cb-cta-link {
+                    .lnk {
+                        padding: 10px 24px !important;
+
+                        &:hover {
+                            border: 1px solid $color-ocean-700 !important;
+                            background: transparent !important;
+                            color: $color-ocean-700 !important;
+                        }
+
+                        &:after {
+                            content: unset !important;
+                        }
+                    }
+
+                    .card-link {
+                        padding: 10px 24px !important;
+
+                        &:hover {
+                            border: 1px solid $color-ocean-700 !important;
+                            background: transparent !important;
+                            color: $color-ocean-700 !important;
+                        }
+
+                        &:after {
+                            content: unset !important;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        &.theme-content-block-bg {
+
+            .container {
+                .content-block {
+                    .ContentCard {
+
+                        .cb-cta-link {
+
+                            .lnk {
+                                @extend .bttn;
+
+                                font-size: 14px !important;
+                                border-radius: 3px;
+                                text-align: center;
+                                padding: 10px 24px !important;
+                                line-height: 1.8 !important;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                                transition: all 0.2s ease;
+                                border: 1px solid transparent;
+                                height: 45px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: max-content;
+                                border: 1px solid $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+
+
+                                &:after {
+                                    content: unset !important;
+                                }
+
+                                &:hover {
+                                    border: 1px solid $color-white !important;
+                                    color: $color-white !important;
+                                    background: transparent !important;
+                                    text-decoration: none !important;
+
+                                }
+
+                                @media screen and (min-width: 1980px) {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.theme-content-block-gray {
+        &.theme-content-block-cta-card-link {
+            .cb-cta-link {
+                .lnk {
+                    &:hover {
+                        border: 0 !important;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &.theme-content-block-imagedark {
+        &.theme-content-block-cta-card-secondary {
+            .container {
+                .cb-cta-link {
+                    gap: 10px !important;
+
+                    li {
+                        &:first-child {
+                            .button {
+
+                                @extend .bttn;
+                                @include primary-button;
+                                font-size: 14px !important;
+                                border-radius: 3px;
+                                text-align: center;
+                                padding: 10px 24px !important;
+                                line-height: 1.8 !important;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                                transition: all 0.2s ease;
+                                border: 1px solid transparent;
+                                height: 45px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: max-content;
+                                border: 1px solid $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+
+
+                                &:after {
+                                    content: unset !important;
+                                }
+
+                                &:hover {
+                                    border-color: $color-white !important;
+                                    color: $color-white !important;
+                                    background: transparent !important;
+                                    text-decoration: none !important;
+                                    @include secondary-hover;
+                                }
+
+                                @media screen and (min-width: 1980px) {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            .button {
+
+
+                                @extend .bttn;
+                                @include secondary-button;
+                                font-size: 14px !important;
+                                border-radius: 3px;
+                                text-align: center;
+                                padding: 10px 24px !important;
+                                line-height: 1.8 !important;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                                transition: all 0.2s ease;
+                                border: 1px solid transparent;
+                                height: 45px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: max-content;
+                                border: 1px solid $color-white !important;
+                                color: $color-white !important;
+                                background: transparent !important;
+                                @extend .bttn;
+
+                                &:after {
+                                    content: unset !important;
+                                }
+
+                                &:hover {
+                                    border-color: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                    background: $color-ocean-700 !important;
+                                    text-decoration: none !important;
+                                    @include secondary-hover;
+                                }
+
+                                @media screen and (min-width: 1980px) {
+                                    font-size: 16px;
+                                }
+
+                            }
+                        }
+
+
+
+                    }
+
+
+                }
+            }
+
+            .theme-card-standard {
+                &.theme-card-cta-link {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 0 !important;
+                                    background: transparent !important;
+                                    color: $color-ocean-700 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.theme-card-cta-primary {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 1px solid $color-ocean-700 !important;
+                                    background: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.theme-card-cta-secondary {
+                    .card-footer {
+                        .cb-cta-link {
+                            .lnk {
+                                &:hover {
+                                    border: 1px solid $color-ocean-700 !important;
+                                    background: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.theme-content-block-blue {
+        &.theme-content-block-cta-card-secondary {
+
+            .cb-cta-link {
+
+                .lnk {
+                    border: 0 !important;
+
+                    &:hover {
+                        border: 0 !important;
+                        background: transparent !important;
+                        color: $color-ocean-700 !important;
+                    }
+                }
+
+                .card-link {
+                    &:hover {
+
+
+                        color: $color-ocean-700 !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
