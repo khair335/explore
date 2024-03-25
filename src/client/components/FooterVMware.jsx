@@ -14,7 +14,7 @@ import classNames from 'classnames';
 
 
 const VMwareFooter = (props) => {
-    console.log(props.navigation.footer.navigation[0].links);
+    const show_section_title = props?.navigation?.footer?.navigation?.some(cols => cols.section);       // Show if any
 
     return (
         <Container>
@@ -31,13 +31,15 @@ const VMwareFooter = (props) => {
                         <Row>
                             {props?.navigation.footer && props?.navigation?.footer?.navigation?.map((cols, index) => (
                                 <Col key={index} xs="6">
-                                    <div className="footer-menu-section-title">
-                                    {cols.section}
-                                    </div>
-                                    
+                                    {show_section_title &&
+                                        <div className="footer-menu-section-title">
+                                            {cols.section}
+                                        </div>
+                                    }
+
                                     <ul className="footer-menu-cols">
                                         {cols?.links?.map((item, index) => (
-                                            <li key={item.url+index} className="nav-item">
+                                            <li key={item.url + index} className="nav-item">
                                                 <SiteLink
                                                     gtmevent={{ "id": "N009", "menu_item_name": item.title, "link_url": item.url }}
                                                     to={item.url}

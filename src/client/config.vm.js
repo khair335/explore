@@ -98,7 +98,7 @@ class Config {
 			account_id: '6164421911001',
 			player_id: 'lUBT2rAMW',
 			endpoint: 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos',
-			policy_key: 'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg',
+			policy_key: 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY', //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg',
 		};
 
 		// Used to figure out what type of site to one off.

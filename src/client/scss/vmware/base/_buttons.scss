@@ -68,26 +68,54 @@ button::-moz-focus-inner,
 
 @import "variables";
 
-.bttn, button {                                 
-    @include prime-style;                                          
+@mixin primary-button {
+    @include prime-style;
+    color: $color-white;
+    background: $color-ocean-700;
+}
+
+@mixin primary-hover {
+    border-color: $color-ocean-700;
+    background-color: $color-white;
+    color: $color-ocean-700;
+}
+
+@mixin secondary-button {
+    @include second-style;
+    border: 1px solid $color-ocean-700;
+    color: $color-ocean-700;
+    background: $color-white;
+}
+
+@mixin secondary-hover {
+    border-color: $color-white;
+    color: $color-white;
+    background: $color-ocean-700;
+}
+
+
+.bttn,
+button {
+    @include prime-style;
     font-size: 14px;
     border-radius: 3px;
     text-align: center;
     padding: 6px 24px;
     line-height: 1.5;
-	font-weight: 400;
-	text-transform: uppercase;
-	transition: all 0.2s ease;
-	border: 1px solid transparent;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: max-content;
-	@media screen and (min-width: 1980px) {
-		font-size: 16px;
-	}
-  
+
+    @media screen and (min-width: 1980px) {
+        font-size: 16px;
+    }
+
 
     .bi {
         color: $color-white;
@@ -95,121 +123,143 @@ button::-moz-focus-inner,
         vertical-align: middle;
     }
 
-    
-        &.mr-auto{
+
+    &.mr-auto {
         margin-right: auto;
-        }
+    }
 
-        &.ml-auto{
-            margin-left: auto;
-        }
-    .bi-right {                                 //modifier - use for icons where you need white space on right
+    &.ml-auto {
+        margin-left: auto;
+    }
+
+    .bi-right {
+        //modifier - use for icons where you need white space on right
         margin-right: 10px;
-    }&.hug {
-		padding: 10px 24px;
-	}
-    &.primary-bttn, &.bttn-primary { //vmware primary button
-		color: $color-white;
-		background: $color-ocean-700;
-		&:hover {
-			border-color: $color-ocean-700;
-			background-color: $color-white;
-			color: $color-ocean-700;
-		}
+    }
+
+    &.hug {
+        padding: 10px 24px;
+    }
+
+    &.primary-bttn,
+    &.bttn-primary {
+        //vmware primary button
+        @include primary-button;
+
+        &:hover {
+            @include primary-hover;
+        }
+
         .bi {
             color: $color-white;
             margin-left: 10px;
         }
 
         a {
-            color: $color-white;                //mods _link.scss
+            color: $color-white; //mods _link.scss
         }
     }
-    
-    &.secondary-bttn { //vmware secondary button
-        border: 1px solid $color-ocean-700;
-		color: $color-ocean-700;
-		background: $color-white;
-		&:hover {
-			border-color: $color-white;
-			color: $color-white;
-			background: $color-ocean-700;
-		}
+
+    &.secondary-bttn {
+        //vmware secondary button
+        @include secondary-button;
+
+        &:hover {
+            @include secondary-hover;
+        }
+
         .bi {
             color: $color-white;
             margin-left: 10px;
         }
 
         a {
-            color: $color-white;                
+            color: $color-white;
         }
     }
-    &.ghost-bttn { //vmware ghost button
-		border: 1px solid $color-white;
-		color: $color-white;
-		background: transparent;
-		&:hover {
-			border-color: $color-white;
-			background-color: $color-white;
-			color: $color-ocean-700;
-		}
-	}
-    &.link-bttn {                               //Looks and acts like a link, for buttons that link to another page or location on a page
-        @include link-style;                            //bg:transparent, color:secondary, bold, :hover
-        padding: 0;                                     //for normal font weight mod at component scss
+
+    &.ghost-bttn {
+        //vmware ghost button
+        border: 1px solid $color-white;
+        color: $color-white;
+        background: transparent;
+
+        &:hover {
+            border-color: $color-white;
+            background-color: $color-white;
+            color: $color-ocean-700;
+        }
+    }
+
+    &.link-bttn {
+        //Looks and acts like a link, for buttons that link to another page or location on a page
+        @include link-style; //bg:transparent, color:secondary, bold, :hover
+        padding: 0; //for normal font weight mod at component scss
         text-align: left;
         border: 0;
-        .bi {                                           //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
+
+        .bi {
+            //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
             color: $color-primary;
         }
     }
 
-    &.link-bttn-no-hover {                       //Looks and acts like a link but has no hover effects - used in collapse boxes, accordions, modals
+    &.link-bttn-no-hover {
+        //Looks and acts like a link but has no hover effects - used in collapse boxes, accordions, modals
         background-color: transparent;
         //color: $color-secondary;
         font-weight: 400; //metro-mod
         padding: 0;
         text-align: left;
-        border:none;
+        border: none;
     }
 
-    &.icon-bttn {                               //use for items like Print or Share Page in the subhead
-        background-color: transparent;              //transparent bg, dark or light grey text (optional), blue or grey icon (default grey, mod to blue), no hover/active
+    &.icon-bttn {
+        //use for items like Print or Share Page in the subhead
+        background-color: transparent; //transparent bg, dark or light grey text (optional), blue or grey icon (default grey, mod to blue), no hover/active
         color: $color-grey--900;
         padding-top: 0;
         padding-bottom: 0;
         border: 0;
+
         .bi {
             color: $color-grey--900;
         }
+
         .bi.primary {
             color: $color-primary;
         }
+
         .bi.secondary {
             color: $color-secondary;
         }
-        .bi.bc--color_white {                   // bug where content-blocks overwrite - this corrects
-            color: $color-white;                //  -can be deleted if bug fixed    
+
+        .bi.bc--color_white {
+            // bug where content-blocks overwrite - this corrects
+            color: $color-white; //  -can be deleted if bug fixed    
         }
     }
 
-    &.icon-bordr-bttn {                         //used for compare/filter options in search results
-        @extend .icon-bttn;                         //transparent bg, blue border, #333 text, blue icon (default light grey, mod to blue or dark grey)
+    &.icon-bordr-bttn {
+        //used for compare/filter options in search results
+        @extend .icon-bttn; //transparent bg, blue border, #333 text, blue icon (default light grey, mod to blue or dark grey)
         border: 1px solid $color-secondary;
         padding: 1px 10px;
         font-weight: 500;
         font-size: $font-size-sm;
     }
 
-    &.bordr-bttn {                              //used for search box buttons - example: blog search box category buttons
-        border: solid 1px $color-primary;         // white background, blue text, grey border
+    &.bordr-bttn {
+        //used for search box buttons - example: blog search box category buttons
+        border: solid 1px $color-primary; // white background, blue text, grey border
         color: $color-primary;
         background-color: $color-white;
         transition: background-color .15s ease-in-out;
-		&:hover {
-			color: $color-white;
-			background-color: $color-primary;
-		}
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-primary;
+        }
     }
 
     &.pulldown-bttn {
@@ -220,32 +270,37 @@ button::-moz-focus-inner,
         line-height: 1.5;
     }
 
-    &.search-bttn {                             //used for in-page (not header) search bars submit button
-        background-color: $color-grey--700;             //grey background, white icon (or text), rounded right corners / sharp left corners
-        border-radius: 0 3px 3px 0; 
-        width: 55px;                                    //most common width - mod as needed
-        height: 35px;                                   //most common height, most input boxes this height and should match - mod as needed
+    &.search-bttn {
+        //used for in-page (not header) search bars submit button
+        background-color: $color-grey--700; //grey background, white icon (or text), rounded right corners / sharp left corners
+        border-radius: 0 3px 3px 0;
+        width: 55px; //most common width - mod as needed
+        height: 35px; //most common height, most input boxes this height and should match - mod as needed
         padding: 0;
     }
 
-    &.clear-bttn {                              //used for in-page search boxes to clear the contents
-        font-size: $font-size-sm;                       //AttackSignatures, ThreatList_a2z, blog, download-search
+    &.clear-bttn {
+        //used for in-page search boxes to clear the contents
+        font-size: $font-size-sm; //AttackSignatures, ThreatList_a2z, blog, download-search
         background-color: transparent;
         width: 30px;
         height: 30px;
         margin-right: 5px;
         padding: 0;
-            .bi {                                       //brcmicon-times = dark grey X on a light grey circle button
-                color: $color-grey--900;                //brcmicon-window-close = dark grey square button with transparent X in it
-                margin-left: 0;
-            }                   
+
+        .bi {
+            //brcmicon-times = dark grey X on a light grey circle button
+            color: $color-grey--900; //brcmicon-window-close = dark grey square button with transparent X in it
+            margin-left: 0;
+        }
     }
 
-    &.search-bttn-lrg {                             //used for in-page (not header) large search bars submit button - AttackSignatures, ThreatList_a2z, blog, download-search
-        background-color: $color-grey--700;             //grey background, white icon (or text), rounded right corners / sharp left corners
+    &.search-bttn-lrg {
+        //used for in-page (not header) large search bars submit button - AttackSignatures, ThreatList_a2z, blog, download-search
+        background-color: $color-grey--700; //grey background, white icon (or text), rounded right corners / sharp left corners
         border-radius: 0 3px 3px 0;
-        width: 55px;                                    //most common width - mod as needed
-        height: 35px;                                   //most common height, most input boxes this height and should match - mod as needed
+        width: 55px; //most common width - mod as needed
+        height: 35px; //most common height, most input boxes this height and should match - mod as needed
         padding: 0;
 
         .bi {
@@ -254,8 +309,9 @@ button::-moz-focus-inner,
         }
     }
 
-    &.clear-bttn-lrg {                              //used for in-page search boxes to clear the contents - for large/wide search boxes
-        background-color: $color-grey--700;                    //AttackSignatures, ThreatList_a2z, blog, download-search
+    &.clear-bttn-lrg {
+        //used for in-page search boxes to clear the contents - for large/wide search boxes
+        background-color: $color-grey--700; //AttackSignatures, ThreatList_a2z, blog, download-search
         border-radius: 3px 0 0 3px;
         width: 35px;
         height: 35px;
@@ -263,49 +319,54 @@ button::-moz-focus-inner,
         margin-left: 3px;
         padding: 0;
 
-            .bi {
-                color: $color-white;
-                font-size: $font-size-lg;
-                margin-left: 0;
-            }
+        .bi {
+            color: $color-white;
+            font-size: $font-size-lg;
+            margin-left: 0;
+        }
     }
 
-    &.search-bttn-sm {                             //search submit button - used for small input boxes such as in header
-        background-color: transparent;                  //transparent background, grey icon (or text)
-        width: 30px;                                    //most common width - mod as needed
-        height: 30px;                                   //most common height, most input boxes this height and should match - mod as needed
+    &.search-bttn-sm {
+        //search submit button - used for small input boxes such as in header
+        background-color: transparent; //transparent background, grey icon (or text)
+        width: 30px; //most common width - mod as needed
+        height: 30px; //most common height, most input boxes this height and should match - mod as needed
         padding: 0;
 
-            .bi {
-                color: $color-grey--900;
-                font-size: $font-size-md;
-                margin-left: 5px;
-                margin-right: 5px;
-            }
+        .bi {
+            color: $color-grey--900;
+            font-size: $font-size-md;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
     }
 
-    &.clear-bttn-sm {                              //search clear contents - used for small input boxes such as in header
-        background-color: transparent;                  //transparent background, grey icon (or text)
+    &.clear-bttn-sm {
+        //search clear contents - used for small input boxes such as in header
+        background-color: transparent; //transparent background, grey icon (or text)
         width: 30px;
         height: 30px;
         margin-right: 0;
         padding: 0;
 
-            .bi {
-                color: $color-grey--900;
-                font-size: $font-size-md;
-            }
+        .bi {
+            color: $color-grey--900;
+            font-size: $font-size-md;
+        }
     }
 
     &.disabled-bttn {
-        opacity: 0.6;       // See products.scss for disabled values.
+        opacity: 0.6; // See products.scss for disabled values.
+
         &:hover {
             cursor: not-allowed;
         }
+
         cursor: not-allowed;
     }
 
 }
+
 /*
 
     color: #ffffff;
@@ -315,87 +376,96 @@ button::-moz-focus-inner,
 
 */
 
-.head-link {                                                // use when h1-h6 is a button (or any other element)
-	cursor: pointer;
+.head-link {
+    // use when h1-h6 is a button (or any other element)
+    cursor: pointer;
 }
 
 .group-toggle-bttn {
-    .bttn, button {
-        font-size: 18px;									//mods button/bttn
-		height: 38px;                                       // normally handled via page mod but this size is most common - mod @page as normal
-		width: 38px;
-		line-height: 38px;
-		padding: 0;											//mods button/bttn
-		background-color: $color-white;						//mods button/bttn
-		border: 1px solid darken($color-grey--700,5%);		//mods button/bttn
-		border-right: 0 none;								//mods button/bttn
-        border-radius: 0;							        //mods button/bttn
-		color: $color-grey--800;							//mods button/bttn
+
+    .bttn,
+    button {
+        font-size: 18px; //mods button/bttn
+        height: 38px; // normally handled via page mod but this size is most common - mod @page as normal
+        width: 38px;
+        line-height: 38px;
+        padding: 0; //mods button/bttn
+        background-color: $color-white; //mods button/bttn
+        border: 1px solid darken($color-grey--700, 5%); //mods button/bttn
+        border-right: 0 none; //mods button/bttn
+        border-radius: 0; //mods button/bttn
+        color: $color-grey--800; //mods button/bttn
     }
-    label{
-		display: inline-block;
-		vertical-align: middle;
 
-		> input{
-			display: none;
-		}
+    label {
+        display: inline-block;
+        vertical-align: middle;
 
-        .bi {                                               //all mods
+        >input {
+            display: none;
+        }
+
+        .bi {
+            //all mods
             color: $color-grey--800;
             margin-left: 0;
             vertical-align: unset;
         }
-		
-		&.active {
-			.bttn{											//mods button/bttn
-				background-color: $color-grey--500;
-				box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.2);
-				color: $color-grey--800;
-			}
-		}
+
+        &.active {
+            .bttn {
+                //mods button/bttn
+                background-color: $color-grey--500;
+                box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.2);
+                color: $color-grey--800;
+            }
+        }
 
         // Compare products screen. Highlight Differences.
         &.bttn.active {
             background-color: $color-grey--500;
             box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.2);
             color: $color-grey--800;
-		}
-		
-		&:last-child{
-			.bttn{
-				border-right: 1px solid darken($color-grey--700,5%);
-			}
-		}
+        }
+
+        &:last-child {
+            .bttn {
+                border-right: 1px solid darken($color-grey--700, 5%);
+            }
+        }
 
         // Compare products screen. Highlight Differences.
-        &:last-child{
-			border-right: 1px solid darken($color-grey--700,5%);
-		}
-	}
+        &:last-child {
+            border-right: 1px solid darken($color-grey--700, 5%);
+        }
+    }
 }
 
-a.bttn:hover {                                              // override the <a> link hover - a.bttn looks/acts like a button  - mods _link.scss
-    text-decoration: none;                                  // this declaration turns off the commented properties below
+a.bttn:hover {
+    // override the <a> link hover - a.bttn looks/acts like a button  - mods _link.scss
+    text-decoration: none; // this declaration turns off the commented properties below
     text-decoration-color: transparent;
-        // text-decoration-line: none;
-        // text-decoration-style: reset;
-        // text-decoration-thickness: 2px;
-        // animation: link-fadeinout 1.5s linear forwards;
+    // text-decoration-line: none;
+    // text-decoration-style: reset;
+    // text-decoration-thickness: 2px;
+    // animation: link-fadeinout 1.5s linear forwards;
 }
 
-.modal-header .close{                                       //overwriting a bootstrap button - see document-box.scss
+.modal-header .close {
+    //overwriting a bootstrap button - see document-box.scss
     @extend .icon-bttn;
 }
 
 
-.divider {                                                  //decorative dividing line between two link-bttns
+.divider {
+    //decorative dividing line between two link-bttns
     position: relative;
     display: inline-block;
     background-color: $color-grey--900;
     width: 1px;
     height: 1.3em;
-    margin-left:10px;
-    margin-right:10px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: -6px;
 }
 
@@ -403,53 +473,63 @@ a.bttn:hover {                                              // override the <a> 
 
 
 .cb-cta-link {
-	display: flex;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-top: 20px;
-	list-style: none;
-	@media (max-width: 600px) {
-		flex-direction: column;
-	}
-	li:nth-child(2) {
-		a.lnk, .lnk {
-			border: 1px solid $color-ocean-700;
-			color: $color-ocean-700;
-			background: $color-white;
-			&:hover {
-				border-color: $color-white;
-				color: $color-white;
-				background: $color-ocean-700;
-			}
-		}
-	}
-	a.lnk, .lnk {
-		font-size: 16px;
-		border-radius: 3px;
-		text-align: center;
-		padding: 0px 0px !important;
-		line-height: 1.5;
-		font-weight: 400!important;
-		text-transform: uppercase;
-		transition: all 0.2s ease;
-		border: 0px solid transparent;
-		text-decoration: none!important;
-		color: $color-ocean-700;
-		background: transparent;
-		display: inline-block;
-		margin: 5px 10px;
+    list-style: none;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    li:nth-child(2) {
+
+        a.lnk,
+        .lnk {
+            border: 1px solid $color-ocean-700;
+            color: $color-ocean-700;
+            background: $color-white;
+
+            &:hover {
+                border-color: $color-white;
+                color: $color-white;
+                background: $color-ocean-700;
+            }
+        }
+    }
+
+    a.lnk,
+    .lnk {
+        font-size: 16px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 0px 0px !important;
+        line-height: 1.5;
+        font-weight: 400 !important;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 0px solid transparent;
+        text-decoration: none !important;
+        color: $color-ocean-700;
+        background: transparent;
+        display: inline-block;
+        margin: 5px 10px;
         border-radius: 0;
-		@media screen and (min-width: 1980px) {
-			font-size: 16px;
-		}
-		&:hover {
+
+        @media screen and (min-width: 1980px) {
+            font-size: 16px;
+        }
+
+        &:hover {
             border-bottom: 2px solid;
-			border-color: $color-ocean-700;
-			background-color: transparent;
-			color: $color-ocean-700;
+            border-color: $color-ocean-700;
+            background-color: transparent;
+            color: $color-ocean-700;
             text-decoration: none !important;
-		}
-        &:after{
+        }
+
+        &:after {
             content: "";
             background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
             height: 15px;
@@ -457,40 +537,107 @@ a.bttn:hover {                                              // override the <a> 
             display: inline-block;
             background-position: 2px 2px;
         }
-	}
+    }
 }
-.theme-card-cta-secondary .cb-cta-link{
+
+.theme-card-cta-primary .cb-cta-link,
+.theme-card-cta-secondary .cb-cta-link {
     justify-content: center !important;
 }
-.theme-card-cta-secondary .cb-cta-link .card-link{
-    @include prime-style;                                          
-    font-size: 14px !important;
-    border-radius: 3px;
-    text-align: center;
-    padding: 10px 24px!important;
-    line-height: 1.8 !important;
-	font-weight: 400;
-	text-transform: uppercase;
-	transition: all 0.2s ease;
-	border: 1px solid transparent;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    border: 1px solid $color-ocean-700 !important;
-    color: $color-ocean-700 !important;
-    background: transparent !important;
-    &:after{
+
+.theme-card-cta-secondary .cb-cta-link .card-link {
+    @extend .bttn;
+    @include secondary-button;
+    // font-size: 14px !important;
+    // border-radius: 3px;
+    // text-align: center;
+    padding: 10px 24px !important;
+    // line-height: 1.8 !important;
+    // font-weight: 400;
+    // text-transform: uppercase;
+    // transition: all 0.2s ease;
+    // border: 1px solid transparent;
+    // height: 45px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // width: max-content;
+    // border: 1px solid $color-ocean-700 !important;
+    // color: $color-ocean-700 !important;
+    // background: transparent !important;
+
+
+    &:after {
         content: unset !important;
     }
+
     &:hover {
-        border-color: $color-white !important;
-        color: $color-white !important;
-        background: $color-ocean-700 !important;
-        text-decoration: none !important;
+        // border-color: $color-white !important;
+        // color: $color-white !important;
+        // background: $color-ocean-700 !important;
+        // text-decoration: none !important;
+        @include secondary-hover;
     }
-	@media screen and (min-width: 1980px) {
-		font-size: 16px;
-	}
+
+    @media screen and (min-width: 1980px) {
+        font-size: 16px;
+    }
 }
+
+.theme-card-cta-primary .cb-cta-link .card-link {
+    @extend .bttn;
+    @include primary-button;
+
+    // font-size: 14px !important;
+    // border-radius: 3px;
+    // text-align: center;
+    // padding: 10px 24px!important;
+    // line-height: 1.8 !important;
+    // font-weight: 400;
+    // text-transform: uppercase;
+    // transition: all 0.2s ease;
+    // border: 1px solid transparent;
+    // height: 45px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // width: max-content;
+    // border: 1px solid $color-ocean-700 !important;
+    // color: $color-ocean-700 !important;
+    // background: transparent !important;
+    @extend .bttn;
+
+    &:after {
+        content: unset !important;
+    }
+
+    &:hover {
+        // border-color: $color-white !important;
+        // color: $color-white !important;
+        // background: $color-ocean-700 !important;
+        // text-decoration: none !important;
+        @include secondary-hover;
+    }
+
+    @media screen and (min-width: 1980px) {
+        font-size: 16px;
+    }
+
+}
+
+.theme-content-block-cta-card-primary {
+    .cb-cta-link .card-link {
+        @extend .bttn;
+        @include primary-button;
+    }
+
+}
+
+.theme-content-block-cta-card-secondary {
+    .cb-cta-link .card-link {
+        @extend .bttn;
+        @include secondary-button;
+    }
+}
+
+.theme-content-block-cta-card-link {}
