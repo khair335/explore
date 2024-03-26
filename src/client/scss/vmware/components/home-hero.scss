@@ -38,6 +38,7 @@ $carousel-indicator-height: 20px;
 
         .teaser {
           .banner-cta-wrapper {
+
             @include media-breakpoint-down(md) {
               flex-direction: column;
             }
@@ -45,6 +46,14 @@ $carousel-indicator-height: 20px;
             .banner-cta-title {
 
               .lnk {
+                border: none !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                &:hover{
+                  border: none !important;
+                  background-color: transparent !important;
+                }
+
                 @include media-breakpoint-down(md) {
                   background-color: transparent !important;
                   color: black !important;

@@ -18,30 +18,14 @@
 
 
 .content-block .lnk {
-  font-size: 16px;
-  border-radius: 3px;
-  text-align: center;
-  padding: 0px 0px !important;
-  line-height: 1.5;
-  font-weight: 400 !important;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-  border: 0px solid transparent;
-  text-decoration: none !important;
-  color: $color-ocean-700;
-  background: transparent;
-  display: inline-block;
-  margin: 5px 10px;
-  border-radius: 0;
+  @include primary-button;
 
   @media screen and (min-width: 1980px) {
     font-size: 16px;
   }
 
   &:hover {
-    text-decoration: underline !important;
-    background-color: $color-white;
-    color: $color-ocean-700;
+    @include primary-hover;
   }
 
   &:after {
@@ -110,8 +94,8 @@
 
         .lnk {
           @include prime-style;
-          color: $color-white;
-          padding: 6px 24px !important;
+          @include primary-button;
+
           width: max-content;
           margin: 0 auto;
 
@@ -155,6 +139,10 @@
 
   .content-block-title {
     color: #fff;
+  }
+
+  .featured-cards~.col>.row:nth-child(2) .card {
+    margin-top: 20px;
   }
 
   .featured-cards {
@@ -262,11 +250,7 @@
   }
 }
 
-#continue-learning .theme-card-cta-link {
-  .card {
-    margin-top: 20px;
-  }
-}
+
 
 .ContentCard-section {
   .theme-card-dark {
@@ -369,4 +353,8 @@
       }
     }
   }
+}
+
+.ContentList-section{
+  padding: 140px 0 70px !important;
 }

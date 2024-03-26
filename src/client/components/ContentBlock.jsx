@@ -29,6 +29,11 @@ const Sections = (props) => {
 				if (theme) {
 					classes.push(theme);
 				}
+
+				if (content_block?.cards_cta_style) {
+					classes.push(`theme-content-block-cta-card-${content_block?.cards_cta_style?.toLowerCase()}`);
+				}
+
 				
 				if (content_block?.background_image?.src) {
 					style.backgroundImage = `url(${content_block?.background_image?.src})`;
