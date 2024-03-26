@@ -32,8 +32,17 @@
 // Theme
 .theme-content-block-line {
     .accordion {
+        .toggle-actions{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .divider{
+                margin-bottom: 0 !important;
+            }
+        }
         .CollapseBox {
-            margin-bottom: none !important;
+            margin-bottom: 0 !important;
+            margin-top: -2px;
 
             .card {
                 border: none;
@@ -43,7 +52,11 @@
                 border-left: none !important;
 
                 .card-head {
-                    padding: 0 10px 20px !important;
+                    padding: 30px 10px 30px !important;
+
+                    button {
+                        height: auto;
+                    }
                 }
 
                 .card-body {
