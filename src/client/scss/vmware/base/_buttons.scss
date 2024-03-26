@@ -640,15 +640,6 @@ a.bttn:hover {
     }
 }
 
-.theme-content-block-cta-card-link {}
-
-
-
-
-
-
-
-// theme-card-standard theme-card-cta-link
 .theme-card-cta-link .card-link {
     @extend .bttn;
     border: none !important;
@@ -718,7 +709,9 @@ a.bttn:hover {
                 }
 
                 &:nth-child(2) {
-                    .button {
+
+                    .button,
+                    .lnk {
 
 
                         @extend .bttn;
@@ -816,12 +809,49 @@ a.bttn:hover {
                 &.theme-card-cta-link {
                     .card-footer {
                         .cb-cta-link {
+                            justify-content: center !important;
+                            align-items: center !important;
+
                             .lnk {
-                                &:hover {
-                                    border: 0 !important;
-                                    background: transparent !important;
-                                    color: $color-ocean-700 !important;
+
+
+                                @extend .bttn;
+                                @include secondary-button;
+                                font-size: 14px !important;
+                                border-radius: 3px;
+                                text-align: center;
+                                padding: 10px 24px !important;
+                                line-height: 1.8 !important;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                                transition: all 0.2s ease;
+                                border: 1px solid transparent;
+                                height: 45px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: max-content;
+                                border: 1px solid $color-ocean-700 !important;
+                                color: $color-ocean-700 !important;
+                                background: transparent !important;
+                                @extend .bttn;
+
+                                &:after {
+                                    content: unset !important;
                                 }
+
+                                &:hover {
+                                    border-color: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                    background: $color-ocean-700 !important;
+                                    text-decoration: none !important;
+                                    @include secondary-hover;
+                                }
+
+                                @media screen and (min-width: 1980px) {
+                                    font-size: 16px;
+                                }
+
                             }
                         }
                     }
@@ -862,32 +892,91 @@ a.bttn:hover {
         &.theme-content-block-cta-card-primary {
             .ContentCard {
                 .cb-cta-link {
-                    .lnk {
-                        padding: 10px 24px !important;
+                    justify-content: center !important;
+                    align-items: center;
 
-                        &:hover {
-                            border: 1px solid $color-ocean-700 !important;
-                            background: transparent !important;
-                            color: $color-ocean-700 !important;
-                        }
+                    .lnk {
+
+
+                        @extend .bttn;
+                        @include primary-button;
+                        font-size: 14px !important;
+                        border-radius: 3px;
+                        text-align: center;
+                        padding: 10px 24px !important;
+                        line-height: 1.8 !important;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        border: 1px solid transparent;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: max-content;
+                        border: 1px solid $color-ocean-700 !important;
+                        color: $color-white !important;
+                        background: $color-ocean-700 !important;
+                        @extend .bttn;
 
                         &:after {
                             content: unset !important;
                         }
+
+                        &:hover {
+                            border-color: $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            text-decoration: none !important;
+                            @include primary-hover;
+                        }
+
+                        @media screen and (min-width: 1980px) {
+                            font-size: 16px;
+                        }
+
                     }
 
                     .card-link {
-                        padding: 10px 24px !important;
 
-                        &:hover {
-                            border: 1px solid $color-ocean-700 !important;
-                            background: transparent !important;
-                            color: $color-ocean-700 !important;
-                        }
+
+                        @extend .bttn;
+                        @include primary-button;
+                        font-size: 14px !important;
+                        border-radius: 3px;
+                        text-align: center;
+                        padding: 10px 24px !important;
+                        line-height: 1.8 !important;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        border: 1px solid transparent;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: max-content;
+                        border: 1px solid $color-ocean-700 !important;
+                        color: $color-white !important;
+                        background: $color-ocean-700 !important;
+                        @extend .bttn;
 
                         &:after {
                             content: unset !important;
                         }
+
+                        &:hover {
+                            border-color: $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            text-decoration: none !important;
+                            @include primary-hover;
+                        }
+
+                        @media screen and (min-width: 1980px) {
+                            font-size: 16px;
+                        }
+
                     }
                 }
             }
@@ -950,13 +1039,64 @@ a.bttn:hover {
 
     &.theme-content-block-gray {
         &.theme-content-block-cta-card-link {
-            .cb-cta-link {
-                .lnk {
-                    &:hover {
-                        border: 0 !important;
+            .ContentCard {
+                // background-color: green !important;
+
+                .card-footer {
+                    .cb-cta-link {
+                        justify-content: start !important;
+                        align-items: center !important;
+
+                        .lnk {
+
+
+
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 0 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: "" !important;
+                                background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E") !important;
+                                height: 15px !important;
+                                width: 15px !important;
+                                display: inline-block !important;
+                                background-position: 2px 2px !important;
+                                margin-top: -5px !important;
+                                margin-left: 5px !important;
+                            }
+
+                            &:hover {
+
+                                text-decoration: none !important;
+
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
                     }
                 }
             }
+
+
         }
 
     }
@@ -1010,7 +1150,7 @@ a.bttn:hover {
                             }
                         }
 
-                        &:last-child {
+                        &:nth-child(2) {
                             .button {
 
 
@@ -1041,8 +1181,8 @@ a.bttn:hover {
 
                                 &:hover {
                                     border-color: $color-ocean-700 !important;
-                                    color: $color-white !important;
-                                    background: $color-ocean-700 !important;
+                                    color: $color-ocean-700 !important;
+                                    background: $color-white !important;
                                     text-decoration: none !important;
                                     @include secondary-hover;
                                 }
@@ -1066,12 +1206,48 @@ a.bttn:hover {
                 &.theme-card-cta-link {
                     .card-footer {
                         .cb-cta-link {
+                            justify-content: center !important;
+                            align-items: center  !important;
                             .lnk {
-                                &:hover {
-                                    border: 0 !important;
-                                    background: transparent !important;
-                                    color: $color-ocean-700 !important;
+
+
+                                @extend .bttn;
+                                @include secondary-button;
+                                font-size: 14px !important;
+                                border-radius: 3px;
+                                text-align: center;
+                                padding: 10px 24px !important;
+                                line-height: 1.8 !important;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                                transition: all 0.2s ease;
+                                border: 1px solid transparent;
+                                height: 45px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: max-content;
+                                border: 1px solid $color-ocean-700 !important;
+                                color: $color-ocean-700 !important;
+                                background: transparent !important;
+                                @extend .bttn;
+
+                                &:after {
+                                    content: unset !important;
                                 }
+
+                                &:hover {
+                                    border-color: $color-ocean-700 !important;
+                                    color: $color-white !important;
+                                    background: $color-ocean-700 !important;
+                                    text-decoration: none !important;
+                                    @include secondary-hover;
+                                }
+
+                                @media screen and (min-width: 1980px) {
+                                    font-size: 16px;
+                                }
+
                             }
                         }
                     }
@@ -1080,6 +1256,8 @@ a.bttn:hover {
                 &.theme-card-cta-primary {
                     .card-footer {
                         .cb-cta-link {
+                             justify-content: center !important;
+                            align-items: center  !important;
                             .lnk {
                                 &:hover {
                                     border: 1px solid $color-ocean-700 !important;
@@ -1094,6 +1272,8 @@ a.bttn:hover {
                 &.theme-card-cta-secondary {
                     .card-footer {
                         .cb-cta-link {
+                             justify-content: center !important;
+                            align-items: center  !important;
                             .lnk {
                                 &:hover {
                                     border: 1px solid $color-ocean-700 !important;
@@ -1111,28 +1291,504 @@ a.bttn:hover {
     &.theme-content-block-blue {
         &.theme-content-block-cta-card-secondary {
 
-            .cb-cta-link {
 
-                .lnk {
-                    border: 0 !important;
+            .theme-card-cta-link {
+                .card-footer {
+                    .cb-cta-link {
+                        justify-content: center !important;
 
-                    &:hover {
-                        border: 0 !important;
-                        background: transparent !important;
-                        color: $color-ocean-700 !important;
-                    }
-                }
-
-                .card-link {
-                    &:hover {
+                        .lnk {
 
 
-                        color: $color-ocean-700 !important;
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
+
+                        .card-link {
+
+
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
                     }
                 }
             }
+
+            .theme-card-cta-primary {
+                .card-footer {
+                    .cb-cta-link {
+                        justify-content: center !important;
+
+                        .lnk {
+
+
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
+
+                        .card-link {
+
+
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .theme-card-cta-secondary {
+                .card-footer {
+                    .cb-cta-link {
+                        justify-content: center !important;
+
+                        .lnk {
+
+
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
+
+                        .card-link {
+
+
+                            @extend .bttn;
+                            @include secondary-button;
+                            font-size: 14px !important;
+                            border-radius: 3px;
+                            text-align: center;
+                            padding: 10px 24px !important;
+                            line-height: 1.8 !important;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            transition: all 0.2s ease;
+                            border: 1px solid transparent;
+                            height: 45px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: max-content;
+                            border: 1px solid $color-ocean-700 !important;
+                            color: $color-ocean-700 !important;
+                            background: transparent !important;
+                            @extend .bttn;
+
+                            &:after {
+                                content: unset !important;
+                            }
+
+                            &:hover {
+                                border-color: $color-ocean-700 !important;
+                                color: $color-white !important;
+                                background: $color-ocean-700 !important;
+                                text-decoration: none !important;
+                                @include secondary-hover;
+                            }
+
+                            @media screen and (min-width: 1980px) {
+                                font-size: 16px;
+                            }
+
+                        }
+                    }
+                }
+            }
+
         }
     }
 
 
+}
+
+.Default-section {
+    &.theme-content-block-light {
+        &.theme-content-block-cta-secondary {
+            .cb-cta-link {
+                .lnk {
+
+
+                    @extend .bttn;
+                    @include secondary-button;
+                    font-size: 14px !important;
+                    border-radius: 3px;
+                    text-align: center;
+                    padding: 10px 24px !important;
+                    line-height: 1.8 !important;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    transition: all 0.2s ease;
+                    border: 1px solid transparent;
+                    height: 45px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: max-content;
+                    border: 1px solid $color-ocean-700 !important;
+                    color: $color-ocean-700 !important;
+                    background: transparent !important;
+                    @extend .bttn;
+
+                    &:after {
+                        content: unset !important;
+                    }
+
+                    &:hover {
+                        border-color: $color-ocean-700 !important;
+                        color: $color-white !important;
+                        background: $color-ocean-700 !important;
+                        text-decoration: none !important;
+                        @include secondary-hover;
+                    }
+
+                    @media screen and (min-width: 1980px) {
+                        font-size: 16px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.Featured-section {
+
+    &.theme-content-block-bg {
+        .theme-card-cta-primary {
+            .card-footer {
+                //    background-color: red !important;
+
+                .cb-cta-link {
+                    justify-content: start !important;
+
+                    .lnk {
+
+
+
+                        font-size: 14px !important;
+                        border-radius: 3px;
+                        text-align: center;
+                        padding: 10px 24px !important;
+                        line-height: 1.8 !important;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        border: 1px solid transparent;
+                        height: 45px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: max-content;
+                        border: 1px solid $color-white !important;
+                        color: $color-white !important;
+                        background: transparent !important;
+                        @extend .bttn;
+
+                        &:after {
+                            content: unset !important;
+
+                        }
+
+                        &:hover {
+                            color: $color-ocean-700 !important;
+                            background: $color-white !important;
+                            text-decoration: none !important;
+
+                        }
+
+                        @media screen and (min-width: 1980px) {
+                            font-size: 16px;
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        .card-footer {
+            //    background-color: red !important;
+
+            .cb-cta-link {
+                justify-content: start !important;
+
+                .lnk {
+
+
+
+                    font-size: 14px !important;
+                    border-radius: 3px;
+                    text-align: center;
+                    padding: 10px 24px !important;
+                    line-height: 1.8 !important;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    transition: all 0.2s ease;
+                    border: 1px solid transparent;
+                    height: 45px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: max-content;
+                    border: 0 !important;
+                    color: $color-ocean-700 !important;
+                    background: transparent !important;
+                    @extend .bttn;
+
+                    &:after {
+                        content: "" !important;
+                        background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E") !important;
+                        height: 15px !important;
+                        width: 15px !important;
+                        display: inline-block !important;
+                        background-position: 2px 2px !important;
+                        margin-top: -5px !important;
+                        margin-left: 5px !important;
+                    }
+
+                    &:hover {
+
+                        text-decoration: none !important;
+
+                    }
+
+                    @media screen and (min-width: 1980px) {
+                        font-size: 16px;
+                    }
+
+                }
+            }
+
+
+        }
+
+    }
+}
+
+.theme-content-block-imagelight {
+    &.theme-content-block-bg {
+        .container {
+            h3 {
+                color: $color-white !important;
+            }
+
+            .cb-cta-link {
+                justify-content: start !important;
+
+                .lnk {
+
+
+
+                    font-size: 14px !important;
+                    border-radius: 3px;
+                    text-align: center;
+                    padding: 10px 24px !important;
+                    line-height: 1.8 !important;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    transition: all 0.2s ease;
+                    border: 1px solid transparent;
+                    height: 45px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: max-content;
+                    border: 1px solid $color-white !important;
+                    color: $color-white !important;
+                    background: transparent !important;
+                    @extend .bttn;
+
+                    &:after {
+                        content: unset !important;
+
+                    }
+
+                    &:hover {
+                        color: $color-ocean-700 !important;
+                        background: $color-white !important;
+                        text-decoration: none !important;
+
+                    }
+
+                    @media screen and (min-width: 1980px) {
+                        font-size: 16px;
+                    }
+
+                }
+            }
+        }
+    }
 }
