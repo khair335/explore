@@ -29,7 +29,20 @@
     }
 }
 
+
+.Accordion-section{
+    .toggle-actions{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .divider{
+                margin-bottom: 0 !important;
+            }
+        }
+
+}
 // Theme
+
 .theme-content-block-line {
     .accordion {
         .toggle-actions{
