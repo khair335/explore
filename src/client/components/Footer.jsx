@@ -75,7 +75,7 @@ const Autopilot = () => {
                             for (let i = 0; i < urls.length; i++) {
                                 let contain = urls[i];
 
-                                // Let's assume first character is a \ is a regular expression.								
+                                // Let's assume first character is a \ is a regular expression.
                                 if (contain && contain[0] === '\\') {
                                     if (path.match(new RegExp(contain, 'gi'))) {
                                         return true;
@@ -304,7 +304,7 @@ const Footer = (props) => {
     let template = (navigation?.template || "Broadcom") + "Footer";		// Resolve name to local name.
     let FooterTemplate = templates[template] || NoTemplate;
 
-    
+
     // Check on resize of the body.
     let resizeObserver = null;
     let observer = null;
@@ -338,7 +338,7 @@ const Footer = (props) => {
                     let showFoot = document.querySelector('footer');
                     showFoot.style.display = 'block';
                 })
-                
+
         */
         if (typeof ResizeObserver == 'function') {
 
@@ -370,7 +370,7 @@ const Footer = (props) => {
 
                 if (scrollHeight <= 0) {
                     // Ignore loading screen
-                    // Just show the scroll bar.                    
+                    // Just show the scroll bar.
                     if (!loading) {
                         setShow(true);
                     }

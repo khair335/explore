@@ -20,17 +20,19 @@ const VMwareFooter = (props) => {
         <Container>
             <Row>
 
-                <Col xs="2" >
-                    <SiteLink to="/">
-                        <ImageBase image={props.navigation?.footer?.logo} />
-                    </SiteLink>
+                <Col sm="12" lg="2" >
+                    <div className='w-100 footer-image-link'>
+                        <SiteLink to="/">
+                            <ImageBase image={props.navigation?.footer?.logo} />
+                        </SiteLink>
+                    </div>
                 </Col>
-                <Col xs="6">
+                <Col sm="12" lg="6">
 
                     <Nav navbar tag="div" className="footer-menu nav">
                         <Row>
                             {props?.navigation.footer && props?.navigation?.footer?.navigation?.map((cols, index) => (
-                                <Col key={index} xs="4">
+                                <Col key={index} sm="12" lg="4">
                                     {show_section_title &&
                                         <div className="footer-menu-section-title">
                                             {cols.section}
@@ -57,7 +59,7 @@ const VMwareFooter = (props) => {
                         </Row>
                     </Nav>
                 </Col>
-                <Col xs="4">
+                <Col sm="12" lg="4">
                     <ul className="social-nav">
                         {props?.navigation?.footer?.socials?.map(social => (
 

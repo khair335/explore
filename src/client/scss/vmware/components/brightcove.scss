@@ -11,10 +11,31 @@
 
 	position: relative;
 
-	
+
 
 	// Show the volume on small screens.
 	.video-js {
+
+		.vjs-control,
+		.vjs-menu-button {
+			&.vjs-button {
+				&:hover {
+					background-color: rgba(128, 128, 128, 0.438);
+					color: #fff !important;
+					border: none;
+				}
+			}
+		}
+
+		.vjs-slider-horizontal .vjs-volume-level {
+			background-color: #fff !important;
+		}
+
+		// .vjs-play-progress {
+		// 	.vjs-play-progress {
+		// 		background-color: #fff !important;
+		// 	}
+		// }
 
 		&.vjs-layout-small,
 		&.vjs-layout-x-small,

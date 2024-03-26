@@ -401,7 +401,7 @@ body[onetrust-banner="true"] {
 // Autopilot.
 .footer-show {
   .autopilot {
-    //visibility: visible;    
+    //visibility: visible;
   }
 }
 
@@ -411,7 +411,7 @@ body[onetrust-banner="true"] {
   height: $autopilot-height;
   border-top: 1px $color-grey--675 solid;
 
-  .autopilot-container {    
+  .autopilot-container {
     padding-top: 12px;
   }
 
@@ -435,7 +435,7 @@ body[onetrust-banner="true"] {
 
   @media screen and (min-width: map-get($grid-breakpoints, md)) {
     height: $autopilot-height-md;
-    
+
 
     .autopilot-container {
       padding-top: 16px;

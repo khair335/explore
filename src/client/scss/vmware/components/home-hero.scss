@@ -5,7 +5,7 @@
 
 @import "../base/variables";
 @import "../base/_transitions";
-
+@import "~bootstrap/scss/mixins/breakpoints";
 $carousel-indicator-height: 20px;
 
 .top-banner {
@@ -30,75 +30,112 @@ $carousel-indicator-height: 20px;
     //background: $color-grey--500;
 
     >.carousel-item {
+
       //transition: transform .6s ease-in-out;
       //backface-visibility: hidden;
       //perspective: 1000px;
-     .size-large {
+      .size-large {
+
+        .teaser {
+          .banner-cta-wrapper {
+            @include media-breakpoint-down(md) {
+              flex-direction: column;
+            }
+
+            .banner-cta-title {
+
+              .lnk {
+                @include media-breakpoint-down(md) {
+                  background-color: transparent !important;
+                  color: black !important;
+                  border: none !important;
+
+                  h2 {
+                    color: black !important;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+
         img {
           height: auto;
           object-fit: cover;
           width: 100%;
           height: 700px; // JD - We have lazy loading and the image doesn't appear for the banner, so it pops.
-    
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 500px;
             object-position: 75%;
           }
+
           @media (max-width: 767.98px) {
             height: 300px;
           }
+
           @media (max-width: 575.98px) {
             height: 260px;
           }
+
           @media (max-width: 460px) {
             height: 200px;
           }
         }
-        }
+      }
+
       .size-medium {
         img {
           height: auto;
           object-fit: cover;
           width: 100%;
           height: 500px;
-    
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 380px;
             object-position: 75%;
           }
+
           @media (max-width: 767.98px) {
             height: 320px;
           }
+
           @media (max-width: 575.98px) {
             height: 280px;
           }
+
           @media (max-width: 460px) {
             height: 200px;
           }
         }
-        }
+      }
+
       .size-small {
         img {
           height: auto;
           object-fit: cover;
           width: 100%;
           height: 350px;
-    
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
             object-position: 75%;
           }
+
           @media (max-width: 767.98px) {
             height: 320px;
           }
+
           @media (max-width: 460px) {
             height: 200px;
           }
         }
-        }
+      }
+
       .container {
         @media only screen and (max-width: 991.98px) {
           padding: 0;
@@ -114,16 +151,28 @@ $carousel-indicator-height: 20px;
       @media only screen and (max-width: 991.98px) {
         background: $color-primary;
       }
+
+
+      @include media-breakpoint-down(md) {
+        background: $color-white;
+      }
+
       div {
         color: $color-white;
       }
-      h1,h2,h3,h4 {
+
+      h1,
+      h2,
+      h3,
+      h4 {
         color: $color-white;
       }
+
       a.lnk {
         border-color: $color-white;
         background-color: transparent;
         color: $color-white;
+
         &:hover {
           border-color: $color-white;
           background-color: $color-white;
@@ -131,7 +180,8 @@ $carousel-indicator-height: 20px;
         }
       }
     }
-    }
+  }
+
   .caption {
     position: absolute;
     width: 610px;
@@ -157,35 +207,40 @@ $carousel-indicator-height: 20px;
       font-weight: 400;
       font-size: 19px;
       font-size: 16px;
-	     @media screen and (min-width: 1980px) {
-	    	font-size: 19px;
-	      }
+
+      @media screen and (min-width: 1980px) {
+        font-size: 19px;
       }
+    }
 
 
     h1 {
       padding: 20px 6px 10px 0;
       font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
-        @media screen and (min-width: 1980px) {
+
+      @media screen and (min-width: 1980px) {
         font-size: 50px;
-        }
       }
-	
-	  h2 {
+    }
+
+    h2 {
       font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1980 - 320)));
       margin-bottom: 10px;
-        @media screen and (min-width: 1980px) {
-          font-size: 40px;
-        }
+
+      @media screen and (min-width: 1980px) {
+        font-size: 40px;
+      }
     }
-	
-   h3 {
+
+    h3 {
       margin: 15px 0;
       font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1980 - 320)));
-        @media screen and (min-width: 1980px) {
-          font-size: 28px;
-        }
-	}
+
+      @media screen and (min-width: 1980px) {
+        font-size: 28px;
+      }
+    }
+
     .teaser {
       margin-bottom: 20px;
 
@@ -212,21 +267,23 @@ $carousel-indicator-height: 20px;
       background-color: $color-ocean-700;
       color: $color-white;
       background: $color-ocean-700;
+
       &:hover {
         border-color: $color-ocean-700;
-      background-color: $color-white;
-      color: $color-ocean-700;
+        background-color: $color-white;
+        color: $color-ocean-700;
       }
-        @media (max-width: 460px) {
+
+      @media (max-width: 460px) {
         margin-top: 7px;
-        }
+      }
 
 
       span {
         display: none;
       }
 
-      
+
       .bi {
         font-size: $font-size-md;
         border: none;
@@ -239,18 +296,22 @@ $carousel-indicator-height: 20px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+
       .banner-cta {
-      width: 50%;
-      @media (max-width: 460px) {
-        width: 100%;
-      }
-      &:first-child {
-        padding-right: 20px;
+        width: 50%;
+
         @media (max-width: 460px) {
-          padding-right: 0;
-          margin-bottom: 15px;
+          width: 100%;
         }
-      }
+
+        &:first-child {
+          padding-right: 20px;
+
+          @media (max-width: 460px) {
+            padding-right: 0;
+            margin-bottom: 15px;
+          }
+        }
       }
     }
 
@@ -291,27 +352,47 @@ $carousel-indicator-height: 20px;
     }
   }
 }
+
 .top-banner {
   .carousel-inner {
     .size-large {
       .caption {
         width: 823px;
 
+        @include media-breakpoint-down(md) {
+          width: auto !important;
+        }
+
+
         .featurette-heading {
           font-size: 50px !important;
         }
 
         .teaser {
+          .featurette-heading {
+            @include media-breakpoint-down(md) {
+              font-size: 30px !important;
+            }
+          }
+
           >div {
             >p {
               font-size: 32px;
               margin-bottom: 30px;
+
+              @include media-breakpoint-down(md) {
+                font-size: 16px !important;
+              }
             }
           }
 
           .banner-cta {
             h2 {
               font-size: 50px;
+
+             @include media-breakpoint-down(md) {
+                  font-size: 30px !important;
+                }
             }
 
             >div {
@@ -325,6 +406,9 @@ $carousel-indicator-height: 20px;
 
             .lnk {
               margin-top: 28px;
+              @include media-breakpoint-down(md) {
+                  margin-top: 16px;
+                }
             }
           }
         }
@@ -339,6 +423,11 @@ $carousel-indicator-height: 20px;
   object-fit: cover;
   width: 100%;
   height: 550px !important;
+
+  @include media-breakpoint-down(md) {
+    height: 300px !important;
+    min-height: 300px !important;
+  }
 }
 
 .top-banner {
@@ -347,15 +436,67 @@ $carousel-indicator-height: 20px;
     margin-top: 60px;
     margin-left: -30px;
 
+    @include media-breakpoint-down(md) {
+      margin-top: 0px !important;
+      margin-left: 0px !important;
+    }
+
+    .featurette-heading {
+      font-size: 40px !important;
+      text-transform: capitalize;
+
+
+      @include media-breakpoint-down(md) {
+        text-align: left;
+        color: black !important;
+      }
+    }
+
     p {
       font-weight: 300;
       padding: 10px 0;
+
+
+      @include media-breakpoint-down(md) {
+        text-align: left;
+        color: black;
+      }
+    }
+
+    .banner-cta-wrapper {
+      .banner-cta {
+        >div {
+          display: flex;
+          justify-content: flex-start;
+
+          @include media-breakpoint-down(md) {
+            flex-direction: column;
+          }
+        }
+
+        .lnk {
+          &:hover {
+
+            text-decoration: none !important;
+          }
+
+          @include media-breakpoint-down(md) {
+            background-color: $color-ocean-700 !important;
+            border: 1px solid $color-ocean-700 !important;
+            color: $color-white !important;
+
+            &:hover {
+              background-color: $color-white !important;
+              border: 1px solid $color-ocean-700 !important;
+              color: $color-ocean-700 !important;
+              text-decoration: none !important;
+            }
+          }
+        }
+      }
     }
   }
 
-  .featurette-heading {
-    font-size: 40px !important;
-    text-transform: capitalize;
-  }
+
 
 }

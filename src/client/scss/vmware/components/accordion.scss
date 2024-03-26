@@ -13,14 +13,15 @@
 .accordion-content-block,
 .accordion {
     .accordion-title {
-         color:$color-body;
-     }
-    
+        color: $color-body;
+    }
+
     // Use arrows instead of + -.
     .brcmicon-plus {
         @include fa-icon-solid($fa-var-chevron-right);
         transition: 0.2s ease-in-out;
     }
+
     .brcmicon-window-minimize {
         @include fa-icon-solid($fa-var-chevron-right);
         transition: 0.2s ease-in-out;
@@ -32,36 +33,45 @@
 .theme-content-block-line {
     .accordion {
         .CollapseBox {
-            margin-bottom: none!important;
+            margin-bottom: none !important;
+
             .card {
-                border:none;
+                border: none;
+                border-top: 2px solid $color-grey--100;
                 border-bottom: 2px solid $color-grey--100;
-                
+                border-right: none !important;
+                border-left: none !important;
+
                 .card-head {
-                    padding: 0 10px 20px!important;
-                 }
-                 .card-body {
-                    .collapse,.collapsing {
-						padding: 0px 10px 25px;
-					}
-                 }
+                    padding: 0 10px 20px !important;
+                }
+
+                .card-body {
+
+                    .collapse,
+                    .collapsing {
+                        padding: 0px 10px 25px;
+                    }
+                }
             }
-           
-           
+
+
         }
     }
 }
 
 .theme-content-block-standard {
-	.accordion {
+    .accordion {
         .CollapseBox {
-			.card {
-				.card-body {
-					.collapse,.collapsing {
-						padding: 0px 10px 25px;
-					}
-				}
+            .card {
+                .card-body {
+
+                    .collapse,
+                    .collapsing {
+                        padding: 0px 10px 25px;
+                    }
+                }
             }
-		}
-	}
+        }
+    }
 }
