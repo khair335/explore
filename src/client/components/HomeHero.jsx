@@ -296,7 +296,7 @@ export default class HomeHero extends Component {
 
 	render() {
 		const { activeIndex } = this.state;
-		const hideTeaser = { "display": "none" };		
+		const hideTeaser = { "display": "none" };
 		const slides = this.state.heroes.map((item, i) => {
 			const theme = `theme-${item?.theme?.toLowerCase() || 'default'} theme-banner-${item?.theme?.toLowerCase() || 'default'}`;
 			const size = `size-${item?.size?.toLowerCase() || 'default'}`;
@@ -337,7 +337,28 @@ export default class HomeHero extends Component {
 											return (
 												<div className="banner-cta" key={link.url}>
 													{link.hero_banner_title &&
-														<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
+														<div className="banner-cta-title">
+															{(link.url && link.content_type === "video")
+																? <SiteLink key={link.content_id}
+																	gtmevent={{ "id": "U006", "title": link.title }}
+																	onClick={event => this.handleVideoClick(event, link.media_id)}
+																	nolink
+																	target={target}>{/* , "detail": "play video"*/}
+																	<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
+																</SiteLink>
+																: <SiteLink
+																	to={link.url}
+																	key={link.content_id}
+																	gtmevent={{ "id": "U006", "title": link.title }}
+																	target={target}
+																	nolink
+																>{/* , "detail":"cta link"*/}
+																	<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
+																</SiteLink>
+															}
+														</div>
+
+
 													}
 													{link.hero_banner_abstract &&
 														<div dangerouslySetInnerHTML={{ __html: link.hero_banner_abstract }} />

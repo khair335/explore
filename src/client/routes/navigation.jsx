@@ -127,7 +127,8 @@ const NavigationProvider = ({ children }) => {
 
                     })
                     .catch(error => {
-                        setTimeout(() => { throw error; }); 															// Throw it globally.
+                        setTimeout(() => { throw error; }); 	
+                        setLoaded(true);														// Throw it globally.
                     });
             });
     }
@@ -135,7 +136,7 @@ const NavigationProvider = ({ children }) => {
     useEffect(() => {
 
         // Load only once.
-        if (!navigation || navigation.length <=0) {
+        if (!loaded && (!navigation || navigation.length <=0)) {
             loadData();         // Load our data.
             
         }

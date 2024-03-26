@@ -11,7 +11,7 @@ class Config {
 		let config = null;
 
 		this.microsite = null;
-		if (gMicrosite) {
+		if (true) { //gMicrosite) { // Hardcode for now.
 			this.microsite = gMicrosite;
 
 			config = ConfigVMware;

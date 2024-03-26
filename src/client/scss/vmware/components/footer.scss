@@ -36,6 +36,7 @@
 
         a {
           font-weight: 300 !important;
+         
           
         }
       }
@@ -44,6 +45,7 @@
 
     .footer-menu-section-title {
       margin-bottom: 20px;
+      font-size: 26px;
     }
     
 
@@ -51,8 +53,9 @@
       .nav-item {
         margin-bottom: 20px;
         a{
-          font-size: 20px;
+          font-size: 14px;
           font-weight: 300;
+          color: $color-black
         }
       }
     }
@@ -67,6 +70,8 @@
           display: flex;
           align-items: center;
           gap: 10px;
+          font-weight: 300;
+          font-size: 14px;
          
           img {
             max-width: 15px;
@@ -85,6 +90,8 @@
 
       a {
         font-weight: 300;
+        font-size: 15px;
+        color: $color-black;
       }
     }
 

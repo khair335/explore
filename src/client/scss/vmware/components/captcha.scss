@@ -8,6 +8,8 @@
 .captcha-wrap{
     //width: 58%;
     margin: 0px 0px 44px;
+    background-color: $color-grey--50;
+    width:max-content;
 	.emailverify{
         display: none;
     }

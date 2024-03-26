@@ -11,35 +11,7 @@
 
 	position: relative;
 
-	.vjs-big-play-button {
-		//.vjs-icon-placeholder {
-		position: absolute;
-		background-color: transparent;
-		height: 54px;
-		width: 54px;
-		top: 50%;
-		left: 50%;
-		margin-top: -28px;
-		margin-left: -28px;
-		//z-index: -1;
-		//border: none;
-		line-height: inherit;
-
-		background-color: rgba(0, 0, 0, 0.75);
-		border-radius: 50%;
-		border: 4px $color-white solid;
-
-		&:before {
-			//content: "\e95b";		// added this as a class name bi-play-circle in BrightcoveVideo.jsx - "/e95b" is risky becasue it can change when the icon file is updated
-			color: $color-white;
-			font-size: 52px;
-			//font-family: 'Broadcom-General-icon-Fonts';
-			margin-top: -3px; // hide our background. 
-			margin-left: -1px;
-		}
-
-		//}
-	}
+	
 
 	// Show the volume on small screens.
 	.video-js {
