@@ -10,7 +10,6 @@ import { Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 
 import { Playlist, msToTime } from 'components/LibraryElements.jsx';
 import BrcmShare from 'components/brcmShare.jsx';
 import ImageBase from 'components/ImageBase.jsx';
-
 import 'scss/components/video.scss';
 
 /**
@@ -27,11 +26,12 @@ export default class Video extends Component {
             duration: "",
         };
 
+
         this.setMetaData = this.setMetaData.bind(this);       // Don't bind it.
     }
 
     // Get data from player.
-    setMetaData(title, description, durationIn) {
+    setMetaData(title, description, durationIn, meta) {
 
         // duration is in
         this.setState({
@@ -41,13 +41,15 @@ export default class Video extends Component {
         });
 
         if (this.props.onMediaData) {
-            this.props.onMediaData(title, description, durationIn);
+            this.props.onMediaData(title, description, durationIn, meta);
         }
     }
+
 
     render() {
         const { onMediaData, youtube, ...rest } = this.props;
         const mediaid = this.props.mediaid;
+
 
         const youtube_parser = (url) => {
             if (!url) {
@@ -63,7 +65,7 @@ export default class Video extends Component {
 
         let autoPlay = (typeof this.props.play === 'string' || this.props.play instanceof String) ? this.props.play === 'true' : this.props.play;
 
-        
+
         // HACK: JD - We need to keep the player alive and not destroy it. So we will use a prop show to show or hide.
         // We now support youtube if the attribute youtube is passed in.
         // HACK: JD - Same hack, we need to hide these details for Product details. https://www.broadcom.com/products/embedded-and-networking-processors/video-decoder-test-streams-and-stitching/argon-streams-hevc*
@@ -108,57 +110,57 @@ export default class Video extends Component {
  */
 export class VideoLink extends Component {
     constructor(props) {
-		super(props);
-		
-		this.state = {
-			modal: false,
-		};
-		
-		this.toggleModal = this.toggleModal.bind(this);
-	}
-	
-	toggleModal(event) {
-		this.setState({modal: !this.state.modal});
-	}
-	
-	render() {
-		
-		 const youtube_parser = (url) => {
-			if (!url) {
-				return '';
-			}
-			let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-			let match = url.match(regExp);
-			
-			return (match&&match[7].length==11)? match[7] : false;
-		}
+        super(props);
 
-		let youtubeId = youtube_parser(this.props.video);
-		let mediaid = this.props.mediaid;
+        this.state = {
+            modal: false,
+        };
 
-		return (
-			<div className="VideoLink">
-				<button className={classnames("link-bttn", this.props.classNames)} onClick={this.toggleModal}>
-					{this.props.children}
-				</button>
-				<Modal isOpen={this.state.modal} toggle={this.toggleModal}>
-					<ModalHeader toggle={this.toggleModal}></ModalHeader>
-					<ModalBody>
-						{this.props.mediaid
-							? <BrightcoveVideo mediaid={mediaid} play={false} />
-							: <div className="video-link-youtube"><iframe type="text/html" width="640" height="360"
-								  className="optanon-category-4"
-								  data-src={`https://www.youtube.com/embed/${youtubeId}`}
-								  frameBorder="0"></iframe></div>
-						}
-					</ModalBody>
-					<ModalFooter>
-						<button type="button" className="link-bttn-no-hover" onClick={this.toggleModal}>Close</button>
-					</ModalFooter>
-				</Modal>
-			</div>
-		);
-	}
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal(event) {
+        this.setState({ modal: !this.state.modal });
+    }
+
+    render() {
+
+        const youtube_parser = (url) => {
+            if (!url) {
+                return '';
+            }
+            let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            let match = url.match(regExp);
+
+            return (match && match[7].length == 11) ? match[7] : false;
+        }
+
+        let youtubeId = youtube_parser(this.props.video);
+        let mediaid = this.props.mediaid;
+
+        return (
+            <div className="VideoLink">
+                <button className={classnames("link-bttn", this.props.classNames)} onClick={this.toggleModal}>
+                    {this.props.children}
+                </button>
+                <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}></ModalHeader>
+                    <ModalBody>
+                        {this.props.mediaid
+                            ? <BrightcoveVideo mediaid={mediaid} play={false} />
+                            : <div className="video-link-youtube"><iframe type="text/html" width="640" height="360"
+                                className="optanon-category-4"
+                                data-src={`https://www.youtube.com/embed/${youtubeId}`}
+                                frameBorder="0"></iframe></div>
+                        }
+                    </ModalBody>
+                    <ModalFooter>
+                        <button type="button" className="link-bttn-no-hover" onClick={this.toggleModal}>Close</button>
+                    </ModalFooter>
+                </Modal>
+            </div>
+        );
+    }
 }
 
 /**
@@ -222,7 +224,7 @@ export class VideoPlaylist extends BrightcoveVideoPlaylist {
                     if (playlist.videos && playlist.videos.length) {
                         this.setState({
                             video_mediaid: playlist.videos[0].id,
-                            video_title: playlist.videos[0].name  + msToTime(playlist.videos[0].duration),
+                            video_title: playlist.videos[0].name + msToTime(playlist.videos[0].duration),
                             video_description: playlist.videos[0].description,
                             playlist: playlist.videos,
                         });
@@ -252,7 +254,7 @@ export class VideoPlaylist extends BrightcoveVideoPlaylist {
                     <Col className="col-xl-6 col-lg-6 col-sm-12 col-12 select-video">
                         <div data-vjs-player style={{ display: this.props.hideplayer === 'true' ? 'none' : 'block' }}>
 
-                            <BrightcoveVideo mediaid={this.state.video_mediaid} autoplay={this.state.auto_play}/>
+                            <BrightcoveVideo mediaid={this.state.video_mediaid} autoplay={this.state.auto_play} />
 
                         </div>
                     </Col>
@@ -342,7 +344,7 @@ export class VideoImageModal extends Component {
 export class VideoImage extends PureComponent {
 
     render() {
-        const {mediaid, ...rest} = this.props;
+        const { mediaid, ...rest } = this.props;
 
         return (
             <BrightcoveVideoImage mediaid={mediaid} {...rest} />

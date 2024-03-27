@@ -1,0 +1,306 @@
+@media (max-width: 800px){
+.fullpage_component .container .video_container {
+    margin-bottom: 30px;
+}
+}
+@media (max-width: 799px){
+.fullpage_component .container .video_container {
+    height: 207px;
+}
+}
+.fullpage_component .container .video_container {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #192A33;
+}
+
+
+@media (max-width: 800px){
+.fullpage_component .container .vid-tags {
+    font-size: 16px;
+}
+}
+
+.fullpage_component .container .vid-tags {
+    font-size: 18px;
+    color: #565656;
+    font-family: "Metropolislight";
+    margin-bottom: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.tab-navigation ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .tab-navigation li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .tab-navigation li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .tab-navigation .active {
+    border-bottom: 2px solid blue; /* Active tab indicator */
+  }
+  
+  .tab-content div {
+    padding: 20px;
+    // border: 1px solid #ccc;
+    border: none;
+    margin-top: -1px; /* Align with the bottom border of the tabs */
+  }
+  
+
+  .abstract-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px !important;
+    line-height: 26px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.abstract-summary {
+    color: #565656;
+}
+
+.session-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px !important;
+    line-height: 26px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.share-section {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .share-section a {
+    display: block; 
+  }
+  
+  .share-section img {
+    width: 24px; 
+    height: 24px; 
+  }
+  
+  .share-section input[type="text"] {
+    margin-left: 10px; 
+    padding: 5px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+  }
+  
+  .share-section button {
+    margin-left: 10px; /* Spacing before the button */
+    padding: 5px 10px;
+    background-color: #007bff; /* Bootstrap primary button color */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+  }
+  
+  
+  .share-section button:hover {
+    background-color: #0056b3;
+  }
+
+  //for related video section
+
+  .related-videos-section {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    }
+  
+  .related-videos-section h2 {
+    margin-bottom: 20px; 
+  }
+  
+
+.videos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap; // for media queries 
+  }
+  
+  
+  .video-item {
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    overflow: hidden; 
+    position: relative; 
+  }
+  
+  .video-item a {
+   width: 100%;
+    height: 180px;
+    display: block; 
+    background-size: cover;
+    background-position: center;
+    text-decoration: none; 
+    position: relative; 
+  }
+  
+  .video-item .time {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .video-info {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.75); 
+  }
+  
+  .video-info h3 {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .video-info a {
+    width: 100%;
+     height: auto;
+     display: block; 
+    //  background-size: cover;
+    //  background-position: center;
+    //  text-decoration: none; 
+     position: relative; 
+   }
+  
+  .video-info p {
+    // margin-top: 0px;
+    font-size: 0.875rem;
+  }
+  
+  .video-duration {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+
+  /* Media query for tablets */
+@media (max-width: 768px) {
+    .videos-container {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .video-item {
+      width: 100%;
+    }
+  }
+  
+  /* Media query for mobile */
+  @media (max-width: 480px) {
+    .video-item {
+      width: 100%; 
+    }
+    
+    .video-item a {
+      height: 150px; 
+    }
+  
+    .video-info h3 {
+      font-size: 0.9rem; 
+    }
+    
+    .video-info p {
+      font-size: 0.75rem;
+    }
+  }
+  
+
+  //for speakers 
+  .speaker-section {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .speaker-container {
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+  }
+  
+  .speaker-image {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+  }
+  
+  .speaker-details h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .speaker-details p {
+    margin: 5px 0;
+    font-size: 1rem; 
+  }
+  
+  .show-bio {
+    padding: 5px 10px;
+    margin-top: 10px; 
+   
+  }
+  
+.row-content {
+
+  display: flex;
+  align-items: flex-start; 
+}
+ 
+.col-content {
+
+  flex: 2; 
+}
+ 
+.col-relvideo {
+
+  flex: 1; 
+  align-self: start; 
+  margin-top: 0px; 
+
+
+}
+
+  

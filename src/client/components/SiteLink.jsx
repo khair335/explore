@@ -176,6 +176,15 @@ export default class SiteLink extends PureComponent {
 			type = "nolink";
 		}
 
+		// Explore has multiple headers, so we need to force the page to reload on each click
+		let reloadDocument = false;
+		if (config.sitelink_relaod_document && config.site && to) {
+			const url = UrlParse(to, location.origin);
+			const current_url = UrlParse(window.location);
+
+			reloadDocument = url.pathname.startsWith('/explore') || current_url.pathname.startsWith('/explore');
+		}
+
 		switch (type) {
 			case "external":
 				return <a {...rest} href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;
@@ -188,7 +197,7 @@ export default class SiteLink extends PureComponent {
 			case "youtube":
 				return <VideoLink video={location} type="youtube" {...rest}className={classnames("lnk", className)}/>;
 			default:
-				return <Link {...rest} to={location} onClick={this.handleClick} className={classnames("lnk", className)}/>; 
+				return <Link {...rest} to={location} onClick={this.handleClick} className={classnames("lnk", className)} reloadDocument={reloadDocument}/>; 
 		}
 	}
 }

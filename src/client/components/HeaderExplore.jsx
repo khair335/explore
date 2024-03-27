@@ -71,7 +71,7 @@ const ExploreHeader = (props) => {
 					<Navbar color="faded" className="header_nav" light expand="lg">
 						<div className="header_logo_wrapper d-flex justify-content-between w-100 align-items-start">
 							<div className='d-flex align-items-center'>
-							<div className="navBrand mr-4">
+							<div className="navBrand">
 								<div className="menuButton" ref={bttnRef}>
 									<NavbarToggler onClick={mobileToggle} aria-label="Toggle Navigation" className=' icon-bttn'>
 										<span className={(isOpen) ? "bi brcmicon-window-close primary" : "bi brcmicon-bars primary"}></span>
@@ -82,22 +82,44 @@ const ExploreHeader = (props) => {
 									className="navbar-brand"
 									onClick={event => handleLogoClick({ "id": "N001", "link_url": "https://www.broadcom.com" })}
 								>
-									<ImageBase src="https://www.vmware.com/content/dam/digitalmarketing/events/vmware-explore/2024/vmwx24-logo-color-341x48.png" width="341" height="42" alt="VMware Explore Logo" />
+									<ImageBase src="https://www.vmware.com/content/dam/digitalmarketing/events/vmware-explore/2024/vmwx24-logo-color-341x48.png" width="298" height="42" alt="VMware Explore Logo" />
 								</NavLink>
 
 								{props.accessibilityData && <div id="header-accessibility-statement" className="sr-only header-accessibility-statement" dangerouslySetInnerHTML={{ __html: this.props.accessibilityData }} />}
 								<a className="sr-only sr-only-focusable nav-skip" href="#main">Skip to main content</a>
 							</div>
 							<div className='header_location'>
-								<p className='m-0'>
+								<span className=''>
 									Las Vegas | The Venetian
-								</p>
-								<p className='m-0'>
+								</span>
+								<span className=''>
 									AUGUST 26 - 29, 2024
-								</p>
+								</span>
 							</div>
 							</div>
-							<div className="secondary_nav">
+
+
+
+						</div>
+						<div className="navMenu">
+							<Collapse isOpen={isOpen} navbar>
+								<div className="navbar-collapse-inner" ref={startRef}>
+									{/*<button className="menuClose" onClick={this.handleClose}>X</button>  */}
+									<Nav
+										className={classnames('ml-auto header_nav navbar', { 'menu-fadein': props.navData && props.navData.length > 0 })}
+										navbar
+										tag={'ul'}
+									>
+										<MainMenu
+											{...props}
+											menuToggle={toggle}
+											mobile={mobile}
+										/>
+									</Nav>
+
+								</div>
+
+								<div className="secondary_nav">
 								<div className="secondary-nav-top gap-2 align-items-center">
 									{/* Select database only for specific environments */
 										(config.environment === 'development' || config.environment === 'qa') &&
@@ -123,24 +145,8 @@ const ExploreHeader = (props) => {
 									<button className="bttn bttn-primary">Watch on Demand</button>
 								</div>
 							</div>
-						</div>
-						<div className="navMenu">
-							<Collapse isOpen={isOpen} navbar>
-								<div className="navbar-collapse-inner" ref={startRef}>
-									{/*<button className="menuClose" onClick={this.handleClose}>X</button>  */}
-									<Nav
-										className={classnames('ml-auto header_nav navbar', { 'menu-fadein': props.navData && props.navData.length > 0 })}
-										navbar
-										tag={'ul'}
-									>
-										<MainMenu
-											{...props}
-											menuToggle={toggle}
-											mobile={mobile}
-										/>
-									</Nav>
 
-								</div>
+
 							</Collapse>
 						</div>
 					</Navbar>

@@ -22,6 +22,7 @@ class Config {
 		this.sublocale = 'en-us';
 		this.typeahead_min = '3';				// Minimum numbers of characters to start searching. (See documents and downloads).
 		this.cookie_policy_url = 'company/legal/cookie-policy';
+		this.sitelink_relaod_document = true;	// https://reactrouter.com/en/main/components/link relaod the document
 		this.swifttype = {
 			/*
 				qa-broadcom: baa1mmC9AaCnz7My4Ksz  (API key: scB9ef83inQ6z6-8yxwc)

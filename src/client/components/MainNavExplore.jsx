@@ -50,7 +50,7 @@ export default class MainNavExplore extends Component {
                         {...this.props}
                         item={item}
                         index={index}
-                        allLink={(index <= 2) ? true : false}            // products & solutions & support have all-topic landing pages (show link?) - to add others, set index of menu item in array to true - this item could be added to CS/json
+                        allLink={(index <= 2) ? false : false}            // Explore pages do not have landing pages - turned off - products & solutions & support have all-topic landing pages (show link?) - to add others, set index of menu item in array to true - this item could be added to CS/json
                     />
                 </NavItem>
 

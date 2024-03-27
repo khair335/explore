@@ -130,7 +130,7 @@ export default class BrightcoveVideo extends Component {
 
                     // Race condition. so wait till the video is loaded.
                     if (self.props.onMediaData) {
-                        self.props.onMediaData(self.video.name, self.video.description, msToTime(Math.round(self.video.duration * 1000)));          // Translate from brightcove
+                        self.props.onMediaData(self.video.name, self.video.description, msToTime(Math.round(self.video.duration * 1000)), self.video);          // Translate from brightcove
                     }
                 });
                 //deal with error

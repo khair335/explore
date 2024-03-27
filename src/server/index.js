@@ -314,7 +314,7 @@ app.get('/justfooter', (req, res) => {
 
 
 // Brightcove video direct. We are just going to set status of 200 and set defaults.
-app.get('/video/:mediaId', (req, res) => {
+app.get(['/video/:mediaId'], (req, res) => {
 	let locale = "en-us";
 	let sublocale = "en-us";
 
@@ -356,8 +356,7 @@ app.get('/video/:mediaId', (req, res) => {
 					return false
 				}
 
-				console.log("brightcove", data);
-
+				
 				if (data) {
 					let description = data.description;
 					let title = data.name;
@@ -369,6 +368,95 @@ app.get('/video/:mediaId', (req, res) => {
 						"meta_description": description,
 						"og:description": description,
 						"og:image": data.poster,
+					});
+
+					// 217159 - Translations missing causing 500.
+					request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}${pubdate_url}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (pub_err, pub_response, pub_data) => {
+						if (pub_err) { return console.log(pub_err); }
+
+
+						request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}/api/label/translations?lastlabeldate=${pub_data.lastlabeldate}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (err, response, translations) => {
+							if (err) { return console.log(err); }
+
+							if (translations) {
+								head.translations = JSON.stringify(translations);		// gLocalizedLabels
+							}
+
+							// Use ejs to render our page, since we are dynamically setting data.
+							res.status(200).render('pages/index', head);
+						});
+					});
+				}
+				else {
+					fourOfour();
+				}
+
+
+
+			});
+
+	}
+	else {
+		fourOfour();
+	}
+
+});
+app.get(['/explore/video-library/video-landing/:mediaId'], (req, res) => {
+	let locale = "en-us";
+	let sublocale = "en-us";
+
+
+	// Get our locale from whoever requested us.
+	if (req.headers['locale']) {
+		locale = req.headers['locale'];
+	}
+
+	if (req.headers['bc_lang']) {
+		sublocale = req.headers['bc_lang'];
+	}
+
+	const fourOfour = () => {
+		let head = getHead(locale, sublocale, {
+			"og:title": "VMWare Video",
+			"browser_title": "VMWare Video",
+			"meta_description": "Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation",
+			"og:description": "Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation",
+			"translations": {},
+			"microsite": "vmware",
+		});
+
+		res.status(404).render('pages/index', head);
+	}
+
+	if (req.params && req.params.mediaId) {
+
+		request({
+			url: `https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos/${req.params.mediaId}`,
+			headers: {
+				'user-agent': req.headers['user-agent'],
+				'Accept': 'application/json;pk=BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY', //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg'
+			},
+			json: true
+		},
+			(err, response, data) => {
+				if (err || (data && !data.id)) {		// Just check if we have a valid Brightcove id.
+					fourOfour();
+					return false
+				}
+
+				
+				if (data) {
+					let description = data.description;
+					let title = data.name;
+
+
+					let head = getHead(locale, sublocale, {
+						"og:title": title,
+						"browser_title": title,
+						"meta_description": description,
+						"og:description": description,
+						"og:image": data.poster,
+						"microsite": "vmware",
 					});
 
 					// 217159 - Translations missing causing 500.

@@ -7,7 +7,7 @@
 @import "../base/_transitions";
 
 $carousel-indicator-height: 20px;
-
+ 
 .top-banner{
   overflow: hidden;
   position: relative;
@@ -21,7 +21,7 @@ $carousel-indicator-height: 20px;
 
 
 
-
+ 
 .top-banner, #banner{
  .carousel-inner {
 	background: $color-grey--500;
@@ -44,7 +44,7 @@ $carousel-indicator-height: 20px;
         @media only screen and (max-width: 992px) {
           display: none;
         }
-
+        
 	  }
       img {
         height: auto;
@@ -56,13 +56,13 @@ $carousel-indicator-height: 20px;
           transform: none;
           height: auto;
         }
-    }
+    }	
     .container {
 	    @media only screen and (max-width: 992px) {
 		  padding: 0;
 		  max-width: none;
 		}
-	  }
+	  }		
     }
   }
    // Slider and Hero banner caption text start
@@ -103,7 +103,7 @@ $carousel-indicator-height: 20px;
 			@media only screen and (max-width: 786px) {
 				font-size: 24px;
 			}
-
+		
     }
       .teaser{
         margin-bottom: 20px;
@@ -179,12 +179,12 @@ $carousel-indicator-height: 20px;
 			&:nth-child(3) {
 				background: $color-grey--625;
 			}
-
+			
 			.progress-bar {
 				height: 100%;
 				background-color: $color-grey--600;
 			}
-
+			
 		}
 	}
 }

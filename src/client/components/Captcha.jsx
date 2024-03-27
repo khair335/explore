@@ -275,7 +275,7 @@ export default class Captcha extends PureComponent {
 		}
 
 		return (
-				<div id="captcha" className="p-3 capcha-wrap captcha-wrap clearfix">
+				<div id="captcha" className="bc--bg_gray500 bc--raunded p-3 capcha-wrap captcha-wrap clearfix">
 					<div className="emailverify"> 
 						<label id="captcha-verifyemail" className="verifyemail" style={hpStyle}> 
 							<span>{localizeText("C055","Verify email address")}</span> 

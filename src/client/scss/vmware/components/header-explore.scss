@@ -15,7 +15,7 @@
 #header-explore {
   height: $header-height;
   background-color: $color-white;
-  //border-bottom: 7px solid $color-primary;
+  border-bottom: 7px solid $color-ocean-600; //see note below about border line
   position: relative;
   display: -webkit-box;
   display: -moz-box;
@@ -24,13 +24,16 @@
   display: flex;
   font-family: $font-family--secondary;
   .header_location {
-    p {
+    span {
       font-size: 13px;
       color: #565656;
+      text-transform: uppercase;
+      margin-left: 16px;
+      display: block;
     }
   }
   .header_nav {
-    margin-top: 18px;
+    margin-top: 30px;
   }
 
   .header_logo_wrapper {
@@ -40,34 +43,36 @@
   .secondary-nav-cta {
     button {
       margin-left: auto;
+      padding-left: 30px;
+      padding-right: 30px;
     }
   }
 
   .secondary-nav-top {
     & i {
-      color: $color-ocean-700;
+      color: $color-indigo-500;
       &:before {
-        color: $color-ocean-700;
+        color: $color-indigo-500;
       }
     }
     a {
       font-size: 14px !important;
-      color: $color-ocean-700 !important;
+      color: $color-indigo-500 !important;
       text-transform: inherit !important;
-      font-weight: 300;
+      font-weight: 200;
     }
     button {
       font-size: 14px !important;
       color: $color-ocean-700 !important;
       text-transform: inherit !important;
-	  padding-right: 0 !important;
+	    padding-right: 0 !important;
       i {
-        margin-left: 3px;
+        margin-left: 8px;
         margin-bottom: 2px;
       }
     }
-  }
-  &:before {
+  }   /* whats the story here? - the explore site has a single ocean color bar - which?
+/*   &:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -82,7 +87,7 @@
       #0f61a9 57%,
       #5a39a0 81%
     );
-  }
+  } */
 
   .header-fadein {
     @include fadein(500ms); // Fade in the header drop downs.
@@ -128,8 +133,10 @@
   .secondary_nav {
     position: relative;
     z-index: 10;
+    margin-top:-90px;
     .secondary-nav-top {
       display: flex;
+      margin-bottom: 14px;
 
       .login .dropdown-toggle:after {
         content: none; // Remove our default icon and use font awesome.
@@ -196,16 +203,17 @@
 
           span.bi {
             margin-left: 0; //mods .icon-bttn .bi  _buttons.scss
+            font-size: 50px;;
           }
 
-          &::after {
+/*           &::after {
             content: "MENU";
             display: block;
             font-size: 9px;
             font-weight: 600;
             color: $color-primary;
             padding-top: 3px;
-          }
+          } */
           & + span {
             display: none;
           }
@@ -215,7 +223,7 @@
       .navbar-brand {
         width: 300px;
         position: absolute;
-        top: 50%;
+        /* top: 50%; */
         left: 50%;
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
@@ -223,16 +231,25 @@
       }
     }
 
+    .header_location {
+      position:absolute;
+      left: 34%;
+      top: 50px;
+      text-align: center;
+    }
+
     .navMenu {
       max-width: 320px;
 
       .navbar-collapse {
         position: fixed; //absolute
-        top: 90px;
-        left: 15px; // 0px
+        top: 151px;
+        left: 0px; // 0px
+        right: 0px;
         bottom: 0; // added
         padding: 0px;
-        background-color: $color-grey--800;
+        background-color: $background-color;
+        z-index: 100;
       }
 
       .secondary_nav {
@@ -314,10 +331,32 @@
     }
   }
 
-  @media screen and (max-width: map-get($grid-breakpoints, sm) - 1) {
+  @media screen and (max-width: map-get($grid-breakpoints, sm) - 1) { //576px
     .navMenu {
       max-width: 100%;
     }
+
+    .header_location {
+      left: 18%,
+    }
+
+    .navBrand .menuButton {
+      margin-top: 45px;
+    }
+
+  }
+
+  @media screen and (width = 540px) { //special case for surface duo which needs s2 value but is too big
+    .header_location {
+      left: 28%,
+    }
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, s2) - 1) { //430px
+    .header_location {
+      left: 28%,
+    }
+
   }
 
   @media screen and (min-width: map-get($grid-breakpoints, lg)) {
@@ -367,7 +406,7 @@
           font-kerning: normal; //metro-mod
           color: $color-grey--700;
           position: relative;
-          padding: 0px 20px;
+          padding: 0px 14px;
           //background-color: transparent;
         }
 

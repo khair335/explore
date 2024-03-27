@@ -410,11 +410,24 @@
 	button{
 		background-color: transparent;
 		color: $color-black;
+		font-weight: 200;
 		padding-left: 0 !important; 
 		border: 0 !important;
 		&:hover{
 			color: $color-ocean-700;
 			border: 0 !important;
+		}
+		&.active::before {
+			content: "";
+			position: absolute;
+			bottom: calc(100% - 46px);
+			/* left: 50%; */
+			-webkit-transform: translateX(-50%);
+			-moz-transform: translateX(-50%);
+			transform: translateX(-50%);
+			border-bottom: 9px solid $color-ocean-600;
+			border-left: 9px solid transparent;
+			border-right: 9px solid transparent;
 		}
 	}
 }
