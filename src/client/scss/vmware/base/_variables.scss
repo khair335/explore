@@ -6,12 +6,12 @@
 // ======================================================================================
 
 // COLORS
-$color-primary: hsl(220, 65%, 33%); //#1D428A; //link button default color
-$color-primary--dark: #04314D; //link hover 
+$color-primary: #005C8A; //#1D428A; //link button default color
+$color-primary--dark: #04314D; //link hover
 
 
-$color-secondary: hsl(200, 100%, 43%); //#0091DA; 	// ocean, 
-$color-secondary--dark: hsl(200, 100%, 36%); //#007ab8;	// link hover color 
+$color-secondary: hsl(200, 100%, 43%); //#0091DA; 	// ocean,
+$color-secondary--dark: hsl(200, 100%, 36%); //#007ab8;	// link hover color
 
 $color-warn: hsl(34, 100%, 44%); //#de7c00;
 $color-archive: hsl(21, 79%, 47%); //#d55c19;
@@ -25,10 +25,10 @@ $color-grey--675: hsl(0, 0%, 34%);
 $color-grey--650: hsl(0, 0%, 34%);
 $color-grey--625: hsl(0, 0%, 34%);
 $color-grey--600: hsl(0, 0%, 34%); //#565656;	// default body text color
-$color-grey--500: hsl(255, 2%, 45%); //#717074; //used for background and secondary title 
-$color-grey--400: hsl(240, 1%, 56%); //#8D8D90	// 
-$color-grey--300: hsl(260, 2%, 67%); //#AAA9AC 
-$color-grey--200: hsl(240, 1%, 78%); //#C6C6C7 
+$color-grey--500: hsl(255, 2%, 45%); //#717074; //used for background and secondary title
+$color-grey--400: hsl(240, 1%, 56%); //#8D8D90	//
+$color-grey--300: hsl(260, 2%, 67%); //#AAA9AC
+$color-grey--200: hsl(240, 1%, 78%); //#C6C6C7
 $color-grey--100: hsl(300, 2%, 89%); //#E3E2E3;
 $color-grey--50: hsl(0, 0%, 97%); //#f7f7f7;
 
@@ -106,17 +106,18 @@ $g-leaf-ocean: linear-gradient(45deg, #78BE20 14.64%, #0091DA 85.36%);
 $background-color: #ffffff;
 $background-light-blue: #F4F8FA;
 $background-light-gray: #f7f7f7;
-
+$background-dark-blue: #1D428A;
+$background-dark: #192A33;
 //Shadow
-$shadow-1: 0 2px 4px 0 rgba(17,69,134, 0.24);
-$shadow-2: 0 4px 8px 0 rgba(17,69,134, 0.16);
-$shadow-3: 0 8px 16px 0 rgba(17,69,134, 0.12);
-$shadow-4: 0 16px 24px 0 rgba(17,69,134, 0.12);
-$shadow-5: 0 4px 12px 0 rgba(0,0,0, 0.15);
+$shadow-1: 0 2px 4px 0 rgba(17, 69, 134, 0.24);
+$shadow-2: 0 4px 8px 0 rgba(17, 69, 134, 0.16);
+$shadow-3: 0 8px 16px 0 rgba(17, 69, 134, 0.12);
+$shadow-4: 0 16px 24px 0 rgba(17, 69, 134, 0.12);
+$shadow-5: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
 // Base Color
 $color-white: hsl(0, 0%, 100%); //#fff;
-$color-black: hsl(0, 0%, 0%); //#000; text color for titles, 
+$color-black: hsl(0, 0%, 0%); //#000; text color for titles,
 $color-body: $color-grey--600;
 
 
@@ -151,12 +152,12 @@ $font-family--primary: "Metropolis", sans-serif;
 $font-family--primeBold: "Metropolis", sans-serif;
 $font-family--secondary: "Metropolis", sans-serif; // see server/views/partials/head.js for font assignment - css file kept with fonts in public
 $font-size-sm: 12px; //not in use for now
-$font-size-md: 14px; //button text, button cta, breadcrumbs, lable, badge, banne title elebrow text, 
-$font-size-lg: 16px; // body text, body link, link text 
+$font-size-md: 14px; //button text, button cta, breadcrumbs, lable, badge, banne title elebrow text,
+$font-size-lg: 16px; // body text, body link, link text
 
 // LAYOUT
 $padding-default: 20px; // block and card gap
-$padding-sm: 10px; // small gap, 
+$padding-sm: 10px; // small gap,
 
 
 
@@ -193,6 +194,7 @@ $autopilot-footer-height-xl: 275px;
 	background-color: $color-primary;
 	color: $color-white;
 	font-family: $font-family--secondary;
+
 	&:hover {
 		background-color: $color-white;
 		color: $color-primary;
@@ -223,21 +225,36 @@ $autopilot-footer-height-xl: 275px;
 	background-color: transparent;
 	font-family: $font-family--secondary;
 	color: $color-primary;
-	font-weight: 500; //metro-mod
+	font-weight: 400; //metro-mod
 	letter-spacing: .25px; //metro-mod
+	border: 0;
+	font-size: 16px;
+	padding: 0px 0px;
+	line-height: 1.5;
+	text-transform: uppercase;
+	margin: 5px 10px;
 
 	&:hover {
 		text-decoration: underline;
-		text-decoration-color: transparent;
-		text-decoration-line: underline;
-		text-decoration-style: solid;
-		text-decoration-thickness: 2px;
-		animation: link-fadeinout 1.5s linear forwards;
+		// animation: link-fadeinout 1.5s linear forwards;
 	}
+
+
+}
+
+@mixin link-after {
+		content: "";
+		background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
+		height: 15px;
+		width: 15px;
+		display: inline-block;
+		background-position: 2px 2px;
+		margin-top: -5px !important;
+		margin-left: 5px !important;
 }
 
 @mixin basic-table {
-	// stardard table 
+	// stardard table
 	width: 100%;
 	border-spacing: 2px;
 
@@ -247,7 +264,7 @@ $autopilot-footer-height-xl: 275px;
 		td {
 			border: 0 none;
 			padding-left: 15px;
-			
+
 		}
 
 		td {
@@ -290,4 +307,3 @@ $button: 'button';
 .no-styles {
 	@include link-style;
 }
-

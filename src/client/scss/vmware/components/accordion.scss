@@ -30,29 +30,33 @@
 }
 
 
-.Accordion-section{
-    .toggle-actions{
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            .divider{
-                margin-bottom: 0 !important;
-            }
+.Accordion-section {
+    .toggle-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .divider {
+            margin-bottom: 0 !important;
         }
+    }
 
 }
+
 // Theme
 
 .theme-content-block-line {
     .accordion {
-        .toggle-actions{
+        .toggle-actions {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            .divider{
+
+            .divider {
                 margin-bottom: 0 !important;
             }
         }
+
         .CollapseBox {
             margin-bottom: 0 !important;
             margin-top: -2px;
@@ -63,6 +67,7 @@
                 border-bottom: 2px solid $color-grey--100;
                 border-right: none !important;
                 border-left: none !important;
+                box-shadow: none;
 
                 .card-head {
                     padding: 30px 10px 30px !important;
@@ -90,6 +95,7 @@
     .accordion {
         .CollapseBox {
             .card {
+                box-shadow: none;
                 .card-body {
 
                     .collapse,

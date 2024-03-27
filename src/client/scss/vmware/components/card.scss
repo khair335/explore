@@ -19,6 +19,15 @@
 .card {
     box-shadow: 0px 8px 16px 0px #1145861F;
     border: 0;
+    &.LeftImageCard{
+        .card-footer{
+            padding-left: 0;
+            padding-right: 0;
+            .cb-cta-link{
+                justify-content: flex-start !important;
+            }
+        }
+    }
 }
 
 .card-text {
