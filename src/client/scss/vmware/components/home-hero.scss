@@ -30,11 +30,14 @@ $carousel-indicator-height: 20px;
     //background: $color-grey--500;
 
     >.carousel-item {
+
+      //transition: transform .6s ease-in-out;
+      //backface-visibility: hidden;
+      //perspective: 1000px;
       .size-large {
 
         .teaser {
           .banner-cta-wrapper {
-
             @include media-breakpoint-down(md) {
               flex-direction: column;
             }
@@ -42,14 +45,6 @@ $carousel-indicator-height: 20px;
             .banner-cta-title {
 
               .lnk {
-                border: none !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                &:hover{
-                  border: none !important;
-                  background-color: transparent !important;
-                }
-
                 @include media-breakpoint-down(md) {
                   background-color: transparent !important;
                   color: black !important;
@@ -92,28 +87,6 @@ $carousel-indicator-height: 20px;
       }
 
       .size-medium {
-        .banner-cta-title {
-
-              .lnk {
-                border: none !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                &:hover{
-                  border: none !important;
-                  background-color: transparent !important;
-                }
-
-                @include media-breakpoint-down(md) {
-                  background-color: transparent !important;
-                  color: black !important;
-                  border: none !important;
-
-                  h2 {
-                    color: black !important;
-                  }
-                }
-              }
-            }
         img {
           height: auto;
           object-fit: cover;

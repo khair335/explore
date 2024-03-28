@@ -2,7 +2,7 @@
 @import "../base/transitions";
 @import "main-nav.scss";
 @import "../base/buttons";
-@import "../base/link";
+
 @import "../fontawesome/fontawesome";
 @import "../fontawesome/solid";
 @import "../fontawesome/brands";
@@ -17,17 +17,26 @@
 // -----------------------------------------------------------------------------
 
 
-// .content-block .lnk {
-//   @include primary-button;
+.content-block .lnk {
+  @include primary-button;
 
-//   @media screen and (min-width: 1980px) {
-//     font-size: 16px;
-//   }
+  @media screen and (min-width: 1980px) {
+    font-size: 16px;
+  }
 
-//   &:hover {
-//     @include primary-hover;
-//   }
-// }
+  &:hover {
+    @include primary-hover;
+  }
+
+  &:after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background-position: 2px 2px;
+  }
+}
 
 .theme-content-block-bg {
   background-repeat: no-repeat;
@@ -48,41 +57,88 @@
         text-align: center;
         margin-bottom: 20px;
       }
-
-      >.cb-cta-link {
-        justify-content: center;
-      }
     }
 
     .button {
-      @extend .bttn;
-      @include ghost-button;
+      border: 1px solid $color-white !important;
+      color: $color-white;
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      line-height: 1.8;
+      padding: 6px 23px !important;
 
       &:after {
-        @include button-after;
+        content: unset !important;
       }
 
       &:hover {
-        @include ghost-hover;
-
+        background-color: $color-white;
+        color: $color-ocean-700 !important;
       }
     }
   }
 }
 
+.ContentCard-section {
 
-.Featured-section {
+  &:not(.theme-content-block-imagedark),
+  &:not(.theme-content-block-dark) {
+    .container {
+      >p {
+        text-align: center;
+      }
+
+      >.cb-cta-link {
+        justify-content: center !important;
+
+        .lnk {
+          @include prime-style;
+          @include primary-button;
+
+          width: max-content;
+          margin: 0 auto;
+
+          &:after {
+            content: unset !important;
+          }
+        }
+
+      }
+    }
+  }
+
+  &.theme-content-block-imagedark {
+    .container {
+      >.cb-cta-link .lnk {
+
+        color: $color-white;
+        padding: 6px 24px !important;
+        width: max-content;
+        margin: 0 auto;
+        border: 1px solid $color-white !important;
+        background-color: transparent !important;
+
+        &:hover {
+          color: #0091DA !important;
+          background-color: $color-white !important;
+        }
+
+        &:after {
+          content: unset !important;
+        }
+      }
+    }
+  }
+}
+
+#continue-learning {
   .section-title {
     color: #fff;
-    margin-bottom: 30px;
   }
 
   .content-block-title {
     color: #fff;
-  }
-
-  .featured-cards~.col>.row:nth-child(2) .card {
-    margin-top: 20px;
   }
 
   .featured-cards {
@@ -95,30 +151,32 @@
     padding: 0;
   }
 
+  .featured-cards {
+    .lnk {
+      border: 1px solid hsl(0, 0%, 100%) !important;
+      color: hsl(0, 0%, 100%);
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      line-height: 1.8;
+      padding: 6px 23px !important;
 
+      &:after {
+        content: unset !important;
+      }
 
-  &.theme-content-block-bg {
-
-    .theme-card-cta-primary,
-    .theme-card-cta-secondary,
-    .theme-card-cta-link,
-    .theme-card-standard {
-      height: 100%;
-
-      .card {
-        height: 100%;
-
-        img {
-          max-height: 200px;
-        }
+      &:hover {
+        border-color: $color-white;
+        background-color: $color-white;
+        color: $color-ocean-700;
       }
     }
-
   }
+
 }
 
 .theme-content-block-gray {
-  background-color: $background-light-gray;
+  background-color: #F7F7F7;
   padding: 100px 0 !important;
 
   .theme-card-cta-link {
@@ -131,7 +189,7 @@
 }
 
 .theme-content-block-dark {
-  background-color: $background-dark;
+  background-color: #192A33;
   padding: 100px 0 !important;
 
   .col-title-img {
@@ -158,6 +216,39 @@
     .card {
       height: 100%;
     }
+  }
+}
+
+.theme-content-block-blue {
+  background-color: #1D428A;
+  padding: 100px 0 !important;
+
+  .section-title {
+    color: $color-white;
+  }
+
+  .col-title-img {
+    color: $color-white;
+  }
+
+  .container {
+    >p {
+      color: $color-white;
+    }
+  }
+
+  .theme-card-cta-link {
+    height: 100%;
+
+    .card {
+      height: 100%;
+    }
+  }
+}
+
+#continue-learning .theme-card-cta-link {
+  .card {
+    margin-top: 20px;
   }
 }
 
@@ -199,1003 +290,67 @@
 
     li:first-child {
       a {
-        @extend .bttn;
-        @include primary-button;
-
-
-        &:hover {
-          @include primary-hover;
-        }
-
-        &:after {
-          @include button-after;
-        }
-      }
-    }
-
-    li:nth-child(2) {
-      a {
-        @extend .bttn;
-        @include secondary-button;
-
-        &:hover {
-          @include secondary-hover;
-        }
-
-        &:after {
-          @include button-after;
-        }
-      }
-    }
-  }
-}
-
-.ContentList-section {
-  padding: 140px 0 70px !important;
-
-  &.theme-content-block-cta-card-primary {
-    .cb-cta-link {
-      li:first-child {
-        a {
-          @extend .bttn;
-          @include primary-button;
-
-
-          &:hover {
-            @include primary-hover;
-          }
-
-          &:after {
-            @include button-after;
-          }
-        }
-      }
-
-      li:nth-child(2) {
-        a {
-          @extend .bttn;
-          @include secondary-button;
-
-          &:hover {
-            @include secondary-hover;
-          }
-
-          &:after {
-            @include button-after;
-          }
-        }
-      }
-    }
-  }
-
-  .container {
-    >.cb-cta-link {
-      justify-content: center;
-    }
-  }
-}
-
-
-.ContentCard-section {
-
-  &.theme-content-block-light,
-  &.theme-content-block-gray {
-    .ContentCard {
-      .container {
-        .cb-cta-link {
-          gap: 10px !important;
-          justify-content: center;
-
-          li {
-            &:first-child {
-              .button {
-                @extend .bttn;
-                @include primary-button;
-
-                &:hover {
-                  @include primary-hover;
-                }
-
-                &:after {
-                  @include button-after;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-              }
-            }
-
-            &:nth-child(2) {
-
-              .button,
-              .lnk {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-
-              }
-            }
-          }
-
-
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-imagedark {
-    .container {
-      >.cb-cta-link .lnk {
-        @extend .bttn;
-        @include ghost-button;
-
-        &:after {
-          @include button-after;
-        }
-
-        &:hover {
-          @include ghost-hover;
-
-        }
-      }
-    }
-  }
-
-}
-
-.InPageNavigation {
-  .nav-item {
-    .lnk {
-      &:hover {
-        border: none !important;
-      }
-    }
-  }
-}
-
-
-
-.scrollto-top-container {
-  .scrollto-top-wrapper {
-    .scrollto-top {
-      &:hover {
-        span {
-          &:before {
-            color: $color-ocean-700 !important;
-          }
-        }
-      }
-    }
-  }
-}
-
-.theme-content-block-cta-primary {
-  .cb-cta-link {
-    .lnk {
-      @extend .bttn;
-      @include primary-button;
-
-      &:hover {
-        @include primary-hover;
-      }
-    }
-  }
-}
-
-.theme-content-block-light {
-  &.theme-content-block-cta-card-secondary {
-    .theme-card-standard {
-      &.theme-card-cta-link {
-        height: 100%;
-
-        .card {
-          height: 100%;
-
-          .card-footer {
-            .cb-cta-link {
-              justify-content: center !important;
-
-              .lnk {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-
-              }
-            }
-          }
-        }
-
-      }
-
-      &.theme-card-cta-primary {
-        height: 100%;
-
-        .card {
-          height: 100%;
-
-          .card-footer {
-            .cb-cta-link {
-              .lnk {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-              }
-            }
-          }
-        }
-
-      }
-
-      &.theme-card-cta-secondary {
-        height: 100% !important;
-
-        .card {
-          height: 100% !important;
-
-          .card-footer {
-            .cb-cta-link {
-              .lnk {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-              }
-            }
-          }
-        }
-
-      }
-    }
-  }
-
-  &.theme-content-block-cta-card-link {
-    .card {
-      .card-footer {
-        .cb-cta-link {
-          justify-content: center;
-        }
-
-        .lnk {
-          @include link-style;
-
-          &:after {
-            @include link-after;
-          }
-
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-cta-primary {
-    .cb-cta-link {
-      .lnk {
-        @extend .bttn;
-        @include primary-button;
-
-        &:hover {
-          @include primary-hover;
-        }
-      }
-    }
-
-  }
-}
-
-
-.ContentCard-section {
-
-  &.theme-content-block-gray {
-    .cb-cta-link {
-      .lnk {
-        @include link-style;
-
-        &:after {
-          @include link-after;
-        }
-
-        @media screen and (min-width: 1980px) {
-          font-size: 16px;
-        }
-
-      }
-    }
-
-    &.theme-content-block-cta-card-link {
-      .ContentCard {
-
-        .theme-card-cta-primary,
-        .theme-card-cta-secondary,
-        .theme-card-cta-link {
-          height: 100%;
-
-          .card {
-            height: 100%;
-          }
-        }
-
-        .card-footer {
-          .cb-cta-link {
-            justify-content: start !important;
-            align-items: center;
-
-            .lnk {
-              @include link-style;
-
-              &:after {
-                @include link-after;
-              }
-
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
-
-            }
-          }
-        }
-      }
-
-
-    }
-
-  }
-
-  &.theme-content-block-imagedark {
-    &.theme-content-block-cta-card-secondary {
-      .container {
-        .cb-cta-link {
-          gap: 10px !important;
-
-          li {
-            &:first-child {
-              .button {
-                @extend .bttn;
-                @include primary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include primary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-              }
-            }
-
-            &:nth-child(2) {
-              .button {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-
-              }
-            }
-          }
-        }
-      }
-
-      .theme-card-standard {
-        &.theme-card-cta-link {
-
-          height: 100%;
-
-          .card {
-            height: 100%;
-
-            .card-footer {
-              .cb-cta-link {
-                justify-content: center !important;
-                align-items: center !important;
-
-                .lnk {
-                  @extend .bttn;
-                  @include secondary-button;
-
-                  &:after {
-                    @include button-after;
-                  }
-
-                  &:hover {
-                    @include secondary-hover;
-                  }
-
-                  @media screen and (min-width: 1980px) {
-                    font-size: 16px;
-                  }
-
-                }
-              }
-            }
-
-          }
-        }
-
-        &.theme-card-cta-primary {
-          height: 100%;
-
-          .card {
-            height: 100%;
-
-            .card-footer {
-              .cb-cta-link {
-                justify-content: center !important;
-                align-items: center !important;
-
-                .lnk {
-                  @extend .bttn;
-                  @include secondary-button;
-
-                  &:after {
-                    @include button-after;
-                  }
-
-                  &:hover {
-                    @include secondary-hover;
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        &.theme-card-cta-secondary {
-          height: 100%;
-
-          .card {
-            height: 100%;
-
-            .card-footer {
-              .cb-cta-link {
-                justify-content: center !important;
-                align-items: center !important;
-
-                .lnk {
-                  @extend .bttn;
-                  @include secondary-button;
-
-                  &:after {
-                    @include button-after;
-                  }
-
-                  &:hover {
-                    @include secondary-hover;
-                  }
-                }
-              }
-            }
-
-          }
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-blue {
-    .section-title {
-      color: $color-grey--675;
-
-    }
-
-    .container {
-      p {
-        P {
-          color: $color-grey--675;
-
-        }
-      }
-    }
-      .container {
-       > .cb-cta-link {
-          gap: 10px !important;
-
-          li {
-            &:first-child {
-              .button {
-                @extend .bttn;
-                @include primary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include primary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-              }
-            }
-
-            &:nth-child(2) {
-              .button {
-                @extend .bttn;
-                @include secondary-button;
-
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-
-              }
-            }
-          }
-        }
-      }
-    &.theme-content-block-cta-card-primary {
-      .theme-card-cta-secondary {
-        .cb-cta-link {
-          .lnk {
-            @extend .bttn;
-            @include primary-button;
-
-            &:after {
-              @include button-after;
-            }
-
-            &:hover {
-              @include primary-hover;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .theme-card-standard {
-    height: 100%;
-
-    .card {
-      height: 100%;
-    }
-  }
-
-
-}
-
-.theme-content-block-dark {
-  &.theme-content-block-cta-card-primary {
-    .ContentCard {
-
-      .theme-card-cta-primary,
-      .theme-card-cta-secondary,
-      .theme-card-cta-link {
-        height: 100%;
-
-        .card {
-          height: 100%;
-        }
-      }
-
-      .container {
-        >p {
-          color: $color-white;
-        }
-      }
-
-      .cb-cta-link {
-        justify-content: center !important;
-        align-items: center;
-
-        .lnk {
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-        }
-
-        .card-link {
-          @extend .bttn;
-          @include primary-button;
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-bg {
-    .container {
-      .content-block {
-        .ContentCard {
-          .cb-cta-link {
-
-            .lnk,
-            .button {
-              @extend .bttn;
-
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
-            }
-
-          }
-        }
-      }
-    }
-
-  }
-
-  &.theme-content-block-cta-card-link {
-    .ContentCard {
-
-      .theme-card-cta-primary,
-      .theme-card-cta-secondary,
-      .theme-card-cta-link {
-        height: 100%;
-
-        .card {
-          height: 100%;
-        }
-      }
-
-      p {
-        color: $color-white;
+        @include prime-style;
+        font-size: 14px;
+        border-radius: 3px;
         text-align: center;
-      }
-
-      .cb-cta-link {
-        justify-content: center;
+        padding: 6px 24px !important;
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        height: 45px;
+        display: flex;
         align-items: center;
-        gap: 10px;
-
-        .lnk {
-          @extend .bttn;
-          @include ghost-button;
-
-          &:hover {
-            @include ghost-hover;
-          }
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-        }
-
-        .card-link {
-          @extend .bttn;
-          @include ghost-button;
-
-          &:hover {
-            @include ghost-hover;
-          }
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
-
-  .container {
-    >p {
-      color: $color-white;
-    }
-
-    >.cb-cta-link {
-      .lnk {
-        @extend .bttn;
-        @include ghost-button;
-
-        &:after {
-          @include button-after;
-        }
+        justify-content: center;
+        width: max-content;
+        color: $color-white;
+        background: $color-ocean-700;
 
         &:hover {
-          @include ghost-hover;
+          border-color: $color-ocean-700;
+          background-color: $color-white;
+          color: $color-ocean-700;
         }
-      }
-    }
-  }
-}
-
-
-.theme-content-block-blue {
-  background-color: $background-dark-blue;
-  padding: 100px 0 !important;
-
-  &.theme-content-block-cta-card-secondary {
-    .card-footer {
-      .cb-cta-link {
-        justify-content: center !important;
-
-        .lnk {
-          @extend .bttn;
-          @include secondary-button;
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-        }
-
-        .card-link {
-          @extend .bttn;
-          @include secondary-button;
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-
-        }
-      }
-    }
-
-    .theme-card-cta-link {
-      height: 100%;
-
-      .card {
-        height: 100%;
-      }
-    }
-
-    .theme-card-cta-primary {
-      height: 100%;
-
-      .card {
-        height: 100%;
-      }
-    }
-
-    .theme-card-cta-secondary {
-      height: 100%;
-
-      .card {
-        height: 100%;
-      }
-
-    }
-
-  }
-
-  &.theme-content-block-cta-card-primary {
-    .card {
-      .cb-cta-link {
-        justify-content: center
-      }
-    }
-  }
-
-  &.theme-content-block-cta-card-link {
-    .card {
-      .cb-cta-link {
-        .lnk {
-          @include link-style;
-
-          &:after {
-            @include link-after;
-          }
-        }
-      }
-    }
-  }
-
-
-  .section-title {
-    color: $color-white;
-  }
-
-  .col-title-img {
-    color: $color-white;
-  }
-
-  .container {
-    .bottom-body {
-      color: $color-white;
-    }
-
-    >p {
-      color: $color-white;
-    }
-
-    >.cb-cta-link {
-      .lnk {
-        @extend .bttn;
-        @include ghost-button;
 
         &:after {
-          @include button-after;
+          content: unset !important;
         }
+      }
+    }
+
+    li:last-child {
+      a {
+        @include prime-style;
+        font-size: 14px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 6px 24px !important;
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        border: 1px solid $color-ocean-700;
+        color: $color-ocean-700;
+        background: $color-white;
 
         &:hover {
-          @include ghost-hover;
+          border-color: $color-white;
+          color: $color-white;
+          background: $color-ocean-700;
+        }
+
+        &:after {
+          content: unset !important;
         }
       }
     }
-  }
-
-  .theme-card-cta-link {
-    height: 100%;
-
-    .card {
-      height: 100%;
-    }
-  }
-
-  .cb-cta-link {
-    justify-content: center;
-  }
-
-}
-
-.Default-section {
-  &.theme-content-block-light {
-    &.theme-content-block-cta-secondary {
-      .cb-cta-link {
-        .lnk {
-          @extend .bttn;
-          @include secondary-button;
-
-          &:after {
-            @include button-after;
-          }
-
-          &:hover {
-            @include secondary-hover;
-          }
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-
-        }
-      }
-    }
-  }
-}
-
-.Featured-section {
-
-  &.theme-content-block-bg {
-    .card-body {
-      >.lnk {
-        display: block;
-      }
-    }
-
-    .card-footer {
-      .cb-cta-link {
-        justify-content: start !important;
-
-        .lnk {
-          @include link-style;
-
-          &:after {
-            @include link-after;
-          }
-
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-
-        }
-      }
-    }
-  }
-
-  .featured-cards {
-    .card-footer {
-      .cb-cta-link {
-        .lnk {
-          @extend .bttn;
-          @include ghost-button;
-
-          &:after {
-            @include button-after;
-          }
-
-          &:hover {
-            @include ghost-hover;
-
-          }
-        }
-      }
-    }
-  }
-}
-
-.theme-content-block-imagelight {
-  &.theme-content-block-bg {
-    .container {
-      h3 {
-        color: $color-white !important;
-      }
-
-      .cb-cta-link {
-        justify-content: start !important;
-
-        .lnk {
-          @media screen and (min-width: 1980px) {
-            font-size: 16px;
-          }
-
-        }
-      }
-    }
-  }
-}
-
-.theme-content-block-cta-card-primary {
-  .cb-cta-link .card-link {
-    @extend .bttn;
-    @include primary-button;
-  }
-
-}
-
-.theme-content-block-cta-card-secondary {
-  .cb-cta-link .card-link {
-    @extend .bttn;
-    @include secondary-button;
-
-    &:after {
-      @include button-after;
-    }
-  }
-}
-
-.theme-card-cta-link .card-link {
-  @extend .bttn;
-  border: none;
-
-  &:after {
-    margin-top: -5px !important;
-    margin-left: 5px !important;
   }
 }

@@ -19,15 +19,6 @@
 .card {
     box-shadow: 0px 8px 16px 0px #1145861F;
     border: 0;
-    &.LeftImageCard{
-        .card-footer{
-            padding-left: 0;
-            padding-right: 0;
-            .cb-cta-link{
-                justify-content: flex-start !important;
-            }
-        }
-    }
 }
 
 .card-text {
@@ -61,4 +52,36 @@
 
 .theme-card-cta-secondary .card {
     height: 100%;
+}
+
+.VideoCard {
+    .video-thumbnail {
+        display: block;
+        width: 300px;
+        height: 200px;
+    }
+
+    .play-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: none;
+        /* Initially hide the play button */
+    }
+
+    .video-thumbnail-link:hover .play-button {
+        display: block;
+        /* Display the play button on hover */
+    }
+
+    .video-thumbnail-link .video-duration {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        bottom: 10px;
+        right: 10px;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 12px;
+    }
 }

@@ -13,16 +13,14 @@
 .accordion-content-block,
 .accordion {
     .accordion-title {
-        color: $color-body;
-        text-transform: capitalize;
-    }
-
+         color:$color-body;
+     }
+    
     // Use arrows instead of + -.
     .brcmicon-plus {
         @include fa-icon-solid($fa-var-chevron-right);
         transition: 0.2s ease-in-out;
     }
-
     .brcmicon-window-minimize {
         @include fa-icon-solid($fa-var-chevron-right);
         transition: 0.2s ease-in-out;
@@ -30,81 +28,40 @@
     }
 }
 
-
-.Accordion-section {
-    .toggle-actions {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        .divider {
-            margin-bottom: 0 !important;
-        }
-    }
-
-}
-
 // Theme
-
 .theme-content-block-line {
     .accordion {
-        .toggle-actions {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            .divider {
-                margin-bottom: 0 !important;
-            }
-        }
-
         .CollapseBox {
-            margin-bottom: 0 !important;
-            margin-top: -2px;
-
+            margin-bottom: none!important;
             .card {
-                border: none;
-                border-top: 2px solid $color-grey--100;
+                border:none;
                 border-bottom: 2px solid $color-grey--100;
-                border-right: none !important;
-                border-left: none !important;
-                box-shadow: none;
-
+                
                 .card-head {
-                    padding: 30px 10px 30px !important;
-
-                    button {
-                        height: auto;
-                    }
-                }
-
-                .card-body {
-
-                    .collapse,
-                    .collapsing {
-                        padding: 0px 10px 25px;
-                    }
-                }
+                    padding: 0 10px 20px!important;
+                 }
+                 .card-body {
+                    .collapse,.collapsing {
+						padding: 0px 10px 25px;
+					}
+                 }
             }
-
-
+           
+           
         }
     }
 }
 
 .theme-content-block-standard {
-    .accordion {
+	.accordion {
         .CollapseBox {
-            .card {
-                box-shadow: none;
-                .card-body {
-
-                    .collapse,
-                    .collapsing {
-                        padding: 0px 10px 25px;
-                    }
-                }
+			.card {
+				.card-body {
+					.collapse,.collapsing {
+						padding: 0px 10px 25px;
+					}
+				}
             }
-        }
-    }
+		}
+	}
 }
