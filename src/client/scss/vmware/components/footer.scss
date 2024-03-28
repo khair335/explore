@@ -10,7 +10,7 @@
 #footer {
   margin-top: 100px;
 
-  &:before {
+  .container:before {
     content: "" !important;
     position: absolute !important;
     margin-top: -36px !important;

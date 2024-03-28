@@ -30,6 +30,10 @@ $carousel-indicator-height: 20px;
     //background: $color-grey--500;
 
     >.carousel-item {
+
+      //transition: transform .6s ease-in-out;
+      //backface-visibility: hidden;
+      //perspective: 1000px;
       .size-large {
 
         .teaser {
@@ -416,6 +420,7 @@ $carousel-indicator-height: 20px;
           .banner-cta {
             h2 {
               font-size: 50px;
+              text-transform: capitalize;
 
              @include media-breakpoint-down(md) {
                   font-size: 30px !important;

@@ -1,0 +1,28 @@
+/*
+*   theme-content-block.scss 
+*/
+// Description: scss for Themes for content blocks.
+// 
+
+@import "../base/variables";
+
+
+.theme-content-block-dark, 
+.theme-content-block-imagedark {
+    .theme-cbl-card-default {
+    }
+    .theme-cbl-card-light {
+        
+    }
+}
+
+.theme-content-block-light, 
+.theme-content-block-gray,
+.theme-content-block-blue,
+.theme-content-block-imagelight
+ {
+    .theme-cbl-card-default {
+    }
+    .theme-cbl-card-light {
+    }
+}
