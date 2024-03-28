@@ -49,6 +49,8 @@ $carousel-indicator-height: 20px;
                 border: none !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
+                margin-right: 0;
+                margin-left: 0;
                 &:hover{
                   border: none !important;
                   background-color: transparent !important;
@@ -438,6 +440,8 @@ $carousel-indicator-height: 20px;
 
             .lnk {
               margin-top: 28px;
+              margin-right: 0;
+              margin-left: 0;
               @include media-breakpoint-down(md) {
                   margin-top: 16px;
                 }
@@ -498,11 +502,8 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       .banner-cta {
         >div {
-          display: flex;
-          justify-content: flex-start;
-
-          @include media-breakpoint-down(md) {
-            flex-direction: column;
+          >p{
+            display: block;
           }
         }
 

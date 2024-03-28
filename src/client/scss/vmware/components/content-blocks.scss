@@ -1199,3 +1199,15 @@
     margin-left: 5px !important;
   }
 }
+
+.InPageNavigation{
+  .nav-item{
+    .lnk{
+        text-transform: capitalize;
+        text-align: left;
+        &:after{
+            @include link-after;
+        }
+    }
+  }
+}

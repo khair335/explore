@@ -16,9 +16,9 @@ export default class CardColumns extends PureComponent {
 		let cards = [];
 		let card_content_ids = [];
         let num_columns = 0;
-        
+
 		if (this.props.cards) {
-			
+
 			// We want to flatten by row. So find the maximum rows
 			const columns = this.props.cards;
 			let max_rows = columns.reduce((accumulator, column) => Math.max(accumulator, column.length), 0);
@@ -36,7 +36,7 @@ export default class CardColumns extends PureComponent {
 					}
 				}
 			}
-			
+
 			/*onst rows = this.props.cards;
 			let max_cols = rows.reduce((accumulator, row) => Math.max(accumulator, row.length), 0);
 			num_columns = max_cols;
@@ -47,8 +47,8 @@ export default class CardColumns extends PureComponent {
 			if (fixed_cols) {
 				num_columns = rows.length;
 			}
-				
-			
+
+
 			for (let row=0; row<rows.length; row++) {
 				for (let col=0; col<max_cols; col++) {
 					if (col < rows[row].length) {
@@ -62,7 +62,7 @@ export default class CardColumns extends PureComponent {
 			}
 			*/
         }
-                
+
         let sizes = {
             lg: this.props.lg || null,
             xs: "12",
@@ -71,16 +71,16 @@ export default class CardColumns extends PureComponent {
         if (!this.props.lg) {
             // Calculate our large
             sizes.lg = 12/num_columns;
-			
+
 			// HACK: For odd number, just let it occur naturally and don't set a size but a basic "col-lg". See Blog Landing on dev.
 			// BUSINESS RULE: Most wireframes show 4 or less. We haven't seen 5 or more in the wireframes.
 			if (num_columns === 5) {
 				sizes.lg = "";
 			}
         }
-        
-		
-		
+
+
+
         return (
             <Fragment>
                 {cards.map((card, index) => {
@@ -101,7 +101,7 @@ export default class CardColumns extends PureComponent {
 							{/** This will introduce our break */}
 							{(index !== 0 && index%num_columns === 0) && <div className="mt-lg-4 w-100" />}
 							{/** TODO: Currently fixed for benefits. Need to calculate offsets based on columns. (12-(num_columns*this.props.lg)/2)*/}
-							{this.props.align === "center" && this.props.lg && index%num_columns === 0 && 
+							{this.props.align === "center" && this.props.lg && index%num_columns === 0 &&
 								<div className={"offset-lg-1"} />
 							}
 							<Col {...rest} lg={lg} className={(card.theme) ? card.theme : ""} data-content-id={card_content_ids[index]}>
@@ -116,7 +116,7 @@ export default class CardColumns extends PureComponent {
 }
 
 CardColumns.propTypes = {
-	cards: PropTypes.array.isRequired, 
+	cards: PropTypes.array.isRequired,
 };
 
 CardColumns.defaultProps  = {

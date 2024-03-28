@@ -7,16 +7,16 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 // -----------------------------------------------------------------------------
-// InPageNavigation 
+// InPageNavigation
 //////////
 
 .InPageNavigation {
     background-color: transparent;
-   
+
 .navbar-nav{
     border-bottom: 0;
     width: 100%;
-    -ms-flex-wrap: wrap; 
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
@@ -43,20 +43,20 @@
              &:after{
                 display: none;
             }
-        }   
+        }
         a {
-            line-height: 2.2; 
+            line-height: 2.2;
             padding: 6px 0px;
-          
-			 &:hover {  
+
+			 &:hover {
 				color: $color-black;
 				text-decoration:none;        				//mods _link.scss - necessary to keep from having double red lines on hover
                 border-bottom: 2px solid $color-primary;
-                
+
 			 }
 
             }
-        
+
         }
     }
 }
