@@ -1098,6 +1098,11 @@
       }
     }
   }
+  .content-block-left{
+    .cb-cta-link{
+      justify-content: flex-start;
+    }
+  }
 }
 
 .Featured-section {
