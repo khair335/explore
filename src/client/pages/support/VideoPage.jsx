@@ -51,7 +51,7 @@ class VideoPage extends PageComponent {
 		};
 
 		this.copy_tooltip_timeout = 0;
-		this.toggle = this.toggle.bind(this);//for tabs 
+		this.toggle = this.toggle.bind(this);//for tabs
 
 		this.setMediaData = this.setMediaData.bind(this);
 	}
@@ -79,7 +79,7 @@ class VideoPage extends PageComponent {
 		document.title = title;
 
 	}
-	//for tabs 
+	//for tabs
 	toggle(tab) {
 		if (this.state.activeTab !== tab) {
 			this.setState({
@@ -107,7 +107,7 @@ class VideoPage extends PageComponent {
 		}
 	};
 	//adding comment
-	// for share tab 
+	// for share tab
 	renderShareOptions = () => {
 		const { shareUrl } = this.state;
 		const encodedShareUrl = encodeURIComponent(shareUrl);
@@ -130,8 +130,8 @@ class VideoPage extends PageComponent {
 					<br />
 				</div>
 				<div className="share-section">
-					<input type="text" value={shareUrl} readOnly />
-					<button onClick={this.copyToClipboard}>Copy {this.state.copySuccess &&
+					<input class="share-input" type="text" value={shareUrl} readOnly />
+					<button class="share-btn" onClick={this.copyToClipboard}>Copy {this.state.copySuccess &&
 						<div className="tooltip show bs-tooltip-auto fadein">
 							<div className="tooltip-inner" role="tooltip">
 								<div>Copied</div>
@@ -143,7 +143,7 @@ class VideoPage extends PageComponent {
 		);
 	};
 
-	
+
 	componentDidMount() {
 		fetch(`https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos/6335424406112/related`, {
 			method: 'get',
@@ -190,7 +190,7 @@ class VideoPage extends PageComponent {
 	};
 
 	render() {
-		
+
 		const related_videos = this.state?.relatedVideos?.videos.slice(0, 3)
 		const settings = {
 			title: "false",
@@ -263,7 +263,7 @@ class VideoPage extends PageComponent {
 											</div>
 											{/* video title */}
 											<div class="col-md-12 col-sm-12 col-xs-12">
-												<h1>The Cyber Cloud - Next Steps for Augementing Cybersecurity with the Cloud</h1>
+												<h1 class="video-title">The Cyber Cloud - Next Steps for Augementing Cybersecurity with the Cloud</h1>
 											</div>
 											{/* tab function */}
 											<div>
@@ -331,9 +331,9 @@ class VideoPage extends PageComponent {
 																</a>
 
 																<div className="video-info">
-																	<span>{video.name}</span>
-																	<a href=''><h3>{this.truncateDescription(video.description, 28)}</h3></a>
-																	<p>{this.truncateDescription(video.long_description, 120)}</p>
+																	<span class="video-name">{video.name}</span>
+																	<a href=''><h3 class="related-video-link">{this.truncateDescription(video.description, 28)}</h3></a>
+																	<p class="related-des">{this.truncateDescription(video.long_description, 120)}</p>
 																</div>
 															</div>
 														))}
@@ -356,7 +356,7 @@ class VideoPage extends PageComponent {
 
 export default withRouter(VideoPage);
 
-//speakers code 
+//speakers code
 
 class Speakers extends Component {
 
