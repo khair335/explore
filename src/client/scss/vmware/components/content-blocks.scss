@@ -43,7 +43,7 @@
       &.col-lg-4 {max-width: 100%}
       &.col-sm-12 {max-width: 100%}
       padding-bottom:15px
-         
+
       }
   }
   .content-block-right {
@@ -61,7 +61,7 @@
   .icon-row:last-of-type {
       border-bottom: none;
   }
- 
+
 }
 
 .theme-content-block-bg {
@@ -583,7 +583,7 @@
 
         .card-footer {
           .cb-cta-link {
-            justify-content: start !important;
+            justify-content: center ;
             align-items: center;
 
             .lnk {
@@ -1146,7 +1146,7 @@
 
     .card-footer {
       .cb-cta-link {
-        justify-content: start !important;
+        justify-content: start ;
 
         .lnk {
           @include link-style;

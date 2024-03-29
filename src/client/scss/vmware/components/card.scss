@@ -36,9 +36,8 @@
     color: #565656;
 }
 
-.ImageCard,
-.VideoCard {
-    padding: 0 !important;
+.ImageCard{
+    padding: 0;
 
     .card-body {
         padding-bottom: 0;
@@ -57,6 +56,41 @@
     }
 }
 
+.VideoCard {
+
+
+    .card-body {
+        padding-bottom: 0;
+    }
+
+    .card-footer {
+        background: none;
+        border: none;
+    }
+
+    .card-title {
+        padding-top: 12px;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 33px;
+    }
+}
+
+.ContentCard {
+    .ImageCard {
+        .card-title {
+            text-align: center;
+
+        }
+
+        .card-footer {
+            .cb-cta-link {
+                justify-content: center;
+            }
+        }
+    }
+}
+
 .theme-card-cta-secondary {
     height: 100%;
 }
@@ -68,40 +102,155 @@
 .Featured-section {
 
     .card-body {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+
         >div:first-child {
             width: 20%;
             float: left;
             margin-top: 20px;
         }
 
+        >.lnk {
+            width: 20%;
+
+            margin: 0px;
+        }
+
         >.card-title {
-            width: 78%;
-            float: right;
+            width: 79%;
+            margin: 0;
+            margin-left: auto;
             padding-top: 0;
             font-size: 25px;
         }
 
         >.card-text {
-            width: 78%;
-            float: right;
+            width: 79%;
             margin-top: 0;
+            margin-left: auto;
         }
     }
+
     .card-footer {
         padding: 5px 0 5px;
+        width: 79%;
+        margin-top: 0;
+        margin-left: auto;
 
         ul {
             margin: 4px 0 0;
         }
     }
-    .featured-cards{
-        .card-title{
+
+    .featured-cards {
+        .card-title {
             float: none;
             width: 100%;
         }
+
         .card-text {
             float: none;
             width: 100%;
         }
+
+        .card-footer {
+            margin-left: 0;
+
+            ul {
+                margin: 4px 0 0;
+            }
+        }
     }
+}
+
+.VideoCard {
+    .video-thumbnail-link {
+        position: relative;
+            display: block;
+
+    }
+    .card-body {
+     padding: 0;
+    }
+    .video-thumbnail {
+        display: block;
+        max-width: 275px;
+        width: 100%;
+        height: 160px;
+    }
+
+    .play-button {
+        position: absolute;
+        display: none;
+        background: #1d428a no-repeat scroll center center;
+        max-width: 100px;
+        width: 100%;
+        height: 50px;
+        left: 8px;
+        bottom: 8px;
+        right: 0;
+        z-index: 2;
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+        &:after {
+            max-width: 24px;
+            width: 100%;
+            height: 24px;
+            content: " ";
+            position: absolute;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='rgba(255,255,255,1)'%3E%3Cpath d='M19.376 12.4161L8.77735 19.4818C8.54759 19.635 8.23715 19.5729 8.08397 19.3432C8.02922 19.261 8 19.1645 8 19.0658V4.93433C8 4.65818 8.22386 4.43433 8.5 4.43433C8.59871 4.43433 8.69522 4.46355 8.77735 4.5183L19.376 11.584C19.6057 11.7372 19.6678 12.0477 19.5146 12.2774C19.478 12.3323 19.4309 12.3795 19.376 12.4161Z'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+    }
+
+    .video-duration {
+        position: absolute;
+        background-color: $color-ocean-700;
+        color: #fff;
+        display: block;
+        font-weight: 300;
+        bottom: 10px;
+        right: 20px;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 12px;
+    }
+
+    .video-thumbnail-link:hover .play-button {
+        display: flex;
+
+    }
+
+    .video-info {
+        margin: 15px 0;
+
+        .video-name-data {
+           span{
+             font-size: 14px;
+            font-weight: 300;
+            margin: 0;
+           }
+        }
+
+        .card-video-title {
+            h5 {
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        .card-video-des {
+            font-size: 14px;
+
+        }
+    }
+
+
 }

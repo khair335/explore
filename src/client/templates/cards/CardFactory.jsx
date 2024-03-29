@@ -214,7 +214,7 @@ export class ProductCard extends PureComponent {
                             </SiteLink>
                             <p dangerouslySetInnerHTML={{ __html: this.props.data.sub_head }} />
 
-                            {/* this.props.data.subhead 
+                            {/* this.props.data.subhead
 								? <p dangerouslySetInnerHTML={{__html: this.props.data.subhead}} />
 								: <p dangerouslySetInnerHTML={{__html: this.props.data.description}} />
 							*/}
@@ -459,7 +459,7 @@ export class AnalystReportCard extends PureComponent {
 
                     {this.props.data.published && <div className="analystReportCard-published" dangerouslySetInnerHTML={{ __html: this.props.data.published }} />}
                 </div>
-                {/* 
+                {/*
                 // 195741: Enhancement.
                 <div className="card-footer">
                     {links.map((link, index) =>
@@ -479,7 +479,7 @@ AnalystReportCard.propTypes = {
 
 /**
  *  @brief VideoCard
- *  @details 
+ *  @details
  */
 export const VideoCard = (props) => {
     const video_content = props.data
@@ -498,7 +498,7 @@ export const VideoCard = (props) => {
         const paddedHours = hours.toString().padStart(2, '0');
         const paddedMinutes = minutes.toString().padStart(2, '0');
         const paddedSeconds = remainingSeconds.toString().padStart(2, '0');
- 
+
         if (paddedHours == '00' && paddedMinutes != '00' && paddedSeconds != '00') {
             return `${paddedMinutes}:${paddedSeconds}`;
         }
@@ -513,17 +513,16 @@ export const VideoCard = (props) => {
     return (
         <div className="VideoCard card">
             <div className="card-body">
-                <a href={url_path} target="_self" rel="noopener noreferrer" className="video-thumbnail-link">
+                <a  href={url_path} target="_self" rel="noopener noreferrer" className="video-thumbnail-link">
                     <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail"/>
                     <div className="play-button">
-                        <img src="" alt="Play button" />
                     </div>
                     <span className="video-duration">{formatMillisecondsToHours(video_content.duration)}</span>
                 </a>
                 <div className="video-info">
-                    <a href={url_path} target="_self"><span>{video_content.name} | {video_content.views} views</span></a>
-                    <a href={url_path} target="_self"><h5>{truncateDescription(video_content.description, 27)}</h5></a>
-                    <p>{truncateDescription(video_content.long_description, 53)}</p>
+                    <a className='video-name-data' href={url_path} target="_self"><span>{video_content.name} | {video_content.views} views</span></a>
+                    <a className='card-video-title' href={url_path} target="_self"><h5>{truncateDescription(video_content.description, 27)}</h5></a>
+                    <p className='card-video-des'>{truncateDescription(video_content.long_description, 53)}</p>
                 </div>
             </div>
         </div>
@@ -531,8 +530,8 @@ export const VideoCard = (props) => {
 }
 
 /**
- *  @brief The engine 
- *  @details 
+ *  @brief The engine
+ *  @details
  */
 // The available templates.
 const templates = {
@@ -550,10 +549,10 @@ const templates = {
 
 /**
  *  @brief Return a single component from the template name.
- *  
+ *
  *  @param [in] template Parameter_Description
  *  @return Return_Description
- *  
+ *
  *  @details Details
  */
 export function getCardFromTemplate(template, data, ...props) {
@@ -626,10 +625,10 @@ export function applyCardType(card, default_type, image_position) {
 
 /**
  *  @brief CMS2 We derive the card type from the data.
- *  
+ *
  *  @param [in] template Parameter_Description
  *  @return Return_Description
- *  
+ *
  *  @details Details
  */
 export function applyCardTypeToColumns(columns, default_type, image_position) {
@@ -648,4 +647,4 @@ export function applyCardTypeToColumns(columns, default_type, image_position) {
     }
 
     return cards;
-} 
+}

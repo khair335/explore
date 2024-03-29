@@ -47,7 +47,7 @@
     &.theme-cbl-card-light {
         .card {
             @include theme-light;
-            box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10)  !important;
+            box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
         }
     }
 }
@@ -59,13 +59,35 @@
     &.theme-cbl-card-transparent {
         .card {
             @include theme-transparent;
+            .col{
+                    padding-right: 0;
+                    padding-left: 0;
+            }
+            .card-footer {
+                @include theme-transparent;
+                padding: 0;
+                margin: 0;
+
+                .cb-cta-link {
+
+                    .lnk,
+                    .card-link {
+                        margin-left: 0;
+                        margin-right: 0;
+                        &:after{
+                            margin-left: 0
+                        }
+                    }
+                }
+
+            }
         }
     }
 
     &.theme-cbl-card-light {
         .card {
             @include theme-light;
-             box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10)  !important;
+            box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
         }
     }
 }
