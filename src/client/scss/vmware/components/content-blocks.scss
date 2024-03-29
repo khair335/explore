@@ -28,38 +28,59 @@
 //     @include primary-hover;
 //   }
 // }
- // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Content list with icons
 // -----------------------------------------------------------------------------
 .ContentListWithIcons {
   .content-block-image {
-      // For each media screen size
-      &.col-md-4 {max-width: 12%}
-      &.col-lg-4 {max-width: 12%}
-      &.col-sm-12 {max-width: 12%}
 
-      @media only screen and (max-width: 767px) {
-      &.col-md-4 {max-width: 100%}
-      &.col-lg-4 {max-width: 100%}
-      &.col-sm-12 {max-width: 100%}
+    // For each media screen size
+    &.col-md-4 {
+      max-width: 12%
+    }
+
+    &.col-lg-4 {
+      max-width: 12%
+    }
+
+    &.col-sm-12 {
+      max-width: 12%
+    }
+
+    @media only screen and (max-width: 767px) {
+      &.col-md-4 {
+        max-width: 100%
+      }
+
+      &.col-lg-4 {
+        max-width: 100%
+      }
+
+      &.col-sm-12 {
+        max-width: 100%
+      }
+
       padding-bottom:15px
+    }
+  }
 
-      }
-  }
   .content-block-right {
-      .col-sm-12 {
-          text-align: right;
-      }
-      picture {
-          display: inline-block;
-      }
+    .col-sm-12 {
+      text-align: right;
+    }
+
+    picture {
+      display: inline-block;
+    }
   }
-  .icon-row{
-      border-bottom: 1px solid $color-grey--650;
-      padding-top:25px
+
+  .icon-row {
+    border-bottom: 1px solid $color-grey--650;
+    padding-top: 25px
   }
+
   .icon-row:last-of-type {
-      border-bottom: none;
+    border-bottom: none;
   }
 
 }
@@ -583,7 +604,7 @@
 
         .card-footer {
           .cb-cta-link {
-            justify-content: center ;
+            justify-content: center;
             align-items: center;
 
             .lnk {
@@ -766,52 +787,54 @@
         }
       }
     }
-      .container {
-       > .cb-cta-link {
-          gap: 10px !important;
 
-          li {
-            &:first-child {
-              .button {
-                @extend .bttn;
-                @include primary-button;
+    .container {
+      >.cb-cta-link {
+        gap: 10px !important;
 
-                &:after {
-                  @include button-after;
-                }
+        li {
+          &:first-child {
+            .button {
+              @extend .bttn;
+              @include primary-button;
 
-                &:hover {
-                  @include primary-hover;
-                }
+              &:after {
+                @include button-after;
+              }
 
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
+              &:hover {
+                @include primary-hover;
+              }
+
+              @media screen and (min-width: 1980px) {
+                font-size: 16px;
               }
             }
+          }
 
-            &:nth-child(2) {
-              .button {
-                @extend .bttn;
-                @include secondary-button;
+          &:nth-child(2) {
+            .button {
+              @extend .bttn;
+              @include secondary-button;
 
-                &:after {
-                  @include button-after;
-                }
-
-                &:hover {
-                  @include secondary-hover;
-                }
-
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
-
+              &:after {
+                @include button-after;
               }
+
+              &:hover {
+                @include secondary-hover;
+              }
+
+              @media screen and (min-width: 1980px) {
+                font-size: 16px;
+              }
+
             }
           }
         }
       }
+    }
+
     &.theme-content-block-cta-card-primary {
       .theme-card-cta-secondary {
         .cb-cta-link {
@@ -1133,6 +1156,34 @@
       }
     }
   }
+.content-block-left{
+      .cb-cta-link {
+        justify-content: start;
+      }
+}
+  &.theme-content-block-cta-secondary {
+
+    .content-block-left {
+      .cb-cta-link {
+
+
+        button,
+        a {
+          @extend .bttn;
+          @include secondary-button;
+              border: 1px solid $color-ocean-700 !important;
+              padding: 6px 24px  !important;
+
+           &:hover {
+            @include secondary-hover;
+            color: #fff !important;
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 .Featured-section {
@@ -1146,7 +1197,7 @@
 
     .card-footer {
       .cb-cta-link {
-        justify-content: start ;
+        justify-content: start;
 
         .lnk {
           @include link-style;
@@ -1235,14 +1286,26 @@
   }
 }
 
-.InPageNavigation{
-  .nav-item{
-    .lnk{
-        text-transform: capitalize;
-        text-align: left;
-        &:after{
-            @include link-after;
-        }
+.InPageNavigation {
+  .nav-item {
+    .lnk {
+      text-transform: capitalize;
+      text-align: left;
+
+      &:after {
+        @include link-after;
+      }
+    }
+  }
+}
+
+.ContentCardTwoColumn-section {
+  .theme-card-standard {
+    height: 100%;
+
+    .card {
+      height: 100%;
+
     }
   }
 }
