@@ -100,17 +100,32 @@ class Config {
 			player_id: 'lUBT2rAMW',
 			endpoint: 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos',
 			policy_key: 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY', //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg',
+			videoPath: (account) => {
+				let type = account?.toLowerCase();
+				switch (type) {
+					case 'vmware':
+						return '/video';
+					case 'explore':
+						return '/explore/video-library/video';
+				}
+
+				// HACK: Just use our window location.
+				if (window?.location?.pathname?.startsWith('/explore')) {
+					return '/explore/video-library/video';
+				}
+
+				return '/video';		// Standalone video page.
+			}
 		};
 
 		// Used to figure out what type of site to one off.
-		this.microsite = null;
-		if (gMicrosite) {
-			console.log("microsite", gMicrosite);
-			this.microsite = gMicrosite;
-		}
+		
 
 		this.navigation = {};
 		this.navigation.site = 'vm';
+
+		// The fake captcha button.
+		this.captcha_image = '/img/captcha/submitButton.vm.png';
 
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {
@@ -151,7 +166,7 @@ class Config {
 					this.okta.logoutUrl = 'https://sso-sandbox.broadcom.com/login/signout';
 					break;				
 				case 'qa':
-					this.video.player_id = 'QCEd4TS1z';
+					//this.video.player_id = 'QCEd4TS1z';
 					this.swifttype.engine_key = 'dnpozeqWzsrxYAnsAPjz';
 					this.locale_base = {
 						"en-us": "https://qa-ui.aws.broadcom.com",
@@ -170,7 +185,7 @@ class Config {
 					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user";	// "https://supportqa.broadcom.com/user";
 					break;
 				case 'development':
-					this.video.player_id = 'QCEd4TS1z';
+					//this.video.player_id = 'QCEd4TS1z';
 					//this.swifttype.engine_key = 'baa1mmC9AaCnz7My4Ksz';
 					this.swifttype.engine_key = 'B6ZTDkq2Z5ypbNj6crf9';
 					this.locale_base = {

@@ -1,0 +1,71 @@
+/*
+*   theme-content-block.scss
+*/
+// Description: scss for Themes for content blocks.
+//
+
+@import "../base/variables";
+@import "../base/buttons";
+
+@mixin theme-light {
+    background-color: $background-color;
+}
+
+@mixin theme-transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.theme-content-block-dark,
+.theme-content-block-imagedark {
+    &.theme-cbl-card-transparent {
+        &.theme-content-block-cta-card-primary {
+
+            // JD - Unsure if we have multiple buttons.
+            .card {
+                .cb-cta-link .lnk {
+                    @include ghost-button;
+
+                    &:hover {
+                        @include primary-hover;
+                    }
+                }
+            }
+
+        }
+
+        .card {
+            @include theme-transparent;
+            color: $color-body-dark;
+
+            .card-text {
+                color: $color-body-dark;
+            }
+        }
+    }
+
+    &.theme-cbl-card-light {
+        .card {
+            @include theme-light;
+            box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10)  !important;
+        }
+    }
+}
+
+.theme-content-block-light,
+.theme-content-block-gray,
+.theme-content-block-blue,
+.theme-content-block-imagelight {
+    &.theme-cbl-card-transparent {
+        .card {
+            @include theme-transparent;
+        }
+    }
+
+    &.theme-cbl-card-light {
+        .card {
+            @include theme-light;
+             box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10)  !important;
+        }
+    }
+}

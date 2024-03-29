@@ -48,6 +48,7 @@ const NavigationProvider = ({ children }) => {
             url: (item.url === "#" || !item.url || item.template === "LabelWithNoURL") ? false : item.url, 		// biz rule: noURL template = its a page for content tree nav but there is no page it should be a label
             group: (item.group) ? true : false,																	// creates a title with list
             target: (item.target) ? item.target : false,														// adds target attribute for links
+            abstract: (item.abstract) ? item.abstract : false,
             child: [...(item.children ? loop(item.children) : [])]                                  		// children? create a new loop
         })
         ));

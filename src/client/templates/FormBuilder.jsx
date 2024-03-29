@@ -687,7 +687,7 @@ class FormBuilder extends PureComponent {
 					{(this.state.showCaptcha) ? <Captcha updateForm={() => this.handleCaptcha(alert)} /> : ""}
 
 					{(this.state.submitButton) ? <button className="primary-bttn view-from-button" type={"submit"}>Submit <span className="bi brcmicon-arrow-circle-right"></span></button>
-						: <ImageBase src="/img/captcha/submitButton.png" alt="Submit" />}
+						: <ImageBase src={config.captcha_image} alt="Submit" />}
 
 
 					{this.state.errors && this.state.errors.length > 0 &&

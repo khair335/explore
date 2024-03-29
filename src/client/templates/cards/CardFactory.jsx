@@ -482,34 +482,48 @@ AnalystReportCard.propTypes = {
  *  @details 
  */
 export const VideoCard = (props) => {
-    const data = {
-        id: "EUSB2527LV",
-        title: "Data Science Deep Dive in Anywhere Workspace, and What AI Means for EUC",
-        description: "VMware Anywhere Workspace has been leveraging data science for years. And with our autonomous workspace vision, data science is getting even more important. First, we will look under the hood of Anywhere Workspace to learn how we leverage machine learning and AI. Then, with generative AI and large language models making stunning advancements recently, we will discuss ideas about how these might affect the future of employee experience, security, and IT modernization",
-        views: "200 views",
-        duration: "43:41",
-        img: "https://cf-images.us-east-1.prod.boltdns.net/v1/jit/6164421911001/8e573ab7-6711-4ccd-b90b-7df6d3d21f20/main/1280x720/21m50s507ms/match/image.jpg",
-        href: "https://www.vmware.com/explore/video-library/video-landing.html?sessionid=1682308553531001BVDJ&amp;videoId=6335571359112",
-    }
+    const video_content = props.data
+    const url_path = "/explore/video-library/video-landing/:"+video_content.id;
     const truncateDescription = (text, maxLength) => {
-        if (text.length <= maxLength) return text;
-        return text.substr(0, maxLength) + '...';
+        if (text?.length <= maxLength) return text;
+        return text?.substr(0, maxLength) + '...';
     };
+
+    const formatMillisecondsToHours = (milliseconds) => {
+        const seconds = Math.floor(milliseconds / 1000);
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+
+        const paddedHours = hours.toString().padStart(2, '0');
+        const paddedMinutes = minutes.toString().padStart(2, '0');
+        const paddedSeconds = remainingSeconds.toString().padStart(2, '0');
+ 
+        if (paddedHours == '00' && paddedMinutes != '00' && paddedSeconds != '00') {
+            return `${paddedMinutes}:${paddedSeconds}`;
+        }
+        else if (paddedMinutes == '00' && paddedHours == '00' && paddedSeconds != '00') {
+            return `${paddedSeconds}`;
+        }
+        else {
+            return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+        }
+    }
 
     return (
         <div className="VideoCard card">
             <div className="card-body">
-                <a href={data.href} target="_self" rel="noopener noreferrer" className="video-thumbnail-link">
-                    <img src={data.img} alt="Video Thumbnail" className="video-thumbnail" />
+                <a href={url_path} target="_self" rel="noopener noreferrer" className="video-thumbnail-link">
+                    <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail"/>
                     <div className="play-button">
                         <img src="" alt="Play button" />
                     </div>
-                    <span className="video-duration">{data.duration}</span>
+                    <span className="video-duration">{formatMillisecondsToHours(video_content.duration)}</span>
                 </a>
                 <div className="video-info">
-                    <a href={data.href} target="_self"><span>{data.id} | {data.views}</span></a>
-                    <a href={data.href} target="_self"><h5>{truncateDescription(data.title, 27)}</h5></a>
-                    <p>{truncateDescription(data.description, 53)}</p>
+                    <a href={url_path} target="_self"><span>{video_content.name} | {video_content.views} views</span></a>
+                    <a href={url_path} target="_self"><h5>{truncateDescription(video_content.description, 27)}</h5></a>
+                    <p>{truncateDescription(video_content.long_description, 53)}</p>
                 </div>
             </div>
         </div>

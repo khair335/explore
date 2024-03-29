@@ -100,6 +100,7 @@ class Config {
 			player_id: 'Vh8ALpkmx',
 			endpoint: 'https://edge.api.brightcove.com/playback/v1/accounts/6415665063001/videos',
 			policy_key: 'BCpkADawqM1Dw0AItnLv1eoTVT5D9tZbwpBSLlUmAMBHznvkeYaGu3CaQldUaWfpjsk7sJckjI5MZq-_uLsCMvarcsXdTg1I9v6zCQYgndn13fJmETygAUj2ooLpj8_Mtz4pVlsk89fW-s8jIxyWA8F6SZv_yw6sBaQ1uuifz8mkidT6wXF0VAXUejU',
+			videoPath: (account) => {return '/video'},		// Standalone video page.
 		};
 
 		// Used to figure out what type of site to one off.
@@ -109,6 +110,9 @@ class Config {
 		}
 
 		this.navigation = {};
+
+		// The fake captcha button.
+		this.captcha_image = '/img/captcha/submitButton.png';
 
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {

@@ -129,6 +129,8 @@ const CarouselStandard = (props) => {
 					activeIndex={activeIndex}
 					next={next}
 					previous={previous}
+					interval={false}
+
 				>
 					<Indicators />
 					{slides}

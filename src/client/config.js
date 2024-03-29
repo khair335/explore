@@ -11,7 +11,7 @@ class Config {
 		let config = null;
 
 		this.microsite = null;
-		if (true) { //gMicrosite) { // Hardcode for now.
+		if (gMicrosite) { // Hardcode for now.
 			this.microsite = gMicrosite;
 
 			config = ConfigVMware;
@@ -21,6 +21,7 @@ class Config {
 			config = ConfigBroadcom;
 		}
 
+		
 		Object.assign(this, config);
 		//this = { ...this, ...config };
 

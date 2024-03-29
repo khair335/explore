@@ -401,7 +401,7 @@ app.get(['/video/:mediaId'], (req, res) => {
 	}
 
 });
-app.get(['/explore/video-library/video-landing/:mediaId'], (req, res) => {
+app.get(['/explore/video-library/video/:mediaId'], (req, res) => {
 	let locale = "en-us";
 	let sublocale = "en-us";
 

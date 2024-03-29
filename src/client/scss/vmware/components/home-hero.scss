@@ -30,6 +30,10 @@ $carousel-indicator-height: 20px;
     //background: $color-grey--500;
 
     >.carousel-item {
+
+      //transition: transform .6s ease-in-out;
+      //backface-visibility: hidden;
+      //perspective: 1000px;
       .size-large {
 
         .teaser {
@@ -45,6 +49,8 @@ $carousel-indicator-height: 20px;
                 border: none !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
+                margin-right: 0;
+                margin-left: 0;
                 &:hover{
                   border: none !important;
                   background-color: transparent !important;
@@ -416,6 +422,7 @@ $carousel-indicator-height: 20px;
           .banner-cta {
             h2 {
               font-size: 50px;
+              text-transform: capitalize;
 
              @include media-breakpoint-down(md) {
                   font-size: 30px !important;
@@ -433,6 +440,8 @@ $carousel-indicator-height: 20px;
 
             .lnk {
               margin-top: 28px;
+              margin-right: 0;
+              margin-left: 0;
               @include media-breakpoint-down(md) {
                   margin-top: 16px;
                 }
@@ -493,11 +502,8 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       .banner-cta {
         >div {
-          display: flex;
-          justify-content: flex-start;
-
-          @include media-breakpoint-down(md) {
-            flex-direction: column;
+          >p{
+            display: block;
           }
         }
 

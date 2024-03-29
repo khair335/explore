@@ -179,7 +179,7 @@ const router = createBrowserRouter([
             element: <VideoPage />, // Use our template routing.
             errorElement: <ErrorPage code="400" />,
         }, {
-            path: "/explore/video-library/video-landing/:mediaid",
+            path: "/explore/video-library/video/:mediaid",
             //loader: deferLoadPageData,            // Videos don't require meta and page data as it get's it from brightcove
             //shouldRevalidate: shouldRevalidate,
             element: <VideoPage />, // Use our template routing.

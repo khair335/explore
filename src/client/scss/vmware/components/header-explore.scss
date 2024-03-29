@@ -155,6 +155,41 @@
     }
   }
 
+  #menuWindow {
+    width: 100%;
+    background-color: $color-white;
+    padding-top: 30px;
+
+
+    li.title, li.link {
+      font-family: $font-family--secondary;
+      font-size: 20px;
+    } 
+
+    li.title {
+      margin-bottom: 36px;
+
+      p {
+        font-size: 16px;
+        font-family: inherit;
+        line-height: 20px;
+        margin-top: 8px;
+      }
+
+      p.hide {display: none}
+    }
+    
+    li.link {
+      padding: 16px 0 16px 16px;
+
+      a {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+    
+  }
+
   @media screen and (max-width: map-get($grid-breakpoints, xl)) {
     .secondary_nav {
       ul {

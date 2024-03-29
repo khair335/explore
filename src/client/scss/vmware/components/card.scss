@@ -19,11 +19,13 @@
 .card {
     box-shadow: 0px 8px 16px 0px #1145861F;
     border: 0;
-    &.LeftImageCard{
-        .card-footer{
+
+    &.LeftImageCard {
+        .card-footer {
             padding-left: 0;
             padding-right: 0;
-            .cb-cta-link{
+
+            .cb-cta-link {
                 justify-content: flex-start !important;
             }
         }
@@ -61,4 +63,45 @@
 
 .theme-card-cta-secondary .card {
     height: 100%;
+}
+
+.Featured-section {
+
+    .card-body {
+        >div:first-child {
+            width: 20%;
+            float: left;
+            margin-top: 20px;
+        }
+
+        >.card-title {
+            width: 78%;
+            float: right;
+            padding-top: 0;
+            font-size: 25px;
+        }
+
+        >.card-text {
+            width: 78%;
+            float: right;
+            margin-top: 0;
+        }
+    }
+    .card-footer {
+        padding: 5px 0 5px;
+
+        ul {
+            margin: 4px 0 0;
+        }
+    }
+    .featured-cards{
+        .card-title{
+            float: none;
+            width: 100%;
+        }
+        .card-text {
+            float: none;
+            width: 100%;
+        }
+    }
 }

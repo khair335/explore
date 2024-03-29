@@ -10,6 +10,8 @@ import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
 import { Container } from 'reactstrap';
 import classnames from 'classnames';
 
+import 'scss/templates/theme-content-block.scss';
+
 
 const Sections = (props) => {
 	return (
@@ -26,20 +28,27 @@ const Sections = (props) => {
 				let style = {};
 
 
+				// This is the container theme.
 				if (theme) {
 					classes.push(theme);
 				}
 
+				// Override to tell the child cards what CTA they are.
 				if (content_block?.cards_cta_style) {
 					classes.push(`theme-content-block-cta-card-${content_block?.cards_cta_style?.toLowerCase()}`);
 				}
 
 				
+				// This set the background image.
 				if (content_block?.background_image?.src) {
 					style.backgroundImage = `url(${content_block?.background_image?.src})`;
 					classes.push('theme-content-block-bg');					// Let css know we are using a bg.
 				}
 
+				// Card theme. This sets the background to the child cards.
+				classes.push(content_block?.card_theme ? `theme-cbl-card-${content_block?.card_theme?.toLowerCase()}` : 'theme-cbl-card-transparent');
+
+				// JD - Possibly deprecated as business logic dictates this. This sets the CTA style for the child cards.
 				if (content_block?.cta_style) {
 					classes.push(`theme-content-block-cta-${content_block?.cta_style.toLowerCase()}`);					// Let css know what cta style we are. Used when a content block is in a section by itself and not in a content block list.
 				}

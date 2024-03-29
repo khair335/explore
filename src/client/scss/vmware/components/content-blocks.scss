@@ -28,6 +28,41 @@
 //     @include primary-hover;
 //   }
 // }
+ // -----------------------------------------------------------------------------
+// Content list with icons
+// -----------------------------------------------------------------------------
+.ContentListWithIcons {
+  .content-block-image {
+      // For each media screen size
+      &.col-md-4 {max-width: 12%}
+      &.col-lg-4 {max-width: 12%}
+      &.col-sm-12 {max-width: 12%}
+
+      @media only screen and (max-width: 767px) {
+      &.col-md-4 {max-width: 100%}
+      &.col-lg-4 {max-width: 100%}
+      &.col-sm-12 {max-width: 100%}
+      padding-bottom:15px
+         
+      }
+  }
+  .content-block-right {
+      .col-sm-12 {
+          text-align: right;
+      }
+      picture {
+          display: inline-block;
+      }
+  }
+  .icon-row{
+      border-bottom: 1px solid $color-grey--650;
+      padding-top:25px
+  }
+  .icon-row:last-of-type {
+      border-bottom: none;
+  }
+ 
+}
 
 .theme-content-block-bg {
   background-repeat: no-repeat;
@@ -1197,5 +1232,17 @@
   &:after {
     margin-top: -5px !important;
     margin-left: 5px !important;
+  }
+}
+
+.InPageNavigation{
+  .nav-item{
+    .lnk{
+        text-transform: capitalize;
+        text-align: left;
+        &:after{
+            @include link-after;
+        }
+    }
   }
 }
