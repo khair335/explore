@@ -21,6 +21,10 @@
     border: 0;
 
     &.LeftImageCard {
+        .card-title {
+            font-size: 20px;
+            line-height: normal!important;
+        }
         .card-footer {
             padding-left: 0;
             padding-right: 0;
@@ -36,6 +40,7 @@
     color: #565656;
 }
 
+
 .ImageCard{
     padding: 0;
 
@@ -50,9 +55,9 @@
 
     .card-title {
         padding-top: 12px;
-        font-weight: 400;
-        font-size: 26px;
-        line-height: 33px;
+        text-align: center;
+        font-size: 25px;
+        //line-height: 33px;
     }
 }
 
@@ -76,9 +81,10 @@
     }
 }
 
-.ContentCard {
+.ContentCard .ContentCardTwoColumn{
     .ImageCard {
         .card-title {
+           
             text-align: center;
 
         }

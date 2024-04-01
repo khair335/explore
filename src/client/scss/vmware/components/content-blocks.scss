@@ -12,6 +12,15 @@
   margin-bottom: 16px;
 }
 
+.content-block {
+  margin-bottom: 20px;padding: 0;
+  ul:not([class]) {
+      padding: 0px 0px 10px 40px;
+      li{
+      line-height: 1.8;
+      }
+  }
+}
 // -----------------------------------------------------------------------------
 // normalize image card, video card and text card title spacing
 // -----------------------------------------------------------------------------
