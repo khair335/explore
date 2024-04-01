@@ -449,6 +449,10 @@
     }
   }
 
+  .cb-cta-link {
+    justify-content: center;
+  }
+
 }
 
 .InPageNavigation {
@@ -1364,6 +1368,13 @@
 
     .card {
       height: 100%;
+      .lnk {
+
+
+      &:after {
+        @include link-after;
+      }
+    }
 
     }
   }
