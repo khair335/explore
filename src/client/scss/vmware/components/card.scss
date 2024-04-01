@@ -23,8 +23,9 @@
     &.LeftImageCard {
         .card-title {
             font-size: 20px;
-            line-height: normal!important;
+            line-height: normal !important;
         }
+
         .card-footer {
             padding-left: 0;
             padding-right: 0;
@@ -41,7 +42,7 @@
 }
 
 
-.ImageCard{
+.ImageCard {
     padding: 0;
 
     .card-body {
@@ -81,7 +82,7 @@
     }
 }
 
-.ContentCard .ContentCardTwoColumn{
+.ContentCard .ContentCardTwoColumn {
     .ImageCard {
         .card-title {
 
@@ -140,11 +141,13 @@
             margin-left: auto;
         }
     }
-    .featured-cards{
-        .card-footer{
+
+    .featured-cards {
+        .card-footer {
             width: 79%;
         }
     }
+
     .card-footer {
         padding: 5px 0 5px;
         width: 76%;
@@ -154,7 +157,8 @@
         ul {
             margin: 4px 0 0;
         }
-        .lnk{}
+
+        .lnk {}
     }
 
     .featured-cards {
@@ -181,12 +185,16 @@
 .VideoCard {
     .video-thumbnail-link {
         position: relative;
-            display: block;
+        display: block;
+        width: 100%;
+        margin: 0;
 
     }
+
     .card-body {
-     padding: 0;
+        padding: 0;
     }
+
     .video-thumbnail {
         display: block;
         max-width: 275px;
@@ -198,7 +206,7 @@
         position: absolute;
         display: none;
         background: #1d428a no-repeat scroll center center;
-        max-width: 100px;
+        max-width: 80px;
         width: 100%;
         height: 50px;
         left: 8px;
@@ -208,6 +216,7 @@
         border-radius: 3px;
         align-items: center;
         justify-content: center;
+
         &:after {
             max-width: 24px;
             width: 100%;
@@ -241,40 +250,52 @@
     }
 
     .video-info {
-        margin: 15px 0;
+            margin:0px;
+            margin-top: 10px;
 
         .video-name-data {
-           span{
-             font-size: 14px;
-            font-weight: 300;
             margin: 0;
-           }
+            span {
+                font-size: 14px;
+                font-weight: 300;
+                margin: 0;
+                display: inline-block;
+                text-align: left;
+            }
         }
 
         .card-video-title {
+            margin: 0;
             h5 {
                 font-size: 18px;
                 padding: 10px 0;
+                text-transform: capitalize;
             }
         }
 
         .card-video-des {
             font-size: 14px;
+            color: $color-black;
 
         }
+
     }
 
 
 }
 
-.cb-cta-link{
-    .lnk, .card-link,.link-bttn{
+.cb-cta-link {
+
+    .lnk,
+    .card-link,
+    .link-bttn {
         margin-left: 0 !important;
         width: max-content;
     }
 }
-p{
-    >a{
+
+p {
+    >a {
         text-transform: capitalize;
         text-decoration: underline;
     }

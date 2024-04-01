@@ -677,6 +677,7 @@
       .container {
         .cb-cta-link {
           gap: 10px !important;
+          justify-content: center;
 
           li {
             &:first-child {
@@ -814,6 +815,18 @@
           }
         }
       }
+    }
+    &.theme-content-block-cta-card-primary{
+      .container {
+        .cb-cta-link {
+
+          justify-content: center;}}
+    }
+    &.theme-content-block-cta-card-link {
+      .container {
+        .cb-cta-link {
+
+          justify-content: center;}}
     }
   }
 
