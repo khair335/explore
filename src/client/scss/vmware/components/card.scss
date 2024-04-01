@@ -84,7 +84,7 @@
 .ContentCard .ContentCardTwoColumn{
     .ImageCard {
         .card-title {
-           
+
             text-align: center;
 
         }
@@ -131,6 +131,7 @@
             margin-left: auto;
             padding-top: 0;
             font-size: 25px;
+            text-align: left;
         }
 
         >.card-text {
@@ -139,16 +140,21 @@
             margin-left: auto;
         }
     }
-
+    .featured-cards{
+        .card-footer{
+            width: 79%;
+        }
+    }
     .card-footer {
         padding: 5px 0 5px;
-        width: 79%;
+        width: 76%;
         margin-top: 0;
         margin-left: auto;
 
         ul {
             margin: 4px 0 0;
         }
+        .lnk{}
     }
 
     .featured-cards {
@@ -259,4 +265,17 @@
     }
 
 
+}
+
+.cb-cta-link{
+    .lnk, .card-link,.link-bttn{
+        margin-left: 0 !important;
+        width: max-content;
+    }
+}
+p{
+    >a{
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
 }

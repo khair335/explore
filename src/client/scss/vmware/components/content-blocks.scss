@@ -13,14 +13,18 @@
 }
 
 .content-block {
-  margin-bottom: 20px;padding: 0;
+  margin-bottom: 20px;
+  padding: 0;
+
   ul:not([class]) {
-      padding: 0px 0px 10px 40px;
-      li{
+    padding: 0px 0px 10px 40px;
+
+    li {
       line-height: 1.8;
-      }
+    }
   }
 }
+
 // -----------------------------------------------------------------------------
 // normalize image card, video card and text card title spacing
 // -----------------------------------------------------------------------------
@@ -103,6 +107,23 @@
   }
 
   &.theme-content-block-imagedark {
+    &.theme-content-block-cta-card-link {
+      .cb-cta-link {
+        .lnk {
+          @include link-style;
+
+          &:hover {
+            border: none;
+          }
+
+          &:after {
+            @include link-after;
+          }
+
+        }
+      }
+    }
+
     .section-title {
       color: $color-white;
     }
@@ -148,6 +169,20 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
+
+    .card-body {
+      gap: 0;
+      flex: initial;
+
+      a {
+        img {
+          max-width: 65.99px;
+          width: 100%;
+          height: 65.99px;
+
+        }
+      }
+    }
   }
 
   .featured-cards {
@@ -1165,11 +1200,13 @@
       }
     }
   }
-.content-block-left{
-      .cb-cta-link {
-        justify-content: start;
-      }
-}
+
+  .content-block-left {
+    .cb-cta-link {
+      justify-content: start;
+    }
+  }
+
   &.theme-content-block-cta-secondary {
 
     .content-block-left {
@@ -1180,10 +1217,10 @@
         a {
           @extend .bttn;
           @include secondary-button;
-              border: 1px solid $color-ocean-700 !important;
-              padding: 6px 24px  !important;
+          border: 1px solid $color-ocean-700 !important;
+          padding: 6px 24px !important;
 
-           &:hover {
+          &:hover {
             @include secondary-hover;
             color: #fff !important;
             text-decoration: none !important;
