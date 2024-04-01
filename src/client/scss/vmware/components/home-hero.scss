@@ -286,7 +286,7 @@ $carousel-indicator-height: 20px;
       font-size: 16px;
       color: $color-primary; //mods _link.scss
       display: inline-block;
-      width: max-content;
+      width: fit-content;
       border: 1px solid $color-white;
       border-radius: 3px;
       padding: 6px 23px;
@@ -336,7 +336,9 @@ $carousel-indicator-height: 20px;
         @media (max-width: 460px) {
           width: 100%;
         }
-
+        .lnk{
+          width: max-content;
+        }
         &:first-child {
           padding-right: 20px;
 
@@ -508,6 +510,7 @@ $carousel-indicator-height: 20px;
         }
 
         .lnk {
+          width: max-content;
           &:hover {
 
             text-decoration: none !important;
