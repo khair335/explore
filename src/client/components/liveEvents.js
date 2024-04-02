@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom';
 import DocumentLink from 'components/DocumentLink.jsx';
 import Video, { VideoLink, VideoPlaylist } from 'components/Video.jsx';
 import { ImageEnlargeModal } from 'components/ImageBase.jsx';
+import { UncontrolledPopover, PopoverBody } from 'reactstrap';
+import { InfoPopover } from 'components/InfoPopover.jsx';
 
 
 import 'scss/components/blog-tables.scss';
@@ -101,10 +103,64 @@ const handleImageEnlarge = () => {
 	}
 }
 
+// ----------------
+// BCVW-349: https://vmstg-ui.aws.broadcom.com/explore/us/attend/pricing
+//-----------------
+const handleTooltips = () => {
+	let tooltips = document.querySelectorAll('[data-tooltip="true"]');
+
+	if (tooltips && tooltips.length > 0) {
+
+		tooltips.forEach(tooltip => {
+			let content = tooltip.querySelector('[data-tooltip-content="true"]');
+			
+			// Dont init anymore
+			tooltip.setAttribute('data-tooltip', 'init');
+
+			if (content) {
+				
+				const divNode = document.createElement("div"); 
+				const root = createRoot(divNode);
+
+
+				divNode?.classList?.add('live-info-popup');
+				tooltip.parentNode.insertBefore(divNode, tooltip.nextSibling);
+
+
+				// Remove us.
+				tooltip.remove();
+
+				// root.render(
+				// 	<UncontrolledPopover
+				// 		placement="right"
+				// 		target={test}
+				// 		trigger="click focus"
+				// 	>
+				// 		<PopoverBody>
+				// 			<div dangerouslySetInnerHTML={{ __html: content.innerHTML }} />
+				// 		</PopoverBody>
+				// 	</UncontrolledPopover>
+				// );
+
+				root.render(
+						<InfoPopover
+							placement="right"							
+						>
+								<div dangerouslySetInnerHTML={{ __html: content.innerHTML }} />
+						</InfoPopover>
+					);
+
+			}
+		});
+	}
+}
+
+
 const liveEvents = () => {
 
 	handleVideoLink();
 	handleImageEnlarge();
+	handleTooltips();
 
 	//<video data-module="video" data-module-type="video-playlist" data-channel-id="a493a97ae5f84508a1e45dd117e99c26" id="playList1211203289657" name="playList1211203289657"></video>
 	let playlists = document.querySelectorAll('[data-module-type="video-playlist"]');
@@ -165,7 +221,7 @@ const liveEvents = () => {
 				const container = document.getElementById(divNode.id);
 				const root = createRoot(container);
 
-				root.render(<Video mediaid={mediaId} className="video-js vjs-16-9" controls audio={audio}/>);		// This is our embedded div set by the backend.
+				root.render(<Video mediaid={mediaId} className="video-js vjs-16-9" controls audio={audio} />);		// This is our embedded div set by the backend.
 			}
 		});
 	}

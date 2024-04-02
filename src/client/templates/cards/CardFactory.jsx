@@ -483,7 +483,9 @@ AnalystReportCard.propTypes = {
  */
 export const VideoCard = (props) => {
     const video_content = props.data
-    const url_path = "/explore/video-library/video-landing/:"+video_content.id;
+    const url_path = config.video.videoPath(video_content?.account)+"/"+video_content?.id;
+    const target = "_self"
+    
     const truncateDescription = (text, maxLength) => {
         if (text?.length <= maxLength) return text;
         return text?.substr(0, maxLength) + '...';
@@ -513,16 +515,15 @@ export const VideoCard = (props) => {
     return (
         <div className="VideoCard card">
             <div className="card-body">
-                <a  href={url_path} target="_self" rel="noopener noreferrer" className="video-thumbnail-link">
-                    <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail"/>
-                    <div className="play-button">
-                    </div>
-                    <span className="video-duration">{formatMillisecondsToHours(video_content.duration)}</span>
-                </a>
+                <SiteLink to={url_path} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
+                    <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail" />
+                    <div image="" alt="Play button" className="play-button" />
+                    <span className="video-duration">{formatMillisecondsToHours(video_content?.duration)}</span>
+                </SiteLink>
                 <div className="video-info">
-                    <a className='video-name-data' href={url_path} target="_self"><span>{video_content.name} | {video_content.views} views</span></a>
-                    <a className='card-video-title' href={url_path} target="_self"><h5>{truncateDescription(video_content.description, 27)}</h5></a>
-                    <p className='card-video-des'>{truncateDescription(video_content.long_description, 53)}</p>
+                    <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name} | {video_content?.views} views</span></SiteLink>
+                    <SiteLink className='card-video-title' to={url_path} target={target}><h5>{truncateDescription(video_content?.description, 27)}</h5></SiteLink>
+                    <p className='card-video-des'>{truncateDescription(video_content?.long_description, 53)}</p>
                 </div>
             </div>
         </div>

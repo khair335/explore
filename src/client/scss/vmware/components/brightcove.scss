@@ -58,13 +58,14 @@
 		position: relative;
 		height: 0;
 		padding-bottom: 56.25%; // Aspect ratio of 16:9. We need to set a height for the container.
-
+		text-align: center;
 
 		.brightcove-loading {
-			position: absolute;
-			left: -50%;
-			top: calc(50% - 60px); // The mid point of both the container and the icon.
-			width: 100%;
+			// position: absolute;
+			// left: -50%;
+			// top: calc(50% - 60px); // The mid point of both the container and the icon.
+			// width: 100%;
+			transform: translateY(100%);
 		}
 	}
 }

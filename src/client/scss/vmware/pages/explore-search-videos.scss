@@ -1,0 +1,53 @@
+ /*
+* pages/explore-search-videos.scss
+*/
+
+
+@import "../base/variables";
+
+.dropdown-container {
+    display: flex;
+  }
+
+  .year-container {
+    display: flex;
+  }
+  
+  .dropdown-container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+.selected-container{
+    display: flex;
+    // justify-content: space-between;
+}
+
+  .keywords-tag{
+    display: flex;
+  }
+
+  .video-panel{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  // .load-button{
+  // }
+
+  .filter-options {
+    margin-bottom: 20px;
+  }
+   
+  .filter-options button {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+   
+  .filter-options button:hover {
+    background-color: #ddd;
+  }

@@ -121,6 +121,9 @@ const LogoRequestTermsAndConditions = React.lazy(() => import('pages/support/Log
 const LogoRequestDeclined = React.lazy(() => import('pages/support/LogoRequestDeclined.jsx'));
 const LogoRequestDownload = React.lazy(() => import('pages/support/LogoRequestDownload.jsx'));
 
+// Explore
+const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchVideos.jsx'));
+
 
 const templates = {
 	home,					// Template name is lower case in JSON.
@@ -213,6 +216,7 @@ const templates = {
 	LogoRequestTermsAndConditions,
 	LogoRequestDeclined,
 	LogoRequestDownload,
+	ExploreSearchVideos,
 };
 
 

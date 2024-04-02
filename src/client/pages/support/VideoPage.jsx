@@ -16,6 +16,7 @@ import Loading from 'components/Loading.jsx';
 import ErrorPage from 'pages/error/ErrorPage.jsx';
 import classnames from 'classnames';
 import { withRouter } from 'routes/withRouter.jsx';
+import ImageBase from 'components/ImageBase.jsx';
 // import 'scss/pages/video-page.scss'
 
 // import Speakers from 'components/Speakers.jsx';
@@ -47,7 +48,6 @@ class VideoPage extends PageComponent {
 			copy_tooltip: '',
 			copySuccess: '',
 			activeTab: 'details',
-			// relatedVideos: null,
 		};
 
 		this.copy_tooltip_timeout = 0;
@@ -74,7 +74,9 @@ class VideoPage extends PageComponent {
 			meta_description: description,
 			canonical: window.location.href,
 		});
-
+		this.setState({
+			videoDetails: meta
+		})
 		// Set our browser title.
 		document.title = title;
 
@@ -145,10 +147,10 @@ class VideoPage extends PageComponent {
 
 
 	componentDidMount() {
-		fetch(`https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos/6335424406112/related`, {
+		fetch(`${config.video?.endpoint}/${this.state?.mediaid}/related`, {
 			method: 'get',
 			headers: new Headers({
-				'Accept': `application/json;pk=BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY`,
+				'Accept': `application/json;pk=${config.video.policy_key}`,
 			}),
 		})
 			.then(resp => resp.json())
@@ -157,6 +159,19 @@ class VideoPage extends PageComponent {
 					relatedVideos: json
 				});
 			});
+
+		// fetch(`${config.video?.endpoint}/${this.state?.mediaid}`, {
+		// 	method: 'get',
+		// 	headers: new Headers({
+		// 		'Accept': `application/json;pk=${config.video.policy_key}`,
+		// 	}),
+		// })
+		// 	.then(resp => resp.json())
+		// 	.then(json => {
+		// 		this.setState({
+		// 			videoDetails: json
+		// 		});
+		// 	});
 	}
 
 
@@ -191,7 +206,7 @@ class VideoPage extends PageComponent {
 
 	render() {
 
-		const related_videos = this.state?.relatedVideos?.videos.slice(0, 3)
+		const related_videos = this.state?.relatedVideos?.videos?.slice(0, 3);
 		const settings = {
 			title: "false",
 			duration: "false",
@@ -247,10 +262,8 @@ class VideoPage extends PageComponent {
 				<Loading isLoading={this.state.loading}>
 					{!this.state.error
 						? <Fragment>
-							<SubHead {...this.props.page} title={this.state.title} breadcrumb={breadcrumb} />
+							<SubHead {...this.props.page} breadcrumb={breadcrumb} />
 							<Row>
-								<div>{this.state?.relatedVideos?.account_id}</div>
-								{/* this is the css to enlarge the video and make it center aligned  */}
 								<div className={classnames("video-box col-lg-12 col-md-12 col-sm-12 col-xs-12")}>
 									<Video mediaid={this.state.mediaid} controls onMediaData={this.setMediaData} {...settings} />
 									<Row className='row-content'>
@@ -258,12 +271,12 @@ class VideoPage extends PageComponent {
 										<Col md={8} className="video-content col-content">
 											{/* code for VMware Explore link */}
 											<div className="vid-tags">
-												<a className="col-md-12 col-sm-12 col-xs-12" href='https://www.vmware.com/products/cloud-director.html'>VMware Explore
-												</a>
+												<SiteLink className="col-md-12 col-sm-12 col-xs-12" to='https://www.vmware.com/products/cloud-director.html'>VMware Explore
+												</SiteLink>
 											</div>
 											{/* video title */}
 											<div class="col-md-12 col-sm-12 col-xs-12">
-												<h1  class="video-title">The Cyber Cloud - Next Steps for Augementing Cybersecurity with the Cloud</h1>
+												<h1 class="video-title">{this.state?.videoDetails?.description}</h1>
 											</div>
 											{/* tab function */}
 											<div>
@@ -288,7 +301,7 @@ class VideoPage extends PageComponent {
 														<div className='abstract-summary'>
 															<Collapse isOpen={this.state.activeTab === 'details'}>
 																<div className='abstract-fullsummary'>
-																	<p>The cloud offers more than just a bucket for data and applications</p>
+																	<p>{this.state?.videoDetails?.long_description}</p>
 																</div>
 															</Collapse>
 														</div>
@@ -296,6 +309,36 @@ class VideoPage extends PageComponent {
 														<div className='session-heading'>
 															Session Info
 														</div>
+														<ul>
+															{this.state?.videoDetails?.name && <li>
+																<label><b>Session Code</b></label>
+																<span>{this.state?.videoDetails?.name}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.sessiontype && <li>
+																<label><b>Type</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.sessiontype}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.track && <li>
+																<label><b>Track</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.track}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.products && <li>
+																<label><b>Products</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.products}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.level && <li>
+																<label><b>Level</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.level}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.event_delivery && <li>
+																<label><b>Event Delivery</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.event_delivery}</span>
+															</li>}
+															{this.state?.videoDetails?.custom_fields?.audience && <li>
+																<label><b>Audience</b></label>
+																<span>{this.state?.videoDetails?.custom_fields?.audience}</span>
+															</li>}
+														</ul>
 													</TabPane>
 													<TabPane tabId="speakers">
 														<Speakers />
@@ -320,19 +363,19 @@ class VideoPage extends PageComponent {
 													<div className="videos-container">
 														{related_videos?.map((video, index) => (
 															<div key={index} className="video-item">
-																<a
-																	href={video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].src}
+																<SiteLink
+																	to={config.video.videoPath(video?.account) + "/" + video?.id}
 
 																	className="video-link"
 																	style={{ backgroundImage: `url("${video.poster}")` }}
 																	target="_self"
 																>
 																	<span className="time">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
-																</a>
+																</SiteLink>
 
 																<div className="video-info">
 																	<span class="video-name">{video.name}</span>
-																	<a href=''><h3  class="related-video-link">{this.truncateDescription(video.description, 28)}</h3></a>
+																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 class="related-video-link">{this.truncateDescription(video.description, 28)}</h3></SiteLink>
 																	<p class="related-des">{this.truncateDescription(video.long_description, 120)}</p>
 																</div>
 															</div>
@@ -388,7 +431,7 @@ class Speakers extends Component {
 			<div className="speakers-section">
 				{speakers.map(speaker => (
 					<div className="speaker-container" key={speaker.name}>
-						<img src={speaker.image} className="speaker-image" />
+						<ImageBase image={speaker.image} className="speaker-image" />
 						<div className="speaker-details">
 							<h2>{speaker.name}</h2>
 							<p>{speaker.title}</p>
@@ -423,12 +466,12 @@ class Attachments extends Component {
 			<div className="speakers-section">
 				{attachments.map((attachment) => (
 					<div className="speaker-container" key={attachment.name}>
-						<img src={attachment.image} className="speaker-image" />
+						<ImageBase image={attachment.image} className="speaker-image" />
 						<div className="speaker-details">
 							<h2>{attachment.name}</h2>
 							<p>{attachment.bio}</p>
-							<a href='https://static.rainfocus.com/vmware/explore2023bcn/sess/1685730995177001vX71/presrevpdf/NSCB1441BCN_1699457841521001vt3y.pdf' target='_blank'><button className="show-bio" >Download</button>
-							</a>
+							<SiteLink to='https://static.rainfocus.com/vmware/explore2023bcn/sess/1685730995177001vX71/presrevpdf/NSCB1441BCN_1699457841521001vt3y.pdf' target='_blank'><button className="show-bio" >Download</button>
+							</SiteLink>
 
 						</div>
 					</div>

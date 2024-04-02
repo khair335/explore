@@ -576,3 +576,32 @@ padding-bottom:10px!important;
       white-space: nowrap;
   }
 }
+
+// Hide the breadcrumbs globally.
+#subhead-navigation-section {
+  display: none;    // JD: Turn off for vmware. 
+}
+
+#subhead-navigation {
+  display: none;    // JD: Turn off for vmware. 
+}
+
+// Live tooltips. BCVW-349
+.live-info-popup {
+  display: inline-block;
+  .icon-bttn {
+    padding: 0;
+  }
+  
+
+}
+
+// HACK: Just hiding the arrow.
+.popover {
+  .arrow:before {
+    border: none;
+  }
+  .arrow:after {
+    border: none;
+  }
+}

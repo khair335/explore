@@ -1,4 +1,11 @@
 @import "../base/variables";
+
+
+#Video {
+  margin-top: 60px;
+}
+
+
 @media (max-width: 800px) {
   .fullpage_component .container .video_container {
     margin-bottom: 30px;
