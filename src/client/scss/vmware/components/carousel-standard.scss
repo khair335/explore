@@ -167,8 +167,8 @@ $carousel-indicator-padding: 40px;
             text-align: center;
         }
     }
-
-    .carousel-inner {
+    &.theme-cbl-card-transparent{
+        .carousel-inner {
         .card {
             box-shadow: none;
         }
@@ -177,6 +177,8 @@ $carousel-indicator-padding: 40px;
             padding: 0;
         }
     }
+    }
+
 
     .card-body {
 

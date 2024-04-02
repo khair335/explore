@@ -316,6 +316,7 @@ div {
       a {
         font-size: 18px;
         font-weight: 300;
+        text-decoration: none;
       }
     }
 
@@ -330,12 +331,14 @@ div {
         color: $color-ocean-700;
         border-bottom: 1px solid $color-ocean-700 !important;
         color: $color-ocean-700 !important;
+text-decoration: none;
       }
 
       .nav-link {
         cursor: pointer;
         font-weight: 300;
         color: $color-black;
+        text-decoration: none;
 
         &:hover {
           border: none !important;
@@ -359,6 +362,8 @@ div {
         display: flex;
         justify-content: center;
         align-items: center;
+          text-decoration: none;
+
 
         &:hover {
           text-decoration: none;
@@ -389,6 +394,7 @@ div {
         font-weight: 300;
         padding: 0 10px;
         margin-left: 0;
+        outline: none;
 
       }
 

@@ -250,26 +250,45 @@
     }
 
     .video-info {
-            margin:0px;
-            margin-top: 10px;
+        margin: 0px;
+        margin-top: 10px;
 
         .video-name-data {
             margin: 0;
+
             span {
                 font-size: 14px;
                 font-weight: 300;
                 margin: 0;
                 display: inline-block;
                 text-align: left;
+                color: $color-grey--650;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-line: underline;
+                    text-underline-offset: 2px;
+                    text-decoration-thickness: 2px;
+                }
             }
         }
 
         .card-video-title {
             margin: 0;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-line: underline;
+                text-underline-offset: 2px;
+                text-decoration-thickness: 2px;
+            }
+
             h5 {
                 font-size: 18px;
                 padding: 10px 0;
                 text-transform: capitalize;
+                text-decoration: none;
             }
         }
 
@@ -286,6 +305,6 @@
 
 p {
     >a {
-       @include link-style;
+        @include link-style;
     }
 }

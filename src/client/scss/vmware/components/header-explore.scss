@@ -137,6 +137,12 @@
     .secondary-nav-top {
       display: flex;
       margin-bottom: 14px;
+      .lnk{
+        text-decoration: none;
+        &:hover{
+          text-decoration: none;
+        }
+      }
 
       .login .dropdown-toggle:after {
         content: none; // Remove our default icon and use font awesome.
@@ -153,6 +159,11 @@
         }
       }
     }
+    .secondary-nav-cta{
+        button{
+          width: max-content;
+        }
+      }
   }
 
   #menuWindow {
@@ -164,7 +175,7 @@
     li.title, li.link {
       font-family: $font-family--secondary;
       font-size: 20px;
-    } 
+    }
 
     li.title {
       margin-bottom: 36px;
@@ -178,7 +189,7 @@
 
       p.hide {display: none}
     }
-    
+
     li.link {
       padding: 16px 0 16px 16px;
 
@@ -187,7 +198,7 @@
         line-height: 16px;
       }
     }
-    
+
   }
 
   @media screen and (max-width: map-get($grid-breakpoints, xl)) {

@@ -125,10 +125,10 @@ button {
     transition: all 0.2s ease;
     border: 1px solid transparent;
     height: 45px;
-    display: flex;
+    // display: flex;
     align-items: center;
     justify-content: center;
-    width: max-content;
+    // width: max-content;
 
     @media screen and (min-width: 1980px) {
         font-size: 16px;

@@ -470,11 +470,13 @@
 
         }
       }
+
       p {
-        > a{
+        >a {
           color: $color-white;
-          &:hover{
-                color: $color-primary;
+
+          &:hover {
+            color: $color-primary;
           }
         }
       }
@@ -851,7 +853,14 @@
           }
         }
       }
+
+
     }
+    .ImageCard {
+        p>a {
+          color: $color-ocean-700;
+        }
+      }
 
     &.theme-content-block-cta-card-primary {
       .container {
@@ -867,6 +876,16 @@
         .cb-cta-link {
 
           justify-content: center;
+        }
+      }
+
+      .VideoLink {
+        .link-bttn {
+          @include cta-link-style;
+
+          &:after {
+            @include cta-link-after;
+          }
         }
       }
     }
@@ -1233,20 +1252,24 @@
 
 .Default-section {
   &#single-card-with-image\,-and-two-cta-links {
+
     /* CSS styles here */
-    .cb-cta-link{
+    .cb-cta-link {
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-     a.lnk{
-      @include cta-link-style;
-      margin: 0;
-             &:after {
-                @include cta-link-after;
-            }
-     }
+
+      a.lnk {
+        @include cta-link-style;
+        margin: 0;
+
+        &:after {
+          @include cta-link-after;
+        }
+      }
     }
-}
+  }
+
   &.theme-content-block-light {
     &.theme-content-block-cta-secondary {
       .cb-cta-link {
