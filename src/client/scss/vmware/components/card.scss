@@ -286,7 +286,6 @@
 
 p {
     >a {
-        text-transform: capitalize;
-        text-decoration: underline;
+       @include link-style;
     }
 }

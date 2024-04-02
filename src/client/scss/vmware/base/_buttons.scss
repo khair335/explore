@@ -211,11 +211,14 @@ button {
 
     &.link-bttn {
         //Looks and acts like a link, for buttons that link to another page or location on a page
-        @include link-style; //bg:transparent, color:secondary, bold, :hover
+        @include cta-link-style; //bg:transparent, color:secondary, bold, :hover
         padding: 0; //for normal font weight mod at component scss
         text-align: left;
         border: 0;
-
+        &:after {
+            // @include cta-link-after;
+            content: unset !important;
+          }
         .bi {
             //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
             color: $color-primary;
@@ -481,6 +484,7 @@ a.bttn:hover {
     align-items: center;
     margin-top: 20px;
     list-style: none;
+    gap: 10px;
     @media (max-width: 600px) {
         flex-direction: column;
     }
@@ -505,9 +509,13 @@ a.bttn:hover {
 
         border-radius: 3px;
         text-align: center;
-        @include link-style;
+        @include cta-link-style;
         @media screen and (min-width: 1980px) {
             font-size: 16px;
+        }
+
+        &:after{
+                 @include cta-link-after;
         }
     }
 }
@@ -534,5 +542,10 @@ a.bttn:hover {
     @media screen and (min-width: 1980px) {
         font-size: 16px;
     }
+}
+
+.lnk{
+    margin-left: 0;
+    margin-right: 0;
 }
 

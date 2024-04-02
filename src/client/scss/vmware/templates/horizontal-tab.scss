@@ -57,7 +57,7 @@
                 border-bottom: 1px solid $color-primary;
                 margin: 0px 0px;
                 text-transform: capitalize;
-
+                text-decoration: none;
                 &:after {
                     content: unset !important;
                 }
@@ -86,7 +86,8 @@
     .tab-content {
         box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
 
-        .content-block-left {
+        .content-block-left,
+        .content-block-right {
             padding: 40px 60px 40px;
 
             .row {
@@ -100,10 +101,21 @@
 
         .lnk {
             margin: 0 !important;
-            @include link-style;
+            @include cta-link-style;
 
             &:after {
-                @include link-after;
+                @include cta-link-after;
+            }
+        }
+        .cb-cta-link{
+            flex-direction: column;
+            align-items: start;
+        }
+        .cb-cta-link li:nth-child(2) a.lnk {
+            margin: 0 !important;
+            @include cta-link-style;
+             &:after {
+                @include cta-link-after;
             }
         }
     }

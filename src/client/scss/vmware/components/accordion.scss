@@ -36,7 +36,11 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
+        button{
+            :after{
+            content: unset !important;
+            }
+}
         .divider {
             margin-bottom: 0 !important;
         }

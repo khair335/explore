@@ -195,11 +195,14 @@ $autopilot-footer-height-xl: 275px;
 	background-color: $color-primary;
 	color: $color-white;
 	font-family: $font-family--secondary;
-
+text-decoration: none;
 	&:hover {
 		background-color: $color-white;
 		color: $color-primary;
 		border: 1px solid $color-primary
+	}
+	&:after{
+		content: unset !important;
 	}
 }
 
@@ -208,7 +211,7 @@ $autopilot-footer-height-xl: 275px;
 	background-color: $color-white;
 	color: $color-primary;
 	font-family: $font-family--secondary;
-
+text-decoration: none;
 	&:hover {
 		background-color: $color-primary;
 		color: $color-white;
@@ -232,26 +235,51 @@ $autopilot-footer-height-xl: 275px;
 	font-size: 16px;
 	padding: 0px 0px;
 	line-height: 1.5;
-	text-transform: uppercase;
-	margin: 5px 10px;
-
+	text-transform: capitalize;
+	margin: 5px 2px 5px 0;
+	text-decoration: underline;
 	&:hover {
 		text-decoration: underline;
-		// animation: link-fadeinout 1.5s linear forwards;
+		text-decoration-line: underline;
+		text-underline-offset: 3px;
+		text-decoration-thickness: 2px;
 	}
+}
+
+@mixin cta-link-style {
+	background-color: transparent;
+	font-family: $font-family--secondary;
+	color: $color-primary;
+	font-weight: 400;
+	letter-spacing: .25px;
+	border: 0;
+	font-size: 16px;
+	padding: 0px 0px;
+	line-height: 1.5;
+	text-transform: uppercase;
+	margin: 5px 2px 5px 0;
+text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		text-decoration-line: underline;
+		text-underline-offset: 3px;
+		text-decoration-thickness: 2px;
+
+	}
+
 
 
 }
 
-@mixin link-after {
-		content: "";
-		background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
-		height: 15px;
-		width: 15px;
-		display: inline-block;
-		background-position: 2px 2px;
-		margin-top: -5px !important;
-		margin-left: 5px !important;
+@mixin cta-link-after {
+	content: "" !important;
+	background-image: url("data:image/svg+xml,%3Csvg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
+	height: 15px;
+	width: 15px;
+	display: inline-block;
+	background-position: 2px 2px;
+	margin-top: -5px !important;
+	margin-left: 5px !important;
 }
 
 @mixin basic-table {

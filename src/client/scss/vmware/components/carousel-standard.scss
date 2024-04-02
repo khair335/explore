@@ -95,6 +95,19 @@ $carousel-indicator-padding: 40px;
             >p {
                 text-align: center;
             }
+
+            .cb-cta-link {
+                justify-content: center;
+
+                .lnk {
+
+                    @include cta-link-style;
+
+                    &:after {
+                        @include cta-link-after;
+                    }
+                }
+            }
         }
     }
 
@@ -328,12 +341,12 @@ $carousel-indicator-padding: 40px;
 
                                 .lnk,
                                 .card-link {
-                                    @include link-style;
+                                    @include cta-link-style;
                                     font-size: 16px;
-                                    text-transform: capitalize;
+                                    // text-transform: capitalize;
 
                                     &:after {
-                                        @include link-after;
+                                        @include cta-link-after;
                                     }
 
 

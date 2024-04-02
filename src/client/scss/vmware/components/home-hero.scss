@@ -213,6 +213,15 @@ $carousel-indicator-height: 20px;
         }
       }
     }
+     p {
+        > a{
+          color: $color-white;
+          &:hover{
+                color: $color-primary;
+                  text-decoration-color:$color-primary;
+          }
+        }
+      }
   }
 
   .caption {

@@ -18,12 +18,12 @@ base/_reset.scss sets these properties for <a/>:
 
 
 
-@keyframes link-fadeinout { 
-    0%, 100% { 
-        text-decoration-color: transparent; 
-    } 
-    50% { 
-        text-decoration-color: $color-link-hover; 
+@keyframes link-fadeinout {
+    0%, 100% {
+        text-decoration-color: transparent;
+    }
+    50% {
+        text-decoration-color: $color-link-hover;
     }
 }
 
@@ -34,13 +34,15 @@ base/_reset.scss sets these properties for <a/>:
         text-decoration-color: $color-link-hover;
         text-decoration-line: underline;
         text-decoration-style: solid;
-        text-decoration-thickness: 2px; 
+        text-decoration-thickness: 2px;
         text-underline-offset: 3px;
-        animation: none!important; 
+        animation: none!important;
     }
 }
-a, a.lnk:not(.bttn) {                       //NOT inline links - bold, 2nd color, 2nd fontfamily, lg size, red line hover, etc. 
-    @include link-style;                            //see also SiteLink.jsx className (assigns "lnk" to all <a/>)
+a, a.lnk:not(.bttn) {                       //NOT inline links - bold, 2nd color, 2nd fontfamily, lg size, red line hover, etc.
+    @include link-style;
+
+                           //see also SiteLink.jsx className (assigns "lnk" to all <a/>)
 }
 
 a {                                         //inline links - RTE mostly, or in a paragraph of hard code - same as above but prime fontfamily and not bold
