@@ -180,11 +180,22 @@ export default class HomeHero extends Component {
 			let link = Array.isArray(hero.url) ? hero.url[0] : hero.url;										// JD - Not sure why we have so many url's. 
 			let url = urlparse(link, true);
 			let image = utils.getNestedItem(['hero_image', 'src'], hero) || null;
+			let ratio = 0.24;		// Broadcom's ratio.
+			let progressive_width = 150;
+			let progressive_height = 35;
+
+			if (hero.hero_image && hero.hero_image.width && hero.hero_image.height) {
+				// Calculate our ratio based off width and height of the image.
+				ratio = hero.hero_image.height/hero.hero_image.width;
+				progressive_height = Math.ceil(progressive_width*ratio);
+
+			}
+
 
 			return {
 				id: hero.content_id,
 				image: hero.hero_image,		//"img/Hero_Broadcom_CAT_1920x455_finalv2.jpg",
-				progressive_image: image ? `${image}${image.includes('?') ? '&' : '?'}width=150&height=35` : '',
+				progressive_image: image ? `${image}${image.includes('?') ? '&' : '?'}width=${progressive_width}&height=${progressive_height}` : '',
 				alt: utils.getNestedItem(['hero_image', 'alt'], hero) || '',
 				description: hero.description,
 				//link_text: hero.link_title,

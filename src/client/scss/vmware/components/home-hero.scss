@@ -74,6 +74,7 @@ $carousel-indicator-height: 20px;
         img {
           height: auto;
           object-fit: cover;
+          object-position: center;
           width: 100%;
           height: 700px; // JD - We have lazy loading and the image doesn't appear for the banner, so it pops.
 
@@ -121,10 +122,11 @@ $carousel-indicator-height: 20px;
               }
             }
         img {
-          height: auto;
+          
           object-fit: cover;
           width: 100%;
-          height: 500px;
+          height:auto;
+          
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -147,12 +149,16 @@ $carousel-indicator-height: 20px;
       }
 
       .size-small {
+        .featurette-heading {
+        font-size: 40px;
+        }
+
         img {
           height: auto;
           object-fit: cover;
           width: 100%;
-          height: 350px;
-
+          height: auto;
+        
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -213,15 +219,15 @@ $carousel-indicator-height: 20px;
         }
       }
     }
-     p {
-        > a{
-          color: $color-white;
-          &:hover{
-                color: $color-primary;
-                  text-decoration-color:$color-primary;
-          }
+    p {
+      > a{
+        color: $color-white;
+        &:hover{
+              color: $color-primary;
+                text-decoration-color:$color-primary;
         }
       }
+    }
   }
 
   .caption {
@@ -292,15 +298,14 @@ $carousel-indicator-height: 20px;
     }
 
     a.lnk {
-      font-size: 16px;
+      font-size: 14px;
       color: $color-primary; //mods _link.scss
       display: inline-block;
       width: fit-content;
       border: 1px solid $color-white;
       border-radius: 3px;
       padding: 6px 23px;
-      margin-top: 15px;
-      margin-bottom: 5px;
+      margin:15px 0 5px 0;
       text-decoration: none;
       line-height: 1.5;
       font-weight: 300;
@@ -469,7 +474,7 @@ $carousel-indicator-height: 20px;
   height: auto;
   object-fit: cover;
   width: 100%;
-  height: 550px !important;
+  
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -480,7 +485,7 @@ $carousel-indicator-height: 20px;
 .top-banner {
 
   .teaser {
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: -30px;
 
     @include media-breakpoint-down(md) {
@@ -489,7 +494,7 @@ $carousel-indicator-height: 20px;
     }
 
     .featurette-heading {
-      font-size: 40px !important;
+      font-size: 50px;
       text-transform: capitalize;
 
 
@@ -520,6 +525,8 @@ $carousel-indicator-height: 20px;
 
         .lnk {
           width: max-content;
+          text-transform: uppercase;
+         
           &:hover {
 
             text-decoration: none !important;
