@@ -276,6 +276,13 @@ div {
 .show-bio {
   padding: 5px 10px;
   margin-top: 10px;
+  @include cta-link-style;
+    border: 0 !important;
+  &:after {
+      // border: 0 !important;
+    @include cta-link-after;
+
+  }
 
 }
 
