@@ -109,7 +109,7 @@ img {
   min-height: 400px;    // We disabled the animated footer, so just give us some space.
 }
 
-// Global Number List
+// Global Number List 
 ol:not([class]) {
   list-style-type: decimal;
   padding-left: 18px;
@@ -234,7 +234,7 @@ strong{
     }
   }
 
-
+  
 
   &fw_{
     &extra-light{
@@ -273,23 +273,23 @@ text-transform: lowercase;
 
 .scrollto-top-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 20px;   
   @media screen and (min-width: map-get($grid-breakpoints, md)) {
     position: static;   // ie11
     position: sticky;   // All other browsers
-    position: -webkit-sticky; // Safari
+    position: -webkit-sticky; // Safari    
   }
 
   .scrollto-top-wrapper {
     float: right;
     text-align: right;
     margin-top: -50px;  // Space above the
-
+    
   }
 }
 
 .scrollto-top{
-    .bi{
+    .bi{ 
         margin-left: 5px;       //mods button _buttons.scss
     }
 
@@ -327,7 +327,7 @@ text-transform: lowercase;
 
     & + label {
       display: inline-block;
-      margin-left: -14px;
+      margin-left: -14px;     
     }
 
     &:focus + label .check-icon {
@@ -365,7 +365,7 @@ text-transform: lowercase;
 
 // global element
 .body-description {
-   margin-bottom: 20px;
+   margin-bottom: 20px; 
    h2 { line-height: 1.5;
    }
    h3, h4 {line-height: 1.8;}
@@ -517,7 +517,7 @@ hr.custom-line-gray {
   }
 }
 
-/* Sections
+/* Sections 
 	See // Sections in _variables.
 */
 
@@ -579,11 +579,11 @@ padding-bottom:10px!important;
 
 // Hide the breadcrumbs globally.
 #subhead-navigation-section {
-  display: none;    // JD: Turn off for vmware.
+  display: none;    // JD: Turn off for vmware. 
 }
 
 #subhead-navigation {
-  display: none;    // JD: Turn off for vmware.
+  display: none;    // JD: Turn off for vmware. 
 }
 
 // Live tooltips. BCVW-349
@@ -592,7 +592,7 @@ padding-bottom:10px!important;
   .icon-bttn {
     padding: 0;
   }
-
+  
 
 }
 

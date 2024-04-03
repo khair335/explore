@@ -1,6 +1,7 @@
 @import "../base/variables";
 @import "../base/transitions";
 @import "../base/buttons";
+@import "../base/link";
 
 @import "../fontawesome/fontawesome";
 @import "../fontawesome/solid";
@@ -303,8 +304,3 @@
 
 }
 
-p {
-    >a {
-        @include link-style;
-    }
-}

@@ -227,25 +227,28 @@ display: flex;
 }
 
 @mixin link-style {
-	// buttons, links
+	// links
 	background-color: transparent;
 	font-family: $font-family--secondary;
 	color: $color-primary;
 	font-weight: normal; //metro-mod
-	letter-spacing: .25px; //metro-mod
+	//letter-spacing: .25px; //metro-mod
 	border: 0;
 	font-size: 16px;
-	padding: 0px 0px;
-	line-height: 1.5;
+	padding-bottom: 2px;
+	//line-height: 1.5;
 	text-transform: normal;
 	margin: 5px 6px 5px 6px;
 	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
 	display: inline-block;
 	&:hover {
 		text-decoration: underline;
 		text-decoration-line: underline;
 		text-underline-offset: 3px;
 		text-decoration-thickness: 2px;
+		color:$color-link-hover;
 	}
 }
 
@@ -256,7 +259,7 @@ display: flex;
 	font-weight: 400;
 	letter-spacing: .25px;
 	border: 0;
-	font-size: 16px;
+	font-size: 14px;
 	padding: 0px 0px;
 	line-height: 1.5;
 	text-transform: uppercase;

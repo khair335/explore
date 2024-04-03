@@ -370,7 +370,8 @@ class VideoPage extends PageComponent {
 																	style={{ backgroundImage: `url("${video.poster}")` }}
 																	target="_self"
 																>
-																	<span className="time">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
+																	<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
+																	<div image="" alt="Play button" className="play-button" />
 																</SiteLink>
 
 																<div className="video-info">
