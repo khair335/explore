@@ -240,7 +240,8 @@ $carousel-indicator-height: 20px;
     top: 45%;
     transform: translate(0, -50%);
     z-index: 2;
-        padding-left: 30px;
+    padding-left: 30px;
+    max-width: 823px;
     @media only screen and (max-width: 991.98px) {
       max-width: none;
       position: static;
