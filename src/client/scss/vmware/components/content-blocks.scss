@@ -1575,3 +1575,13 @@
     text-decoration: none;
   }
 }
+.ContentCardTwoColumn-section {
+  .ContentCardTwoColumn{
+    .card-footer{
+  .cb-cta-link{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+  }
+}
