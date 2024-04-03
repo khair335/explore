@@ -443,3 +443,12 @@
 .load-button{
   margin: 40px auto;
 }
+
+.video-top-search-container{
+  padding: 24px 0;
+    box-shadow: 0 8px 16px rgba(17,69,134,0.12);
+    background-color: #F4F8FA;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+}

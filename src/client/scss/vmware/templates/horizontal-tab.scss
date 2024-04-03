@@ -58,6 +58,7 @@
                 margin: 0px 0px;
                 text-transform: capitalize;
                 text-decoration: none;
+
                 &:after {
                     content: unset !important;
                 }
@@ -107,15 +108,44 @@
                 @include cta-link-after;
             }
         }
-        .cb-cta-link{
+
+        .cb-cta-link {
             flex-direction: column;
             align-items: start;
         }
+
         .cb-cta-link li:nth-child(2) a.lnk {
             margin: 0 !important;
             @include cta-link-style;
-             &:after {
+
+            &:after {
                 @include cta-link-after;
+            }
+        }
+
+        .ImageCard {
+            .card-footer {
+                .cb-cta-link {
+                    flex-direction: row;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .theme-content-block-cta-primary {
+            .cb-cta-link {
+                .lnk {
+                    @extend .bttn;
+                    @include primary-button;
+
+                    &:hover {
+                        @include primary-hover;
+                    }
+
+                    &:after {
+                        @include button-after;
+                    }
+                }
             }
         }
     }

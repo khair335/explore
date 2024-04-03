@@ -91,3 +91,9 @@
         }
     }
 }
+
+.theme-cbl-card-transparent{
+    .card{
+         @include theme-transparent;
+    }
+}

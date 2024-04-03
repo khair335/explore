@@ -349,12 +349,12 @@ $carousel-indicator-padding: 40px;
 
                                     &:after {
                                         @include cta-link-after;
+
                                     }
 
 
                                     &:hover {
-                                        border: none;
-                                        border-bottom: 1px solid $color-ocean-700 ;
+
                                     }
                                 }
 

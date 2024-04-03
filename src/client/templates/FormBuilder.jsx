@@ -1,6 +1,6 @@
 /**
  *  @file FormBuilder.jsx
- *  @brief 
+ *  @brief
  */
 import config from 'client/config.js';
 import React, { Component, PureComponent, Fragment } from 'react';
@@ -178,7 +178,7 @@ class FormBuilder extends PureComponent {
 			}
 		}
 
-		
+
 		const options = {
 			method: 'POST',
 			credentials: config.api_credentials,			// Coookies for cors
@@ -341,10 +341,10 @@ class FormBuilder extends PureComponent {
 
 	/**
 	 *  @brief Return true if valid.
-	 *  
+	 *
 	 *  @param [in] name The name of the input.
 	 *  @return Return_Description
-	 *  
+	 *
 	 *  @details Details
 	 */
 	isValid(name) {
@@ -388,7 +388,7 @@ class FormBuilder extends PureComponent {
 								name={props.name}
 								required={props.required}
 								defaultValue={this.state[props.name]}
-								aria-label={props.label || "Select State"} 
+								aria-label={props.label || "Select State"}
 							>
 								<option key={Math.random()} value=""  >Select State</option>
 								{props.values.sort().map((value, index) => <option key={value + index} value={value}>{value}</option>)}
@@ -601,7 +601,7 @@ class FormBuilder extends PureComponent {
 												onChange={() => 1 + 1} // dont need an onchange but react screams about it
 												aria-label={utils.stripHtml(field.display_name || field.field_name)}
 											></textarea>
-											
+
 											<div className="invalid-feedback">
 												The field cannot be left blank.
 											</div>
@@ -686,8 +686,8 @@ class FormBuilder extends PureComponent {
 
 					{(this.state.showCaptcha) ? <Captcha updateForm={() => this.handleCaptcha(alert)} /> : ""}
 
-					{(this.state.submitButton) ? <button className="primary-bttn view-from-button" type={"submit"}>Submit <span className="bi brcmicon-arrow-circle-right"></span></button>
-						: <ImageBase src={config.captcha_image} alt="Submit" />}
+					{(this.state.submitButton) ? <button className="primary-bttn view-from-button form-submit-btn" type={"submit"}>Submit <span className="bi brcmicon-arrow-circle-right"></span></button>
+						: <ImageBase className="form-submit-btn" src={config.captcha_image} alt="Submit" />}
 
 
 					{this.state.errors && this.state.errors.length > 0 &&
