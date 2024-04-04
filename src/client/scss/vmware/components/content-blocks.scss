@@ -1796,9 +1796,13 @@
 
 
   &.theme-content-block-promo {
-    .card-text {
-      color: #565656 !important;
+    .card-title {
+      color: $color-white;
     }
+
+    background-color: $color-ocean-700;
+
+
 
     .ContentCardTwoColumn {
       .container {
@@ -1814,6 +1818,28 @@
 
                   display: none;
                 }
+
+                .card-footer {
+
+
+                  .cb-cta-link {
+                    .lnk {
+                      @extend .bttn;
+                      @include ghost-button;
+
+                      &:after {
+                        @include button-after;
+                      }
+
+                      &:hover {
+                        @include ghost-hover;
+
+                      }
+                    }
+                  }
+
+                }
+
               }
             }
           }
@@ -1821,6 +1847,8 @@
       }
 
     }
+
+
 
   }
 }
