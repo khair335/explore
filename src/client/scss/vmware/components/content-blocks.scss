@@ -249,11 +249,6 @@
     }
   }
 }
-// Promo section for /explore/us
-// Figma Promo Banner https://www.figma.com/file/KEcwhGUM92TsAY5uL7GOSQ/Unity-Design-Library?type=design&node-id=3538-25772&mode=design&t=9zIac99FfYesbqiJ-0
-.theme-content-block-promo {
-  background-color: $color-primary;
-}
 
 .theme-content-block-dark {
   background-color: $background-dark;
@@ -1478,19 +1473,19 @@
 
   .ContentCardTwoColumn {
 
-    .ImageCard{
-.card-body {
+    .ImageCard {
+      .card-body {
 
-      height: 100%;
-
-      .lnk {
         height: 100%;
 
-        >img {
+        .lnk {
           height: 100%;
+
+          >img {
+            height: 100%;
+          }
         }
       }
-    }
     }
 
 
@@ -1519,6 +1514,25 @@
             }
           }
         }
+      }
+    }
+
+    .container {
+      .row {
+        .ImageCard {
+          .card-body {
+            .card-title {
+              text-align: left;
+            }
+          }
+
+          .card-footer {
+            .cb-cta-link {
+              justify-content: end;
+            }
+          }
+        }
+
       }
     }
   }
@@ -1567,7 +1581,8 @@
   .card-body {
     >.lnk {
       width: 100%;
-      >img{
+
+      >img {
         // max-height: 200px;
         // object-fit: contain;
       }
@@ -1575,18 +1590,237 @@
   }
 }
 
-.table-tooltip{
-  &.vm-info{
+.table-tooltip {
+  &.vm-info {
     text-decoration: none;
   }
 }
+
 .ContentCardTwoColumn-section {
-  .ContentCardTwoColumn{
-    .card-footer{
-  .cb-cta-link{
-    flex-direction: column;
-    align-items: flex-start;
+  .ContentCardTwoColumn {
+    .card-footer {
+      .cb-cta-link {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   }
 }
+
+
+
+.ContentCard-section,
+.Accordion-section {
+  &.theme-cbl-card-transparent {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+  }
+
+  &.theme-content-block-imagedark {
+    .section-title {
+      color: $color-white;
+    }
+
+    .card-title {
+      color: $color-white;
+    }
+
+    &.theme-cbl-card-light {
+      .section-title {
+        color: $color-white;
+      }
+
+      .card-title {
+        color: $color-white;
+      }
+
+      .ImageCard {
+        .card-title {
+          color: $color-black;
+        }
+      }
+    }
+  }
+
+  &.theme-content-block-light {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+  }
+}
+
+.Featured-section {
+  .section-title {
+    color: $color-white;
+  }
+
+  &.theme-cbl-card-light {
+    .Featured {
+      .featured-cards {
+        .card-title {
+          color: $color-white;
+        }
+      }
+
+      .col {
+        .card-title {
+          color: $color-black;
+        }
+      }
+    }
+
+    .featured-cards {
+      .card-title {
+        color: $color-white;
+      }
+    }
+
+    .section-title {
+      color: $color-white;
+    }
+
+    .card-title {
+      color: $color-white;
+    }
+
+  }
+}
+
+.ContentList-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  &.theme-cbl-card-transparent {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+  }
+}
+
+.Default-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  .content-block-title {
+    color: $color-black;
+  }
+
+  &.theme-cbl-card-transparent {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+  }
+}
+
+.HorizontalTab-section {
+  &.theme-cbl-card-transparent {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+  }
+}
+
+.ContentListWithIcons-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  .card-title {
+    color: $color-black;
+  }
+}
+
+.CarouselFeatured-section {
+  .section-title {
+    color: $color-black;
+  }
+}
+
+.CarouselSplit-section {
+  &.theme-cbl-card-transparent {
+    .section-title {
+      color: $color-black;
+    }
+
+    .card-title {
+      color: $color-black;
+    }
+
+    .CarouselSplit {
+
+
+
+      .carousel-inner {
+
+        .card-title {
+          color: $color-black;
+        }
+      }
+
+    }
+
+  }
+}
+
+.ContentCardTwoColumn-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  .card-title {
+    color: $color-black;
+  }
+
+
+  &.theme-content-block-promo {
+    .card-text {
+      color: #565656 !important;
+    }
+
+    .ContentCardTwoColumn {
+      .container {
+        .row {
+
+
+          >div {
+            &:nth-child(2) {
+
+
+              .ImageCard {
+                .card-body {
+
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+
   }
 }

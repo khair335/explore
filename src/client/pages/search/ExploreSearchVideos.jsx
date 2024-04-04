@@ -371,7 +371,7 @@ const VideoCard = (props) => {
 					<span className="video-duration">{formatMillisecondsToHours(video?.duration)}</span>
 				</SiteLink>
 				<div className="video-info">
-					<SiteLink to={url_path} target={target}><span>{video?.name}</span></SiteLink>
+					<SiteLink className='video-name-data' to={url_path} target={target}><span>{video?.name}</span></SiteLink>
 					{/* <SiteLink to={url_path} target={target}><span>{video?.name} | {video?.views} views</span></SiteLink> */}
 					<SiteLink className='card-video-title' to={url_path} target={target}><h5>{truncateDescription(video?.description, 27)}</h5></SiteLink>
 					<p className='card-video-des'>{truncateDescription(video?.long_description, 53)}</p>
