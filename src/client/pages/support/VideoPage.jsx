@@ -256,6 +256,9 @@ class VideoPage extends PageComponent {
 			{ name: 'share', text: 'Share' }
 		];
 
+		const filteredSections = sections?.filter(section => section.name !== 'speakers' && section.name !== 'attachments');
+
+
 		return (
 			<Container id="Video">
 
@@ -281,7 +284,7 @@ class VideoPage extends PageComponent {
 											{/* tab function */}
 											<div>
 												<Nav tabs>
-													{sections.map((section) => (
+													{filteredSections.map((section) => (
 														<NavItem key={section.name}>
 															<NavLink
 																className={classnames({ active: this.state.activeTab === section.name })}
@@ -340,12 +343,13 @@ class VideoPage extends PageComponent {
 															</li>}
 														</ul>
 													</TabPane>
-													<TabPane tabId="speakers">
+
+													{this.state?.videoDetails?.custom_fields?.speakers && <TabPane tabId="speakers">
 														<Speakers />
-													</TabPane>
-													<TabPane tabId="attachments">
+													</TabPane>}
+													{this.state?.videoDetails?.custom_fields?.attachments && <TabPane tabId="attachments">
 														<Attachments />
-													</TabPane>
+													</TabPane>}
 													<TabPane tabId="share">
 														{this.renderShareOptions()}
 													</TabPane>
@@ -363,16 +367,21 @@ class VideoPage extends PageComponent {
 													<div className="videos-container">
 														{related_videos?.map((video, index) => (
 															<div key={index} className="video-item">
+																
+
 																<SiteLink
 																	to={config.video.videoPath(video?.account) + "/" + video?.id}
 
 																	className="video-link"
-																	style={{ backgroundImage: `url("${video.poster}")` }}
+
+																	// style={{ backgroundImage: `url("${video.poster}")` }}
 																	target="_self"
 																>
+																	<ImageBase className="related-image" src={`${video.poster}`} />
 																	<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
 																	<div image="" alt="Play button" className="play-button" />
 																</SiteLink>
+																
 
 																<div className="video-info">
 																	<span class="video-name">{video.name}</span>

@@ -99,6 +99,9 @@ $carousel-indicator-height: 20px;
       }
 
       .size-medium {
+        .featurette-heading {
+          font-size: 50px;
+          }
         .banner-cta-title {
 
               .lnk {
@@ -122,11 +125,11 @@ $carousel-indicator-height: 20px;
               }
             }
         img {
-
+          
           object-fit: cover;
           width: 100%;
           height:auto;
-
+          
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -158,7 +161,7 @@ $carousel-indicator-height: 20px;
           object-fit: cover;
           width: 100%;
           height: auto;
-
+        
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -232,7 +235,7 @@ $carousel-indicator-height: 20px;
 
   .caption {
     position: absolute;
-
+    width: 650px;
     left: auto;
     padding: 0;
     min-height: 150px;
@@ -240,8 +243,7 @@ $carousel-indicator-height: 20px;
     top: 45%;
     transform: translate(0, -50%);
     z-index: 2;
-    padding-left: 30px;
-    max-width: 823px;
+
     @media only screen and (max-width: 991.98px) {
       max-width: none;
       position: static;
@@ -407,8 +409,7 @@ $carousel-indicator-height: 20px;
   .carousel-inner {
     .size-large {
       .caption {
-        max-width: 823px;
-        width: 100%;
+        width: 823px;
 
         @include media-breakpoint-down(md) {
           width: auto !important;
@@ -439,7 +440,7 @@ $carousel-indicator-height: 20px;
 
           .banner-cta {
             h2 {
-              font-size: 50px;
+              font-size: 40px;
               text-transform: capitalize;
 
              @include media-breakpoint-down(md) {
@@ -476,7 +477,7 @@ $carousel-indicator-height: 20px;
   height: auto;
   object-fit: cover;
   width: 100%;
-
+  
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -488,7 +489,7 @@ $carousel-indicator-height: 20px;
 
   .teaser {
     margin-top: 40px;
-    margin-left: -30px;
+    //margin-left: -30px;
 
     @include media-breakpoint-down(md) {
       margin-top: 0px !important;
@@ -496,7 +497,7 @@ $carousel-indicator-height: 20px;
     }
 
     .featurette-heading {
-      font-size: 50px;
+      //font-size: 50px;
       text-transform: capitalize;
 
 
@@ -528,7 +529,7 @@ $carousel-indicator-height: 20px;
         .lnk {
           width: max-content;
           text-transform: uppercase;
-
+         
           &:hover {
 
             text-decoration: none !important;

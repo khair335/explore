@@ -485,7 +485,7 @@ export const VideoCard = (props) => {
     const video_content = props.data
     const url_path = config.video.videoPath(video_content?.account)+"/"+video_content?.id;
     const target = "_self"
-
+    
     const truncateDescription = (text, maxLength) => {
         if (text?.length <= maxLength) return text;
         return text?.substr(0, maxLength) + '...';

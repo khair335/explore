@@ -407,7 +407,7 @@
 }
 
 .MainNavExploreItem{
-	button{
+	button, a.bttn {										//completely mods button - should prob be own class in _buttons.scss
 		background-color: transparent;
 		color: $color-black;
 		font-weight: 200;

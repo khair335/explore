@@ -49,13 +49,8 @@ export class ExploreHeaderSecondary extends Component {
 	}
 
 	render() {
-		const links = [{
-			title: "Barcelona",
-			url: "https://www.vmware.com/explore/eu.html"
-		}, {
-			title: "Global Homepage",
-			url: "https://www.vmware.com/explore/eu.html"
-		}];
+		const links = this.props?.links;
+
 		return (
 			<Dropdown isOpen={this.state.isOpen} toggle={this.toggle}>
 				<DropdownToggle caret className="icon-bttn">

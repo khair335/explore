@@ -25,7 +25,7 @@ const NavigationProvider = ({ children }) => {
     const [footer, setFooter] = useState({});
     const [copyright, setCopyright] = useState('');
     const [loaded, setLoaded] = useState(false);
-
+    const [header, setHeader] = useState({});
     
     const filterNav = (url, title, template) => {
 
@@ -49,7 +49,7 @@ const NavigationProvider = ({ children }) => {
             group: (item.group) ? true : false,																	// creates a title with list
             target: (item.target) ? item.target : false,														// adds target attribute for links
             abstract: (item.abstract) ? item.abstract : false,
-            child: [...(item.children ? loop(item.children) : [])]                                  		// children? create a new loop
+            child: [...(item.children ? loop(item.children) : [])]                                  		    // children? create a new loop
         })
         ));
     }
@@ -105,6 +105,13 @@ const NavigationProvider = ({ children }) => {
                         allNav = json.sub_pages;
 
                         setNavigation(loop(allNav));
+                        setHeader({
+                            abstract: json.header_logo_abstract,
+                            logo: json.header_image.src,
+                            logoAlt: json.header_image.alt,
+                            header_links: json.header_links,
+                            cta: json.header_cta,
+                        });
                         setFooter({
                             logo: json.footer_logo?.image,
                             links: json.footer_links,
@@ -135,7 +142,6 @@ const NavigationProvider = ({ children }) => {
     }
 
     useEffect(() => {
-
         // Load only once.
         if (!loaded && (!navigation || navigation.length <=0)) {
             loadData();         // Load our data.
@@ -146,11 +152,12 @@ const NavigationProvider = ({ children }) => {
         // setTimeout(() => {
         //     setNavigation("hello");
         // }, 3000);
-    }, [navigation, footer, login, copyright, accessibility, template, loaded])            // Load only once
+    }, [navigation, header, footer, login, copyright, accessibility, template, loaded])            // Load only once
 
     return (
         <NavigationContext.Provider value={{
             navigation: navigation,
+            header: header,
             login: login,
             footer: footer,
             accessibility: accessibility,

@@ -122,7 +122,11 @@ const getHead = (locale, sublocale, data) => {
 		}
 	}
 	else {
-		if (env !== 'prod') {
+		// vmware
+		if (data.microsite) {
+			onetrust_script = '018e8241-7fe5-72c4-88f1-d1d1b31c5f00';
+		}
+		else if (env !== 'prod') {
 			onetrust_script = '6a5fee8c-80be-4b9a-ab7e-b607e3f8ad3e-test';
 		}
 	}
@@ -135,12 +139,18 @@ const getHead = (locale, sublocale, data) => {
 	];
 
 	/// vmware
-	if (1) {
+	if (data.microsite) {
 		favicons = [
 			"/vm-favicon.png",
 			"/vm-favicon-48x48.png",
 			"/vm-favicon-96x96.png",
 		];
+	}
+
+	// gtm tags
+	let gtm = 'GTM-KF7XWD';			// Broadcom.
+	if (data.microsite) {
+		gtm = 'GTM-KFH48ZHP';		// VMware.
 	}
 
 	return {
@@ -171,6 +181,7 @@ const getHead = (locale, sublocale, data) => {
 		autopilot: [],
 		microsite: data.microsite || '',
 		favicons: favicons,
+		gtm: gtm,
 	};
 }
 

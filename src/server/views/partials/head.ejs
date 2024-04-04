@@ -65,7 +65,7 @@ function OptanonWrapper() { }
 		n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce')); f.parentNode.insertBefore(j, f);
 <%#	//Cardinal Paths	})(window, document, 'script', 'dataLayer', 'GTM-TPS29TDN'); %>
 <%#	//Mine })(window, document, 'script', 'dataLayer', 'GTM-WSXZKNV5'); %>		
-	})(window, document, 'script', 'dataLayer', 'GTM-KF7XWD'); 
+	})(window, document, 'script', 'dataLayer', '<%= gtm %>'); 
 </script>
 <!-- End Google Tag Manager -->
 <% } else { %>
@@ -80,7 +80,7 @@ function OptanonWrapper() { }
 			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
 				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; var n = d.querySelector('[nonce]');
 		n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce')); f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', 'GTM-KF7XWD');
+	})(window, document, 'script', 'dataLayer', '<%= gtm %>');
 </script>
 <!-- End Google Tag Manager -->
 	

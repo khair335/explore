@@ -23,73 +23,20 @@
   display: -webkit-flex;
   display: flex;
   font-family: $font-family--secondary;
+
   .header_location {
     span {
-      font-size: 13px;
+      font-size: 13px; //???
       color: #565656;
       text-transform: uppercase;
       margin-left: 16px;
       display: block;
     }
   }
-  .header_nav {
-    margin-top: 30px;
-  }
 
   .header_logo_wrapper {
     height: 39px;
   }
-
-  .secondary-nav-cta {
-    width: max-content;
-    button {
-      margin-left: auto;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-  }
-
-  .secondary-nav-top {
-    & i {
-      color: $color-indigo-500;
-      &:before {
-        color: $color-indigo-500;
-      }
-    }
-    a {
-      font-size: 14px !important;
-      color: $color-indigo-500 !important;
-      text-transform: inherit !important;
-      font-weight: 200;
-      text-decoration: none;
-    }
-    button {
-      font-size: 14px !important;
-      color: $color-ocean-700 !important;
-      text-transform: inherit !important;
-	    padding-right: 0 !important;
-      i {
-        margin-left: 8px;
-        margin-bottom: 2px;
-      }
-    }
-  }   /* whats the story here? - the explore site has a single ocean color bar - which?
-/*   &:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 6px;
-    background-image: linear-gradient(
-      to right,
-      #6fbe2e 19%,
-      #00bbd6 43%,
-      #0f61a9 57%,
-      #5a39a0 81%
-    );
-  } */
 
   .header-fadein {
     @include fadein(500ms); // Fade in the header drop downs.
@@ -102,6 +49,15 @@
     -ms-flex: 1; /* IE 10 */
     flex: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
     max-width: none;
+    position: relative;
+    margin-top: 30px;
+
+    .navbar {
+      margin-left: 0 !important;
+      flex-wrap: nowrap;
+      height: 47px;
+      //animation: 0.65s ease-out 0s 1 slideInFromLeft;
+    }
   }
 
   .nav-skip:focus {
@@ -127,18 +83,95 @@
     padding: 0;
     height: 100%;
     display: block;
+    margin-top: 30px;
+
     .row {
       flex-grow: 1;
     }
+
+    .linkChevron { display: none;}
   }
 
   .secondary_nav {
-    position: relative;
+    position: absolute;
+    right: 0px;
+    top: -70px;
     z-index: 10;
-    margin-top:-90px;
+    padding: 2px 12px 10px;
+
     .secondary-nav-top {
       display: flex;
       margin-bottom: 14px;
+
+      a.lnk, button {
+        font-weight: 200;
+        color: $color-indigo-500;
+        text-decoration: none;
+      }
+
+      ul.login {
+        margin-top: -11px;
+      }
+
+      .headerlanguage,
+      .login-wrap {
+        display: block;
+        font-size: $font-size-lg;
+        position: relative;
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+
+        .secondary-nav-database {
+          position: absolute;
+          top: -35px;
+        }
+
+      }
+
+      .secondary-nav-cta {
+        position:absolute;
+        top:60px;
+        left:20px;
+
+        a {
+          color: $color-white;
+          padding-left: 20px;
+          padding-right: 20px;
+          font-weight: 200;
+          font-size: $font-size-lg;
+          /* text-transform: uppercase; */
+
+          &:hover {
+            color: $color-indigo-500;
+          }
+        }
+      }
+
+      i {
+        margin-left: 5px;
+        color: $color-indigo-500;
+        &:before {
+          color: $color-indigo-500;
+        }
+      }
+      
+      .MainNavExploreItem a, .MainNavExploreItem button, .MainNavExploreItem .label {
+        font-size:$font-size-md;
+        color: $color-indigo-500;
+        text-transform: inherit;
+        font-weight: 200;
+        text-decoration: none;
+      }
+
+      button {
+        padding-left: 20px;
+        i {
+          margin-left: 6px;
+          margin-bottom: 2px;
+        }
+      }
 
       .login .dropdown-toggle:after {
         content: none; // Remove our default icon and use font awesome.
@@ -155,6 +188,79 @@
         }
       }
     }
+
+    .dropdown-toggle {
+      padding: 0 10px 0 10px;
+      width: 100%;
+      text-align: left;
+      line-height: 3;
+      &:after {
+        position: absolute;
+        top: 50%;
+        -moz-transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        right: 10px;
+        border-top: 5px solid $color-white;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+    }
+    .dropdown-menu {
+      position:absolute !important;
+      top: 34px !important;
+      left: 20px !important;
+      width: 100%;
+      transform: none !important;
+      border-radius: 0px;
+      padding: 0 10px;
+
+      .dropdown-item {
+        border-bottom: 2px solid $color-grey--500;
+        padding: 12px 15px 12px 25px;
+        color: $color-grey--700;
+        font-size: $font-size-md;
+      }
+    }
+
+    .search-box {
+      position: absolute;
+      top: 33px;
+
+      &.hide {display: none}
+    }
+
+    .typeahead.dropdown .bc-input {
+      padding-right: 45px;
+    }
+
+    .header-typahead {
+
+      input {
+        min-width: 150px;
+        height: 25px;
+      }
+
+      .input-group-append {
+        position: absolute;
+        right: 0px;
+
+        button {
+          height: 25px;
+
+          &.search-bttn {
+            width: 45px;
+
+            .bi.brcmicon-search {
+              margin-left: 0;
+              margin-right: 10px;
+            }
+          }
+        }
+
+      }
+
+    }
   }
 
   #menuWindow {
@@ -162,11 +268,10 @@
     background-color: $color-white;
     padding-top: 30px;
 
-
     li.title, li.link {
       font-family: $font-family--secondary;
       font-size: 20px;
-    }
+    } 
 
     li.title {
       margin-bottom: 36px;
@@ -180,7 +285,7 @@
 
       p.hide {display: none}
     }
-
+    
     li.link {
       padding: 16px 0 16px 16px;
 
@@ -189,94 +294,112 @@
         line-height: 16px;
       }
     }
-
   }
 
-  @media screen and (max-width: map-get($grid-breakpoints, xl)) {
-    .secondary_nav {
-      ul {
-        padding-left: 0;
-      }
+ 
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+
+    #header-explore {
+      position: static;
     }
 
-    .header-typahead {
-      margin: 0 10px 10px 10px;
+    nav.header_nav {
+      margin-top: 10px;
 
-      input {
-        min-width: 150px;
-      }
-    }
-  }
-  @media screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-    //mobile view
-    & > .container {
-      max-width: 100%;
-    }
+      .MainNavExploreItem {
+        width: 100%;
+        display:flex;
 
-    .navBrand {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      -webkit-align-items: center;
-      height: 83px;
-
-      .menuButton {
-        //mobile menu icon button
-        text-align: center;
-        z-index: 1;
-        margin-top: 5px;
-
-        button {
-          //special case one off button
-          background: transparent;
-          border: none;
-          padding: 0;
-          font-size: 25px;
-          color: $color-primary;
-
-          span.bi {
-            margin-left: 0; //mods .icon-bttn .bi  _buttons.scss
-            font-size: 50px;;
-          }
-
-/*           &::after {
-            content: "MENU";
-            display: block;
-            font-size: 9px;
-            font-weight: 600;
-            color: $color-primary;
-            padding-top: 3px;
-          } */
-          & + span {
-            display: none;
-          }
+        a, button, span.label {
+          display: flex;        //because for some reason this has display:block imposed by some browsers local agent
+          width: 100%;
+          justify-content: left;
+          padding: 6px 0px;
+          line-height: 1.5;
+          font-weight: 400;
+          /* text-transform: uppercase; */
         }
-      }
 
-      .navbar-brand {
-        width: 300px;
-        position: absolute;
-        /* top: 50%; */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
+        #menuWindow ul li {
+          border-bottom: none;
+        }
+
+      }
+      .linkChevron { 
+        display: inline-block;
+        margin-right: 20px;
+        align-self: center;
       }
     }
+
+    .navBrand{
+			display: -webkit-box;       
+			display: -moz-box;         
+			display: -ms-flexbox;       
+			display: -webkit-flex; 
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			-webkit-align-items: center;
+			height: 83px;
+
+			.menuButton{									//mobile menu icon button
+				text-align: center;
+				z-index: 1;
+        margin-top: 85px;
+
+				button{										//special case one off button
+					background: transparent;
+					border: none;
+					padding: 0;
+					font-size: 50px;
+					color: $color-primary;
+
+          &.closeOn {
+            font-size: 30px;
+          }
+
+					span.bi {
+						margin-left: 0;					//mods .icon-bttn .bi  _buttons.scss
+					}
+
+/* 					&::after{
+						content: "MENU";
+						display: block;
+						font-size: 9px;
+						font-weight: 600;
+						color: $color-primary;
+						padding-top: 3px;
+					} */
+					& + span{
+						display: none;
+					}
+				}
+			}
+			
+			.navbar-brand{
+				width: 300px;
+				position: absolute;
+				top: 30px;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				-webkit-transform: translate(-50%,-50%);
+				-moz-transform: translate(-50%,-50%);
+			}
+		}
 
     .header_location {
-      position:absolute;
-      left: 34%;
-      top: 50px;
-      text-align: center;
+      position: absolute;
+      left: 25%;
+      top: 47%
     }
 
     .navMenu {
       max-width: 320px;
+
+      .navbar {
+        height: unset;
+      }
 
       .navbar-collapse {
         position: fixed; //absolute
@@ -291,29 +414,71 @@
 
       .secondary_nav {
         padding: 2px 12px 10px;
+        position: relative;
+        right: unset;
+        top: unset;
+        display: flex;
+
+        i {
+          display: none;
+        }
+
+        .header-typahead .input-group-append {
+          position: unset;
+          right: unset;
+
+          .button.search-bttn .bi.brcmicon-search {
+            margin-left: 10px;
+          }
+        }
+
+        .secondary-nav-top {
+          flex-direction: column;
+
+          button { padding-left: unset;}
+
+          .search-box {
+            position: relative;
+            top: unset;
+            border: 1px solid $color-grey--400;
+            margin-bottom: 20px;
+          }
+
+          .secondary-nav-cta {
+            position: relative;
+            width: 90%;
+            top: unset;
+          }
+
+          ul.login {
+            margin-top: 0px;
+          }
+        }
+
         .headerlanguage,
         .login-wrap {
           display: block;
-          color: $color-white;
-          font-size: $font-size-lg;
-          background-color: $color-grey--900;
-          border-bottom: 2px solid $color-black;
+          background-color: transparent;
+          border-bottom: none;
+          color: $color-indigo-500;
+          font-size: $font-size-md;
           position: relative;
           overflow: hidden;
-          margin-bottom: 10px;
           &:last-child {
             margin-bottom: 0px;
           }
 
           .dropdown-toggle {
-            background-color: $color-grey--900; // mods icon-bttn _buttons.scss
             border-radius: 0; // mods icon-bttn _buttons.scss
-            color: $color-white; // mods icon-bttn _buttons.scss
-            font-size: $font-size-lg;
-            padding: 0 10px 0 10px;
-            width: 100%;
-            text-align: left;
-            line-height: 3;
+           background-color: transparent;
+           color: $color-indigo-500;
+           padding: 0;
+           justify-content: left;
+           text-transform: capitalize;
+           font-size: 16px;
+           font-weight: 200;
+           margin-left: 0.5rem;
+
             &:after {
               position: absolute;
               top: 50%;
@@ -326,13 +491,20 @@
               border-right: 5px solid transparent;
             }
           }
+
           .dropdown-menu {
-            position: static !important;
+            position: relative !important;
+            top: unset !important;
+            left: unset !important;
             width: 100%;
             transform: none !important;
             border-radius: 0px;
-            background-color: lighten($color-grey--500, 5%);
             padding: 0 10px;
+            margin-bottom: 10px;
+
+            a.lnk {
+              display: block;
+            }
 
             .dropdown-item {
               border-bottom: 2px solid $color-grey--500;
@@ -366,149 +538,23 @@
         }
       }
     }
-  }
 
-  @media screen and (max-width: map-get($grid-breakpoints, sm) - 1) { //576px
-    .navMenu {
-      max-width: 100%;
-    }
+    ul.navbar-nav {
+      padding-left: 1rem;
+      align-items: flex-start;
 
-    .header_location {
-      left: 18%,
-    }
-
-    .navBrand .menuButton {
-      margin-top: 45px;
-    }
-
-  }
-
-  @media screen and (width = 540px) { //special case for surface duo which needs s2 value but is too big
-    .header_location {
-      left: 28%,
-    }
-  }
-
-  @media screen and (max-width: map-get($grid-breakpoints, s2) - 1) { //430px
-    .header_location {
-      left: 28%,
-    }
-
-  }
-
-  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
-    //wide screen view
-    .navBrand {
-      .menuButton {
-        display: none;
-      }
-
-      .navbar-brand {
-        display: block;
-        background-size: contain;
-        height: 100%;
+      li {
+        padding: 15px 0;
+        border-bottom: solid 1px $color-grey--400;
+        width: 100%;
       }
     }
 
-    .navMenu {
-      position: relative;
-
-      .navbar {
-        margin-left: 0 !important;
-        flex-wrap: nowrap;
-        height: 47px;
-        //animation: 0.65s ease-out 0s 1 slideInFromLeft;
-      }
-    }
-
-    .secondary_nav {
-      /* Negate our UL in content_block.components.scss */
-      ul {
-        list-style: none;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        color: $color-grey--675; //darken($color-grey--700, 5%);
-        padding-left: 0 !important;
-        margin: 0 !important;
-
-        .dropdown-toggle {
-          //was this supposed to be dropdown-item ??
-          font-size: $font-size-md;
-          //font-weight: 400;            //metro-mod
-          font-weight: 300; //metro-mod
-          letter-spacing: 0.5px; //metro-mod
-          font-kerning: normal; //metro-mod
-          color: $color-grey--700;
-          position: relative;
-          padding: 0px 14px;
-          //background-color: transparent;
-        }
-
-        .dropdown-toggle::after {
-          // down-caret icon
-          font-size: 25px;
-          position: absolute;
-          top: 5px;
-        }
-
-        .dropdown-wrapper {
-          padding: 15px;
-          width: 240px;
-          font-size: $font-size-md;
-
-          .bttn,
-          button {
-            font-size: $font-size-md; //mods button, .bttn _button.scss
-            margin-right: 0;
-            margin-bottom: 10px;
-          }
-          .bttn.primary-bttn,
-          button.primary-bttn {
-            margin-right: 15px;
-          }
-        }
-
-        .database-wrapper,
-        .login-wrapper,
-        .dropdown-menu .dropdown-item {
-          font-size: $font-size-md;
-        }
-
-        .database-wrapper {
-          button {
-            margin: 10px 10px 10px 0;
-            font-size: $font-size-md; //mods button, .bttn _button.scss
-          }
-        }
-      }
+    #header-explore .navMenu .secondary_nav .login-wrap .dropdown-toggle {
+      background-color: transparent;
+      width: max-content;
     }
   }
-}
 
-@media screen and (min-width: map-get($grid-breakpoints, lg)) {
-  .navbar-collapse-inner {
-    max-height: calc(100vh - 100px);
-    //overflow-x: auto;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
 
-@media only screen and (max-width: 300px) {
-  #header-explore {
-    overflow: hidden;
-  }
-  #header-explore .navBrand .navbar-brand {
-    width: 70%;
-    background-size: 100%;
-  }
-}
+} //#header-explore

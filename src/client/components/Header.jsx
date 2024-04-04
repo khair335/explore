@@ -181,7 +181,7 @@ const withNavigation = () => {
 		const HeaderTemplate = templates[template] || NoTemplate;
 
 		if ((config.site === 'vm' && navigation.loaded) || config.site === 'broadcom') {
-			return <HeaderTemplate navData={navigation.navigation} loginData={navigation.login} accessibilityData={navigation.accessibility} />			
+			return <HeaderTemplate navData={navigation.navigation} loginData={navigation.login} accessibilityData={navigation.accessibility} headerData={navigation.header}/>			
 		}
 	}
 }

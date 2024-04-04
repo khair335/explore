@@ -526,7 +526,15 @@ hr.custom-line-gray {
 .section-striped section:first-child {
 padding-top:15px!important;
 padding-bottom:10px!important;
+
+  &.theme-content-block-promo {
+    margin-top: -38px;          // JD - Remove the space for the promo 
+  }
 }
+.section-striped section:last-child {
+  margin-bottom: -64px;       // JD  - Remove the space at the bottom between the footer.
+}
+
 .section-striped section {
 	padding: 40px 0;
 }
