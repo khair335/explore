@@ -1035,6 +1035,11 @@
       }
     }
   }
+  &.theme-cbl-card-transparent{
+    .card{
+      box-shadow: none;
+    }
+  }
 
 }
 
@@ -1670,7 +1675,9 @@
   .card-title {
     color: $color-black;
   }
-
+ .section-title {
+      color: $color-black;
+    }
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1969,12 +1976,14 @@
   .icon-row {
     box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10);
     padding: 20px;
+    margin: 40px 0;
   }
 
   &.theme-cbl-card-transparent {
     .icon-row {
       box-shadow: none;
       padding: 20px;
+      margin: 40px 0;
     }
   }
 
