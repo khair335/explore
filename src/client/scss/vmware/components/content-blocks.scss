@@ -92,7 +92,7 @@
   }
 
   .icon-row {
-    border-bottom: 1px solid $color-grey--650;
+
     padding-top: 25px
   }
 
@@ -302,6 +302,21 @@
 
 .HorizontalTab-section {
   padding: 100px 0 100px !important;
+
+  .HorizontalTab {
+    .ContentList {
+      >.container {
+        >div {
+          &:first-child {
+            .card {
+
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -414,6 +429,7 @@
       justify-content: center;
     }
   }
+
 }
 
 
@@ -503,6 +519,7 @@
   .cb-cta-link {
     justify-content: center;
   }
+
 
 }
 
@@ -999,6 +1016,25 @@
     }
   }
 
+  &.theme-content-block-cta-card-link {
+    .ImageCard  {
+      .card-footer {
+        .cb-cta-link {
+
+          .lnk,.link-bttn {
+
+            @include cta-link-style;
+
+            &:after {
+              @include cta-link-after ;
+            }
+
+
+          }
+        }
+      }
+    }
+  }
 
 }
 
@@ -1269,6 +1305,8 @@
 }
 
 .Default-section {
+
+
   &#single-card-with-image\,-and-two-cta-links {
 
     /* CSS styles here */
@@ -1339,6 +1377,24 @@
         }
       }
     }
+  }
+
+  &.theme-content-block-cta-link {
+    .cb-cta-link {
+      .lnk {
+        @include cta-link-style;
+
+        &:hover {
+          @include link-hover;
+        }
+      }
+
+    }
+  }
+
+  &.theme-cbl-card-transparent {
+    box-shadow: none;
+    padding: 0;
   }
 
 }
@@ -1474,19 +1530,19 @@
 
   .ContentCardTwoColumn {
 
-    .ImageCard{
-.card-body {
+    .ImageCard {
+      .card-body {
 
-      height: 100%;
-
-      .lnk {
         height: 100%;
 
-        >img {
+        .lnk {
           height: 100%;
+
+          >img {
+            height: 100%;
+          }
         }
       }
-    }
     }
 
 
@@ -1517,6 +1573,7 @@
         }
       }
     }
+
     .container {
       .row {
         .ImageCard {
@@ -1581,7 +1638,8 @@
   .card-body {
     >.lnk {
       width: 100%;
-      >img{
+
+      >img {
         // max-height: 200px;
         // object-fit: contain;
       }
@@ -1589,25 +1647,30 @@
   }
 }
 
-.table-tooltip{
-  &.vm-info{
+.table-tooltip {
+  &.vm-info {
     text-decoration: none;
   }
 }
+
 .ContentCardTwoColumn-section {
-  .ContentCardTwoColumn{
-    .card-footer{
-  .cb-cta-link{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+  .ContentCardTwoColumn {
+    .card-footer {
+      .cb-cta-link {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   }
 }
 
 
 .ContentCard-section,
 .Accordion-section {
+  .card-title {
+    color: $color-black;
+  }
+
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1653,10 +1716,12 @@
       color: $color-black;
     }
   }
-  &.theme-cbl-card-light{
+
+  &.theme-cbl-card-light {
     .section-title {
       color: $color-black;
     }
+
     .card-title {
       color: $color-black;
     }
@@ -1737,6 +1802,18 @@
 }
 
 .HorizontalTab-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  .card-title {
+    color: $color-black;
+  }
+
+  .content-block-title {
+    color: $color-black;
+  }
+
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1748,15 +1825,7 @@
   }
 }
 
-.ContentListWithIcons-section {
-  .section-title {
-    color: $color-black;
-  }
 
-  .card-title {
-    color: $color-black;
-  }
-}
 
 .CarouselFeatured-section {
   .section-title {
@@ -1800,7 +1869,7 @@
   }
 
   // Promo section for /explore/us
- &.theme-content-block-promo {
+  &.theme-content-block-promo {
     .card-title {
       color: $color-white;
     }
@@ -1812,14 +1881,15 @@
       .container {
         .row {
           align-items: center;
+
           >div {
-            &:first-child{
-                .card-footer{
-                  padding: 0;
-                }
+            &:first-child {
+              .card-footer {
+                padding: 0;
+              }
             }
 
-        
+
             &:nth-child(2) {
 
 
@@ -1860,5 +1930,57 @@
 
 
 
+  }
+}
+
+.base-info {
+  .body-description {
+    h2 {
+      color: $color-black;
+    }
+  }
+}
+
+.theme-content-block-light {
+  h2 {
+    color: $color-black;
+  }
+
+  .section-title {
+    color: $color-black;
+  }
+
+  .card-title {
+    color: $color-black;
+  }
+}
+
+
+
+.ContentListWithIcons-section {
+  .section-title {
+    color: $color-black;
+  }
+
+  .card-title {
+    color: $color-black;
+  }
+
+  .icon-row {
+    box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10);
+    padding: 20px;
+  }
+
+  &.theme-cbl-card-transparent {
+    .icon-row {
+      box-shadow: none;
+      padding: 20px;
+    }
+  }
+
+  .container {
+    >.cb-cta-link {
+      justify-content: center;
+    }
   }
 }

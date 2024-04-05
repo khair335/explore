@@ -7,17 +7,17 @@
  @import "~bootstrap/scss/mixins/breakpoints";
 
 // standard table: border on the bottom of each row
-.table{                        
+.table{
 	@include basic-table;
- 
+
   }
-  
+
 // Primary Table:  keep it for now, it is the same as standard table -OZ
-  .table-primary { 
-	@include basic-table;                       
-    
+  .table-primary {
+	@include basic-table;
+
   }
-  
+
 
 // Table sorting - not in use yet - vmware
 table {
@@ -60,14 +60,14 @@ table {
     @each $breakpoint in map-keys($grid-breakpoints) {
       $next: breakpoint-next($breakpoint, $grid-breakpoints);
       $infix: breakpoint-infix($next, $grid-breakpoints);
-  
+
       &#{$infix} {
         @include media-breakpoint-down($breakpoint) {
           display: block;
           width: 100%;
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;
-  
+
           // Prevent double border on horizontal scroll due to use of `display: block;`
           > .table-bordered {
             border: 0;
@@ -76,3 +76,38 @@ table {
       }
     }
   }
+
+	.rTableBody{
+  .header-content{
+    h5{
+      color: $color-black;
+      margin-bottom: 16px;
+    }
+    p{
+
+      margin-bottom: 16px;
+    }
+  }
+.rTableRow {
+  .rTableCell {
+
+    padding: 10px 0 !important;
+  }
+
+  td {
+    &:first-child {
+
+      display: flex;
+
+      align-items: center;
+      .live-info-popup{
+        display: flex;
+        i{
+          margin: 0;
+        }
+      }
+    }
+  }
+
+}
+}

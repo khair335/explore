@@ -246,12 +246,14 @@ $carousel-indicator-padding: 40px;
             .ImageCard {
                 max-width: 384px;
                 width: 100%;
+                box-shadow: none;
 
                 .card-title {
                     font-size: 32px;
-                    font-weight: 400;
+                    font-weight: 300;
                     color: black;
                     margin-bottom: 20px;
+                    text-align: left;
                 }
 
                 .card-footer {
@@ -273,6 +275,9 @@ $carousel-indicator-padding: 40px;
                 }
 
             }
+            .featured-card-control{
+                justify-content: center;
+            }
         }
 
         .carousel-item {
@@ -287,6 +292,16 @@ $carousel-indicator-padding: 40px;
                             font-weight: 400;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .carousel-inner{
+        .ContentCard{
+            .card {
+                .card-title{
+                    line-height: 1.2;
                 }
             }
         }
