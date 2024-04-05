@@ -9,6 +9,7 @@ import ButtonTrack from 'components/ButtonTrack.jsx';
 import SiteLink from 'components/SiteLink.jsx';
 import { Container, Row, Col, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Collapse } from 'reactstrap';
 import urlparse from "url-parse";
+import classnames from 'classnames';
 
 
 export class ExploreHeaderSecondary extends Component {
@@ -49,12 +50,18 @@ export class ExploreHeaderSecondary extends Component {
 	}
 
 	render() {
-		const links = this.props?.links;
+		const links = this.props?.links?.sub_navigation || [];
 
 		return (
 			<Dropdown isOpen={this.state.isOpen} toggle={this.toggle}>
 				<DropdownToggle caret className="icon-bttn">
-					Change Event <i className="fa-solid fa-chevron-right"></i>
+					{this.props?.links?.title ? 
+						<Fragment>
+							{this.props?.links?.title} <i className={classnames("fa-solid", this.state.isOpen ? "fa-chevron-up" : "fa-chevron-down")}></i>
+						</Fragment>
+						:
+						""
+					}
 				</DropdownToggle>
 				<DropdownMenu>
 					<div className="dropdown-wrapper">
@@ -66,7 +73,7 @@ export class ExploreHeaderSecondary extends Component {
 										className=""
 										gtmevent={{ "id": "N003c", "link_url": link.url }}
 										role="menuitem"
-										key={link.url}
+										key={link.title}
 									>{link.title}</SiteLink>
 								);
 							})

@@ -124,7 +124,7 @@ const getHead = (locale, sublocale, data) => {
 	else {
 		// vmware
 		if (data.microsite) {
-			onetrust_script = '018e8241-7fe5-72c4-88f1-d1d1b31c5f00';
+			onetrust_script = '8f4d3580-4337-499c-b909-13704811568b';
 		}
 		else if (env !== 'prod') {
 			onetrust_script = '6a5fee8c-80be-4b9a-ab7e-b607e3f8ad3e-test';

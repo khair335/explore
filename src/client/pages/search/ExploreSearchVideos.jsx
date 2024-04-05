@@ -5,25 +5,29 @@
  */
 import config from 'client/config.js';
 import React, { Component, useEffect, useState } from 'react';
-import { BrowserRouter as Router, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate, useLocation, useHistory } from 'react-router-dom';
 import SiteLink from "components/SiteLink.jsx";
 import ImageBase from "components/ImageBase.jsx";
 import { SubHead } from 'components/subHeader.jsx';
 import { Container } from 'reactstrap';
 import liveEvents from 'components/liveEvents.js';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
-// import { VideoCard } from 'templates/cards/CardFactory.jsx';
+import queryString from 'query-string';
 
 import 'scss/pages/explore-search-videos.scss'
 
 const ExploreSearchVideos = (props) => {
-
+	const navigate = useNavigate();
+	const location = useLocation();
+	const location_search = window.location.search;
+	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 	const [data, setData] = useState(props.data)
-	const [year, setYear] = useState(JSON.parse(localStorage.getItem('year')) || data.filters.filter((data) => data.label === "Year")[0].tags)
+	const [years, setYears] = useState(data.filters.filter((data) => data.label === "Year")[0].tags)
+	const [selectedYear, setSelectedYear] = useState('2023')
 	const [openDropdown, setOpenDropdown] = useState(null);
 	const [hasSelectedValues, setHasSelectedValues] = useState(false);
 	const [hasVideos, setHasVideos] = useState(false)
-	const [videos, setVideos] = useState(JSON.parse(localStorage.getItem('videos')) || [])
+	const [videos, setVideos] = useState([])
 	const initialValues = {
 		event_delivery: [],
 		products: [],
@@ -33,20 +37,79 @@ const ExploreSearchVideos = (props) => {
 		level: [],
 		region: [],
 	}
-	const [selectedValues, setSelectedValues] = useState(JSON.parse(localStorage.getItem('selectedValues')) || initialValues)
+
+	const filterParams = (updatedValues) => {
+		const newFilter = Object.keys(updatedValues).flatMap(category =>
+			updatedValues[category].map(value => value)
+		);
+		setFilter(newFilter);
+		setFilterString(newFilter.map(data => `"${data}"`).join(","));
+	}
+
+	useEffect(() => {
+		setSelectedYear(searchParams.year || '2023');
+		setSearchTerm(searchParams.term || '');
+		const updatedSelectedValues = {};
+
+		if (searchParams.event_delivery) {
+			updatedSelectedValues.event_delivery = searchParams.event_delivery.split(',');
+		} else {
+			updatedSelectedValues.event_delivery = [];
+		}
+
+		if (searchParams.products) {
+			updatedSelectedValues.products = searchParams.products.split(',');
+		} else {
+			updatedSelectedValues.products = [];
+		}
+
+		if (searchParams.session_type) {
+			updatedSelectedValues.session_type = searchParams.session_type.split(',');
+		} else {
+			updatedSelectedValues.session_type = [];
+		}
+
+		if (searchParams.audience) {
+			updatedSelectedValues.audience = searchParams.audience.split(',');
+		} else {
+			updatedSelectedValues.audience = [];
+		}
+
+		if (searchParams.track) {
+			updatedSelectedValues.track = searchParams.track.split(',');
+		} else {
+			updatedSelectedValues.track = [];
+		}
+
+		if (searchParams.level) {
+			updatedSelectedValues.level = searchParams.level.split(',');
+		} else {
+			updatedSelectedValues.level = [];
+		}
+
+		if (searchParams.region) {
+			updatedSelectedValues.region = searchParams.region.split(',');
+		} else {
+			updatedSelectedValues.region = [];
+		}
+
+		filterParams(updatedSelectedValues);
+
+		setSelectedValues(updatedSelectedValues);
+
+	}, []);
+
+	const [selectedValues, setSelectedValues] = useState(initialValues)
 	const temp_data = data.filters.filter((data) => data.label !== "Year")
 
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const [sortKey, setSortKey] = useState('most-recent');
-	const [videoCount, setVideoCount] = useState(JSON.parse(localStorage.getItem('videoCount')) || 0);
-	const [limit, setLimit] = useState(JSON.parse(localStorage.getItem('limit')) || 12);
-	const [searchTerm, setSearchTerm] = useState(JSON.parse(localStorage.getItem('searchTerm')) || '');
+	const [videoCount, setVideoCount] = useState('0');
+	const [limit, setLimit] = useState(12);
+	const [searchTerm, setSearchTerm] = useState('');
 	const [filter, setFilter] = useState([])
 	const [filterString, setFilterString] = useState('');
 	const [isSubmit, setIsSubmit] = useState(false)
-
-	const navigate = useNavigate();
-	const location = useLocation();
 
 	const checkSelectedValues = (selectedValues) => {
 		for (let key in selectedValues) {
@@ -73,12 +136,13 @@ const ExploreSearchVideos = (props) => {
 	}, [videoCount])
 
 	const handleYear = (year) => {
-		setYear([year])
+		setSelectedYear(year)
 	};
 
 	const toggleDropdown = (attribute) => {
 		setOpenDropdown(openDropdown === attribute ? null : attribute);
 	};
+
 
 	const handleCheckboxChange = (attribute, value) => {
 		setSelectedValues(prevSelectedValues => {
@@ -93,11 +157,7 @@ const ExploreSearchVideos = (props) => {
 				updatedValues[attribute] = [value];
 			}
 
-			const newFilter = Object.keys(updatedValues).flatMap(category =>
-				updatedValues[category].map(value => value)
-			);
-			setFilter(newFilter);
-			setFilterString(newFilter.map(data => `"${data}"`).join(","));
+			filterParams(updatedValues);
 			return updatedValues;
 		});
 
@@ -122,9 +182,11 @@ const ExploreSearchVideos = (props) => {
 	// 	liveEvents();
 	// }, []);
 
+
+
 	useEffect(() => {
 		if (sortKey === 'most-recent') {
-			(isSubmit ? fetch(`${config.video.endpoint}?q=text:"${searchTerm}"tags:"${year}",${filterString}&limit=${limit}`, {
+			((searchTerm.length > 0) ? fetch(`${config.video.endpoint}?q=text:"${searchTerm}"tags:"${selectedYear}",${filterString}&limit=${limit}`, {
 				method: 'get',
 				headers: new Headers({
 					'Accept': `application/json;pk=${config.video.policy_key}`,
@@ -134,7 +196,7 @@ const ExploreSearchVideos = (props) => {
 				.then(json => {
 					setVideoCount(json.count)
 					setVideos(json.videos)
-				}) : fetch(`${config.video.endpoint}?q=tags:"${year}",${filterString}&limit=${limit}`, {
+				}) : fetch(`${config.video.endpoint}?q=tags:"${selectedYear}",${filterString}&limit=${limit}`, {
 					method: 'get',
 					headers: new Headers({
 						'Accept': `application/json;pk=${config.video.policy_key}`,
@@ -146,32 +208,27 @@ const ExploreSearchVideos = (props) => {
 						setVideos(json.videos)
 					}))
 		}
+	}, [selectedValues, searchTerm, selectedYear, isSubmit, filterString, limit]);
 
-		const queryParams = new URLSearchParams(location.search);
+	useEffect(() => {
 		Object.keys(selectedValues).forEach(category => {
 			if (selectedValues[category].length > 0) {
-				queryParams.set(category?.toLowerCase(), selectedValues[category].join('+'));
+				searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
 			} else {
-				queryParams.delete(category?.toLowerCase());
+				delete searchParams[category?.toLowerCase()];
 			}
 		});
-		if (year) {
-			queryParams.set("year", year);
-		};
+
+		searchParams['year'] = selectedYear;
+
 		if (searchTerm.length > 0) {
-			queryParams.set("term", searchTerm);
-		}
-		if (searchTerm.length == 0) {
-			queryParams.delete("term", searchTerm);
-		}
-		navigate({ search: queryParams.toString() });
-		localStorage.setItem('searchTerm', JSON.stringify(searchTerm));
-		localStorage.setItem('year', JSON.stringify(year));
-		localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
-		localStorage.setItem('videoCount', JSON.stringify(videoCount));
-		localStorage.setItem('videos', JSON.stringify(videos));
-		localStorage.setItem('limit', JSON.stringify(limit));
-	}, [year, isSubmit, selectedValues, limit, sortKey])
+			searchParams['term'] = searchTerm
+		} else {
+			delete searchParams['term']
+		};
+
+		navigate({ search: `?${queryString.stringify(searchParams)}` });
+	}, [selectedYear, selectedValues, searchTerm])
 
 
 	const toggle = () => {
@@ -196,39 +253,19 @@ const ExploreSearchVideos = (props) => {
 		setSearchTerm(e.target.value)
 	};
 
-
-
-	// useEffect(() => {
-	// 	const queryParams = new URLSearchParams(location.search);
-	// 	Object.keys(selectedValues).forEach(category => {
-	// 		if (selectedValues[category].length > 0) {
-	// 			queryParams.set(category?.toLowerCase(), selectedValues[category].join('+'));
-	// 		} else {
-	// 			queryParams.delete(category?.toLowerCase());
-	// 		}
-	// 	});
-	// 	if (year) {
-	// 		queryParams.set("year", year);
-	// 	};
-	// 	if (searchTerm) {
-	// 		queryParams.set("term", searchTerm);
-	// 	}
-	// 	navigate({ search: queryParams.toString() });
-	// 	localStorage.setItem('searchTerm', JSON.stringify(searchTerm));
-	// 	localStorage.setItem('year', JSON.stringify(year));
-	// 	localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
-
-	// 	localStorage.setItem('limit', JSON.stringify(limit));
-
-	// }, [year, isSubmit, selectedValues, navigate, location.search]);
-
 	const handleSelectedValues = (attribute, value) => {
-		setSelectedValues((prevSelectedValues) => ({
-			...prevSelectedValues,
-			[attribute]: (prevSelectedValues[attribute])?.filter(
-				(val) => val !== value
-			),
-		}))
+		setSelectedValues((prevSelectedValues) => {
+			const updatedSelectedValues = { ...prevSelectedValues };
+
+			if (prevSelectedValues[attribute]) {
+				updatedSelectedValues[attribute] = prevSelectedValues[attribute].filter(
+					(val) => val !== value
+				);
+			}
+
+			filterParams(updatedSelectedValues)
+			return updatedSelectedValues;
+		});
 	}
 
 	return (
@@ -247,8 +284,8 @@ const ExploreSearchVideos = (props) => {
 					</form>
 					<span className='title-style'>Select Event Year</span>
 					<div className="year-container">
-						{year.map((temp, index) => (
-							<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(temp)}>{temp}</button>
+						{years?.map((year, index) => (
+							<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
 						))}
 					</div>
 					<br />

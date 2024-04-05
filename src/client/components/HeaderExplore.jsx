@@ -87,11 +87,11 @@ const ExploreHeader = (props) => {
 									</NavbarToggler>
 								</div>
 								<NavLink
-									to="/"
+									to={props?.headerData.logo?.url}
 									className="navbar-brand"
-									onClick={event => handleLogoClick({ "id": "N001", "link_url": "https://www.broadcom.com" })}
+									onClick={event => handleLogoClick({ "id": "N001", "link_url": props?.headerData.logo?.url})}
 								>
-									<ImageBase src={props?.headerData.logo} width="298" height="42" alt={props?.headerData.logoAlt} />
+									<ImageBase src={props?.headerData.logo.src} width="298" height="42" alt={props?.headerData.logo.alt} />
 								</NavLink>
 
 								{props.accessibilityData && <div id="header-accessibility-statement" className="sr-only header-accessibility-statement" dangerouslySetInnerHTML={{ __html: this.props.accessibilityData }} />}
@@ -132,31 +132,44 @@ const ExploreHeader = (props) => {
 									}
 
 									<div>
+									{props?.headerData.search ?
 										<i onClick={searchBox} className={classnames({'fa fa-search text-indigo mr-2 mr-lg-0': !searchOpen}, { 'bi brcmicon-window-close primary': searchOpen })} />
+										:
+										""
+									}
 									</div>
 									<div className='ml-2'>
-										<SiteLink to="/">Contact</SiteLink>
+										<SiteLink to={props?.headerData.header_links[0]?.url}>{props?.headerData.header_links[0]?.title}</SiteLink>
 									</div>
 									<ul className="login">
 										<li className="login-wrap">
 											<ExploreHeaderSecondary
 												menuToggle={toggle}
-												links={props?.headerData.header_links}
+												links={props?.headerData.header_links[1]}
 											/>
 										</li>
 									</ul>
-									<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile})}>
-										<TypeAhead
-											className="header-typahead"
-											endpoint={config.site_search.typeahead_endpoint}
-											results_page="/site-search"
-											placeholder="Search"
-											clear
-										/>
-									</div>
+									{props?.headerData.search ? 
+										<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile})}>
+											<TypeAhead
+												className="header-typahead"
+												endpoint={config.site_search.typeahead_endpoint}
+												results_page="/site-search"
+												placeholder="Search"
+												clear
+											/>
+										</div>
+										:
+										""
+									}
+
 									<div className="secondary-nav-cta">
-									<SiteLink to={props?.headerData?.cta?.url} className="bttn bttn-primary">{props?.headerData?.cta?.title}</SiteLink>
-								</div>
+										{props?.headerData?.cta?.title ?
+											<SiteLink to={props?.headerData?.cta?.url} className="bttn bttn-primary">{props?.headerData?.cta?.title}</SiteLink>
+											:
+											""
+										}
+									</div>
 								</div>
 
 							</div>

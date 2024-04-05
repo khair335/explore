@@ -44,7 +44,8 @@ class VideoPage extends PageComponent {
 			title: document.title || 'Video', // Google console is complaining because of empty value, since our Node is populating the browser title, use that for now.
 			loading: false,
 			activeSection: 'details',
-			shareUrl: 'https://www.vmware.com/explore/video-library/video-land', // Set share URL here
+			// shareUrl: 'http://localhost:3001/explore/video-library/video/' + params.mediaid, // Set share URL here
+			shareUrl: `${window?.location?.origin}${config.video.videoPath()}/${params.mediaid}`,
 			copy_tooltip: '',
 			copySuccess: '',
 			activeTab: 'details',
@@ -78,8 +79,13 @@ class VideoPage extends PageComponent {
 			videoDetails: meta
 		})
 		// Set our browser title.
-		document.title = title;
 
+		if (config.site === 'vm') {
+			document.title = 'VMware Explore Video Landing';
+		}
+		else {
+			document.title = title;
+		}
 	}
 	//for tabs
 	toggle(tab) {
@@ -114,11 +120,24 @@ class VideoPage extends PageComponent {
 		const { shareUrl } = this.state;
 		const encodedShareUrl = encodeURIComponent(shareUrl);
 
-		const social_links = [
-			{ name: 'Twitter', socialLink: "https://twitter.com/Broadcom", className: 'bi brcmicon-twitter' },
-			{ name: 'LinkedIn', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-linkedin' },
-			{ name: 'Email', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-email' }
-		];
+		let social_links = []
+
+		if (config.site === 'vm') {
+			social_links = [
+				{ name: 'Twitter', socialLink: "https://twitter.com/VMwareExplore", className: 'bi brcmicon-twitter' },
+				{ name: 'LinkedIn', socialLink: "https://www.linkedin.com/groups/2028037/", className: 'bi brcmicon-linkedin' },
+				{ name: 'Facebook', socialLink: "https://www.facebook.com/VMwareExplore/", className: 'bi brcmicon-facebook' },
+				{ name: 'Email', socialLink: "mailto:?Subject=The%20Cyber%20Cloud%20%E2%80%93%20Next%20Steps%20for%20Augmenting%20Cybersecurity%20with%20the%20Cloud&body=Shareable%20Video%20Link:%20https://www.vmware.com/explore/video-library/video-landing.html?sessionid=1685730995177001vX71%26videoId=6341057092112", className: 'bi brcmicon-email' }
+			];
+		} else {
+			social_links = [
+				{ name: 'Twitter', socialLink: "https://twitter.com/Broadcom", className: 'bi brcmicon-twitter' },
+				{ name: 'LinkedIn', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-linkedin' },
+				{ name: 'Facebook', socialLink: "https://www.facebook.com/Broadcom", className: 'bi brcmicon-facebook' },
+				{ name: 'Email', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-email' }
+			];
+
+		}
 
 		return (
 			<>
@@ -126,14 +145,14 @@ class VideoPage extends PageComponent {
 					{
 						social_links.map((social_link) => (
 
-							<a key={social_link.name} href={social_link.socialLink} target='_blank'><span className={social_link.className}></span></a>
+							<SiteLink key={social_link.name} to={social_link.socialLink} target='_blank'><span className={social_link.className}><span className='path1'></span></span></SiteLink>
 						))
 					}
 					<br />
 				</div>
 				<div className="share-section">
-					<input class="share-input" type="text" value={shareUrl} readOnly />
-					<button class="share-btn" onClick={this.copyToClipboard}>Copy {this.state.copySuccess &&
+					<input className="share-input" type="text" value={shareUrl} readOnly />
+					<button className="share-btn" onClick={this.copyToClipboard}>Copy {this.state.copySuccess &&
 						<div className="tooltip show bs-tooltip-auto fadein">
 							<div className="tooltip-inner" role="tooltip">
 								<div>Copied</div>
@@ -160,18 +179,6 @@ class VideoPage extends PageComponent {
 				});
 			});
 
-		// fetch(`${config.video?.endpoint}/${this.state?.mediaid}`, {
-		// 	method: 'get',
-		// 	headers: new Headers({
-		// 		'Accept': `application/json;pk=${config.video.policy_key}`,
-		// 	}),
-		// })
-		// 	.then(resp => resp.json())
-		// 	.then(json => {
-		// 		this.setState({
-		// 			videoDetails: json
-		// 		});
-		// 	});
 	}
 
 
@@ -248,6 +255,19 @@ class VideoPage extends PageComponent {
 
 		const { activeSection } = this.state;
 
+		let main_title = ''
+
+		let main_url = ''
+
+		if (config.site === 'vm') {
+			main_title = 'VMware Explore 2023'
+			main_url = '/explore/video-library/search?year=2023'
+		} else {
+			main_title = 'Broadcom'
+			main_url = '/support/video-webinar-library'
+		}
+
+
 		// an array for tabs
 		const sections = [
 			{ name: 'details', text: 'Details' },
@@ -274,12 +294,14 @@ class VideoPage extends PageComponent {
 										<Col md={8} className="video-content col-content">
 											{/* code for VMware Explore link */}
 											<div className="vid-tags">
-												<SiteLink className="col-md-12 col-sm-12 col-xs-12" to='https://www.vmware.com/products/cloud-director.html'>VMware Explore
+												<SiteLink
+													className="col-md-12 col-sm-12 col-xs-12" to={main_url}>{main_title}
 												</SiteLink>
+
 											</div>
 											{/* video title */}
-											<div class="col-md-12 col-sm-12 col-xs-12">
-												<h1 class="video-title">{this.state?.videoDetails?.description}</h1>
+											<div className="col-md-12 col-sm-12 col-xs-12">
+												<h1 className="video-title">{this.state?.videoDetails?.description}</h1>
 											</div>
 											{/* tab function */}
 											<div>
@@ -312,7 +334,7 @@ class VideoPage extends PageComponent {
 														<div className='session-heading'>
 															Session Info
 														</div>
-														<ul>
+														<ul className='session-details'>
 															{this.state?.videoDetails?.name && <li>
 																<label><b>Session Code</b></label>
 																<span>{this.state?.videoDetails?.name}</span>
@@ -327,7 +349,8 @@ class VideoPage extends PageComponent {
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.products && <li>
 																<label><b>Products</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.products}</span>
+																{this.state?.videoDetails?.custom_fields?.products?.split('|')?.map((item, index) => (
+																	<p key={index}>{item}</p>))}
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.level && <li>
 																<label><b>Level</b></label>
@@ -339,7 +362,8 @@ class VideoPage extends PageComponent {
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.audience && <li>
 																<label><b>Audience</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.audience}</span>
+																{this.state?.videoDetails?.custom_fields?.audience?.split('|')?.map((item, index) => (
+																	<p key={index}>{item}</p>))}
 															</li>}
 														</ul>
 													</TabPane>
@@ -367,7 +391,7 @@ class VideoPage extends PageComponent {
 													<div className="videos-container">
 														{related_videos?.map((video, index) => (
 															<div key={index} className="video-item">
-																
+
 
 																<SiteLink
 																	to={config.video.videoPath(video?.account) + "/" + video?.id}
@@ -381,12 +405,12 @@ class VideoPage extends PageComponent {
 																	<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
 																	<div image="" alt="Play button" className="play-button" />
 																</SiteLink>
-																
+
 
 																<div className="video-info">
-																	<span class="video-name">{video.name}</span>
-																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 class="related-video-link">{this.truncateDescription(video.description, 28)}</h3></SiteLink>
-																	<p class="related-des">{this.truncateDescription(video.long_description, 120)}</p>
+																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video.name}</span></SiteLink>
+																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link">{this.truncateDescription(video.description, 28)}</h3></SiteLink>
+																	<p className="related-des">{this.truncateDescription(video.long_description, 120)}</p>
 																</div>
 															</div>
 														))}
@@ -441,7 +465,7 @@ class Speakers extends Component {
 			<div className="speakers-section">
 				{speakers.map(speaker => (
 					<div className="speaker-container" key={speaker.name}>
-						<ImageBase image={speaker.image} className="speaker-image" />
+						<ImageBase src={speaker.image} className="speaker-image" />
 						<div className="speaker-details">
 							<h2>{speaker.name}</h2>
 							<p>{speaker.title}</p>

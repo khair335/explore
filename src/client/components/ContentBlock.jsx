@@ -46,7 +46,7 @@ const Sections = (props) => {
 				}
 
 				// Card theme. This sets the background to the child cards.
-				classes.push(content_block?.card_theme ? `theme-cbl-card-${content_block?.card_theme?.toLowerCase()}` : 'theme-cbl-card-transparent');
+				classes.push(content_block?.card_theme ? `theme-cbl-card-${content_block?.card_theme?.toLowerCase()}` : '');
 
 				// JD - Possibly deprecated as business logic dictates this. This sets the CTA style for the child cards.
 				if (content_block?.cta_style) {

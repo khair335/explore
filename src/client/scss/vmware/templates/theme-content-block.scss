@@ -98,3 +98,13 @@
          @include theme-transparent;
     }
 }
+
+.theme-content-block-promo {
+    .card{
+        @include theme-transparent;
+        color: $color-body-dark;
+        .card-text {
+            color: $color-body-dark;
+        }
+   }
+}

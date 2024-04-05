@@ -187,7 +187,8 @@ export default class SiteLink extends PureComponent {
 
 		switch (type) {
 			case "external":
-				return <a {...rest} href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;
+				let {target, ...r} = rest;
+				return <a {...r} target="_blank" href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;
 			case "document":
 				return <DocumentLink {...rest} href={location} gtmevent={gtmevent} onClick={onClick} className={classnames("lnk", className)}/>; 
 			case "nolink":

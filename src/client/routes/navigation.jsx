@@ -107,10 +107,14 @@ const NavigationProvider = ({ children }) => {
                         setNavigation(loop(allNav));
                         setHeader({
                             abstract: json.header_logo_abstract,
-                            logo: json.header_image.src,
-                            logoAlt: json.header_image.alt,
+                            logo:{
+                                src: json.header_image.src,
+                                alt: json.header_image.alt,
+                                url: json.header_logo_url,
+                            },
                             header_links: json.header_links,
                             cta: json.header_cta,
+                            search: json.header_show_search,
                         });
                         setFooter({
                             logo: json.footer_logo?.image,

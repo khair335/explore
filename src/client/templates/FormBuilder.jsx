@@ -103,7 +103,8 @@ class FormBuilder extends PureComponent {
 
 		let contact = {};
 		let valid = true;
-		for (let i = 0; i < form.elements.length; i++) {
+		let i=0;
+		for (i = 0; i < form.elements.length; i++) {
 			const e = form.elements[i];
 
 

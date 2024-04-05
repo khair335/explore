@@ -186,17 +186,18 @@ class MenuWindow extends Component {
                 <Container>
                     <ul>
                         {item.child.map((level_1, index) => {
-                            return(<li className="title">{level_1.title}
-                            <p className={level_1.abstract ? "" : "hide"}>{level_1.abstract}</p>
-                            <ul>
-                                {level_1.child.map((level_2, index) => {
-                                    return(<li className="link"><SiteLink to={item.url ? item.url : "#"}>{level_2.title}</SiteLink>
-                                    </li>)
-                                })}
-                            </ul>
-                            
+                            return(
+                            <li className="title" key={level_1.title}>
+                                {level_1.title}
+                                    <p className={level_1.abstract ? "" : "hide"}>{level_1.abstract}</p>
+                                <ul>
+                                    {level_1.child.map((level_2, index) => {
+                                        return(<li className="link" key={level_2.title}>
+                                            <SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink>
+                                        </li>)
+                                    })}
+                                </ul>
                             </li>)
-                            
                         })}
                     </ul>
                 </Container>

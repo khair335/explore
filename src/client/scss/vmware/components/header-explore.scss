@@ -105,8 +105,10 @@
 
       a.lnk, button {
         font-weight: 200;
+        font-size: 14px;
         color: $color-indigo-500;
         text-decoration: none;
+        text-transform: capitalize;
       }
 
       ul.login {
@@ -122,12 +124,11 @@
         &:last-child {
           margin-bottom: 0px;
         }
+      }
 
-        .secondary-nav-database {
-          position: absolute;
-          top: -35px;
-        }
-
+      .secondary-nav-database {
+        position: absolute;
+        top: -35px;
       }
 
       .secondary-nav-cta {

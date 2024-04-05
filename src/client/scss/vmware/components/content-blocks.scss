@@ -250,6 +250,7 @@
   }
 }
 
+
 .theme-content-block-dark {
   background-color: $background-dark;
   padding: 100px 0 !important;
@@ -1473,19 +1474,19 @@
 
   .ContentCardTwoColumn {
 
-    .ImageCard {
-      .card-body {
+    .ImageCard{
+.card-body {
 
+      height: 100%;
+
+      .lnk {
         height: 100%;
 
-        .lnk {
+        >img {
           height: 100%;
-
-          >img {
-            height: 100%;
-          }
         }
       }
+    }
     }
 
 
@@ -1516,7 +1517,6 @@
         }
       }
     }
-
     .container {
       .row {
         .ImageCard {
@@ -1581,8 +1581,7 @@
   .card-body {
     >.lnk {
       width: 100%;
-
-      >img {
+      >img{
         // max-height: 200px;
         // object-fit: contain;
       }
@@ -1590,23 +1589,21 @@
   }
 }
 
-.table-tooltip {
-  &.vm-info {
+.table-tooltip{
+  &.vm-info{
     text-decoration: none;
   }
 }
-
 .ContentCardTwoColumn-section {
-  .ContentCardTwoColumn {
-    .card-footer {
-      .cb-cta-link {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
+  .ContentCardTwoColumn{
+    .card-footer{
+  .cb-cta-link{
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
-
+  }
+}
 
 
 .ContentCard-section,
@@ -1656,7 +1653,6 @@
       color: $color-black;
     }
   }
-
   &.theme-cbl-card-light{
     .section-title {
       color: $color-black;
@@ -1803,20 +1799,18 @@
     color: $color-black;
   }
 
-
-  &.theme-content-block-promo {
+  // Promo section for /explore/us
+ &.theme-content-block-promo {
     .card-title {
       color: $color-white;
     }
 
-    background-color: $color-ocean-700;
-
+    background-color: $color-primary;
 
 
     .ContentCardTwoColumn {
       .container {
         .row {
-
           align-items: center;
           >div {
             &:first-child{
@@ -1824,6 +1818,8 @@
                   padding: 0;
                 }
             }
+
+        
             &:nth-child(2) {
 
 
