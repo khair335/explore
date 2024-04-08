@@ -29,13 +29,13 @@
   }
 
   .header_location {
-    
+
       font-size: 13px; //???
       color: #565656;
       text-transform: uppercase;
       margin-left: 16px;
       display: block;
-    
+
       p {
         margin: 0;
       }
@@ -108,9 +108,10 @@
 
     .secondary-nav-top {
       display: flex;
+    align-items: center;
       /* margin-bottom: 14px; */
 
-      .contact {margin-top: 14px;}
+      .contact {margin-top: 0px;}
 
       a.lnk, button {
         font-weight: 200;
@@ -144,6 +145,7 @@
       .secondary-nav-cta {
         position:absolute;
         top:60px;
+        right: 23px;
         /* left:20px; */
 
         a {
@@ -169,7 +171,7 @@
           color: $color-indigo-500;
         }
       }
-      
+
       .MainNavExploreItem a, .MainNavExploreItem button, .MainNavExploreItem .label {
         font-size:$font-size-md;
         color: $color-indigo-500;
@@ -284,7 +286,7 @@
     li.title, li.link {
       font-family: $font-family--secondary;
       font-size: 20px;
-    } 
+    }
 
     li.title {
       margin-bottom: 36px;
@@ -298,7 +300,7 @@
 
       p.hide {display: none}
     }
-    
+
     li.link {
       padding: 16px 0 16px 16px;
 
@@ -309,7 +311,7 @@
     }
   }
 
- 
+
   @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
 
     #header-explore {
@@ -338,7 +340,7 @@
         }
 
       }
-      .linkChevron { 
+      .linkChevron {
         display: inline-block;
         margin-right: 20px;
         align-self: center;
@@ -346,10 +348,10 @@
     }
 
     .navBrand{
-			display: -webkit-box;       
-			display: -moz-box;         
-			display: -ms-flexbox;       
-			display: -webkit-flex; 
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -389,7 +391,7 @@
 					}
 				}
 			}
-			
+
 			.navbar-brand{
 				width: 300px;
 				position: absolute;
