@@ -24,14 +24,21 @@
   display: flex;
   font-family: $font-family--secondary;
 
+  .navbar-brand {
+    padding-top: 0;
+  }
+
   .header_location {
-    span {
+    
       font-size: 13px; //???
       color: #565656;
       text-transform: uppercase;
       margin-left: 16px;
       display: block;
-    }
+    
+      p {
+        margin: 0;
+      }
   }
 
   .header_logo_wrapper {
@@ -101,7 +108,9 @@
 
     .secondary-nav-top {
       display: flex;
-      margin-bottom: 14px;
+      /* margin-bottom: 14px; */
+
+      .contact {margin-top: 14px;}
 
       a.lnk, button {
         font-weight: 200;
@@ -109,11 +118,12 @@
         color: $color-indigo-500;
         text-decoration: none;
         text-transform: capitalize;
+        display: block;
       }
 
-      ul.login {
+/*       ul.login {
         margin-top: -11px;
-      }
+      } */
 
       .headerlanguage,
       .login-wrap {
@@ -134,7 +144,7 @@
       .secondary-nav-cta {
         position:absolute;
         top:60px;
-        left:20px;
+        /* left:20px; */
 
         a {
           color: $color-white;
@@ -142,6 +152,8 @@
           padding-right: 20px;
           font-weight: 200;
           font-size: $font-size-lg;
+          display: table-cell;
+          vertical-align: middle;
           /* text-transform: uppercase; */
 
           &:hover {

@@ -600,8 +600,16 @@ padding-bottom:10px!important;
   .icon-bttn {
     padding: 0;
   }
+}
 
-
+.live-info-popup-popover {
+  // Make the popover larger for vmware's pricing page.
+  .popover {
+    max-width: 380px;
+    a {
+      font-size: 14px;
+    }
+  }
 }
 
 // HACK: Just hiding the arrow.

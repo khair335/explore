@@ -90,7 +90,7 @@
 				<ul className="cb-cta-link">
 				{links.map(link =>
 					<li key={link.content_id}>
-						<SiteLink to={link.url} target={link.target || "_self"} subtype={link.subtype} {...link}>{link.title}</SiteLink>
+						<SiteLink to={link.url} target={link.target || "_self"} subtype={link.subtype}>{link.title}</SiteLink>
 					</li>
 				)}
 				</ul>

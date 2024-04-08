@@ -20,6 +20,7 @@ const handleVideoLink = () => {
 	if (videos && videos.length) {
 
 		videos.forEach(video => {
+			video.setAttribute('data-module', 'init');				// Don't modify us anymore.
 			const mediaid = video.getAttribute("data-mediaid");
 			const id = video.getAttribute("id");
 
@@ -95,7 +96,11 @@ const handleImageEnlarge = () => {
 
 			}
 
-			const container = image.parentNode;
+			// Create a new container.
+			let container = document.createElement("div");
+			image.parentNode.insertBefore(container, image);
+			container.appendChild(image);
+
 			const root = createRoot(container);
 
 			root.render(<ImageEnlargeModal img-element={image} width={width} height={height} />);
@@ -144,7 +149,8 @@ const handleTooltips = () => {
 
 				root.render(
 						<InfoPopover
-							placement="right"							
+							placement="right"	
+							popoverClass="live-info-popup-popover"						
 						>
 								<div dangerouslySetInnerHTML={{ __html: content.innerHTML }} />
 						</InfoPopover>
@@ -162,11 +168,15 @@ const liveEvents = () => {
 	handleImageEnlarge();
 	handleTooltips();
 
+
 	//<video data-module="video" data-module-type="video-playlist" data-channel-id="a493a97ae5f84508a1e45dd117e99c26" id="playList1211203289657" name="playList1211203289657"></video>
 	let playlists = document.querySelectorAll('[data-module-type="video-playlist"]');
 	if (playlists && playlists.length) {
 
+
 		playlists.forEach(playlist => {
+			playlist.setAttribute('data-module-type', 'init');				// Don't modify us anymore.
+
 			const channelId = playlist.getAttribute("data-channel-id");
 			const id = playlist.getAttribute("name");
 
@@ -181,11 +191,13 @@ const liveEvents = () => {
 		});
 	}
 
+
 	// ex. https://stage-ca.aws.broadcom.com/case-studies/state-of-louisiana-transforms-the-citizen-experience-with-layer7-solutions
 	let videos = document.querySelectorAll('video[data-module="video"]');
 	if (videos && videos.length) {
 
 		videos.forEach(video => {
+			video.setAttribute('data-module', 'init');				// Don't modify us anymore.
 			const mediaId = video.getAttribute("data-mediaid");
 			const id = video.getAttribute("id");
 			const audio = video.getAttribute("data-subtype") === "Brightcove Audio";
@@ -233,6 +245,7 @@ const liveEvents = () => {
 	let downloads = document.querySelectorAll('[data-target="#download_modal"]');
 	if (downloads && downloads.length) {
 		downloads.forEach(download => {
+			download.setAttribute('data-target', 'init');				// Don't modify us anymore.
 			let id = `documentlink-${utils.uuidv4()}`;
 			let wrapper = document.createElement('span');
 
@@ -260,10 +273,15 @@ const liveEvents = () => {
 	let charts = document.querySelectorAll('.comparisonChart');			// our tables
 	if (charts && charts.length) {
 
-		charts.forEach(chart => {
+		// Load only if it's fresh.
+		Array.from(charts)?.filter(chart => chart?.getAttribute('data-chart') !== 'init')?.forEach(chart => {
 			let cells;													// get table / unescape table / get cells / add class to table
 
+
+			chart.setAttribute('data-chart', 'init');			// Mark us as loaded.
+
 			chart.classList.add("table-responsive");
+
 			cells = chart.querySelectorAll('.compare');
 
 			cells.forEach(cell => {

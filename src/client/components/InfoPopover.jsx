@@ -64,7 +64,7 @@ export class InfoPopover extends PureComponent {
 					<button id={this.uniqueID} className="icon-bttn" title="info" aria-label="info">
 						<i className="bi brcmicon-info-circle primary"></i>
 					</button>
-					<Popover placement={placement} isOpen={this.state.popover} target={this.uniqueID} toggle={this.handleToggle} trigger="click hover focus" delay={{show:100, hide: 400}}>
+					<Popover className={rest.popoverClass} placement={placement} isOpen={this.state.popover} target={this.uniqueID} toggle={this.handleToggle} trigger="click hover focus" delay={{show:100, hide: 400}}>
 						<PopoverHeader>{this.props.title}</PopoverHeader>
 						<PopoverBody>
 							{this.props.children}

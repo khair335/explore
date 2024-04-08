@@ -94,8 +94,8 @@ export default class SiteLink extends PureComponent {
 		
 		// --------------------
 		// Youtube
-		if (this.props.subtype === "Youtube") {
-			return {location: to, type: "youtube"};
+		if (this.props.subtype?.toLowerCase() === "youtube") {
+			return {location: to, type: "youtube"};			
 		}
 		
 		// --------------------
@@ -196,7 +196,8 @@ export default class SiteLink extends PureComponent {
 			case "brightcove":
 				return <VideoLink video={location} mediaid={mediaid} type="brightcove" gtmevent={gtmevent} {...rest} className={classnames("lnk", className)}/>;
 			case "youtube":
-				return <VideoLink video={location} type="youtube" {...rest}className={classnames("lnk", className)}/>;
+				return <a {...rest} href={location} onClick={this.handleClick} target="_blank" className={classnames("lnk", className)}/>;			// Due to Onetrust blocking youtube video first and a modal appears after OneTrustVideo fires, let's just open in a new window
+				//return <VideoLink video={location} type="youtube" {...rest} className={classnames("lnk", className)}/>;
 			default:
 				return <Link {...rest} to={location} onClick={this.handleClick} className={classnames("lnk", className)} reloadDocument={reloadDocument}/>; 
 		}

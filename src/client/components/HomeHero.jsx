@@ -375,7 +375,7 @@ export default class HomeHero extends Component {
 														<div dangerouslySetInnerHTML={{ __html: link.hero_banner_abstract }} />
 													}
 													<div>
-														{(link.url && link.content_type === "video")
+														{(link.url && link.content_type === "video" && link.subtype === 'Brightcove')
 															? <SiteLink key={link.content_id}
 																gtmevent={{ "id": "U006", "title": link.title }}
 																onClick={event => this.handleVideoClick(event, link.media_id)}

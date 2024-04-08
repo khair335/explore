@@ -135,9 +135,25 @@ export class VideoLink extends Component {
             return (match && match[7].length == 11) ? match[7] : false;
         }
 
-        let youtubeId = youtube_parser(this.props.video);
-        let mediaid = this.props.mediaid;
+        // Attempt to get the media id from the url if media id doesn't exit
+        const media_parser = (url) => {
+            if (!url) {
+                return '';
+            }
 
+            let match = url.match(/\/(\d+)$/g);
+            if (match) {
+                return match[0]?.replace('/', '');
+            }
+
+            return '';
+        }
+
+        
+        let youtubeId = youtube_parser(this.props.video);
+        let mediaid = this.props.mediaid || media_parser(this.props.video);
+
+        
         return (
             <div className="VideoLink">
                 <button className={classnames("link-bttn", this.props.classNames)} onClick={this.toggleModal}>
@@ -146,7 +162,7 @@ export class VideoLink extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}></ModalHeader>
                     <ModalBody>
-                        {this.props.mediaid
+                        {this.props.mediaid || this.props.type === 'brightcove'
                             ? <BrightcoveVideo mediaid={mediaid} play={false} />
                             : <div className="video-link-youtube"><iframe type="text/html" width="640" height="360"
                                 className="optanon-category-4"

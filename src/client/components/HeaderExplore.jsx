@@ -79,7 +79,7 @@ const ExploreHeader = (props) => {
 				<Container style={{ position: 'relative' }}>
 					<Navbar color="faded" className="header_nav" light expand="md">
 						<div className="header_logo_wrapper d-flex justify-content-between w-100 align-items-start">
-							<div className='d-flex align-items-center'>
+							<div className='d-flex'>
 							<div className="navBrand">
 								<div className="menuButton" ref={bttnRef}>
 									<NavbarToggler onClick={mobileToggle} aria-label="Toggle Navigation" className={classnames(' icon-bttn',{'closeOn': isOpen } )}>
@@ -138,7 +138,7 @@ const ExploreHeader = (props) => {
 										""
 									}
 									</div>
-									<div className='ml-2'>
+									<div className='ml-2 contact'>
 										<SiteLink to={props?.headerData.header_links[0]?.url}>{props?.headerData.header_links[0]?.title}</SiteLink>
 									</div>
 									<ul className="login">

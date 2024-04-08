@@ -76,7 +76,7 @@ $carousel-indicator-height: 20px;
           object-fit: cover;
           object-position: center;
           width: 100%;
-          //height: 700px; // JD - We have lazy loading and the image doesn't appear for the banner, so it pops.
+          height: 700px; // JD - We have lazy loading and the image doesn't appear for the banner, so it pops.
 
           @media only screen and (max-width: 991.98px) {
             transform: none;

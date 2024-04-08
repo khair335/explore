@@ -9,10 +9,11 @@ import { BrowserRouter as Router, useNavigate, useLocation, useHistory } from 'r
 import SiteLink from "components/SiteLink.jsx";
 import ImageBase from "components/ImageBase.jsx";
 import { SubHead } from 'components/subHeader.jsx';
-import { Container } from 'reactstrap';
+import { Container, ListGroupItemHeading } from 'reactstrap';
 import liveEvents from 'components/liveEvents.js';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import queryString from 'query-string';
+import Loading from 'components/Loading.jsx'
 
 import 'scss/pages/explore-search-videos.scss'
 
@@ -37,13 +38,28 @@ const ExploreSearchVideos = (props) => {
 		level: [],
 		region: [],
 	}
+	const [selectedValues, setSelectedValues] = useState(initialValues)
+	const temp_data = data.filters.filter((data) => data.label !== "Year")
+
+	const [dropdownOpen, setDropdownOpen] = useState(false);
+	const [sortKey, setSortKey] = useState('most-recent');
+	const [videoCount, setVideoCount] = useState('0');
+	const [limit, setLimit] = useState(12);
+	const [searchTerm, setSearchTerm] = useState('');
+	const [filter, setFilter] = useState([])
+	const [filterString, setFilterString] = useState('');
+	const [isSubmit, setIsSubmit] = useState(false)
+	const [loading, setLoading] = useState(false)
+	const [inputChange, setInputChange] = useState('')
 
 	const filterParams = (updatedValues) => {
-		const newFilter = Object.keys(updatedValues).flatMap(category =>
-			updatedValues[category].map(value => value)
-		);
-		setFilter(newFilter);
-		setFilterString(newFilter.map(data => `"${data}"`).join(","));
+		const newFilter = Object.entries(updatedValues)?.map(([category, values]) => {
+			if (values?.length === 0) return ''; // Skip categories with no values
+			if (values?.length > 2) return `%3B${category}:${values.join(',')}`;
+			return `%2B${category}:${values.join(',')}`;
+		})?.filter(Boolean)?.join('');
+
+		setFilterString(newFilter)
 	}
 
 	useEffect(() => {
@@ -52,7 +68,7 @@ const ExploreSearchVideos = (props) => {
 		const updatedSelectedValues = {};
 
 		if (searchParams.event_delivery) {
-			updatedSelectedValues.event_delivery = searchParams.event_delivery.split(',');
+			updatedSelectedValues.event_delivery = searchParams.event_delivery?.split(',');
 		} else {
 			updatedSelectedValues.event_delivery = [];
 		}
@@ -98,18 +114,6 @@ const ExploreSearchVideos = (props) => {
 		setSelectedValues(updatedSelectedValues);
 
 	}, []);
-
-	const [selectedValues, setSelectedValues] = useState(initialValues)
-	const temp_data = data.filters.filter((data) => data.label !== "Year")
-
-	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const [sortKey, setSortKey] = useState('most-recent');
-	const [videoCount, setVideoCount] = useState('0');
-	const [limit, setLimit] = useState(12);
-	const [searchTerm, setSearchTerm] = useState('');
-	const [filter, setFilter] = useState([])
-	const [filterString, setFilterString] = useState('');
-	const [isSubmit, setIsSubmit] = useState(false)
 
 	const checkSelectedValues = (selectedValues) => {
 		for (let key in selectedValues) {
@@ -185,8 +189,10 @@ const ExploreSearchVideos = (props) => {
 
 
 	useEffect(() => {
+		setLoading(true)
 		if (sortKey === 'most-recent') {
-			((searchTerm.length > 0) ? fetch(`${config.video.endpoint}?q=text:"${searchTerm}"tags:"${selectedYear}",${filterString}&limit=${limit}`, {
+
+			((searchTerm?.trim()?.length > 0) ? fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%2Btext:"${searchTerm}"-event_delivery:"Singapore"-vod_on_demand_publish:"False"-year:"2022"&limit=${limit}`, {
 				method: 'get',
 				headers: new Headers({
 					'Accept': `application/json;pk=${config.video.policy_key}`,
@@ -194,9 +200,11 @@ const ExploreSearchVideos = (props) => {
 			})
 				.then(resp => resp.json())
 				.then(json => {
+					setLoading(false)
 					setVideoCount(json.count)
 					setVideos(json.videos)
-				}) : fetch(`${config.video.endpoint}?q=tags:"${selectedYear}",${filterString}&limit=${limit}`, {
+				}) :
+				fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}-event_delivery:"Singapore"-vod_on_demand_publish:"False"-year:2022&limit=${limit}`, {
 					method: 'get',
 					headers: new Headers({
 						'Accept': `application/json;pk=${config.video.policy_key}`,
@@ -204,11 +212,12 @@ const ExploreSearchVideos = (props) => {
 				})
 					.then(resp => resp.json())
 					.then(json => {
+						setLoading(false)
 						setVideoCount(json.count)
 						setVideos(json.videos)
 					}))
 		}
-	}, [selectedValues, searchTerm, selectedYear, isSubmit, filterString, limit]);
+	}, [selectedValues, selectedYear, isSubmit, filterString, limit]);
 
 	useEffect(() => {
 		Object.keys(selectedValues).forEach(category => {
@@ -245,12 +254,13 @@ const ExploreSearchVideos = (props) => {
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
+		setSearchTerm(inputChange?.trim())
 		setIsSubmit(true)
 	};
 
 	const handleInputChange = (e) => {
 		setIsSubmit(false)
-		setSearchTerm(e.target.value)
+		setInputChange(e.target.value)
 	};
 
 	const handleSelectedValues = (attribute, value) => {
@@ -277,7 +287,7 @@ const ExploreSearchVideos = (props) => {
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(0,122,184,1)"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg>
 						<input
 							type="text"
-							value={searchTerm}
+							value={inputChange}
 							onChange={handleInputChange}
 							placeholder="Search by keyword"
 						/>
@@ -297,6 +307,7 @@ const ExploreSearchVideos = (props) => {
 								<Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
 									<DropdownToggle caret>
 										{dropdown.label}
+										<div className="dropdown-caret"></div>
 									</DropdownToggle>
 									<DropdownMenu>
 										{dropdown.tags.map((value) => (
@@ -337,30 +348,32 @@ const ExploreSearchVideos = (props) => {
 
 				</Container>
 			</div>
-			<Container className='videoresult-container'>
-				<div className='video-search-result-container'>
-					<div className='video-count'>{videoCount} results</div>
-					<div className='sort-btn-group'>
-						<div><label className='sort-by'>Sort By</label></div>
-						<Dropdown isOpen={dropdownOpen} toggle={toggle}>
-							<DropdownToggle className='sort-btn' caret>
-								{sortKey === 'most-recent' ? 'Most Recent' : 'Most Viewed'}
-							</DropdownToggle>
-							<DropdownMenu className='sort-pop-up'>
-								<DropdownItem onClick={() => handleSelect('most-recent')}>Most Recent</DropdownItem>
-								{/* <DropdownItem onClick={() => handleSelect('most-viewed')}>Most Viewed</DropdownItem> */}
-							</DropdownMenu>
-						</Dropdown>
+			<Loading isLoading={loading}>
+				<Container className='videoresult-container'>
+					<div className='video-search-result-container'>
+						<div className='video-count'>{videoCount} results</div>
+						<div className='sort-btn-group'>
+							<div><label className='sort-by'>Sort By</label></div>
+							<Dropdown isOpen={dropdownOpen} toggle={toggle}>
+								<DropdownToggle className='sort-btn' caret>
+									{sortKey === 'most-recent' ? 'Most Recent' : 'Most Viewed'}
+								</DropdownToggle>
+								<DropdownMenu className='sort-pop-up'>
+									<DropdownItem onClick={() => handleSelect('most-recent')}>Most Recent</DropdownItem>
+									{/* <DropdownItem onClick={() => handleSelect('most-viewed')}>Most Viewed</DropdownItem> */}
+								</DropdownMenu>
+							</Dropdown>
+						</div>
 					</div>
-				</div>
 
-				<div className='video-panel'>
-					{videos?.map((video, index) => (
-						<VideoCard video={video} key={index} />
-					))}
-				</div>
-				{hasVideos && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
-			</Container>
+					<div className='video-panel'>
+						{videos?.map((video, index) => (
+							<VideoCard video={video} key={index} />
+						))}
+					</div>
+					{hasVideos && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
+				</Container>
+			</Loading>
 
 		</div>
 	);
