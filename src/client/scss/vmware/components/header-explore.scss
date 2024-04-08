@@ -156,6 +156,7 @@
           font-size: $font-size-lg;
           display: table-cell;
           vertical-align: middle;
+          width: max-content;
           /* text-transform: uppercase; */
 
           &:hover {
