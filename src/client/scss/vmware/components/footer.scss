@@ -17,8 +17,9 @@
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 6px !important;
-    background-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) !important;
+    //height: 6px !important;
+    //background-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) !important;
+    border: solid 3px $color-primary;
   }
 
   .container {

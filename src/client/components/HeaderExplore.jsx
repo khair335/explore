@@ -31,7 +31,7 @@ const ExploreHeader = (props) => {
 
 
 	const handleClick = (e) => {
-		if (!startRef.current.contains(e?.target) && !bttnRef.current.contains(e.target) && !snavRef.current.contains(e.target) &&isOpen && mobile) {		// 
+		if (!startRef.current.contains(e?.target) && !bttnRef.current.contains(e.target) && !snavRef.current.contains(e.target) && isOpen && mobile) {		// 
 			setIsOpen(false);
 		}		//this + eventlistener + startRef & bttnRef are a hack for ipad - closes the menu when you click away becasue bootstrap does not support this
 
@@ -80,25 +80,25 @@ const ExploreHeader = (props) => {
 					<Navbar color="faded" className="header_nav" light expand="md">
 						<div className="header_logo_wrapper d-flex justify-content-between w-100 align-items-start">
 							<div className='d-flex'>
-							<div className="navBrand">
-								<div className="menuButton" ref={bttnRef}>
-									<NavbarToggler onClick={mobileToggle} aria-label="Toggle Navigation" className={classnames(' icon-bttn',{'closeOn': isOpen } )}>
-										<span className={(isOpen) ? "bi brcmicon-window-close primary" : "bi brcmicon-bars primary"}></span>
-									</NavbarToggler>
-								</div>
-								<NavLink
-									to={props?.headerData.logo?.url}
-									className="navbar-brand"
-									onClick={event => handleLogoClick({ "id": "N001", "link_url": props?.headerData.logo?.url})}
-								>
-									<ImageBase src={props?.headerData.logo.src} width="298" height="42" alt={props?.headerData.logo.alt} />
-								</NavLink>
+								<div className="navBrand">
+									<div className="menuButton" ref={bttnRef}>
+										<NavbarToggler onClick={mobileToggle} aria-label="Toggle Navigation" className={classnames(' icon-bttn', { 'closeOn': isOpen })}>
+											<span className={(isOpen) ? "bi brcmicon-window-close primary" : "bi brcmicon-bars primary"}></span>
+										</NavbarToggler>
+									</div>
+									<NavLink
+										to={props?.headerData.logo?.url}
+										className="navbar-brand"
+										onClick={event => handleLogoClick({ "id": "N001", "link_url": props?.headerData.logo?.url })}
+									>
+										<ImageBase src={props?.headerData.logo.src} width="298" height="42" alt={props?.headerData.logo.alt} />
+									</NavLink>
 
-								{props.accessibilityData && <div id="header-accessibility-statement" className="sr-only header-accessibility-statement" dangerouslySetInnerHTML={{ __html: this.props.accessibilityData }} />}
-								<a className="sr-only sr-only-focusable nav-skip" href="#main">Skip to main content</a>
-							</div>
-							<div className='header_location' dangerouslySetInnerHTML={{ __html: props?.headerData.abstract }}>
-							</div>
+									{props.accessibilityData && <div id="header-accessibility-statement" className="sr-only header-accessibility-statement" dangerouslySetInnerHTML={{ __html: this.props.accessibilityData }} />}
+									<a className="sr-only sr-only-focusable nav-skip" href="#main">Skip to main content</a>
+								</div>
+								<div className='header_location' dangerouslySetInnerHTML={{ __html: props?.headerData.abstract }}>
+								</div>
 							</div>
 
 
@@ -123,45 +123,48 @@ const ExploreHeader = (props) => {
 								</div>
 
 								<div className="secondary_nav" ref={snavRef}>
-								<div className="secondary-nav-top gap-2 ">
-									{/* Select database only for specific environments */
-										(config.environment === 'development' || config.environment === 'qa') &&
-										<div className="secondary-nav-database">
-										<HeaderDatabase />
-										</div>
-									}
+									<div className="secondary-nav-top gap-2 ">
+										{/* Select database only for specific environments */
+											(config.environment === 'development' || config.environment === 'qa') &&
+											<div className="secondary-nav-database">
+												<HeaderDatabase />
+											</div>
+										}
 
-									<div>
-									{props?.headerData.search ?
-										<i onClick={searchBox} className={classnames({'fa fa-search text-indigo mr-2 mr-lg-0': !searchOpen}, { 'bi brcmicon-window-close primary': searchOpen })} />
-										:
-										""
-									}
-									</div>
-									<div className='ml-2 contact'>
-										<SiteLink to={props?.headerData.header_links[0]?.url}>{props?.headerData.header_links[0]?.title}</SiteLink>
-									</div>
-									<ul className="login">
-										<li className="login-wrap">
-											<ExploreHeaderSecondary
-												menuToggle={toggle}
-												links={props?.headerData.header_links[1]}
-											/>
-										</li>
-									</ul>
-									{props?.headerData.search ? 
-										<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile})}>
-											<TypeAhead
-												className="header-typahead"
-												endpoint={config.site_search.typeahead_endpoint}
-												results_page="/site-search"
-												placeholder="Search"
-												clear
-											/>
+										<div>
+											{props?.headerData.search ?
+												<i onClick={searchBox} className={classnames({ 'fa fa-search text-indigo mr-2 mr-lg-0': !searchOpen }, { 'bi brcmicon-window-close primary': searchOpen })} />
+												:
+												""
+											}
 										</div>
-										:
-										""
-									}
+										<div className='ml-2 contact'>
+											<SiteLink to={props?.headerData.header_links[0]?.url}>{props?.headerData.header_links[0]?.title}</SiteLink>
+										</div>
+										<ul className="login">
+											<li className="login-wrap">
+												<ExploreHeaderSecondary
+													menuToggle={toggle}
+													links={props?.headerData.header_links[1]}
+												/>
+											</li>
+										</ul>
+										{props?.headerData.search ?
+											<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>
+												<TypeAhead
+													className="header-typahead"
+													endpoint={config.site_search.typeahead_endpoint}
+													results_page="/site-search"
+													placeholder="Search"
+													clear
+												/>
+											</div>
+											:
+											""
+										}
+
+
+									</div>
 
 									<div className="secondary-nav-cta">
 										{props?.headerData?.cta?.title ?
@@ -171,8 +174,6 @@ const ExploreHeader = (props) => {
 										}
 									</div>
 								</div>
-
-							</div>
 
 
 							</Collapse>
