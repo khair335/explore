@@ -30,15 +30,15 @@
 
   .header_location {
 
-      font-size: 13px; //???
-      color: #565656;
-      text-transform: uppercase;
-      margin-left: 16px;
-      display: block;
+    font-size: 13px; //???
+    color: #565656;
+    text-transform: uppercase;
+    margin-left: 16px;
+    display: block;
 
-      p {
-        margin: 0;
-      }
+    p {
+      margin: 0;
+    }
   }
 
   .header_logo_wrapper {
@@ -50,11 +50,16 @@
   }
 
   .navMenu {
-    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 1; /* OLD - Firefox 19- */
-    -webkit-flex: 1; /* Chrome */
-    -ms-flex: 1; /* IE 10 */
-    flex: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 1;
+    /* Chrome */
+    -ms-flex: 1;
+    /* IE 10 */
+    flex: 1;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
     max-width: none;
     position: relative;
     margin-top: 30px;
@@ -96,7 +101,9 @@
       flex-grow: 1;
     }
 
-    .linkChevron { display: none;}
+    .linkChevron {
+      display: none;
+    }
   }
 
   .secondary_nav {
@@ -104,16 +111,17 @@
     right: 0px;
     top: -70px;
     z-index: 10;
-    padding: 2px 12px 10px;
+    padding: 2px 0px 10px 12px;
+    display: flex;
+    flex-direction: column;
 
     .secondary-nav-top {
       display: flex;
-    align-items: center;
       /* margin-bottom: 14px; */
+      justify-content:  flex-end;
 
-      .contact {margin-top: 0px;}
-
-      a.lnk, button {
+      a.lnk,
+      button {
         font-weight: 200;
         font-size: 14px;
         color: $color-indigo-500;
@@ -122,7 +130,7 @@
         display: block;
       }
 
-/*       ul.login {
+      /*       ul.login {
         margin-top: -11px;
       } */
 
@@ -132,6 +140,7 @@
         font-size: $font-size-lg;
         position: relative;
         margin-bottom: 10px;
+
         &:last-child {
           margin-bottom: 0px;
         }
@@ -139,42 +148,24 @@
 
       .secondary-nav-database {
         position: absolute;
-        top: -35px;
+        top: -24px;
       }
 
-      .secondary-nav-cta {
-        position:absolute;
-        top:60px;
-        right: 23px;
-        /* left:20px; */
 
-        a {
-          color: $color-white;
-          padding-left: 20px;
-          padding-right: 20px;
-          font-weight: 200;
-          font-size: $font-size-lg;
-          display: table-cell;
-          vertical-align: middle;
-          width: max-content;
-          /* text-transform: uppercase; */
-
-          &:hover {
-            color: $color-indigo-500;
-          }
-        }
-      }
 
       i {
         margin-left: 5px;
         color: $color-indigo-500;
+
         &:before {
           color: $color-indigo-500;
         }
       }
 
-      .MainNavExploreItem a, .MainNavExploreItem button, .MainNavExploreItem .label {
-        font-size:$font-size-md;
+      .MainNavExploreItem a,
+      .MainNavExploreItem button,
+      .MainNavExploreItem .label {
+        font-size: $font-size-md;
         color: $color-indigo-500;
         text-transform: inherit;
         font-weight: 200;
@@ -183,6 +174,7 @@
 
       button {
         padding-left: 20px;
+
         i {
           margin-left: 6px;
           margin-bottom: 2px;
@@ -205,11 +197,35 @@
       }
     }
 
+    .secondary-nav-cta {
+      position: relative;
+      margin-top: 18px;
+      margin-left: auto;
+      margin-right: 0;    // Align to the right.
+
+      a {
+        color: $color-white;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 200;
+        font-size: $font-size-lg;
+        display: table-cell;
+        vertical-align: middle;
+        /* text-transform: uppercase; */
+
+        &:hover {
+          color: $color-indigo-500;
+        }
+      }
+    }
+
     .dropdown-toggle {
       padding: 0 10px 0 10px;
+      padding-right: 0; //JD - Butt it up against the right.
       width: 100%;
       text-align: left;
-      line-height: 3;
+      height: auto;
+
       &:after {
         position: absolute;
         top: 50%;
@@ -222,9 +238,10 @@
         border-right: 5px solid transparent;
       }
     }
+
     .dropdown-menu {
-      position:absolute !important;
-      top: 34px !important;
+      position: absolute !important;
+      top: 20px !important;
       left: 20px !important;
       width: 100%;
       transform: none !important;
@@ -243,7 +260,9 @@
       position: absolute;
       top: 33px;
 
-      &.hide {display: none}
+      &.hide {
+        display: none
+      }
     }
 
     .typeahead.dropdown .bc-input {
@@ -284,7 +303,8 @@
     background-color: $color-white;
     padding-top: 30px;
 
-    li.title, li.link {
+    li.title,
+    li.link {
       font-family: $font-family--secondary;
       font-size: 20px;
     }
@@ -299,7 +319,9 @@
         margin-top: 8px;
       }
 
-      p.hide {display: none}
+      p.hide {
+        display: none
+      }
     }
 
     li.link {
@@ -324,10 +346,12 @@
 
       .MainNavExploreItem {
         width: 100%;
-        display:flex;
+        display: flex;
 
-        a, button, span.label {
-          display: flex;        //because for some reason this has display:block imposed by some browsers local agent
+        a,
+        button,
+        span.label {
+          display: flex; //because for some reason this has display:block imposed by some browsers local agent
           width: 100%;
           justify-content: left;
           padding: 6px 0px;
@@ -341,6 +365,7 @@
         }
 
       }
+
       .linkChevron {
         display: inline-block;
         margin-right: 20px;
@@ -348,38 +373,40 @@
       }
     }
 
-    .navBrand{
-			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			-webkit-align-items: center;
-			height: 83px;
+    .navBrand {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      -webkit-align-items: center;
+      height: 83px;
 
-			.menuButton{									//mobile menu icon button
-				text-align: center;
-				z-index: 1;
+      .menuButton {
+        //mobile menu icon button
+        text-align: center;
+        z-index: 1;
         margin-top: 85px;
 
-				button{										//special case one off button
-					background: transparent;
-					border: none;
-					padding: 0;
-					font-size: 50px;
-					color: $color-primary;
+        button {
+          //special case one off button
+          background: transparent;
+          border: none;
+          padding: 0;
+          font-size: 50px;
+          color: $color-primary;
 
           &.closeOn {
             font-size: 30px;
           }
 
-					span.bi {
-						margin-left: 0;					//mods .icon-bttn .bi  _buttons.scss
-					}
+          span.bi {
+            margin-left: 0; //mods .icon-bttn .bi  _buttons.scss
+          }
 
-/* 					&::after{
+          /* 					&::after{
 						content: "MENU";
 						display: block;
 						font-size: 9px;
@@ -387,22 +414,22 @@
 						color: $color-primary;
 						padding-top: 3px;
 					} */
-					& + span{
-						display: none;
-					}
-				}
-			}
+          &+span {
+            display: none;
+          }
+        }
+      }
 
-			.navbar-brand{
-				width: 300px;
-				position: absolute;
-				top: 30px;
-				left: 50%;
-				transform: translate(-50%,-50%);
-				-webkit-transform: translate(-50%,-50%);
-				-moz-transform: translate(-50%,-50%);
-			}
-		}
+      .navbar-brand {
+        width: 300px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+      }
+    }
 
     .header_location {
       position: absolute;
@@ -451,7 +478,9 @@
         .secondary-nav-top {
           flex-direction: column;
 
-          button { padding-left: unset;}
+          button {
+            padding-left: unset;
+          }
 
           .search-box {
             position: relative;
@@ -480,20 +509,21 @@
           font-size: $font-size-md;
           position: relative;
           overflow: hidden;
+
           &:last-child {
             margin-bottom: 0px;
           }
 
           .dropdown-toggle {
             border-radius: 0; // mods icon-bttn _buttons.scss
-           background-color: transparent;
-           color: $color-indigo-500;
-           padding: 0;
-           justify-content: left;
-           text-transform: capitalize;
-           font-size: 16px;
-           font-weight: 200;
-           margin-left: 0.5rem;
+            background-color: transparent;
+            color: $color-indigo-500;
+            padding: 0;
+            justify-content: left;
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 200;
+            margin-left: 0.5rem;
 
             &:after {
               position: absolute;
@@ -573,4 +603,6 @@
   }
 
 
-} //#header-explore
+}
+
+//#header-explore
