@@ -24,6 +24,8 @@ $carousel-indicator-height: 20px;
 
 
 
+
+
 .top-banner,
 #banner {
   .carousel-inner {
@@ -125,11 +127,11 @@ $carousel-indicator-height: 20px;
               }
             }
         img {
-          
+
           object-fit: cover;
           width: 100%;
-          height:auto;
-          
+          height:100%;
+
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -157,11 +159,11 @@ $carousel-indicator-height: 20px;
         }
 
         img {
-          height: auto;
+          height: 100%;
           object-fit: cover;
           width: 100%;
-          height: auto;
-        
+          height: 100%;
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -474,10 +476,10 @@ $carousel-indicator-height: 20px;
 
 .top-banner .carousel-inner>.carousel-item .size-medium img,
 #banner .carousel-inner>.carousel-item .size-medium img {
-  height: auto;
+  height: 100%;
   object-fit: cover;
   width: 100%;
-  
+
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -529,7 +531,7 @@ $carousel-indicator-height: 20px;
         .lnk {
           width: max-content;
           text-transform: uppercase;
-         
+
           &:hover {
 
             text-decoration: none !important;
