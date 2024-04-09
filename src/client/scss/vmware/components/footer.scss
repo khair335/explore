@@ -8,7 +8,9 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 #footer {
-  margin-top: 100px;
+  >.container{
+    padding-top: 100px;
+  }
 
   .container:before {
     content: "" !important;
