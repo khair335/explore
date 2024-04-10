@@ -37,7 +37,7 @@
 	}
 }
 
-#subhead-navigation {
+#subhead-navigation {	
 	.bc-breadcrumbs {
 		@media only screen and (max-width: 992px) {
 			.breadcrumbMobile{
@@ -92,7 +92,7 @@
 
 // JD: There were dup IDs using subhead and I subdivided them.
 #subHead, #subhead-title {
-	// margin-bottom: 10px;
+	margin-bottom: 10px;
 	h1, h5 {
 		@media only screen and (max-width: 992px) {
 			font-size: 25px;
@@ -111,5 +111,5 @@
 		&.print, &.other-share{
 			display: none;
 		}
-	}
+	}	
 }
