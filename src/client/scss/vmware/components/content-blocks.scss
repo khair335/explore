@@ -181,17 +181,26 @@
       >div {
         &:first-child {
           width: 10%;
+          @media (max-width:767px) {
+            width: 20%;
+            }
         }
 
       }
 
       .card-title {
         width: 90%;
+        @media (max-width:767px) {
+            width: 80%;
+            }
       }
 
       .card-text {
         width: 90%;
         margin-top: -20px !important;
+        @media (max-width:767px) {
+            width: 80%;
+            }
       }
 
       .lnk {
@@ -199,6 +208,7 @@
           max-width: 65.99px;
           width: 100%;
           height: 65.99px;
+
 
         }
       }

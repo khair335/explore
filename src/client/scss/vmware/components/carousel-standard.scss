@@ -58,7 +58,7 @@ $carousel-indicator-padding: 40px;
     }
 
     .carousel-inner {
-        padding: 20px 20px;
+        padding: 0px 20px 20px 20px;
     }
 
     .carousel-control-prev,
@@ -167,16 +167,17 @@ $carousel-indicator-padding: 40px;
             text-align: center;
         }
     }
-    &.theme-cbl-card-transparent{
-        .carousel-inner {
-        .card {
-            box-shadow: none;
-        }
 
-        .card-body {
-            padding: 0;
+    &.theme-cbl-card-transparent {
+        .carousel-inner {
+            .card {
+                box-shadow: none;
+            }
+
+            .card-body {
+                padding: 0;
+            }
         }
-    }
     }
 
 
@@ -275,7 +276,8 @@ $carousel-indicator-padding: 40px;
                 }
 
             }
-            .featured-card-control{
+
+            .featured-card-control {
                 justify-content: center;
             }
         }
@@ -297,10 +299,10 @@ $carousel-indicator-padding: 40px;
         }
     }
 
-    .carousel-inner{
-        .ContentCard{
+    .carousel-inner {
+        .ContentCard {
             .card {
-                .card-title{
+                .card-title {
                     line-height: 1.2;
                 }
             }
@@ -318,70 +320,111 @@ $carousel-indicator-padding: 40px;
     .carousel-standard {
         &.CarouselFeatured {
             .featured-card {
-                .theme-card-standard {
-                    .ImageCard {
-                        max-width: 290px;
-                        width: 100%;
-                        box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10);
-                        padding-bottom: 29px;
+                >div {
+                    height: 100%;
 
-                        .card-body {
-                            padding: 0;
+                    .theme-card-standard {
+                        height: 100%;
+                        padding-bottom: 60px;
 
-                            img {
-                                max-width: 290px;
-                                width: 100%;
-                                height: 145px;
-                                object-fit: cover;
-                            }
+                        .ImageCard {
+                            max-width: 290px;
+                            width: 100%;
+                            box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10);
+                            padding-bottom: 0px;
+                            height: 100%;
 
-                            .card-title {
-                                padding: 16px 29px 18px;
-                                font-size: 25px;
-                                font-weight: 300;
-                                color: $color-ocean-700;
-                                text-align: left;
+                            .card-body {
+                                padding: 0;
 
-                                &:hover {
-                                    text-decoration: underline;
+                                img {
+                                    max-width: 290px;
+                                    width: 100%;
+                                    height: 145px;
+                                    object-fit: cover;
                                 }
-                            }
 
-                            .card-text {
-                                padding: 1px 29px;
-                            }
-                        }
-
-                        .card-footer {
-                            .cb-cta-link {
-                                margin-left: 29px;
-
-                                .lnk,
-                                .card-link {
-                                    @include cta-link-style;
-                                    font-size: 16px;
-                                    // text-transform: capitalize;
-
-                                    &:after {
-                                        @include cta-link-after;
-
-                                    }
-
+                                .card-title {
+                                    padding: 16px 29px 18px;
+                                    font-size: 25px;
+                                    font-weight: 300;
+                                    color: $color-ocean-700;
+                                    text-align: left;
 
                                     &:hover {
-
+                                        text-decoration: underline;
                                     }
+                                }
+
+                                .card-text {
+                                    padding: 1px 29px;
+                                }
+                            }
+
+                            .card-footer {
+                                .cb-cta-link {
+                                    margin-left: 29px;
+
+                                    .lnk,
+                                    .card-link {
+                                        @include cta-link-style;
+                                        font-size: 16px;
+                                        // text-transform: capitalize;
+
+                                        &:after {
+                                            @include cta-link-after;
+
+                                        }
+
+
+                                        &:hover {}
+                                    }
+
                                 }
 
                             }
 
+
+
                         }
-
-
-
                     }
                 }
 
+
+            }
+
+            .carousel {
+                height: 100%;
+
+                .carousel-inner {
+                    height: 100%;
+
+                    .carousel-item {
+                        height: 100%;
+
+                        >div {
+                            height: 100%;
+
+                            .content-block {
+                                height: 100%;
+                                margin-bottom: 0;
+
+                                .ContentCard {
+                                    height: 100%;
+
+                                    .container {
+                                        height: 100%;
+
+                                        .row {
+                                            height: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
             }
         }
     }
