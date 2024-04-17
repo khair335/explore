@@ -6,92 +6,57 @@
 // ======================================================================================
 
 // COLORS
-$color-primary: #005C8A; //#1D428A; //link button default color
-$color-primary--dark: #04314D; //link hover
+$color-primary: #005C8A; //Color/brand/Blue
+$color-primary--dark: #04314D; //link hover only
 
 
-$color-secondary: hsl(200, 100%, 43%); //#0091DA; 	// ocean,
-$color-secondary--dark: hsl(200, 100%, 36%); //#007ab8;	// link hover color
+$color-secondary: #0098C7; 	// color/brand/ light blue - not in use yet
+$color-secondary--light: #007DA3;	//color/brand/ Light ode - light blue - not in use yet
+$color-secondary--dark: #0098CA;	//color/brand/ Dark Mode - light blue - not in use yet
+
 
 $color-warn: hsl(34, 100%, 44%); //#de7c00;
 $color-archive: hsl(21, 79%, 47%); //#d55c19;
-$color-table-head: #b5283a; //old -not in use anymore
+$color-table-head: #b5283a; //old -not in use for vmware
+
+// Gray
+//not used for vmware
+$color-grey--900: hsl(0, 0%, 24%); //#3D3D3D; // //do not use for vmware
+$color-grey--800: hsl(0, 0%, 24%); //#3D3D3D; // //do not use for vmware
+$color-grey--675: hsl(0, 0%, 34%);//do not use for vmware
+$color-grey--650: hsl(0, 0%, 34%); //do not use for vmware
+$color-grey--625: hsl(0, 0%, 34%); //do not use for vmware
 
 
-$color-grey--900: hsl(0, 0%, 24%); //#3D3D3D; // change with $color-grey--700 in theme
-$color-grey--800: hsl(0, 0%, 24%); //#3D3D3D; // change with $color-grey--600 in theme
-$color-grey--700: hsl(0, 0%, 24%); //#3D3D3D;	// default color for all body copy and non-header text
-$color-grey--675: hsl(0, 0%, 34%);
-$color-grey--650: hsl(0, 0%, 34%);
-$color-grey--625: hsl(0, 0%, 34%);
-$color-grey--600: hsl(0, 0%, 34%); //#565656;	// default body text color
-$color-grey--500: hsl(255, 2%, 45%); //#717074; //used for background and secondary title
-$color-grey--400: hsl(240, 1%, 56%); //#8D8D90	//
-$color-grey--300: hsl(260, 2%, 67%); //#AAA9AC
-$color-grey--200: hsl(240, 1%, 78%); //#C6C6C7
-$color-grey--100: hsl(300, 2%, 89%); //#E3E2E3;
-$color-grey--50: hsl(0, 0%, 97%); //#f7f7f7;
+// vmware gray
+$color-grey--700: #3D3D3D;	
+$color-grey--600: #565656;	// default body text color
+$color-grey--500: #717074; 
+$color-grey--400: #8D8D90;	
+$color-grey--300: #AAA9AC;
+$color-grey--200: #C6C6C7;
+$color-grey--100: #E3E2E3;
+$color-grey--50:  #F7F7F7;
+$color-grey--10:  #EBEBEB; // border color;
 
-//Indigo colors
-$color-indigo-100: #D2D9E8;
-$color-indigo-200: #A5B3D0;
-$color-indigo-300: #778EB9;
-$color-indigo-400: #4A68A1;
-$color-indigo-500: #1D428A;
 
-//Ocean
-$color-ocean-100: #CCE9F8;
-$color-ocean-200: #99D3F0;
-$color-ocean-300: #66BDE9;
-$color-ocean-400: #33A7E1;
-$color-ocean-500: #0091DA;
-$color-ocean-600: #007AB8;
-$color-ocean-700: #005C8A;
-
-//Leaf
-$color-leaf-100: #E4F2D2;
-$color-leaf-200: #C9E5A6;
-$color-leaf-300: #AED879;
-$color-leaf-400: #93CB4D;
-$color-leaf-500: #78BE20;
-$color-leaf-600: #65A11B;
-$color-leaf-700: #528316;
-$color-leaf-800: #3C610F;
-
-//Plum
-$color-plum-100: #E5D7F0;
-$color-plum-200: #CCAEE0;
-$color-plum-300: #B286D1;
-$color-plum-400: #995DC1;
-$color-plum-500: #7F35B2;
-$color-plum-600: #7932A9;
 
 //Aqua
-$color-aqua-100: #CCF3F7;
-$color-aqua-200: #99E6EE;
-$color-aqua-300: #66DAE6;
-$color-aqua-400: #33CDDE;
-$color-aqua-500: #00C1D5;
-$color-aqua-600: #00A1B3;
-$color-aqua-700: #00818F;
-$color-aqua-800: #005C66;
+$color-aqua: #007BBC; //brand colors / Aqua
+$color-aqua-light: #01B9C6; //Lignt mode / primary light 
+$color-aqua-dark: #01B9C6; //Dark mode / primary dark
 
-//Tangerine
-$color-tangerine-100: #FBE4CC;
-$color-tangerine-200: #F7C999;
-$color-tangerine-300: #F4AD66;
-$color-tangerine-400: #F09233;
-$color-tangerine-500: #EC7700;
-$color-tangerine-600: #E67300;
-$color-tangerine-700: #B85C00;
-$color-tangerine-800: #8A4500;
+//Green
+$color-green:#61A60E; //brand colors /Green
+$color-green-light:#23800A; //Light mode / primary light
+$color-green-dark:#61A60E; // Dark mode / primary dark
 
-//Crimson
-$color-crimson-100: #ECD4D9;
-$color-crimson-200: #D9A9B3;
-$color-crimson-300: #C57E8E;
-$color-crimson-400: #B25368;
-$color-crimson-500: #9F2842;
+//purple
+$color-purple:#6C4B94; //brand colors / Purple
+$color-purple-light:#6C4B94; //Light mode / primary light - same as brand purple
+$color-purple-dark:#A468EE; // Dard mode / primary dark
+
+
 
 //Gradient
 $g-plum-indigo: linear-gradient(45deg, #7F35B2 14.64%, #1D428A 85.36%);
@@ -103,11 +68,12 @@ $g-leaf-aqua: linear-gradient(45deg, #78BE20 14.64%, #00C1D5 85.36%);
 $g-leaf-ocean: linear-gradient(45deg, #78BE20 14.64%, #0091DA 85.36%);
 
 //Background Color
-$background-color: #ffffff;
-$background-light-blue: #F4F8FA;
-$background-light-gray: #f7f7f7;
-$background-dark-blue: #F4F8FA;
-$background-dark: #192A33;
+$background-color: #ffffff; // white
+$background-light-blue: #F4F8FA; // Light Blue
+$background-light-gray: #f7f7f7; // Light Gray
+$background-dark-blue: #F4F8FA; //not in use
+$background-dark: #1b1d36; // dark background color
+
 //Shadow
 $shadow-1: 0 2px 4px 0 rgba(17, 69, 134, 0.24);
 $shadow-2: 0 4px 8px 0 rgba(17, 69, 134, 0.16);
@@ -116,18 +82,28 @@ $shadow-4: 0 16px 24px 0 rgba(17, 69, 134, 0.12);
 $shadow-5: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
 // Base Color
-$color-white: hsl(0, 0%, 100%); //#fff;
-$color-black: hsl(0, 0%, 0%); //#000; text color for titles,
-$color-body: $color-grey--600;
-$color-body-dark: $color-white;
+$color-white: #FFFFFF; 
+$color-black: #000000; //text color for titles,
+$color-body: $color-grey--600; // body text color in Light Mode
+$color-body-dark: $color-white; // body text color in Dark Mode
+$color-border: $color-grey--10; //border color
 
 
-$color-highlight-yellow: hsl(43, 35%, 88%); //#f4db9e; //not in use for now
 
-//link color
-$color-active: $color-ocean-700; // active highlight color
-$color-link: $color-ocean-700; // this is primary color, defalt link color
-$color-link-hover: #04314D; //this is ocean color, default link hover color
+$color-highlight-yellow: hsl(43, 35%, 88%); //#f4db9e; //
+
+//link color light mode
+$color-active: $color-primary; // active highlight color
+$color-link: $color-primary; // this is primary color, defalt link color
+$color-link-hover: #04314D; //this is default link hover color
+//$color-link-active: #80bdff;  //this is default link active color// UX team in progress
+
+
+//link color dark mode
+$color-link-dark: #47B2D3; // dark mode link color and link CTA color
+$color-link-hover-dark: #47B2D3; // dark mode link hover color and link CTA hover color - same as link color
+
+
 
 // SOCIAL COLORS
 $color-social--linkedin: hsl(201, 100%, 47%); //#0077b5;

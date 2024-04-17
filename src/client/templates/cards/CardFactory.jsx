@@ -13,6 +13,7 @@ import ImageBase from 'components/ImageBase.jsx';
 import { BodyResource } from 'components/Body.jsx';
 import Video, { VideoImageModal } from 'components/Video.jsx';
 import classnames from "classnames";
+import { msToTime } from 'components/LibraryElements.jsx';
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
@@ -482,14 +483,9 @@ AnalystReportCard.propTypes = {
  *  @details
  */
 export const VideoCard = (props) => {
-    const video_content = props.data
-    const url_path = config.video.videoPath(video_content?.account)+"/"+video_content?.id;
+    const video_content = props.data || props.video
+    const url_path = config.video.videoPath(video_content?.account) + "/" + video_content?.id;
     const target = "_self"
-    
-    const truncateDescription = (text, maxLength) => {
-        if (text?.length <= maxLength) return text;
-        return text?.substr(0, maxLength) + '...';
-    };
 
     const formatMillisecondsToHours = (milliseconds) => {
         const seconds = Math.floor(milliseconds / 1000);
@@ -516,14 +512,14 @@ export const VideoCard = (props) => {
         <div className="VideoCard card">
             <div className="card-body">
                 <SiteLink to={url_path} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
-                    <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail" />
+                    {video_content?.images?.poster ? <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail" /> : <ImageBase src={video_content?.poster} alt={video_content?.description} className="video-thumbnail" />}
                     <div image="" alt="Play button" className="play-button" />
                     <span className="video-duration">{formatMillisecondsToHours(video_content?.duration)}</span>
                 </SiteLink>
                 <div className="video-info">
-                    <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name} | {video_content?.views} views</span></SiteLink>
-                    <SiteLink className='card-video-title' to={url_path} target={target}><h5>{truncateDescription(video_content?.description, 27)}</h5></SiteLink>
-                    <p className='card-video-des'>{truncateDescription(video_content?.long_description, 53)}</p>
+                    <SiteLink className='video-name-data' to={url_path} target={target}>{video_content?.views ? <span>{video_content?.name} | {video_content?.views} views</span> : <span>{video_content?.name}</span>}</SiteLink>
+                    <SiteLink className='card-video-title' to={url_path} target={target}><h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 54) }}></h5></SiteLink>
+                    <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 72) }}></p>
                 </div>
             </div>
         </div>

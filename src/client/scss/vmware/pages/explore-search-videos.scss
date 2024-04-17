@@ -123,17 +123,17 @@
      .year-btn {
        font-size: 18px;
        font-weight: 300;
-       border: 1px solid $color-ocean-700;
-       color: $color-ocean-700;
+       border: 1px solid $color-primary;
+       color: $color-primary;
        background-color: #fff;
 
        &:hover {
          background-color: #fff;
-         color: $color-ocean-700;
+         color: $color-primary;
        }
 
        &.year-btn-active {
-         background-color: $color-ocean-700;
+         background-color: $color-primary;
          color: #fff;
        }
      }
@@ -250,7 +250,7 @@
 
      .keywords-tag {
        height: 30px;
-       background: $color-ocean-700 ;
+       background: $color-primary;
        color: #fff;
        font-size: 14px;
        font-weight: 300;
@@ -322,9 +322,9 @@
 
          .sort-btn {
            background-color: #fff;
-           border: 1px solid #c6c6c7;
+           border: 1px solid $color-grey--200;
            border-radius: 5px;
-           color: $color-ocean-700;
+           color: $color-primary;
            font-weight: 300;
            padding: 10px;
            font-size: 18px;
@@ -362,7 +362,7 @@
      padding: 24px 0;
      box-shadow: 0 8px 16px rgba(17, 69, 134, 0.12);
      background-color: #F4F8FA;
-     position: sticky;
+     /* position: sticky; */
      z-index: 10;
      top: 0;
    }
