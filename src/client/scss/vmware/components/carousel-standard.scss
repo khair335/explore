@@ -345,15 +345,12 @@ $carousel-indicator-padding: 40px;
                                 }
 
                                 .card-title {
-                                    padding: 16px 29px 18px;
+                                    padding-left: 18px;
                                     font-size: 25px;
                                     font-weight: 300;
-                                    color: $color-ocean-700;
                                     text-align: left;
 
-                                    &:hover {
-                                        text-decoration: underline;
-                                    }
+                                    
                                 }
 
                                 .card-text {
@@ -363,12 +360,12 @@ $carousel-indicator-padding: 40px;
 
                             .card-footer {
                                 .cb-cta-link {
-                                    margin-left: 29px;
+                                    //margin-left: 29px;
 
                                     .lnk,
                                     .card-link {
                                         @include cta-link-style;
-                                        font-size: 16px;
+                                        font-size: 14px;
                                         // text-transform: capitalize;
 
                                         &:after {

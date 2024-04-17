@@ -94,6 +94,14 @@
           margin: 0;
           text-transform: capitalize;
           text-decoration: none;
+          &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+            text-decoration-line: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+
         }
       }
     }
@@ -120,6 +128,12 @@
           @include media-breakpoint-down(md) {
             justify-content: center;
           }
+          &:hover {
+            text-decoration: underline;
+            text-decoration-line: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
 
           img {
             max-width: 15px;

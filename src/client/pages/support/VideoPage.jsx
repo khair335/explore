@@ -17,6 +17,7 @@ import ErrorPage from 'pages/error/ErrorPage.jsx';
 import classnames from 'classnames';
 import { withRouter } from 'routes/withRouter.jsx';
 import ImageBase from 'components/ImageBase.jsx';
+// import Loading from 'components/Loading.jsx
 // import 'scss/pages/video-page.scss'
 
 // import Speakers from 'components/Speakers.jsx';
@@ -49,6 +50,7 @@ class VideoPage extends PageComponent {
 			copy_tooltip: '',
 			copySuccess: '',
 			activeTab: 'details',
+			relLoading: false,
 		};
 
 		this.copy_tooltip_timeout = 0;
@@ -81,7 +83,7 @@ class VideoPage extends PageComponent {
 		// Set our browser title.
 
 		if (config.site === 'vm') {
-			document.title = 'VMware Explore Video Landing';
+			document.title = meta.description;
 		}
 		else {
 			document.title = title;
@@ -114,7 +116,73 @@ class VideoPage extends PageComponent {
 			return false;
 		}
 	};
-	//adding comment
+
+	get_shareLinks(args) {
+		const validargs = [
+			'url',
+			'title',
+			'image',
+			'desc',
+			'appid',
+			'redirecturl',
+			'via',
+			'hashtags',
+			'provider',
+			'language',
+			'userid',
+			'category',
+			'phonenumber',
+			'emailaddress',
+			'cemailaddress',
+			'bccemailaddress',
+		];
+
+		for (var i = 0; i < validargs.length; i++) {
+			const validarg = validargs[i];
+			if (!args[validarg]) {
+				args[validarg] = '';
+			}
+		}
+
+		const url = encodeURIComponent(args.url);
+		const title = encodeURIComponent(args.title);
+		const image = encodeURIComponent(args.image);
+		const desc = encodeURIComponent(args.desc);
+		const app_id = encodeURIComponent(args.appid);
+		const redirect_url = encodeURIComponent(args.redirecturl);
+		const via = encodeURIComponent(args.via);
+		const hash_tags = encodeURIComponent(args.hashtags);
+		const provider = encodeURIComponent(args.provider);
+		const language = encodeURIComponent(args.language);
+		const user_id = encodeURIComponent(args.userid);
+		const category = encodeURIComponent(args.category);
+		const phone_number = encodeURIComponent(args.phonenumber);
+		const email_address = encodeURIComponent(args.emailaddress);
+		const cc_email_address = encodeURIComponent(args.ccemailaddress);
+		const bcc_email_address = encodeURIComponent(args.bccemailaddress);
+		var text = title;
+
+
+		if (desc) {
+			text += '%20%3A%20';
+			text += desc;
+		}
+
+
+		if (args.platform === 'twitter') {
+			return 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text + '&via=' + via + '&hashtags=' + hash_tags
+		}
+		if (args.platform === 'facebook') {
+			return 'http://www.facebook.com/sharer.php?u=' + url
+		}
+		if (args.platform === 'linkedin') {
+			return 'https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + title + '&summary=' + text + '&source=' + provider
+		}
+		if (args.platform === 'email') {
+			return 'mailto:' + email_address + '?subject=' + title + '&body=' + desc
+		}
+	}
+
 	// for share tab
 	renderShareOptions = () => {
 		const { shareUrl } = this.state;
@@ -124,20 +192,94 @@ class VideoPage extends PageComponent {
 
 		if (config.site === 'vm') {
 			social_links = [
-				{ name: 'Twitter', socialLink: "https://twitter.com/VMwareExplore", className: 'bi brcmicon-twitter' },
-				{ name: 'LinkedIn', socialLink: "https://www.linkedin.com/groups/2028037/", className: 'bi brcmicon-linkedin' },
-				{ name: 'Facebook', socialLink: "https://www.facebook.com/VMwareExplore/", className: 'bi brcmicon-facebook' },
-				{ name: 'Email', socialLink: "mailto:?Subject=The%20Cyber%20Cloud%20%E2%80%93%20Next%20Steps%20for%20Augmenting%20Cybersecurity%20with%20the%20Cloud&body=Shareable%20Video%20Link:%20https://www.vmware.com/explore/video-library/video-landing.html?sessionid=1685730995177001vX71%26videoId=6341057092112", className: 'bi brcmicon-email' }
+				{
+					name: 'Twitter', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state?.videoDetails?.description,
+                        image: this.state.image,
+                        desc: this.state?.videoDetails?.long_description,
+						via: this.state.via,
+						platform: 'twitter'
+					}), className: 'bi brcmicon-twitter'
+				},
+				{
+					name: 'LinkedIn', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state?.videoDetails?.description,
+                        image: this.state.image,
+                        desc: this.state?.videoDetails?.long_description,
+						via: this.state.via,
+						platform: 'linkedin'
+					}), className: 'bi brcmicon-linkedin'
+				},
+				{
+					name: 'Facebook', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state?.videoDetails?.description,
+                        image: this.state.image,
+                        desc: this.state?.videoDetails?.long_description,
+						via: this.state.via,
+						platform: 'facebook'
+					}), className: 'bi brcmicon-facebook'
+				},
+				{
+					name: 'Email', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state?.videoDetails?.description,
+                        image: this.state.image,
+                        desc: 'Shareable Video Link: '+shareUrl,
+						via: this.state.via,
+						platform: 'email'
+					}), className: 'bi brcmicon-email'
+				}
 			];
 		} else {
 			social_links = [
-				{ name: 'Twitter', socialLink: "https://twitter.com/Broadcom", className: 'bi brcmicon-twitter' },
-				{ name: 'LinkedIn', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-linkedin' },
-				{ name: 'Facebook', socialLink: "https://www.facebook.com/Broadcom", className: 'bi brcmicon-facebook' },
-				{ name: 'Email', socialLink: "https://www.linkedin.com/company/broadcom", className: 'bi brcmicon-email' }
+				{
+					name: 'Twitter', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
+						via: this.state.via,
+						platform: 'twitter'
+					}), className: 'bi brcmicon-twitter'
+				},
+				{
+					name: 'LinkedIn', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
+						via: this.state.via,
+						platform: 'linkedin'
+					}), className: 'bi brcmicon-linkedin'
+				},
+				{
+					name: 'Facebook', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
+						via: this.state.via,
+						platform: 'facebook'
+					}), className: 'bi brcmicon-facebook'
+				},
+				{
+					name: 'Email', socialLink: this.get_shareLinks({
+						url: shareUrl,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
+						via: this.state.via,
+						platform: 'email'
+					}), className: 'bi brcmicon-email'
+				}
 			];
 
 		}
+
+
 
 		return (
 			<>
@@ -166,6 +308,10 @@ class VideoPage extends PageComponent {
 
 
 	componentDidMount() {
+		this.setState({
+			relLoading: true,
+		})
+
 		fetch(`${config.video?.endpoint}/${this.state?.mediaid}/related`, {
 			method: 'get',
 			headers: new Headers({
@@ -175,7 +321,10 @@ class VideoPage extends PageComponent {
 			.then(resp => resp.json())
 			.then(json => {
 				this.setState({
-					relatedVideos: json
+					relatedVideos: json,
+					relLoading: false,
+
+
 				});
 			});
 
@@ -203,6 +352,8 @@ class VideoPage extends PageComponent {
 			return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
 		}
 	};
+
+
 
 
 
@@ -301,7 +452,7 @@ class VideoPage extends PageComponent {
 											</div>
 											{/* video title */}
 											<div className="col-md-12 col-sm-12 col-xs-12">
-												<h1 className="video-title">{this.state?.videoDetails?.description}</h1>
+												<h1 className="video-title" dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.description }}></h1>
 											</div>
 											{/* tab function */}
 											<div>
@@ -326,7 +477,7 @@ class VideoPage extends PageComponent {
 														<div className='abstract-summary'>
 															<Collapse isOpen={this.state.activeTab === 'details'}>
 																<div className='abstract-fullsummary'>
-																	<p>{this.state?.videoDetails?.long_description}</p>
+																	<p dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.long_description }}></p>
 																</div>
 															</Collapse>
 														</div>
@@ -336,34 +487,34 @@ class VideoPage extends PageComponent {
 														</div>
 														<ul className='session-details'>
 															{this.state?.videoDetails?.name && <li>
-																<label><b>Session Code</b></label>
-																<span>{this.state?.videoDetails?.name}</span>
+																<label>Session Code</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.name }}></span>
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.sessiontype && <li>
-																<label><b>Type</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.sessiontype}</span>
+																<label>Type</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.sessiontype }}></span>
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.track && <li>
-																<label><b>Track</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.track}</span>
+																<label>Track</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.track }}></span>
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.products && <li>
-																<label><b>Products</b></label>
+																<label>Products</label>
 																{this.state?.videoDetails?.custom_fields?.products?.split('|')?.map((item, index) => (
-																	<p key={index}>{item}</p>))}
+																	<p key={index} dangerouslySetInnerHTML={{ __html: item }}></p>))}
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.level && <li>
-																<label><b>Level</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.level}</span>
+																<label>Level</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.level }}></span>
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.event_delivery && <li>
-																<label><b>Event Delivery</b></label>
-																<span>{this.state?.videoDetails?.custom_fields?.event_delivery}</span>
+																<label>Event Delivery</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.event_delivery }}></span>
 															</li>}
 															{this.state?.videoDetails?.custom_fields?.audience && <li>
-																<label><b>Audience</b></label>
+																<label>Audience</label>
 																{this.state?.videoDetails?.custom_fields?.audience?.split('|')?.map((item, index) => (
-																	<p key={index}>{item}</p>))}
+																	<p key={index} dangerouslySetInnerHTML={{ __html: item }}></p>))}
 															</li>}
 														</ul>
 													</TabPane>
@@ -388,33 +539,35 @@ class VideoPage extends PageComponent {
 											<div className="related-videos-section">
 												<div className="videos-container-0">
 													<h2>Related Videos</h2>
-													<div className="videos-container">
-														{related_videos?.map((video, index) => (
-															<div key={index} className="video-item">
+													<Loading isLoading={this.state.relLoading}>
+														<div className="videos-container">
+															{related_videos?.map((video, index) => (
+																<div key={index} className="video-item">
 
 
-																<SiteLink
-																	to={config.video.videoPath(video?.account) + "/" + video?.id}
+																	<SiteLink
+																		to={config.video.videoPath(video?.account) + "/" + video?.id}
 
-																	className="video-link"
+																		className="video-link"
 
-																	// style={{ backgroundImage: `url("${video.poster}")` }}
-																	target="_self"
-																>
-																	<ImageBase className="related-image" src={`${video.poster}`} />
-																	<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
-																	<div image="" alt="Play button" className="play-button" />
-																</SiteLink>
+																		// style={{ backgroundImage: `url("${video.poster}")` }}
+																		target="_self"
+																	>
+																		<ImageBase className="related-image" src={`${video.poster}`} />
+																		<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
+																		<div image="" alt="Play button" className="play-button" />
+																	</SiteLink>
 
 
-																<div className="video-info">
-																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video.name}</span></SiteLink>
-																	<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link">{this.truncateDescription(video.description, 28)}</h3></SiteLink>
-																	<p className="related-des">{this.truncateDescription(video.long_description, 120)}</p>
+																	<div className="video-info">
+																		<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video.name}</span></SiteLink>
+																		<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>
+																		<p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>
+																	</div>
 																</div>
-															</div>
-														))}
-													</div>
+															))}
+														</div>
+													</Loading>
 												</div>
 											</div>
 										</Col>

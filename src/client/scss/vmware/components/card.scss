@@ -249,7 +249,7 @@
 
     .video-duration {
         position: absolute;
-        background-color: $color-ocean-700;
+        background-color: $color-primary;
         color: #fff;
         display: block;
         font-weight: 300;
@@ -271,6 +271,7 @@
 
         .video-name-data {
             margin: 0;
+            display: block ;
 
             span {
                 font-size: 14px;
@@ -278,7 +279,7 @@
                 margin: 0;
                 display: inline-block;
                 text-align: left;
-                color: $color-grey--650;
+                color: $color-grey--600;
 
                 &:hover {
                     text-decoration: underline;

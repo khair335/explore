@@ -406,28 +406,32 @@
     }
 }
 
+
+//completely mods button - should prob be own class in _buttons.scss
 .MainNavExploreItem{
-	button, a.bttn {										//completely mods button - should prob be own class in _buttons.scss
+	button, a.bttn {										
 		background-color: transparent;
+		text-transform: capitalize;
+		font-size: $font-size-lg;
 		color: $color-black;
 		font-weight: 200;
 		padding-left: 0 !important; 
 		border: 0 !important;
 		&:hover{
-			color: $color-ocean-700;
+			color: $color-primary;
 			border: 0 !important;
 		}
 		&.active::before {
 			content: "";
 			position: absolute;
 			bottom: calc(100% - 46px);
-			/* left: 50%; */
 			-webkit-transform: translateX(-50%);
 			-moz-transform: translateX(-50%);
 			transform: translateX(-50%);
-			border-bottom: 9px solid $color-ocean-600;
+			border-bottom: 9px solid $color-primary;
 			border-left: 9px solid transparent;
 			border-right: 9px solid transparent;
 		}
 	}
 }
+

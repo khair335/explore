@@ -9,7 +9,7 @@
 @import "../base/icons";
 @import "../base/link";
 
-.HorizontalTab {
+.HorizontalTab, .tabs {
 
     .nav-tabs {
         border-bottom: 0;
@@ -30,7 +30,7 @@
             //     content: "";
             //     height: 20px;
             //     width: 1px;
-            //     background-color: $color-grey--625;
+            //     background-color: $color-grey--600;
             //     position: absolute;
             //     right: 0;
             //     top: 50%;
@@ -58,13 +58,14 @@
                 margin: 0px 0px;
                 text-transform: capitalize;
                 text-decoration: none;
+                font-weight: 300; //normal text font weight
 
                 &:after {
                     content: unset !important;
                 }
 
                 &:hover {
-                    color: $color-ocean-700;
+                    color: $color-primary;
                     text-decoration: none !important; //mods _link.scss - necessary to keep from having double red lines on hover
                     border: 0 !important;
                     border-bottom: 2px solid $color-primary !important;

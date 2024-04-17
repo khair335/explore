@@ -26,7 +26,7 @@
 			content: "";
 			height: 20px;
 			width: 1px;
-			background-color: $color-grey--625;
+			background-color: $color-grey--600;
 			position: absolute;
 			right: 0;
 			top: 50%;
@@ -53,14 +53,14 @@
 			position: relative;
 
 			&:hover {
-				color: $color-ocean-700 !important;
+				color: $color-primary !important;
 				text-decoration: none; //mods _link.scss - necessary to keep from having double red lines on hover
 				border-bottom: 2px solid $color-primary !important;
 			}
 
 			&.active {
 				//mods _link.scss
-				color: $color-ocean-700 !important;
+				color: $color-primary !important;
 				border-bottom: 2px solid $color-primary;
 			}
 		}

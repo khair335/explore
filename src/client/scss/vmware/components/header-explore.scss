@@ -124,15 +124,15 @@
       button {
         font-weight: 200;
         font-size: 14px;
-        color: $color-indigo-500;
+        color: $color-primary;
         text-decoration: none;
         text-transform: capitalize;
         display: block;
       }
 
-      /*       ul.login {
-        margin-top: -11px;
-      } */
+      .contact a.lnk {
+        margin-top: 1px;
+      }
 
       .headerlanguage,
       .login-wrap {
@@ -155,10 +155,10 @@
 
       i {
         margin-left: 5px;
-        color: $color-indigo-500;
+        color: $color-primary;
 
         &:before {
-          color: $color-indigo-500;
+          color: $color-primary;
         }
       }
 
@@ -166,10 +166,11 @@
       .MainNavExploreItem button,
       .MainNavExploreItem .label {
         font-size: $font-size-md;
-        color: $color-indigo-500;
+        color: $color-primary;
         text-transform: inherit;
         font-weight: 200;
         text-decoration: none;
+        text-transform: capitalize;
       }
 
       button {
@@ -214,7 +215,7 @@
         /* text-transform: uppercase; */
 
         &:hover {
-          color: $color-indigo-500;
+          color: $color-primary;
         }
       }
     }
@@ -242,8 +243,9 @@
     .dropdown-menu {
       position: absolute !important;
       top: 20px !important;
-      left: 20px !important;
-      width: 100%;
+      left: auto !important;
+      right: 0;
+      width: 200%;
       transform: none !important;
       border-radius: 0px;
       padding: 0 10px;
@@ -336,6 +338,10 @@
 
 
   @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+
+/*     body {
+      position:fixed;
+    } */
 
     #header-explore {
       position: static;
@@ -466,6 +472,14 @@
           display: none;
         }
 
+        .secondary-nav-cta {
+          position: relative;
+          width: 100%;
+          top: unset;
+          margin-left: unset;
+          margin-right: unset;
+        }
+
         .header-typahead .input-group-append {
           position: unset;
           right: unset;
@@ -482,17 +496,15 @@
             padding-left: unset;
           }
 
+          a.lnk {
+            font-size: $font-size-lg;
+          }
+
           .search-box {
             position: relative;
             top: unset;
             border: 1px solid $color-grey--400;
             margin-bottom: 20px;
-          }
-
-          .secondary-nav-cta {
-            position: relative;
-            width: 90%;
-            top: unset;
           }
 
           ul.login {
@@ -505,7 +517,7 @@
           display: block;
           background-color: transparent;
           border-bottom: none;
-          color: $color-indigo-500;
+          color: $color-primary;
           font-size: $font-size-md;
           position: relative;
           overflow: hidden;
@@ -517,7 +529,7 @@
           .dropdown-toggle {
             border-radius: 0; // mods icon-bttn _buttons.scss
             background-color: transparent;
-            color: $color-indigo-500;
+            color: $color-primary;
             padding: 0;
             justify-content: left;
             text-transform: capitalize;
@@ -588,6 +600,9 @@
     ul.navbar-nav {
       padding-left: 1rem;
       align-items: flex-start;
+
+/*       max-height:400px;
+      overflow-y: scroll; */
 
       li {
         padding: 15px 0;
