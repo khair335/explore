@@ -133,6 +133,7 @@
             text-decoration-line: underline;
             text-underline-offset: 3px;
             text-decoration-thickness: 2px;
+            color:$color-primary
         }
 
           img {
@@ -151,6 +152,7 @@
       gap: 20px;
       padding-top: 30px;
       flex-direction: row;
+      
 
       @include media-breakpoint-down(md) {
         flex-direction: column;
@@ -160,7 +162,14 @@
         font-weight: 300;
         font-size: 15px;
         color: $color-black;
-        text-transform: capitalize;
+        //text-transform: capitalize;
+        &:hover {
+          color:$color-primary;
+          text-decoration: underline;
+          text-decoration-line: underline;
+          text-underline-offset: 3px;
+          text-decoration-thickness: 2px;
+        }
       }
     }
 

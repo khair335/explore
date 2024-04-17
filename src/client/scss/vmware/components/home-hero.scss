@@ -219,7 +219,7 @@ $carousel-indicator-height: 20px;
         &:hover {
           border-color: $color-white;
           background-color: $color-white;
-          color: $color-primary;
+          color: $color-link-hover-dark;
         }
       }
     }
@@ -298,10 +298,6 @@ $carousel-indicator-height: 20px;
 
     .teaser {
       margin-bottom: 20px;
-
-      a {
-        margin-bottom: 10px; //for CA hero banner with more than one CTA
-      }
     }
 
     a.lnk {
