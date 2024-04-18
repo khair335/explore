@@ -52,7 +52,7 @@ const ExploreSearchVideos = (props) => {
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [inputChange, setInputChange] = useState('');
-	const [loadCount,setLoadCount] = useState(0);
+	const [loadCount, setLoadCount] = useState(0);
 
 
 	const filterParams = (updatedValues) => {
@@ -213,19 +213,19 @@ const ExploreSearchVideos = (props) => {
 					setVideos(json.videos)
 					setLoadCount(json.videos.length)
 				}) :
-			fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`, {
-				method: 'get',
-				headers: new Headers({
-					'Accept': `application/json;pk=${config.video.policy_key}`,
-				}),
-			})
-				.then(resp => resp.json())
-				.then(json => {
-					setLoading(false)
-					setVideoCount(json.count)
-					setVideos(json.videos)
-					setLoadCount(json.videos.length)
-				}))
+				fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`, {
+					method: 'get',
+					headers: new Headers({
+						'Accept': `application/json;pk=${config.video.policy_key}`,
+					}),
+				})
+					.then(resp => resp.json())
+					.then(json => {
+						setLoading(false)
+						setVideoCount(json.count)
+						setVideos(json.videos)
+						setLoadCount(json.videos.length)
+					}))
 		}
 	}, [selectedValues, selectedYear, searchTerm, filterString, limit]);
 
@@ -303,19 +303,20 @@ const ExploreSearchVideos = (props) => {
 							placeholder="Search by keyword"
 						/>
 					</form>
-					<span className='title-style'>Select Event Year</span>
-					<div className="year-container">
-						{years?.map((year, index) => (
-							<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
-						))}
-					</div>
+					{(years.length > 1) ? <>
+						<span className='title-style'>Select Event Year</span>
+						<div className="year-container">
+							{years?.map((year, index) => (
+								<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
+							))}
+						</div></> : null}
 					<br />
 					<hr />
 					<br />
 					<div>
 						<div className="dropdown-container">
 							{temp_data.map((dropdown) => (
-								(dropdown.label?.toLowerCase()!=='region')?<Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
+								(dropdown.label?.toLowerCase() !== 'region') ? <Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
 									<DropdownToggle caret>
 										{dropdown.label}
 										<div className="dropdown-caret"></div>
@@ -334,7 +335,7 @@ const ExploreSearchVideos = (props) => {
 											</DropdownItem>
 										))}
 									</DropdownMenu>
-								</Dropdown>:null
+								</Dropdown> : null
 							))}
 						</div>
 						<br />
@@ -382,7 +383,7 @@ const ExploreSearchVideos = (props) => {
 							<VideoCard video={video} key={index} />
 						))}
 					</div>
-					{(videoCount!=loadCount) && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
+					{(videoCount != loadCount) && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
 				</Container>
 			</Loading>
 
