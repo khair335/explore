@@ -128,13 +128,13 @@ button::-moz-focus-inner,
         padding: 0;                                     //for normal font weight mod at component scss
         text-align: left;
         .bi {                                           //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
-            color: $color-secondary;
+            //color: $color-secondary;
         }
     }
 
     &.link-bttn-no-hover {                       //Looks and acts like a link but has no hover effects - used in collapse boxes, accordions, modals
         background-color: transparent;
-        color: $color-secondary;
+        color: $color-primary;
         font-weight: 400; //metro-mod
         padding: 0;
         text-align: left;
