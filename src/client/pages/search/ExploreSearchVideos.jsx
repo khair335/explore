@@ -13,8 +13,7 @@ import { Container, ListGroupItemHeading } from 'reactstrap';
 import liveEvents from 'components/liveEvents.js';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import queryString from 'query-string';
-import Loading from 'components/Loading.jsx';
-import { VideoCard } from 'templates/cards/CardFactory.jsx';
+import Loading from 'components/Loading.jsx'
 
 import 'scss/pages/explore-search-videos.scss'
 
@@ -33,7 +32,7 @@ const ExploreSearchVideos = (props) => {
 	const initialValues = {
 		event_delivery: [],
 		products: [],
-		sessiontype: [],
+		session_type: [],
 		audience: [],
 		track: [],
 		level: [],
@@ -52,7 +51,6 @@ const ExploreSearchVideos = (props) => {
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [inputChange, setInputChange] = useState('');
-	const [loadCount, setLoadCount] = useState(0);
 
 
 	const filterParams = (updatedValues) => {
@@ -67,7 +65,6 @@ const ExploreSearchVideos = (props) => {
 
 	useEffect(() => {
 		setSelectedYear(searchParams.year || '2023');
-		setInputChange(searchParams.term || '');
 		setSearchTerm(searchParams.term || '');
 		const updatedSelectedValues = {};
 
@@ -83,10 +80,10 @@ const ExploreSearchVideos = (props) => {
 			updatedSelectedValues.products = [];
 		}
 
-		if (searchParams.sessiontype) {
-			updatedSelectedValues.sessiontype = searchParams.sessiontype.split(',');
+		if (searchParams.session_type) {
+			updatedSelectedValues.session_type = searchParams.session_type.split(',');
 		} else {
-			updatedSelectedValues.sessiontype = [];
+			updatedSelectedValues.session_type = [];
 		}
 
 		if (searchParams.audience) {
@@ -175,7 +172,7 @@ const ExploreSearchVideos = (props) => {
 		setSelectedValues({
 			event_delivery: [],
 			products: [],
-			sessiontype: [],
+			session_type: [],
 			audience: [],
 			track: [],
 			level: [],
@@ -184,8 +181,6 @@ const ExploreSearchVideos = (props) => {
 		setFilterString('')
 		setInputChange('')
 		setSearchTerm('')
-		setLimit(12)
-		setLoadCount(0)
 	};
 
 
@@ -211,21 +206,19 @@ const ExploreSearchVideos = (props) => {
 					setLoading(false)
 					setVideoCount(json.count)
 					setVideos(json.videos)
-					setLoadCount(json.videos.length)
 				}) :
-				fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`, {
-					method: 'get',
-					headers: new Headers({
-						'Accept': `application/json;pk=${config.video.policy_key}`,
-					}),
-				})
-					.then(resp => resp.json())
-					.then(json => {
-						setLoading(false)
-						setVideoCount(json.count)
-						setVideos(json.videos)
-						setLoadCount(json.videos.length)
-					}))
+			fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`, {
+				method: 'get',
+				headers: new Headers({
+					'Accept': `application/json;pk=${config.video.policy_key}`,
+				}),
+			})
+				.then(resp => resp.json())
+				.then(json => {
+					setLoading(false)
+					setVideoCount(json.count)
+					setVideos(json.videos)
+				}))
 		}
 	}, [selectedValues, selectedYear, searchTerm, filterString, limit]);
 
@@ -282,8 +275,7 @@ const ExploreSearchVideos = (props) => {
 					(val) => val !== value
 				);
 			}
-			setLimit(12)
-			setLoadCount(0)
+
 			filterParams(updatedSelectedValues)
 			return updatedSelectedValues;
 		});
@@ -303,20 +295,19 @@ const ExploreSearchVideos = (props) => {
 							placeholder="Search by keyword"
 						/>
 					</form>
-					{(years.length > 1) ? <>
-						<span className='title-style'>Select Event Year</span>
-						<div className="year-container">
-							{years?.map((year, index) => (
-								<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
-							))}
-						</div></> : null}
+					<span className='title-style'>Select Event Year</span>
+					<div className="year-container">
+						{years?.map((year, index) => (
+							<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
+						))}
+					</div>
 					<br />
 					<hr />
 					<br />
 					<div>
 						<div className="dropdown-container">
 							{temp_data.map((dropdown) => (
-								(dropdown.label?.toLowerCase() !== 'region') ? <Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
+								(dropdown.label?.toLowerCase()!=='region')?<Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
 									<DropdownToggle caret>
 										{dropdown.label}
 										<div className="dropdown-caret"></div>
@@ -335,7 +326,7 @@ const ExploreSearchVideos = (props) => {
 											</DropdownItem>
 										))}
 									</DropdownMenu>
-								</Dropdown> : null
+								</Dropdown>:null
 							))}
 						</div>
 						<br />
@@ -354,7 +345,7 @@ const ExploreSearchVideos = (props) => {
 									</div>
 								))
 							)}
-							{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}
+							{hasSelectedValues && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}
 						</div>
 					</div>
 
@@ -383,7 +374,7 @@ const ExploreSearchVideos = (props) => {
 							<VideoCard video={video} key={index} />
 						))}
 					</div>
-					{(videoCount != loadCount) && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
+					{(videoCount > 12) && <button className='load-button' onClick={() => loadMore()}>Load More</button>}
 				</Container>
 			</Loading>
 
@@ -393,3 +384,53 @@ const ExploreSearchVideos = (props) => {
 
 
 export default ExploreSearchVideos;
+
+const VideoCard = (props) => {
+	const video = props?.video
+	const url_path = config.video.videoPath(video?.account) + "/" + video?.id;
+	const target = "_self"
+	const truncateDescription = (text, maxLength) => {
+		if (text?.length <= maxLength) return text;
+		return text?.substr(0, maxLength) + '...';
+	};
+
+	const formatMillisecondsToHours = (milliseconds) => {
+		const seconds = Math.floor(milliseconds / 1000);
+		const hours = Math.floor(seconds / 3600);
+		const minutes = Math.floor((seconds % 3600) / 60);
+		const remainingSeconds = seconds % 60;
+
+		const paddedHours = hours.toString().padStart(2, '0');
+		const paddedMinutes = minutes.toString().padStart(2, '0');
+		const paddedSeconds = remainingSeconds.toString().padStart(2, '0');
+
+		if (paddedHours == '00' && paddedMinutes != '00' && paddedSeconds != '00') {
+			return `${paddedMinutes}:${paddedSeconds}`;
+		}
+		else if (paddedMinutes == '00' && paddedHours == '00' && paddedSeconds != '00') {
+			return `${paddedSeconds}`;
+		}
+		else {
+			return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+		}
+	};
+
+	return (
+		<div className="VideoCard card">
+			<div className="card-body">
+				<SiteLink to={url_path} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
+					<ImageBase src={video?.poster} alt={video?.description} className="video-thumbnail" />
+					<div image="" alt="Play button" className="play-button" />
+					<span className="video-duration">{formatMillisecondsToHours(video?.duration)}</span>
+				</SiteLink>
+				<div className="video-info">
+					<SiteLink className='video-name-data' to={url_path} target={target}><span>{video?.name}</span></SiteLink>
+					{/* <SiteLink to={url_path} target={target}><span>{video?.name} | {video?.views} views</span></SiteLink> */}
+					<SiteLink className='card-video-title' to={url_path} target={target}><h5 dangerouslySetInnerHTML={{ __html: truncateDescription(video?.description, 27) }} ></h5></SiteLink>
+					<p className='card-video-des' dangerouslySetInnerHTML={{__html: truncateDescription(video?.long_description, 53)}}></p>
+				</div>
+			</div>
+		</div>
+	)
+
+}

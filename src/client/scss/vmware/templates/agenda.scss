@@ -12,24 +12,18 @@ $agenda-color-green: #cff2c0;
 $agenda-color-purple: #d7d7ff;
 $agenda-color-red: #ffc5c5;
 $agenda-color-yellow: #fceb9a;
-$agenda-color-body: #000000;
 
 .Agenda {
-    color: $agenda-color-body;
 
     .agenda-mobile {
         .agenda-day-title {
-
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 33px;
             padding: 32px;
-            margin-bottom: 10px;
             text-align: center;
-
-            a {
-                font-size: 25px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 33px;
-            }
+            /* 132% */
         }
 
         .agenda-day {
@@ -46,11 +40,11 @@ $agenda-color-body: #000000;
         display: grid;
         grid-column-gap: 0px;
         grid-row-gap: 14px;
-        border-left: 2px solid $color-border; // update to border color variable later - OZ
+        border-left: 2px solid $color-grey--200;
 
         .agenda-day-lines {
 
-            border-right: 2px solid $color-border; // update to border color variable later - OZ
+            border-right: 2px solid $color-grey--200;
 
             &.hour {
                 border: none; // Remove half hour ticks.
@@ -60,13 +54,13 @@ $agenda-color-body: #000000;
         .agenda-event-wrapper {
             border-radius: 8px;
             text-align: center;
-            padding: 14px;
+            padding: 16px;
             position: relative;
 
             .agenda-event-title {
-                font-size: 14px;
+                font-size: 16px;
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 500;
                 line-height: 24px;
                 /* 150% */
             }
@@ -74,7 +68,7 @@ $agenda-color-body: #000000;
             .agenda-event-time {
                 font-size: 12px;
                 font-style: normal;
-                //font-weight: 400;
+                font-weight: 400;
                 line-height: 24px;
                 /* 200% */
             }
@@ -82,7 +76,7 @@ $agenda-color-body: #000000;
             .agenda-event-category {
                 font-size: 12px;
                 font-style: normal;
-                //font-weight: 400;
+                font-weight: 400;
                 line-height: 24px;
                 /* 200% */
             }
@@ -125,15 +119,11 @@ $agenda-color-body: #000000;
 
 // Lives outside of our .agenda div
 .agenda-modal {
-    color: $agenda-color-body;
-
+    color: $color-body;
 
     @media (min-width: map-get($grid-breakpoints, sm)) {
         max-width: 700px;
-
-        .agenda-modal-top {
-            display: flex; // Color box on the left
-        }
+        display: flex; // Color box on the left
     }
 
 
@@ -142,17 +132,16 @@ $agenda-color-body: #000000;
     //         display: block;
     //     }
     // }
-    .close{ 
-        font-size: 30px;
-    }
+
     .modal-body {
         padding-top: 30px;
     }
 
     // Override base
     .modal-title {
-        color: $agenda-color-body;
-
+        color: $color-body;
+        font-weight: normal;
+        
     }
 
     .agenda-modal-color-box {
@@ -160,26 +149,22 @@ $agenda-color-body: #000000;
         height: 58px;
         margin-right: 16px;
         margin-bottom: 10px;
-        border-radius: 8px;
     }
 
-    .agenda-modal-day {
-        font-weight: 300;
-    }
+    .agenda-modal-day {}
 
     .agenda-modal-time {
-        font-size: 16px;
+        font-size: 20px;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 26px;
         /* 130% */
     }
 
     .agenda-modal-title {
-        //display:none;
         font-size: 32px;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 32px;
         /* 100% */
     }
@@ -187,10 +172,8 @@ $agenda-color-body: #000000;
     .agenda-modal-category {
         font-size: 16px;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 24px;
         /* 150% */
     }
-
-  
 }

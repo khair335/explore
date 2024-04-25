@@ -173,9 +173,7 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-     @media (max-width:991px) {
-             margin-top: 0;
-            }
+
     .card-body {
       gap: 0;
       flex: initial;
@@ -183,9 +181,6 @@
       >div {
         &:first-child {
           width: 10%;
-          @media (max-width:991px) {
-            width: 20%;
-            }
           @media (max-width:767px) {
             width: 20%;
             }
@@ -195,9 +190,6 @@
 
       .card-title {
         width: 90%;
-        @media (max-width:991px) {
-            width: 79%;
-            }
         @media (max-width:767px) {
             width: 80%;
             }
@@ -205,10 +197,7 @@
 
       .card-text {
         width: 90%;
-        margin-top: 0px !important;
-        @media (max-width:991px) {
-            width: 79%;
-            }
+        margin-top: -20px !important;
         @media (max-width:767px) {
             width: 80%;
             }

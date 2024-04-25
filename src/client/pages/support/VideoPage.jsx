@@ -83,7 +83,7 @@ class VideoPage extends PageComponent {
 		// Set our browser title.
 
 		if (config.site === 'vm') {
-			document.title = meta.description;
+			document.title = 'VMware Explore Video Landing';
 		}
 		else {
 			document.title = title;
@@ -162,12 +162,10 @@ class VideoPage extends PageComponent {
 		const bcc_email_address = encodeURIComponent(args.bccemailaddress);
 		var text = title;
 
-
 		if (desc) {
 			text += '%20%3A%20';
 			text += desc;
 		}
-
 
 		if (args.platform === 'twitter') {
 			return 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text + '&via=' + via + '&hashtags=' + hash_tags
@@ -195,9 +193,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Twitter', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
 						via: this.state.via,
 						platform: 'twitter'
 					}), className: 'bi brcmicon-twitter'
@@ -205,9 +203,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'LinkedIn', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
 						via: this.state.via,
 						platform: 'linkedin'
 					}), className: 'bi brcmicon-linkedin'
@@ -215,9 +213,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Facebook', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
 						via: this.state.via,
 						platform: 'facebook'
 					}), className: 'bi brcmicon-facebook'
@@ -225,9 +223,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Email', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: 'Shareable Video Link: '+shareUrl,
+						title: this.state.title,
+						image: this.state.image,
+						desc: this.state.desc,
 						via: this.state.via,
 						platform: 'email'
 					}), className: 'bi brcmicon-email'

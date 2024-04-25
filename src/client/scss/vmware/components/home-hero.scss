@@ -51,10 +51,10 @@ $carousel-indicator-height: 20px;
                 padding-right: 0 !important;
                 margin-right: 0;
                 margin-left: 0;
-                &:hover{
+
+                &:hover {
                   border: none !important;
                   background-color: transparent !important;
-                  
                 }
 
                 @include media-breakpoint-down(md) {
@@ -99,38 +99,80 @@ $carousel-indicator-height: 20px;
         }
       }
 
+      // Use absolutes to center us vertically within the banner.
+      .banner-caption-container {
+        position: absolute;
+        top: 45%;
+        width: 100%;
+        transform: translate(0, -50%);
+        z-index: 2;
+
+        @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+          max-width: none;
+          position: static;
+          padding: 0px 15px 15px;
+          width: 100%;
+          transform: none;
+          text-align: center !important;
+          color: $color-body;
+
+          .teaser div {
+            color: $color-body;
+          }
+        }
+
+
+        .banner-caption-video {
+          padding: 8px;
+          border-radius: 4px;
+          background-color: $background-color;
+          box-shadow: .5rem 1rem rgb(0 0 0 / 15%);
+          margin: auto;
+
+          @media screen and (min-width: map-get($grid-breakpoints, lg) - 1) {
+            max-width: 450px;
+          }
+
+        }
+
+
+      }
+
       .size-medium {
         .featurette-heading {
           font-size: 50px;
-          }
+        }
+
         .banner-cta-title {
 
-              .lnk {
-                border: none !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                &:hover{
-                  border: none !important;
-                  background-color: transparent !important;
-                }
+          .lnk {
+            border: none !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
 
-                @include media-breakpoint-down(md) {
-                  background-color: transparent !important;
-                  color: black !important;
-                  border: none !important;
+            &:hover {
+              border: none !important;
+              background-color: transparent !important;
+            }
 
-                  h2 {
-                    color: black !important;
-                  }
-                }
+            @include media-breakpoint-down(md) {
+              background-color: transparent !important;
+              color: black !important;
+              border: none !important;
+
+              h2 {
+                color: black !important;
               }
             }
+          }
+        }
+
         img {
-          
+
           object-fit: cover;
           width: 100%;
-          height:auto;
-          
+          height: auto;
+
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -154,7 +196,7 @@ $carousel-indicator-height: 20px;
 
       .size-small {
         .featurette-heading {
-        font-size: 40px;
+          font-size: 40px;
         }
 
         img {
@@ -162,7 +204,7 @@ $carousel-indicator-height: 20px;
           object-fit: cover;
           width: 100%;
           height: auto;
-        
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -223,39 +265,30 @@ $carousel-indicator-height: 20px;
         }
       }
     }
+
     p {
-      > a{
+      >a {
         color: $color-white;
+
         @include media-breakpoint-down(md) {
           color: $color-black;
         }
-        &:hover{
-              color: $color-primary;
-                text-decoration-color:$color-primary;
+
+        &:hover {
+          color: $color-primary;
+          text-decoration-color: $color-primary;
         }
       }
     }
   }
 
   .caption {
-    position: absolute;
-    width: 650px;
     left: auto;
-    padding: 0;
+    padding: 0 15px; // We are a column so add our gutter back.
     min-height: 150px;
     margin: 0;
-    top: 45%;
-    transform: translate(0, -50%);
-    z-index: 2;
 
-    @media only screen and (max-width: 991.98px) {
-      max-width: none;
-      position: static;
-      padding: 0px 15px 15px;
-      width: 100%;
-      transform: none;
-      text-align: center !important;
-    }
+
 
     div {
       font-family: $font-family--secondary;
@@ -298,6 +331,10 @@ $carousel-indicator-height: 20px;
 
     .teaser {
       margin-bottom: 20px;
+
+      a {
+        margin-bottom: 10px; //for CA hero banner with more than one CTA
+      }
     }
 
     a.lnk {
@@ -308,7 +345,7 @@ $carousel-indicator-height: 20px;
       border: 1px solid $color-white;
       border-radius: 3px;
       padding: 6px 23px;
-      margin:15px 0 5px 0;
+      margin: 15px 0 5px 0;
       text-decoration: none;
       line-height: 1.5;
       font-weight: 300;
@@ -353,9 +390,11 @@ $carousel-indicator-height: 20px;
         @media (max-width: 460px) {
           width: 100%;
         }
-        .lnk{
+
+        .lnk {
           width: max-content;
         }
+
         &:first-child {
           padding-right: 20px;
 
@@ -409,7 +448,7 @@ $carousel-indicator-height: 20px;
   .carousel-inner {
     .size-large {
       .caption {
-        width: 823px;
+        width: 853px; // 823 + gutter for row
 
         @include media-breakpoint-down(md) {
           width: auto !important;
@@ -418,13 +457,12 @@ $carousel-indicator-height: 20px;
 
         .featurette-heading {
           font-size: 50px !important;
-          
         }
 
         .teaser {
           .featurette-heading {
             @include media-breakpoint-down(md) {
-              font-size: 50px !important;
+              font-size: 30px !important;
             }
           }
 
@@ -442,11 +480,11 @@ $carousel-indicator-height: 20px;
           .banner-cta {
             h2 {
               font-size: 40px;
-              //text-transform: capitalize;
+              text-transform: capitalize;
 
-             @include media-breakpoint-down(md) {
-                  font-size: 30px !important;
-                }
+              @include media-breakpoint-down(md) {
+                font-size: 30px !important;
+              }
             }
 
             >div {
@@ -462,9 +500,10 @@ $carousel-indicator-height: 20px;
               margin-top: 28px;
               margin-right: 0;
               margin-left: 0;
+
               @include media-breakpoint-down(md) {
-                  margin-top: 16px;
-                }
+                margin-top: 16px;
+              }
             }
           }
         }
@@ -478,7 +517,7 @@ $carousel-indicator-height: 20px;
   height: auto;
   object-fit: cover;
   width: 100%;
-  
+
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -499,7 +538,7 @@ $carousel-indicator-height: 20px;
 
     .featurette-heading {
       //font-size: 50px;
-      //text-transform: capitalize;
+      text-transform: capitalize;
 
 
       @include media-breakpoint-down(md) {
@@ -522,7 +561,7 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       .banner-cta {
         >div {
-          >p{
+          >p {
             display: block;
           }
         }
@@ -530,7 +569,7 @@ $carousel-indicator-height: 20px;
         .lnk {
           width: max-content;
           text-transform: uppercase;
-         
+
           &:hover {
 
             text-decoration: none !important;

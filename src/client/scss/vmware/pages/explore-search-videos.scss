@@ -25,12 +25,11 @@
    .dropdown-container {
      display: flex;
      justify-content: space-between;
-     flex-wrap: wrap;
+     flex-wrap: nowrap;
    }
 
    .selected-container {
      display: flex;
-     flex-wrap: wrap;
      // justify-content: space-between;
    }
 
@@ -163,7 +162,7 @@
          text-align: left;
          display: inline-block;
          padding-left: 10px;
-         padding-right: 30px;
+         padding-right: 10px;
 
          // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
          .dropdown-caret {
