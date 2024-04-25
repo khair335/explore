@@ -11,6 +11,7 @@ $carousel-indicator-height: 20px;
 .top-banner {
   overflow: hidden;
   position: relative;
+  margin-top: -21px;
 
   .carousel.slide {
     padding: 0px;
@@ -125,11 +126,11 @@ $carousel-indicator-height: 20px;
               }
             }
         img {
-          
+
           object-fit: cover;
           width: 100%;
           height:auto;
-          
+
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -161,7 +162,7 @@ $carousel-indicator-height: 20px;
           object-fit: cover;
           width: 100%;
           height: auto;
-        
+
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -480,7 +481,7 @@ $carousel-indicator-height: 20px;
   height: auto;
   object-fit: cover;
   width: 100%;
-  
+
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -532,7 +533,7 @@ $carousel-indicator-height: 20px;
         .lnk {
           width: max-content;
           text-transform: uppercase;
-         
+
           &:hover {
 
             text-decoration: none !important;

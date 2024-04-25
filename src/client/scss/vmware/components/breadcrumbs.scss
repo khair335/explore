@@ -14,11 +14,11 @@
 
 .bc-breadcrumbs, .bc-breadcrumbs a {
 
-	color: $color-primary;						
-	font-size: 14px!important;						
-	font-weight: 300;								
+	color: $color-primary;
+	font-size: 14px!important;
+	font-weight: 300;
 	letter-spacing: .35px;
-	text-decoration: none!important; 
+	text-decoration: none!important;
 	text-transform: capitalize;
 	&:hover {
 		text-decoration: underline!important;
@@ -43,13 +43,19 @@
 			display: inline-block;
 			margin: 0px 5px;
 			background-position: 2px 2px;
-			
+
 		}
 	}
 }
 
-#subhead-navigation {	
+#subhead-navigation {
 	.bc-breadcrumbs {
+		position: relative;
+		z-index: 9;
+		@media (max-width:767px) {
+			display: flex !important;
+			position: absolute !important;
+		}
 		@media only screen and (max-width: 992px) {
 			.breadcrumbMobile{
 				//display:none;
@@ -122,5 +128,5 @@
 		&.print, &.other-share{
 			display: none;
 		}
-	}	
+	}
 }
