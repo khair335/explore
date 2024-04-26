@@ -125,6 +125,7 @@
           font-size: 14px;
           justify-content: start;
           text-transform: capitalize;
+          color: $color-black;
           @include media-breakpoint-down(md) {
             justify-content: center;
           }
@@ -133,11 +134,13 @@
             text-decoration-line: underline;
             text-underline-offset: 3px;
             text-decoration-thickness: 2px;
+            color: $color-primary;
         }
 
           img {
-            max-width: 15px;
-            height: 24px;
+            max-width: 25px;
+            width: 100%;
+            height: 25px;
             object-fit: contain;
           }
         }

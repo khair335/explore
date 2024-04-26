@@ -158,10 +158,10 @@ $carousel-indicator-height: 20px;
         }
 
         img {
-          height: auto;
+          height: 100%;
           object-fit: cover;
           width: 100%;
-          height: auto;
+
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -478,7 +478,7 @@ $carousel-indicator-height: 20px;
 
 .top-banner .carousel-inner>.carousel-item .size-medium img,
 #banner .carousel-inner>.carousel-item .size-medium img {
-  height: auto;
+  height: 100%;
   object-fit: cover;
   width: 100%;
 
