@@ -7,25 +7,18 @@
 @import "../base/variables";
 
 .bc-breadcrumbs .bc-breadcrumbs_item a.lnk {
-	color: $color-primary;						//mods a.lnk  _link.scss
+	color: $color-grey--900;						//mods a.lnk  _link.scss
 	font-weight: 300;								//mods a.lnk	       //metro-mod
 	letter-spacing: .35px;       //metro-mod
 }
 
 .bc-breadcrumbs, .bc-breadcrumbs a {
 
-	color: $color-primary;
-	font-size: 14px!important;
-	font-weight: 300;
-	letter-spacing: .35px;
-	text-decoration: none!important;
-	text-transform: capitalize;
-	&:hover {
-		text-decoration: underline!important;
-		text-underline-offset: 3px;
-		text-decoration-thickness: 2px;
-		color:$color-link-hover;
-	}
+	color: $color-grey--900;						//mods a.lnk  _link.scss
+	font-size: $font-size-sm;						//mods a.lnk
+	font-family: $font-family--secondary;
+	font-weight: 300;								//mods a.lnk		       //metro-mod
+	letter-spacing: .35px;							//metro-mod
 
 	.breadcumbs-page-links {
 		max-width: 80%;
@@ -36,29 +29,19 @@
 
 	&_item{
 		&:not(:last-of-type)::after{
-			content: "" !important;
-			background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
-			height: 12px;
-			width: 12px;
-			display: inline-block;
-			margin: 0px 5px;
-			background-position: 2px 2px;
-
+		content: "/";
+				padding: 0 5px;
+				font-size: $font-size-lg;
+				color:$color-grey--700;
 		}
 	}
 }
 
-#subhead-navigation {
+#subhead-navigation {	
 	.bc-breadcrumbs {
-		position: relative;
-		z-index: 9;
-		@media (max-width:767px) {
-			display: flex !important;
-			position: absolute !important;
-		}
 		@media only screen and (max-width: 992px) {
 			.breadcrumbMobile{
-				//display:none;
+				display:none;
 			}
 		}
 		ul {
@@ -128,5 +111,5 @@
 		&.print, &.other-share{
 			display: none;
 		}
-	}
+	}	
 }

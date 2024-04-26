@@ -75,34 +75,32 @@ export class SubHeadNavigation extends Component {
 
 		return (
 			<div id="subhead-navigation">
-				<div className="bc-breadcrumbs bc--color_gray800 d-none d-md-flex justify-content-between breadcrumbMobile">
+				<div className="bc-breadcrumbs bc--color_gray800 d-none d-md-flex justify-content-between py-2 breadcrumbMobile">
 					{this.props.breadcrumb && this.props.breadcrumb.length > 0 /* JD - Stop displaying empty breadcrumbs because its not in proper rich text due to missing items.*/
-						&& <Fragment>
+						? <Fragment>
 							<SchemaTags schemaType="BreadcrumbList" schemaList={true} item={this.props.breadcrumb} />
 							<ol className={breadcrumbCSS}>
 								{breadcrumbs}
 							</ol>
 						</Fragment>
-						/* JD - Why is there an empty list? I removed during vmware : <ol className={breadcrumbCSS} /> */
+						: <ol className={breadcrumbCSS} />
 					}
-					{!config.hide_print_share &&
-						<ul className={sharePrintCSS}>
-							<li key="1-subhead">
-								<ButtonTrack
-									className="icon-bttn py-1 px-2 print"
-									title="Print this page"
-									onClick={this.printWindow}
-									gtmevent={{ "id": "N007", "link_url": window.location.pathname }}
-								>Print
-									<span className="bi brcmicon-print"></span>
-								</ButtonTrack>
+					<ul className={sharePrintCSS}>
+						<li key="1-subhead">
+							<ButtonTrack
+								className="icon-bttn py-1 px-2 print"
+								title="Print this page"
+								onClick={this.printWindow}
+								gtmevent={{ "id": "N007", "link_url": window.location.pathname }}
+							>Print
+								<span className="bi brcmicon-print"></span>
+							</ButtonTrack>
 
-							</li>
-							<li key="2-subhead">
-								<BrcmShare view="breadcrumb" />
-							</li>
-						</ul>
-					}
+						</li>
+						<li key="2-subhead">
+							<BrcmShare view="breadcrumb" />
+						</li>
+					</ul>
 				</div>
 			</div>
 		);

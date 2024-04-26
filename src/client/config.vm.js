@@ -127,8 +127,6 @@ class Config {
 		// The fake captcha button.
 		this.captcha_image = '/img/captcha/submitButton.vm.png';
 
-		this.hide_print_share = true;
-
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {
 				case 'local-brcm':
