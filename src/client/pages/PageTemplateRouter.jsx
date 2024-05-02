@@ -19,6 +19,7 @@ const Tabbed = React.lazy(() => import('pages/Tabbed.jsx'));
 const Stacked = React.lazy(() => import('pages/Stacked.jsx'));
 const GeneralPage2Column = React.lazy(() => import('pages/GeneralPage2Column.jsx'));
 const GeneralPage = React.lazy(() => import('pages/GeneralPage.jsx'));
+const RightSideInpageNav = React.lazy(() => import('pages/RightSideInpageNav.jsx'));
 // // Products
 const ProductGroup = React.lazy(() => import('pages/products/ProductGroup.jsx'));
 const ProductLanding = React.lazy(() => import('pages/products/ProductLanding.jsx'));		// Formally ProductLandingMulti
@@ -61,9 +62,12 @@ const KBIssue = React.lazy(() => import('pages/support/KBFAQ.jsx'));	// The same
 const KBSolution = React.lazy(() => import('pages/support/KBFAQ.jsx'));	// The same as FAQ
 const KBHowTo = React.lazy(() => import('pages/support/KBFAQ.jsx'));	// The same as FAQ
 // const SoftwareSupportLanding = React.lazy(() => import('pages/support/SupportLanding.jsx'));		// The same as solutions.
+const GlossaryDetail = React.lazy(() => import('pages/support/GlossaryDetail.jsx'));
 
 // // Company
 const History = React.lazy(() => import('pages/company/about-us/History.jsx'));
+const EventListing = React.lazy(() => import('pages/company/EventListing.jsx'));
+
 // Solution
 const Solution = React.lazy(() => import('pages/solutions/Solution.jsx'));
 const SolutionInteractive = React.lazy(() => import('pages/solutions/Solution.jsx'));
@@ -153,6 +157,7 @@ const templates = {
 	ProductDetail,
 	SecurityAdvDetail,
 	History,
+	EventListing,
 	Solution,
 	SolutionInteractive,
 	// ApplicationCategoryOverview,
@@ -178,10 +183,12 @@ const templates = {
 	KBFAQ,
 	GeneralPage2Column,
 	GeneralPage,
+	RightSideInpageNav,
 	KBIssue,
 	KBHowTo,
 	// SoftwareSupportLanding,
 	KBSolution,
+	GlossaryDetail,
 	ContactForm,
 	// PartnerListing,
 	PartnerDistLookup,

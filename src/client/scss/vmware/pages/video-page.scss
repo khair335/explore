@@ -211,6 +211,10 @@
           display: flex;
         }
       }
+      @media (max-width: 767px) {
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     .video-duration {
@@ -281,10 +285,15 @@
   }
 
   /* Media query for tablets */
+  @media (max-width:991px) {
+    .video_container{
+      gap: 40px;
+    }
+  }
   @media (max-width: 768px) {
     .videos-container {
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 40px;
       justify-content: center;
       flex-direction: column;
       align-items: center;
@@ -302,7 +311,7 @@
     }
 
     .video-item a {
-      height: 150px;
+      // height: 150px;
     }
 
     .video-info h3 {
@@ -366,9 +375,38 @@
     .video-content {
       max-width: 680px;
       width: 100%;
+      @media (max-width:991px) {
+        max-width: 100%;
+
+      }
 
       .tab-content {
         padding-left: 20px;
+      }
+    }
+
+    @media (max-width:991px) {
+      .col-relvideo{
+        max-width: 100%;
+        .related-videos-section{
+          max-width: 100%;
+    justify-content: flex-start;
+    .videos-container-0{
+          max-width: 100%;
+    width: 100%;
+    .videos-container{
+      max-width: 100%;
+      .video-item{
+            width: 100%;
+    max-width: 100%;
+    >a{
+          max-width: 100%;
+          height: auto;
+    }
+      }
+    }
+    }
+        }
       }
     }
   }
@@ -392,7 +430,9 @@
   .video-box {
     .row-content {
       margin-top: 30px !important;
-
+        @media (max-width: 991px) {
+            flex-direction: column;
+          }
       .vid-tags {
         padding-bottom: 10px;
 
@@ -406,6 +446,10 @@
       .video-title {
         font-size: 35px;
         padding-bottom: 20px;
+         @media (max-width:991px) {
+                 font-size: 28px;
+
+        }
       }
 
       .nav-tabs {
@@ -540,8 +584,14 @@
           width: 100%;
           cursor: pointer;
           justify-content: flex-end;
-
           position: relative;
+          @media (max-width: 1200px) {
+            min-width: 450px;
+          }
+          @media (max-width: 991px) {
+            flex-direction: column;
+            min-width: auto;
+          }
         }
 
         .video-info {
@@ -588,6 +638,9 @@
 
   .bc-player-lUBT2rAMW_default-index-0.vjs-fluid:not(.vjs-audio-only-mode) {
     padding-top: 38.239316%;
+    @media (max-width: 768px) {
+      padding-top: 58.239316%;
+    }
   }
 
   .session-details {

@@ -1,0 +1,51 @@
+/*
+* templates/side-inpage-navigation.scss
+*/
+// Side bar with for inpage navigation
+
+
+@import "../base/base";
+
+
+.SideInPageNavigation {
+    .side-nav {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+
+
+        // Hide the dropdown for desktop
+        .collapse {
+            //display: block;
+
+        }
+
+        .side-nav-toggle {
+            //display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+            .collapse {
+                display: block;
+            }
+            .side-nav-toggle {
+                display: none;
+            }
+        }
+
+        .nav {
+
+            .nav-item {
+                &.active {
+                    .nav-link {
+                        color: #0f0;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+}

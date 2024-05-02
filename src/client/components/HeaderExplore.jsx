@@ -57,6 +57,11 @@ const ExploreHeader = (props) => {
 	const mobileToggle = () => {						/* this bit of craziness here is to close menu on page select in mobile and click away close on ipad */
 		setMobile(true);
 		setIsOpen(!isOpen);
+		if (!isOpen) {
+			document.body.style.overflow = 'hidden';
+		  } else {
+			document.body.style.overflow = 'unset';
+		  }
 	}
 
 	const handleClose = () => {

@@ -48,6 +48,9 @@ const CarouselFeatured = React.lazy(() => import('templates/CarouselStandard.jsx
 const Featured = React.lazy(() => import('templates/Featured.jsx'));		// https://www.vmware.com/explore/us.html Continue learning with fixed layout.
 const HorizontalTab = React.lazy(() => import('templates/HorizontalTab.jsx'));		// Same as split, but with arrows
 const Agenda = React.lazy(() => import('templates/Agenda.jsx'));		// VMware Explore agenda
+const VerticalTab = React.lazy(() => import('templates/VerticalTab.jsx'));		//Vertical
+
+
 
 import(/* webpackPreload: true */ 'scss/components/content-blocks.scss');
 
@@ -94,6 +97,7 @@ const templates = {
 	Featured,
 	HorizontalTab,
 	Agenda,
+	VerticalTab,
 };
 
 

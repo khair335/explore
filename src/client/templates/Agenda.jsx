@@ -4,7 +4,7 @@
  *  @reference https://cssgrid-generator.netlify.app/
  */
 import config from 'client/config.js';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav, NavLink, NavItem, TabContent, TabPane, Collapse, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
@@ -93,23 +93,24 @@ const Event = ({ event, row, index, min_hour, max_hour, day }) => {
 			</div>
 			{event.event_info &&
 				<Modal isOpen={modal} toggle={toggle} className="agenda-modal" centered>
-					<ModalHeader toggle={toggle}>
-						<div className={classnames("agenda-modal-color-box", `agenda-row-color-${row.color?.toLowerCase()}`)}></div>
+					<ModalHeader toggle={toggle} tag='div'>
+						<div className='agenda-modal-top'>
+							<div className={classnames("agenda-modal-color-box", `agenda-row-color-${row.color?.toLowerCase()}`)}></div>
 
-						<div>
-							<h3 className="agenda-modal-title" dangerouslySetInnerHTML={{ __html: event.event_name }} />
-							<span className="agenda-modal-day">
-								{displayDay(day.event_date)}
-							</span>
-							&nbsp; &bull; &nbsp;
-							<span className="agenda-modal-time">
-								{start_time} &ndash; {end_time}
-							</span>
-							<div className="agenda-modal-category">
-								{row.category}
+							<div>
+								<h3 className="agenda-modal-title" dangerouslySetInnerHTML={{ __html: event.event_name }} />
+								<span className="agenda-modal-day">
+									{displayDay(day.event_date)}
+								</span>
+								&nbsp; &bull; &nbsp;
+								<span className="agenda-modal-time">
+									{start_time} &ndash; {end_time}
+								</span>
+								<div className="agenda-modal-category">
+									{row.category}
+								</div>
 							</div>
 						</div>
-
 
 					</ModalHeader>
 					<ModalBody>
@@ -196,11 +197,11 @@ const Day = (props) => {
 
 const MobileDay = ({ day }) => {
 	let sorted = [];
-	let mobile_day = { day };
+	let mobile_day = structuredClone(day);
 
 	// Flatten us out by making a row for each event
 	day?.rows?.forEach(row => {
-		
+
 
 		row?.events?.forEach(event => {
 			let flatten_row = Object.assign({}, row);
@@ -209,7 +210,7 @@ const MobileDay = ({ day }) => {
 		});
 	});
 
-	
+
 	// Sort the events in chronological
 	sorted = sorted.sort((a_event, b_event) => {
 		return new Date(a_event?.events[0]?.start_time) - new Date(b_event?.events[0]?.start_time);
@@ -224,11 +225,48 @@ const MobileDay = ({ day }) => {
 
 const Agenda = (props) => {
 	const [active, setActive] = useState(0);
-	const [active_tab_title, setActiveTitle] = useState('daf');
+	const [active_tab_title, setActiveTitle] = useState('');
 	const [collapse, setCollapse] = useState(true);
 
 
 	const days = props?.content_block?.days || [];
+
+
+	// Grab our hash
+	useEffect(() => {
+		let hash = window.location.hash || '';
+
+		// Take out the hash and sanatize
+		hash = hash.replace(/[#&<>"'\/]/g, '');
+
+		// Sanitize it.
+		//hash = hash.replace(/[^-A-Za-z0-9+&@#/%?=~_|!:,.;\(\)]/, "");
+
+
+		// Is our hash formatted correctly.
+		let query = /^day([0-9]+)$/.exec(hash);
+		if (query && query[1]) {
+			let day = parseInt(query[1]) - 1;		// 0 offset.
+			if (day >= 0 && day < days.length) {
+				setActive(day);
+				setActiveTitle(displayDay(days[day]?.event_date));
+				setCollapse(true);
+			}
+
+			// Scroll to view for mobile.
+			let day_titles = document.getElementsByName(hash);
+			if (day_titles && day_titles.length) {
+
+				// just get the first one.
+				day_titles[0].scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+				});
+			}
+
+		}
+
+	}, []);
 
 	const handleTabs = (event, index) => {
 		event.preventDefault();
@@ -237,6 +275,11 @@ const Agenda = (props) => {
 		setActive(index);
 		setActiveTitle(displayDay(days[index]?.event_date));
 		setCollapse(true);
+
+		// Set hash with 1 offset
+		if (window?.location) {
+			window.location.hash = `#day${index + 1}`;
+		}
 	}
 
 	return (
@@ -251,7 +294,9 @@ const Agenda = (props) => {
 							{days.map((day, index) =>
 								<div>
 									<div className="agenda-day-title">
-										{displayDay(day.event_date)}
+										<a name={`day${index + 1}`}>
+											{displayDay(day.event_date)}
+										</a>
 									</div>
 									<MobileDay day={day} />
 								</div>

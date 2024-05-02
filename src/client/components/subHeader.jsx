@@ -14,6 +14,7 @@ import ButtonTrack from "components/ButtonTrack.jsx";
 import ImageBase from 'components/ImageBase.jsx';
 import SchemaTags from 'components/SchemaTags.jsx';
 import Loading from 'components/Loading.jsx';
+const HomeHero = React.lazy(() => import('components/HomeHero.jsx'));
 
 import 'scss/components/subheader.scss';
 import 'scss/components/document-box.scss';
@@ -605,3 +606,40 @@ SubHead.defaultProps = {
 	breadcrumb: [], 	// [{item : {name, _url_, position}}]
 	breadcrumbCurrent: "true", 		// Show the current page breadcrumb w/o link
 };
+
+
+export class SubHeadHero extends Component {
+
+
+	render() {
+
+		if (this.props?.data?.hero_banner) {
+			return (
+				<>
+					<Container>
+						<section id="subhead-navigation-section">
+							<SubHeadNavigation breadcrumb={this.props.page.breadcrumb} />
+						</section>
+					</Container>
+					<div className="top-banner">
+						{this.props.data.hero_banner && <HomeHero data={this.props.data.hero_banner} />}
+					</div>
+
+					<Container>
+						<section id="subhead-title-section">
+							<SubHeadTitle {...this.props.page} />
+						</section>
+					</Container>
+				</>
+
+			);
+		}
+
+		return (
+			<Container >
+				<SubHead {...this.props.page} />
+			</Container>
+		);
+	}
+
+}

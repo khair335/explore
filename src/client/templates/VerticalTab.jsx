@@ -18,7 +18,7 @@ import 'scss/templates/vertical-tab.scss';
  
  
 const VerticalTab = (props) => {
-    console.log(props)
+    
     const cards = props?.content_block?.cards || [];
     const getTabTitle = (card => {
         if (!card) {
