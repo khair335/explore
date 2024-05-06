@@ -1,8 +1,254 @@
 /**
  *  @file glossary-detail.scss
  *  style for glossary detail page for vmware
- *  
+ *
  */
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/icons";
 
- #GlossaryDetail {
- }
+#GlossaryDetail {
+
+  .page-title {
+    font-size: 32px;
+    color: $color-black;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+    color: #565656;
+    font-weight: bolder;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #565656;
+  }
+
+  .glossary-module-card {
+
+    margin: 30px 0;
+    @media (max-width:767px) {
+      >.row{
+        .col{
+          margin-bottom: 30px;
+        }
+      }
+    }
+    .ImageCard {
+      height: 100%;
+
+      .card-body {
+        padding: 0;
+        background: #f7f7f7;
+
+        .card-title {
+          font-size: 20px;
+          color: $color-black;
+          text-align: center;
+          background: #f7f7f7;
+          margin-bottom: 0 !important;
+          line-height: 1.2;
+          font-weight: 300;
+          padding: 16px 75px 18px;
+        }
+
+      }
+
+      .card-footer {
+        background: #f7f7f7;
+
+        .cb-cta-link {
+          justify-content: center
+        }
+
+        .lnk,
+        .card-link {
+          @extend .bttn;
+          @include primary-button;
+        }
+      }
+    }
+
+
+  }
+
+  .SideInPageNavigation {
+    @media (max-width:767px) {
+      >.row {
+
+
+        >.col {
+
+          position: sticky;
+          top: 0px;
+          z-index: 9;
+
+
+        }
+      }
+    }
+
+    .side-nav .nav {
+
+
+        .nav-item {
+          padding: 16px 32px;
+
+          .nav-link {
+            text-decoration: none !important;
+            padding: 0;
+
+            &:hover {
+              text-decoration: underline !important;
+            }
+          }
+
+          &.active {
+            background: #f4f8fa;
+            border-left: 2px solid #005C8A;
+            color: #005C8A !important;
+
+
+            .nav-link {
+              color: #005C8A !important;
+              text-decoration: none !important;
+
+              &:hover {
+                text-decoration: underline !important;
+              }
+
+            }
+          }
+        }
+      }
+
+    .side-nav {
+      @media (max-width:767px) {
+
+        margin-bottom: 40px;
+
+        .side-nav-toggle {
+          border-bottom: 1px solid !important;
+          border-radius: 0;
+          width: 100%;
+          height: auto;
+          padding-right: 0;
+          padding-left: 0;
+          background-color: #ffff;
+          color: #1d428a;
+          font-size: 16px;
+          font-weight: 300;
+
+          &:hover {
+            border: 0;
+          }
+
+          .brcmicon-caret-down,
+          .brcmicon-caret-up {
+            color: #1d428a;
+          }
+
+
+        }
+
+        .side-nav-collapse-wrapper {
+          background: white;
+          padding: 4px;
+
+          .nav-item {
+            text-decoration: none;
+            &.active{
+               color: #1d428a;
+               font-weight: 400;
+            }
+            .nav-link {
+              text-decoration: none;
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .glossary-module-recommended {
+    margin-top: 30px;
+    border-top: 6px solid #005C8A;
+    >h2 {
+      padding-top: 30px;
+      font-size: 32px;
+      color: $color-black;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    >.row {
+      padding: 30px;
+
+      >.col {
+        padding-right: 30px;
+        padding-left: 30px;
+
+        .lnk {
+          font-weight: 300;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-line: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .glossary-module-related {
+    >h3 {
+      padding-top: 30px;
+      font-size: 32px;
+      color: $color-black;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .promoCard {
+      &.card {
+        height: 100%;
+
+        .card-text {
+          .lnk {
+            width: 100%;
+            text-decoration: none;
+
+            .product-link {
+              font-size: 25px;
+              text-align: center;
+              font-weight: 300;
+              color: #1d428a;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+
+              }
+            }
+          }
+
+          p {
+            text-align: center;
+          }
+
+        }
+
+      }
+    }
+  }
+}
