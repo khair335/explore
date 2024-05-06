@@ -1,0 +1,93 @@
+/*
+* pages/atoz.scss
+*/
+// stylings for GlossaryAtoZ, TechdocsAtoZ
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+#AtoZ {
+
+    .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-link {
+        padding: 5px 10px;
+        margin: 2px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-link.disabled {
+        background-color: #ccc;
+        cursor: default;
+    }
+
+    .content {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        // grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+
+        
+        .letter-section {
+
+            
+            display: grid;
+            
+            grid-template-columns: 1fr repeat(1, 3fr);
+
+
+
+        }
+
+
+
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            // gap: 40px;
+            /* Increase the gap for more spacing */
+            justify-content: space-around;
+            width: 100%;
+
+            li {
+                width: 100%;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        padding: 5px 0;
+    }
+
+    /* Smooth scroll */
+    // html {
+    //     scroll-behavior: smooth;
+    // }
+
+    html,
+    body {
+        scroll-behavior: smooth;
+        /* Ensures smooth scroll is enabled */
+        // overflow-x: hidden; /* Prevents horizontal scroll */
+        // height: 100%; /* Full height might be necessary depending on layout */
+        overflow: auto;
+        height: 100%;
+    }
+
+
+
+}
