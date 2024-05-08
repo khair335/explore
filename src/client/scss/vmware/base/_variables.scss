@@ -10,9 +10,9 @@ $color-primary: #005C8A; //Color/brand/Blue
 $color-primary--dark: #04314D; //link hover only
 
 
-$color-secondary: #0098C7; 	// color/brand/ light blue - not in use yet
-$color-secondary--light: #007DA3;	//color/brand/ Light ode - light blue - not in use yet
-$color-secondary--dark: #0098CA;	//color/brand/ Dark Mode - light blue - not in use yet
+$color-secondary: #0098C7; // color/brand/ light blue - not in use yet
+$color-secondary--light: #007DA3; //color/brand/ Light ode - light blue - not in use yet
+$color-secondary--dark: #0098CA; //color/brand/ Dark Mode - light blue - not in use yet
 
 
 $color-warn: hsl(34, 100%, 44%); //#de7c00;
@@ -23,38 +23,38 @@ $color-table-head: #b5283a; //old -not in use for vmware
 //not used for vmware
 $color-grey--900: hsl(0, 0%, 24%); //#3D3D3D; // //do not use for vmware
 $color-grey--800: hsl(0, 0%, 24%); //#3D3D3D; // //do not use for vmware
-$color-grey--675: hsl(0, 0%, 34%);//do not use for vmware
+$color-grey--675: hsl(0, 0%, 34%); //do not use for vmware
 $color-grey--650: hsl(0, 0%, 34%); //do not use for vmware
 $color-grey--625: hsl(0, 0%, 34%); //do not use for vmware
 
 
 // vmware gray
-$color-grey--700: #3D3D3D;	
-$color-grey--600: #565656;	// default body text color
-$color-grey--500: #717074; 
-$color-grey--400: #8D8D90;	
+$color-grey--700: #3D3D3D;
+$color-grey--600: #565656; // default body text color
+$color-grey--500: #717074;
+$color-grey--400: #8D8D90;
 $color-grey--300: #AAA9AC;
 $color-grey--200: #C6C6C7;
 $color-grey--100: #E3E2E3;
-$color-grey--50:  #F7F7F7;
-$color-grey--10:  #EBEBEB; // border color;
+$color-grey--50: #F7F7F7;
+$color-grey--10: #EBEBEB; // border color;
 
 
 
 //Aqua
 $color-aqua: #007BBC; //brand colors / Aqua
-$color-aqua-light: #01B9C6; //Lignt mode / primary light 
+$color-aqua-light: #01B9C6; //Lignt mode / primary light
 $color-aqua-dark: #01B9C6; //Dark mode / primary dark
 
 //Green
-$color-green:#61A60E; //brand colors /Green
-$color-green-light:#23800A; //Light mode / primary light
-$color-green-dark:#61A60E; // Dark mode / primary dark
+$color-green: #61A60E; //brand colors /Green
+$color-green-light: #23800A; //Light mode / primary light
+$color-green-dark: #61A60E; // Dark mode / primary dark
 
 //purple
-$color-purple:#6C4B94; //brand colors / Purple
-$color-purple-light:#6C4B94; //Light mode / primary light - same as brand purple
-$color-purple-dark:#A468EE; // Dard mode / primary dark
+$color-purple: #6C4B94; //brand colors / Purple
+$color-purple-light: #6C4B94; //Light mode / primary light - same as brand purple
+$color-purple-dark: #A468EE; // Dard mode / primary dark
 
 
 
@@ -82,7 +82,7 @@ $shadow-4: 0 16px 24px 0 rgba(17, 69, 134, 0.12);
 $shadow-5: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
 // Base Color
-$color-white: #FFFFFF; 
+$color-white: #FFFFFF;
 $color-black: #000000; //text color for titles,
 $color-body: $color-grey--600; // body text color in Light Mode
 $color-body-dark: $color-white; // body text color in Dark Mode
@@ -171,14 +171,16 @@ $autopilot-footer-height-xl: 275px;
 	background-color: $color-primary;
 	color: $color-white;
 	font-family: $font-family--secondary;
-text-decoration: none;
-display: flex;
+	text-decoration: none;
+	display: flex;
+
 	&:hover {
 		background-color: $color-white;
 		color: $color-primary;
 		border: 1px solid $color-primary
 	}
-	&:after{
+
+	&:after {
 		content: unset !important;
 	}
 }
@@ -188,8 +190,9 @@ display: flex;
 	background-color: $color-white;
 	color: $color-primary;
 	font-family: $font-family--secondary;
-text-decoration: none;
-display: flex;
+	text-decoration: none;
+	display: flex;
+
 	&:hover {
 		background-color: $color-primary;
 		color: $color-white;
@@ -218,12 +221,13 @@ display: flex;
 	text-underline-offset: 3px;
 	text-decoration-thickness: 1px;
 	display: inline-block;
+
 	&:hover {
 		text-decoration: underline;
 		text-decoration-line: underline;
 		text-underline-offset: 3px;
 		text-decoration-thickness: 2px;
-		color:$color-link-hover;
+		color: $color-link-hover;
 	}
 }
 
@@ -239,8 +243,9 @@ display: flex;
 	line-height: 1.5;
 	text-transform: uppercase;
 	margin: 5px 2px 5px 0;
-text-decoration: none;
-display: inline-block;
+	text-decoration: none;
+	display: inline-block;
+
 	&:hover {
 		text-decoration: underline;
 		text-decoration-line: underline;
@@ -317,4 +322,12 @@ $button: 'button';
 
 .no-styles {
 	@include link-style;
+}
+
+@mixin horizontal-rule {
+	border-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+
 }
