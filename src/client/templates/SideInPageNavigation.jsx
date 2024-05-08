@@ -45,10 +45,9 @@ const SideNav = ({ navs }) => {
 			const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
 			let title = active_title;
 			let hash = window.location.hash || '';
-			hash
 
 			// We reached the bottom.
-			if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+			if (hash && (window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
 
 				nav.querySelector('.active')?.classList?.remove('active');			// Remove any active
 

@@ -40,7 +40,7 @@ const CardModule = ({ data = {} }) => {
 				<Row>
 					{data?.cards?.map(card => {
 						return (
-							<Col key={card.title} lg={data.cards.length <= 1?6:0}>
+							<Col key={card.title} lg={data.cards.length <= 1 ? 6 : 0}>
 								{getCardFromTemplate("ImageCard", card)}
 							</Col>
 						);
@@ -63,7 +63,7 @@ const RecommendedModule = ({ data = {} }) => {
 						<ul>
 							{data?.links?.slice(0, data.links.length / 2).map(link => (
 								<li key={link.link_title}>
-									<SiteLink to={link.recommended_link.url}>{link.link_title}</SiteLink>
+									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>
 							))}
 						</ul>
@@ -72,7 +72,7 @@ const RecommendedModule = ({ data = {} }) => {
 						<ul>
 							{data?.links?.slice(data.links.length / 2).map(link => (
 								<li key={link.link_title}>
-									<SiteLink to={link.recommended_link.url}>{link.link_title}</SiteLink>
+									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>
 							))}
 						</ul>
@@ -85,14 +85,13 @@ const RecommendedModule = ({ data = {} }) => {
 }
 
 const RelatedModule = ({ data = {} }) => {
-	console.log(data.related_blocks);
 	return (
 		<div className="glossary-module glossary-module-related">
 			<h3 dangerouslySetInnerHTML={{ __html: data.related_title }}></h3>
 			{data?.related_blocks &&
 				<Row>
 					{data?.related_blocks?.map(content_block => (
-						<Col>
+						<Col key={content_block.content_id} lg={data?.related_blocks.length <= 3? 4 : 3}>
 							{getCardFromTemplate("ProductCard", content_block)}
 						</Col>
 					))}
@@ -134,7 +133,8 @@ export function getModuleFromTemplate(template, data, ...props) {
 
 
 const GlossaryDetail = (props) => {
-	const modules = props?.data?.modules || [];
+	let modules = props?.data?.modules || [];
+	const related = modules.filter(module => module.template === 'related') || [];			// Seperate our related products as we render it differently.
 
 	// Set our hash.
 	modules.filter(module => module.section_title).forEach(module => {
@@ -144,35 +144,54 @@ const GlossaryDetail = (props) => {
 		module.hash = encodeTabHash(hash);
 	});
 
+	modules = modules.filter(module => module.template !== 'related');						// We only other templates that are not related.
+
+	//
+
 	// Init/componentDidMount
 	useEffect(() => {
 		liveEvents();
 	}, []);
 
 	return (
-		<Container id="GlossaryDetail">
+		<div id="GlossaryDetail">
 			<SubHeadHero {...props} />
 
-			{/* Add content here */}
-			<SideInPageNavigation right navs={modules.filter(module => module.hash).map(module => {
-				return {
-					hash: module.hash,
-					label: module.section_title,
-				}
-			})}>
-				<div className={classnames("glossary-detail-modules")} >
-					{modules.map((module, index) => {
+			<Container>
+				{/* Add content here */}
+				<SideInPageNavigation right navs={modules.filter(module => module.hash).map(module => {
+					return {
+						hash: module.hash,
+						label: module.section_title,
+					}
+				})}>
+					<div className={classnames("glossary-detail-modules")} >
+						{modules.map((module, index) => {
+							return (
+								<section key={module?.template + index} id={module.hash} className="glossary-detail-module">
+									{getModuleFromTemplate(module.template, module)}
+								</section>
+							);
+						})}
+					</div>
+				</SideInPageNavigation>
+
+			</Container>
+
+
+			<div className="glossary-detail-related">
+
+				<Container>
+					{related.map((module, index) => {
 						return (
 							<section key={module?.template + index} id={module.hash} className="glossary-detail-module">
 								{getModuleFromTemplate(module.template, module)}
 							</section>
 						);
 					})}
-				</div>
-			</SideInPageNavigation>
-
-
-		</Container>
+				</Container>
+			</div>
+		</div>
 	);
 }
 
