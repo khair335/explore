@@ -1,0 +1,9 @@
+/* 
+    components/header-vmware.scss
+    loads after header.scss & header-explore.scss
+    contains mods specific to vmware for those files
+*/
+
+@import "../base/variables";
+@import 'header-explore.scss';
+

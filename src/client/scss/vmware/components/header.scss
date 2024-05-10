@@ -295,7 +295,7 @@
 	@media screen and (min-width: map-get($grid-breakpoints, lg)){							//wide screen view
 		.navBrand{
 			.menuButton{
-				display: none;
+				display: none;					// button to open/close main menu when in mobile
 			}
 
 			.navbar-brand{

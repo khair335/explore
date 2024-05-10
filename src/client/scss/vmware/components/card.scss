@@ -181,17 +181,19 @@
             }
         }
     }
-    .Featured{
+
+    .Featured {
         .ImageCard {
             border-radius: 0;
-            .card-body{
-            padding: 0;
-            padding-left: 12px;
-            padding-right: 12px;
-            justify-content: center;
-            margin-top: 10px;
-            flex: none !important;
-        }
+
+            .card-body {
+                padding: 0;
+                padding-left: 12px;
+                padding-right: 12px;
+                justify-content: center;
+                margin-top: 10px;
+                flex: none !important;
+            }
 
         }
 
@@ -201,6 +203,7 @@
 .VideoCard {
     height: 100%;
     box-shadow: none;
+
     .video-thumbnail-link {
         position: relative;
         display: block;
@@ -215,14 +218,15 @@
 
     .video-thumbnail {
         display: block;
-        max-width: 275px;
+        max-width: 100%; // CarouselVideoPlaylist can have any number of columns
         width: 100%;
         height: 160px;
-      object-fit: cover;
-     @media (max-width:767px) {
-        max-width: 100%;
+        object-fit: cover;
 
-      }
+        @media (max-width:767px) {
+            max-width: 100%;
+
+        }
     }
 
     .play-button {
@@ -278,7 +282,7 @@
 
         .video-name-data {
             margin: 0;
-            display: block ;
+            display: block;
 
             span {
                 font-size: 14px;
@@ -326,4 +330,3 @@
 
 
 }
-

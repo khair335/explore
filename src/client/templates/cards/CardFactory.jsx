@@ -483,8 +483,9 @@ AnalystReportCard.propTypes = {
  *  @details
  */
 export const VideoCard = (props) => {
-    const video_content = props.data || props.video
-    const url_path = config.video.videoPath(video_content?.account) + "/" + video_content?.id;
+    const video_content = props.data || props.video;
+    const id = video_content?.media_id || video_content?.id
+    const url_path = config.video.videoPath(video_content?.account) + "/" + id;
     const target = "_self"
 
     const formatMillisecondsToHours = (milliseconds) => {
@@ -517,9 +518,13 @@ export const VideoCard = (props) => {
                     <span className="video-duration">{formatMillisecondsToHours(video_content?.duration)}</span>
                 </SiteLink>
                 <div className="video-info">
-                    <SiteLink className='video-name-data' to={url_path} target={target}>{video_content?.views ? <span>{video_content?.name} | {video_content?.views} views</span> : <span>{video_content?.name}</span>}</SiteLink>
-                    <SiteLink className='card-video-title' to={url_path} target={target}><h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 54) }}></h5></SiteLink>
-                    <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 72) }}></p>
+                    <div>
+                        <SiteLink className='video-name-data' to={url_path} target={target}>{(video_content?.name) && <span>{video_content?.name} {(video_content?.name && video_content?.views) && <> | </>} {video_content?.views && <>{video_content.views} views</>}</span>}</SiteLink>
+                    </div>
+                    <div>
+                        {video_content?.description && <SiteLink className='card-video-title' to={url_path} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 27) }}></h5>}</SiteLink>}
+                    </div>
+                    {video_content?.long_description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 53) }}></p>}
                 </div>
             </div>
         </div>
@@ -606,6 +611,9 @@ export function applyCardType(card, default_type, image_position) {
             break;
         case "video":
             type = "VideoCard";
+            break;
+        case "empty":
+            type = "EmptyCard";
             break;
         default:
             // Use the asset_type to determine card.

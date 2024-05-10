@@ -1,0 +1,225 @@
+/* 
+    components/header-vmware.scss
+    loads after header.scss & header-explore.scss
+    contains mods specific to vmware for those files
+*/
+
+@import "../base/variables";
+@import 'header-explore.scss';
+
+#header-explore {
+
+    height: 125px;
+
+    .hide {display: none}
+
+    .login-banner {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        background-color: $color-grey--100;
+        padding: 8px 0;
+
+        div.container {
+            position: relative;
+        }
+
+        .login {
+            position: absolute;
+            right: 0;
+
+            button.dropdown-toggle {
+                height: 22px;
+
+                i {
+                    margin-left: 6px;
+                }
+            }
+
+            .dropdown {
+
+                .dropdown-menu {
+                    left: -100px !important;    //overwriting inline styling from bootstrap
+                }
+
+                .dropdown-wrapper {
+                    padding: 6px 20px;
+    
+                    a {
+                        text-decoration: none;
+                        margin-bottom: 10px;
+    
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .search-box {
+        position: absolute;
+        top: 125px;
+        width: 100%;
+        padding: 20px 0;
+        background-color: $color-white;
+        z-index: 1001;
+  
+        &.hide {
+          display: none
+        }
+
+        form {
+            height: 40px;
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid $color-grey--600;
+            border-radius: 3px;
+
+            &:focus {border:$color-secondary}
+        }
+
+        button.search-bttn {
+            height: 38px;
+            border-top: 1px solid $color-grey--600;
+            border-bottom: 1px solid $color-grey--600;
+        }
+
+        input {
+            height: 38px;
+
+            &:focus { 
+                outline: none;
+                border: $color-secondary;
+            }
+        }
+
+    }
+
+    .nav-wrap {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+    }
+
+    .header_logo_wrapper {
+        display: inline-block;
+    }
+
+    .navBrand .navbar-brand {
+        margin-left: -70px;
+
+        img {
+            height: 42px;
+            width: 168px;
+        }
+    } 
+
+    nav.header_nav {
+        display: flex;
+        margin-top: 16px;
+        padding-top: 0;
+
+        .navMenu {
+            margin-top: 0;
+
+            ul.navbar {
+                justify-content: space-around;
+                width: 100%;
+
+                .MainNavExploreItem > a, 
+                .MainNavExploreItem > button,
+                .MainNavExploreItem > .label {
+                font-size: $font-size-lg;
+                color: $color-grey--600;
+                font-weight: 200;
+                text-decoration: none;
+                text-transform: capitalize;
+                }
+        
+                .MainNavExploreItem button.active::before {
+                    bottom: calc(100% - 62px);
+                  }
+            }
+        }
+
+        .header_location {
+            display: none;
+        }
+    }
+
+    #menuWindow {
+
+        top: 125px;
+
+        .container .col {
+
+            h2.content-block-title {
+                text-align: left;
+              }
+            
+            ul.cb-cta-link {
+                justify-content: left;
+            }
+        }
+    }
+    
+
+    .secondary_nav {
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        right: unset;
+        top: unset;
+        padding: 0;
+
+        .secondary-nav-top {
+            margin-bottom: 0;
+            justify-content:left;
+            align-items: center;
+            margin-right: 30px;
+
+            i {
+                font-size: 24px;
+            }
+        }
+
+
+        .secondary-nav-cta {
+            margin-top: 0;
+
+            a {
+                font-size: $font-size-md;
+                height: 39px;
+                text-wrap: nowrap;
+            }
+        }
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+
+        .navBrand {
+            .navbar-brand {
+                margin-left: 0;
+                width: 168px;
+            }
+    
+            .menuButton {
+                margin-top: 0;
+            }
+        }
+
+        .navMenu {
+
+            .navbar-collapse {
+                top: 125px;
+            }
+        }
+        
+
+
+    }
+}   //#header-explore

@@ -45,6 +45,7 @@ const ProductSuitesContentCard = React.lazy(() => import('templates/ProductSuite
 const CarouselStandard = React.lazy(() => import('templates/CarouselStandard.jsx'));
 const CarouselSplit = React.lazy(() => import('templates/CarouselStandard.jsx'));
 const CarouselFeatured = React.lazy(() => import('templates/CarouselStandard.jsx'));		// Same as split, but with arrows
+const CarouselVideoPlaylist = React.lazy(() => import('templates/CarouselStandard.jsx'));		// Same as split, but with arrows
 const Featured = React.lazy(() => import('templates/Featured.jsx'));		// https://www.vmware.com/explore/us.html Continue learning with fixed layout.
 const HorizontalTab = React.lazy(() => import('templates/HorizontalTab.jsx'));		// Same as split, but with arrows
 const Agenda = React.lazy(() => import('templates/Agenda.jsx'));		// VMware Explore agenda
@@ -94,6 +95,7 @@ const templates = {
 	CarouselStandard,
 	CarouselSplit,
 	CarouselFeatured,
+	CarouselVideoPlaylist,
 	Featured,
 	HorizontalTab,
 	Agenda,

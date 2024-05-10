@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SiteLink from 'components/SiteLink.jsx';
 import {
+	Row,
+	Col,
 	Carousel,
 	CarouselItem,
 	CarouselControl,
@@ -186,8 +188,8 @@ export default class HomeHero extends Component {
 
 			if (hero.hero_image && hero.hero_image.width && hero.hero_image.height) {
 				// Calculate our ratio based off width and height of the image.
-				ratio = hero.hero_image.height/hero.hero_image.width;
-				progressive_height = Math.ceil(progressive_width*ratio);
+				ratio = hero.hero_image.height / hero.hero_image.width;
+				progressive_height = Math.floor(progressive_width * ratio);
 
 			}
 
@@ -204,6 +206,7 @@ export default class HomeHero extends Component {
 				caption: hero.title,			// Needed by Carousel
 				theme: hero.theme,
 				size: hero.size,
+				video: hero?.hero_video || null,
 			}
 		});
 	}
@@ -311,6 +314,7 @@ export default class HomeHero extends Component {
 		const slides = this.state.heroes.map((item, i) => {
 			const theme = `theme-${item?.theme?.toLowerCase() || 'default'} theme-banner-${item?.theme?.toLowerCase() || 'default'}`;
 			const size = `size-${item?.size?.toLowerCase() || 'default'}`;
+			const col = item.video ? 6 : 7;		// The caption section size is determined if we have a video or not.
 
 			return (
 				<CarouselItem
@@ -321,83 +325,94 @@ export default class HomeHero extends Component {
 					<div className={classnames(theme, size)}>
 						<ImageBase image={item.image} className="img-fluid" progressiveImage={item.progressive_image} />
 						{/* hiding with inline style if no data because if you remove CarouselItem from flow it will crash */}
-						<div className="container">													{/* hiding with inline style if no data because if you remove CarouselItem from flow it will crash */}
-							<div className="col-md-7 col-xs-3 caption left text-left" style={(item.link || item.caption || item.description || item.links.length > 0) ? { "display": "block" } : hideTeaser}>
-								<div className="teaser">
-									{item.caption && <h1 className="featurette-heading" dangerouslySetInnerHTML={{ __html: item.caption }}></h1>}
-									{item.description && <div className="pr-2 mb-2" dangerouslySetInnerHTML={{ __html: item.description }}></div>}
+						<div className="banner-caption-container">
+							<div className="container">													{/* hiding with inline style if no data because if you remove CarouselItem from flow it will crash */}
+								<Row>
+									<Col className="caption left text-left" lg={col} style={(item.link || item.caption || item.description || item.links.length > 0) ? { "display": "block" } : hideTeaser}>
+										<div className="teaser">
+											{item.caption && <h1 className="featurette-heading" dangerouslySetInnerHTML={{ __html: item.caption }}></h1>}
+											{item.description && <div className="pr-2 mb-2" dangerouslySetInnerHTML={{ __html: item.description }}></div>}
 
-									<div className="banner-cta-wrapper">
-										{item.links.map(link => {
-											let url = urlparse(link.url, true);
-											let target = "_self";
-											if (link.target) {
-												// CMS has it as "Yes" or "No". But it should actually be a string with html type. We will handle it here.
-												if (link.target === "Yes") {
-													// Yes is "New Window" in the CMS. ex. products/software/continuous-testing/blazemeter-continuous-testing-platform
-													target = "_blank";
-												}
-												else if (link.target === "No") {
-													target = "_self";
-												}
-												else {
-													target = link.target;
-												}
-											}
-
-											return (
-												<div className="banner-cta" key={link.url}>
-													{link.hero_banner_title &&
-														<div className="banner-cta-title">
-															{(link.url && link.content_type === "video")
-																? <SiteLink key={link.content_id}
-																	gtmevent={{ "id": "U006", "title": link.title }}
-																	onClick={event => this.handleVideoClick(event, link.media_id)}
-																	nolink
-																	target={target}>{/* , "detail": "play video"*/}
-																	<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
-																</SiteLink>
-																: <SiteLink
-																	to={link.url}
-																	key={link.content_id}
-																	gtmevent={{ "id": "U006", "title": link.title }}
-																	target={target}
-																	nolink
-																>{/* , "detail":"cta link"*/}
-																	<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
-																</SiteLink>
-															}
-														</div>
-
-
-													}
-													{link.hero_banner_abstract &&
-														<div dangerouslySetInnerHTML={{ __html: link.hero_banner_abstract }} />
-													}
-													<div>
-														{(link.url && link.content_type === "video" && link.subtype === 'Brightcove')
-															? <SiteLink key={link.content_id}
-																gtmevent={{ "id": "U006", "title": link.title }}
-																onClick={event => this.handleVideoClick(event, link.media_id)}
-																target={target}>{/* , "detail": "play video"*/}
-																{link.title} <span className="bi brcmicon-play-circle"></span>
-															</SiteLink>
-															: <SiteLink
-																to={link.url}
-																key={link.content_id}
-																gtmevent={{ "id": "U006", "title": link.title }}
-																target={target}
-															>{/* , "detail":"cta link"*/}
-																{link.title} <span className="bi brcmicon-play-circle"></span>
-															</SiteLink>
+											<div className="banner-cta-wrapper">
+												{item.links.map(link => {
+													let url = urlparse(link.url, true);
+													let target = "_self";
+													if (link.target) {
+														// CMS has it as "Yes" or "No". But it should actually be a string with html type. We will handle it here.
+														if (link.target === "Yes") {
+															// Yes is "New Window" in the CMS. ex. products/software/continuous-testing/blazemeter-continuous-testing-platform
+															target = "_blank";
 														}
-													</div>
-												</div>
-											)
-										})
-										}
-									</div>
-								</div>
+														else if (link.target === "No") {
+															target = "_self";
+														}
+														else {
+															target = link.target;
+														}
+													}
+
+													return (
+														<div className="banner-cta" key={link.url}>
+															{link.hero_banner_title &&
+																<div className="banner-cta-title">
+																	{(link.url && link.content_type === "video")
+																		? <SiteLink key={link.content_id}
+																			gtmevent={{ "id": "U006", "title": link.title }}
+																			onClick={event => this.handleVideoClick(event, link.media_id)}
+																			nolink
+																			target={target}>{/* , "detail": "play video"*/}
+																			<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
+																		</SiteLink>
+																		: <SiteLink
+																			to={link.url}
+																			key={link.content_id}
+																			gtmevent={{ "id": "U006", "title": link.title }}
+																			target={target}
+																			nolink
+																		>{/* , "detail":"cta link"*/}
+																			<h2 dangerouslySetInnerHTML={{ __html: link.hero_banner_title }} />
+																		</SiteLink>
+																	}
+																</div>
+
+
+															}
+															{link.hero_banner_abstract &&
+																<div dangerouslySetInnerHTML={{ __html: link.hero_banner_abstract }} />
+															}
+															<div>
+																{(link.url && link.content_type === "video" && link.subtype === 'Brightcove')
+																	? <SiteLink key={link.content_id}
+																		gtmevent={{ "id": "U006", "title": link.title }}
+																		onClick={event => this.handleVideoClick(event, link.media_id)}
+																		target={target}>{/* , "detail": "play video"*/}
+																		{link.title} <span className="bi brcmicon-play-circle"></span>
+																	</SiteLink>
+																	: <SiteLink
+																		to={link.url}
+																		key={link.content_id}
+																		gtmevent={{ "id": "U006", "title": link.title }}
+																		target={target}
+																	>{/* , "detail":"cta link"*/}
+																		{link.title} <span className="bi brcmicon-play-circle"></span>
+																	</SiteLink>
+																}
+															</div>
+														</div>
+													)
+												})
+												}
+											</div>
+										</div>
+									</Col>
+									{item.video &&
+										<Col>
+										<div className="banner-caption-video">
+											<Video mediaid={item.video.media_id} account={item.video.account_id} />
+											</div>
+										</Col>
+									}
+								</Row>
 							</div>
 						</div>
 					</div>

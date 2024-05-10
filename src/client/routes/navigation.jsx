@@ -49,6 +49,11 @@ const NavigationProvider = ({ children }) => {
             group: (item.group) ? true : false,																	// creates a title with list
             target: (item.target) ? item.target : false,														// adds target attribute for links
             abstract: (item.abstract) ? item.abstract : false,
+            show_as_card: (item.show_as_card) ? item.show_as_card : false,
+            links: (item.links) ? item.links : false,
+            links_title: (item.links_group_title) ? item.links_group_title : false,
+            ctas: (item.menu_ctas) ? item.menu_ctas : false,
+            content_block: (item.content_type === "content_block") ? item :false,
             child: [...(item.children ? loop(item.children) : [])]                                  		    // children? create a new loop
         })
         ));
@@ -106,15 +111,15 @@ const NavigationProvider = ({ children }) => {
 
                         setNavigation(loop(allNav));
                         setHeader({
-                            abstract: json.header_logo_abstract,
+                            abstract: json?.header_logo_abstract,
                             logo:{
-                                src: json.header_image.src,
-                                alt: json.header_image.alt,
-                                url: json.header_logo_url,
+                                src: json?.header_image?.src,
+                                alt: json?.header_image?.alt,
+                                url: json?.header_logo_url,
                             },
-                            header_links: json.header_links,
-                            cta: json.header_cta,
-                            search: json.header_show_search,
+                            header_links: json?.header_links,
+                            cta: json?.header_cta,
+                            search: json?.header_show_search,
                         });
                         setFooter({
                             logo: json.footer_logo?.image,

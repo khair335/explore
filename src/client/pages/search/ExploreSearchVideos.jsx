@@ -23,13 +23,20 @@ const ExploreSearchVideos = (props) => {
 	const location = useLocation();
 	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
-	const [data, setData] = useState(props.data)
-	const [years, setYears] = useState(data.filters.filter((data) => data.label === "Year")[0].tags)
-	const [selectedYear, setSelectedYear] = useState('2023')
 	const [openDropdown, setOpenDropdown] = useState(null);
 	const [hasSelectedValues, setHasSelectedValues] = useState(false);
 	const [hasVideos, setHasVideos] = useState(false)
 	const [videos, setVideos] = useState([])
+	const [dropdownOpen, setDropdownOpen] = useState(false);
+	const [sortKey, setSortKey] = useState('most-recent');
+	const [videoCount, setVideoCount] = useState('0');
+	const [limit, setLimit] = useState(12);
+	const [searchTerm, setSearchTerm] = useState('');
+	const [isSubmit, setIsSubmit] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [inputChange, setInputChange] = useState('');
+	const [loadCount, setLoadCount] = useState(0);
+	const [selectedYear, setSelectedYear] = useState('2023')
 	const initialValues = {
 		event_delivery: [],
 		products: [],
@@ -40,20 +47,16 @@ const ExploreSearchVideos = (props) => {
 		region: [],
 	}
 	const [selectedValues, setSelectedValues] = useState(initialValues)
-	const temp_data = data.filters.filter((data) => data.label !== "Year")
-
-	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const [sortKey, setSortKey] = useState('most-recent');
-	const [videoCount, setVideoCount] = useState('0');
-	const [limit, setLimit] = useState(12);
-	const [searchTerm, setSearchTerm] = useState('');
 	const [filter, setFilter] = useState([]);
 	const [filterString, setFilterString] = useState('');
-	const [isSubmit, setIsSubmit] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const [inputChange, setInputChange] = useState('');
-	const [loadCount, setLoadCount] = useState(0);
-
+	const [years, setYears] = useState([])
+	const [filterData, setFilterData] = useState([])
+	const headers_json = {
+		method: 'get',
+		headers: new Headers({
+			'Accept': `application/json;pk=${config.video.policy_key}`,
+		}),
+	}
 
 	const filterParams = (updatedValues) => {
 		const newFilter = Object.entries(updatedValues)?.map(([category, values]) => {
@@ -66,58 +69,62 @@ const ExploreSearchVideos = (props) => {
 	}
 
 	useEffect(() => {
-		setSelectedYear(searchParams.year || '2023');
 		setInputChange(searchParams.term || '');
 		setSearchTerm(searchParams.term || '');
-		const updatedSelectedValues = {};
+		if (!props.nofilter) {
+			setSelectedYear(searchParams.year || '2023');
+			const updatedSelectedValues = {};
 
-		if (searchParams.event_delivery) {
-			updatedSelectedValues.event_delivery = searchParams.event_delivery?.split(',');
-		} else {
-			updatedSelectedValues.event_delivery = [];
+			if (searchParams.event_delivery) {
+				updatedSelectedValues.event_delivery = searchParams.event_delivery?.split(',');
+			} else {
+				updatedSelectedValues.event_delivery = [];
+			}
+
+			if (searchParams.products) {
+				updatedSelectedValues.products = searchParams.products.split(',');
+			} else {
+				updatedSelectedValues.products = [];
+			}
+
+			if (searchParams.sessiontype) {
+				updatedSelectedValues.sessiontype = searchParams.sessiontype.split(',');
+			} else {
+				updatedSelectedValues.sessiontype = [];
+			}
+
+			if (searchParams.audience) {
+				updatedSelectedValues.audience = searchParams.audience.split(',');
+			} else {
+				updatedSelectedValues.audience = [];
+			}
+
+			if (searchParams.track) {
+				updatedSelectedValues.track = searchParams.track.split(',');
+			} else {
+				updatedSelectedValues.track = [];
+			}
+
+			if (searchParams.level) {
+				updatedSelectedValues.level = searchParams.level.split(',');
+			} else {
+				updatedSelectedValues.level = [];
+			}
+
+			if (searchParams.region) {
+				updatedSelectedValues.region = searchParams.region.split(',');
+			} else {
+				updatedSelectedValues.region = [];
+			}
+
+			filterParams(updatedSelectedValues);
+			setSelectedValues(updatedSelectedValues);
 		}
-
-		if (searchParams.products) {
-			updatedSelectedValues.products = searchParams.products.split(',');
-		} else {
-			updatedSelectedValues.products = [];
-		}
-
-		if (searchParams.sessiontype) {
-			updatedSelectedValues.sessiontype = searchParams.sessiontype.split(',');
-		} else {
-			updatedSelectedValues.sessiontype = [];
-		}
-
-		if (searchParams.audience) {
-			updatedSelectedValues.audience = searchParams.audience.split(',');
-		} else {
-			updatedSelectedValues.audience = [];
-		}
-
-		if (searchParams.track) {
-			updatedSelectedValues.track = searchParams.track.split(',');
-		} else {
-			updatedSelectedValues.track = [];
-		}
-
-		if (searchParams.level) {
-			updatedSelectedValues.level = searchParams.level.split(',');
-		} else {
-			updatedSelectedValues.level = [];
-		}
-
-		if (searchParams.region) {
-			updatedSelectedValues.region = searchParams.region.split(',');
-		} else {
-			updatedSelectedValues.region = [];
-		}
-
-		filterParams(updatedSelectedValues);
-
-		setSelectedValues(updatedSelectedValues);
-
 	}, []);
+
+	const handleYear = (year) => {
+		setSelectedYear(year)
+	};
 
 	const checkSelectedValues = (selectedValues) => {
 		for (let key in selectedValues) {
@@ -143,9 +150,7 @@ const ExploreSearchVideos = (props) => {
 		setHasVideos(checkVideos)
 	}, [videoCount])
 
-	const handleYear = (year) => {
-		setSelectedYear(year)
-	};
+
 
 	const toggleDropdown = (attribute) => {
 		setOpenDropdown(openDropdown === attribute ? null : attribute);
@@ -172,6 +177,10 @@ const ExploreSearchVideos = (props) => {
 	};
 
 	const handleReset = () => {
+		setInputChange('')
+		setSearchTerm('')
+		setLimit(12)
+		setLoadCount(0)
 		setSelectedValues({
 			event_delivery: [],
 			products: [],
@@ -182,69 +191,72 @@ const ExploreSearchVideos = (props) => {
 			region: [],
 		});
 		setFilterString('')
-		setInputChange('')
-		setSearchTerm('')
-		setLimit(12)
-		setLoadCount(0)
-	};
 
+	};
 
 	// Init/componentDidMount
 	// useEffect(() => {
 	// 	liveEvents();
 	// }, []);
-
-
-
 	useEffect(() => {
-		setLoading(true)
-		if (sortKey === 'most-recent') {
-
-			((searchTerm?.trim()?.length > 0) ? fetch(`${config.video.endpoint}?q=%2B${searchTerm}%20%2Byear:"${selectedYear}"%20${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:"2022"&limit=${limit}`, {
-				method: 'get',
-				headers: new Headers({
-					'Accept': `application/json;pk=${config.video.policy_key}`,
-				}),
-			})
+		setLoading(true);
+	
+		const fetchData = (url) => {
+			fetch(url, headers_json)
 				.then(resp => resp.json())
 				.then(json => {
-					setLoading(false)
-					setVideoCount(json.count)
-					setVideos(json.videos)
-					setLoadCount(json.videos.length)
-				}) :
-				fetch(`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`, {
-					method: 'get',
-					headers: new Headers({
-						'Accept': `application/json;pk=${config.video.policy_key}`,
-					}),
-				})
-					.then(resp => resp.json())
-					.then(json => {
-						setLoading(false)
-						setVideoCount(json.count)
-						setVideos(json.videos)
-						setLoadCount(json.videos.length)
-					}))
-		}
-	}, [selectedValues, selectedYear, searchTerm, filterString, limit]);
+					let videos = json.videos?.map(video => {
 
-	useEffect(() => {
-		Object.keys(selectedValues).forEach(category => {
-			if (selectedValues[category].length > 0) {
-				searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
-			} else {
-				delete searchParams[category?.toLowerCase()];
+                        if (props.noname) {
+							if(!video.long_description){
+								video.long_description = video.description
+							}
+							video.description = video.name
+                            video.name = null;
+                        }
+                        return video;
+					});
+					setLoading(false);
+					setVideoCount(json.count);
+					setVideos(videos);
+					setLoadCount(json.videos.length);
+				});
+		};
+	
+		if (!props.nofilter) {
+			if (sortKey === 'most-recent') {
+				const url = (searchTerm?.trim()?.length > 0) ?
+					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Byear:"${selectedYear}"%20${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:"2022"&limit=${limit}` :
+					`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`;
+				fetchData(url);
 			}
-		});
-
-		searchParams['year'] = selectedYear;
-
+		} else {
+			if (sortKey === 'most-recent') {
+				const url = (searchTerm?.trim()?.length > 0) ?
+					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}` :
+					`${config.video.endpoint}?q=%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}`;
+				fetchData(url);
+			}
+		}
+	}, (!props.nofilter) ? [selectedValues, selectedYear, searchTerm, filterString, limit] : [searchTerm, limit]);
+	
+	useEffect(() => {
 		if (searchTerm.length > 0) {
 			searchParams['term'] = searchTerm
 		} else {
 			delete searchParams['term']
 		};
+		if (!props.nofilter) {
+			Object.keys(selectedValues).forEach(category => {
+				if (selectedValues[category].length > 0) {
+					searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
+				} else {
+					delete searchParams[category?.toLowerCase()];
+				}
+			});
+
+			searchParams['year'] = selectedYear;
+		}
 
 		navigate({ search: `?${queryString.stringify(searchParams)}` });
 	}, [selectedYear, selectedValues, searchTerm])
@@ -265,6 +277,7 @@ const ExploreSearchVideos = (props) => {
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 		setSearchTerm(inputChange?.trim())
+		setLimit(12)
 		setIsSubmit(true)
 	};
 
@@ -300,63 +313,63 @@ const ExploreSearchVideos = (props) => {
 							type="text"
 							value={inputChange}
 							onChange={handleInputChange}
-							placeholder="Search by keyword"
+							placeholder={props.data.search_box_text}
 						/>
 					</form>
-					{(years.length > 1) ? <>
-						<span className='title-style'>Select Event Year</span>
-						<div className="year-container">
-							{years?.map((year, index) => (
-								<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
-							))}
-						</div></> : null}
-					<br />
-					<hr />
-					<br />
-					<div>
-						<div className="dropdown-container">
-							{temp_data.map((dropdown) => (
-								(dropdown.label?.toLowerCase() !== 'region') ? <Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
-									<DropdownToggle caret>
-										{dropdown.label}
-										<div className="dropdown-caret"></div>
-									</DropdownToggle>
-									<DropdownMenu>
-										{dropdown.tags.map((value) => (
-											<DropdownItem key={value} toggle={false}>
-												<label>
-													<input
-														type="checkbox"
-														checked={selectedValues[dropdown.attribute]?.includes(value)}
-														onChange={() => handleCheckboxChange(dropdown.attribute, value)}
-													/>
-													{value}
-												</label>
-											</DropdownItem>
-										))}
-									</DropdownMenu>
-								</Dropdown> : null
-							))}
-						</div>
+					{(!props.nofilter) && <>
+						{(props.data?.filters?.filter((data) => data.label === "Year")[0].tags.length > 1) && <><span className='title-style'>Select Event Year</span>
+							<div className="year-container">
+								{props.data?.filters?.filter((data) => data.label === "Year")[0].tags?.map((year, index) => (
+									<button className='year-btn year-btn-active' key={index} onClick={() => handleYear(year)}>{year}</button>
+								))}
+							</div></>}
 						<br />
-						<div className='selected-container'>
-							{Object.keys(selectedValues)?.map((attribute) =>
-								(selectedValues[attribute])?.map((value) => (
-									<div key={value} className='keywords-tag'>
-										{value}
-										<button className='close-button'
-											onClick={() =>
-												handleSelectedValues(attribute, value)
-											}
-										>
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,1)"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"></path></svg>
-										</button>
-									</div>
-								))
-							)}
-							{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}
-						</div>
-					</div>
+						<hr />
+						<br />
+						<div>
+							<div className="dropdown-container">
+								{props.data?.filters?.filter((data) => data.label !== "Year")?.map((dropdown) => (
+									(dropdown.label?.toLowerCase() !== 'region') ? <Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
+										<DropdownToggle caret>
+											{dropdown.label}
+											<div className="dropdown-caret"></div>
+										</DropdownToggle>
+										<DropdownMenu>
+											{dropdown.tags.map((value) => (
+												<DropdownItem key={value} toggle={false}>
+													<label>
+														<input
+															type="checkbox"
+															checked={selectedValues[dropdown.attribute]?.includes(value)}
+															onChange={() => handleCheckboxChange(dropdown.attribute, value)}
+														/>
+														{value}
+													</label>
+												</DropdownItem>
+											))}
+										</DropdownMenu>
+									</Dropdown> : null
+								))}
+							</div>
+							<br />
+							<div className='selected-container'>
+								{Object.keys(selectedValues)?.map((attribute) =>
+									(selectedValues[attribute])?.map((value) => (
+										<div key={value} className='keywords-tag'>
+											{value}
+											<button className='close-button'
+												onClick={() =>
+													handleSelectedValues(attribute, value)
+												}
+											>
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,1)"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"></path></svg>
+											</button>
+										</div>
+									))
+								)}
+								{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}
+							</div>
+						</div></> || <>{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}</>}
 
 				</Container>
 			</div>
@@ -380,7 +393,7 @@ const ExploreSearchVideos = (props) => {
 
 					<div className='video-panel'>
 						{videos?.map((video, index) => (
-							<VideoCard video={video} key={index} />
+							<VideoCard video={video} key={index} noname={props.noname} />
 						))}
 					</div>
 					{(videoCount != loadCount) && <button className='load-button' onClick={() => loadMore()}>Load More</button>}

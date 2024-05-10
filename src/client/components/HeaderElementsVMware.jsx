@@ -63,7 +63,8 @@ export class ExploreHeaderSecondary extends Component {
 						""
 					}
 				</DropdownToggle>
-				<DropdownMenu>
+				{links.length > 0 ? 
+					<DropdownMenu>
 					<div className="dropdown-wrapper">
 						<div onClick={this.props.menuToggle}>
 							{links.map(link => {
@@ -82,6 +83,11 @@ export class ExploreHeaderSecondary extends Component {
 
 					</div>
 				</DropdownMenu>
+				:
+				null
+
+				}
+
 			</Dropdown>
 		);
 	}

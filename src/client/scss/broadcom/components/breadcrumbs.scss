@@ -39,6 +39,7 @@
 
 #subhead-navigation {	
 	.bc-breadcrumbs {
+		padding:  0.5rem 0; // JD - Removed py-2 from jsx and added padding here instead.
 		@media only screen and (max-width: 992px) {
 			.breadcrumbMobile{
 				display:none;

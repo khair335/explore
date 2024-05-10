@@ -7,6 +7,7 @@ import SiteLink from 'components/SiteLink.jsx';
 import { Container, Row, Col, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { ResizeObserver } from '@juggle/resize-observer';
 const ExploreFooter = React.lazy(() => import('components/FooterVMware.jsx'));
+const vmwareFooter = React.lazy(() => import('components/FooterVMware.jsx'));
 
 import 'scss/components/footer.scss';
 import classNames from 'classnames';
@@ -285,6 +286,7 @@ const BroadcomFooter = (props) => {
 const templates = {
     ExploreFooter,
     BroadcomFooter,
+    vmwareFooter,
 }
 
 const NoTemplate = () => {

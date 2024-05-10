@@ -2,6 +2,8 @@
 * components/header-explore.scss
 */
 // header (everything above the red line) for all pages
+// Footer
+
 
 @import "../base/variables";
 @import "../base/transitions";
@@ -23,6 +25,7 @@
   display: -webkit-flex;
   display: flex;
   font-family: $font-family--secondary;
+  z-index: 10;
 
   .navbar-brand {
     padding-top: 0;
@@ -69,6 +72,24 @@
       flex-wrap: nowrap;
       height: 47px;
       //animation: 0.65s ease-out 0s 1 slideInFromLeft;
+
+      .MainNavExploreItem > a,
+      .MainNavExploreItem > button,
+      .MainNavExploreItem > .label {
+        text-transform: capitalize;
+        font-size: $font-size-lg;
+        color: $color-black;
+        font-weight: 200;
+        padding-left: 0 !important;
+        border: 0 !important;
+
+        &.active {
+          color: $color-primary;
+        }
+      }
+
+
+
     }
   }
 
@@ -95,11 +116,7 @@
     padding: 0;
     height: 100%;
     display: block;
-    margin-top: 30px;
-
-    .row {
-      flex-grow: 1;
-    }
+    padding-top: 30px;
 
     .linkChevron {
       display: none;
@@ -117,22 +134,23 @@
 
     .secondary-nav-top {
       display: flex;
-      /* margin-bottom: 14px; */
+      margin-bottom: 14px;
       justify-content:  flex-end;
+
+        .header-link {
+          margin-left:20px;
+        }
 
       a.lnk,
       button {
         font-weight: 200;
-        font-size: 14px;
+        font-size: $font-size-md;
         color: $color-primary;
         text-decoration: none;
         text-transform: capitalize;
         display: block;
       }
 
-      .contact a.lnk {
-        margin-top: 1px;
-      }
 
       .headerlanguage,
       .login-wrap {
@@ -151,30 +169,18 @@
         top: -24px;
       }
 
-
-
       i {
         margin-left: 5px;
         color: $color-primary;
+        cursor: pointer;
 
         &:before {
           color: $color-primary;
         }
       }
 
-      .MainNavExploreItem a,
-      .MainNavExploreItem button,
-      .MainNavExploreItem .label {
-        font-size: $font-size-md;
-        color: $color-primary;
-        text-transform: inherit;
-        font-weight: 200;
-        text-decoration: none;
-        text-transform: capitalize;
-      }
-
       button {
-        padding-left: 20px;
+        padding-left: 0;
 
         i {
           margin-left: 6px;
@@ -260,8 +266,9 @@
 
     .search-box {
       position: absolute;
-      top: 33px;
-
+      top: 26px;
+      width: 100%;
+      border: 1px solid $color-grey--700;
       &.hide {
         display: none
       }
@@ -300,15 +307,131 @@
     }
   }
 
-  #menuWindow {
+  #menuWindow {     //ALL menuWindow should be fine - this is what was supposed to be added
     width: 100%;
     background-color: $color-white;
     padding-top: 30px;
+    top: 152px;
+    bottom: unset;
+    padding-bottom: 50px;
+    overflow: scroll;
+
+    button.back {display: none}       // closes flyh-out/dropdown menu in moblie
+
+    .content-block .col {
+      padding: 32px;
+    }
+
+    .menuWrapper {
+      max-width: 1170px;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: stretch;
+      min-height: 100%;
+
+      .row {
+        flex-grow: 1;
+        align-items: stretch; 
+        padding-bottom: 30px; 
+      }
+
+      .col {
+        padding-top: 20px;
+
+        h2.content-block-title {
+          text-align: center;
+        }
+
+        h4 {
+          font-size: 20px;
+          font-weight: 300;
+          color: $color-black;
+          margin-bottom: 16px;
+        }
+
+        p {
+          font-family: $font-family--primary;
+          font-size: $font-size-lg;
+          color: $color-grey--600;
+        }
+
+        .link p {
+          font-size: $font-size-md;
+          line-height: 20px;
+          margin-top: 16px;
+          margin-bottom: 16px;
+        }
+
+        h5 a {
+          font-size: 20px;
+          color: $color-primary;
+        }
+
+        h6 {
+          font-weight:400;
+          font-size: $font-size-lg;
+          color: $color-black;
+          margin-bottom: 16px;
+        }
+
+        ul.cb-cta-link {
+          justify-content: center;
+        }
+
+        a.key-link {
+          color: $color-primary;
+          display: block;
+          margin-right: 10px;
+          padding: 16px 0 16px 16px;
+        }
+      }
+
+      .menu-item-cta {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-top: 1px solid $color-grey--200;
+        margin-top: 20px;
+
+        a.primary-bttn {
+            @include primary-button;
+            padding: 6px 24px !important;  //being overwritten by an !important that is there because of another !important - not kidding
+            margin-left: 20px;
+            border: 1px solid $color-primary !important;    //same as above
+
+            &:hover {
+                @include primary-hover;
+                border: 1px solid $color-primary !important;    //this is stupid
+            }
+        }
+      }
+
+      .col.highlight {
+        background-color: $background-dark-blue;
+
+        a.key-link {
+          display: inline-block;
+          text-decoration: underline;
+        }
+
+      }
+
+    }
 
     li.title,
     li.link {
       font-family: $font-family--secondary;
       font-size: 20px;
+      padding: 16px 0 16px 16px;
+
+      a {
+        font-size: 14px;
+        line-height: 1.25;
+        text-decoration: none;
+        font-weight: 300;
+      }
+
     }
 
     li.title {
@@ -326,22 +449,14 @@
       }
     }
 
-    li.link {
-      padding: 16px 0 16px 16px;
-
-      a {
-        font-size: 14px;
-        line-height: 16px;
-      }
-    }
   }
 
 
   @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
 
-/*     body {
-      position:fixed;
-    } */
+    .top-banner {
+      margin-top: 0px;
+    }
 
     #header-explore {
       position: static;
@@ -366,9 +481,29 @@
           /* text-transform: uppercase; */
         }
 
-        #menuWindow ul li {
+        #menuWindow {
+          
+          ul li {
           border-bottom: none;
         }
+
+        a, button, span.label {
+          justify-content: center;
+        }
+
+        button.back {
+          display: flex;
+          margin-top: -10px;
+          margin-left: 6px;
+          justify-content: left;
+
+          span {
+              color: $color-grey--600;
+              font-size: 26px;
+          }
+      }
+
+      }
 
       }
 
@@ -388,41 +523,43 @@
       justify-content: space-between;
       align-items: center;
       -webkit-align-items: center;
-      height: 83px;
+      /* height: 83px; */
 
       .menuButton {
         //mobile menu icon button
         text-align: center;
         z-index: 1;
-        margin-top: 85px;
+        margin-top: 35px;
 
         button {
           //special case one off button
           background: transparent;
           border: none;
           padding: 0;
-          font-size: 50px;
+          font-size: 25px;
           color: $color-primary;
+          height: 30px;
 
           &.closeOn {
-            font-size: 30px;
+            font-size: 25px;
           }
 
           span.bi {
             margin-left: 0; //mods .icon-bttn .bi  _buttons.scss
           }
 
-          /* 					&::after{
-						content: "MENU";
-						display: block;
-						font-size: 9px;
-						font-weight: 600;
-						color: $color-primary;
-						padding-top: 3px;
-					} */
           &+span {
             display: none;
           }
+        }
+
+        &::after{ 
+          content: "MENU";
+          display: block;
+          font-size: 9px;
+          font-weight: 600;
+          color: $color-primary;
+          padding-top: 3px;
         }
       }
 
@@ -459,6 +596,7 @@
         padding: 0px;
         background-color: $background-color;
         z-index: 100;
+        overflow:scroll;
       }
 
       .secondary_nav {
@@ -618,6 +756,12 @@
   }
 
 
+} //#header-explore
+
+#main #content .menu-active {
+  filter: blur(8px);
 }
 
-//#header-explore
+.explore-footer-adjust {      //special case for Explore 404 pages
+  margin-bottom: -32px;
+}

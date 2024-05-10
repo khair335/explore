@@ -75,12 +75,12 @@ class Config {
 			"fr": "https://www.broadcom.fr",
 		}
 
-		
+
 		let origin = window.location.origin;
 		this.okta = {
 			baseUrl: 'https://login.broadcom.com', //'https://avago.oktapreview.com',
 			loginUrl: 'https://support.broadcom.com/user',
-			logoutUrl: 'https://login.broadcom.com/login/signout',			
+			logoutUrl: 'https://login.broadcom.com/login/signout',
 		}
 
 		this.mybroadcom = {
@@ -95,23 +95,64 @@ class Config {
 		};
 
 
-		this.video = {
-			account_id: '6164421911001',
-			player_id: 'lUBT2rAMW',
-			endpoint: 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos',
-			policy_key: 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY', //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg',
-			videoPath: (account) => {
-				let type = account?.toLowerCase();
-				switch (type) {
-					case 'vmware':
-						return '/video';
-					case 'explore':
-						return '/explore/video-library/video';
-				}
 
-				// HACK: Just use our window location.
-				if (window?.location?.pathname?.startsWith('/explore')) {
-					return '/explore/video-library/video';
+		this.microsite = gMicrosite;
+
+		let microsite = this.microsite;		// take out of encapsulation for this.video.
+
+
+		this.video = {
+			get account_id() {
+				switch (microsite) {
+					case 'Explore':
+						return '6164421911001';
+					default:
+						return '6415665063001';
+				}
+			},
+
+			get player_id() {
+				switch (microsite) {
+					case 'Explore':
+						return 'lUBT2rAMW';
+					default:
+						return '83iWkhhmz';
+				}
+			},
+
+			get endpoint() {
+				switch (microsite) {
+					case 'Explore':
+						return 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos';
+					default:
+						return 'https://edge.api.brightcove.com/playback/v1/accounts/6415665063001/videos';
+				}
+			},
+
+			get policy_key() {
+				switch (microsite) {
+					case 'Explore':
+						return 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY'; //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg';
+					default:
+						return 'BCpkADawqM1Dw0AItnLv1eoTVT5D9tZbwpBSLlUmAMBHznvkeYaGu3CaQldUaWfpjsk7sJckjI5MZq-_uLsCMvarcsXdTg1I9v6zCQYgndn13fJmETygAUj2ooLpj8_Mtz4pVlsk89fW-s8jIxyWA8F6SZv_yw6sBaQ1uuifz8mkidT6wXF0VAXUejU';
+				}
+			},
+
+			get host() {
+				return microsite
+			},
+
+			videoPath: (account) => {
+				//let type = account?.toLowerCase();		// DEPRECATED: We are just going based on microsite
+				switch (microsite) {
+					case 'Explore':
+						return '/explore/video-library/video';
+					default:
+						// HACK: Just use our window location.
+						if (window?.location?.pathname?.startsWith('/explore')) {
+							return '/explore/video-library/video';
+						}
+						return '/video';
 				}
 
 				return '/video';		// Standalone video page.
@@ -119,13 +160,15 @@ class Config {
 		};
 
 		// Used to figure out what type of site to one off.
-		
+
 
 		this.navigation = {};
 		this.navigation.site = 'vm';
 
 		// The fake captcha button.
 		this.captcha_image = '/img/captcha/submitButton.vm.png';
+
+		this.hide_print_share = true;
 
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {
@@ -164,7 +207,7 @@ class Config {
 					this.okta.baseUrl = 'https://sso-sandbox.broadcom.com';
 					this.okta.loginUrl = 'https://sso-sandbox.broadcom.com/signin?fromURI=https://support.broadcom.com';
 					this.okta.logoutUrl = 'https://sso-sandbox.broadcom.com/login/signout';
-					break;				
+					break;
 				case 'qa':
 					//this.video.player_id = 'QCEd4TS1z';
 					this.swifttype.engine_key = 'dnpozeqWzsrxYAnsAPjz';
@@ -205,7 +248,7 @@ class Config {
 				case 'stage':
 					this.swifttype.engine_key = 'mwPxHYJi6gscfAzjVEaY';
 					this.locale_base = {
-					    // "en-us": "https://stg-ui.aws.broadcom.com",
+						// "en-us": "https://stg-ui.aws.broadcom.com",
 						// "ja-jp": "https://stg-ui-jp.aws.broadcom.com",
 						// "zh-chs": "https://stg-ui-cn.aws.broadcom.com",
 						"en-us": "https://cmsstaging.broadcom.com",
@@ -217,7 +260,7 @@ class Config {
 					this.okta.baseUrl = 'https://sso-stage.broadcom.com';
 					this.okta.loginUrl = 'https://sso-stage.broadcom.com/signin?fromURI=https://support.broadcom.com';
 					this.okta.logoutUrl = 'https://sso-stage.broadcom.com/login/signout';
-					
+
 					this.mybroadcom.editProfileUrl = "https://stg-portal.broadcom.com/group/user/editprofile";
 					this.mybroadcom.forgetUrl = "https://stg-portal.broadcom.com/web/guest/forgot-password";
 					this.mybroadcom.registerUrl = "https://sso-stage.broadcom.com/?type=Register";
@@ -261,7 +304,7 @@ class Config {
 			url: '',			// This is globally changed from the page json. We will just set it on every fetch.
 		};
 
-		
+
 		this.video_library = {
 			endpoint: 'https://production-ps.lvp.llnw.net/r/PlaylistService/channel/',
 		};
