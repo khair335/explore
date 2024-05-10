@@ -173,9 +173,11 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-     @media (max-width:991px) {
-             margin-top: 0;
-            }
+
+    @media (max-width:991px) {
+      margin-top: 0;
+    }
+
     .card-body {
       gap: 0;
       flex: initial;
@@ -183,35 +185,41 @@
       >div {
         &:first-child {
           width: 10%;
+
           @media (max-width:991px) {
             width: 20%;
-            }
+          }
+
           @media (max-width:767px) {
             width: 20%;
-            }
+          }
         }
 
       }
 
       .card-title {
         width: 90%;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .card-text {
         width: 90%;
         margin-top: 0px !important;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .lnk {
@@ -330,7 +338,6 @@
         >div {
           &:first-child {
             .card {
-
               box-shadow: none;
             }
           }
@@ -340,6 +347,47 @@
   }
 }
 
+.HorizontalTab-section {
+
+
+  .HorizontalTab {
+    .cb-cta-link {
+      .VideoLink {
+        .link-bttn {
+
+          // @include cta-link-style;
+          &:after {
+            @include cta-link-after
+          }
+        }
+      }
+    }
+
+    .ContentCardTwoColumn {
+      >.container {
+        >div {
+          &:first-child {
+            .card {
+
+              box-shadow: none;
+
+
+              .card-footer {
+
+
+                .cb-cta-link {
+                  justify-content: flex-start;
+                  padding-left: 20px;
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 .brcmShare {
   .dropdown-item {
@@ -541,6 +589,30 @@
     justify-content: center;
   }
 
+  .ContentCard {
+    .theme-card-standard {
+      .RightImageCard {
+        .card-body {
+          .row {
+            height: 100%;
+
+            .col {
+              display: flex;
+              flex-direction: column;
+
+              .card-footer {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: end;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
 }
 
@@ -717,6 +789,10 @@
 
         &:after {
           @include cta-link-after;
+        }
+
+        &:hover {
+          border: 0;
         }
 
         @media screen and (min-width: 1980px) {
@@ -1038,16 +1114,17 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard  {
+    .ImageCard {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,.link-bttn {
+          .lnk,
+          .link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after ;
+              @include cta-link-after;
             }
 
 
@@ -1056,8 +1133,9 @@
       }
     }
   }
-  &.theme-cbl-card-transparent{
-    .card{
+
+  &.theme-cbl-card-transparent {
+    .card {
       box-shadow: none;
     }
   }
@@ -1180,6 +1258,8 @@
     }
   }
 
+
+
   .container {
     >p {
       color: $color-white;
@@ -1197,6 +1277,21 @@
         &:hover {
           @include ghost-hover;
         }
+      }
+    }
+  }
+
+  &.theme-cbl-card-transparent {
+    .card {
+      &.LeftImageCard {
+        .card-footer {
+          background-color: transparent;
+
+          .cb-cta-link {
+            background-color: transparent;
+          }
+        }
+
       }
     }
   }
@@ -1412,6 +1507,10 @@
 
         &:hover {
           @include link-hover;
+          border: none;
+        }
+        &:after{
+         @include  cta-link-after
         }
       }
 
@@ -1696,9 +1795,11 @@
   .card-title {
     color: $color-black;
   }
- .section-title {
-      color: $color-black;
-    }
+
+  .section-title {
+    color: $color-black;
+  }
+
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1755,10 +1856,11 @@
     }
   }
 
-  &.theme-content-block-dark{
+  &.theme-content-block-dark {
     .section-title {
       color: $color-white;
     }
+
     .card-title {
       color: $color-white;
     }
@@ -1921,9 +2023,32 @@
 
           >div {
             &:first-child {
-              .card-footer {
-                padding: 0;
+              .ImageCard {
+                .card-body {
+                  display: flex;
+                  flex-wrap: wrap;
+
+                  .lnk {
+                    width: 35%;
+                  }
+
+                  .card-title {
+                    width: 65%;
+                    padding-top: 0;
+                  }
+
+                  .card-text {
+                    width: 65%;
+                    margin-left: auto;
+                    margin-top: -62px !important;
+                  }
+                }
+
+                .card-footer {
+                  padding: 0;
+                }
               }
+
             }
 
 
@@ -2024,9 +2149,59 @@
   }
 }
 
-.theme-card-cta-link{
+.theme-card-cta-link {
   height: 100%;
-  .card{
+
+  .card {
     height: 100%;
   }
+}
+
+
+.ContentList-section {
+  .ContentList {
+    .cb-cta-link {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.theme-default {
+  display: flex;
+  justify-content: center;
+}
+
+.solution-page {
+  .section-striped {
+    .theme-card-cta-primary {
+      .card {
+        .card-footer {
+          .cb-cta-link {
+            justify-content: flex-start !important;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+
+    .theme-content-block-cta-card-primary {
+      .card {
+        .card-footer {
+          .cb-cta-link {
+            justify-content: flex-start;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+#recent-healthcare-blogs {
+
+    .cb-cta-link {
+      justify-content: center !important ;
+    }
+
 }
