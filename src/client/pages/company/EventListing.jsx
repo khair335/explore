@@ -1,7 +1,7 @@
 /**
  *  @file EventListing.jsx
  *  @brief EventListing
- *  
+ *
  */
 import config from 'client/config.js';
 import React, { Component, useEffect, useState, useContext, useCallback } from 'react';
@@ -66,7 +66,9 @@ const EventListing = (props) => {
 			<SubHeadHero {...props} />
 			<ContentBlocksSection contentBlocks={props.content_blocks} />
 			<div className='tab-container'>
-				<Nav tabs>
+				<div className='tab-main-container'>
+					<Container>
+						<Nav tabs>
 					{tabsData.map((tab) => (
 						<NavItem key={tab.id}>
 							<NavLink
@@ -79,6 +81,8 @@ const EventListing = (props) => {
 						</NavItem>
 					))}
 				</Nav>
+					</Container>
+				</div>
 				<TabContent activeTab={activeTab}>
 					{tabsData.map((tab) => (
 						<TabPane key={tab.id} tabId={tab.title}>
@@ -458,7 +462,7 @@ const Events = (props) => {
 				<div>
 					<div className="dropdown-container">
 						{Object.keys(options)?.map((category, index) => (
-							<div key={index} >
+							<div className='dropdown-div' key={index} >
 								<SelectTypeahead init={selectedValues[category]?.length > 0 ? selectedValues[category] : ''}
 									items={options[category]?.map(item => { return { id: item, label: item } })}
 									defaultLabel={defaultLabelToMap[category]} placeholder={defaultLabelToMap[category]}
