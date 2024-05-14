@@ -1509,8 +1509,9 @@
           @include link-hover;
           border: none;
         }
-        &:after{
-         @include  cta-link-after
+
+        &:after {
+          @include cta-link-after
         }
       }
 
@@ -2200,8 +2201,48 @@
 
 #recent-healthcare-blogs {
 
-    .cb-cta-link {
-      justify-content: center !important ;
+  .cb-cta-link {
+    justify-content: center !important;
+  }
+
+}
+
+.ContentList-section {
+
+  .ContentCardTwoColumn {
+    .row {
+      >div {
+
+        // height: 100%;
+        >div {
+          height: 100%;
+          .card {
+            height: 100%;
+          }
+        }
+
+      }
     }
 
+    .card {
+      .card-footer {
+        .cb-cta-link {
+          justify-content: flex-start !important;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+  &.theme-cbl-card-light{
+    .ContentCardTwoColumn {
+      .card {
+      .card-footer {
+        .cb-cta-link {
+
+          padding-left: 0px;
+        }
+      }
+    }
+    }
+  }
 }
