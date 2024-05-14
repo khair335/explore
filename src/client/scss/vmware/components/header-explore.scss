@@ -167,6 +167,21 @@
       .secondary-nav-database {
         position: absolute;
         top: -24px;
+        right: 0;
+
+        // HACK: JD - override
+        .float-right {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 10px;
+          button {
+            @include secondary-button;
+            padding-left: 24px;   // put us back.
+            &.primary-bttn {
+              @include primary-button;              
+            }
+          }
+        }
       }
 
       i {
@@ -763,5 +778,5 @@
 }
 
 .explore-footer-adjust {      //special case for Explore 404 pages
-  margin-bottom: -32px;
+  margin-bottom: -33px;
 }
