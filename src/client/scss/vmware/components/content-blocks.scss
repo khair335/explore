@@ -173,9 +173,11 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-     @media (max-width:991px) {
-             margin-top: 0;
-            }
+
+    @media (max-width:991px) {
+      margin-top: 0;
+    }
+
     .card-body {
       gap: 0;
       flex: initial;
@@ -183,35 +185,41 @@
       >div {
         &:first-child {
           width: 10%;
+
           @media (max-width:991px) {
             width: 20%;
-            }
+          }
+
           @media (max-width:767px) {
             width: 20%;
-            }
+          }
         }
 
       }
 
       .card-title {
         width: 90%;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .card-text {
         width: 90%;
         margin-top: 0px !important;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .lnk {
@@ -344,6 +352,22 @@
 
 
   .HorizontalTab {
+    .ContentCardTwoColumn{
+      .row{
+        >div{
+          &:nth-child(2){
+            .lnk{
+              &:after{
+                content: unset !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    .card-body{
+      flex: none !important;
+    }
     .cb-cta-link {
       .VideoLink {
         .link-bttn {
@@ -581,6 +605,7 @@
   .cb-cta-link {
     justify-content: center;
   }
+
   .ContentCard {
     .theme-card-standard {
       .RightImageCard {
@@ -782,6 +807,7 @@
         &:after {
           @include cta-link-after;
         }
+
         &:hover {
           border: 0;
         }
@@ -1105,16 +1131,17 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard  {
+    .ImageCard {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,.link-bttn {
+          .lnk,
+          .link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after ;
+              @include cta-link-after;
             }
 
 
@@ -1123,8 +1150,9 @@
       }
     }
   }
-  &.theme-cbl-card-transparent{
-    .card{
+
+  &.theme-cbl-card-transparent {
+    .card {
       box-shadow: none;
     }
   }
@@ -1267,6 +1295,7 @@
       }
     }
   }
+
   &.theme-cbl-card-transparent {
     .card {
       &.LeftImageCard {
@@ -1782,9 +1811,11 @@
   .card-title {
     color: $color-black;
   }
- .section-title {
-      color: $color-black;
-    }
+
+  .section-title {
+    color: $color-black;
+  }
+
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1841,10 +1872,11 @@
     }
   }
 
-  &.theme-content-block-dark{
+  &.theme-content-block-dark {
     .section-title {
       color: $color-white;
     }
+
     .card-title {
       color: $color-white;
     }
@@ -2132,9 +2164,10 @@
   }
 }
 
-.theme-card-cta-link{
+.theme-card-cta-link {
   height: 100%;
-  .card{
+
+  .card {
     height: 100%;
   }
 }
@@ -2154,6 +2187,7 @@
 
         // height: 100%;
         >div {
+
           // height: 100%;
           .card {
             height: 100%;
@@ -2172,17 +2206,33 @@
       }
     }
   }
-  &.theme-cbl-card-light{
+
+  &.theme-cbl-card-light {
     .ContentCardTwoColumn {
       .card {
-      .card-footer {
-        .cb-cta-link {
+        .card-footer {
+          .cb-cta-link {
 
-          padding-left: 0px;
+            padding-left: 0px;
+          }
         }
       }
-    }
     }
   }
 
 }
+
+// #Solution {
+  .ContentCard-section {
+    .ContentCard {
+      .card {
+
+
+        .cb-cta-link {
+          justify-content: flex-start !important;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+// }
