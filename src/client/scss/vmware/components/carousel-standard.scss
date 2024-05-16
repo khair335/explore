@@ -50,11 +50,13 @@ $carousel-indicator-padding: 40px;
         left: 0;
         z-index: 15;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding-left: 0;
         margin-right: 15%;
         margin-left: 15%;
-
+        button{
+            text-transform: capitalize;
+        }
     }
 
     .carousel-inner {
@@ -144,6 +146,17 @@ $carousel-indicator-padding: 40px;
 
         .card {
             height: 100%;
+        }
+    }
+    .ContentCardTwoColumn{
+        .card{
+            box-shadow: none !important;
+            .card-body{
+                flex: none !important;
+            }
+            .cb-cta-link{
+                justify-content: flex-start;
+            }
         }
     }
 }

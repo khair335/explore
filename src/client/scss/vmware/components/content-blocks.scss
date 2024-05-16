@@ -173,9 +173,11 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-     @media (max-width:991px) {
-             margin-top: 0;
-            }
+
+    @media (max-width:991px) {
+      margin-top: 0;
+    }
+
     .card-body {
       gap: 0;
       flex: initial;
@@ -183,35 +185,41 @@
       >div {
         &:first-child {
           width: 10%;
+
           @media (max-width:991px) {
             width: 20%;
-            }
+          }
+
           @media (max-width:767px) {
             width: 20%;
-            }
+          }
         }
 
       }
 
       .card-title {
         width: 90%;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .card-text {
         width: 90%;
         margin-top: 0px !important;
+
         @media (max-width:991px) {
-            width: 79%;
-            }
+          width: 79%;
+        }
+
         @media (max-width:767px) {
-            width: 80%;
-            }
+          width: 80%;
+        }
       }
 
       .lnk {
@@ -344,12 +352,12 @@
 
 
   .HorizontalTab {
-    .ContentCardTwoColumn{
-      .row{
-        >div{
-          &:nth-child(2){
-            .lnk{
-              &:after{
+    .ContentCardTwoColumn {
+      .row {
+        >div {
+          &:nth-child(2) {
+            .lnk {
+              &:after {
                 content: unset !important;
               }
             }
@@ -357,7 +365,8 @@
         }
       }
     }
-    .card-body{
+
+    .card-body {
       flex: none !important;
     }
 
@@ -372,7 +381,7 @@
         }
       }
     }
-  
+
     .ContentCardTwoColumn {
       >.container {
         >div {
@@ -598,6 +607,7 @@
   .cb-cta-link {
     justify-content: center;
   }
+
   .ContentCard {
     .theme-card-standard {
       .RightImageCard {
@@ -799,6 +809,7 @@
         &:after {
           @include cta-link-after;
         }
+
         &:hover {
           border: 0;
         }
@@ -1122,16 +1133,17 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard  {
+    .ImageCard {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,.link-bttn {
+          .lnk,
+          .link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after ;
+              @include cta-link-after;
             }
 
 
@@ -1140,8 +1152,9 @@
       }
     }
   }
-  &.theme-cbl-card-transparent{
-    .card{
+
+  &.theme-cbl-card-transparent {
+    .card {
       box-shadow: none;
     }
   }
@@ -1284,6 +1297,7 @@
       }
     }
   }
+
   &.theme-cbl-card-transparent {
     .card {
       &.LeftImageCard {
@@ -1510,8 +1524,9 @@
           @include link-hover;
           border: none;
         }
-        &:after{
-         @include  cta-link-after
+
+        &:after {
+          @include cta-link-after
         }
       }
 
@@ -1796,9 +1811,11 @@
   .card-title {
     color: $color-black;
   }
- .section-title {
-      color: $color-black;
-    }
+
+  .section-title {
+    color: $color-black;
+  }
+
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1855,10 +1872,11 @@
     }
   }
 
-  &.theme-content-block-dark{
+  &.theme-content-block-dark {
     .section-title {
       color: $color-white;
     }
+
     .card-title {
       color: $color-white;
     }
@@ -2031,15 +2049,11 @@
                   }
 
                   .card-title {
-                    width: 65%;
+
                     padding-top: 0;
                   }
 
-                  .card-text {
-                    width: 65%;
-                    margin-left: auto;
-                    margin-top: -62px !important;
-                  }
+
                 }
 
                 .card-footer {
@@ -2146,29 +2160,39 @@
   }
 }
 
-.theme-card-cta-link{
+.theme-card-cta-link {
   height: 100%;
-  .card{
+
+  .card {
     height: 100%;
   }
 }
 
 .ContentList-section {
   .ContentList {
-    .cb-cta-link {
-      justify-content: flex-start;
+
+
+    .content-block-right,
+    .content-block-left {
+      .cb-cta-link {
+        justify-content: flex-start;
+      }
     }
+
+    .cb-cta-link {
+      justify-content: center;
+    }
+
   }
 }
+
 .ContentList-section {
   .ContentCardTwoColumn {
     .row {
       >div {
 
-        // height: 100%;
         >div {
 
-          // height: 100%;
           .card {
             height: 100%;
           }
@@ -2197,6 +2221,71 @@
           }
         }
       }
+    }
+  }
+
+}
+
+
+.VerticalTab-section {
+  .VerticalTab {
+    .card {
+      .card-body {
+        .lnk {
+          &:after {
+            content: unset !important;
+          }
+        }
+      }
+
+      .cb-cta-link {
+        justify-content: flex-start !important;
+        padding-left: 20px;
+      }
+    }
+
+    #Cloud\ Migration\ image\ top {
+      .content-block-center {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
+
+.Testimonial-section {
+  .TestimonialCard {
+    box-shadow: none !important;
+
+    .cb-cta-link {
+      align-items: flex-start;
+
+      .lnk {
+        @include cta-link-style;
+
+        &:hover {
+          background: transparent;
+          color: $color-primary;
+          text-decoration: underline;
+          text-decoration-line: underline;
+          text-underline-offset: 3px;
+          text-decoration-thickness: 2px;
+          border: 0;
+
+        }
+
+        &:after {
+          @include cta-link-after;
+        }
+      }
+    }
+  }
+}
+
+.InPageNavigation-section {
+  .InPageNavigation {
+    .navbar-nav {
+              flex-wrap: wrap;
     }
   }
 
