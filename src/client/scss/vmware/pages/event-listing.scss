@@ -15,8 +15,8 @@
 #EventListing {
     .tab-container {
         width: 100%;
-        // padding-right: 15px;
-        // padding-left: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
         margin-top: 70px;
         margin-right: auto;
         margin-left: auto;
@@ -127,13 +127,11 @@
         justify-content: flex-start;
         border-radius: 4px;
         border: 1px solid #999;
+        background-color: #fff;
+
         margin: 16px 0;
         gap: 10px;
         padding: 6px 12px 6px 20px;
-        border-color: transparent;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
-        background: #f2f2f2;
-        margin-left: 2px;
 
         input {
             width: 100%;
@@ -142,24 +140,20 @@
             color: #565656;
             border: none;
             outline: none;
-            background: #f2f2f2;
         }
     }
 
     .title-style {
-
-        font-size: 16px;
+        font-size: 18px;
         color: #565656;
+
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     .dropdown-container {
         gap: 16px;
 
-        .dropdown-div {
-            flex: 1;
-        }
 
         .dropdown {
             flex: 1;
@@ -179,12 +173,8 @@
                 width: 100%;
                 text-align: left;
                 display: inline-block;
-                padding-left: 30px;
+                padding-left: 10px;
                 padding-right: 30px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                text-wrap: balance;
 
                 // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
                 .dropdown-caret {
@@ -203,44 +193,12 @@
 
 
 
-
-
-            }
-
-            .dropdown-shown {
-                background: #f2f2f2;
-                border: 1px solid #999;
-                position: relative;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='rgba(0,0,0,1)'%3E%3Cpath d='M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z'%3E%3C/path%3E%3C/svg%3E") !important;
-                background-repeat: no-repeat;
-                background-position: right;
-                background-size: 24px;
-                transition: none;
-
-
-                span {
-                    font-size: 26px;
-                }
-
-                &:hover {
-                    background: #f2f2f2;
-                    border: 1px solid #999;
-                    color: #005C8A;
-                    background-repeat: no-repeat !important;
-                    background-position: right !important;
-                }
-
-                &:focus {
-                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='rgba(0,0,0,1)'%3E%3Cpath d='M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z'%3E%3C/path%3E%3C/svg%3E") !important;
-                    background-repeat: no-repeat no-repeat;
-                    background-position: right;
-                background-size: 24px;
-                }
             }
         }
 
         .dropdown-menu {
-
+            max-width: 151.42px;
+            min-width: 151.42px;
             width: 100%;
             padding: 10px;
             max-height: 190px;
@@ -280,11 +238,9 @@
             }
 
             button {
-
+                padding: 0;
                 border: none;
-                height: 40px;
-                padding: 10px;
-                margin: 4px 0;
+                height: auto;
 
                 label {
                     display: flex;
@@ -296,17 +252,6 @@
                 }
             }
         }
-
-        .search-input-in {
-            width: 100%;
-            height: 30px;
-            border-radius: 4px;
-            outline: none;
-            padding: 0 10px;
-            border: 1px solid #005C8A;
-
-        }
-
 
 
     }
@@ -353,35 +298,4 @@
         margin-top: 2px;
     }
 
-}
-
-#EventListing {
-    .nav-link {
-        text-decoration: none !important;
-
-
-        .active {
-            background-color: transparent !important;
-            border-color: transparent !important;
-            border: 0 !important;
-            border-bottom: 2px solid #005C8A !important;
-        }
-
-        &:hover {
-
-            border-color: transparent !important;
-        }
-    }
-
-    .nav-tabs .nav-link.active,
-    .nav-tabs .nav-item.show .nav-link {
-        color: #495057;
-        border: 0 !important;
-        border-bottom: 2px solid #005C8A !important;
-    }
-
-    .tab-main-container {
-        margin-bottom: 10px;
-        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.35);
-    }
 }
