@@ -12,7 +12,7 @@ $carousel-indicator-height: 20px;
   overflow: hidden;
   position: relative;
   width: 100%;
-  margin-top: -42px;          // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section) 
+  margin-top: -42px;          // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
   z-index: 1;
 
   @media screen and (max-width: map-get($grid-breakpoints, md) - 1)  {      // in mobile not needed
@@ -62,7 +62,7 @@ $carousel-indicator-height: 20px;
                 &:hover {
                   border: none !important;
                   background-color: transparent !important;
-                  
+
                 }
 
                 @include media-breakpoint-down(md) {
@@ -136,7 +136,7 @@ $carousel-indicator-height: 20px;
           background-color:  $background-light-blue;
           box-shadow:  $shadow-1;
           margin: 20px 0 0 30px;
-         
+
 
           @include media-breakpoint-down(md) {
             max-width: 450px;
@@ -389,10 +389,10 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
 
       .banner-cta {
-        width: 50%;
+        width: max-content;
 
         @media (max-width: 460px) {
           width: 100%;
@@ -460,7 +460,7 @@ $carousel-indicator-height: 20px;
         // JD hack to override col-lg-7 for this large banner unique to Explore
         @include media-breakpoint-up(md) {
           flex: 0 0 853px;
-          -webkit-flex: 0 0 853px;  
+          -webkit-flex: 0 0 853px;
           max-width: 853px;
         }
 
@@ -471,7 +471,7 @@ $carousel-indicator-height: 20px;
 
         .featurette-heading {
           font-size: 50px !important;
-          
+
         }
 
         .teaser {

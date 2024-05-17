@@ -329,24 +329,7 @@
 
 
 
-.HorizontalTab-section {
-  padding: 100px 0 100px !important;
 
-  .HorizontalTab {
-    .ContentList {
-      >.container {
-        >div {
-          &:first-child {
-            .card {
-
-              box-shadow: none;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 .HorizontalTab-section {
 
@@ -1957,12 +1940,15 @@
 }
 
 .HorizontalTab-section {
+  padding: 100px 0 100px !important;
+
   .section-title {
     color: $color-black;
   }
 
   .card-title {
     color: $color-black;
+    text-align: left;
   }
 
   .content-block-title {
@@ -1976,6 +1962,22 @@
 
     .card-title {
       color: $color-black;
+      text-align: left;
+    }
+  }
+
+  .HorizontalTab {
+    .ContentList {
+      >.container {
+        >div {
+          &:first-child {
+            .card {
+
+              box-shadow: none;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -2037,34 +2039,121 @@
         .row {
           align-items: center;
 
+          @media (max-width:767px) {
+            flex-direction: column;
+          }
+
           >div {
+            @media (max-width:767px) {
+              padding: 0;
+            }
+
             &:first-child {
+              max-width: 80% !important;
+              width: 80% !important;
+
+              flex: 0 0 80% !important;
+
+              @media (max-width:767px) {
+                max-width: 100% !important;
+                width: 100% !important;
+
+                flex: 0 0 100% !important;
+              }
+
+              @media (max-width:1200px) {
+                max-width: 100% !important;
+                width: 100% !important;
+
+                flex: 0 0 100% !important;
+              }
+
               .ImageCard {
                 .card-body {
+                  @media (max-width:767px) {
+                    padding: 0;
+                  }
+
                   display: flex;
                   flex-wrap: wrap;
 
                   .lnk {
-                    width: 35%;
+                    width: 20%;
+                    margin-right: 2%;
+
+                    @media (max-width:767px) {
+                      width: 100%;
+                    }
                   }
 
                   .card-title {
-
+                    width: 78% !important;
                     padding-top: 0;
+                    line-height: 24px;
+                    height: min-content;
+                    margin: 0;
+
+                    @media (max-width:767px) {
+                      width: 100% !important;
+                      margin-top: 20px;
+                    }
+
+                    @media (max-width:1200px) {
+
+                      margin-top: 20px;
+                    }
                   }
 
+                  >a~.card-text {
+                    width: 78%;
+                    margin-left: 22%;
+                    margin-top: -48px !important;
+
+                    @media (max-width:767px) {
+                      width: 100% !important;
+                      margin-top: 15px !important;
+                      margin-left: 0;
+                    }
+
+                    @media (max-width:1200px) {
+                      width: 100% !important;
+                      margin-left: 5px;
+                      margin-top: 8px !important;
+                    }
+                  }
 
                 }
 
                 .card-footer {
                   padding: 0;
+
+                  .cb-cta-link {
+                    display: none;
+                  }
                 }
               }
 
             }
 
             &:nth-child(2) {
+              max-width: 20% !important;
+              width: 20% !important;
+              min-height: 20% !important;
+              flex: 0 0 20% !important;
 
+              @media (max-width:767px) {
+                max-width: 100% !important;
+                width: 100% !important;
+                min-height: 100% !important;
+                flex: 0 0 100% !important;
+              }
+
+              @media (max-width:1200px) {
+                max-width: 100% !important;
+                width: 100% !important;
+                min-width: 100% !important;
+                flex: 0 0 100% !important;
+              }
 
               .ImageCard {
                 .card-body {
@@ -2073,10 +2162,33 @@
                 }
 
                 .card-footer {
-
+                  @media (max-width:767px) {
+                    padding: 0;
+                  }
 
                   .cb-cta-link {
+                    @media (max-width:767px) {
+                      padding: 0;
+
+                    }
+
+                    @media (max-width:1200px) {
+                      padding: 0;
+                      flex-direction: row;
+                      justify-content: flex-start;
+                    }
+
+                    >li {
+                      width: max-content;
+
+                      @media (max-width:767px) {
+                        width: 100%;
+                      }
+                    }
+
                     .lnk {
+
+
                       @extend .bttn;
                       @include ghost-button;
 
@@ -2098,7 +2210,6 @@
           }
         }
       }
-
     }
 
 
@@ -2229,8 +2340,23 @@
 
 .VerticalTab-section {
   .VerticalTab {
+    .ContentCardTwoColumn {
+      margin-top: -52px;
+
+    }
+
+    .ContentCard {
+      margin-top: -52px;
+    }
+
     .card {
       .card-body {
+        .card-title {
+          text-align: left;
+          color: black;
+          padding-top: 0;
+        }
+
         .lnk {
           &:after {
             content: unset !important;
@@ -2243,13 +2369,15 @@
         padding-left: 20px;
       }
     }
-      .content-block-center {
-        display: flex;
-        flex-direction: column-reverse;
-        .content-block-title{
-          margin-top: 20px;
-        }
+
+    .content-block-center {
+      display: flex;
+      flex-direction: column-reverse;
+
+      .content-block-title {
+        margin-top: 20px;
       }
+    }
   }
 }
 
@@ -2258,24 +2386,37 @@
     box-shadow: none !important;
 
     .cb-cta-link {
-      align-items: flex-start;
+      justify-content: center;
+      margin-top: 30px;
 
-      .lnk {
-        @include cta-link-style;
+      li:first-child {
+        a {
+          @extend .bttn;
+          @include primary-button;
 
-        &:hover {
-          background: transparent;
-          color: $color-primary;
-          text-decoration: underline;
-          text-decoration-line: underline;
-          text-underline-offset: 3px;
-          text-decoration-thickness: 2px;
-          border: 0;
 
+          &:hover {
+            @include primary-hover;
+          }
+
+          &:after {
+            @include button-after;
+          }
         }
+      }
 
-        &:after {
-          @include cta-link-after;
+      li:nth-child(2) {
+        a {
+          @extend .bttn;
+          @include secondary-button;
+
+          &:hover {
+            @include secondary-hover;
+          }
+
+          &:after {
+            @include button-after;
+          }
         }
       }
     }
@@ -2285,7 +2426,7 @@
 .InPageNavigation-section {
   .InPageNavigation {
     .navbar-nav {
-              flex-wrap: wrap;
+      flex-wrap: wrap;
     }
   }
 
