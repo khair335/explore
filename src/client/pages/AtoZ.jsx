@@ -112,9 +112,15 @@ const AtoZ = (props) => {
 						activeLetters[letter] && <div ref={scollToRef} key={`scroll-${letter}`} id={`${letter}`} className='letter-section'>
 							<h2 className='alphabet'>{letter}</h2>
 							<ul className='content-links'>
-								{glossary_list.filter(term => term.name.startsWith(letter)).map(term => (
+								{/* {glossary_list.filter(term => term.name.startsWith(letter)).map(term => (
 									<li key={term.name}><SiteLink to={term.url}>{term.name}</SiteLink></li>
-								))}
+								))} */}
+								{glossary_list
+									.filter(term => term.name.startsWith(letter))
+									.sort((a, b) => a.name.localeCompare(b.name))
+									.map(term => (
+										<li key={term.name}><SiteLink to={term.url}>{term.name}</SiteLink></li>
+									))}
 							</ul>
 						</div>
 					))}

@@ -71,7 +71,9 @@ const SideNav = ({ navs }) => {
 				}
 			}
 
-			setActiveTitle(title);
+			if (title) {
+				setActiveTitle(title);
+			}
 
 		}
 
@@ -103,7 +105,7 @@ const SideNav = ({ navs }) => {
 	const handleClick = (event, label) => {
 		event.preventDefault();
 
-		setActiveTitle(label);
+		//setActiveTitle(label);
 		setCollapse(true);
 
 
@@ -123,9 +125,68 @@ const SideNav = ({ navs }) => {
 		history.pushState({}, '', href);
 
 		// Smooth scroll
-		document.querySelector(href)?.scrollIntoView({
-			behavior: 'smooth'
-		});
+		const toggles = document.getElementsByClassName('side-nav-toggle');
+		if (toggles && toggles[0] && toggles[0].offsetParent) {		// Our button is visible if offsetParent !== null
+			// Calculate sticky to create an offset.
+
+
+			const getHeight = (el) => {
+				var el_style = window.getComputedStyle(el),
+					el_display = el_style.display,
+					el_position = el_style.position,
+					el_visibility = el_style.visibility,
+					el_max_height = el_style.maxHeight.replace('px', '').replace('%', ''),
+
+					wanted_height = 0;
+
+				// if its not hidden we just return normal height
+				if (el_display !== 'none' && el_max_height !== '0') {
+					return el.offsetHeight;
+				}
+
+				// the element is hidden so:
+				// making the el block so we can meassure its height but still be hidden
+				el.style.position = 'absolute';
+				el.style.visibility = 'hidden';
+				el.style.display = 'block';
+
+				wanted_height = el.offsetHeight;
+
+				// reverting to the original values
+				el.style.display = el_display;
+				el.style.position = el_position;
+				el.style.visibility = el_visibility;
+
+				return wanted_height;
+			}
+
+			let yOffset = 10;
+			let collapses = document.getElementsByClassName('side-nav-collapse');
+			if (collapses && collapses[0]) {
+				yOffset += getHeight(collapses[0]);
+			}
+
+			// Now get the height of the button.
+			yOffset += toggles[0].offsetHeight;
+
+			let id = href?.substring(1) || '';		// Remove #.
+			let element = document.getElementById(decodeURI(id));
+			if (element) {
+				let top = element.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - yOffset;
+
+				window.scroll({
+					top: top,
+					behavior: 'smooth'
+				});
+			}
+
+		}
+		else {
+
+			document.querySelector(href)?.scrollIntoView({
+				behavior: 'smooth'
+			});
+		}
 	}
 
 	return (

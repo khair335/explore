@@ -41,6 +41,8 @@
 
                 .dropdown-menu {
                     left: -100px !important;    //overwriting inline styling from bootstrap
+                    transform:none !important;
+                    top:22px !important;
                 }
 
                 .dropdown-wrapper {

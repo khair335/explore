@@ -330,6 +330,9 @@
     bottom: unset;
     padding-bottom: 50px;
     overflow: scroll;
+    height:100vh;
+    padding-left:16px;
+    padding-right:16px;
 
     button.back {display: none}       // closes flyh-out/dropdown menu in moblie
 

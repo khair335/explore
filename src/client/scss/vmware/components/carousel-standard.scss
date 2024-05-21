@@ -57,6 +57,7 @@ $carousel-indicator-padding: 40px;
         button{
             text-transform: capitalize;
         }
+
     }
 
     .carousel-inner {
@@ -97,12 +98,9 @@ $carousel-indicator-padding: 40px;
     }
 
     .carousel-standard {
-        .theme-card-standard{
+        .theme-card-standard{ // remove border for now, if any requiement comes, make change -oz
             .card{
                 box-shadow: none;
-                .card-title{
-                    text-align: left;
-                }
             }
         }
         .container {
@@ -156,7 +154,7 @@ $carousel-indicator-padding: 40px;
             height: 100%;
         }
     }
-    .ContentCardTwoColumn{
+    .ContentCardTwoColumn{ // this template is used a lot by migration team, need ask to use content card template -oz
         .card{
             box-shadow: none !important;
             .card-body{

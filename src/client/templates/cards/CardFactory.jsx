@@ -46,7 +46,7 @@ class CardBodyImageVideo extends PureComponent {
         }
         else if (this.props.image) {
             imageBlock = (
-                <SiteLink to={this.props.url} nolink>
+                <SiteLink to={this.props.url} nolink className="lnk-image">
                     <ImageBase image={this.props.image} className="img-fluid mx-auto" />
                 </SiteLink>
             );
@@ -62,15 +62,20 @@ class CardBodyImageVideo extends PureComponent {
 export class ImageCard extends PureComponent {
     render() {
         let url = this.props.data.links && this.props.data.links[0] ? this.props.data.links[0].url : null;
+        let title_url = this.props.data.title_link?.url || url || null;
+        let title_link = {
+            target: this.props.data.title_link?.target || null,
+            subtype: this.props.data.title_link?.subtype || null,
+        }
 
         return (
             <Card className="ImageCard">
                 <div className="card-body">
                     <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
                     {/* JD - Attempting to enhance to be a catch all when using ANY content type in Content Lists. I want to isolate this, so not using SiteLink nolink, just applying logic here.*/}
-                    {this.props.data.title && (
-                        this.props.data.url
-                            ? <h3 className="card-title"><SiteLink to={this.props.data.url} dangerouslySetInnerHTML={{ __html: this.props.data.title }} /></h3>
+                    {title_url && (
+                        title_url
+                            ? <h3 className="card-title"><SiteLink to={title_url} target={title_link.target} subtype={title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} /></h3>
                             : <h3 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
                     )}
                     {this.props.data.body && <div className="card-text mt-3" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
@@ -109,7 +114,14 @@ export class LeftImageCard extends PureComponent {
                             </Col>
                         }
                         <Col>
-                            {this.props.data.title && <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />}
+                            {this.props.data.title && (
+                                this.props.data.title_link ?
+                                    <h4 className="card-title">
+                                        <SiteLink to={this.props.data.title_link?.url} target={this.props.data.title_link?.target} subtype={this.props.data?.title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
+                                    </h4>
+                                    : <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }}
+                                    />
+                            )}
                             {/*<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}
 
                             {this.props.data.body && <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
@@ -148,7 +160,14 @@ export class RightImageCard extends PureComponent {
                 <div className="card-body">
                     <Row>
                         <Col>
-                            {this.props.data.title && <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />}
+                            {this.props.data.title && (
+                                this.props.data.title_link ?
+                                    <h4 className="card-title">
+                                        <SiteLink to={this.props.data.title_link?.url} target={this.props.data.title_link?.target} subtype={this.props.data?.title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
+                                    </h4>
+                                    : <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }}
+                                    />
+                            )}
                             {/*<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}
 
                             {this.props.data.body && <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
