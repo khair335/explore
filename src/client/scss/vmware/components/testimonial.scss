@@ -20,8 +20,8 @@
 	}
 
 	.quote {
-		font-size: 32px;
-		line-height: 42px;
+		font-size: 16px;
+		line-height: 24px;
 		text-align: center;
 		margin-bottom: 20px;
 		position: relative;
@@ -42,7 +42,7 @@
 
 	.signature,
 	.source {
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 24px;
 		font-style: italic;
 		text-align: center;
@@ -51,6 +51,7 @@
 	.quote-image img {
 		display: block;
 		margin: auto;
+		object-fit: contain;
 
 	}
 
@@ -59,13 +60,13 @@
 .Testimonial-section {
 	.TestimonialCard {
 		box-shadow: none !important;
-	  
+
 		.cb-cta-link {
 		  align-items: flex-start;
-	  
+
 		  .lnk {
 			@include cta-link-style;
-	  
+
 			&:hover {
 			  background: transparent;
 			  color: $color-primary;
@@ -74,9 +75,9 @@
 			  text-underline-offset: 3px;
 			  text-decoration-thickness: 2px;
 			  border: 0;
-	  
+
 			}
-	  
+
 			&:after {
 			  @include cta-link-after;
 			}

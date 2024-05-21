@@ -355,7 +355,7 @@
         }
       }
     }
-  
+
     .ContentCardTwoColumn {
       >.container {
         >div {
@@ -1926,7 +1926,7 @@
 
   .card-title {
     color: $color-black;
-   
+
   }
 
   .content-block-title {
@@ -2323,6 +2323,11 @@
 
     .ContentCard {
       margin-top: -52px;
+    }
+    .video-box{
+      width: 100%;
+    max-width: 100% !important;
+    flex: none !important;
     }
 
     .card {

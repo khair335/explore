@@ -35,7 +35,7 @@
 
 
         >li {
-           
+
             margin-right: 0px;
             position: relative;
 
@@ -63,7 +63,8 @@
                 margin: 0px 0px;
                 text-decoration: none;
                 font-weight: 300;
-                
+                align-items: center;
+
 
 
                 .arrow-icon{
@@ -75,6 +76,7 @@
                     display: inline-block;
                     background-position: 2px 2px;
                     margin-top: 5px;
+                    min-width: 15px;
                 }
 
 
@@ -113,8 +115,8 @@
 
         flex-grow: 1;
 
-        
-       
+
+
 
         .lnk {
             margin: 0 !important;
@@ -147,7 +149,7 @@
                     justify-content: center;
                 }
             }
-           
+
         }
 
         .theme-content-block-cta-primary {
@@ -200,7 +202,7 @@
                 display: block;
             }
 
-       
+
         }
 
         .show-tab-content {
