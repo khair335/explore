@@ -615,11 +615,47 @@
     }
   }
 
+  &.theme-content-block-cta-card-secondary {
+    .TestimonialCard {
+      .cb-cta-link {
+        .lnk {
+          @extend .bttn;
+          @include secondary-button;
+
+          &:after {
+            @include button-after;
+          }
+
+          &:hover {
+            @include secondary-hover;
+          }
+        }
+      }
+    }
+  }
+
+  &.theme-content-block-cta-card-primary {
+    .TestimonialCard {
+      .cb-cta-link {
+        .lnk {
+          @extend .bttn;
+          @include primary-button;
+
+          &:hover {
+            @include primary-hover;
+          }
+        }
+      }
+    }
+
+  }
+
   .TestimonialCard {
     .quote {
       font-size: 16px;
       line-height: 24px;
     }
+
     .quote-image img {
       object-fit: contain;
     }
@@ -2345,15 +2381,12 @@
 }
 
 .VerticalTab-section {
+  .vertical-container{
+    padding-top: 12px;
+  }
   .VerticalTab {
-    .ContentCardTwoColumn {
-      margin-top: -52px;
 
-    }
 
-    .ContentCard {
-      margin-top: -52px;
-    }
 
     .video-box {
       width: 100%;
@@ -2363,6 +2396,7 @@
 
     .card {
       .card-body {
+        padding-top: 0 !important;
         .card-title {
           text-align: left;
           color: black;
