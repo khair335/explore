@@ -1,7 +1,7 @@
 /**
  *  @file EventListing.jsx
  *  @brief EventListing
- *  
+ *
  */
 import config from 'client/config.js';
 import React, { Component, useEffect, useState, useContext, useCallback } from 'react';
@@ -66,19 +66,23 @@ const EventListing = (props) => {
 			<SubHeadHero {...props} />
 			<ContentBlocksSection contentBlocks={props.content_blocks} />
 			<div className='tab-container'>
-				<Nav tabs>
-					{tabsData.map((tab) => (
-						<NavItem key={tab.id}>
-							<NavLink
-								className={activeTab === tab.title ? 'active' : ''}
-								onClick={() => toggleTab(tab.title, tab.hashValue)}
-								href={`#${tab.hashValue}`}
-							>
-								{tab.title}
-							</NavLink>
-						</NavItem>
-					))}
-				</Nav>
+				<div className='tab-main-container'>
+					<Container>
+						<Nav tabs>
+							{tabsData.map((tab) => (
+								<NavItem key={tab.id}>
+									<NavLink
+										className={activeTab === tab.title ? 'active' : ''}
+										onClick={() => toggleTab(tab.title, tab.hashValue)}
+										href={`#${tab.hashValue}`}
+									>
+										{tab.title}
+									</NavLink>
+								</NavItem>
+							))}
+						</Nav>
+					</Container>
+				</div>
 				<TabContent activeTab={activeTab}>
 					{tabsData.map((tab) => (
 						<TabPane key={tab.id} tabId={tab.title}>
@@ -458,7 +462,7 @@ const Events = (props) => {
 				<div>
 					<div className="dropdown-container">
 						{Object.keys(options)?.map((category, index) => (
-							<div key={index} >
+							<div className='dropdown-div' key={index} >
 								<SelectTypeahead init={selectedValues[category]?.length > 0 ? selectedValues[category] : ''}
 									items={options[category]?.map(item => { return { id: item, label: item } })}
 									defaultLabel={defaultLabelToMap[category]} placeholder={defaultLabelToMap[category]}
@@ -470,37 +474,63 @@ const Events = (props) => {
 					</div>
 					<br />
 				</div>
-				<span><b>{start}-{end} of {searchResults.length}</b></span>
+				<span className='pl-4'><b>{start}-{end} of {searchResults.length}</b></span>
 				<hr />
-				<div className="table-container">
+				<div className="table-container-div">
 					<Table hover>
+
 						<thead>
 							<tr>
 								{keysToDisplay.map((key) => (
 									(key != "Info & Register") ?
 										<th key={key} onClick={() => handleSort(key)}>
-											{key}{key == "Date" ? <InfoPopover><span dangerouslySetInnerHTML={{ __html: "MM/DD/YYYY" }} /></InfoPopover> : null}{' '}
-											{sortConfig.sortcolumn === key && sortConfig.sortorder === 'sorting_asc' && (
-												<span className="bi brcmicon-sort-up"></span>
-											)}
-											{sortConfig.sortcolumn === key && sortConfig.sortorder === 'sorting_dsc' && (
-												<span className="bi brcmicon-sort-down"></span>
-											)}
-											{sortConfig.sortcolumn !== key && <span className="bi brcmicon-sort"></span>}
-										</th> : <th key={key}>
-											{key}
+
+
+											<div className='table-th-container'>
+												<div className='table-text '>
+													<p>{key}</p>
+
+													{key == "Date" ? <InfoPopover><span dangerouslySetInnerHTML={{ __html: "MM/DD/YYYY" }} /></InfoPopover> : null}{' '}
+												</div>
+
+												<div>
+													{sortConfig.sortcolumn !== key && sortConfig.sortorder == 'sorting_asc' && (
+														<img src='/img/sort_asc.png' />
+
+													)}
+
+													{sortConfig.sortcolumn !== key && sortConfig.sortorder == 'sorting_dsc' && (
+														<img src='/img/sort_desc.png' />
+													)}
+													{!sortConfig.sortorder  && <img src='/img/sort_both.png' />}
+												</div>
+
+											</div>
+										</th>
+										: <th key={key}>
+											<div className='table-th-container'>
+													<div className='table-text'>
+												<p>{key}</p>
+											</div>
+											</div>
+
 										</th>
 								))}
 							</tr>
 						</thead>
-						{searchResults.length > 0 ? <tbody>
+						{searchResults.length > 0 ?
+							<tbody>
 							{showData.map((event, index) => (
-								<tr key={index}>
+								<tr key={index}
+								 className={index % 2 === 1 ? 'bg--gray' : ''}
+								>
 									<td>{event.title}</td>
 									<td>{moment(event.start_date).format('MM/DD/YYYY')} - {moment(event.end_date).format('MM/DD/YYYY')}</td>
 									<td>{event.event_format}</td>
 									<td>{event.location}, {event.state}</td>
-									<td>{<SiteLink to={event.link.url}>Learn More </SiteLink>}{<SiteLink to={event.link.url}>{logo}</SiteLink>}</td>
+									<td >
+										<SiteLink to={event.link.url}>Learn More </SiteLink>
+									</td>
 								</tr>
 							))}
 
