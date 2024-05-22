@@ -674,7 +674,9 @@
       >div{
         &:first-child{
         max-width: 14% !important;
+        min-width: 14% !important;
          margin-left: 12px !important;
+             padding: 0;
          img{
            width: 58px;
            height: 58px;
