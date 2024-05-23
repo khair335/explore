@@ -37,19 +37,19 @@
     .padding-l {
 		padding-left: 0px;
 	}
-
+	
 	// We want to match the video height, so not quite 16x9
 	.video-list-wrapper {
 		.embed-responsive.embed-responsive-16by9 {
 			&::before {
 				padding-top: 55.0%;
 			}
-
+			
 			.embed-responsive-item {
 				overflow-y: auto;
 			}
 		}
-
+				
 		.video-list{
 			//max-height: 312px; // Changed for /products/mainframe on stage ca. //182px;
 			//overflow: auto;
@@ -83,7 +83,7 @@
 //stand along video page
 .video-content {
 	.video-title {
-		padding:15px 0 10px 0;
+		padding:15px 0 10px 0;	
 	}
 }
 
@@ -92,23 +92,23 @@
 	background:$color-grey--500;
 	display: block;
 	margin: 10px 10px 10px 0;
-
+	
     .padding-l {
 		padding-left: 0px;
 	}
-
+	
 	// We want to match the video height, so not quite 16x9
 	.video-list-wrapper {
 		.embed-responsive.embed-responsive-16by9 {
 			&::before {
 				padding-top: 55.0%;
 			}
-
+			
 			.embed-responsive-item {
 				overflow-y: auto;
 			}
 		}
-
+				
 		.video-list{
 			//max-height: 312px; // Changed for /products/mainframe on stage ca. //182px;
 			//overflow: auto;
@@ -144,32 +144,5 @@
 .video-audio {
 	.vjs-control-bar {
 		background-color: $color-grey--700;
-	}
-}
-
-.top-banner{
-	.banner-caption-video{
-		.video-wrapper{
-			.vjs-big-play-button{
-				background: transparent !important;
-				.vjs-icon-placeholder{
-					&:before{
-						content: " ";
-						background: url(https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/icons/standard-video-default-play-icon.png);
-    				background-repeat: no-repeat;
-    				background-size: contain;
-    				width: 116px !important;
-    				height: 116px;
-    				position: absolute;
-    				transition: 200ms linear;
-					top: 50%;
-					left: 50%;
-					margin-left: -56px;		// half the height of the icon
-					margin-top: -56px;		// half the height of the icon
-}
-
-				}
-			}
-		}
 	}
 }

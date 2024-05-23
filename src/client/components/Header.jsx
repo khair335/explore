@@ -17,7 +17,6 @@ import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import MainMenu from 'components/MainNav.jsx';
 const ExploreHeader  = React.lazy(() => import('components/HeaderExplore.jsx'));
-const vmwareHeader  = React.lazy(() => import('components/HeaderVMWare.jsx')); 
 
 
 import 'scss/components/header.scss';
@@ -41,10 +40,13 @@ class BroadcomHeader extends Component {
 		this.mobileToggle = this.mobileToggle.bind(this);
 	}
 
-	useEffect = () => {
+	componentDidMount() {
 		document.addEventListener('mousedown', this.handleClick);					//hack for closing menu on ipad
 	}
 
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClick);				//hack for closing menu on ipad	
+	}
 
 	handleClick(e) {
 		if (!this.startRef.current.contains(e.target) && !this.bttnRef.current.contains(e.target) && this.state.isOpen && this.state.mobile) {		// 
@@ -170,7 +172,6 @@ const NoTemplate = () => {
 const templates = {
 	ExploreHeader,
 	BroadcomHeader,
-	vmwareHeader,
 }
 
 const withNavigation = () => {

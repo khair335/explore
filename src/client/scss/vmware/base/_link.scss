@@ -49,13 +49,6 @@ a {                                         //inline links - RTE mostly, or in a
 	@include link-hover;
 }
 
-// Remove the arrow from an image in a ImageCard.
-div.lnk-image {
-    &::after {
-        all: initial;
-    }
-}
-
 .bttn.link-bttn, button.link-bttn {
 	font-family: $font-family--primary;
     //font-weight: 400;

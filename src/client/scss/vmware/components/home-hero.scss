@@ -11,13 +11,6 @@ $carousel-indicator-height: 20px;
 .top-banner {
   overflow: hidden;
   position: relative;
-  width: 100%;
-  margin-top: -42px;          // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
-  z-index: 1;
-
-  @media screen and (max-width: map-get($grid-breakpoints, md) - 1)  {      // in mobile not needed
-    margin-top: 0px;
-  }
 
   .carousel.slide {
     padding: 0px;
@@ -58,11 +51,10 @@ $carousel-indicator-height: 20px;
                 padding-right: 0 !important;
                 margin-right: 0;
                 margin-left: 0;
-
-                &:hover {
+                &:hover{
                   border: none !important;
                   background-color: transparent !important;
-
+                  
                 }
 
                 @include media-breakpoint-down(md) {
@@ -107,82 +99,38 @@ $carousel-indicator-height: 20px;
         }
       }
 
-      // Use absolutes to center us vertically within the banner.
-      .banner-caption-container {
-        position: absolute;
-        top: 45%;
-        width: 100%;
-        transform: translate(0, -50%);
-        z-index: 2;
-
-        @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-          max-width: none;
-          position: static;
-          padding: 0px 15px 15px;
-          width: 100%;
-          transform: none;
-          text-align: center !important;
-          color: $color-body;
-
-          .teaser div {
-            color: $color-body;
-          }
-        }
-
-
-        .banner-caption-video {
-          padding: 8px;
-          border-radius: 3px;
-          background-color:  $background-light-blue;
-          box-shadow:  $shadow-1;
-          margin: 20px 0 0 30px;
-
-
-          @include media-breakpoint-down(md) {
-            max-width: 450px;
-            margin: auto;
-          }
-
-        }
-
-
-      }
-
       .size-medium {
         .featurette-heading {
           font-size: 50px;
-        }
-
+          }
         .banner-cta-title {
 
-          .lnk {
-            border: none !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+              .lnk {
+                border: none !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                &:hover{
+                  border: none !important;
+                  background-color: transparent !important;
+                }
 
-            &:hover {
-              border: none !important;
-              background-color: transparent !important;
-            }
+                @include media-breakpoint-down(md) {
+                  background-color: transparent !important;
+                  color: black !important;
+                  border: none !important;
 
-            @include media-breakpoint-down(md) {
-              background-color: transparent !important;
-              color: black !important;
-              border: none !important;
-
-              h2 {
-                color: black !important;
+                  h2 {
+                    color: black !important;
+                  }
+                }
               }
             }
-          }
-        }
-
         img {
-
+          
           object-fit: cover;
           width: 100%;
-          height: auto;
-
+          height:auto;
+          
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
@@ -206,15 +154,15 @@ $carousel-indicator-height: 20px;
 
       .size-small {
         .featurette-heading {
-          font-size: 40px;
+        font-size: 40px;
         }
 
         img {
-          height: 100%;
+          height: auto;
           object-fit: cover;
           width: 100%;
-
-
+          height: auto;
+        
           @media only screen and (max-width: 991.98px) {
             transform: none;
             height: 280px;
@@ -275,30 +223,39 @@ $carousel-indicator-height: 20px;
         }
       }
     }
-
     p {
-      >a {
+      > a{
         color: $color-white;
-
         @include media-breakpoint-down(md) {
           color: $color-black;
         }
-
-        &:hover {
-          color: $color-primary;
-          text-decoration-color: $color-primary;
+        &:hover{
+              color: $color-primary;
+                text-decoration-color:$color-primary;
         }
       }
     }
   }
 
   .caption {
+    position: absolute;
+    width: 650px;
     left: auto;
-    padding: 0 15px; // We are a column so add our gutter back.
+    padding: 0;
     min-height: 150px;
     margin: 0;
+    top: 45%;
+    transform: translate(0, -50%);
+    z-index: 2;
 
-
+    @media only screen and (max-width: 991.98px) {
+      max-width: none;
+      position: static;
+      padding: 0px 15px 15px;
+      width: 100%;
+      transform: none;
+      text-align: center !important;
+    }
 
     div {
       font-family: $font-family--secondary;
@@ -315,7 +272,6 @@ $carousel-indicator-height: 20px;
     h1 {
       padding: 20px 6px 10px 0;
       font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
-      color:$color-black;
 
       @media screen and (min-width: 1980px) {
         font-size: 50px;
@@ -352,7 +308,7 @@ $carousel-indicator-height: 20px;
       border: 1px solid $color-white;
       border-radius: 3px;
       padding: 6px 23px;
-      margin: 15px 0 5px 0;
+      margin:15px 0 5px 0;
       text-decoration: none;
       line-height: 1.5;
       font-weight: 300;
@@ -389,19 +345,17 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: space-between;
 
       .banner-cta {
-        width: max-content;
+        width: 50%;
 
         @media (max-width: 460px) {
           width: 100%;
         }
-
-        .lnk {
+        .lnk{
           width: max-content;
         }
-
         &:first-child {
           padding-right: 20px;
 
@@ -455,14 +409,7 @@ $carousel-indicator-height: 20px;
   .carousel-inner {
     .size-large {
       .caption {
-        width: 853px; // 823 + gutter for row
-
-        // JD hack to override col-lg-7 for this large banner unique to Explore
-        @include media-breakpoint-up(md) {
-          flex: 0 0 853px;
-          -webkit-flex: 0 0 853px;
-          max-width: 853px;
-        }
+        width: 823px;
 
         @include media-breakpoint-down(md) {
           width: auto !important;
@@ -471,7 +418,7 @@ $carousel-indicator-height: 20px;
 
         .featurette-heading {
           font-size: 50px !important;
-
+          
         }
 
         .teaser {
@@ -497,9 +444,9 @@ $carousel-indicator-height: 20px;
               font-size: 40px;
               //text-transform: capitalize;
 
-              @include media-breakpoint-down(md) {
-                font-size: 30px !important;
-              }
+             @include media-breakpoint-down(md) {
+                  font-size: 30px !important;
+                }
             }
 
             >div {
@@ -515,10 +462,9 @@ $carousel-indicator-height: 20px;
               margin-top: 28px;
               margin-right: 0;
               margin-left: 0;
-
               @include media-breakpoint-down(md) {
-                margin-top: 16px;
-              }
+                  margin-top: 16px;
+                }
             }
           }
         }
@@ -529,10 +475,10 @@ $carousel-indicator-height: 20px;
 
 .top-banner .carousel-inner>.carousel-item .size-medium img,
 #banner .carousel-inner>.carousel-item .size-medium img {
-  height: 100%;
+  height: auto;
   object-fit: cover;
   width: 100%;
-
+  
 
   @include media-breakpoint-down(md) {
     height: 300px !important;
@@ -576,7 +522,7 @@ $carousel-indicator-height: 20px;
     .banner-cta-wrapper {
       .banner-cta {
         >div {
-          >p {
+          >p{
             display: block;
           }
         }
@@ -584,7 +530,7 @@ $carousel-indicator-height: 20px;
         .lnk {
           width: max-content;
           text-transform: uppercase;
-
+         
           &:hover {
 
             text-decoration: none !important;

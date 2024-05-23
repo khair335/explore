@@ -71,7 +71,7 @@ $g-leaf-ocean: linear-gradient(45deg, #78BE20 14.64%, #0091DA 85.36%);
 $background-color: #ffffff; // white
 $background-light-blue: #F4F8FA; // Light Blue
 $background-light-gray: #f7f7f7; // Light Gray
-$background-dark-blue: #F4F8FA; // used as bg for highlighted section in main menu
+$background-dark-blue: #F4F8FA; //not in use
 $background-dark: #1b1d36; // dark background color
 
 //Shadow
@@ -171,8 +171,8 @@ $autopilot-footer-height-xl: 275px;
 	background-color: $color-primary;
 	color: $color-white;
 	font-family: $font-family--secondary;
-	text-decoration: none;
-	display: flex;
+text-decoration: none;
+display: flex;
 	&:hover {
 		background-color: $color-white;
 		color: $color-primary;

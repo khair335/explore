@@ -20,39 +20,6 @@ import MediaQuery from 'react-responsive';
 import 'scss/components/carousel-standard.scss';
 
 
-const Indicators = (props) => {
-	switch (props.indicator_type) {
-		case 'Line':
-			return (
-				<CarouselIndicators
-					items={props?.content_blocks}
-					activeIndex={props.activeIndex}
-					onClickHandler={props.goToIndex}
-				/>
-			);
-		case 'Text':
-			return (
-				<div className="carousel-indicators-text">
-					{props?.content_blocks.map((content_block, index) => (
-						<button className={classnames("bttn link-bttn", {active: props.activeIndex === index})} key={content_block.content_id} onClick={() => props.goToIndex(index)}>{content_block.tab_title}</button>
-					))}
-				</div>
-			);
-		case 'Image':
-			return (
-				<div className="carousel-indicators-image">
-					{props?.content_blocks.map((content_block, index) => (
-						<button className={classnames("bttn link-bttn", {active: props.activeIndex === index})} key={content_block.content_id} onClick={() => props.goToIndex(index)}>
-							{/* <ImageBase src="https://www-review.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/logos/logo-coop.jpg" /> */}
-							<ImageBase image={content_block.icon}/>
-						</button>
-					))}
-				</div>
-			);
-		default:
-			return null;
-	}
-}
 
 const CarouselStandard = (props) => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -99,7 +66,38 @@ const CarouselStandard = (props) => {
 	}) || [];
 
 
-	
+	const Indicators = useCallback(() => {
+		switch (indicator_type) {
+			case 'Line':
+				return (
+					<CarouselIndicators
+						items={content_blocks}
+						activeIndex={activeIndex}
+						onClickHandler={goToIndex}
+					/>
+				);
+			case 'Text':
+				return (
+					<div className="carousel-indicators-text">
+						{content_blocks.map((content_block, index) => (
+							<button className="bttn link-bttn" key={content_block.content_id} onClick={() => goToIndex(index)}>{content_block.tab_title}</button>
+						))}
+					</div>
+				);
+			case 'Image':
+				return (
+					<div className="carousel-indicators-image">
+						{content_blocks.map((content_block, index) => (
+							<button className="bttn link-bttn" key={content_block.content_id} onClick={() => goToIndex(index)}>
+								<ImageBase src="https://www-review.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/logos/logo-coop.jpg" />
+							</button>
+						))}
+					</div>
+				);
+			default:
+				return null;
+		}
+	}, [activeIndex]);
 
 	return (
 
@@ -134,7 +132,7 @@ const CarouselStandard = (props) => {
 					interval={false}
 
 				>
-					<Indicators content_blocks={content_blocks} activeIndex={activeIndex} goToIndex={goToIndex} indicator_type={indicator_type}/>
+					<Indicators />
 					{slides}
 					{show_controls &&
 						<>
@@ -158,68 +156,7 @@ const CarouselStandard = (props) => {
 
 const CarouselContentBlock = (props) => {
 	const template = props.content_block?.template || "CarouselStandard";
-	let content_blocks = props?.content_block?.content_blocks || [];
-
-
-	// CarouselVideoPlaylist
-	// We need to generate a block based on width(col) and rows.
-	// It will each page, reading top left to right
-	if (template === "CarouselVideoPlaylist") {
-
-		let video_content_blocks = [];
-		let NUM_COLS = props?.content_block?.width || 1;	// Minimum 1 columns if less than one, else .
-		let NUM_ROWS = props?.content_block?.rows || 1;
-		let NUM_PAGES = Math.ceil(content_blocks.length / (NUM_COLS * NUM_ROWS));
-
-
-		let i = 0;
-		for (let p = 0; p < NUM_PAGES; p++) {
-
-			let columns = Array(NUM_COLS);
-			// Init
-			for (let i = 0; i < NUM_COLS; i++) {
-				columns[i] = Array(NUM_ROWS);	// Init
-			}
-
-			for (let r = 0; r < NUM_ROWS; r++) {
-				for (let c = 0; c < NUM_COLS; c++) {
-
-					if (i < content_blocks.length) {
-						columns[c][r] = content_blocks[i];
-						i++;
-					}
-					else {
-						//Fill it up
-						columns[c][r] = {
-							template: 'empty',
-						};
-						i++;
-					}
-
-				}
-			}
-
-
-
-			let page = {
-				"content_id": Math.floor(Math.random() * Math.floor(Number.MAX_SAFE_INTEGER)),
-				"content_type": "content_block_list",
-				"template": "ContentCard",
-				"locale": "en-us",
-				"hash_tag_name": '',
-				"section_title": '',
-				"body": "",
-				"bottom_body": null,
-				"columns": columns,
-			}
-
-			video_content_blocks.push(page);
-
-		}
-
-		content_blocks = video_content_blocks;
-	}
-
+	const content_blocks = props?.content_block?.content_blocks || [];
 
 	// Split up each block into individual blocks.
 	const mobile_content_blocks = useMemo(() => {
@@ -229,16 +166,13 @@ const CarouselContentBlock = (props) => {
 		content_blocks.forEach(cb => {
 			if (cb.template === "ContentCard") {
 				// Unpackage each card and make it new.
-				for (let i = 0; i < cb?.columns.length; i++) {
-					for (let j = 0; j < cb.columns[i]?.length; j++) {
-						// Don't add the empty ones from our VideoPlaylist
-						if (cb.columns[i][j]?.template !== 'empty') {
-							// HACK: Just fake a content block list
-							let fake_cb = { ...cb };
-							fake_cb.columns = [[cb.columns[i][j]]];
-							fake_cb.content_id = fake_cb.content_id + i + j;		// Fake a key
-							flatten_blocks.push(fake_cb);
-						}
+				for (let i=0; i<cb?.columns.length; i++) {
+					for (let j=0; j<cb.columns[i]?.length; j++) {
+						// HACK: Just fake a content block list
+						let fake_cb = {...cb};
+						fake_cb.columns = [[cb.columns[i][j]]];
+						fake_cb.content_id = fake_cb.content_id + i + j;		// Fake a key
+						flatten_blocks.push(fake_cb);
 					}
 				}
 
@@ -248,7 +182,7 @@ const CarouselContentBlock = (props) => {
 			}
 		});
 
-
+		
 		return flatten_blocks;
 	}, []);
 
@@ -260,11 +194,11 @@ const CarouselContentBlock = (props) => {
 				{props?.content_block.body && <p dangerouslySetInnerHTML={{ __html: props?.content_block.body }} />}
 
 				<MediaQuery maxWidth={config.media_breakpoints.lg - config.media_breakpoints.next}>
-					<CarouselStandard {...props} template={template} content_blocks={mobile_content_blocks} />
+					<CarouselStandard {...props} template={template} content_blocks={mobile_content_blocks}/>
 				</MediaQuery>
 
 				<MediaQuery minWidth={config.media_breakpoints.lg}>
-					<CarouselStandard {...props} template={template} content_blocks={content_blocks} />
+					<CarouselStandard {...props} template={template} content_blocks={content_blocks}/>
 				</MediaQuery>
 
 				{props?.content_block.links &&

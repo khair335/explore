@@ -128,10 +128,6 @@ const LogoRequestDownload = React.lazy(() => import('pages/support/LogoRequestDo
 // Explore
 const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchVideos.jsx'));
 
-// VMare
-const GlossaryAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/topics/glossary.html#K
-const TechdocsAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/techpapers/techpaper_gsa_seed.html
-const SearchVideos = React.lazy(() => import('pages/search/SearchVideos.jsx'));		// VMWare video search page.
 
 const templates = {
 	home,					// Template name is lower case in JSON.
@@ -228,9 +224,6 @@ const templates = {
 	LogoRequestDeclined,
 	LogoRequestDownload,
 	ExploreSearchVideos,
-	GlossaryAtoZ,
-	TechdocsAtoZ,
-	SearchVideos,
 };
 
 

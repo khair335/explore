@@ -5,7 +5,7 @@
  * temp saved holding version while making new branch
  */
 
-import React, { Component, Fragment, Suspense } from 'react';
+import React, { Component, Fragment } from 'react';
 import SiteLink from "components/SiteLink.jsx";
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
@@ -14,8 +14,7 @@ import { Row, Col, Button, NavItem, Container } from 'reactstrap';
 import utils, {localizeText} from 'components/utils.jsx';
 import ButtonTrack from 'components/ButtonTrack.jsx';
 import { ContentBlocksSection } from 'components/ContentBlock.jsx';
-import {getComponentFromTemplate} from 'templates/TemplateFactory.jsx';
-import Loading from 'components/Loading.jsx';
+
 
 //scss import for main-nav located in header.scss
 
@@ -35,12 +34,7 @@ export default class MainNavExplore extends Component {
         this.setState({
             activeMenu: index
         })
-        if (index === false) { 
-            this.menuToggle();
-            document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background
-        } else {
-            document.getElementById('content').style.filter = 'blur(8px)';      // blurs backgreound when menu flyout/dropdown active - Explore site only right now 
-        }
+        if (index === false) { this.menuToggle() }
     }
 
     render() {
@@ -96,36 +90,34 @@ class MenuItem extends Component {// landing page links handled differently - tr
         return (
             <Fragment>
             {/* 
-                children = ignore url, put children in dropdown
-                no children & url = direct sitelink to url
-                no children & no url = label (error capture as data sometimes dirty)
+                url = sitelink
+                !url && child.length 0 = bad data, there is just a title = label
+                !url && child = open submenu and display
              */}
-
-            {(this.props.item.child.length <= 0) ? 
-                this.props.item.url ?
-                    <SiteLink className="bttn" to={this.props.item.url}>{this.props.item.title}</SiteLink>
+            {this.props.item.url ? 
+                <SiteLink className="bttn" to={this.props.item.url}>{this.props.item.title}</SiteLink>
                 :
+                ((this.props.item.child.length <= 0) ?
                     <span className="label">{this.props.item.title}</span>
-            :
-                <Fragment>
-                    <ButtonTrack onClick={() => this.updateMenu(this.props.index)}
-                            className={classnames({ active: this.props.activeMenu === this.props.index })}
-                            gtmevent={{ 'id': 'N002', 'menu_item_name': this.props.item.title }}
-                            dangerouslySetInnerHTML={{ __html: this.props.item.title }}
-                        />
-                    {(this.props.activeMenu === this.props.index) ?
-                        <Suspense fallback={<Loading isLoading={true} className="menu-loading" />}>
+                    :
+                    <Fragment>
+                        <ButtonTrack onClick={() => this.updateMenu(this.props.index)}
+                                className={classnames({ active: this.props.activeMenu === this.props.index })}
+                                gtmevent={{ 'id': 'N002', 'menu_item_name': this.props.item.title }}
+                                dangerouslySetInnerHTML={{ __html: this.props.item.title }}
+                            />
+                        {(this.props.activeMenu === this.props.index) ?
                             <MenuWindow
                                 updateMenuItem={this.updateMenuItem}
                                 activeMenu={this.props.index}
                                 {...this.state}
                                 {...this.props}
                             />
-                        </Suspense>
-                        :
-                        ""
-                    }
-                </Fragment>     
+                            :
+                            ""
+                        }
+                    </Fragment>   
+                )
             }
             <span className={'linkChevron fa-solid fa-chevron-right'} ></span>
             </Fragment>
@@ -152,7 +144,7 @@ class MenuWindow extends Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         document.addEventListener('mousedown', this.handleMenuClick);
         document.addEventListener('keydown', (e) => { if (e.keyCode === 27) this.updateMenuItem(false, this.state) });
         document.getElementsByTagName('body')[0].classList.add("stopBodyScroll") //modal-open
@@ -164,127 +156,55 @@ class MenuWindow extends Component {
         document.getElementsByTagName('body')[0].classList.remove("stopBodyScroll")
     }
 
-/*     useEffect = () => {
-		document.addEventListener('mousedown', this.handleClick);					//hack for closing menu on ipad
-        document.addEventListener('keydown', (e) => { if (e.keyCode === 27) this.updateMenuItem(false, this.state) });
-        document.getElementsByTagName('body')[0].classList.add("stopBodyScroll") //modal-open
-	} */
-
-/* 	useEffect = () => {
-		document.removeEventListener('mousedown', this.handleClick);				//hack for closing menu on ipad	
-        document.removeEventListener('keydown', (e) => { if (e.keyCode === 27) this.updateMenuItem(false, this.state) });
-        document.getElementsByTagName('body')[0].classList.remove("stopBodyScroll")
-	} */
-
     handleMenuClick(e) {
         e.preventDefault();
-
-        if (this.menuRef.current.contains(e.target)) {                           // did we click on something inside the menu?
+        if (this.menuRef.current.contains(e.target)) {                              // did we click on something inside the menu?
             let hrefEvent = e.target.getAttribute('href');
 
-            if (hrefEvent != null && hrefEvent != false) {                      //  some links may have href="#" - we filter these out in index.js/loop and replace with false
-                window.setTimeout(() => {                                       // timeout allows the new page click event to clear before updating state -
-                    this.updateMenuItem(false, this.state);                     // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
-                }, 400);
+            if (e.target.id === "searchMenu") {                                    // menu-search input box
+                this.handleChangeSearch(e);
+                document.getElementById("searchMenu").focus()
+            } else {
+                document.getElementById("searchMenu").blur();
+                if (hrefEvent != null && hrefEvent != false) {                      //  some links may have href="#" - we filter these out in index.js/loop and replace with false
+                    window.setTimeout(() => {                                       // timeout allows the new page click event to clear before updating state -
+                        this.updateMenuItem(false, this.state);                     // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
+                    }, 400);
+                }
             }
+            return
         } else {
-            this.updateMenuItem(false, this.state);                              // no, outside click, close window
+            this.updateMenuItem(false, this.state);                                 // no, outside click, close window
         }
     }
-
-    handleBack() {                                    // back button in search result window
-        this.setState({
-            activeLevel_1: false,                           // clear out any menu results
-        })                                                 // no need to save state since this is default state now
-        this.updateMenuItem(false, this.state);
-    }
-
 
     render() {
         let item = this.props.navData[this.props.activeMenu]
 
         return (
             <div id="menuWindow" ref={this.menuRef} className="fadein">
-                <div className='menuWrapper'>
-                    <Row>
-                        <Col sm="12" md="12" lg="12">
-                            <button onClick={() => this.handleBack()} className="back" aria-label="Back to main level navigation">
-                                <span className="bi bi-rotate-180 brcmicon-arrow-circle-right"></span>
-                            </button>
-                        </Col>
+                <Container>
+                    <ul>
                         {item.child.map((level_1, index) => {
-                            return (
-                                <Col className={classnames({ 'highlight' : level_1.show_as_card })} >
-
-                                    {level_1?.child[0]?.content_block?.content_type === 'content_block' ?
-
-                                         <div>
-                                                {getComponentFromTemplate(level_1.child[0].content_block.template, level_1.child[0].content_block)}
-                                        </div>
-                                    :
-                                        <Fragment>
-                                            <h4 className="title" key={level_1.title}>{level_1.title}</h4>
-                                            <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
-                                            {level_1.child ? 
-                                                <ul>
-                                                {level_1.child.map((level_2, index) => {
-                                                    return(
-                                                        <li className="link" key={level_2.title}>
-                                                            <h5 className={level_2.title ? "" : "hide"}><SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink></h5>
-                                                            <p className={level_2.abstract ? "" : "hide"} >{level_2.abstract}</p>
-                                                            {level_2.links ? 
-                                                                <Fragment>
-                                                                    <h6 className={level_2.links_title ? "" : "hide"}>{level_2.links_title }</h6>
-                                                                    {level_2.links.map(link => {
-                                                                        return(
-                                                                            <SiteLink to={link.url}  className="key-link" key={link.title}>{link.title}</SiteLink>
-                                                                        )
-                                                                    })}
-                                                                </Fragment>
-                                                                :
-                                                                ""
-                                                            }
-                                                        </li>)
-                                                    })}
-                                                </ul>
-                                                :
-                                                ""
-                                            }
-                                        </Fragment>
-                                    }
-                                </Col>
-                            )
+                            return(
+                            <li className="title" key={level_1.title}>
+                                {level_1.title}
+                                    <p className={level_1.abstract ? "" : "hide"}>{level_1.abstract}</p>
+                                <ul>
+                                    {level_1.child.map((level_2, index) => {
+                                        return(<li className="link" key={level_2.title}>
+                                            <SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink>
+                                        </li>)
+                                    })}
+                                </ul>
+                            </li>)
                         })}
-
-                        <Col lg="12" md="12" sm="12">
-                            {item?.ctas ?
-                                <div className='menu-item-cta'>
-                                    {
-                                        item.ctas.map(cta => {
-                                            return ( <SiteLink to={cta.url} key={cta.content_id} className="bttn primary-bttn">{cta.title}</SiteLink>
-                                            )
-                                        })
-                                    }
-                                </div>
-
-                                :
-                                ""
-                            }
-                         </Col>
-                    </Row>
-                </div>
+                    </ul>
+                </Container>
             </div>
         )
     }
 
 }
 
-/* dangerouslySetInnerHTML={{ __html: level_1.title }}
-dangerouslySetInnerHTML={{ __html: level_1.abstract }} */
 
- {/* <ContentBlocksSection contentBlocks={level_1.child[0].content_block} /> */}
-
-/*  {getComponentFromTemplate(level_1.child[0].content_block.template, level_1.child[0].content_block)} */
-
-/* {console.log("content block:")}
-{console.dir(level_1.child[0].content_block)} */

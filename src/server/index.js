@@ -433,7 +433,7 @@ app.get(['/explore/video-library/video/:mediaId'], (req, res) => {
 			"meta_description": "Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation",
 			"og:description": "Broadcom Limited is a diversified global semiconductor leader built on 50 years of innovation",
 			"translations": {},
-			"microsite": "Explore",
+			"microsite": "vmware",
 		});
 
 		res.status(404).render('pages/index', head);
@@ -467,7 +467,7 @@ app.get(['/explore/video-library/video/:mediaId'], (req, res) => {
 						"meta_description": description,
 						"og:description": description,
 						"og:image": data.poster,
-						"microsite": "Explore",
+						"microsite": "vmware",
 					});
 
 					// 217159 - Translations missing causing 500.

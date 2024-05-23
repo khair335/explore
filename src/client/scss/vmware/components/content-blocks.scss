@@ -129,7 +129,7 @@
     }
 
     .section-title {
-      //color: $color-white;
+      color: $color-white;
     }
 
     .container {
@@ -173,11 +173,9 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-
-    @media (max-width:991px) {
-      margin-top: 0;
-    }
-
+     @media (max-width:991px) {
+             margin-top: 0;
+            }
     .card-body {
       gap: 0;
       flex: initial;
@@ -185,41 +183,35 @@
       >div {
         &:first-child {
           width: 10%;
-
           @media (max-width:991px) {
             width: 20%;
-          }
-
+            }
           @media (max-width:767px) {
             width: 20%;
-          }
+            }
         }
 
       }
 
       .card-title {
         width: 90%;
-
         @media (max-width:991px) {
-          width: 79%;
-        }
-
+            width: 79%;
+            }
         @media (max-width:767px) {
-          width: 80%;
-        }
+            width: 80%;
+            }
       }
 
       .card-text {
         width: 90%;
         margin-top: 0px !important;
-
         @media (max-width:991px) {
-          width: 79%;
-        }
-
+            width: 79%;
+            }
         @media (max-width:767px) {
-          width: 80%;
-        }
+            width: 80%;
+            }
       }
 
       .lnk {
@@ -329,60 +321,17 @@
 
 
 
-
-
 .HorizontalTab-section {
-
+  padding: 100px 0 100px !important;
 
   .HorizontalTab {
-    .ContentCardTwoColumn {
-      .row {
-        >div {
-          &:nth-child(2) {
-            .lnk {
-              &:after {
-                content: unset !important;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .card-body {
-      flex: none !important;
-    }
-
-    .cb-cta-link {
-      .VideoLink {
-        .link-bttn {
-
-          // @include cta-link-style;
-          &:after {
-            @include cta-link-after
-          }
-        }
-      }
-    }
-
-    .ContentCardTwoColumn {
+    .ContentList {
       >.container {
         >div {
           &:first-child {
             .card {
 
               box-shadow: none;
-
-
-              .card-footer {
-
-
-                .cb-cta-link {
-                  justify-content: flex-start;
-                  padding-left: 20px;
-                }
-
-              }
             }
           }
         }
@@ -390,6 +339,7 @@
     }
   }
 }
+
 
 .brcmShare {
   .dropdown-item {
@@ -591,103 +541,6 @@
     justify-content: center;
   }
 
-  .ContentCard {
-    .theme-card-standard {
-      .RightImageCard {
-        .card-body {
-          .row {
-            height: 100%;
-
-            .col {
-              display: flex;
-              flex-direction: column;
-
-              .card-footer {
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: end;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-cta-card-secondary {
-    .TestimonialCard {
-      .cb-cta-link {
-        .lnk {
-          @extend .bttn;
-          @include secondary-button;
-
-          &:after {
-            @include button-after;
-          }
-
-          &:hover {
-            @include secondary-hover;
-          }
-        }
-      }
-    }
-  }
-
-  &.theme-content-block-cta-card-primary {
-    .TestimonialCard {
-      .cb-cta-link {
-        .lnk {
-          @extend .bttn;
-          @include primary-button;
-
-          &:hover {
-            @include primary-hover;
-          }
-        }
-      }
-    }
-
-  }
-
-  .TestimonialCard {
-    .quote {
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    .quote-image img {
-      object-fit: contain;
-    }
-  }
-
-  .ProductCard{
-        height: 100%;
-    .lnk{
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 300;
-    }
-    >div{
-      flex-wrap: nowrap !important;
-      padding: 14px;
-      >div{
-        &:first-child{
-        max-width: 14% !important;
-        min-width: 14% !important;
-         margin-left: 12px !important;
-             padding: 0;
-         img{
-           width: 58px;
-           height: 58px;
-         }
-      }
-      &:nth-child(2){
-        max-width: 82% !important;
-      }
-      }
-    }
-  }
 
 }
 
@@ -864,10 +717,6 @@
 
         &:after {
           @include cta-link-after;
-        }
-
-        &:hover {
-          border: 0;
         }
 
         @media screen and (min-width: 1980px) {
@@ -1189,17 +1038,16 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard {
+    .ImageCard  {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,
-          .link-bttn {
+          .lnk,.link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after;
+              @include cta-link-after ;
             }
 
 
@@ -1208,9 +1056,8 @@
       }
     }
   }
-
-  &.theme-cbl-card-transparent {
-    .card {
+  &.theme-cbl-card-transparent{
+    .card{
       box-shadow: none;
     }
   }
@@ -1353,21 +1200,6 @@
       }
     }
   }
-
-  &.theme-cbl-card-transparent {
-    .card {
-      &.LeftImageCard {
-        .card-footer {
-          background-color: transparent;
-
-          .cb-cta-link {
-            background-color: transparent;
-          }
-        }
-
-      }
-    }
-  }
 }
 
 
@@ -1451,6 +1283,10 @@
   }
 
 
+  .section-title {
+    color: $color-white;
+  }
+
   .col-title-img {
     color: $color-white;
   }
@@ -1461,7 +1297,7 @@
     }
 
     >p {
-      //color: $color-white;
+      color: $color-white;
     }
 
     >.cb-cta-link {
@@ -1576,11 +1412,6 @@
 
         &:hover {
           @include link-hover;
-          border: none;
-        }
-
-        &:after {
-          @include cta-link-after
         }
       }
 
@@ -1865,11 +1696,9 @@
   .card-title {
     color: $color-black;
   }
-
-  .section-title {
-    color: $color-black;
-  }
-
+ .section-title {
+      color: $color-black;
+    }
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1926,11 +1755,10 @@
     }
   }
 
-  &.theme-content-block-dark {
+  &.theme-content-block-dark{
     .section-title {
       color: $color-white;
     }
-
     .card-title {
       color: $color-white;
     }
@@ -2017,7 +1845,6 @@
 
   .card-title {
     color: $color-black;
-
   }
 
   .content-block-title {
@@ -2031,23 +1858,6 @@
 
     .card-title {
       color: $color-black;
-      text-align: left;
-    }
-  }
-
-  .HorizontalTab {
-    .ContentList {
-      >.container {
-        >div {
-          &:first-child {
-            .card {
-
-              box-shadow: none;
-            }
-          }
-        }
-      }
-
     }
   }
 }
@@ -2109,121 +1919,16 @@
         .row {
           align-items: center;
 
-          @media (max-width:767px) {
-            flex-direction: column;
-          }
-
           >div {
-            @media (max-width:767px) {
-              padding: 0;
-            }
-
             &:first-child {
-              max-width: 80% !important;
-              width: 80% !important;
-
-              flex: 0 0 80% !important;
-
-              @media (max-width:767px) {
-                max-width: 100% !important;
-                width: 100% !important;
-
-                flex: 0 0 100% !important;
+              .card-footer {
+                padding: 0;
               }
-
-              @media (max-width:1200px) {
-                max-width: 100% !important;
-                width: 100% !important;
-
-                flex: 0 0 100% !important;
-              }
-
-              .ImageCard {
-                .card-body {
-                  @media (max-width:767px) {
-                    padding: 0;
-                  }
-
-                  display: flex;
-                  flex-wrap: wrap;
-
-                  .lnk {
-                    width: 20%;
-                    margin-right: 2%;
-
-                    @media (max-width:767px) {
-                      width: 100%;
-                    }
-                  }
-
-                  .card-title {
-                    width: 78% !important;
-                    padding-top: 0;
-                    line-height: 24px;
-                    height: min-content;
-                    margin: 0;
-
-                    @media (max-width:767px) {
-                      width: 100% !important;
-                      margin-top: 20px;
-                    }
-
-                    @media (max-width:1200px) {
-
-                      margin-top: 20px;
-                    }
-                  }
-
-                  >a~.card-text {
-                    width: 78%;
-                    margin-left: 22%;
-                    margin-top: -48px !important;
-
-                    @media (max-width:767px) {
-                      width: 100% !important;
-                      margin-top: 15px !important;
-                      margin-left: 0;
-                    }
-
-                    @media (max-width:1200px) {
-                      width: 100% !important;
-                      margin-left: 5px;
-                      margin-top: 8px !important;
-                    }
-                  }
-
-                }
-
-                .card-footer {
-                  padding: 0;
-
-                  .cb-cta-link {
-                    display: none;
-                  }
-                }
-              }
-
             }
+
 
             &:nth-child(2) {
-              max-width: 20% !important;
-              width: 20% !important;
-              min-height: 20% !important;
-              flex: 0 0 20% !important;
 
-              @media (max-width:767px) {
-                max-width: 100% !important;
-                width: 100% !important;
-                min-height: 100% !important;
-                flex: 0 0 100% !important;
-              }
-
-              @media (max-width:1200px) {
-                max-width: 100% !important;
-                width: 100% !important;
-                min-width: 100% !important;
-                flex: 0 0 100% !important;
-              }
 
               .ImageCard {
                 .card-body {
@@ -2232,33 +1937,10 @@
                 }
 
                 .card-footer {
-                  @media (max-width:767px) {
-                    padding: 0;
-                  }
+
 
                   .cb-cta-link {
-                    @media (max-width:767px) {
-                      padding: 0;
-
-                    }
-
-                    @media (max-width:1200px) {
-                      padding: 0;
-                      flex-direction: row;
-                      justify-content: flex-start;
-                    }
-
-                    >li {
-                      width: max-content;
-
-                      @media (max-width:767px) {
-                        width: 100%;
-                      }
-                    }
-
                     .lnk {
-
-
                       @extend .bttn;
                       @include ghost-button;
 
@@ -2280,6 +1962,7 @@
           }
         }
       }
+
     }
 
 
@@ -2341,167 +2024,9 @@
   }
 }
 
-.theme-card-cta-link {
+.theme-card-cta-link{
   height: 100%;
-
-  .card {
+  .card{
     height: 100%;
   }
-}
-
-.ContentList-section {
-  .ContentList {
-
-    .content-block-right,
-    .content-block-left {
-      .cb-cta-link {
-        justify-content: flex-start;
-      }
-    }
-
-    .cb-cta-link {
-      justify-content: center;
-    }
-
-  }
-}
-
-.ContentList-section {
-  .ContentCardTwoColumn {
-    .row {
-      >div {
-
-        // height: 100%;
-        >div {
-
-          // height: 100%;
-          .card {
-            height: 100%;
-          }
-        }
-
-      }
-    }
-
-    .card {
-      .card-footer {
-        .cb-cta-link {
-          justify-content: flex-start !important;
-          padding-left: 20px;
-        }
-      }
-    }
-  }
-
-  &.theme-cbl-card-light {
-    .ContentCardTwoColumn {
-      .card {
-        .card-footer {
-          .cb-cta-link {
-
-            padding-left: 0px;
-          }
-        }
-      }
-    }
-  }
-
-}
-
-.VerticalTab-section {
-  .vertical-container{
-    padding-top: 12px;
-  }
-  .VerticalTab {
-
-
-
-    .video-box {
-      width: 100%;
-      max-width: 100% !important;
-      flex: none !important;
-    }
-
-    .card {
-      .card-body {
-        padding-top: 0 !important;
-        .card-title {
-          text-align: left;
-          color: black;
-          padding-top: 0;
-        }
-
-        .lnk {
-          &:after {
-            content: unset !important;
-          }
-        }
-      }
-
-      .cb-cta-link {
-        justify-content: flex-start !important;
-        padding-left: 20px;
-      }
-    }
-
-    .content-block-center {
-      display: flex;
-      flex-direction: column-reverse;
-
-      .content-block-title {
-        margin-top: 20px;
-      }
-    }
-  }
-}
-
-.Testimonial-section {
-  .TestimonialCard {
-    box-shadow: none !important;
-
-    .cb-cta-link {
-      justify-content: center;
-      margin-top: 30px;
-
-      li:first-child {
-        a {
-          @extend .bttn;
-          @include primary-button;
-
-
-          &:hover {
-            @include primary-hover;
-          }
-
-          &:after {
-            @include button-after;
-          }
-        }
-      }
-
-      li:nth-child(2) {
-        a {
-          @extend .bttn;
-          @include secondary-button;
-
-          &:hover {
-            @include secondary-hover;
-          }
-
-          &:after {
-            @include button-after;
-          }
-        }
-      }
-    }
-  }
-}
-
-.InPageNavigation-section {
-  .InPageNavigation {
-    .navbar-nav {
-      flex-wrap: wrap;
-    }
-  }
-
 }

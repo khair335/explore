@@ -50,22 +50,15 @@ $carousel-indicator-padding: 40px;
         left: 0;
         z-index: 15;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         padding-left: 0;
         margin-right: 15%;
         margin-left: 15%;
-        button{
-            text-transform: capitalize;
-        }
 
     }
 
     .carousel-inner {
         padding: 0px 20px 20px 20px;
-
-        @media (max-width:767px) {
-            padding: 0;
-        }
     }
 
     .carousel-control-prev,
@@ -98,11 +91,6 @@ $carousel-indicator-padding: 40px;
     }
 
     .carousel-standard {
-        .theme-card-standard{ // remove border for now, if any requiement comes, make change -oz
-            .card{
-                box-shadow: none;
-            }
-        }
         .container {
             >p {
                 text-align: center;
@@ -152,17 +140,6 @@ $carousel-indicator-padding: 40px;
 
         .card {
             height: 100%;
-        }
-    }
-    .ContentCardTwoColumn{ // this template is used a lot by migration team, need ask to use content card template -oz
-        .card{
-            box-shadow: none !important;
-            .card-body{
-                flex: none !important;
-            }
-            .cb-cta-link{
-                justify-content: flex-start !important;
-            }
         }
     }
 }
@@ -346,8 +323,6 @@ $carousel-indicator-padding: 40px;
                 >div {
                     height: 100%;
 
-
-
                     .theme-card-standard {
                         height: 100%;
                         padding-bottom: 60px;
@@ -359,10 +334,6 @@ $carousel-indicator-padding: 40px;
                             padding-bottom: 0px;
                             height: 100%;
 
-                            @media (max-width:767px) {
-                                max-width: 100%;
-                            }
-
                             .card-body {
                                 padding: 0;
 
@@ -371,10 +342,6 @@ $carousel-indicator-padding: 40px;
                                     width: 100%;
                                     height: 145px;
                                     object-fit: cover;
-
-                                    @media (max-width:767px) {
-                                        max-width: 100%;
-                                    }
                                 }
 
                                 .card-title {
@@ -383,7 +350,7 @@ $carousel-indicator-padding: 40px;
                                     font-weight: 300;
                                     text-align: left;
 
-
+                                    
                                 }
 
                                 .card-text {
@@ -447,12 +414,6 @@ $carousel-indicator-padding: 40px;
 
                                         .row {
                                             height: 100%;
-
-                                            >div {
-                                                @media (max-width:767px) {
-                                                    padding: 0;
-                                                }
-                                            }
                                         }
                                     }
                                 }

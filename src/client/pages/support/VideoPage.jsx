@@ -77,29 +77,16 @@ class VideoPage extends PageComponent {
 			meta_description: description,
 			canonical: window.location.href,
 		});
-
-
-		//Update meta details for VMware and Broadcom
-		if (meta.custom_fields?.where_the_video_should_be_hosted_) {
-			if (!meta.long_description) {
-				meta.long_description = meta.description
-			}
-			meta.description = meta.name
-			meta.name = null;
-		}
-
-
 		this.setState({
 			videoDetails: meta
 		})
 		// Set our browser title.
 
-		if (meta.custom_fields?.where_the_video_should_be_hosted_) {
-
-			document.title = meta.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware Video Landing' : title;
+		if (config.site === 'vm') {
+			document.title = meta.description;
 		}
 		else {
-			document.title = 'VMware Explore Video Landing';
+			document.title = title;
 		}
 	}
 	//for tabs
@@ -333,20 +320,8 @@ class VideoPage extends PageComponent {
 		})
 			.then(resp => resp.json())
 			.then(json => {
-
-				let videos = json.videos?.map(video => {
-
-					if (video?.custom_fields?.where_the_video_should_be_hosted_ === "VMware") {
-						if (!video.long_description) {
-							video.long_description = video.description
-						}
-						video.description = video.name
-						video.name = null;
-					}
-					return video;
-				});
 				this.setState({
-					relatedVideos: { videos },
+					relatedVideos: json,
 					relLoading: false,
 
 
@@ -383,15 +358,13 @@ class VideoPage extends PageComponent {
 
 
 	truncateDescription(text, maxLength) {
-		if (text?.length <= maxLength) return text;
-		return text?.substr(0, maxLength) + '...';
+		if (text.length <= maxLength) return text;
+		return text.substr(0, maxLength) + '...';
 	};
 
 	render() {
 
-		const related_videos = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ?
-			this?.state?.relatedVideos?.videos?.filter((video) => video?.custom_fields?.where_the_video_should_be_hosted_ == "VMware")?.slice(0, 3) :
-			this.state?.relatedVideos?.videos?.slice(0, 3);
+		const related_videos = this.state?.relatedVideos?.videos?.slice(0, 3);
 		const settings = {
 			title: "false",
 			duration: "false",
@@ -437,13 +410,13 @@ class VideoPage extends PageComponent {
 
 		let main_url = ''
 
-		if (this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_) {
-            main_title = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
-            main_url = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/searchpage' : '/support/video-webinar-library'
-        } else {
-            main_title = 'VMware Explore 2023'
-            main_url = '/explore/video-library/search'
-        }
+		if (config.site === 'vm') {
+			main_title = 'VMware Explore 2023'
+			main_url = '/explore/video-library/search?year=2023'
+		} else {
+			main_title = 'Broadcom'
+			main_url = '/support/video-webinar-library'
+		}
 
 
 		// an array for tabs
@@ -581,14 +554,15 @@ class VideoPage extends PageComponent {
 																		target="_self"
 																	>
 																		<ImageBase className="related-image" src={`${video.poster}`} />
-																		<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video?.duration))}</span>																		<div image="" alt="Play button" className="play-button" />
+																		<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video.sources?.filter((x) => (x.hasOwnProperty("container") && x.container == "MP4"))[0].duration))}</span>
+																		<div image="" alt="Play button" className="play-button" />
 																	</SiteLink>
 
 
 																	<div className="video-info">
-																	{video?.name && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video?.name}</span></SiteLink>}
-                                                                        {video?.description && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>}
-                                                                        {video?.long_description && <p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>}
+																		<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video.name}</span></SiteLink>
+																		<SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>
+																		<p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>
 																	</div>
 																</div>
 															))}

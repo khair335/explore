@@ -107,42 +107,6 @@ const handleImageEnlarge = () => {
 		});
 	}
 }
-// ----------------
-// BCVW-516: https://vmdev-ui.aws.broadcom.com/cloud-solutions/app-platform/price-table
-// Mobile version for collapse
-//-----------------
-
-const handleCollapse = () => {
-	let collapses = document.querySelectorAll('[data-toggle="collapse"]');
-
-	if (collapses && collapses.length > 0) {
-		collapses.forEach(collapse => {
-			collapse.setAttribute('data-toggle', 'init');
-
-
-			let button = collapse.querySelector('[data-collapse="button"]');
-			let content = collapse.querySelector('[data-collapse="content"]');
-
-			if (button && content) {
-				button.addEventListener("click", (event) => {
-					content.classList.toggle("show");
-					button.classList.add("hide");
-				});
-
-				let hide = collapse.querySelector('[data-collapse="hide"]');
-				if (hide) {
-					hide.addEventListener("click", (event) => {
-						content.classList.toggle("show");
-						button.classList.remove("hide");
-					});
-				}
-			}
-
-			
-
-		});
-	}
-}
 
 // ----------------
 // BCVW-349: https://vmstg-ui.aws.broadcom.com/explore/us/attend/pricing
@@ -154,13 +118,13 @@ const handleTooltips = () => {
 
 		tooltips.forEach(tooltip => {
 			let content = tooltip.querySelector('[data-tooltip-content="true"]');
-
+			
 			// Dont init anymore
 			tooltip.setAttribute('data-tooltip', 'init');
 
 			if (content) {
-
-				const divNode = document.createElement("div");
+				
+				const divNode = document.createElement("div"); 
 				const root = createRoot(divNode);
 
 
@@ -184,13 +148,13 @@ const handleTooltips = () => {
 				// );
 
 				root.render(
-					<InfoPopover
-						placement="right"
-						popoverClass="live-info-popup-popover"
-					>
-						<div dangerouslySetInnerHTML={{ __html: content.innerHTML }} />
-					</InfoPopover>
-				);
+						<InfoPopover
+							placement="right"	
+							popoverClass="live-info-popup-popover"						
+						>
+								<div dangerouslySetInnerHTML={{ __html: content.innerHTML }} />
+						</InfoPopover>
+					);
 
 			}
 		});
@@ -203,7 +167,6 @@ const liveEvents = () => {
 	handleVideoLink();
 	handleImageEnlarge();
 	handleTooltips();
-	handleCollapse();
 
 
 	//<video data-module="video" data-module-type="video-playlist" data-channel-id="a493a97ae5f84508a1e45dd117e99c26" id="playList1211203289657" name="playList1211203289657"></video>
@@ -573,7 +536,7 @@ const liveEvents = () => {
 		script.src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
 		script.async = true;
 		document.body.appendChild(script);
-	
+
 		// Custom code.
 		document.createElement("script");			
 		const script_custom = document.createElement("script");

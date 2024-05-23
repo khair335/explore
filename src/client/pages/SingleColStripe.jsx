@@ -38,7 +38,7 @@ export default class SingleColStacked extends PageComponent {
 								<SubHeadNavigation breadcrumb={this.props.page.breadcrumb} />
 							</section>
 						</Container>
-						<div className={classnames("top-banner" , { "explore-footer-adjust" : this.props.data?.url?.includes('404')})}>
+						<div className="top-banner">
 							{this.props.data.hero_banner && <HomeHero data={this.props.data.hero_banner} />}
 						</div>
 

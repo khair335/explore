@@ -6,94 +6,55 @@
 
 @import "../base/variables";
 
-#subhead-navigation-section {
-	// The navigation layers over the banner - we pull top-banner up to be under nav (see home-hero.scss/.top-banner)
-	position: relative; // so z-index works
-	z-index: 10; // .top-banner set to 1
-	height: 42px; // padding + height of content
-
-	@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
-		// in mobile not needed
-		margin-top: 0px;
-		height: auto;
-	}
-}
-
 .bc-breadcrumbs .bc-breadcrumbs_item a.lnk {
-	color: $color-primary; //mods a.lnk  _link.scss
-	font-weight: 300; //mods a.lnk	       //metro-mod
-	letter-spacing: .35px; //metro-mod
+	color: $color-grey--900;						//mods a.lnk  _link.scss
+	font-weight: 300;								//mods a.lnk	       //metro-mod
+	letter-spacing: .35px;       //metro-mod
 }
 
-.bc-breadcrumbs,
-.bc-breadcrumbs a {
+.bc-breadcrumbs, .bc-breadcrumbs a {
 
-	color: $color-white;
-	font-size: 14px !important;
-	font-weight: 300;
-	letter-spacing: .35px;
-	text-decoration: none !important;
-	text-transform: capitalize;
-
-	&:hover {
-		text-decoration: underline !important;
-		text-underline-offset: 3px;
-		text-decoration-thickness: 2px;
-		color: $color-link-hover;
-	}
+	color: $color-grey--900;						//mods a.lnk  _link.scss
+	font-size: $font-size-sm;						//mods a.lnk
+	font-family: $font-family--secondary;
+	font-weight: 300;								//mods a.lnk		       //metro-mod
+	letter-spacing: .35px;							//metro-mod
 
 	.breadcumbs-page-links {
 		max-width: 80%;
-
-		.bc-breadcrumbs_item {
-			display: inline-block;
+		.bc-breadcrumbs_item{
+				display: inline-block;
 		}
 	}
 
-	&_item {
-		&:not(:last-of-type)::after {
-			content: "" !important;
-			background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.72 7.71567C10.9868 7.46165 10.9868 7.03828 10.72 6.78426L4.96968 1.28048C4.67327 1.02646 4.22866 1.02646 3.96189 1.28048L3.28015 1.92965C3.01339 2.18367 3.01339 2.60703 3.28015 2.88928L7.84484 7.23585L3.28015 11.6107C3.01339 11.8929 3.01339 12.3163 3.28015 12.5703L3.96189 13.2195C4.22866 13.4735 4.67327 13.4735 4.96968 13.2195L10.72 7.71567Z' fill='%23005C8A'/%3E%3C/svg%3E");
-			height: 12px;
-			width: 12px;
-			display: inline-block;
-			margin: 0px 5px;
-			background-position: 2px 2px;
-
+	&_item{
+		&:not(:last-of-type)::after{
+		content: "/";
+				padding: 0 5px;
+				font-size: $font-size-lg;
+				color:$color-grey--700;
 		}
 	}
 }
 
-#subhead-navigation {
+#subhead-navigation {	
 	.bc-breadcrumbs {
-		padding-top: 20px;
-
-		@media (max-width:767px) {
-			display: flex !important;
-			position: absolute !important;
-		}
-
 		@media only screen and (max-width: 992px) {
-			.breadcrumbMobile {
-				//display:none;
+			.breadcrumbMobile{
+				display:none;
 			}
 		}
-
 		ul {
 			float: right;
-
 			li {
 				display: inline-block;
-
 				&:first-child {
 					margin-right: 10px;
 				}
-
 				a {
-					font-size: $font-size-sm; //mods _link.scss
-					color: $color-grey--900; //mods link
+					font-size: $font-size-sm;					//mods _link.scss
+					color: $color-grey--900;					//mods link
 				}
-
 				div.dropdown-menu {
 					padding: 0;
 					height: 200px;
@@ -105,25 +66,20 @@
 					border-radius: 4px;
 					box-shadow: 0 6px 12px rgba($color-black, .175);
 					background-clip: padding-box;
-
 					.dropdown-item {
 						&:active {
 							background: transparent;
 						}
-
 						a {
 							padding: 0 0 6px 6px;
 						}
-
 						button {
-							padding: 0 10px; // mods button _buttons.scss
+							padding: 0 10px;	// mods button _buttons.scss
 						}
 					}
 				}
-
 				button {
-					font-size: $font-size-sm; // mods button _buttons.scss
-
+					font-size: $font-size-sm;	// mods button _buttons.scss
 					.bi {
 						//padding-left: 5px;
 					}
@@ -135,32 +91,25 @@
 }
 
 // JD: There were dup IDs using subhead and I subdivided them.
-#subHead,
-#subhead-title {
+#subHead, #subhead-title {
 	margin-bottom: 10px;
-
-	h1,
-	h5 {
+	h1, h5 {
 		@media only screen and (max-width: 992px) {
 			font-size: 25px;
 		}
 	}
-
 	h5 {
-		font-size: 18px;
+		font-size:18px;
 	}
-
 	.head-btns {
 		white-space: nowrap;
 	}
 }
 
-@media screen and (max-width: map-get($grid-breakpoints, lg)) {
-	.breadcrumbMobile {
-
-		&.print,
-		&.other-share {
+@media screen and (max-width: map-get($grid-breakpoints, lg)){
+	.breadcrumbMobile{
+		&.print, &.other-share{
 			display: none;
 		}
-	}
+	}	
 }

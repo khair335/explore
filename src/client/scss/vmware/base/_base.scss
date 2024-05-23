@@ -531,12 +531,9 @@ padding-bottom:10px!important;
     margin-top: -38px;          // JD - Remove the space for the promo
   }
 }
-
-// HACK - 5-7-2024 JD - this was a hack because the footer had a margin and a :before for the border. I cleaned it up so this isn't necessary.
-// If it's been over 3 months, delete this.
-// .section-striped section:last-child {
-//   margin-bottom: -64px;       // JD  - Remove the space at the bottom between the footer.
-// }
+.section-striped section:last-child {
+  margin-bottom: -64px;       // JD  - Remove the space at the bottom between the footer.
+}
 
 .section-striped section {
 	padding: 40px 0;
@@ -588,7 +585,14 @@ padding-bottom:10px!important;
   }
 }
 
+// Hide the breadcrumbs globally.
+#subhead-navigation-section {
+  display: none;    // JD: Turn off for vmware.
+}
 
+#subhead-navigation {
+  display: none;    // JD: Turn off for vmware.
+}
 
 // Live tooltips. BCVW-349
 .live-info-popup {

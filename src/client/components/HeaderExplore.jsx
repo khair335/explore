@@ -1,3 +1,4 @@
+//VERSION 6 OF NEW NAV - OLD MENU CODE REMOVED
 // Header.jsx
 // header elements including part of main menu (see components/MainNav.jsx for menu detail)
 
@@ -39,6 +40,11 @@ const ExploreHeader = (props) => {
 	// componentDidMount
 	useEffect(() => {
 		document.addEventListener('mousedown', handleClick);					//hack for closing menu on ipad
+	});
+
+	// componentWillUnmount
+	useEffect(() => {
+		document.removeEventListener('mousedown', handleClick);				//hack for closing menu on ipad	
 	}, []);
 
 
@@ -100,8 +106,9 @@ const ExploreHeader = (props) => {
 								</div>
 							</div>
 
-						</div>
 
+
+						</div>
 						<div className="navMenu">
 							<Collapse isOpen={isOpen} navbar>
 								<div className="navbar-collapse-inner" ref={startRef}>
@@ -136,27 +143,17 @@ const ExploreHeader = (props) => {
 												""
 											}
 										</div>
-
-										{
-											props?.headerData?.header_links?.map(link => {
-												return (
-												link.sub_navigation.length <= 0 ?
-													<div className='contact header-link'>
-														<SiteLink to={link.url}>{link.title}</SiteLink>
-													</div>
-												:
-													<ul className="login header-link">
-														<li className="login-wrap">
-															<ExploreHeaderSecondary
-																menuToggle={toggle}
-																links={link}
-															/>
-														</li>
-													</ul>
-												)
-											}) 
-										}
-
+										<div className='ml-2 contact'>
+											<SiteLink to={props?.headerData.header_links[0]?.url}>{props?.headerData.header_links[0]?.title}</SiteLink>
+										</div>
+										<ul className="login">
+											<li className="login-wrap">
+												<ExploreHeaderSecondary
+													menuToggle={toggle}
+													links={props?.headerData.header_links[1]}
+												/>
+											</li>
+										</ul>
 										{props?.headerData.search ?
 											<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>
 												<TypeAhead
@@ -171,6 +168,7 @@ const ExploreHeader = (props) => {
 											""
 										}
 
+
 									</div>
 
 									<div className="secondary-nav-cta">
@@ -181,6 +179,8 @@ const ExploreHeader = (props) => {
 										}
 									</div>
 								</div>
+
+
 							</Collapse>
 						</div>
 					</Navbar>

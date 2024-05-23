@@ -68,9 +68,9 @@ $carousel-indicator-height: 20px;
    // Slider and Hero banner caption text start
   .caption {
     position: absolute;
-    width: 590px;       // 560 + our gutter.
+    width: 560px;
     left: auto;
-    padding: 0 15px;    // Add our gutter back
+    padding: 0;
 		min-height: 150px;
 		margin: 0;
 		top: 45%;

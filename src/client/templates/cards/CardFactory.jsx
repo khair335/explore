@@ -46,7 +46,7 @@ class CardBodyImageVideo extends PureComponent {
         }
         else if (this.props.image) {
             imageBlock = (
-                <SiteLink to={this.props.url} nolink className="lnk-image">
+                <SiteLink to={this.props.url} nolink>
                     <ImageBase image={this.props.image} className="img-fluid mx-auto" />
                 </SiteLink>
             );
@@ -62,20 +62,15 @@ class CardBodyImageVideo extends PureComponent {
 export class ImageCard extends PureComponent {
     render() {
         let url = this.props.data.links && this.props.data.links[0] ? this.props.data.links[0].url : null;
-        let title_url = this.props.data.title_link?.url || url || null;
-        let title_link = {
-            target: this.props.data.title_link?.target || null,
-            subtype: this.props.data.title_link?.subtype || null,
-        }
 
         return (
             <Card className="ImageCard">
                 <div className="card-body">
                     <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
                     {/* JD - Attempting to enhance to be a catch all when using ANY content type in Content Lists. I want to isolate this, so not using SiteLink nolink, just applying logic here.*/}
-                    {title_url && (
-                        title_url
-                            ? <h3 className="card-title"><SiteLink to={title_url} target={title_link.target} subtype={title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} /></h3>
+                    {this.props.data.title && (
+                        this.props.data.url
+                            ? <h3 className="card-title"><SiteLink to={this.props.data.url} dangerouslySetInnerHTML={{ __html: this.props.data.title }} /></h3>
                             : <h3 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
                     )}
                     {this.props.data.body && <div className="card-text mt-3" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
@@ -114,14 +109,7 @@ export class LeftImageCard extends PureComponent {
                             </Col>
                         }
                         <Col>
-                            {this.props.data.title && (
-                                this.props.data.title_link ?
-                                    <h4 className="card-title">
-                                        <SiteLink to={this.props.data.title_link?.url} target={this.props.data.title_link?.target} subtype={this.props.data?.title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
-                                    </h4>
-                                    : <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }}
-                                    />
-                            )}
+                            {this.props.data.title && <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />}
                             {/*<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}
 
                             {this.props.data.body && <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
@@ -160,14 +148,7 @@ export class RightImageCard extends PureComponent {
                 <div className="card-body">
                     <Row>
                         <Col>
-                            {this.props.data.title && (
-                                this.props.data.title_link ?
-                                    <h4 className="card-title">
-                                        <SiteLink to={this.props.data.title_link?.url} target={this.props.data.title_link?.target} subtype={this.props.data?.title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} />
-                                    </h4>
-                                    : <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }}
-                                    />
-                            )}
+                            {this.props.data.title && <h4 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />}
                             {/*<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}
 
                             {this.props.data.body && <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
@@ -502,9 +483,8 @@ AnalystReportCard.propTypes = {
  *  @details
  */
 export const VideoCard = (props) => {
-    const video_content = props.data || props.video;
-    const id = video_content?.media_id || video_content?.id
-    const url_path = config.video.videoPath(video_content?.account) + "/" + id;
+    const video_content = props.data || props.video
+    const url_path = config.video.videoPath(video_content?.account) + "/" + video_content?.id;
     const target = "_self"
 
     const formatMillisecondsToHours = (milliseconds) => {
@@ -537,13 +517,9 @@ export const VideoCard = (props) => {
                     <span className="video-duration">{formatMillisecondsToHours(video_content?.duration)}</span>
                 </SiteLink>
                 <div className="video-info">
-                    <div>
-                        <SiteLink className='video-name-data' to={url_path} target={target}>{(video_content?.name) && <span>{video_content?.name} {(video_content?.name && video_content?.views) && <> | </>} {video_content?.views && <>{video_content.views} views</>}</span>}</SiteLink>
-                    </div>
-                    <div>
-                        {video_content?.description && <SiteLink className='card-video-title' to={url_path} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 27) }}></h5>}</SiteLink>}
-                    </div>
-                    {video_content?.long_description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 53) }}></p>}
+                    <SiteLink className='video-name-data' to={url_path} target={target}>{video_content?.views ? <span>{video_content?.name} | {video_content?.views} views</span> : <span>{video_content?.name}</span>}</SiteLink>
+                    <SiteLink className='card-video-title' to={url_path} target={target}><h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 54) }}></h5></SiteLink>
+                    <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 72) }}></p>
                 </div>
             </div>
         </div>
@@ -630,9 +606,6 @@ export function applyCardType(card, default_type, image_position) {
             break;
         case "video":
             type = "VideoCard";
-            break;
-        case "empty":
-            type = "EmptyCard";
             break;
         default:
             // Use the asset_type to determine card.

@@ -57,32 +57,6 @@
 }
 
 .Testimonial-section {
-	.TestimonialCard {
-		box-shadow: none !important;
-
-		.cb-cta-link {
-		  align-items: flex-start;
-
-		  .lnk {
-			@include cta-link-style;
-
-			&:hover {
-			  background: transparent;
-			  color: $color-primary;
-			  text-decoration: underline;
-			  text-decoration-line: underline;
-			  text-underline-offset: 3px;
-			  text-decoration-thickness: 2px;
-			  border: 0;
-
-			}
-
-			&:after {
-			  @include cta-link-after;
-			}
-		  }
-		}
-	  }
 	.cb-cta-link {
 		justify-content: center;
 		margin-top: 30px;
@@ -103,4 +77,3 @@
 		}
 	}
 }
-

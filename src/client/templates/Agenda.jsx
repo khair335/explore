@@ -32,29 +32,25 @@ const Event = ({ event, row, index, min_hour, max_hour, day }) => {
 	let start_date = new Date(event.start_time);
 	let end_date = new Date(event.end_time);
 
-	// en-gb for 24 hours.
 	let start_hour = parseInt(start_date.toLocaleTimeString('en-gb', { hour: '2-digit', timeZone: 'America/Los_Angeles' }));
 	let end_hour = parseInt(end_date.toLocaleTimeString('en-gb', { hour: '2-digit', timeZone: 'America/Los_Angeles' }));
-	let start_minute = parseInt(start_date.toLocaleTimeString('en-gb', { minute: 'numeric', timeZone: 'America/Los_Angeles' }));
-	let end_minute = parseInt(end_date.toLocaleTimeString('en-gb', { minute: 'numeric', timeZone: 'America/Los_Angeles' }));
 
 
 	// Do we half hour tick? Do we bump hour.
 	let start_half = 0;
 	let end_half = 0;
 
-	
-	if (start_minute > 45) {
+	if (start_date.getMinutes() > 45) {
 		start_half = 2;
 	}
-	else if (start_minute >= 15) {
+	else if (start_date.getMinutes() >= 15) {
 		start_half = 1;
 	}
 
-	if (end_minute > 45) {
+	if (end_date.getMinutes() > 45) {
 		end_half = 2;
 	}
-	else if (end_minute >= 15) {
+	else if (end_date.getMinutes() >= 15) {
 		end_half = 1;
 	}
 
@@ -133,24 +129,25 @@ const Day = (props) => {
 	const rows = props?.day?.rows || [];
 
 	//Let's calculate min and max hours.
-	// en-gb for 24 hours.
 	let min_hour = 24;
 	let max_hour = 0;
 	rows.forEach(row => {
 		row?.events?.forEach(event => {
 			let start_time = new Date(event.start_time);
 			let end_time = new Date(event.end_time);
-			let end_minute = parseInt(end_time.toLocaleTimeString('en-gb', { minute: 'numeric', timeZone: 'America/Los_Angeles' }));
+
 
 			// 24 hours in PST
-			min_hour = Math.min(min_hour, parseInt(new Date(event.start_time).toLocaleTimeString('en-gb', { hour: 'numeric', timeZone: 'America/Los_Angeles' })));
-			max_hour = Math.max(max_hour, parseInt(new Date(event.end_time).toLocaleTimeString('en-gb', { hour: 'numeric', timeZone: 'America/Los_Angeles' }))
-				+ ((end_minute >= 15) ? 1 : 0) // We need to add an extra hour if we have any minutes > 15
+			min_hour = Math.min(min_hour, new Date(event.start_time).toLocaleTimeString('en-gb', { hour: '2-digit', timeZone: 'America/Los_Angeles' }));
+			max_hour = Math.max(max_hour, parseInt(new Date(event.end_time).toLocaleTimeString('en-gb', { hour: '2-digit', timeZone: 'America/Los_Angeles' }))
+				+ ((end_time.getMinutes() >= 15) ? 1 : 0) // We need to add an extra hour if we have any minutes > 15
 			);
 		});
 	});
 
-	
+
+
+
 	if (max_hour - min_hour > 0) {
 		hours = new Array((max_hour - min_hour) * 2);		// *2 for 30 minutes
 		hours.fill(true);
@@ -295,7 +292,7 @@ const Agenda = (props) => {
 					<MediaQuery maxWidth={config.media_breakpoints.lg - config.media_breakpoints.next}>
 						<div className="agenda-mobile">
 							{days.map((day, index) =>
-								<div key={`day${index + 1}`}>
+								<div>
 									<div className="agenda-day-title">
 										<a name={`day${index + 1}`}>
 											{displayDay(day.event_date)}
