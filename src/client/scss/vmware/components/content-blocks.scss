@@ -25,6 +25,26 @@
   }
 }
 
+// CB card title is a link , too many overwrite rule, need review later - oz//
+
+.card-title {
+  .lnk {
+    font-size: 25px!important;
+    color: $color-primary;
+    font-weight: 300!important;
+    text-decoration: none!important;
+    line-height: normal;
+    &:hover {
+      text-decoration: underline!important;
+      text-decoration-line: underline!important;
+      text-underline-offset: 5px!important;
+      text-decoration-thickness: 2px!important;
+     
+       }
+  }
+
+}
+
 // -----------------------------------------------------------------------------
 // normalize image card, video card and text card title spacing
 // -----------------------------------------------------------------------------
@@ -173,11 +193,9 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-
-    @media (max-width:991px) {
-      margin-top: 0;
-    }
-
+     @media (max-width:991px) {
+             margin-top: 0;
+            }
     .card-body {
       gap: 0;
       flex: initial;
@@ -185,41 +203,35 @@
       >div {
         &:first-child {
           width: 10%;
-
           @media (max-width:991px) {
             width: 20%;
-          }
-
+            }
           @media (max-width:767px) {
             width: 20%;
-          }
+            }
         }
 
       }
 
       .card-title {
         width: 90%;
-
         @media (max-width:991px) {
-          width: 79%;
-        }
-
+            width: 79%;
+            }
         @media (max-width:767px) {
-          width: 80%;
-        }
+            width: 80%;
+            }
       }
 
       .card-text {
         width: 90%;
         margin-top: 0px !important;
-
         @media (max-width:991px) {
-          width: 79%;
-        }
-
+            width: 79%;
+            }
         @media (max-width:767px) {
-          width: 80%;
-        }
+            width: 80%;
+            }
       }
 
       .lnk {
@@ -335,12 +347,12 @@
 
 
   .HorizontalTab {
-    .ContentCardTwoColumn {
-      .row {
-        >div {
-          &:nth-child(2) {
-            .lnk {
-              &:after {
+    .ContentCardTwoColumn{
+      .row{
+        >div{
+          &:nth-child(2){
+            .lnk{
+              &:after{
                 content: unset !important;
               }
             }
@@ -348,8 +360,7 @@
         }
       }
     }
-
-    .card-body {
+    .card-body{
       flex: none !important;
     }
 
@@ -364,7 +375,7 @@
         }
       }
     }
-
+  
     .ContentCardTwoColumn {
       >.container {
         >div {
@@ -590,7 +601,6 @@
   .cb-cta-link {
     justify-content: center;
   }
-
   .ContentCard {
     .theme-card-standard {
       .RightImageCard {
@@ -614,7 +624,7 @@
       }
     }
   }
-
+  
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
       .cb-cta-link {
@@ -649,45 +659,42 @@
     }
 
   }
-
   .TestimonialCard {
     .quote {
       font-size: 16px;
       line-height: 24px;
     }
-
     .quote-image img {
       object-fit: contain;
     }
   }
-
   .ProductCard{
-        height: 100%;
-    .lnk{
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 300;
-    }
-    >div{
-      flex-wrap: nowrap !important;
-      padding: 14px;
-      >div{
-        &:first-child{
-        max-width: 14% !important;
-        min-width: 14% !important;
-         margin-left: 12px !important;
-             padding: 0;
-         img{
-           width: 58px;
-           height: 58px;
-         }
-      }
-      &:nth-child(2){
-        max-width: 82% !important;
-      }
-      }
-    }
+    height: 100%;
+.lnk{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 300;
+}
+>div{
+  flex-wrap: nowrap !important;
+  padding: 15px;
+  >div{
+    &:first-child{
+    max-width: 14% !important;
+    min-width: 14% !important;
+     margin-left: 12px !important;
+         padding: 0;
+     img{
+       width: 58px;
+       height: 58px;
+     }
   }
+  &:nth-child(2){
+    max-width: 82% !important;
+  }
+  }
+}
+}
 
 }
 
@@ -865,7 +872,6 @@
         &:after {
           @include cta-link-after;
         }
-
         &:hover {
           border: 0;
         }
@@ -1189,17 +1195,16 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard {
+    .ImageCard  {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,
-          .link-bttn {
+          .lnk,.link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after;
+              @include cta-link-after ;
             }
 
 
@@ -1208,9 +1213,8 @@
       }
     }
   }
-
-  &.theme-cbl-card-transparent {
-    .card {
+  &.theme-cbl-card-transparent{
+    .card{
       box-shadow: none;
     }
   }
@@ -1353,7 +1357,6 @@
       }
     }
   }
-
   &.theme-cbl-card-transparent {
     .card {
       &.LeftImageCard {
@@ -1578,9 +1581,8 @@
           @include link-hover;
           border: none;
         }
-
-        &:after {
-          @include cta-link-after
+        &:after{
+         @include  cta-link-after
         }
       }
 
@@ -1865,11 +1867,9 @@
   .card-title {
     color: $color-black;
   }
-
-  .section-title {
-    color: $color-black;
-  }
-
+ .section-title {
+      color: $color-black;
+    }
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -1926,11 +1926,10 @@
     }
   }
 
-  &.theme-content-block-dark {
+  &.theme-content-block-dark{
     .section-title {
       color: $color-white;
     }
-
     .card-title {
       color: $color-white;
     }
@@ -2017,7 +2016,7 @@
 
   .card-title {
     color: $color-black;
-
+   
   }
 
   .content-block-title {
@@ -2109,7 +2108,7 @@
         .row {
           align-items: center;
 
-          @media (max-width:767px) {
+         @media (max-width:767px) {
             flex-direction: column;
           }
 
@@ -2341,17 +2340,15 @@
   }
 }
 
-.theme-card-cta-link {
+.theme-card-cta-link{
   height: 100%;
-
-  .card {
+  .card{
     height: 100%;
   }
 }
 
 .ContentList-section {
   .ContentList {
-
     .content-block-right,
     .content-block-left {
       .cb-cta-link {
@@ -2365,7 +2362,6 @@
 
   }
 }
-
 .ContentList-section {
   .ContentCardTwoColumn {
     .row {
@@ -2409,22 +2405,16 @@
 }
 
 .VerticalTab-section {
-  .vertical-container{
-    padding-top: 12px;
-  }
   .VerticalTab {
-
-
-
-    .video-box {
+  
+    .video-box{
       width: 100%;
-      max-width: 100% !important;
-      flex: none !important;
+    max-width: 100% !important;
+    flex: none !important;
     }
 
     .card {
       .card-body {
-        padding-top: 0 !important;
         .card-title {
           text-align: left;
           color: black;
@@ -2438,23 +2428,20 @@
         }
       }
 
-      .cb-cta-link {
-        justify-content: flex-start !important;
-        padding-left: 20px;
-      }
+    .cb-cta-link {
+      justify-content: flex-start !important;
+      padding-left: 20px;
     }
-
+  }
     .content-block-center {
       display: flex;
       flex-direction: column-reverse;
-
-      .content-block-title {
+      .content-block-title{
         margin-top: 20px;
       }
     }
-  }
 }
-
+}
 .Testimonial-section {
   .TestimonialCard {
     box-shadow: none !important;
@@ -2495,13 +2482,40 @@
       }
     }
   }
+  .ProductCard{
+    height: 100%;
+.lnk{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 300;
+}
+>div{
+  flex-wrap: nowrap !important;
+  padding: 14px;
+  >div{
+    &:first-child{
+    max-width: 14% !important;
+     margin-left: 12px !important;
+     img{
+       width: 58px;
+       height: 58px;
+     }
+  }
+  &:nth-child(2){
+    max-width: 82% !important;
+  }
+  }
+}
+}
+
 }
 
 .InPageNavigation-section {
-  .InPageNavigation {
-    .navbar-nav {
-      flex-wrap: wrap;
-    }
+.InPageNavigation {
+  .navbar-nav {
+            flex-wrap: wrap;
   }
+}
 
 }
+
