@@ -62,7 +62,7 @@ class CardBodyImageVideo extends PureComponent {
 export class ImageCard extends PureComponent {
     render() {
         let url = this.props.data.links && this.props.data.links[0] ? this.props.data.links[0].url : null;
-        let title_url = this.props.data.title_link?.url || url || null;
+        let title_url = this.props.data.title_link?.url || this.props.data?.url || null;
         let title_link = {
             target: this.props.data.title_link?.target || null,
             subtype: this.props.data.title_link?.subtype || null,
@@ -73,7 +73,7 @@ export class ImageCard extends PureComponent {
                 <div className="card-body">
                     <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
                     {/* JD - Attempting to enhance to be a catch all when using ANY content type in Content Lists. I want to isolate this, so not using SiteLink nolink, just applying logic here.*/}
-                    {title_url && (
+                    {this.props.data.title && (
                         title_url
                             ? <h3 className="card-title"><SiteLink to={title_url} target={title_link.target} subtype={title_link.subtype} dangerouslySetInnerHTML={{ __html: this.props.data.title }} /></h3>
                             : <h3 className="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />

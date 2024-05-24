@@ -69,18 +69,18 @@ const EventListing = (props) => {
 				<div className='tab-main-container'>
 					<Container>
 						<Nav tabs>
-							{tabsData.map((tab) => (
-								<NavItem key={tab.id}>
-									<NavLink
-										className={activeTab === tab.title ? 'active' : ''}
-										onClick={() => toggleTab(tab.title, tab.hashValue)}
-										href={`#${tab.hashValue}`}
-									>
-										{tab.title}
-									</NavLink>
-								</NavItem>
-							))}
-						</Nav>
+					{tabsData.map((tab) => (
+						<NavItem key={tab.id}>
+							<NavLink
+								className={activeTab === tab.title ? 'active' : ''}
+								onClick={() => toggleTab(tab.title, tab.hashValue)}
+								href={`#${tab.hashValue}`}
+							>
+								{tab.title}
+							</NavLink>
+						</NavItem>
+					))}
+				</Nav>
 					</Container>
 				</div>
 				<TabContent activeTab={activeTab}>
@@ -478,15 +478,12 @@ const Events = (props) => {
 				<hr />
 				<div className="table-container-div">
 					<Table hover>
-
 						<thead>
 							<tr>
 								{keysToDisplay.map((key) => (
 									(key != "Info & Register") ?
 										<th key={key} onClick={() => handleSort(key)}>
-
-
-											<div className='table-th-container'>
+												<div className='table-th-container'>
 												<div className='table-text '>
 													<p>{key}</p>
 
@@ -513,24 +510,20 @@ const Events = (props) => {
 												<p>{key}</p>
 											</div>
 											</div>
-
 										</th>
 								))}
 							</tr>
 						</thead>
-						{searchResults.length > 0 ?
-							<tbody>
+						{searchResults.length > 0 ? <tbody>
 							{showData.map((event, index) => (
 								<tr key={index}
-								 className={index % 2 === 1 ? 'bg--gray' : ''}
-								>
+								className={index % 2 === 1 ? 'bg--gray' : ''}
+							   >
 									<td>{event.title}</td>
 									<td>{moment(event.start_date).format('MM/DD/YYYY')} - {moment(event.end_date).format('MM/DD/YYYY')}</td>
 									<td>{event.event_format}</td>
 									<td>{event.location}, {event.state}</td>
-									<td >
-										<SiteLink to={event.link.url}>Learn More </SiteLink>
-									</td>
+									<td>{<SiteLink to={event.link.url}>Learn More </SiteLink>}</td>
 								</tr>
 							))}
 

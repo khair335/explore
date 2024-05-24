@@ -16,7 +16,9 @@
       padding-right: 0;
     }
   }
-
+   .bc-breadcrumbs{
+    position: relative !important;
+   }
   .page-title {
     font-size: 32px;
     color: $color-black;
@@ -41,6 +43,7 @@
 
     @media (max-width:767px) {
       >.row {
+            flex-direction: column !important;
         .col {
           margin-bottom: 30px;
         }
@@ -71,7 +74,7 @@
         .cb-cta-link {
           justify-content: center
         }
-
+       .link-bttn,
         .lnk,
         .card-link {
           @extend .bttn;

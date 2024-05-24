@@ -61,7 +61,7 @@ const RecommendedModule = ({ data = {} }) => {
 				<Row>
 					<Col>
 						<ul>
-							{data?.links?.slice(0, data.links.length / 2).map(link => (
+							{data?.links?.filter((link, index) => index%2 === 0).map(link => (
 								<li key={link.title}>
 									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>
@@ -70,7 +70,7 @@ const RecommendedModule = ({ data = {} }) => {
 					</Col>
 					<Col>
 						<ul>
-							{data?.links?.slice(data.links.length / 2).map(link => (
+							{data?.links?.filter((link, index) => index%2).map(link => (
 								<li key={link.title}>
 									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>

@@ -15,8 +15,8 @@
 #EventListing {
     .tab-container {
         width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
+        // padding-right: 15px;
+        // padding-left: 15px;
         margin-top: 70px;
         margin-right: auto;
         margin-left: auto;
@@ -38,7 +38,7 @@
         .keywords-tag {
             height: 30px;
             background: $color-primary;
-            color: #fff;
+            color: $color-white;
             font-size: 14px;
             font-weight: 300;
             // border-radius: 100px;
@@ -102,20 +102,21 @@
     .filter-options button {
         margin-right: 10px;
         padding: 10px;
-        background-color: #efefef;
-        border: 1px solid #ddd;
+        background-color: $background-light-gray;
+        border: 1px solid $background-light-gray;
         cursor: pointer;
     }
 
     .filter-options button:hover {
-        background-color: #ddd;
+        background-color: $background-light-gray;
     }
 
 
     .page-title {
         font-size: 25px;
         line-height: 33px;
-        color: #000;
+        color: $color-black;
+    
     }
 
     .search-bar {
@@ -126,34 +127,42 @@
         align-items: center;
         justify-content: flex-start;
         border-radius: 4px;
-        border: 1px solid #999;
-        background-color: #fff;
-
+        border: 1px solid $color-grey--700;
         margin: 16px 0;
         gap: 10px;
         padding: 6px 12px 6px 20px;
+        border-color: transparent;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        background: $background-light-gray;
+        margin-left: 2px;
 
         input {
             width: 100%;
             font-weight: 300;
             font-size: 18px;
-            color: #565656;
+            color: $color-body;
             border: none;
             outline: none;
+            background: $background-light-gray;
         }
     }
 
     .title-style {
-        font-size: 18px;
-        color: #565656;
 
+        font-size: 16px;
+        //color: #565656;
         display: block;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .dropdown-container {
         gap: 16px;
 
+        .dropdown-div {
+            flex: 1;
+           
+           
+        }
 
         .dropdown {
             flex: 1;
@@ -173,8 +182,14 @@
                 width: 100%;
                 text-align: left;
                 display: inline-block;
-                padding-left: 10px;
+                padding-left: 30px;
                 padding-right: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-wrap: balance;
+                text-transform: capitalize;
+                font-weight: 300;
 
                 // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
                 .dropdown-caret {
@@ -193,12 +208,46 @@
 
 
 
+
+
+            }
+
+            .dropdown-shown {
+                border: 1px solid $color-grey--700;
+                border-color: transparent;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+                background: $background-light-gray;
+                position: relative;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='rgba(0,0,0,1)'%3E%3Cpath d='M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z'%3E%3C/path%3E%3C/svg%3E") !important;
+                background-repeat: no-repeat;
+                background-position: right;
+                background-size: 24px;
+                transition: none;
+
+
+                span {
+                    font-size: 26px;
+                }
+
+                &:hover {
+                    background: $background-light-gray;
+                    border: 1px solid $color-grey--600;
+                    color: $color-primary;
+                    background-repeat: no-repeat !important;
+                    background-position: right !important;
+                }
+
+                &:focus {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='rgba(0,0,0,1)'%3E%3Cpath d='M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z'%3E%3C/path%3E%3C/svg%3E") !important;
+                    background-repeat: no-repeat no-repeat;
+                    background-position: right;
+                background-size: 24px;
+                }
             }
         }
 
         .dropdown-menu {
-            max-width: 151.42px;
-            min-width: 151.42px;
+
             width: 100%;
             padding: 10px;
             max-height: 190px;
@@ -238,9 +287,11 @@
             }
 
             button {
-                padding: 0;
+
                 border: none;
-                height: auto;
+                height: 40px;
+                padding: 10px;
+                margin: 4px 0;
 
                 label {
                     display: flex;
@@ -253,13 +304,24 @@
             }
         }
 
+        .search-input-in {
+            width: 100%;
+            height: 30px;
+            border-radius: 4px;
+            outline: none;
+            padding: 0 10px;
+            border: 1px solid $color-primary;
+
+        }
+
+
 
     }
 
     .top-search-container {
         padding: 24px 0;
         box-shadow: 0 8px 16px rgba(17, 69, 134, 0.12);
-        background-color: #F4F8FA;
+        background-color: $background-color;
         /* position: sticky; */
         z-index: 10;
         top: 0;
@@ -272,17 +334,75 @@
 
     .table th,
     .table td {
-        text-align: center;
+        text-align: left;
         vertical-align: middle;
     }
 
-    .table thead th {
-        // background-color: #f8f9fa;
+    .table-container-div {
+        border-top: 1px solid $color-grey--200;
+        margin-top: 20px;
+    }
+
+    .table {
+        td {
+            padding-left: 16px !important;
+
+        }
+
+        .bg--gray {
+            background: $background-light-gray;
+        }
+
+        .table-th-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .table-text {
+                display: flex;
+                align-items: center;
+            }
+
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+
+            .info-popover {
+                button {
+                    padding: 0;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                &:hover {
+                    background: $background-light-gray;
+                }
+
+                td {
+
+                    border-bottom: 1px solid $color-grey--500 !important;
+                }
+            }
+        }
     }
 
     .table a {
-        color: #007bff;
-        text-decoration: none;
+        @include cta-link-style;
+        text-transform: capitalize;
+        font-weight: 400;
+        margin: 0;
+        cursor: pointer;
+      &:hover {
+        border: none;
+      }
+
+      &:after {
+        @include cta-link-after;
+      }
+
     }
 
     .table a:hover {
@@ -296,6 +416,81 @@
 
     .pagination-section {
         margin-top: 2px;
+        .pagination {
+            justify-content: center !important;
+            align-items: center !important;
+
+            .page-item {
+                background: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.disabled {
+                    color: gray;
+                }
+
+                &.active {
+                    color: blue;
+                }
+
+                .page-link {
+                    background-color: transparent;
+                    font-size: 24px;
+                    padding: 0;
+                    width: 40px;
+                    height: 40px;
+                    border: 0;
+                    color: #495057;
+
+                }
+            }
+        }
     }
 
+}
+
+#EventListing {
+    .nav-link {
+        text-decoration: none !important;
+
+
+        .active {
+            background-color: transparent !important;
+            border-color: transparent !important;
+            border: 0 !important;
+            border-bottom: 2px solid $color-primary !important;
+        }
+
+        &:hover {
+
+            border-color: transparent !important;
+        }
+    }
+    .nav-item {
+        position: relative;
+    }
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+        color: $color-secondary--light;
+        font-weight: 500;
+        border: 0 !important;
+        &:after {
+            content: '';
+            border: 10px solid;
+            position: absolute;
+            top: 39px;
+            left: 50%;
+            margin-left: -10px;
+            border-color: transparent;
+            border-top-color:$color-white;
+            height: 0;
+            width: 0;
+        }
+    }
+
+    .tab-main-container {
+        margin-bottom: 10px;
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.35);
+    }
 }
