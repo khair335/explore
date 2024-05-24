@@ -74,7 +74,15 @@
         .cb-cta-link {
           justify-content: center
         }
-       .link-bttn,
+       .link-bttn{
+        @extend .bttn;
+          @include primary-button;
+              padding: 6px 24px;
+          &:hover {
+            @include primary-hover;
+            text-decoration: underline
+          }
+       }
         .lnk,
         .card-link {
           @extend .bttn;
