@@ -448,6 +448,7 @@ export class SubHeadTitle extends Component {
 			cta_modal: false,
 			cta_template: '',
 			cta_data: {},
+			cta_modal_body: '',
 		};
 
 		this.toggleCTAModal = this.toggleCTAModal.bind(this);
@@ -455,7 +456,7 @@ export class SubHeadTitle extends Component {
 
 	}
 
-	toggleCTAModal(event, url, data, gtmevent) {
+	toggleCTAModal(event, url, data, Template, gtmevent) {
 		if (event) {
 			event.preventDefault();
 		}
@@ -468,6 +469,7 @@ export class SubHeadTitle extends Component {
 			cta_modal: !this.state.cta_modal,
 			cta_template: d.template || '',
 			cta_data: d,
+			cta_modal_body: Template?<Template url={url} data={d} />:'',
 		});
 	}
 
@@ -478,27 +480,26 @@ export class SubHeadTitle extends Component {
 		let listItems;
 
 		// Modal body, depends on what type.
-		let modal_body = <IframeModel url={this.state.cta_data.url} data={this.state.cta_data} />
-
+		
 		let cta = (callsToAction) => {
 			let title = callsToAction.title;
 
 			//BCBM-9 Blog Migration Eloqua subscribe.
 			if (callsToAction.template === 'eloqua') {
-				modal_body = <Eloqua url={this.state.cta_data.url} data={this.state.cta_data} />;
 				return (
 					<button className="bttn secondary-bttn"
-						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, { "id": "N006", "page_title": title, "link_url": callsToAction.url })}>
+						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, Eloqua,
+							{ "id": "N006", "page_title": title, "link_url": callsToAction.url })}>
 						{title}
 					</button>
 				)
 			}
 			// BCCS6 Custom check inventory modal dialog.			
 			else if (callsToAction.template === 'check_inventory') {
-				modal_body = <CheckInventory url={this.state.cta_data.url} data={this.state.cta_data} />;
 				return (
 					<button className="bttn secondary-bttn"
-						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, { "id": "N006", "page_title": title, "link_url": callsToAction.url })}>
+						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, CheckInventory,
+							{ "id": "N006", "page_title": title, "link_url": callsToAction.url })}>
 						{title}
 					</button>
 				)
@@ -506,7 +507,8 @@ export class SubHeadTitle extends Component {
 			else if (callsToAction.target === 'Modal Window' || callsToAction.is_iframe_modal === "Yes") {
 				return (
 					<a className="bttn secondary-bttn" href={callsToAction.url}
-						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, { "id": "N006", "page_title": title, "link_url": utils.getUrlFromArray(callsToAction.url) })}>
+						onClick={event => this.toggleCTAModal(event, callsToAction.url, callsToAction, IframeModel,
+							{ "id": "N006", "page_title": title, "link_url": utils.getUrlFromArray(callsToAction.url) })}>
 						{title}
 					</a>
 				);
@@ -572,7 +574,7 @@ export class SubHeadTitle extends Component {
 						)}>
 						<ModalHeader toggle={this.toggleCTAModal}></ModalHeader>
 						<ModalBody>
-							{modal_body}
+							{this.state.cta_modal_body}
 						</ModalBody>
 					</Modal>
 				</div>

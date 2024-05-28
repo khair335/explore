@@ -33,3 +33,8 @@
   
     }
   }
+  @media only screen and (max-width: 300px) {
+    #PressReleaseDetail p, .pressreleasedetail a {
+        overflow-wrap: anywhere;
+    }
+}

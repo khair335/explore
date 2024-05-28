@@ -33,3 +33,11 @@ ul{
 .back-to-result {
 	margin: 20px 0;
 }
+@media only screen and (max-width: 300px) {
+	.question p , .answer p {
+        overflow-wrap: anywhere;
+    }
+	.question a , .answer a {
+        overflow-wrap: anywhere;
+    }
+}

@@ -29,7 +29,7 @@ class ProductCard extends PureComponent {
 						
 				
 						let selects = null;
-						if (group.select_products !== null) {
+						if (group.select_products) {
 							selects = group.select_products.map(select => {
 								return {
 									url: utils.getUrlFromArray(select.url),

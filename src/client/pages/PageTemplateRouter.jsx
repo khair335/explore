@@ -125,6 +125,10 @@ const LogoRequestTermsAndConditions = React.lazy(() => import('pages/support/Log
 const LogoRequestDeclined = React.lazy(() => import('pages/support/LogoRequestDeclined.jsx'));
 const LogoRequestDownload = React.lazy(() => import('pages/support/LogoRequestDownload.jsx'));
 
+// Searches
+const KnowledgebaseSearch = React.lazy(() => import('pages/support/knowledgebase.jsx'));
+const Search = React.lazy(() => import('pages/site-search.jsx'));
+const ProductSearch = React.lazy(() => import('pages/broadcom-faceted-search.jsx'));
 // Explore
 const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchVideos.jsx'));
 
@@ -227,6 +231,9 @@ const templates = {
 	LogoRequestTermsAndConditions,
 	LogoRequestDeclined,
 	LogoRequestDownload,
+	Search,
+	KnowledgebaseSearch,
+	ProductSearch,
 	ExploreSearchVideos,
 	GlossaryAtoZ,
 	TechdocsAtoZ,
@@ -265,12 +272,6 @@ const PageTemplateRouter = (props) => {
 					console.log('template: ', page.data.template);
 				}
 
-				// HACK: There's a flicker because we our routing after we click a swiftype link from search results pages.
-				// So just ignore us for now.
-				let swiftype_paths = ['/support/knowledgebase', '/site-search', '/broadcom-faceted-search'];
-				if (swiftype_paths.includes(page.location.pathname)) {
-					return null;
-				}
 
 				// We don't have a template. Maybe 404 us.
 				if (!(page.data.template in templates)) {

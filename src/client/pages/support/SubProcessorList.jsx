@@ -30,40 +30,20 @@ export default class SubProcessorList extends PageComponent {
         // Generate our filters based on data.
         this.filter_types = ["group", "products", "processor", "date"];
         this.headers = [{
-            "attribute": "product_group",
-            "label": "Product Group",
-            "sort": false,
-        }, {
-            "attribute": "product",
+            "attribute": "product_or_services",
             "label": "Products or Services",
             "sort": false,
         }, {
-            "attribute": "supplier_name",
-            "label": "Name",
+            "attribute": "service_provider",
+            "label": "Service Provider",
             "sort": true,
         }, {
-            "attribute": "supplier_address",
-            "label": "Address",
+            "attribute": "processing_countries",
+            "label": "Processing Countries",  
             "sort": false,
-        }, {
-            "attribute": "country_of_establishment",
-            "label": "Country",    
-            "sort": true,
-        }, {
-            "attribute": "countries_data_processed",
-            "label": "Data Processing Locations",  
-            "sort": false,
-        }, {
-            "attribute": "data_elements_processed",
-            "label": "Data Processed",
-            "sort": true,
         }, {
             "attribute": "purposes_of_processing",
-            "label": "Purpose of Processing",
-            "sort": true,
-        }, {
-            "attribute": "last_date",
-            "label": "Last Updated",
+            "label": "Purpose(s) of Processing",
             "sort": true,
         }];
         
@@ -216,19 +196,7 @@ export default class SubProcessorList extends PageComponent {
         });
 
         
-        filters["date"] = [{
-            id: "0",
-            label: "Last 7 days"
-        }, {
-            id: "1",
-            label: "Last 30 days"
-        }, {
-            id: "2",
-            label: "Last 90 days"
-        }, {
-            id: "3",
-            label: "Last 365 days"
-        }];
+        
 
         // Sort our filters.        
 
@@ -238,9 +206,8 @@ export default class SubProcessorList extends PageComponent {
             filters: filters,
             selects: {},                        // What the user selected.
             subprocessors: [],		
-            sortby: 'supplier_name',            // Default
-            sort_asc: true,
-            group_selected: false,              // Keep track if a group is selected. We need to reset Products if group is changed.
+            sortby: 'service_provider',            // Default
+            sort_asc: true,            
         }
 
         // The filters
@@ -250,17 +217,12 @@ export default class SubProcessorList extends PageComponent {
         // Based off our selects, we should set our subsets.
         filters = Object.assign({}, this.filters);
 
-        if (this.state.selects['group']) {
-            this.getGroupFilters(this.state.selects['group'], filters);
-        }
         if (this.state.selects['products']) {
             this.getProductFilters(this.state.selects['products'], filters);
         }
         this.state.filters = this.sortFilters(filters);
         
 
-        this.clearFilters = this.clearFilters.bind(this);
-        this.handleSelect = this.handleSelect.bind(this);	
         this.handleSortBy = this.handleSortBy.bind(this);
         this.getFiltered = this.getFiltered.bind(this);
     }
@@ -472,79 +434,6 @@ export default class SubProcessorList extends PageComponent {
         
     }
 
-    handleSelect(select, select_type, index) {
-
-        let selects = this.state.selects;
-        let resets = this.state.resets;
-        let filters = Object.assign({}, this.filters);
-
-        selects[select_type] = select;      // From our select type ahead.
-
-        // Only reset the others.
-        // let resets = this.state.resets.map((reset, i) => {
-        // 	return (index !== i) ? reset+1 : reset;		
-        // }); 
-
-        // Reset products if new group is selected.
-        if (select_type === 'group') {
-                // TODO: Check if selected is in our group, else reset us.
-            // Reset our products.
-            resets[1]++;
-            resets[2]++; 
-            resets[3]++;            
-            selects['products'] = '';   // Reset our products.
-            selects['processor'] = '';   // Reset our processors.
-
-            // Get subset.
-            if (select) {
-                this.getGroupFilters(select, filters);
-            }
-
-            // filters['products'] = filters['products'].filter(product => 
-            // );
-        }
-        else if (select_type === 'products') {
-            // Reset our products.
-            resets[3]++; 
-            selects['processor'] = '';   // Reset our processors.
-
-             // Keep it the same.
-             filters['products'] = this.state.filters['products'];
-
-            // for each of our selected group.
-            if (select) {         
-                this.getProductFilters(select, filters);
-            }
-
-        }
-        else if (select_type === 'processor') {
-            // Keep it the same.
-            filters['processor'] = this.state.filters['processor'];
-        }
-
-        filters = this.sortFilters(filters);
-
-        this.setState({
-            resets: resets,
-            //subprocessors: subprocessors,
-            selects: selects,
-            filters: filters,
-        }, () => {
-            this.setLocation()
-        });
-    }
-
-    clearFilters() {
-        let resets = this.state.resets.map(reset => reset+1);
-
-
-        this.setState({
-            resets: resets,
-            selects: {},
-        }, () => {
-            this.setLocation()
-        });
-    }
 
     getFilterLabel(select_type, select_id) {
         let select = select_id || this.state.selects[select_type];
@@ -630,42 +519,28 @@ export default class SubProcessorList extends PageComponent {
                 let compare = 0;
                 let a, b;
                 switch (this.state.sortby) {
-                    case 'product_group':
-                        
-                        a = a_subprocessor.product_group || '';
-                        b = b_subprocessor.product_group || '';
+                   
+                    case 'product_or_services':
+                        a = (a_subprocessor.product_or_services?a_subprocessor.product_or_services.part_number:'') || '';
+                        b = (b_subprocessor.product_or_services?b_subprocessor.product_or_services.part_number:'') || '';
                         compare = a.localeCompare(b);
                     break;
-                    case 'product':
-                        a = (a_subprocessor.product?a_subprocessor.product.part_number:'') || '';
-                        b = (b_subprocessor.product?b_subprocessor.product.part_number:'') || '';
+                    case 'service_provider':
+                        a = a_subprocessor.service_provider || '';
+                        b = b_subprocessor.service_provider || '';
                         compare = a.localeCompare(b);
                     break;
-                    case 'supplier_name':
-                        a = a_subprocessor.supplier_name || '';
-                        b = b_subprocessor.supplier_name || '';
+                    case 'processing_countries':
+                        a = a_subprocessor.service_provider || '';
+                        b = b_subprocessor.service_provider || '';
                         compare = a.localeCompare(b);
-                    break;
-                    case 'country_of_establishment':
-                        a = a_subprocessor.supplier_name || '';
-                        b = b_subprocessor.supplier_name || '';
-                        compare = a.localeCompare(b);
-                    break;
-                    case 'data_elements_processed':
-                        a = a_subprocessor.data_elements_processed || '';
-                        b = b_subprocessor.data_elements_processed || '';
-                        compare = a.localeCompare(b);
-                    break;
+                    break;                    
                     case 'purposes_of_processing':
                         a = a_subprocessor.purposes_of_processing || '';
                         b = b_subprocessor.purposes_of_processing || '';
                         compare = a.localeCompare(b);
-                    break;
-                    case 'last_date':
-                        a = new Date(a_subprocessor.last_updated);
-                        b = new Date(b_subprocessor.last_updated);
-                        compare = a - b;
-                    break;
+                    break;                 
+                  
                 }
 
                 return this.state.sort_asc?compare:-compare;
@@ -683,46 +558,10 @@ export default class SubProcessorList extends PageComponent {
                     Last Updated: {this.props.data.last_updated}
                 </div>
                 <Body body={this.props.page.body} /> 
-
-                <div className="bc--bg_gray500 p-3">
-                    <a id="top"></a>
-                    
-                    <Row className="mt-2">
-                        <Col>
-                            <SelectTypeahead defaultLabel="Product Group" className="selectdownloadproduct bc--color_gray800" 
-                                onSelect={(select) => this.handleSelect(select, 'group', 0)} 
-                                items={this.state.filters.group} 
-                                init={this.getFilterLabel('group')} 
-                                reset={this.state.resets[0]} />
-                        </Col>
-                        <Col>
-                            <SelectTypeahead defaultLabel="Products or Services" className="selectdownloadproduct bc--color_gray800" 
-                                onSelect={(select) => this.handleSelect(select, 'products', 1)} 
-                                items={this.state.filters.products} 
-                                init={this.getFilterLabel('products')} 
-                                reset={this.state.resets[1]} />
-                        </Col>
-                        <Col>
-                            <SelectTypeahead defaultLabel="Processor Type" className="selectdownloadproduct bc--color_gray800" 
-                                onSelect={(select) => this.handleSelect(select, 'processor', 2)} 
-                                items={this.state.filters.processor} 
-                                init={this.getFilterLabel('processor')} 
-                                reset={this.state.resets[2]} />
-                        </Col>
-                        <Col>
-                            <SelectTypeahead defaultLabel="Date Range" className="selectdownloadproduct bc--color_gray800" 
-                                onSelect={(select) => this.handleSelect(select, 'date', 3)} 
-                                items={this.state.filters.date} 
-                                init={this.getFilterLabel('date')} 
-                                reset={this.state.resets[3]} />
-                        </Col>
-                        <Col lg="auto">
-                            <button className="" onClick={this.clearFilters}>Clear Filters</button>
-                        </Col>
-                    </Row>                   
-                </div>
+               
 
                 <div className="mt-4">
+                    <a id="top"></a>
                     <table className="table table-striped table-custom">
                         <thead className="thead-label">
                             <tr>
@@ -767,21 +606,13 @@ export default class SubProcessorList extends PageComponent {
                                     let b = b_filter.label || '';
                                     return a.localeCompare(b);
                                 }).map(processor => (
-                                <Fragment key={processor.id}>
-                                    <tr className="processor-type">
-                                        <td colSpan={this.headers.length}><h4>{processor.label}</h4></td>
-                                    </tr>
+                                <Fragment key={processor.id}>                                   
                                     {this.getSorted(processor.label).map((subprocessor, index) => (
                                     <tr key={subprocessor.content_id + index}>
-                                        <td>{subprocessor.product_group && Array.isArray(subprocessor.product_group)?subprocessor.product_group.join(', '):subprocessor.product_group}</td>
-                                        <td>{subprocessor.product_or_service && Array.isArray(subprocessor.product_or_service)? subprocessor.product_or_service.map(product => product.part_number).join(', '):''}</td>
-                                        <td><SiteLink to={subprocessor.sub_processor_link} nolink target="_blank">{subprocessor.supplier_name}</SiteLink></td>
-                                        <td className="td-supplier-address"><Contact contact={subprocessor.supplier_address} /></td>
-                                        <td>{subprocessor.country_of_establishment.join(', ')}</td>
-                                        <td>{subprocessor.countries_data_processed.join(', ')}</td>                                
-                                        <td>{subprocessor.data_elements_processed}</td>
+                                        <td>{subprocessor.product_or_service && Array.isArray(subprocessor.product_or_service)? subprocessor?.product_or_service?.map(product => product.part_number).join(', '):''}</td>
+                                        <td><SiteLink to={subprocessor.sub_processor_link} nolink target="_blank">{subprocessor.service_provider}</SiteLink></td>
+                                        <td>{subprocessor?.processing_countries?.join(', ')}</td>
                                         <td>{subprocessor.purposes_of_processing}</td>
-                                        <td>{subprocessor.last_updated}</td>
                                     </tr>
                                     ))}
                                 </Fragment>

@@ -15,6 +15,8 @@ import { SearchBox } from 'components/TypeAhead.jsx';
 import Loading from 'components/Loading.jsx';
 import { useLoaderData, Await } from 'react-router-dom';
 import { useLocationSearch } from 'routes/router.jsx';
+import Body from 'components/Body.jsx';
+
 
 
 
@@ -27,11 +29,16 @@ class ProductSearchResultContent extends SwiftypeResults {
 		return (
 			<Row>
 				<Col lg="9" md="9" sm="8" xs="12">
-	
+
 					{!this.state.loading &&
 						<div className="no-result-alert">
 							<h3>0 Results found for: {this.state.query}</h3>
-							<p>Please search again</p>
+							{this.props.noresults
+								? <div dangerouslySetInnerHTML={{ __html: this.props.noresults }} />
+								: <>
+									<p>Please search again</p>
+								</>
+							}
 						</div>
 					}
 				</Col>
@@ -101,18 +108,18 @@ class ProductSearchResultContent extends SwiftypeResults {
 			<>
 				<Row>
 					<Col>
-						<SearchBox endpoint={config.product_search.typeahead_endpoint} results_page="/broadcom-faceted-search" query={this.state.query} />
+						<SearchBox endpoint={config.product_search.typeahead_endpoint} results_page="/broadcom-faceted-search" query={this.state.query} placeholder={this.props.search_box?.placeholder} />
 
 						<div className="bc-search-bar-footer bc--bg_gray500 py-4 px-1 mt-1 mb-5">
 							<div className="bc--text_center">
-								If you are looking for product documentation or downloads, please use search tool for documents and downloads.
+								<div dangerouslySetInnerHTML={{ __html: this.props.search_box?.description || 'If you are looking for product documentation or downloads, please use search tool for documents and downloads.' }} />
 							</div>
 
 							{/* <!-- Generating the curlink for DND page --> */}
 							<div className="faceted-button-dnd d-flex justify-content-center">
-								<SiteLink to="/support/download-search?tab=search" className="bttn primary-bttn"> {/* TODO: onClick={"dataLayer.push({'event': 'eventTracker', 'eventCat': 'Content Navigation', 'eventAct': 'Click', 'eventLbl': 'Documents + Downloads', 'eventVal': 0, 'TemplateName': 'Search Result Page', 'Section': 'Body'});"}> */}
+								<SiteLink to={this.props.search_box?.button?.link_url} className="bttn primary-bttn"> {/* TODO: onClick={"dataLayer.push({'event': 'eventTracker', 'eventCat': 'Content Navigation', 'eventAct': 'Click', 'eventLbl': 'Documents + Downloads', 'eventVal': 0, 'TemplateName': 'Search Result Page', 'Section': 'Body'});"}> */}
 									<div className="">
-										<span>Documents and Downloads</span>
+										<span>{this.props.search_box?.button?.link_text}</span>
 										<span className="bi brcmicon-arrow-circle-right" aria-hidden="true"></span>
 									</div>
 								</SiteLink>
@@ -152,10 +159,21 @@ const ProductSearchResult = (props) => {
 								<Col className="col-12">
 
 									<SubHead {...page.page} />
+									<Body {...page.data} />
 
 									<section>
 
-										<ProductSearchResultContent endpoint={config.product_search.endpoint} results_page="/broadcom-faceted-search" search={search} />
+										<ProductSearchResultContent
+											endpoint={config.product_search.endpoint}
+											results_page="/broadcom-faceted-search"
+											search={search}
+											noresults={page?.data?.no_results_found_text}
+											search_box={{
+												description: page?.data?.abstract,
+												button: page?.data?.abstract_link,
+												placeholder: page?.data?.search_box_text,
+											}}
+										/>
 
 									</section>
 								</Col>

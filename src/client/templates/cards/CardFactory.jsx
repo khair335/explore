@@ -631,6 +631,19 @@ export function applyCardType(card, default_type, image_position) {
         case "video":
             type = "VideoCard";
             break;
+        case "Solution":
+            // HACK - JD transform and remap the data. // https://hgsdigitalprojects.atlassian.net/browse/BVCM-163
+            card.body = card.description;
+            if (image_position === 'Left') {
+                type = 'LeftImageCard';
+            }
+            else if (image_position === 'Right') {
+                type = 'RightImageCard';
+            }
+            else {
+                type = default_type;
+            }
+            break;
         case "empty":
             type = "EmptyCard";
             break;

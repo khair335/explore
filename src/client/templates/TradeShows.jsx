@@ -22,7 +22,7 @@ class TradeShows extends PureComponent {
 							<Row>
 								<Col md="2 pr-0">
 								<div className="trade-img p-2 pt-3">
-									<ImageBase image={event.image} className="card-img" />
+									<ImageBase image={event.image} className="img-fluid mx-auto fadein" />
 								</div>
 								</Col>
 								<Col md="10">

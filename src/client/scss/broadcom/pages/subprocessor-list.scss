@@ -23,18 +23,28 @@
             font-family: $font-family--secondary;
             border-right: 1px solid $color-white;
             border-top:0!important;
-            border-bottom:0!important;     
+            border-bottom:0!important;
+            padding: 10px 15px 0px 15px;     
+
+            button {
+                padding: 0;
+            }
         }
 
-        .th-supplier_address {
-            width: 240px;           // Resize the address column.
+        .th-product_or_services {
+            width: 25%;
         }
-        .th-supplier_name {
-            width: 190px;
+
+       
+        .th-service_provider {
+            width: 25%;
         }
     }
     .thead-arrow th {
-        padding:0 0 5px 0!important
+        padding:0 0 5px 0!important;
+        button {
+            padding: 0;
+        }
     }
 
     .td-supplier-address {

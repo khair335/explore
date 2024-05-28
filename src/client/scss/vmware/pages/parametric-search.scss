@@ -870,5 +870,20 @@
     }
     
 }
+@media only screen and (max-width: 380px) {
+    
+    #ParametricSearch .table tbody td {
+        padding: 5px;
+        width: 100%;
+        font-size: 11px;
+    }
+    .parametric-table-responsive img {
+        max-width: 100%
+    }
+    .parametric-table-responsive table td, .parametric-table-responsive table th {
+        padding: 10px 3px;
+        vertical-align: top;
+        font-size: 13px;
+    }
 
-
+}

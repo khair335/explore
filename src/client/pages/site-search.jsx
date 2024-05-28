@@ -16,6 +16,7 @@ import Loading from 'components/Loading.jsx';
 import { useLoaderData, Await } from 'react-router-dom';
 import { useLocationSearch } from 'routes/router.jsx';
 import classnames from 'classnames';
+import Body from 'components/Body.jsx';
 
 
 import 'scss/components/search-results.scss';
@@ -156,23 +157,28 @@ class SiteSearchResultContent extends SwiftypeResults {
 
 					{!this.state.loading &&
 						<div className="no-result-alert">
-							<b>Your search did not match any content.</b>
-							<p>Suggestions:</p>
-							<ul>
-								<li>Make sure all words are spelled correctly</li>
-								<li>Try different keywords</li>
-								<li>Try more general keywords</li>
-							</ul>
-							<p>The
-								<SiteLink to="/sitemap"> site map</SiteLink> can also help you find what your're looking for.
-							</p>
-							<p>One more thing: If you think this is an error,
-								<SiteLink to="/company/contact-us/feedback-and-comments"> please contact us</SiteLink> and let us know why.
-								Be sure to let us know what Web Browser and Operating System you were using when this occurred.
-							</p>
-							<p>Thanks, <br />
-								The Broadcom Web Team
-							</p>
+							{this.props.noresults
+								? <div dangerouslySetInnerHTML={{ __html: this.props.noresults }} />
+								: <>
+									<b>Your search did not match any content.</b>
+									<p>Suggestions:</p>
+									<ul>
+										<li>Make sure all words are spelled correctly</li>
+										<li>Try different keywords</li>
+										<li>Try more general keywords</li>
+									</ul>
+									<p>The
+										<SiteLink to="/sitemap"> site map</SiteLink> can also help you find what your're looking for.
+									</p>
+									<p>One more thing: If you think this is an error,
+										<SiteLink to="/company/contact-us/feedback-and-comments"> please contact us</SiteLink> and let us know why.
+										Be sure to let us know what Web Browser and Operating System you were using when this occurred.
+									</p>
+									<p>Thanks, <br />
+										The Broadcom Web Team
+									</p>
+								</>
+							}
 
 						</div>
 					}
@@ -250,18 +256,18 @@ class SiteSearchResultContent extends SwiftypeResults {
 			<>
 				<Row>
 					<Col>
-						<SearchBox endpoint={config.site_search.typeahead_endpoint} results_page="/site-search" query={this.state.query} />
+						<SearchBox endpoint={config.site_search.typeahead_endpoint} results_page="/site-search" query={this.state.query} placeholder={this.props.search_box?.placeholder} />
 
 						<div className="bc-search-bar-footer bc--bg_gray500 py-4 px-1 mt-1 mb-5">
 							<div className="bc--text_center">
-								If you are looking for product documentation or downloads, please use search tool for documents and downloads.
+								<div dangerouslySetInnerHTML={{ __html: this.props.search_box?.description || 'If you are looking for product documentation or downloads, please use search tool for documents and downloads.' }} />
 							</div>
 
 							{/* <!-- Generating the curlink for DND page --> */}
 							<div className="faceted-button-dnd d-flex justify-content-center">
-								<SiteLink to="/support/download-search?tab=search" className="bttn primary-bttn"> {/* TODO: onClick={"dataLayer.push({'event': 'eventTracker', 'eventCat': 'Content Navigation', 'eventAct': 'Click', 'eventLbl': 'Documents + Downloads', 'eventVal': 0, 'TemplateName': 'Search Result Page', 'Section': 'Body'});"}> */}
+								<SiteLink to={this.props.search_box?.button?.link_url} className="bttn primary-bttn"> {/* TODO: onClick={"dataLayer.push({'event': 'eventTracker', 'eventCat': 'Content Navigation', 'eventAct': 'Click', 'eventLbl': 'Documents + Downloads', 'eventVal': 0, 'TemplateName': 'Search Result Page', 'Section': 'Body'});"}> */}
 									<div className="">
-										<span>Documents and Downloads</span>
+										<span>{this.props.search_box?.button?.link_text}</span>
 										<span className="bi brcmicon-arrow-circle-right" aria-hidden="true"></span>
 									</div>
 								</SiteLink>
@@ -300,10 +306,20 @@ const SiteSearchResult = (props) => {
 								<Col className="col-12">
 
 									<SubHead {...page.page} />
+									<Body {...page.data} />
 
 									<section>
 
-										<SiteSearchResultContent persistent={false} endpoint={config.site_search.endpoint} results_page="/site-search" search={search} />
+										<SiteSearchResultContent persistent={false}
+											endpoint={config.site_search.endpoint}
+											results_page="/site-search" search={search}
+											noresults={page?.data?.no_results_found_text}
+											search_box={{
+												description: page?.data?.abstract,
+												button: page?.data?.abstract_link,
+												placeholder: page?.data?.search_box_text,
+											}}
+										/>
 
 									</section>
 								</Col>

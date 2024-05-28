@@ -579,10 +579,10 @@
 
         border-left: 2px solid $color-grey--650;
         padding-left: 10px;
-        font-size: 18px;
+        /* font-size: 18px; */
 
         .quote {
-            font-family: $font-family--secondary;
+            /* font-family: $font-family--secondary; */
             color: $color-grey--800;
         }
 
@@ -599,7 +599,7 @@
         }
 
         .author {
-            font-family: $font-family--primary;
+            /* font-family: $font-family--primary; */
             font-weight: 600;
         }
     }
@@ -1771,6 +1771,13 @@
                         position: relative;
                         display: block;
                         height: 100%;
+                        img {
+							&:nth-of-type(1) {
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+
                     }
 
                     .seriesBadge {
@@ -2307,5 +2314,21 @@
 				}
 			} */
         }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .blog-module-text img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    .blog-module-text p, .blog-module-text a {
+        overflow-wrap: anywhere;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .blog-module-text img {
+        max-width: 100% !important;
+        height: auto !important;
     }
 }

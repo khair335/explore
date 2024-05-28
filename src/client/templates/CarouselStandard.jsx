@@ -33,20 +33,27 @@ const Indicators = (props) => {
 		case 'Text':
 			return (
 				<div className="carousel-indicators-text">
-					{props?.content_blocks.map((content_block, index) => (
-						<button className={classnames("bttn link-bttn", {active: props.activeIndex === index})} key={content_block.content_id} onClick={() => props.goToIndex(index)}>{content_block.tab_title}</button>
-					))}
+					<ol className="carousel-indicators">
+						{props?.content_blocks.map((content_block, index) => (
+							<li className={classnames({ active: props.activeIndex === index })} key={content_block.content_id} onClick={() => props.goToIndex(index)}>{content_block.tab_title}</li>
+						))}
+					</ol>
 				</div>
 			);
 		case 'Image':
 			return (
 				<div className="carousel-indicators-image">
-					{props?.content_blocks.map((content_block, index) => (
-						<button className={classnames("bttn link-bttn", {active: props.activeIndex === index})} key={content_block.content_id} onClick={() => props.goToIndex(index)}>
-							{/* <ImageBase src="https://www-review.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/logos/logo-coop.jpg" /> */}
-							<ImageBase image={content_block.icon}/>
-						</button>
-					))}
+					<ol className="carousel-indicators">
+
+						{props?.content_blocks.map((content_block, index) => (
+							<li className={classnames({ active: props.activeIndex === index })} key={content_block.content_id} onClick={() => props.goToIndex(index)}>
+								<button className={classnames("image-btn")} >
+									{/* <ImageBase src="https://www-review.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/logos/logo-coop.jpg" /> */}
+									<ImageBase image={content_block.icon} />
+								</button>
+							</li>
+						))}
+					</ol>
 				</div>
 			);
 		default:
@@ -99,7 +106,7 @@ const CarouselStandard = (props) => {
 	}) || [];
 
 
-	
+
 
 	return (
 
@@ -134,7 +141,7 @@ const CarouselStandard = (props) => {
 					interval={false}
 
 				>
-					<Indicators content_blocks={content_blocks} activeIndex={activeIndex} goToIndex={goToIndex} indicator_type={indicator_type}/>
+					<Indicators content_blocks={content_blocks} activeIndex={activeIndex} goToIndex={goToIndex} indicator_type={indicator_type} />
 					{slides}
 					{show_controls &&
 						<>

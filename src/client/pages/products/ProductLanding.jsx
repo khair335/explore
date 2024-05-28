@@ -50,7 +50,7 @@ export default  class ProductLanding extends PageComponent {
 				)}
 				
 				{this.props.content_blocks && this.props.content_blocks.map((content_block, index) => 
-					<div key={content_block.content_id}>
+					<div key={content_block.content_id + index}>
 							{getComponentFromTemplate(content_block.template, content_block)}
 					</div>
 				)}

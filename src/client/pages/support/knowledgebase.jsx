@@ -15,6 +15,7 @@ import { SearchBox } from 'components/TypeAhead.jsx';
 import Loading from 'components/Loading.jsx';
 import { useLoaderData, Await } from 'react-router-dom';
 import { useLocationSearch } from 'routes/router.jsx';
+import Body from 'components/Body.jsx';
 
 
 
@@ -26,11 +27,14 @@ class KBSearchResultContent extends SwiftypeResults {
 		return (
 			<Row>
 				<Col lg="9" md="9" sm="8" xs="12">
-					
+
 					{!this.state.loading &&
 						<div className="no-result-alert">
 							<h3>0 Results found for: {this.state.query}</h3>
-							<p>Please search again</p>
+							{this.props.noresults
+								? <div dangerouslySetInnerHTML={{ __html: this.props.noresults }} />
+								: <p>Please search again</p>
+							}
 						</div>
 					}
 				</Col>
@@ -49,7 +53,7 @@ class KBSearchResultContent extends SwiftypeResults {
 
 				</Col>
 				<Col xl="9" lg="8" md="12" sm="12" xs="12">
-					
+
 					<div className="bc-result-list pt-4">
 						<div id="resultsHeader">
 							<SearchHeader query={this.state.query} sortby={this.state.sortby} current_page={this.state.current_page} per_page={this.state.per_page} total_pages={this.state.total_pages}
@@ -91,7 +95,7 @@ class KBSearchResultContent extends SwiftypeResults {
 			<>
 				<Row>
 					<Col>
-						<SearchBox endpoint={config.knowledgebase_search.typeahead_endpoint} results_page="/support/knowledgebase" query={this.state.query} />
+						<SearchBox endpoint={config.knowledgebase_search.typeahead_endpoint} results_page="/support/knowledgebase" query={this.state.query} placeholder={this.props.search_box?.placeholder} />
 					</Col>
 				</Row>
 				<Loading isLoading={this.state.loading}>
@@ -125,10 +129,18 @@ const KBSearchResult = (props) => {
 							{/* <Col className="col-12"> */}
 
 							<SubHead {...page.page} />
+							<Body {...page.data} />
 
 							{/* <section> */}
 
-							<KBSearchResultContent endpoint={config.knowledgebase_search.endpoint} results_page="/support/knowledgebase" search={search} />
+							<KBSearchResultContent
+								endpoint={config.knowledgebase_search.endpoint}
+								results_page="/support/knowledgebase" search={search}
+								noresults={page?.data?.no_results_found_text}
+								search_box={{
+									placeholder: page?.data?.search_box_text,
+								}}
+							/>
 
 							{/* </section>	 */}
 							{/* </Col> */}

@@ -112,6 +112,19 @@ button::-moz-focus-inner,
     content: unset !important;
 }
 
+// Reset <button> values
+@mixin image-button {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+}
+
+@mixin image-hover {
+    background-color: transparent;
+    border: none;
+}
+
 .bttn,
 button {
     @include prime-style;
@@ -215,10 +228,12 @@ button {
         padding: 0; //for normal font weight mod at component scss
         text-align: left;
         border: 0;
+
         &:after {
             // @include cta-link-after;
             content: unset !important;
-          }
+        }
+
         .bi {
             //color secondary is the most common bi for this class so just .bi instead of .bi.secondary
             color: $color-primary;
@@ -394,6 +409,7 @@ button {
 }
 
 .group-toggle-bttn {
+
     .bttn,
     button {
         font-size: 18px; //mods button/bttn
@@ -485,11 +501,13 @@ a.bttn:hover {
     margin-top: 20px;
     list-style: none;
     gap: 10px;
+
     @media (max-width: 600px) {
         flex-direction: column;
     }
 
     li:nth-child(2) {
+
         a.lnk,
         .lnk {
             border: 1px solid $color-primary;
@@ -510,12 +528,13 @@ a.bttn:hover {
         border-radius: 3px;
         text-align: center;
         @include cta-link-style;
+
         @media screen and (min-width: 1980px) {
             font-size: 16px;
         }
 
-        &:after{
-                 @include cta-link-after;
+        &:after {
+            @include cta-link-after;
         }
     }
 }
@@ -528,9 +547,11 @@ a.bttn:hover {
 .theme-card-cta-secondary .cb-cta-link .card-link {
     @extend .bttn;
     @include secondary-button;
+
     &:hover {
         @include secondary-hover;
     }
+
     @media screen and (min-width: 1980px) {
         font-size: 16px;
     }
@@ -539,13 +560,21 @@ a.bttn:hover {
 .theme-card-cta-primary .cb-cta-link .card-link {
     @extend .bttn;
     @include primary-button;
+
     @media screen and (min-width: 1980px) {
         font-size: 16px;
     }
 }
 
-.lnk{
+.lnk {
     margin-left: 0;
     margin-right: 0;
 }
 
+.image-btn {
+    @include image-button;
+
+    &:hover {
+        @include image-hover;
+    }
+}

@@ -91,7 +91,7 @@ export default  class ExecutivesDetail extends PageComponent {
 							<SchemaTags schemaType="Person" schemaList={false} item={this.props.data} />
 							<div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 								<div className="excutv-img-box">
-									<ImageBase className="img-responsive" image={this.state.image} />
+									<ImageBase className="img-responsive img-fluid mx-auto fadein" image={this.state.image} />
 								</div>
 							</div>
 							<div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">

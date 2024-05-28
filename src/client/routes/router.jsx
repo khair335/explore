@@ -17,10 +17,6 @@ import Loading from 'components/Loading.jsx';
 // The pages
 import ErrorPage from 'pages/error/ErrorPage.jsx';
 import PageTemplateRouter from 'pages/PageTemplateRouter.jsx';
-const KBSearchResult = React.lazy(() => import('pages/support/knowledgebase.jsx'));
-const SiteSearchResult = React.lazy(() => import('pages/site-search.jsx'));
-//const ProductSearchResult = React.lazy(() =>  import('pages/broadcom-faceted-search.jsx'));
-const ProductSearchResult = React.lazy(() => import('pages/broadcom-faceted-search.jsx'));
 
 
 // // Direct document download
@@ -143,24 +139,6 @@ const router = createBrowserRouter([
         element: <Layout />,
         errorElement: <ErrorPage code="400" />,
         children: [{
-            path: "/support/knowledgebase",
-            loader: deferLoadPageData,
-            shouldRevalidate: shouldRevalidate,
-            element: <PageDataProvider><KBSearchResult /></PageDataProvider>, // Use our template routing.
-            errorElement: <ErrorPage code="400" />,
-        }, {
-            path: "/site-search",
-            loader: deferLoadPageData,
-            shouldRevalidate: shouldRevalidate,
-            element: <PageDataProvider><SiteSearchResult /></PageDataProvider>, // Use our template routing.
-            errorElement: <ErrorPage code="400" />,
-        }, {
-            path: "/broadcom-faceted-search",
-            loader: deferLoadPageData,
-            shouldRevalidate: shouldRevalidate,
-            element: <PageDataProvider><ProductSearchResult /></PageDataProvider>, // Use our template routing.
-            errorElement: <ErrorPage code="400" />,
-        }, {
             path: "/docs/:document",
             loader: deferLoadPageData,
             shouldRevalidate: shouldRevalidate,
