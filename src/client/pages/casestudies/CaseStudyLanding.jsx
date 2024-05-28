@@ -1,7 +1,7 @@
 /**
  *  @file CaseStudyLanding.jsx
- *  @brief 
- *  
+ *  @brief
+ *
  */
 import config from 'client/config.js';
 import React, { Component, Fragment } from 'react';
@@ -44,7 +44,7 @@ class CaseStudySearch extends Component {
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleClear = this.handleClear.bind(this);
 		this.enterPressed = this.enterPressed.bind(this)
-		
+
 	}
 
 	componentDidUpdate(prevProps) {

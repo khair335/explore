@@ -17,7 +17,7 @@ import { msToTime } from 'components/LibraryElements.jsx';
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
-
+import 'scss/components/in-page-navigation.scss';
 const ErrorTemplate = (props) => (<div>No card for {props.message}</div>);
 const EmptyCard = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
 

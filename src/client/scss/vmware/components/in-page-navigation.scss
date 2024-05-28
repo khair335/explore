@@ -7,58 +7,59 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 // -----------------------------------------------------------------------------
-// InPageNavigation 
+// InPageNavigation
 //////////
+.InPageNavigation-section {
+    .content-block {
+        margin-bottom: 0;
+    }
 
-.InPageNavigation {
-    background-color: transparent;
-   
-.navbar-nav{
-    border-bottom: 0;
-    width: 100%;
-    -ms-flex-wrap: wrap; 
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-   > li{
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right:0px;
-        position: relative;
-        &:after{
-            content: "";
-            height: 20px;
-            width: 1px;
-            background-color: $color-grey--650;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translate(0,-50%);
-        }
-        &:first-child{
-            padding-left: 0;
-        }
-        &:last-child{
-            padding-right: 0;
-             &:after{
-                display: none;
-            }
-        }   
-        a {
-            line-height: 2.2; 
-            padding: 6px 0px;
-          
-			 &:hover {  
-				color: $color-black;
-				text-decoration:none;        				//mods _link.scss - necessary to keep from having double red lines on hover
-                border-bottom: 2px solid $color-primary;
-                
-			 }
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 
+    .InPageNavigation {
+        background-color: transparent;
+        flex-wrap: wrap;
+
+        .navbar-nav {
+            border-bottom: 0;
+            width: 100%;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+
+
+
+            .nav-item {
+                padding: 8px 20px;
+
+                .lnk {
+                    margin: 0 !important;
+                    text-transform: capitalize !important;
+                    font-size: 18px !important;
+                    font-weight: 300 !important;
+
+                    &:after {
+                        content: unset !important;
+
+                    }
+
+                    &:hover {
+                        text-decoration: none !important;
+                    }
+                }
+
+                &.active {
+                    border-bottom: 3px solid $color-primary;
+                }
             }
-        
+
+
+
         }
     }
 }
-
-

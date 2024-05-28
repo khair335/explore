@@ -1,7 +1,7 @@
 /**
  *  @file InteractiveDiagram.jsx
- *  @brief 
- *  
+ *  @brief
+ *
  */
 import config from 'client/config.js';
 import React, { Component, PureComponent, Fragment  } from 'react';
@@ -63,7 +63,7 @@ class InteractiveDiagramAccordion extends PureComponent {
     render() {
         return (
 			<div className="accordion">
-				
+
 				{this.props.items.map((item, index) =>
 					<CollapseBox title={item.title} key={index} changed={this.state.changed} minimize={this.state.active != item.id} id={item.id} onToggle={this.handleToggle} className="interactive-collapsebox">
 						<div id={item.content_id} dangerouslySetInnerHTML={{__html: item.body}} />
@@ -76,7 +76,7 @@ class InteractiveDiagramAccordion extends PureComponent {
 }
 
 InteractiveDiagramAccordion.propTypes = {
-	items: PropTypes.array.isRequired, 
+	items: PropTypes.array.isRequired,
 };
 
 InteractiveDiagramAccordion.defaultProps  = {
@@ -91,7 +91,7 @@ class InteractiveDiagramProducts extends Component {
 
     render() {
         let links = this.props.links
-        
+
         // TEMP: test data.
         // if (this.props.links.length <= 0) {
         //     links = [{
@@ -106,15 +106,15 @@ class InteractiveDiagramProducts extends Component {
         return (
             <div className="interactive-diagram-products mt-2">
                 <div dangerouslySetInnerHTML={{__html: this.props.body}} />
-                {links && 
+                {links &&
                 <ul className="cb-cta-link list-unstyled">
                     {links.map(link =>
                     <li key={link.url}>
-                        <SiteLink target="_self" 
-                                className="card-link" 
+                        <SiteLink target="_self"
+                                className="card-link"
                                 gtmevent={{'id':'N035', 'menu_item_name':link.title, 'link_url':link.url}}
                                 to={link.url}>{link.title}</SiteLink>
-                    </li>                    
+                    </li>
                     )}
                 </ul>
                 }
@@ -129,7 +129,7 @@ export default class InteractiveDiagram extends Component {
 
         this.interval = 0;
         this.state = {
-			active_tab: "",		
+			active_tab: "",
             category_ids: [],
             close_categories: true,    // The close button for the categories used in mobile.
 		};
@@ -146,7 +146,7 @@ export default class InteractiveDiagram extends Component {
 
     handleTabs(event) {
 		event.preventDefault();
-		
+
 		const tab = event.target.getAttribute('data-tab');
 		const label = event.target.getAttribute('data-label');
 
@@ -154,8 +154,8 @@ export default class InteractiveDiagram extends Component {
 		this.setState({
 			active_tab:tab,
 		});
-		
-	
+
+
 	}
 
     hoverButton(id, enter) {
@@ -177,7 +177,7 @@ export default class InteractiveDiagram extends Component {
         }
     }
 
-    
+
     onClickCategory(id) {
         this.stopPulse();
         this.clearPulse();
@@ -223,7 +223,7 @@ export default class InteractiveDiagram extends Component {
                 if (collapsebox) {
                     collapsebox.classList.toggle('selected');
                 }
-                
+
 
                 id++;
                 if (id >= buttons.length) {
@@ -284,7 +284,7 @@ export default class InteractiveDiagram extends Component {
             let wrapper = document.getElementById(`interactive-diagram-click-map-${this.props.content_block.content_id}`);
             if (wrapper) {
                 wrapper.innerHTML = body;
-                
+
                 // Reorder;
                 let  reorder = wrapper.querySelector('g');
                 if (reorder && reorder.id === 'buttons') {
@@ -300,7 +300,7 @@ export default class InteractiveDiagram extends Component {
                         if (typeof svg.prepend === "function") {        // IE11
                             svg.prepend(title);
                         }
-                    }                      
+                    }
                 }
 
                 // Get the objects
@@ -338,22 +338,22 @@ export default class InteractiveDiagram extends Component {
 
                             let title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
                             title.textContent = '';     // Empty title so tooltip doesn't show up.
-                            
+
                             if (typeof children[i].prepend === "function") {        // IE11
                                 children[i].prepend(title);
                             }
                         }
-                        
+
                         // Remember our id's
                         category_ids.push(children[i].id);
 
                         //let org_html = children[i].outerHTML;
-                    
+
 
                         //children[i].outerHTML = '<a className="hotspot" target="_blank" onmouseenter="hoverButton(\'' + children[i].id + '_button\')" onmouseleave="hoverButton(\'' + children[i].id + '_button\')" onclick="linksCategory(\'' + children[i].id + '\')">' + org_html + "</a>";
                         //children[i].outerHTML = '<a className="hotspot" target="_blank" onclick="this.linksCategory(\'' + children[i].id + '\')">' + org_html + "</a>";
-                        
-                        
+
+
                     }
 
                     this.setState({
@@ -366,7 +366,7 @@ export default class InteractiveDiagram extends Component {
                 if (buttons) {
                     let children = buttons.querySelectorAll(':scope > *[id]');
                     for (let i = 0; i < children.length; i++) {
-                        //children[i].setAttribute("opacity", "0.2"); 
+                        //children[i].setAttribute("opacity", "0.2");
                         children[i].id = this.cleanID(children[i].id);
                         children[i].classList.add("interactive-btn");
                     }
@@ -387,7 +387,7 @@ export default class InteractiveDiagram extends Component {
         docElem = doc.documentElement,
         body = doc.getElementsByTagName('body')[0],
         x = win.innerWidth || docElem.clientWidth || body.clientWidth;
-        
+
         // Bootstrap https://getbootstrap.com/docs/4.6/layout/overview/ Large
         if (x >= 992) {
             return;     // Ignore scrolling for desktop where the rail and image are side by side.
@@ -431,7 +431,7 @@ export default class InteractiveDiagram extends Component {
     }
 
     render() {
-        
+
         let items = [];
         if (this.props.content_block.clicks) {
             items = this.props.content_block.clicks.map(click => {
@@ -454,8 +454,8 @@ export default class InteractiveDiagram extends Component {
 
 
         return (
-            <div className="interactive-diagram">             
-                {this.props.content_block.title && <h2 className="content-block-title" dangerouslySetInnerHTML={{__html: this.props.content_block.title}} />} 
+            <div className="interactive-diagram">
+                {this.props.content_block.title && <h2 className="content-block-title" dangerouslySetInnerHTML={{__html: this.props.content_block.title}} />}
 			    {this.props.content_block.description && <div dangerouslySetInnerHTML={{__html: this.props.content_block.description}}></div>}
                 {this.props.content_block.information && <div dangerouslySetInnerHTML={{__html: this.props.content_block.information}} className="text-center mt-2"></div>}
 
@@ -478,15 +478,15 @@ export default class InteractiveDiagram extends Component {
                             </button>*/}
                         </div>
                     </Col>
-                    
-                </Row>                
+
+                </Row>
             </div>
         )
     }
 }
 
 InteractiveDiagram.propTypes = {
-	content_block: PropTypes.object.isRequired, 
+	content_block: PropTypes.object.isRequired,
 };
 
 //OBSOLETE CLASSES: btn btn-primary btn-block listed below are obsolete and deleted
@@ -503,10 +503,10 @@ InteractiveDiagram.propTypes = {
 //             <Col>
 //                 <div className="interactive-diagram-groups">
 //                     <TabContent activeTab={this.state.active_tab}>
-//                         {this.state.category_ids.map((id, index) => 
+//                         {this.state.category_ids.map((id, index) =>
 //                         <TabPane tabId={id.toLowerCase().replace(/ /g, '-')} key={id} role="tabpanel">
 //                             <Row>
-//                             {categories[index].map(group =>                                    
+//                             {categories[index].map(group =>
 //                                 <Col className="group">
 //                                     <Row>
 //                                         <Col>
@@ -516,11 +516,11 @@ InteractiveDiagram.propTypes = {
 //                                             <SiteLink to={group.url}>{group.title}</SiteLink>
 //                                         </Col>
 //                                     </Row>
-//                                 </Col>                                   
+//                                 </Col>
 //                             )}
 //                             </Row>
-//                         </TabPane>     
-//                         )}                          
+//                         </TabPane>
+//                         )}
 //                     </TabContent>
 //                 </div>
 //             </Col>

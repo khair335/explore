@@ -39,7 +39,7 @@
       text-decoration-line: underline!important;
       text-underline-offset: 5px!important;
       text-decoration-thickness: 2px!important;
-     
+
        }
   }
 
@@ -280,7 +280,7 @@
 
 .theme-content-block-gray {
   background-color: $background-light-gray;
-  padding: 100px 0 !important;
+  padding: 130px 0 !important;
 
   .theme-card-cta-link {
     height: 100%;
@@ -294,7 +294,7 @@
 
 .theme-content-block-dark {
   background-color: $background-dark;
-  padding: 100px 0 !important;
+  padding: 130px 0 !important;
 
   .col-title-img {
     color: $color-white;
@@ -375,7 +375,7 @@
         }
       }
     }
-  
+
     .ContentCardTwoColumn {
       >.container {
         >div {
@@ -624,7 +624,7 @@
       }
     }
   }
-  
+
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
       .cb-cta-link {
@@ -1394,7 +1394,7 @@
 
 .theme-content-block-blue {
   background-color: $background-dark-blue;
-  padding: 100px 0 !important;
+  padding: 130px 0 !important;
 
   &.theme-content-block-cta-card-secondary {
     .card-footer {
@@ -2034,7 +2034,7 @@
 
   .card-title {
     color: $color-black;
-   
+
   }
 
   .content-block-title {
@@ -2487,7 +2487,7 @@
 
 .VerticalTab-section {
   .VerticalTab {
-  
+
     .video-box{
       width: 100%;
     max-width: 100% !important;
@@ -2597,12 +2597,4 @@
 
 }
 
-.InPageNavigation-section {
-.InPageNavigation {
-  .navbar-nav {
-            flex-wrap: wrap;
-  }
-}
-
-}
 
