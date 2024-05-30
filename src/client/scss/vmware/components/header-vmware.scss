@@ -1,4 +1,4 @@
-/* 
+/*
     components/header-vmware.scss
     loads after header.scss & header-explore.scss
     contains mods specific to vmware for those files
@@ -47,18 +47,18 @@
 
                 .dropdown-wrapper {
                     padding: 6px 20px;
-    
+
                     a {
                         text-decoration: none;
                         margin-bottom: 10px;
-    
+
                         &:last-child {
                             margin-bottom: 0;
                         }
                     }
                 }
             }
-            
+
         }
     }
 
@@ -69,7 +69,7 @@
         padding: 20px 0;
         background-color: $color-white;
         z-index: 1001;
-  
+
         &.hide {
           display: none
         }
@@ -93,12 +93,20 @@
         input {
             height: 38px;
 
-            &:focus { 
+            &:focus {
                 outline: none;
                 border: $color-secondary;
             }
         }
-
+    .clear-bttn{
+        &:hover{
+            border: none;
+        }
+        >span{
+            font-size: 24px;
+            padding-top: 6px;
+        }
+    }
     }
 
     .nav-wrap {
@@ -118,7 +126,7 @@
             height: 42px;
             width: 168px;
         }
-    } 
+    }
 
     nav.header_nav {
         display: flex;
@@ -132,7 +140,7 @@
                 justify-content: space-around;
                 width: 100%;
 
-                .MainNavExploreItem > a, 
+                .MainNavExploreItem > a,
                 .MainNavExploreItem > button,
                 .MainNavExploreItem > .label {
                 font-size: $font-size-lg;
@@ -141,7 +149,7 @@
                 text-decoration: none;
                 text-transform: capitalize;
                 }
-        
+
                 .MainNavExploreItem button.active::before {
                     bottom: calc(100% - 62px);
                   }
@@ -162,13 +170,13 @@
             h2.content-block-title {
                 text-align: left;
               }
-            
+
             ul.cb-cta-link {
                 justify-content: left;
             }
         }
     }
-    
+
 
     .secondary_nav {
         flex-direction: row;
@@ -208,7 +216,7 @@
                 margin-left: 0;
                 width: 168px;
             }
-    
+
             .menuButton {
                 margin-top: 0;
             }
@@ -220,7 +228,7 @@
                 top: 125px;
             }
         }
-        
+
 
 
     }

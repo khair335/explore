@@ -21,21 +21,10 @@
         margin-bottom: 1rem;
 
         >li {
-            // padding-right: 15px;
-            // padding-left: 15px;
+
             margin-right: 0px;
             position: relative;
 
-            // &:after{
-            //     content: "";
-            //     height: 20px;
-            //     width: 1px;
-            //     background-color: $color-grey--600;
-            //     position: absolute;
-            //     right: 0;
-            //     top: 50%;
-            //     transform: translate(0,-50%);
-            // }
             &:first-child {
                 padding-left: 0;
             }
@@ -73,7 +62,7 @@
                 }
 
                 &.active {
-                    border-bottom: 2px solid $color-primary;
+                    border-bottom: 3px solid $color-primary;
                 }
             }
         }

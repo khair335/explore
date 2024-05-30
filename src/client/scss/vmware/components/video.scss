@@ -9,12 +9,14 @@
 
 // Youtube, make it responsive. This is located in BrightcoveVideoLink
 .video-link-youtube {
-	overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	height: 0;
 
-	iframe, object, embed {
+	iframe,
+	object,
+	embed {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -25,16 +27,18 @@
 
 .LimlightPlaylist.video-list-wrapper {
 	padding: 10px;
-	background:$color-grey--500;
+	background: $color-grey--500;
 	display: block;
 	margin: 10px 10px 10px 0;
+
 	.vjs-big-play-button {
 		font-size: 90px !important;
 		border: 0 !important;
 		background: none !important;
-		color:$color-grey--700;
-    }
-    .padding-l {
+		color: $color-grey--700;
+	}
+
+	.padding-l {
 		padding-left: 0px;
 	}
 
@@ -50,50 +54,55 @@
 			}
 		}
 
-		.video-list{
+		.video-list {
 			//max-height: 312px; // Changed for /products/mainframe on stage ca. //182px;
 			//overflow: auto;
 			padding: 0 0 0 15px;
 
-			&--item{
+			&--item {
 				margin-bottom: 10px;
 			}
-			&--img{
+
+			&--img {
 				margin-bottom: 0px;
-				width:85px;
+				width: 85px;
 				float: left;
 			}
-			&--content{
+
+			&--content {
 				padding-left: 15px;
 				overflow: hidden;
-				p{
+
+				p {
 					display: none;
 				}
+
 				button {
-					font-size: $font-size-sm;					//mods link-bttn  _buttons.scss
+					font-size: $font-size-sm; //mods link-bttn  _buttons.scss
 				}
 			}
 		}
 	}
-	.scrollto-top{
-		display:none;
+
+	.scrollto-top {
+		display: none;
 	}
 }
 
 //stand along video page
 .video-content {
 	.video-title {
-		padding:15px 0 10px 0;
+		padding: 15px 0 10px 0;
 	}
 }
 
 .video-playlist.video-list-wrapper {
 	padding: 10px;
-	background:$color-grey--500;
+	background: $color-grey--500;
 	display: block;
 	margin: 10px 10px 10px 0;
 
-    .padding-l {
+	.padding-l {
 		padding-left: 0px;
 	}
 
@@ -109,33 +118,38 @@
 			}
 		}
 
-		.video-list{
+		.video-list {
 			//max-height: 312px; // Changed for /products/mainframe on stage ca. //182px;
 			//overflow: auto;
 			padding: 0 0 0 15px;
 
-			&--item{
+			&--item {
 				margin-bottom: 10px;
 			}
-			&--img{
+
+			&--img {
 				margin-bottom: 0px;
-				width:85px;
+				width: 85px;
 				float: left;
 			}
-			&--content{
+
+			&--content {
 				padding-left: 15px;
 				overflow: hidden;
-				p{
+
+				p {
 					display: none;
 				}
+
 				button {
-					font-size: $font-size-sm;					//mods link-bttn  _buttons.scss
+					font-size: $font-size-sm; //mods link-bttn  _buttons.scss
 				}
 			}
 		}
 	}
-	.scrollto-top{
-		display:none;
+
+	.scrollto-top {
+		display: none;
 	}
 }
 
@@ -147,29 +161,47 @@
 	}
 }
 
-.top-banner{
-	.banner-caption-video{
-		.video-wrapper{
-			.vjs-big-play-button{
-				background: transparent !important;
-				.vjs-icon-placeholder{
-					&:before{
-						content: " ";
-						background: url(https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/icons/standard-video-default-play-icon.png);
-    				background-repeat: no-repeat;
-    				background-size: contain;
-    				width: 116px !important;
-    				height: 116px;
-    				position: absolute;
-    				transition: 200ms linear;
-					top: 50%;
-					left: 50%;
-					margin-left: -56px;		// half the height of the icon
-					margin-top: -56px;		// half the height of the icon
-}
 
+
+.video-wrapper {
+	&:hover{
+		.vjs-big-play-button {
+			.vjs-icon-placeholder {
+				&:before{
+					scale: .9;
 				}
-			}
+		}
 		}
 	}
+	.vjs-big-play-button {
+		background: transparent !important;
+
+		.vjs-icon-placeholder {
+			&:before {
+				content: " ";
+				background: url(https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/icons/standard-video-default-play-icon.png);
+				background-repeat: no-repeat;
+				background-size: contain;
+				width: 116px !important;
+				height: 116px;
+				position: absolute;
+				transition: 200ms linear;
+				top: 50%;
+				left: 50%;
+				margin-left: -56px;
+				margin-top: -56px;
+				scale: .8;
+			}
+
+		}
+	}
+}
+
+.modal-dialog {
+	max-width: 60% !important;
+.modal-header{
+	.close{
+		font-size: 50px;
+	}
+}
 }
