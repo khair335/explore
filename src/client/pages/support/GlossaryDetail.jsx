@@ -4,7 +4,7 @@
  *  
  */
 import config from 'client/config.js';
-import utils, { encodeTabHash } from 'components/utils.jsx';
+import utils, { encodeTabHash, setBrowserTitle } from 'components/utils.jsx';
 import React, { Component, useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import SiteLink from "components/SiteLink.jsx";
@@ -23,10 +23,14 @@ const ErrorTemplate = (props) => (<div>No module for {props.message}</div>);
 const EmptyModule = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
 
 
-const TextModule = ({ data = {} }) => {
+const TextModule = ({ data = {}, isPageTitle }) => {
+	console.log(data);
 	return (
 		<div className="glossary-module glossary-module-text">
-			<h2 dangerouslySetInnerHTML={{ __html: data.section_title }}></h2>
+			{isPageTitle
+			? <h1 className="glossary-page-title" dangerouslySetInnerHTML={{ __html: data.section_title }}></h1>
+			: <h2 dangerouslySetInnerHTML={{ __html: data.section_title }}></h2>
+			}
 			<div dangerouslySetInnerHTML={{ __html: data.description }} />
 		</div>
 	);
@@ -61,7 +65,7 @@ const RecommendedModule = ({ data = {} }) => {
 				<Row>
 					<Col>
 						<ul>
-							{data?.links?.filter((link, index) => index%2 === 0).map(link => (
+							{data?.links?.filter((link, index) => index % 2 === 0).map(link => (
 								<li key={link.title}>
 									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>
@@ -70,7 +74,7 @@ const RecommendedModule = ({ data = {} }) => {
 					</Col>
 					<Col>
 						<ul>
-							{data?.links?.filter((link, index) => index%2).map(link => (
+							{data?.links?.filter((link, index) => index % 2).map(link => (
 								<li key={link.title}>
 									<SiteLink to={link.url}>{link.title}</SiteLink>
 								</li>
@@ -91,7 +95,7 @@ const RelatedModule = ({ data = {} }) => {
 			{data?.related_blocks &&
 				<Row>
 					{data?.related_blocks?.map(content_block => (
-						<Col key={content_block.content_id} lg={data?.related_blocks.length <= 3? 4 : 3}>
+						<Col key={content_block.content_id} lg={data?.related_blocks.length <= 3 ? 4 : 3}>
 							{getCardFromTemplate("ProductCard", content_block)}
 						</Col>
 					))}
@@ -118,7 +122,7 @@ const templates = {
  *  
  *  @details Details
  */
-export function getModuleFromTemplate(template, data, ...props) {
+export function getModuleFromTemplate(template, data, is_page_title, ...props) {
 
 	// Template doesn't exist.
 	if (!(templates[template])) {
@@ -128,13 +132,19 @@ export function getModuleFromTemplate(template, data, ...props) {
 	const Template = templates[template];
 
 
-	return <Template data={data} {...props} />
+	return <Template data={data} isPageTitle={is_page_title} {...props} />
 }
 
 
 const GlossaryDetail = (props) => {
 	let modules = props?.data?.modules || [];
 	const related = modules.filter(module => module.template === 'related') || [];			// Seperate our related products as we render it differently.
+	
+	// HACK: JD - Remove our page title as this is a custom template.
+	if (props?.page?.title) {
+		props.page.title = '';
+		
+	}
 
 	// Set our hash.
 	modules.filter(module => module.section_title).forEach(module => {
@@ -169,7 +179,7 @@ const GlossaryDetail = (props) => {
 						{modules.map((module, index) => {
 							return (
 								<section key={module?.template + index} id={module.hash} className="glossary-detail-module">
-									{getModuleFromTemplate(module.template, module)}
+									{getModuleFromTemplate(module.template, module, index === 0)}
 								</section>
 							);
 						})}
@@ -179,19 +189,22 @@ const GlossaryDetail = (props) => {
 			</Container>
 
 
-			<div className="glossary-detail-related">
+			{related.length > 0 &&
+				<div className="glossary-detail-related">
 
-				<Container>
-					{related.map((module, index) => {
-						return (
-							<section key={module?.template + index} id={module.hash} className="glossary-detail-module">
-								{getModuleFromTemplate(module.template, module)}
-							</section>
-						);
-					})}
-				</Container>
-			</div>
+					<Container>
+						{related.map((module, index) => {
+							return (
+								<section key={module?.template + index} id={module.hash} className="glossary-detail-module">
+									{getModuleFromTemplate(module.template, module)}
+								</section>
+							);
+						})}
+					</Container>
+				</div>
+			}
 		</div>
+
 	);
 }
 

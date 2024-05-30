@@ -18,6 +18,7 @@ import { msToTime } from 'components/LibraryElements.jsx';
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
 import 'scss/components/in-page-navigation.scss';
+
 const ErrorTemplate = (props) => (<div>No card for {props.message}</div>);
 const EmptyCard = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
 
@@ -610,17 +611,18 @@ export function getCardFromTemplate(template, data, ...props) {
 
 export function applyCardType(card, default_type, image_position) {
     let type = '';
+    if (image_position === 'Left') {
+        type = 'LeftImageCard';
+    }
+    else if (image_position === 'Right') {
+        type = 'RightImageCard';
+    }
+    else {
+        type = default_type;
+    }
     switch (card.template) {
         case "Default":
-            if (image_position === 'Left') {
-                type = 'LeftImageCard';
-            }
-            else if (image_position === 'Right') {
-                type = 'RightImageCard';
-            }
-            else {
-                type = default_type;
-            }
+
             break;
         case "Testimonial":
             type = "TestimonialCard";
@@ -634,14 +636,11 @@ export function applyCardType(card, default_type, image_position) {
         case "Solution":
             // HACK - JD transform and remap the data. // https://hgsdigitalprojects.atlassian.net/browse/BVCM-163
             card.body = card.description;
-            if (image_position === 'Left') {
-                type = 'LeftImageCard';
-            }
-            else if (image_position === 'Right') {
-                type = 'RightImageCard';
-            }
-            else {
-                type = default_type;
+            // Make the url the title link.
+            if (card.url) {
+                card.title_link = {
+                    title_url: card.url,
+                }
             }
             break;
         case "empty":
@@ -649,12 +648,24 @@ export function applyCardType(card, default_type, image_position) {
             break;
         default:
             // Use the asset_type to determine card.
-            if (card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page') {
-                type = 'ProductCard';
+            // Only if top card.
+            if ((card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page')) {
+                if (image_position !== 'Left' && image_position !== 'Right') {   
+                    type = 'ProductCard'
+                }
+                else {
+                    // Transform our data to fit a card.
+                    card.body = card.description;
+                    // Make the url the title link.
+                    if (card.url) {
+                        card.title_link = {
+                            title_url: card.url,
+                        }
+                    }
+                }
             }
-            else {
-                type = default_type;
-            }
+
+            break;
     }
 
     return type || 'ImageCard';

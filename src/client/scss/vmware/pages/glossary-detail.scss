@@ -24,11 +24,18 @@
     color: $color-black;
   }
 
-  h2 {
+  
+  .glossary-section-title, h2 {
     font-size: 32px;
     color: $color-black;
     margin: 30px 0 16px 0;
 
+  }
+
+  // Our fake page title.
+  .glossary-page-title {
+    @extend .glossary-section-title;
+    
   }
 
   .glossary-module-text {
@@ -80,7 +87,7 @@
                 padding: 6px 24px;
             &:hover {
               @include primary-hover;
-              text-decoration: underline
+              
             }
          }
          .lnk,

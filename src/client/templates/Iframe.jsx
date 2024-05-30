@@ -1,6 +1,6 @@
 /**
  *  @file Iframe.jsx
- *  @brief
+ *  @brief 
  */
 import config from 'client/config.js';
 import React, { Component, PureComponent } from 'react';
@@ -13,6 +13,7 @@ import CardColumns from 'components/CardColumns.jsx';
 
 // Styles
 import 'scss/components/content-blocks.scss';
+
 
 class Iframe extends PureComponent {
 	constructor(props) {

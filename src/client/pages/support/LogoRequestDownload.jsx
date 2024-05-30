@@ -1,7 +1,7 @@
 /**
  *  @file LogoRequestDownload.jsx
  *  @brief Boilerplate template file for creating a page.
- *
+ *  
  */
 import config from 'client/config.js';
 import utils, { fetchAPI } from 'components/utils.jsx';
@@ -48,7 +48,7 @@ export default class LogoRequestDownload extends PageComponent {
 
 		let options = {
 			method: 'GET',
-			cache: "no-store",								// Don't cache anymore.
+			cache: "no-store",								// Don't cache anymore.				
 		};
 
 		this.setState({

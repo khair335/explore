@@ -6,9 +6,10 @@ import config from 'client/config.js';
 import React, { Component, PureComponent } from 'react';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
-import { withLiveEvents } from 'components/liveEvents.js';
+import {withLiveEvents} from 'components/liveEvents.js';
 import ScrollToLink from "components/ScrollToLink.jsx";
 import smoothscroll from 'smoothscroll-polyfill';
+
 
 class InPageNavigation extends Component {
 	constructor(props) {
@@ -22,21 +23,22 @@ class InPageNavigation extends Component {
 
 	componentDidMount() {
 		require('smoothscroll-polyfill').polyfill();
-
-
+		
+		// Let's scroll to our page after we are loaded.
+		// HACK: Since we can be anywhere on the page and each component can be loaded at different times, let's do a delay
 		setTimeout(() => {
 			if (window.location.hash) {
-				let id = window.location.hash.substring(1); // Remove #.
+				let id = window.location.hash.substring(1);		// Remove #.
 				let dom = document.getElementById(decodeURI(id));
 				if (dom) {
+					
 					dom.scrollIntoView({
 						behavior: 'smooth'
 					});
-					this.setState({ activeSection: id }); // Set the active section on load
 				}
 			}
 		}, 1000);
-
+		
 		this.sections = this.props.content_block.navigation.map(item => ({
 			id: item.hash_tag_name ? item.hash_tag_name.toLowerCase().replace(/ /g, '-') : '',
 			element: document.getElementById(item.hash_tag_name ? item.hash_tag_name.toLowerCase().replace(/ /g, '-') : '')
@@ -100,7 +102,7 @@ class InPageNavigation extends Component {
 }
 
 InPageNavigation.propTypes = {
-	content_block: PropTypes.object.isRequired,
+	content_block: PropTypes.object.isRequired, 
 };
 
 export default withLiveEvents(InPageNavigation);
