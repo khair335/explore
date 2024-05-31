@@ -42,6 +42,13 @@
                 flex-direction: row;
                 align-items: flex-start;
                    gap: 0px;
+                    img {
+            width: 70px;
+            height: 70px;
+            // max-height: 140px;
+            object-fit: cover;
+
+          }
             }
         }
 
@@ -67,6 +74,13 @@
                 flex-direction: row-reverse;
                 align-items: flex-start;
                  gap: 0px;
+                         img {
+            width: 70px;
+            height: 70px;
+            // max-height: 140px;
+            object-fit: cover;
+
+          }
 
 
             }

@@ -256,6 +256,129 @@ $carousel-indicator-padding: 40px;
 
 
     }
+
+    .ProductCard {
+    min-height: 100%;
+
+    .lnk {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 300;
+      text-align: center;
+      width: 100%;
+    }
+
+    >div {
+      flex-wrap: nowrap !important;
+      padding: 15px;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+
+      >div {
+        &:first-child {
+          max-width: 100% !important;
+          min-width: 100% !important;
+          margin-left: 12px !important;
+          padding: 0;
+
+          &.col-lg-8 {
+            margin: 0 !important;
+          }
+
+          img {
+
+            max-width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            object-fit: cover;
+            margin-bottom: 16px !important;
+          }
+        }
+
+        &:nth-child(2) {
+          max-width: 100% !important;
+        }
+      }
+    }
+    &.LeftImageCard{
+      >div {
+      flex-wrap: nowrap !important;
+      padding: 15px;
+      display: flex !important;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0px;
+      >div {
+        &:first-child {
+          max-width: 21% !important;
+          min-width: 21% !important;
+          margin-left: 12px !important;
+          padding: 0;
+
+          &.col-lg-8 {
+            margin: 0 !important;
+          }
+
+          img {
+            width: 70px;
+            height: 70px;
+            // max-height: 140px;
+            object-fit: cover;
+            margin-bottom: 16px !important;
+          }
+        }
+
+        &:nth-child(2) {
+          max-width: 82% !important;
+        }
+      }
+      .product-link{
+        text-align: left;
+      }
+    }
+    }
+    &.RightImageCard{
+      >div {
+      flex-wrap: nowrap !important;
+      padding: 15px;
+      display: flex !important;
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      gap: 0px;
+      >div {
+        &:first-child {
+          max-width: 21% !important;
+          min-width: 21% !important;
+          margin-left: 12px !important;
+          padding: 0;
+
+          &.col-lg-8 {
+            margin: 0 !important;
+          }
+
+          img {
+            width: 70px;
+            height: 70px;
+            // max-height: 140px;
+            object-fit: cover;
+            margin-bottom: 16px !important;
+          }
+        }
+
+        &:nth-child(2) {
+          max-width: 82% !important;
+        }
+      }
+      .product-link{
+        text-align: left;
+      }
+    }
+    }
+     }
 }
 
 .CarouselFeatured-section {
