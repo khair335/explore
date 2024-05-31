@@ -696,6 +696,9 @@
     }
   }
 
+
+
+}
   .ProductCard {
     min-height: 100%;
 
@@ -741,6 +744,12 @@
         &:nth-child(2) {
           max-width: 100% !important;
         }
+        .product-link{
+        @include cta-link-style;
+          font-size: 25px;
+              font-weight: 300;
+    text-transform: capitalize;
+      }
       }
     }
     &.LeftImageCard{
@@ -776,7 +785,11 @@
         }
       }
       .product-link{
+        @include cta-link-style;
         text-align: left;
+        font-size: 25px;
+            font-weight: 300;
+    text-transform: capitalize;
       }
     }
     }
@@ -813,14 +826,15 @@
         }
       }
       .product-link{
+        @include cta-link-style;
         text-align: left;
+        font-size: 25px;
+            font-weight: 300;
+    text-transform: capitalize;
       }
     }
     }
   }
-
-}
-
 .InPageNavigation {
   .nav-item {
     .lnk {
