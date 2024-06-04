@@ -1967,11 +1967,8 @@
   .card-body {
     >.lnk {
       width: 100%;
-      max-height: 200px;
       margin-bottom: 16px;
-      & img{
-        max-height: 200px;
-      }
+
     }
   }
 }

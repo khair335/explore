@@ -231,12 +231,43 @@
 
 .modal-dialog {
 	max-width: 60% !important;
+	padding: 9px !important;
+	border: none !important;
 
 	.modal-header {
+		    border: none !important;
 		.close {
 			font-size: 50px;
 		}
 	}
+
+	 .modal-footer {
+        display: none !important;
+    }
+		.vjs-big-play-button{
+			background-color: transparent !important;
+			.vjs-icon-placeholder{
+
+
+				&:before {
+						content: " ";
+						background: url(/img/vm-standard-video-default-play-icon.png);
+
+						background-repeat: no-repeat;
+						background-size: contain;
+						width: 116px !important;
+						height: 116px;
+						position: absolute;
+						transition: 200ms linear;
+						top: 50%;
+						left: 50%;
+						margin-left: -56px; // half the height of the icon
+						margin-top: -56px; // half the height of the icon
+					}
+			}
+		}
+
+
 }
 
 button.video-image-modal-button {
@@ -246,6 +277,7 @@ button.video-image-modal-button {
 
 	&:hover {
 		border: none;
+
 		&:before {
 			scale: .9;
 		}
