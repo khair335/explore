@@ -82,7 +82,7 @@ $carousel-indicator-padding: 40px;
                 &.active {
                     color: $color-primary;
                     height: auto;
-                    box-shadow: 0 -5px 0 $color-primary inset; // Border inside
+                    box-shadow: 0 -3px 0 $color-primary inset; // Border inside
                     border-radius: 0%;
                 }
             }

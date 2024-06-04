@@ -103,6 +103,9 @@ const ExploreHeader = (props) => {
 
                 <div className='nav-wrap'>
                     <Container style={{ position: 'relative' }}>
+
+                        <Row>
+
                         <Navbar color="faded" className="header_nav" light expand="md">
                             <div className="header_logo_wrapper">
                                 <div className=''>
@@ -173,6 +176,9 @@ const ExploreHeader = (props) => {
                                 </Collapse>
                             </div>
                         </Navbar>
+
+                        </Row>
+
                     </Container>
                 </div>
 		    </div>

@@ -286,7 +286,12 @@ export class SelectTypeahead extends Component {
 							{this.state.selection}
 							<span aria-hidden="true" style={{ cursor: "pointer", marginLeft: "10px", marginRight: "10px" }} onClick={this.clearSelection}>&times;</span>
 						</Fragment>
-						: this.props.defaultLabel
+						: 
+						<Fragment>
+							{this.props.defaultLabel}
+							<span></span>
+						</Fragment>
+						
 					}
 				</DropdownToggle>
 				<DropdownMenu>

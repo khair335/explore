@@ -99,41 +99,7 @@
     
 }
 
-.ProductCard {
-    > .row {
-		height: 100%;
-		display: block;
-		> .col-lg-8 {
-			height: 100px;
-			width: 100px;
-			margin: 0 auto;
-			max-width: none;
-			flex: none;
-			padding: 0;
-			border-radius: 50%;
-		}
-		> .col-lg-12 {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			min-width: 0;
-			height: calc(100% - 100px);
-			.card-text {
-				flex: 1 1 auto;
-			}
-		}
-	}
-    .card-footer {
-        padding: 0;
-        background: none;
-        border-top:none;
-    }
-    h4 {margin: 12px 0;}
-    img {
-        max-height: 100px;
-    }
 
-}
 .products-solution{
     background-color: $color-grey--500;
     padding: 18px 18px 1px;

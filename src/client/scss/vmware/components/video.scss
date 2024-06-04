@@ -7,6 +7,25 @@
 @import "../base/variables";
 @import "../base/link";
 
+// Vmware play button
+.play-button {
+	&:before {
+		content: " ";
+		background: url(/img/vm-standard-video-default-play-icon.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 116px !important;
+		height: 116px;
+		position: absolute;
+		transition: 200ms linear;
+		top: 50%;
+		left: 50%;
+		margin-left: -56px;
+		margin-top: -56px;
+		scale: .8;
+	}
+}
+
 // Youtube, make it responsive. This is located in BrightcoveVideoLink
 .video-link-youtube {
 	overflow: hidden;
@@ -161,37 +180,50 @@
 	}
 }
 
+.top-banner {
+	.banner-caption-video {
+		.video-wrapper {
+			.vjs-big-play-button {
+				background: transparent !important;
 
+				.vjs-icon-placeholder {
+					&:before {
+						content: " ";
+						background: url(/img/vm-standard-video-default-play-icon.png);
+						background-repeat: no-repeat;
+						background-size: contain;
+						width: 116px !important;
+						height: 116px;
+						position: absolute;
+						transition: 200ms linear;
+						top: 50%;
+						left: 50%;
+						margin-left: -56px; // half the height of the icon
+						margin-top: -56px; // half the height of the icon
+					}
 
-.video-wrapper {
-	&:hover{
-		.vjs-big-play-button {
-			.vjs-icon-placeholder {
-				&:before{
-					scale: .9;
 				}
-		}
+			}
 		}
 	}
+}
+
+.video-wrapper {
+	&:hover {
+		.vjs-big-play-button {
+			.vjs-icon-placeholder {
+				&:before {
+					scale: .9;
+				}
+			}
+		}
+	}
+
 	.vjs-big-play-button {
 		background: transparent !important;
 
 		.vjs-icon-placeholder {
-			&:before {
-				content: " ";
-				background: url(https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/icons/standard-video-default-play-icon.png);
-				background-repeat: no-repeat;
-				background-size: contain;
-				width: 116px !important;
-				height: 116px;
-				position: absolute;
-				transition: 200ms linear;
-				top: 50%;
-				left: 50%;
-				margin-left: -56px;
-				margin-top: -56px;
-				scale: .8;
-			}
+			@extend .play-button;
 
 		}
 	}
@@ -199,9 +231,23 @@
 
 .modal-dialog {
 	max-width: 60% !important;
-.modal-header{
-	.close{
-		font-size: 50px;
+
+	.modal-header {
+		.close {
+			font-size: 50px;
+		}
 	}
 }
+
+button.video-image-modal-button {
+	all: unset; // Rest our button
+	position: relative;
+	@extend .play-button;
+
+	&:hover {
+		border: none;
+		&:before {
+			scale: .9;
+		}
+	}
 }

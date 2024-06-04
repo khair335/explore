@@ -28,6 +28,7 @@ import { localizeText } from 'components/utils.jsx';
 // TEMP: Using the css classes
 import 'scss/pages/download-search.scss';
 import 'scss/components/content-blocks.scss';
+import 'scss/pages/case-study-landing.scss';
 
 
 
@@ -419,91 +420,160 @@ export default function (props) {
 				);
 			};
 
-			return (
-				<div id="CaseStudyLanding">
-					<Container>
-						<SubHeadNavigation breadcrumb={this.props.page.breadcrumb} />
-					</Container>
-
-					<div className="top-banner">
-						{this.props.data.hero_banner && <HomeHero data={this.props.data.hero_banner} />}
-					</div>
-
-					<Container>
-						<SubHeadTitle {...this.props.page} />
-						<Body body={this.props.page.body} />
-
-						<div className="bc--bg_gray500 p-3">
-							<a id="top"></a>
-							<CaseStudySearch onSearch={this.handleSearch} default={this.state.search} />
-
-							<Row className="mt-2">
-								<Col>
-									<SelectTypeahead defaultLabel="Solutions" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'solutions', 0)} items={this.state.filters.solutions} init={this.state.select_type === 'solutions' ? this.state.select : ''} reset={this.state.resets[0]} />
-								</Col>
-								<Col>
-									<SelectTypeahead defaultLabel="Products" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'products', 1)} items={this.state.filters.products} init={this.state.select_type === 'products' ? this.state.select : ''} reset={this.state.resets[1]} />
-								</Col>
-								<Col>
-									<SelectTypeahead defaultLabel="Geographies" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'geographies', 2)} items={this.state.filters.geographies} init={this.state.select_type === 'geographies' ? this.state.select : ''} reset={this.state.resets[2]} />
-								</Col>
-								<Col lg="auto">
-									<button className="secondary-bttn" onClick={this.clearFilters}>{localizeText("CS05","Clear Filters")}</button>
-								</Col>
-							</Row>
-						</div>
 
 
-						<Row className="mt-4">
-							{this.state.cases && this.state.cases.sort((a, b) => {
-								let a_title = a.title || "";
-								let b_title = b.title || "";
-								return a_title.localeCompare(b_title);
-							}).slice(0, this.limit * this.state.page)
-								.map(card => {
-									return transformCard(card);
-								})}
 
-							{this.state.cases && this.state.cases.length <= 0 &&
-								<Col>
-								{localizeText("CS05","No matching results.")}
-								</Col>
-							}
+			const subheadNav = () => {
+				return (
+					<Row>
+						<Col md="12" sm="12" lg="12">
+							<SubHeadNavigation breadcrumb={this.props.page?.breadcrumb} />
+						</Col>
+					</Row>
+				)
+			};
+					
+			const topBanner = () => {
+				return(
+					<Row>
+						<Col md="12" sm="12" lg="12">
+							<div className="top-banner">
+								{this.props.data?.hero_banner && <HomeHero data={this.props.data.hero_banner} />}
+							</div>
+						</Col>
+					</Row>
+				)
+			};
 
-							{this.state.cases && this.state.cases.length > this.limit &&
-								<Col xs="12">
-									<Row className="justify-content-center">
-										<Col lg="8">
-											<div className="text-center">
-												<hr className="custom-line" />
-												{(this.state.cases.length > this.limit * this.state.page)
-													? <button onClick={this.handleMore} className="icon-bttn fadein">
-														<span className="bi brcmicon-plus-circle" /> {localizeText("CS07","More Stories")}
-													</button>
-													: <button onClick={this.handleLess} className="icon-bttn fadein">
-														<span className="bi brcmicon-minus-circle" /> {localizeText("CS08","Less Stories")}
-													</button>
-												}
-												<hr className="custom-line" />
-											</div>
+			const subheadTitle = () => {
+				return (
+					<Row>
+						<Col md="12" sm="12" lg="12">
+							<SubHeadTitle {...this.props.page} />
+							<Body body={this.props.page.body} />
+						</Col>
+					</Row>
+				)				
+			};
+
+			const searchCases = () => {
+				return (
+					<Fragment>
+						<Row>
+						{config.site === "vm" ? 							
+							<Col md="12" sm="12" lg="12">
+								<h4 className='search-section-title'>Search Customer Stories</h4>
+							</Col>
+							:
+							null
+						}
+							<Col md="12" sm="12" lg="12">
+								<div className="search-cases">
+									<a id="top"></a>
+									<CaseStudySearch onSearch={this.handleSearch} default={this.state.search} />
+
+									<Row className="mt-2">
+										<Col>
+											<SelectTypeahead defaultLabel="Solutions" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'solutions', 0)} items={this.state.filters.solutions} init={this.state.select_type === 'solutions' ? this.state.select : ''} reset={this.state.resets[0]} />
+										</Col>
+										<Col>
+											<SelectTypeahead defaultLabel="Products" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'products', 1)} items={this.state.filters.products} init={this.state.select_type === 'products' ? this.state.select : ''} reset={this.state.resets[1]} />
+										</Col>
+										<Col>
+											<SelectTypeahead defaultLabel="Geographies" className="selectdownloadproduct bc--color_gray800" onSelect={(select) => this.handleSelect(select, 'geographies', 2)} items={this.state.filters.geographies} init={this.state.select_type === 'geographies' ? this.state.select : ''} reset={this.state.resets[2]} />
+										</Col>
+										<Col lg="auto">
+											<button className="secondary-bttn" onClick={this.clearFilters}>{localizeText("CS05","Clear Filters")}</button>
 										</Col>
 									</Row>
-								</Col>
-							}
-
-
+								</div>
+							</Col>
 						</Row>
+						<Row className="mt-4">
+								{this.state.cases && this.state.cases.sort((a, b) => {
+									let a_title = a.title || "";
+									let b_title = b.title || "";
+									return a_title.localeCompare(b_title);
+								}).slice(0, this.limit * this.state.page)
+									.map(card => {
+										return transformCard(card);
+									})}
+
+								{this.state.cases && this.state.cases.length <= 0 &&
+									<Col>
+									{localizeText("CS05","No matching results.")}
+									</Col>
+								}
+
+								{this.state.cases && this.state.cases.length > this.limit &&
+									<Col xs="12">
+										<Row className="justify-content-center">
+											<Col lg="8">
+												<div className="text-center search-more">
+													<hr className="custom-line" />
+													{(this.state.cases.length > this.limit * this.state.page)
+														? <button onClick={this.handleMore} className="icon-bttn fadein">
+														{localizeText("CS07","More Stories")} <span className="bi brcmicon-plus-circle" /> 
+														</button>
+														: <button onClick={this.handleLess} className="icon-bttn fadein">
+														{localizeText("CS08","Less Stories")} <span className="bi brcmicon-minus-circle" /> 
+														</button>
+													}
+													<hr className="custom-line" />
+												</div>
+											</Col>
+										</Row>
+									</Col>
+								}
+							</Row>
+						</Fragment>
+				)				
+			}
+
+			const contentBlocks = () =>{
+				return (
+					<Row>
+						<Col md="12" sm="12" lg="12">
+							{this.props.content_blocks && this.props.content_blocks.map((content_block, index) =>
+								<div key={content_block.content_id}>
+									{getComponentFromTemplate(content_block.template, content_block)}
+								</div>
+							)}
+						</Col>
+					</Row>
+				)
+			}
 
 
-
-
-						{this.props.content_blocks && this.props.content_blocks.map((content_block, index) =>
-							<div key={content_block.content_id}>
-								{getComponentFromTemplate(content_block.template, content_block)}
+			return (
+				<div id="CaseStudyLanding">					
+					{config.site === "vm" ? 
+						<Fragment>
+							<Container>
+								{subheadNav()} 
+								{topBanner()}
+							</Container>
+							<div className='section-highlight'>
+								<Container>
+									{subheadTitle()}
+									{contentBlocks()}
+								</Container>
 							</div>
-						)}
-
-					</Container>
+							<Container>
+								{searchCases()}
+							</Container>
+						</Fragment>
+						:
+						<Fragment>
+							<Container>
+								{subheadNav()} 
+								{topBanner()}
+								{subheadTitle()}
+								{searchCases()}
+								{contentBlocks()}
+							</Container>
+						</Fragment>
+					}
 
 				</div>
 			);

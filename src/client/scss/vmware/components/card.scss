@@ -21,41 +21,10 @@
     box-shadow: 0px 8px 16px 0px #1145861F;
     border: 0;
 
-    .card-body {
-        .row {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-
-
-        }
-
-        .card-title {
-            text-align: center;
-        }
-
-    }
-
     &.LeftImageCard {
-        .card-body {
-            .row {
-                flex-direction: row;
-                align-items: flex-start;
-                   gap: 0px;
-                    img {
-            width: 70px;
-            height: 70px;
-            // max-height: 140px;
-            object-fit: cover;
-
-          }
-            }
-        }
-
         .card-title {
             //font-size: 20px;
             line-height: normal !important;
-            text-align: left;
         }
 
         .card-footer {
@@ -66,43 +35,6 @@
                 justify-content: flex-start !important;
             }
         }
-    }
-
-    &.RightImageCard {
-        .card-body {
-            .row {
-                flex-direction: row;
-                align-items: flex-start;
-                 gap: 0px;
-                         img {
-            width: 70px;
-            height: 70px;
-            // max-height: 140px;
-            object-fit: cover;
-
-          }
-
-
-            }
-
-            .card-title {
-                text-align: left;
-            }
-        }
-
-        .lnk-image {
-            max-width: 14% !important;
-            min-width: 14% !important;
-            margin-left: 12px !important;
-            padding: 0;
-
-            img {
-                min-width: 58px;
-                min-height: 58px;
-                object-fit: contain;
-            }
-        }
-
     }
 }
 

@@ -16,6 +16,7 @@ import { TestimonialCard, ProductCard } from 'templates/cards/CardFactory.jsx';
 import classnames from "classnames";
 import ScrollToLink from "components/ScrollToLink.jsx";
 import utils, { localizeText } from 'components/utils.jsx';
+import Video from 'components/Video.jsx';
 
 
 import 'scss/pages/case-study.scss';
@@ -48,23 +49,30 @@ export default class CaseStudy extends PageComponent {
 			</Row>
 		);
 
+		const site = config.site;
+		const leftCol = site === "vm" ? "8" : "8";		// these used to be different - leaving this functionality here in case it changes in the future
+		const rightCol = site === "vm" ? "4" : "4";
 		
+		const geography = this.props.data?.geographies
+		const industry = this.props.data?.industry;
+
 		return (
 			<div className="caseStudy-wrap" id="CaseStudy">
 				<Container>
-					<SubHeadNavigation breadcrumb={this.props.page.breadcrumb} />
+					<SubHeadNavigation breadcrumb={this.props.page?.breadcrumb} />
 					
 					<Row className="mb-4">
-						<Col md="8" xs="12">
+						<Col md={leftCol} xs="12">
 							<SubHeadTitle {...this.props.page} />
-							<div dangerouslySetInnerHTML={{__html: this.props.data.body}} />
+							{site === "vm" && industry && <h4 className="customer-industry">{localizeText("CS04","Industry:")} {this.props.data.industry}</h4>}
+							<div dangerouslySetInnerHTML={{__html: this.props.data?.body}} />
 						</Col>
 
-						<Col md="4" xs="12">
+						<Col md={rightCol} xs="12">
 							<div className="text-center py-3">
-								<ImageBase image={this.props.data.image} className="img-fluid mx-auto mb-2" />
-								{this.props.data.geographies && <h4 className="mb-1">{localizeText("CS03","Geography:")} {this.props.data.geographies.join(", ")}</h4>}
-								{this.props.data.industry && <h4>{localizeText("CS04","Industry:")} {this.props.data.industry}</h4>}
+								<ImageBase image={this.props.data?.image} className="img-fluid mx-auto mb-2" />
+								{site != "vm" && geography && <h4 className="customer-geography mb-1">{localizeText("CS03","Geography:")} {this.props.data.geographies.join(", ")}</h4>}
+								{site != "vm" && industry && <h4 className="customer-industry">{localizeText("CS04","Industry:")} {this.props.data.industry}</h4>}
 							</div>
 						</Col>
 						
@@ -133,6 +141,68 @@ export default class CaseStudy extends PageComponent {
 							<FeaturedProducts products={this.props.data.featured_products} />
 						</Container>
 					</div>
+				}
+				
+				{this.props.data?.products.length > 0 || this.props.data?.solutions.length > 0 || this.props.data?.resources.length > 0 ?
+					<div className='related-section'>
+						<Container>
+							<Row>
+								<Col lg="6" md="6" sm="12">
+									<Row>
+									{this.props.data.products.length > 0 ? 
+									<Col className='related-products' lg="12" md="12" sm="12">
+										<h5>Products</h5>
+										{this.props.data.products.map(product => {
+											return (
+												<SiteLink to={product.url} key={product.content_id} dangerouslySetInnerHTML={{__html: product.title}}></SiteLink>
+											)
+										})}
+									</Col>
+									:
+									null
+								}
+								{this.props.data.solutions.length > 0 ? 
+									<Col className='related-solutions' lg="12" md="12" sm="12">
+									<h5>Solutions</h5>
+										{this.props.data.solutions.map(solution => {
+											return (
+												<SiteLink to={solution.url} key={solution.content_id} dangerouslySetInnerHTML={{__html: solution.title}}></SiteLink>
+											)
+
+										})}
+									</Col>
+									:
+									null
+								}
+								{this.props.data.resources.length > 0 ? 
+									<Col className='related-resources' lg="12" md="12" sm="12">
+									<h5>Resources</h5>
+										{this.props.data.resources.map(resource => {
+											return(
+												<SiteLink to={resource.url} key={resource.content_id} dangerouslySetInnerHTML={{__html: resource.title}}></SiteLink>
+											)
+										})}
+									</Col>
+									:
+									null
+								}
+									</Row>
+								</Col>
+								<Col  lg="6" md="6" sm="12">
+									{this.props.data.resources.map(resource => {
+										if (resource.content_type === "video") {
+											return(
+												<Video mediaid={resource.media_id} className="video-js vjs-16-9" controls />
+											)
+										}
+
+									})}
+								</Col>
+							</Row>
+						</Container>
+					</div>
+					:
+					null
 				}
 
 				{this.props.data.bottom_body &&

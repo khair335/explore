@@ -1,0 +1,15 @@
+/*
+* pages/case-study-landing.scss
+*/
+// this mods the existing casestudyLanding css which uses content-blocks and download-search
+
+@import "../base/variables";
+
+#CaseStudyLanding {
+
+.search-cases {
+    background-color: $color-grey--500;
+    padding: 1rem;
+}
+
+}

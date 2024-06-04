@@ -467,7 +467,7 @@
       }
     }
 
-  }
+  } //menuWindow
 
 
   @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
@@ -500,6 +500,8 @@
         }
 
         #menuWindow {
+
+          bottom: 0;
           
           ul li {
           border-bottom: none;

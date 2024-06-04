@@ -2,6 +2,8 @@
 * components/captcha.scss
 */
 // Styling for broadcom custom case study and analyst report
+// there are style differences between Broadcom and VMWare case-study 
+// used for business logic to make items show/hide based on brcm vs vmw site - see broadcom/pages/case-study.scss 
 
 @import "~bootstrap/scss/mixins/breakpoints";
 @import "../base/variables";
@@ -27,7 +29,28 @@
 	float: right;
 		img { float: right; }
 	}
+
+	//in SubHeadNavigation.subHeader.jsx there is a possible bug where 1 container has a capital S and the other lower case
+	.SubHeadTitle h1.page-title { font-size: 40px;}
+	.subHeadTitle {margin-bottom: 0;}		
+
+	.customer-name {		// note at top - see broadcom/pages/case-study.scss
+		display: block;
+	}
+
+	.customer-industry {
+		margin-bottom: 16px;
+	}
+
 	.casestudy-card-wrap {
+		display: none;
+	}
+
+	.learn-more {
+		display: none;		// note at top - see broadcom/pages/case-study.scss
+	}
+
+/* 	.casestudy-card-wrap {
 		background-color:  $color-grey--500;
 		.card {
 			background-color: $color-white;
@@ -42,7 +65,7 @@
 		text-align: center;
 		margin-top: 15px;
 		}
-	}
+	} */
  
 	.CaseStudyCard {
  		padding: 0px;
@@ -72,6 +95,25 @@
 	}
 }
 
+.related-section {
+	background-color: $background-light-blue;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	.related-products, .related-solutions, .related-resources {
+		padding-top: 16px;
+		padding-bottom:16px;
+		border-bottom: 1px solid $color-grey--300;
+	}
+
+	h5 {
+		font-size: $font-size-lg;
+		text-transform:uppercase;
+		margin-bottom: 16px;
+	}
+
+}
+
 @media screen and (max-width: map-get($grid-breakpoints, md) - 1){
 	#CaseStudy {
 		.casestudy-card-wrap {
@@ -89,6 +131,10 @@
 			float: none;
 			margin: 0 auto; 			
 			}
+		}
+
+		#subhead-title {
+			margin-top: 60px;
 		}
 	}
  }

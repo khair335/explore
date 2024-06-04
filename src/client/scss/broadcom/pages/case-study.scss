@@ -2,6 +2,8 @@
 * components/captcha.scss
 */
 // Styling for broadcom custom case study and analyst report
+// there are style differences between Broadcom and VMWare case-study 
+// used for business logic to make items show/hide based on brcm vs vmw site - see vmware/pages/case-study.scss 
 
 @import "~bootstrap/scss/mixins/breakpoints";
 @import "../base/variables";
@@ -20,6 +22,10 @@
 
 
 #CaseStudy {
+
+	.customer-name {		// note at top - see vmWare/pages/case-study.scss
+		display: none;
+	}
 	
 	.caseStudy-right-img {
 	text-align: center;

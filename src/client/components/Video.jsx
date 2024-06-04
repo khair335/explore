@@ -326,7 +326,7 @@ export class VideoImageModal extends Component {
         return (
             <Fragment>
 
-                <button type="button" onClick={this.handleVideoClick} role="button" aria-label="Click to view video.">
+                <button className="video-image-modal-button" type="button" onClick={this.handleVideoClick} role="button" aria-label="Click to view video.">
                     {this.props.poster
                         ? <ImageBase image={this.props.poster} className="img-fluid" />
                         : <span className="bi-stack bi-2x">
@@ -337,7 +337,7 @@ export class VideoImageModal extends Component {
                 </button>
 
 
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                <Modal className="video-image-modal" isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{this.props.title}</ModalHeader>
                     <ModalBody>
                         <BrightcoveVideo mediaid={this.props.mediaid} youtube={this.props.youtube} className="video-js vjs-16-9" controls play={this.state.modal.toString()} />

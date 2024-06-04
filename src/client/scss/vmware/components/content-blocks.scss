@@ -29,17 +29,17 @@
 
 .card-title {
   .lnk {
-    font-size: 25px !important;
+    font-size: 25px!important;
     color: $color-primary;
-    font-weight: 300 !important;
-    text-decoration: none !important;
+    font-weight: 300!important;
+    text-decoration: none!important;
     line-height: normal;
 
     &:hover {
-      text-decoration: underline !important;
-      text-decoration-line: underline !important;
-      text-underline-offset: 5px !important;
-      text-decoration-thickness: 2px !important;
+      text-decoration: underline!important;
+      text-decoration-line: underline!important;
+      text-underline-offset: 5px!important;
+      text-decoration-thickness: 2px!important;
 
     }
   }
@@ -194,11 +194,9 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-
     @media (max-width:991px) {
       margin-top: 0;
     }
-
     .card-body {
       gap: 0;
       flex: initial;
@@ -206,11 +204,9 @@
       >div {
         &:first-child {
           width: 10%;
-
           @media (max-width:991px) {
             width: 20%;
           }
-
           @media (max-width:767px) {
             width: 20%;
           }
@@ -220,11 +216,9 @@
 
       .card-title {
         width: 90%;
-
         @media (max-width:991px) {
           width: 79%;
         }
-
         @media (max-width:767px) {
           width: 80%;
         }
@@ -233,11 +227,9 @@
       .card-text {
         width: 90%;
         margin-top: 0px !important;
-
         @media (max-width:991px) {
           width: 79%;
         }
-
         @media (max-width:767px) {
           width: 80%;
         }
@@ -356,12 +348,12 @@
 
 
   .HorizontalTab {
-    .ContentCardTwoColumn {
-      .row {
-        >div {
-          &:nth-child(2) {
-            .lnk {
-              &:after {
+    .ContentCardTwoColumn{
+      .row{
+        >div{
+          &:nth-child(2){
+            .lnk{
+              &:after{
                 content: unset !important;
               }
             }
@@ -369,8 +361,7 @@
         }
       }
     }
-
-    .card-body {
+    .card-body{
       flex: none !important;
     }
 
@@ -733,8 +724,8 @@
 
           img {
 
-            max-width: 200px;
-            height: 200px;
+            max-width: 150px;
+            height: 150px;
             margin: 0 auto;
             object-fit: cover;
             margin-bottom: 16px !important;
@@ -1013,7 +1004,6 @@
         &:after {
           @include cta-link-after;
         }
-
         &:hover {
           border: 0;
         }
@@ -1337,17 +1327,16 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard {
+    .ImageCard  {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,
-          .link-bttn {
+          .lnk,.link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after;
+              @include cta-link-after ;
             }
 
 
@@ -1356,13 +1345,11 @@
       }
     }
   }
-
-  &.theme-cbl-card-transparent {
-    .card {
+  &.theme-cbl-card-transparent{
+    .card{
       box-shadow: none;
     }
   }
-
 
 }
 
@@ -1502,7 +1489,6 @@
       }
     }
   }
-
   &.theme-cbl-card-transparent {
     .card {
       &.LeftImageCard {
@@ -1727,9 +1713,8 @@
           @include link-hover;
           border: none;
         }
-
-        &:after {
-          @include cta-link-after
+        &:after{
+         @include  cta-link-after
         }
       }
 
@@ -2014,11 +1999,9 @@
   .card-title {
     color: $color-black;
   }
-
   .section-title {
     color: $color-black;
   }
-
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -2075,11 +2058,10 @@
     }
   }
 
-  &.theme-content-block-dark {
+  &.theme-content-block-dark{
     .section-title {
       color: $color-white;
     }
-
     .card-title {
       color: $color-white;
     }
@@ -2295,29 +2277,24 @@
 
                   display: flex;
                   flex-wrap: wrap;
-
                   >h3~div {
                     width: 78%;
 
                     margin-top: -0px !important;
-
-                    >p {
+                    >p{
                       margin-top: 82px !important;
-
                       @media (max-width:767px) {
                         width: 100% !important;
-                        margin-top: 0px !important;
+                      margin-top: 0px  !important;
                         margin-left: 0;
                       }
                     }
 
                   }
-
                   >.lnk~h3~div {
                     width: 78%;
                     margin-top: -0px !important;
-
-                    >p {
+                    >p{
                       margin-top: 0px !important;
                     }
 
@@ -2333,12 +2310,10 @@
                       margin-top: 8px !important;
                     }
                   }
-
                   >div:nth-child(2) {
 
                     &.card-text {
                       margin-top: -72px !important;
-
                       @media (max-width:767px) {
                         margin-top: 20px !important;
                         width: 100%;
@@ -2362,7 +2337,6 @@
                     line-height: 24px;
                     height: min-content;
                     margin: 0;
-
                     .lnk {
                       width: 78% !important;
                       padding-top: 0;
@@ -2561,17 +2535,15 @@
   }
 }
 
-.theme-card-cta-link {
+.theme-card-cta-link{
   height: 100%;
-
-  .card {
+  .card{
     height: 100%;
   }
 }
 
 .ContentList-section {
   .ContentList {
-
     .content-block-right,
     .content-block-left {
       .cb-cta-link {
@@ -2585,7 +2557,6 @@
 
   }
 }
-
 .ContentList-section {
   .ContentCardTwoColumn {
     .row {
@@ -2629,7 +2600,7 @@
 .VerticalTab-section {
   .VerticalTab {
 
-    .video-box {
+    .video-box{
       width: 100%;
       max-width: 100% !important;
       flex: none !important;
@@ -2655,18 +2626,15 @@
         padding-left: 20px;
       }
     }
-
     .content-block-center {
       display: flex;
       flex-direction: column-reverse;
-
-      .content-block-title {
+      .content-block-title{
         margin-top: 20px;
       }
     }
   }
 }
-
 .Testimonial-section {
   .TestimonialCard {
     box-shadow: none !important;
@@ -2750,3 +2718,4 @@
   }
 
 }
+
