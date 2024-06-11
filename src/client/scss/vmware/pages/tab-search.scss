@@ -1,0 +1,127 @@
+/*
+* search/microsite-search.scss
+*/
+// Styling for search
+
+@import "../base/variables";
+
+#TabSearch {
+
+  // All but the first, add a hr.
+  .tabsearch-all > .tabsearch-all-facet ~ .tabsearch-all-facet {
+    @include horizontal-rule;
+  }
+  .tab-page{
+    padding-top:15px;
+  }
+
+  .nav-tabs{
+    li {
+      margin-right: 0px;
+      padding: 0;
+      position: relative;
+      a.lnk {
+        line-height: 1.9;
+        display: inline-block;
+        padding: 5px 30px;
+        position: relative;
+        border-bottom: 1px solid #3d3d3d;
+        margin: 0px 0px;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-weight: 300;
+        &.active {
+          border-bottom: 2px solid #005c8a;
+        }
+      }
+      &::after{
+        content:none;
+      }
+    }
+  }
+
+  .tabsearch-header{
+    display: flex;
+    justify-content: space-between;
+    .tabsearch-total{
+      display: flex;
+      align-items: center;
+      padding-right:10px;
+    }
+    .sort-btn-group{
+      display: flex;
+      align-items: center;
+      .dropdown{
+        button{
+          background: transparent;
+          color:$color-primary;
+          margin-left: 5px;
+          padding: 6px;
+          i{
+            margin-left:5px;
+          }
+        }
+      }
+    }
+  }
+  .tabsearch-all-facet{
+    margin-bottom:30px;
+    padding-top: 30px;
+    &:first-child{
+      margin-top:30px;
+    }
+    h5{
+      margin-bottom: 20px;
+    }
+    
+  }
+  .tabsearch-facets{
+    margin-top:30px;
+    margin-bottom:30px;
+    padding-top:30px;
+  }
+  .tabsearch-result{
+    margin-bottom: 30px;
+    a.tabsearch-result-title{
+      margin-bottom:5px;
+      display: block;
+      text-decoration: none;
+      font-size: 18px;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .tabsearch-result-description{
+      margin-bottom: 5px;
+    }
+    .tabsearch-result-url{
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  .pagination{
+    justify-content: center;
+    .page-link{
+      color:$color-primary;
+      font-size:1.125rem;
+      border:0;
+      &:hover{
+        background-color: #fff;
+      }
+    }
+    [aria-label="Previous"] span{
+      content: "\f053";
+      font-family: 'Font Awesome 6 Free';
+    }
+    [aria-label="Next"] span{
+      content: "\f054";
+      font-family: 'Font Awesome 6 Free';
+    }
+    .page-item.active .page-link{
+      background-color: #fff;
+      color:$color-grey--700;
+    }
+  }
+}

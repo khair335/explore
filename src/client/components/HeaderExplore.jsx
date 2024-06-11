@@ -162,8 +162,9 @@ const ExploreHeader = (props) => {
 												<TypeAhead
 													className="header-typahead"
 													endpoint={config.site_search.typeahead_endpoint}
-													results_page="/site-search"
+													results_page={config.site_search.search_url}
 													placeholder="Search"
+													onClose={() => setSearch(false)}
 													clear
 												/>
 											</div>

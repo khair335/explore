@@ -21,7 +21,9 @@ const displayDay = (date) => {
 
 	// Day of the week, Month, Day
 	// Unsure what format we are receivig, so just converting it to UTC.
-	return new Date(date).toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric", timeZone: 'UTC' })
+	let locale = config.explore_event === 'eu' ? 'en-gb' : 'en-us';
+	
+	return new Date(date).toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric", timeZone: 'UTC' })
 
 }
 
@@ -43,7 +45,7 @@ const Event = ({ event, row, index, min_hour, max_hour, day }) => {
 	let start_half = 0;
 	let end_half = 0;
 
-	
+
 	if (start_minute > 45) {
 		start_half = 2;
 	}
@@ -65,13 +67,17 @@ const Event = ({ event, row, index, min_hour, max_hour, day }) => {
 	}
 
 	// Display
+	let locale = config.explore_event === 'eu' ? 'en-gb' : 'en-us';
 
-	let start_time = new Date(event.start_time).toLocaleTimeString('en-us', { hour: 'numeric', minute: 'numeric', timeZone: 'America/Los_Angeles' });
-	let end_time = new Date(event.end_time).toLocaleTimeString('en-us', { hour: 'numeric', minute: 'numeric', timeZone: 'America/Los_Angeles' });
 
-	// Trim if zero per design
-	start_time = start_time.replace(':00', '');
-	end_time = end_time.replace(':00', '');
+	let start_time = new Date(event.start_time).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', timeZone: 'America/Los_Angeles' });
+	let end_time = new Date(event.end_time).toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', timeZone: 'America/Los_Angeles' });
+
+	// Trim if zero per design for US
+	if (config.explore_event === 'us') {
+		start_time = start_time.replace(':00', '');
+		end_time = end_time.replace(':00', '');
+	}
 
 
 	const toggle = () => setModal(!modal);
@@ -150,7 +156,7 @@ const Day = (props) => {
 		});
 	});
 
-	
+
 	if (max_hour - min_hour > 0) {
 		hours = new Array((max_hour - min_hour) * 2);		// *2 for 30 minutes
 		hours.fill(true);

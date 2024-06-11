@@ -111,6 +111,16 @@ export default class SiteLink extends PureComponent {
 		}
 		
 		// --------------------
+		// VMWare - We aren't going throught Broadcom's docs domain, so treat internal paths.
+		if (config.relative_docs && 
+			(url.host === '' || location.host === url.host) &&  
+			config.site_link.doc_pathnames.some(pathname => url.pathname.startsWith(pathname))) {
+
+				return {location: to, type: "document"};
+		}
+
+
+		// --------------------
 		// Already relative
 		if (url.host === '') {			
 			return {location: to, type: "default"};

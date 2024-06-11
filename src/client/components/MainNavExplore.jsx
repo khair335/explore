@@ -35,12 +35,12 @@ export default class MainNavExplore extends Component {
         this.setState({
             activeMenu: index
         })
-        if (index === false) { 
+/*         if (index === false) { 
             this.menuToggle();
             document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background
         } else {
             document.getElementById('content').style.filter = 'blur(8px)';      // blurs backgreound when menu flyout/dropdown active - Explore site only right now 
-        }
+        } */
     }
 
     render() {

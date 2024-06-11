@@ -65,6 +65,7 @@ export default class CaseStudy extends PageComponent {
 						<Col md={leftCol} xs="12">
 							<SubHeadTitle {...this.props.page} />
 							{site === "vm" && industry && <h4 className="customer-industry">{localizeText("CS04","Industry:")} {this.props.data.industry}</h4>}
+							{site === "vm" && geography && <h4 className="customer-geography mb-1">{localizeText("CS03","Geography:")} {this.props.data.geographies.join(", ")}</h4>}
 							<div dangerouslySetInnerHTML={{__html: this.props.data?.body}} />
 						</Col>
 

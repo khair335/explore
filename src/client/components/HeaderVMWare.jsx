@@ -48,7 +48,7 @@ const ExploreHeader = (props) => {
 	}
 
 	const mobileToggle = () => {						/* this bit of craziness here is to close menu on page select in mobile and click away close on ipad */
-		/* setMobile(true); */
+		setMobile(!mobile);    //true
 		setIsOpen(!isOpen);
 		if (!isOpen) {
 			document.body.style.overflow = 'hidden';
@@ -88,14 +88,17 @@ const ExploreHeader = (props) => {
                 </div>
 
                 {props?.headerData.search ?
-                    <div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>
-                        <TypeAhead
-                            className="header-typahead"
-                            endpoint={config.site_search.typeahead_endpoint}
-                            results_page="/site-search"
-                            placeholder="Search"
-                            clear
-                        />
+                    <div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>{/* hide */}
+                        <Container>
+                            <TypeAhead
+                                className="header-typahead"
+                                endpoint={config.site_search.typeahead_endpoint}
+                                results_page="/site-search"
+                                placeholder="Search"
+                                onClose={() =>setSearch(false)}
+                                clear
+                            />
+                        </Container>
                     </div>
                     :
                      ""
@@ -136,7 +139,7 @@ const ExploreHeader = (props) => {
                                     <div className="navbar-collapse-inner" ref={startRef}>
                                     {/*<button className="menuClose" onClick={this.handleClose}>X</button>  */}
                                     <Nav
-                                        className={classnames('ml-auto header_nav navbar navbar-nav-scroll', { 'menu-fadein': props.navData && props.navData.length > 0 })}
+                                        className={classnames('ml-auto header_nav navbar navbar-nav-scroll', { 'menu-fadein': props.navData && props.navData.length > 0 })} 
                                         navbar
                                         tag={'ul'}
                                     >

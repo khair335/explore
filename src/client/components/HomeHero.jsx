@@ -454,11 +454,12 @@ export default class HomeHero extends Component {
 				</div>
 			);
 		}
-		else {
-			return (
-				<LoadingIcon />
-			);
-		}
+		// JD - This was forced to we know a banner is needed. Just dont render anything.
+		// else {
+		// 	return (
+		// 		<LoadingIcon />
+		// 	);
+		// }
 	}
 
 }

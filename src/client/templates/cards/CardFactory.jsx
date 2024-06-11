@@ -522,7 +522,7 @@ export const VideoCard = (props) => {
             return `${paddedMinutes}:${paddedSeconds}`;
         }
         else if (paddedMinutes == '00' && paddedHours == '00' && paddedSeconds != '00') {
-            return `${paddedSeconds}`;
+            return `${paddedSeconds} secs`;
         }
         else {
             return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
@@ -539,7 +539,7 @@ export const VideoCard = (props) => {
                 </SiteLink>
                 <div className="video-info">
                     <div>
-                        <SiteLink className='video-name-data' to={url_path} target={target}>{(video_content?.name) && <span>{video_content?.name} {(video_content?.name && video_content?.views) && <> | </>} {video_content?.views && <>{video_content.views} views</>}</span>}</SiteLink>
+                    <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name && <>{video_content?.name} {video_content?.name && video_content?.views && <> | </>}</>} {video_content?.views>=0 && <>{video_content.views} views</>}</span></SiteLink>
                     </div>
                     <div>
                         {video_content?.description && <SiteLink className='card-video-title' to={url_path} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 27) }}></h5>}</SiteLink>}
@@ -655,7 +655,8 @@ export function applyCardType(card, default_type, image_position) {
                 }
                 else {
                     // Transform our data to fit a card.
-                    card.body = card.description;
+                    // sub_head for products
+                    card.body = card.sub_head || card.description;
                     // Make the url the title link.
                     if (card.url) {
                         card.title_link = {

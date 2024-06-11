@@ -1,6 +1,6 @@
 /**
- *  @file config.js
- *  @brief Brief Config for vmware
+ *  @file config.vm.js
+ *  @brief Config for vmware
  */
 import UrlParse from "url-parse";
 
@@ -29,7 +29,7 @@ class Config {
 				prod-broadcom: -YxE_JXFEvU4sfy-biZV (API Key: scB9ef83inQ6z6-8yxwc)
 				stage-broadcom: qA2MaZos1QVnzdazzkrx ( API Key: scB9ef83inQ6z6-8yxwc )
 			*/
-			engine_key: '-YxE_JXFEvU4sfy-biZV', //baa1mmC9AaCnz7My4Ksz
+			engine_key: 'J3yan3XpFywGvRxQMcEr', //baa1mmC9AaCnz7My4Ksz
 			facet_limit: 11,		// Limit the number of filters for facet search. (see product search results/broadcom-faceted-search)
 		};
 		this.cookie = {
@@ -170,32 +170,15 @@ class Config {
 
 		this.hide_print_share = true;
 
+		// https://hgsdigitalprojects.atlassian.net/browse/BVCM-154
+		// Hide the page title if have a hero banner title.
+		this.hide_page_title = true;
+		this.relative_docs = true;
+
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {
-				case 'local-brcm':
-					this.swifttype.engine_key = 'myuc5Dc4M6MBzSkEzkxN'; //'-YxE_JXFEvU4sfy-biZV';
-					// SEE /server/proxy.local.js this.api_url = 'http://cmsgwdev2.aws.broadcom.com/api/';//'http://cmsgwqa.aws.broadcom.com/api/';//'http://cmsgwdev2.aws.broadcom.com/api/';
-					this.media_host = 'http://ichabodgwdev.aws.broadcom.com/'; //'https://dev.aws.broadcom.com/' 	//"https://avagoredo:PA55@dev.aws.broadcom.com/"
-					this.cookie.domain = "localhost";
-					this.okta = {
-						baseUrl: 'https://broadcomext.oktapreview.com', //'https://dev-736208.okta.com', //'https://dev-335315.oktapreview.com', //'https://avago.oktapreview.com',
-					}
-					this.mybroadcom.editProfileUrl = "https://qa-portal.broadcom.com/group/user/editprofile";
-					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user"; // "https://supportqa.broadcom.com/user";
-					break;
-				case 'local-broadcomui':
-					this.swifttype.engine_key = 'myuc5Dc4M6MBzSkEzkxN'; //'-YxE_JXFEvU4sfy-biZV';
-					// SEE /server/proxy.local.js this.api_url = 'http://cmsgwdev2.aws.broadcom.com/api/';//'http://cmsgwqa.aws.broadcom.com/api/';//'http://cmsgwdev2.aws.broadcom.com/api/';
-					this.media_host = 'http://ichabodgwdev.aws.broadcom.com/'; //'https://dev.aws.broadcom.com/' 	//"https://avagoredo:PA55@dev.aws.broadcom.com/"
-					this.cookie.domain = "localhost";
-					this.okta = {
-						baseUrl: 'https://dev-736208.okta.com', //'https://dev-335315.oktapreview.com', //'https://avago.oktapreview.com',
-					}
-					this.mybroadcom.editProfileUrl = "https://qa-portal.broadcom.com/group/user/editprofile";
-					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user"; // "https://supportqa.broadcom.com/user";
-					break;
 				case 'local':
-					this.swifttype.engine_key = 'mwPxHYJi6gscfAzjVEaY'; // 'myuc5Dc4M6MBzSkEzkxN'; //
+					this.swifttype.engine_key = 'FGq2x_7zpGpZ68xHePFN'; // 'myuc5Dc4M6MBzSkEzkxN'; //
 					// SEE /server/proxy.local.js this.api_url = 'http://cmsgwdev2.aws.broadcom.com/api/';//'http://cmsgwqa.aws.broadcom.com/api/';//'http://cmsgwdev2.aws.broadcom.com/api/';
 					this.media_host = 'http://ichabodgwdev.aws.broadcom.com/'; //'https://dev.aws.broadcom.com/' 	//"https://avagoredo:PA55@dev.aws.broadcom.com/"
 					this.cookie.domain = "localhost";
@@ -210,7 +193,7 @@ class Config {
 					break;
 				case 'qa':
 					//this.video.player_id = 'QCEd4TS1z';
-					this.swifttype.engine_key = 'dnpozeqWzsrxYAnsAPjz';
+					this.swifttype.engine_key = 'FGq2x_7zpGpZ68xHePFN';
 					this.locale_base = {
 						"en-us": "https://qa-ui.aws.broadcom.com",
 						"ja-jp": "https://qa-ui-jp.aws.broadcom.com",
@@ -230,7 +213,7 @@ class Config {
 				case 'development':
 					//this.video.player_id = 'QCEd4TS1z';
 					//this.swifttype.engine_key = 'baa1mmC9AaCnz7My4Ksz';
-					this.swifttype.engine_key = 'B6ZTDkq2Z5ypbNj6crf9';
+					this.swifttype.engine_key = 'FGq2x_7zpGpZ68xHePFN';
 					this.locale_base = {
 						"en-us": "https://dev-ui.aws.broadcom.com",
 						"ja-jp": "https://dev-ui-jp.aws.broadcom.com",
@@ -246,7 +229,7 @@ class Config {
 					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user";	// "https://supportqa.broadcom.com/user";
 					break;
 				case 'stage':
-					this.swifttype.engine_key = 'mwPxHYJi6gscfAzjVEaY';
+					this.swifttype.engine_key = 'TFtCTGCDYLVc5jcy8kW2';
 					this.locale_base = {
 						// "en-us": "https://stg-ui.aws.broadcom.com",
 						// "ja-jp": "https://stg-ui-jp.aws.broadcom.com",
@@ -267,7 +250,6 @@ class Config {
 					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user";	// "https://supportqa.broadcom.com/user";
 					break;
 				case 'production':
-					this.swifttype.engine_key = 'dZFUpxp6unMaKoe6vPrw';
 					this.okta.baseUrl = 'https://login.broadcom.com';
 					break;
 			}
@@ -284,7 +266,7 @@ class Config {
 
 		this.site_search = {
 			endpoint: `https://api.swiftype.com/api/v1/public/engines/search.json?engine_key=${this.swifttype.engine_key}&document_types[]=pages&facets[pages][]=content_type&filters[pages][locale]=${this.locale}${show_china}`,
-			typeahead_endpoint: `https://api.swiftype.com/api/v1/public/engines/suggest.json?engine_key=${this.swifttype.engine_key}&document_types[]=pages&filters[pages][asset_type][]=product&filters[pages][asset_type][]=product_category&filters[pages][locale]=${this.locale}&document_types[]=pages${show_china}`,
+			typeahead_endpoint: `https://api.swiftype.com/api/v1/public/engines/suggest.json?engine_key=${this.swifttype.engine_key}&document_types[]=pages&filters[pages][locale]=${this.locale}&document_types[]=pages${show_china}`,
 		};
 
 		this.knowledgebase_search = {
@@ -346,4 +328,4 @@ class Config {
 	}
 }
 
-export default new Config();
+export default Config;

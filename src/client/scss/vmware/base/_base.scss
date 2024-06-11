@@ -101,6 +101,12 @@ body{
 #main h4 {
   line-height: 1.2;
 }
+
+// The to top anchor has styling which is causing spacing issues with below the banner.
+#top {
+  all: unset;
+}
+
 img {
 	max-width: 100%;
 }
@@ -523,14 +529,16 @@ hr.custom-line-gray {
 
 
 //remove extra space, need to review all pages to see if ok OZ
-.section-striped section:first-child {
-padding-top:15px!important;
-padding-bottom:10px!important;
+// JD - Remove this if everything looks stable. This impacted https://www.vmware.com/explore/eu & https://vmstg-ui.aws.broadcom.com/cloud-solutions/cloud-infrastructure
+// If there was a promo banner, there were gaps.
+// .section-striped section:first-child {
+// padding-top:15px!important;
+// padding-bottom:10px!important;
 
-  &.theme-content-block-promo {
-    margin-top: -38px;          // JD - Remove the space for the promo
-  }
-}
+//   &.theme-content-block-promo {
+//     //margin-top: -38px;          // JD - Remove the space for the promo
+//   }
+// }
 
 // HACK - 5-7-2024 JD - this was a hack because the footer had a margin and a :before for the border. I cleaned it up so this isn't necessary.
 // If it's been over 3 months, delete this.

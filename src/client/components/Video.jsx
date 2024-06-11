@@ -10,6 +10,9 @@ import { Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 
 import { Playlist, msToTime } from 'components/LibraryElements.jsx';
 import BrcmShare from 'components/brcmShare.jsx';
 import ImageBase from 'components/ImageBase.jsx';
+import SchemaTags from 'components/SchemaTags.jsx';
+import config from 'client/config.js';
+import utils from 'components/utils.jsx'; 
 import 'scss/components/video.scss';
 
 /**
@@ -26,6 +29,8 @@ export default class Video extends Component {
             duration: "",
         };
 
+        this.schemaVideo = null;
+        this.ytubeId="";
 
         this.setMetaData = this.setMetaData.bind(this);       // Don't bind it.
     }
@@ -42,6 +47,23 @@ export default class Video extends Component {
 
         if (this.props.onMediaData) {
             this.props.onMediaData(title, description, durationIn, meta);
+        }
+        if(this.props.youtube){
+            this.schemaVideo = {
+                "name":title,
+                "description":description,
+                "duration":durationIn,
+                "embedUrl":"https://www.youtube.com/embed/"+this.ytubeId,
+                "thumbnailUrl":'',
+                "uploadDate":'',
+                "contentUrl":"https://www.youtube.com/embed/"+this.ytubeId
+            }
+        }else{
+            this.schemaVideo = meta;
+            this.schemaVideo.duration = utils.convertToISO8601Duration(this.schemaVideo.duration);
+            this.schemaVideo.contentUrl="https://players.brightcove.net/"+this.schemaVideo.account_id+"/"+config.video.player_id+"/index.html?videoId="+this.schemaVideo.id;
+            this.schemaVideo.embedUrl="https://players.brightcove.net/"+this.schemaVideo.account_id+"/"+config.video.player_id+"/index.html?videoId="+this.schemaVideo.id;
+            
         }
     }
 
@@ -62,6 +84,7 @@ export default class Video extends Component {
         }
 
         let youtubeId = youtube_parser(youtube);
+        this.ytubeId = youtubeId;
 
         let autoPlay = (typeof this.props.play === 'string' || this.props.play instanceof String) ? this.props.play === 'true' : this.props.play;
 
@@ -71,6 +94,9 @@ export default class Video extends Component {
         // HACK: JD - Same hack, we need to hide these details for Product details. https://www.broadcom.com/products/embedded-and-networking-processors/video-decoder-test-streams-and-stitching/argon-streams-hevc*
         return (
             <div className={classnames("video-wrapper", { "d-none": this.props.hideplayer, "video-audio": this.props.audio })}>
+                {this.schemaVideo ? 
+                <SchemaTags schemaType="Video" schemaList={false} item={this.schemaVideo} />
+                : ''}
                 {(mediaid || this.props.keepalive)
                     ?
                     <BrightcoveVideo onMediaData={this.setMetaData} {...rest} />

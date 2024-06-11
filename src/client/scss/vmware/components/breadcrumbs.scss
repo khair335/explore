@@ -68,12 +68,13 @@
 	.bc-breadcrumbs {
 		padding-top: 20px;
 
-		@media (max-width:767px) {
-			display: flex !important;
-			position: absolute !important;
+		@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+			display: flex !important;			// Override bootstap. Must use !important due to d-none
+			// position: absolute !important;
+			margin-bottom: 10px;
 		}
 
-		@media only screen and (max-width: 992px) {
+		@media screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
 			.breadcrumbMobile {
 				//display:none;
 			}
@@ -137,7 +138,10 @@
 // JD: There were dup IDs using subhead and I subdivided them.
 #subHead,
 #subhead-title {
-	margin-bottom: 10px;
+	.page-title-row {
+
+		margin-bottom: 10px;
+	}
 
 	h1,
 	h5 {

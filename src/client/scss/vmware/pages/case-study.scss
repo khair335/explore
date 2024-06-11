@@ -10,15 +10,19 @@
 @import "../components/testimonial.scss";
 @import "../base/buttons";
 
-#CaseStudyLanding button {
-  &.clear-bttn {
-    @extend .clear-bttn-lrg;		//TypeAhead can be large or small input box
-  }
-  &.search-bttn {
-    @extend .search-bttn-lrg;		//TypeAhead can be large or small input box
-  }
+#CaseStudyLanding {
+	button {
+		&.clear-bttn {
+		  @extend .clear-bttn-lrg;		//TypeAhead can be large or small input box
+		}
+		&.search-bttn {
+		  @extend .search-bttn-lrg;		//TypeAhead can be large or small input box
+		}
+	  }
 
 }
+
+
 
 
 #CaseStudy {

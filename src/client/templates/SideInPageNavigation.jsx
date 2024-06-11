@@ -13,8 +13,59 @@ import { withLiveEvents } from 'components/liveEvents.js';
 import { Container, Row, Col, Nav, NavItem, NavLink, Collapse } from 'reactstrap';
 import ScrollToLink from "components/ScrollToLink.jsx";
 import smoothscroll from 'smoothscroll-polyfill';
+import classnames from 'classnames';
 
 import 'scss/templates/side-inpage-navigation.scss';
+
+
+const NavItemWithSubs = ({ nav, onClick }) => {
+	const [collapse, setCollapse] = useState(true);
+
+	const handleClick = (event, label) => {
+		if (onClick) {
+			onClick(event, label);
+		}
+
+	}
+
+	const handleParentClick = (event, label) => {
+		
+		if (nav.subNavs) {
+
+			// Using classes instead. Hacky.
+			
+			const nav = document.querySelector('.side-inpage-nav');
+			if (nav) {
+			}
+
+		}
+		
+		// Act normal if no children
+		if (onClick) {
+			onClick(event, label);
+		}
+
+	}
+
+	return (
+		<>
+			<NavLink href={`#${nav.hash}`} onClick={(event) => handleParentClick(event, nav.label)}>
+				{nav.label}
+			</NavLink>
+			{nav.subNavs && (
+				<Nav className={classnames("nav-item-child collapse")}>
+					{nav.subNavs.map((subNav, subIndex) => (
+						<NavItem key={subNav.hash + subIndex}>
+							<NavLink href={`#${subNav.hash}`} onClick={(event) => handleClick(event, subNav.label)}>
+								{subNav.label}
+							</NavLink>
+						</NavItem>
+					))}
+				</Nav>
+			)}
+		</>
+	);
+};
 
 const SideNav = ({ navs }) => {
 	const [active_title, setActiveTitle] = useState('');
@@ -36,12 +87,13 @@ const SideNav = ({ navs }) => {
 
 
 		// Scrollspy.
-		const sections = document.querySelector('.side-inpage-content')?.querySelectorAll('section');
+		let sections = document.querySelector('.side-inpage-content')?.querySelectorAll('section');
 		const nav = document.querySelector('.side-inpage-nav');
 
 
 
 		const scrolllSpy = (event) => {
+			sections = document.querySelector('.side-inpage-content')?.querySelectorAll('section');	// Refresh our list.
 			const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
 			let title = active_title;
 			let hash = window.location.hash || '';
@@ -55,20 +107,44 @@ const SideNav = ({ navs }) => {
 			}
 			else {
 
-				for (let s in sections) {
-					if (sections.hasOwnProperty(s) && sections[s].offsetTop <= scrollPos) {
-						const id = sections[s].id;
+				// Remove all the active.
+				nav.querySelector('.active')?.classList?.remove('active');
+				// Collapse everything.
+				let nav_item_children = nav.querySelectorAll('.nav-item-child');
+				if (nav_item_children) {
+					nav_item_children.forEach(item => {
+						item?.classList?.add('collapse');
+					});
 
-						nav.querySelector('.active')?.classList?.remove('active');
+					
+				}
 
+				for (let i=0; i<sections.length; i++) {
+					let rect = sections[i].getBoundingClientRect();
+					const id = sections[i].id;
+
+					// console.log(id, 'active', sections);
+
+					// 20 for some buffer
+					if ((rect.top + rect.height) > 20) {
+					
+						
+				
+						// HACK: JD - just using clasess to show and hide the children
 						if (id) {
-							nav.querySelector(`a[href*=${id}]`)?.parentNode?.classList.add('active');
+							let parent = nav.querySelector(`a[href*=${id}]`)?.parentNode;
+							if (parent) {
+								parent.classList.add('active');
+								parent.querySelector('.nav-item-child')?.classList?.remove('collapse');
+								parent.closest('.nav-item-child')?.classList.remove('collapse');		// Show the other children
+							}							
 						}
-
-
+						
 						title = navs?.find(nav => nav.hash === id)?.label || title;
+						break;
 					}
 				}
+
 			}
 
 			if (title) {
@@ -188,7 +264,6 @@ const SideNav = ({ navs }) => {
 			});
 		}
 	}
-
 	return (
 		<div className="side-nav">
 			<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
@@ -204,29 +279,21 @@ const SideNav = ({ navs }) => {
 					</Col>
 				</Row>
 			</button>
-			<div className="side-nav-collapse-wrapper">
-				<Collapse isOpen={!collapse} className="side-nav-collapse">
-					<Nav vertical className="side-inpage-nav">
-						{navs?.map((nav, index) => (
-							<NavItem key={nav.hash + index}>
-								<NavLink href={`#${nav.hash}`} onClick={(event) => handleClick(event, nav.label)}>
-									{nav.label}
-								</NavLink>
-							</NavItem>
-						))}
-
-					</Nav>
-				</Collapse>
-			</div>
+			<Collapse isOpen={!collapse} className="side-nav-collapse">
+				<Nav vertical className="side-inpage-nav">
+					{navs?.map((nav, index) => (
+						<NavItem key={nav.hash + index}>
+							<NavItemWithSubs nav={nav} onClick={handleClick} />
+						</NavItem>
+					))}
+				</Nav>
+			</Collapse>
 		</div>
-
-
 	);
-}
+};
+
 
 const SideInPageNavigation = (props) => {
-
-
 	useEffect(() => {
 		require('smoothscroll-polyfill').polyfill();
 
@@ -255,6 +322,18 @@ const SideInPageNavigation = (props) => {
 			<Row>
 				{!props.right &&
 					<Col>
+						{props.resultCount && <div className='result-container'><h5><b>{props.resultCount} Results</b></h5></div>}
+						{props.handleSearchSubmit && <div className='search-container'>
+							<form onSubmit={props.handleSearchSubmit} className="search-bar">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(0,122,184,1)"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg>
+								<input
+									type="text"
+									value={props.inputChange}
+									onChange={props.handleInputChange}
+									placeholder="Search"
+								/>
+							</form>
+						</div>}
 						<SideNav navs={props.navs} />
 					</Col>
 				}

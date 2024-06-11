@@ -69,14 +69,15 @@
         padding: 20px 0;
         background-color: $color-white;
         z-index: 1001;
-  
+        box-shadow: $shadow-3;
         &.hide {
           display: none
         }
 
         form {
             height: 40px;
-            width: 90%;
+            // width: 90%;
+            width: 100%;
             margin: 0 auto;
             border: 1px solid $color-grey--600;
             border-radius: 3px;
@@ -86,8 +87,17 @@
 
         button.search-bttn {
             height: 38px;
-            border-top: 1px solid $color-grey--600;
-            border-bottom: 1px solid $color-grey--600;
+            // border-top: 1px solid $color-grey--600;
+            // border-bottom: 1px solid $color-grey--600;
+            background-color: $color-white;
+            .brcmicon-search{
+                margin-left: 0;
+                color:$color-primary;
+                font-size:1.5rem;
+            }
+        }
+        button.clear-bttn{
+            height: 38px;
         }
 
         input {
@@ -98,6 +108,7 @@
                 border: $color-secondary;
             }
         }
+        
 
     }
 
@@ -203,6 +214,10 @@
     }
 
     @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+
+        nav.header_nav {
+            padding-left: 12px;
+        }
 
         .navBrand {
             .navbar-brand {

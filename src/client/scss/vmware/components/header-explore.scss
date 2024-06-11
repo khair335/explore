@@ -309,10 +309,13 @@
 
           &.search-bttn {
             width: 45px;
+            background-color: $color-white;
 
             .bi.brcmicon-search {
               margin-left: 0;
-              margin-right: 10px;
+              // margin-right: 10px;
+              color:$color-primary;
+              font-size:1rem;
             }
           }
         }
@@ -779,7 +782,7 @@
 } //#header-explore
 
 #main #content .menu-active {
-  filter: blur(8px);
+/*   filter: blur(8px); */
 }
 
 .explore-footer-adjust {      //special case for Explore 404 pages

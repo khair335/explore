@@ -20,6 +20,10 @@ const Stacked = React.lazy(() => import('pages/Stacked.jsx'));
 const GeneralPage2Column = React.lazy(() => import('pages/GeneralPage2Column.jsx'));
 const GeneralPage = React.lazy(() => import('pages/GeneralPage.jsx'));
 const RightSideInpageNav = React.lazy(() => import('pages/RightSideInpageNav.jsx'));
+const TabbedContent = React.lazy(() => import('pages/TabbedContent.jsx'));
+const SolutionTab = React.lazy(() => import('pages/TabbedContent.jsx'));		// The same template, just organized different in CS
+const SWProductTab = React.lazy(() => import('pages/TabbedContent.jsx'));		// The same template, just organized different in CS
+
 // // Products
 const ProductGroup = React.lazy(() => import('pages/products/ProductGroup.jsx'));
 const ProductLanding = React.lazy(() => import('pages/products/ProductLanding.jsx'));		// Formally ProductLandingMulti
@@ -27,6 +31,7 @@ const ProductFamilyA = React.lazy(() => import('pages/products/ProductFamilyA.js
 const ProductFamilyC = React.lazy(() => import('pages/products/ProductFamilyC.jsx'));
 const ParametricSearch = React.lazy(() => import('pages/products/ParametricSearch.jsx'));
 const ProductDetail = React.lazy(() => import('pages/products/ProductDetail.jsx'));
+const VMmarkLanding = React.lazy(() => import('pages/products/VMmarkLanding.jsx'));
 // const Standalonecategory = React.lazy(() => import('pages/products/Standalonecategory.jsx'));
 // const ProductLandingMulti = React.lazy(() => import('pages/products/ProductLandingMulti.jsx'));
 const MainframeProducts = React.lazy(() => import('pages/products/MainframeProducts.jsx'));
@@ -129,6 +134,8 @@ const LogoRequestDownload = React.lazy(() => import('pages/support/LogoRequestDo
 const KnowledgebaseSearch = React.lazy(() => import('pages/support/knowledgebase.jsx'));
 const Search = React.lazy(() => import('pages/site-search.jsx'));
 const ProductSearch = React.lazy(() => import('pages/broadcom-faceted-search.jsx'));
+const TabSearch = React.lazy(() => import('pages/search/TabSearch.jsx'));
+
 // Explore
 const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchVideos.jsx'));
 
@@ -136,6 +143,7 @@ const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchV
 const GlossaryAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/topics/glossary.html#K
 const TechdocsAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/techpapers/techpaper_gsa_seed.html
 const SearchVideos = React.lazy(() => import('pages/search/SearchVideos.jsx'));		// VMWare video search page.
+const TechnicalPapersLanding = React.lazy(() => import('pages/support/TechnicalPapersLanding.jsx'));
 
 const templates = {
 	home,					// Template name is lower case in JSON.
@@ -144,6 +152,9 @@ const templates = {
 	SingleColStripe,
 	Tabbed,
 	Stacked,
+	TabbedContent,
+	SWProductTab,
+	SolutionTab,
 	SiteMap,
 	// SiteMapProducts,
 	// CASiteMapProducts,
@@ -234,10 +245,13 @@ const templates = {
 	Search,
 	KnowledgebaseSearch,
 	ProductSearch,
+	TabSearch,
 	ExploreSearchVideos,
 	GlossaryAtoZ,
 	TechdocsAtoZ,
 	SearchVideos,
+	TechnicalPapersLanding,
+	VMmarkLanding,
 };
 
 

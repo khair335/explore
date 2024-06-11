@@ -17,6 +17,8 @@ import Loading from 'components/Loading.jsx';
 import { VideoCard } from 'templates/cards/CardFactory.jsx';
 
 import 'scss/pages/explore-search-videos.scss'
+import MultiSelectFilter from 'components/MultiSelectFilter.jsx';
+import {filterParams} from 'components/utils.jsx';
 
 const ExploreSearchVideos = (props) => {
 	const navigate = useNavigate();
@@ -31,6 +33,7 @@ const ExploreSearchVideos = (props) => {
 	const [sortKey, setSortKey] = useState('most-recent');
 	const [videoCount, setVideoCount] = useState('0');
 	const [limit, setLimit] = useState(12);
+	const [offset, setOffset] = useState(0);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -57,16 +60,12 @@ const ExploreSearchVideos = (props) => {
 			'Accept': `application/json;pk=${config.video.policy_key}`,
 		}),
 	}
-
-	const filterParams = (updatedValues) => {
-		const newFilter = Object.entries(updatedValues)?.map(([category, values]) => {
-			if (values?.length === 0) return ''; // Skip categories with no values
-			if (values?.length > 2) return `%3B${category}:${values.join(',')}`;
-			return `%2B${category}:${values.join(',')}`;
-		})?.filter(Boolean)?.join('');
-
-		setFilterString(newFilter)
-	}
+	let options = {
+		method: 'GET',
+		credentials: config.api_credentials,			
+		cache: "no-store",								
+		
+	};
 
 	useEffect(() => {
 		setInputChange(searchParams.term || '');
@@ -117,7 +116,7 @@ const ExploreSearchVideos = (props) => {
 				updatedSelectedValues.region = [];
 			}
 
-			filterParams(updatedSelectedValues);
+			setFilterString(filterParams(updatedSelectedValues));
 			setSelectedValues(updatedSelectedValues);
 		}
 	}, []);
@@ -125,19 +124,6 @@ const ExploreSearchVideos = (props) => {
 	const handleYear = (year) => {
 		setSelectedYear(year)
 	};
-
-	const checkSelectedValues = (selectedValues) => {
-		for (let key in selectedValues) {
-			if (selectedValues[key].length !== 0) {
-				return true
-			}
-		}
-		return false
-	}
-
-	useEffect(() => {
-		setHasSelectedValues(checkSelectedValues(selectedValues))
-	}, [selectedValues])
 
 	const checkVideos = (videos) => {
 		if (videoCount !== 0) {
@@ -150,36 +136,13 @@ const ExploreSearchVideos = (props) => {
 		setHasVideos(checkVideos)
 	}, [videoCount])
 
-
-
-	const toggleDropdown = (attribute) => {
-		setOpenDropdown(openDropdown === attribute ? null : attribute);
-	};
-
-
-	const handleCheckboxChange = (attribute, value) => {
-		setSelectedValues(prevSelectedValues => {
-			const updatedValues = { ...prevSelectedValues };
-			if (prevSelectedValues[attribute]) {
-				if (prevSelectedValues[attribute].includes(value)) {
-					updatedValues[attribute] = prevSelectedValues[attribute].filter(val => val !== value);
-				} else {
-					updatedValues[attribute] = [...prevSelectedValues[attribute], value];
-				}
-			} else {
-				updatedValues[attribute] = [value];
-			}
-
-			filterParams(updatedValues);
-			return updatedValues;
-		});
-
-	};
-
 	const handleReset = () => {
+		setVideos([])
+		setVideoIds([])
 		setInputChange('')
 		setSearchTerm('')
 		setLimit(12)
+		setOffset(0)
 		setLoadCount(0)
 		setSelectedValues({
 			event_delivery: [],
@@ -194,52 +157,64 @@ const ExploreSearchVideos = (props) => {
 
 	};
 
+	const [videoIds, setVideoIds] = useState([])
+
 	// Init/componentDidMount
-	// useEffect(() => {
-	// 	liveEvents();
-	// }, []);
+	useEffect(() => {
+		liveEvents();
+	}, []);
+
+	useEffect(()=>{
+		setLoadCount(videos.length)
+	},[videos])
+
 	useEffect(() => {
 		setLoading(true);
-	
+		const getVideoIds = (videos) => {
+			const videoIds = videos.map(video => video.id)
+			return videoIds
+		}
+
 		const fetchData = (url) => {
 			fetch(url, headers_json)
 				.then(resp => resp.json())
 				.then(json => {
-					let videos = json.videos?.map(video => {
+					let temp_videos = json.videos?.map(video => {
 
-                        if (props.noname) {
-							if(!video.long_description){
+						if (props.noname) {
+							if (!video.long_description) {
 								video.long_description = video.description
 							}
 							video.description = video.name
-                            video.name = null;
-                        }
-                        return video;
+							video.name = null;
+						}
+						return video;
 					});
 					setLoading(false);
 					setVideoCount(json.count);
-					setVideos(videos);
-					setLoadCount(json.videos.length);
+					setVideos([...videos, ...temp_videos]);
+					setVideoIds([...videoIds, ...getVideoIds(temp_videos)]);
+					// setLoadCount(json.videos.length);
 				});
 		};
-	
+
 		if (!props.nofilter) {
 			if (sortKey === 'most-recent') {
 				const url = (searchTerm?.trim()?.length > 0) ?
-					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Byear:"${selectedYear}"%20${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:"2022"&limit=${limit}` :
-					`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}`;
+					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Byear:"${selectedYear}"%20${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:"2022"&limit=${limit}&offset=${offset}` :
+					`${config.video.endpoint}?q=%2Byear:"${selectedYear}"${filterString}%20-event_delivery:"Singapore"%20-vod_on_demand_publish:"False"%20-year:2022&limit=${limit}&offset=${offset}`;
 				fetchData(url);
 			}
 		} else {
 			if (sortKey === 'most-recent') {
 				const url = (searchTerm?.trim()?.length > 0) ?
-					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}` :
-					`${config.video.endpoint}?q=%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}`;
+					`${config.video.endpoint}?q=%2B${searchTerm}%20%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}&offset=${offset}` :
+					`${config.video.endpoint}?q=%2Bwhere_the_video_should_be_hosted_:${config.video.host}&limit=${limit}&offset=${offset}`;
 				fetchData(url);
 			}
 		}
-	}, (!props.nofilter) ? [selectedValues, selectedYear, searchTerm, filterString, limit] : [searchTerm, limit]);
-	
+	}, (!props.nofilter) ? [selectedValues, selectedYear, searchTerm, filterString, offset] : [searchTerm, offset]);
+
 	useEffect(() => {
 		if (searchTerm.length > 0) {
 			searchParams['term'] = searchTerm
@@ -271,13 +246,17 @@ const ExploreSearchVideos = (props) => {
 	};
 
 	const loadMore = () => {
-		setLimit(limit + 12);
+		// setLimit(limit + 12);
+		setOffset(offset + 12);
 	};
 
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
-		setSearchTerm(inputChange?.trim())
+		setVideos([])
+		setVideoIds([])
 		setLimit(12)
+		setOffset(0)
+		setSearchTerm(inputChange?.trim())
 		setIsSubmit(true)
 	};
 
@@ -286,21 +265,21 @@ const ExploreSearchVideos = (props) => {
 		setInputChange(e.target.value)
 	};
 
-	const handleSelectedValues = (attribute, value) => {
-		setSelectedValues((prevSelectedValues) => {
-			const updatedSelectedValues = { ...prevSelectedValues };
+	// const handleSelectedValues = (attribute, value) => {
+	// 	setSelectedValues((prevSelectedValues) => {
+	// 		const updatedSelectedValues = { ...prevSelectedValues };
 
-			if (prevSelectedValues[attribute]) {
-				updatedSelectedValues[attribute] = prevSelectedValues[attribute].filter(
-					(val) => val !== value
-				);
-			}
-			setLimit(12)
-			setLoadCount(0)
-			filterParams(updatedSelectedValues)
-			return updatedSelectedValues;
-		});
-	}
+	// 		if (prevSelectedValues[attribute]) {
+	// 			updatedSelectedValues[attribute] = prevSelectedValues[attribute].filter(
+	// 				(val) => val !== value
+	// 			);
+	// 		}
+	// 		setLimit(12)
+	// 		setLoadCount(0)
+	// 		filterParams(updatedSelectedValues)
+	// 		return updatedSelectedValues;
+	// 	});
+	// }
 
 	return (
 		<div id="ExploreSearchVideos">
@@ -327,7 +306,20 @@ const ExploreSearchVideos = (props) => {
 						<hr />
 						<br />
 						<div>
-							<div className="dropdown-container">
+							<MultiSelectFilter
+								items={props.data?.filters?.filter((data) => data.label !== "Year")}
+								defaultLabel="region"
+								placeholder={searchTerm.trim()}
+								selectedValues={selectedValues}
+								setSelectedValues={setSelectedValues}
+								setFilterString={setFilterString}
+								onReset={handleReset}
+								setVideoIds={setVideoIds}
+								setVideos={setVideos}
+								setLoadCount={setLoadCount}
+							></MultiSelectFilter>
+
+							{/* <div className="dropdown-container">
 								{props.data?.filters?.filter((data) => data.label !== "Year")?.map((dropdown) => (
 									(dropdown.label?.toLowerCase() !== 'region') ? <Dropdown key={dropdown.attribute} isOpen={openDropdown === dropdown.attribute} toggle={() => toggleDropdown(dropdown.attribute)}>
 										<DropdownToggle caret>
@@ -368,8 +360,8 @@ const ExploreSearchVideos = (props) => {
 									))
 								)}
 								{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}
-							</div>
-						</div></> || <>{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear filter</Button>}</>}
+							</div> */}
+						</div></> || <>{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear Filters</Button>}</>}
 
 				</Container>
 			</div>

@@ -231,17 +231,14 @@
 
 .modal-dialog {
 	max-width: 60% !important;
-	padding: 9px !important;
-	border: none !important;
 
 	.modal-header {
-		    border: none !important;
+		border: none;
 		.close {
 			font-size: 50px;
 		}
 	}
-
-	 .modal-footer {
+	.modal-footer {
         display: none !important;
     }
 		.vjs-big-play-button{
@@ -267,7 +264,6 @@
 			}
 		}
 
-
 }
 
 button.video-image-modal-button {
@@ -277,7 +273,6 @@ button.video-image-modal-button {
 
 	&:hover {
 		border: none;
-
 		&:before {
 			scale: .9;
 		}

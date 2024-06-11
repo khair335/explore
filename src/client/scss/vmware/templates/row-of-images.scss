@@ -1,0 +1,31 @@
+/*
+* templates/row-of-images.scss
+*/
+// VMware agenda.
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+
+.RowOfImages {
+    .row-of-image-image {
+        display: flex;
+        align-items: center;        // Veritcally align the image.
+
+        .image-wrapper {
+            margin: 0 auto;
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 20px;
+
+        }
+    }
+}

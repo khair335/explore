@@ -226,6 +226,30 @@ const CarouselContentBlock = (props) => {
 
 		content_blocks = video_content_blocks;
 	}
+	else {
+		// JD - Fill in blanks for now.
+		// Find max number of columns.
+		let max_cols = 0;
+
+		content_blocks.forEach(content_block => {
+			if (content_block.template === 'ContentCard') {
+				max_cols = Math.max(max_cols, content_block?.columns?.length);
+			}
+		});
+
+		// Fill us.
+		content_blocks.forEach(content_block => {
+			if (content_block.template === 'ContentCard' && content_block?.columns?.length < max_cols) {
+				let empties = new Array(max_cols - content_block?.columns?.length);
+				content_block.columns.push(...empties.fill([{'template': 'empty'}]));
+
+				console.log(empties, content_block.columns);
+			}
+		});
+
+
+
+	}
 
 
 	// Split up each block into individual blocks.

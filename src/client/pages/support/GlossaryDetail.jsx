@@ -24,7 +24,6 @@ const EmptyModule = (props) => (null); // Used to set empty cards and force numb
 
 
 const TextModule = ({ data = {}, isPageTitle }) => {
-	console.log(data);
 	return (
 		<div className="glossary-module glossary-module-text">
 			{isPageTitle

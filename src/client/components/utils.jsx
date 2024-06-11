@@ -165,13 +165,15 @@ export function localizeText(id, defaultText) {
 	return localText;
 }
 
+export const filterParams = (updatedValues) => {
+	const newFilter = Object.entries(updatedValues)?.map(([category, values]) => {
+		if (values?.length === 0) return ''; // Skip categories with no values
+		// if (values?.length > 2) return `%3B${category}:${values.join(',')}`;
+		return `%2B${category}:${values.join(',')}`;
+	})?.filter(Boolean)?.join('');
 
-
-
-
-
-
-
+	return newFilter;
+}
 
 /**
  *  @brief 
@@ -807,6 +809,45 @@ class Utils {
 			rect.right <= (window.innerWidth || html.clientWidth)
 		);
 	}
+	/**
+	 *  @brief 
+	 *  @details Video duration time conversion to ISO 8601 format for Schema.
+	 */
+	 
+	convertToISO8601Duration(duration) {
+        let ds = parseInt((duration / 1000) % 60);
+        let dm = parseInt((duration / (1000 * 60)) % 60);
+        let dh = parseInt((duration / (1000 * 60 * 60)) % 24);
+        let time='';
+        if (dh > 0) {
+            dh = (dh < 10) ? "0" + dh : dh;
+            time += `${dh}:`;
+        }
+        if (dm > 0) {
+            dm = (dm < 10) ? "0" + dm : dm;
+            time += `${dm}:`;
+        }
+        if (ds > 0) {
+            ds = (ds < 10) ? "0" + ds : ds;
+            time += `${ds}`;
+        }
+        const parts = time.split(':');
+        let isoDuration='';
+        if(parts.length == 1){
+            const seconds = parseFloat(parts[0]);
+            isoDuration = `PT${seconds}S`;
+        }else if(parts.length == 2){
+            const minutes = parseInt(parts[0], 10);
+            const seconds = parseFloat(parts[1]);
+            isoDuration = `PT${minutes}M${seconds}S`;
+        }else{
+            const hours = parseInt(parts[0], 10);
+            const minutes = parseInt(parts[1], 10);
+            const seconds = parseFloat(parts[2]);
+            isoDuration = `PT${hours}H${minutes}M${seconds}S`;
+        }
+        return isoDuration;
+    }
 
 }
 

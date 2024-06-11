@@ -10,7 +10,10 @@
       font-family: $font-family--primary;
       position: relative;
     }
-    .bc-input{padding-right: 50px;}
+    .bc-input{
+      padding-right: 50px;
+      font-size: $font-size-lg;
+    }
   
     .dropdown-menu{
       max-height: 300px;
@@ -25,16 +28,24 @@
       .dropdown-item{
         line-height: 1.4;
         padding: 10px;
-        font-weight: 600;
-        color: currentColor;
+        //font-weight: 600;
+       // color: currentColor;
+       color:$color-primary;
         white-space: normal;
         font-size: $font-size-md;
-        &:not(:last-of-type){
-          border-bottom: 1px solid $color-grey--500;
-        }
+        text-decoration: none;
+        text-wrap: balance;
+        text-transform: capitalize;
+        font-weight: 300;
+        // &:not(:last-of-type){
+        //   border-bottom: 1px solid $color-grey--500;
+        // }
         &:hover{
-          background-color: $color-grey--500;
-          color: $color-grey--900;
+          // background-color: $color-grey--500;
+          // color: $color-grey--900;
+          color: $color-white;
+          background: $color-primary;
+          text-decoration: none;
         }
       }
     }
@@ -43,5 +54,28 @@
       .bc-input{
         height: 35px;
       }
+      button.search-bttn {
+        background-color: $color-white;
+        .brcmicon-search{
+          margin-left: 0;
+          color:$color-primary;
+          font-size:1.5rem;
+        }
+      }
+      button.clear-bttn{
+        height: 35px;
+      }
+    }
+    
+    form{
+      border: 1px solid $color-grey--600;
+    }
+    
+  }
+
+  // Search box specific. Broadcom has a backgroun to its search box, let's remove it.
+  .bc--bg_gray500 {
+    &.search-box {
+      background-color: transparent;
     }
   }

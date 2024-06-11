@@ -617,7 +617,7 @@ export class SubHeadHero extends Component {
 
 	render() {
 
-		if (this.props?.data?.hero_banner) {
+		if (this.props?.data?.hero_banner && this.props?.data?.hero_banner.length > 0) {
 			return (
 				<>
 					<Container>

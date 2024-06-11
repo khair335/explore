@@ -1,0 +1,76 @@
+/*
+* components/multi-select-filter.scss
+*/
+// Styling for broadcom custom MultiSelectFilter
+
+@import "../base/variables";
+@import "../base/buttons";
+@import "../components/card.scss";
+
+// Fontawesome
+// @import "../fontawesome/fontawesome";
+// @import "../fontawesome/solid";
+// @import '../fontawesome/brands';
+
+
+.multi-select-filter {
+    // JD - Does not compile for broadcom.
+    // .selected-container {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     // justify-content: space-between;
+    // }
+
+    // .keywords-tag {
+    //     display: flex;
+    // }
+
+    // .selected-container {
+    //     gap: 10px;
+    //     margin-top: 10px;
+
+    //     .keywords-tag {
+    //         height: 30px;
+    //         background: $color-primary;
+    //         color: #fff;
+    //         font-size: 14px;
+    //         font-weight: 300;
+    //         border-radius: 100px;
+    //         padding: 5px;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         gap: 5px;
+
+
+    //         .close-button {
+    //             height: 30px;
+    //             width: auto;
+    //             padding: 0;
+    //             border-radius: 0;
+    //             background: transparent;
+    //             border: none;
+
+    //             &:hover {
+    //                 border: none;
+    //             }
+
+    //         }
+
+    //     }
+    // }
+
+    // .clear-btn {
+    //     background: transparent;
+    //     border: none;
+    //     padding: 0;
+    //     color: #294d8c;
+    //     font-size: 16px;
+    //     cursor: pointer;
+    //     display: inline-block;
+    //     height: 30px;
+    //     text-transform: capitalize;
+    //     font-weight: 300;
+    //     text-decoration: underline;
+    // }
+}

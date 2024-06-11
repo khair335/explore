@@ -29,6 +29,17 @@
 
     .CaseCard.card {
         height: 100%;
+
+        .card-body .card-title {
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        .card-footer {
+            font-size: $font-size-lg;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
     }
     
     .section-highlight {

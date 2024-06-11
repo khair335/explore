@@ -14,29 +14,29 @@
 
 
  #ExploreSearchVideos {
-   .dropdown-container {
-     display: flex;
-   }
+  //  .dropdown-container {
+  //    display: flex;
+  //  }
 
    .year-container {
      display: flex;
    }
 
-   .dropdown-container {
-     display: flex;
-     justify-content: space-between;
-     flex-wrap: wrap;
-   }
+  //  .dropdown-container {
+  //    display: flex;
+  //    justify-content: space-between;
+  //    flex-wrap: wrap;
+  //  }
 
-   .selected-container {
-     display: flex;
-     flex-wrap: wrap;
-     // justify-content: space-between;
-   }
+  //  .selected-container {
+  //    display: flex;
+  //    flex-wrap: wrap;
+  //    // justify-content: space-between;
+  //  }
 
-   .keywords-tag {
-     display: flex;
-   }
+  //  .keywords-tag {
+  //    display: flex;
+  //  }
 
    .video-panel {
      display: grid;
@@ -140,144 +140,144 @@
 
    }
 
-   .dropdown-container {
-     gap: 16px;
+  //  .dropdown-container {
+  //    gap: 16px;
 
 
-     .dropdown {
-       flex: 1;
+  //    .dropdown {
+  //      flex: 1;
 
-       &.show {
+  //      &.show {
 
-         .dropdown-caret {
-           @include fa-icon-solid($fa-var-chevron-right);
-           transition: 0.2s ease-in-out;
-           transform: rotate(90deg);
-         }
-       }
+  //        .dropdown-caret {
+  //          @include fa-icon-solid($fa-var-chevron-right);
+  //          transition: 0.2s ease-in-out;
+  //          transform: rotate(90deg);
+  //        }
+  //      }
 
-       button {
+  //      button {
 
-         @include secondary-button;
-         width: 100%;
-         text-align: left;
-         display: inline-block;
-         padding-left: 10px;
-         padding-right: 30px;
+  //        @include secondary-button;
+  //        width: 100%;
+  //        text-align: left;
+  //        display: inline-block;
+  //        padding-left: 10px;
+  //        padding-right: 30px;
 
-         // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
-         .dropdown-caret {
-           @include fa-icon-solid($fa-var-chevron-right);
-           transition: 0.2s ease-in-out;
-           right: 8px;
-           position: absolute;
-           top: 15px;
-         }
-
-
-         &:hover {
-
-           @include secondary-hover;
-         }
+  //        // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
+  //        .dropdown-caret {
+  //          @include fa-icon-solid($fa-var-chevron-right);
+  //          transition: 0.2s ease-in-out;
+  //          right: 8px;
+  //          position: absolute;
+  //          top: 15px;
+  //        }
 
 
+  //        &:hover {
 
-       }
-     }
-
-     .dropdown-menu {
-       max-width: 151.42px;
-       min-width: 151.42px;
-       width: 100%;
-       padding: 10px;
-       max-height: 190px;
-       overflow-y: auto;
-       overflow-x: hidden;
-       border-radius: 0;
-
-       &::-webkit-scrollbar {
-         height: 8px;
-         width: 8px;
-       }
-
-       &::-webkit-scrollbar-track {
-         border-radius: 0px;
-         background-color: #DFE9EB;
-       }
-
-       &::-webkit-scrollbar-track:hover {
-         background-color: #B8C0C2;
-       }
-
-       &::-webkit-scrollbar-track:active {
-         background-color: #B8C0C2;
-       }
-
-       &::-webkit-scrollbar-thumb {
-         border-radius: 0px;
-         background-color: #555555;
-       }
-
-       &::-webkit-scrollbar-thumb:hover {
-         background-color: #555555;
-       }
-
-       &::-webkit-scrollbar-thumb:active {
-         background-color: #555555;
-       }
-
-       button {
-         padding: 0;
-         border: none;
-         height: auto;
-
-         label {
-           display: flex;
-           align-items: center;
-           gap: 10px;
-           font-weight: 300;
-           text-wrap: initial;
-           padding-bottom: 10px;
-         }
-       }
-     }
+  //          @include secondary-hover;
+  //        }
 
 
-   }
 
-   .selected-container {
-     gap: 10px;
+  //      }
+  //    }
 
-     .keywords-tag {
-       height: 30px;
-       background: $color-primary;
-       color: #fff;
-       font-size: 14px;
-       font-weight: 300;
-       border-radius: 100px;
-       padding: 5px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       gap: 5px;
+  //    .dropdown-menu {
+  //      max-width: 151.42px;
+  //      min-width: 151.42px;
+  //      width: 100%;
+  //      padding: 10px;
+  //      max-height: 190px;
+  //      overflow-y: auto;
+  //      overflow-x: hidden;
+  //      border-radius: 0;
+
+  //      &::-webkit-scrollbar {
+  //        height: 8px;
+  //        width: 8px;
+  //      }
+
+  //      &::-webkit-scrollbar-track {
+  //        border-radius: 0px;
+  //        background-color: #DFE9EB;
+  //      }
+
+  //      &::-webkit-scrollbar-track:hover {
+  //        background-color: #B8C0C2;
+  //      }
+
+  //      &::-webkit-scrollbar-track:active {
+  //        background-color: #B8C0C2;
+  //      }
+
+  //      &::-webkit-scrollbar-thumb {
+  //        border-radius: 0px;
+  //        background-color: #555555;
+  //      }
+
+  //      &::-webkit-scrollbar-thumb:hover {
+  //        background-color: #555555;
+  //      }
+
+  //      &::-webkit-scrollbar-thumb:active {
+  //        background-color: #555555;
+  //      }
+
+  //      button {
+  //        padding: 0;
+  //        border: none;
+  //        height: auto;
+
+  //        label {
+  //          display: flex;
+  //          align-items: center;
+  //          gap: 10px;
+  //          font-weight: 300;
+  //          text-wrap: initial;
+  //          padding-bottom: 10px;
+  //        }
+  //      }
+  //    }
 
 
-       .close-button {
-         height: 30px;
-         width: auto;
-         padding: 0;
-         border-radius: 0;
-         background: transparent;
-         border: none;
+  //  }
 
-         &:hover {
-           border: none;
-         }
+  //  .selected-container {
+  //    gap: 10px;
 
-       }
+  //    .keywords-tag {
+  //      height: 30px;
+  //      background: $color-primary;
+  //      color: #fff;
+  //      font-size: 14px;
+  //      font-weight: 300;
+  //      border-radius: 100px;
+  //      padding: 5px;
+  //      display: flex;
+  //      justify-content: center;
+  //      align-items: center;
+  //      gap: 5px;
 
-     }
-   }
+
+  //      .close-button {
+  //        height: 30px;
+  //        width: auto;
+  //        padding: 0;
+  //        border-radius: 0;
+  //        background: transparent;
+  //        border: none;
+
+  //        &:hover {
+  //          border: none;
+  //        }
+
+  //      }
+
+  //    }
+  //  }
 
    .clear-btn {
      background: transparent;

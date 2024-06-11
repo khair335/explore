@@ -116,17 +116,19 @@ const loadPageData = ({ request }) => {
 			.then(resp => resp.json())
 			.then(meta => {
 				if (meta && meta.status_code === "404") {
-					if(document.referrer==="") {		//Do not try to understand Cardinal Path for they are a breed apart and make no sense
-						gtmPushTag({    
+					if (document.referrer === "") {		//Do not try to understand Cardinal Path for they are a breed apart and make no sense
+						gtmPushTag({
 							"id": "P018",
-							"status":true,
-							"page_type": "404"})
+							"status": true,
+							"page_type": "404"
+						})
 					} else {
-						gtmPushTag({    
+						gtmPushTag({
 							"id": "P018",
-							"status":true,
+							"status": true,
 							"page_type": "404",
-							"source_of_404": document.referrer})
+							"source_of_404": document.referrer
+						})
 					}
 				}
 				// If we are a redirect, redirect to the page.
@@ -326,6 +328,22 @@ const loadPageData = ({ request }) => {
 						}
 
 
+						// https://hgsdigitalprojects.atlassian.net/browse/BVCM-154
+						// Hide the page title if have a hero banner title.
+						let page_title = data.title || data.category_title || data.part_number || data.page_title;		// PageTitle = company/news/financial-releases/2387502
+						if (config.hide_page_title) {
+							// Our banner has a title so just hide our page title.
+							if (data?.hero_banner?.some(banner => banner.title)) {
+								// Clear out our title
+								page_title = '';
+							}
+						}
+
+						// https://hgsdigitalprojects.atlassian.net/browse/BCVW-635
+						if (config.hide_breadcrumbs) {
+							data.breadcrumb_list = null;
+						}
+
 						return {
 							error: null,
 							loading: false,
@@ -335,7 +353,7 @@ const loadPageData = ({ request }) => {
 								body: data.body,
 								breadcrumb: data.breadcrumb_list,
 								hide_print_share: data.hide_print_share,
-								title: data.title || data.category_title || data.part_number || data.page_title,		// PageTitle = company/news/financial-releases/2387502
+								title: page_title,
 								sub_title: data.sub_title,					// adding back in since it is page form and json for cms 2.0. dont know about this note => TODO: Subtitle, currently not being used anymore.
 								ctas: data.cta,
 								left_nav: leftnav && Object.keys(leftnav).length > 0 ? leftnav : null,

@@ -6,13 +6,13 @@
 import config from 'client/config.js';
 import React, { Component, useEffect } from 'react';
 import SiteLink from "components/SiteLink.jsx";
-import {SubHead} from 'components/subHeader.jsx';
+import { SubHeadHero } from 'components/subHeader.jsx';
 import { Container } from 'reactstrap';
 import liveEvents from 'components/liveEvents.js';
 
 
 const BoilerPlate = (props) => {
-	
+
 	// Init/componentDidMount
 	useEffect(() => {
 		liveEvents();
@@ -20,8 +20,8 @@ const BoilerPlate = (props) => {
 
 	return (
 		<Container id="##CLASSNAME##">
-			<SubHead {...props.page} />
-			
+			<SubHeadHero {...props} />
+
 			{/* Add content here */}
 		</Container>
 	);

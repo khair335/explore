@@ -88,7 +88,8 @@ class InPageNavigation extends Component {
 											hash={1}
 
 										>
-											{item.section_title || item.content_block_title}
+											{/* New Feature for VMware, we can have custom tab titles. */}
+											{item.tab_title || item.section_title || item.content_block_title}
 										</ScrollToLink>
 									</li>
 								)

@@ -410,18 +410,21 @@ export default function (props) {
 			const transformCard = (card) => {
 				// Transform
 				card.links = [{
-					title: "View case study",
+					title: (config.site === "vm") ? "View Customer Story" : "View Case Study",
 					url: card.url,
 				}];
+				 
+				if (config.site === "vm") {
+					card.description = card.meta_description || "no descriptiion";
+					card.title = card.customer_name || "no name";
+				}
+
 				return (
 					<Col lg="4" key={card.content_id} className="mt-3 fadein">
 						{getCardFromTemplate("CaseCard", card)}
 					</Col>
 				);
 			};
-
-
-
 
 			const subheadNav = () => {
 				return (

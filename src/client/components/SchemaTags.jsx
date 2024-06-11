@@ -237,6 +237,19 @@ return {
 
 }
 
+getVideo(item){
+    return {
+        "@type": "VideoObject",
+        "name": item.name,
+        "description": item.longDescription,
+        "thumbnailUrl": item.thumbnailSources,
+        "uploadDate": item.updatedAt,
+        "duration": item.duration,
+        "contentUrl":item.contentUrl,
+        "embedUrl":item.embedUrl
+    }
+}
+
 getItemSchema(item) {                                                                   // Product, Person, BlogPosting, TechArticle, NewsArticle, ContactPage, Corporation
     switch(this.props.schemaType) {
         case 'Hard-Product': return this.getHardProduct(item);
@@ -258,6 +271,8 @@ getItemSchema(item) {                                                           
         case 'Corporation': return this.getCorporation(item);
         break;
         case 'BreadcrumbList': return this.getBreadcrumbList(item);
+        break;
+        case 'Video': return this.getVideo(item);
         default:
             console.log("Schema type not found");
     }

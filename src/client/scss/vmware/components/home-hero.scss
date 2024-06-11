@@ -9,15 +9,23 @@
 $carousel-indicator-height: 20px;
 
 .top-banner {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  margin-top: -42px;          // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
-  z-index: 1;
 
-  @media screen and (max-width: map-get($grid-breakpoints, md) - 1)  {      // in mobile not needed
-    margin-top: 0px;
+  // Only if we actually have a banner because top-banner can still be rendered
+  div[role=banner] {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      // in mobile not needed
+      margin-top: 0px;
+    }
+
   }
+
+
 
   .carousel.slide {
     padding: 0px;
@@ -133,8 +141,8 @@ $carousel-indicator-height: 20px;
         .banner-caption-video {
           padding: 8px;
           border-radius: 3px;
-          background-color:  $background-light-blue;
-          box-shadow:  $shadow-1;
+          background-color: $background-light-blue;
+          box-shadow: $shadow-1;
           margin: 20px 0 0 30px;
 
 
@@ -315,7 +323,7 @@ $carousel-indicator-height: 20px;
     h1 {
       padding: 20px 6px 10px 0;
       font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
-      color:$color-black;
+      color: $color-black;
 
       @media screen and (min-width: 1980px) {
         font-size: 50px;

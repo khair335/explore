@@ -18,6 +18,9 @@
   
 		  .card-head{
 			 padding: 20px 0px;
+			 h6 {		// JD - VMWare changed tagged from div to h6 so restyle it.
+				font-size: $font-size-lg;
+			 }
 		  }
 		  ul{
 			  li{line-height: 1.8}
