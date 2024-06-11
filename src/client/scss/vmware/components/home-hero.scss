@@ -5,6 +5,7 @@
 
 @import "../base/variables";
 @import "../base/_transitions";
+@import "../base/buttons";
 @import "~bootstrap/scss/mixins/breakpoints";
 $carousel-indicator-height: 20px;
 
@@ -33,6 +34,19 @@ $carousel-indicator-height: 20px;
 
   .carousel-indicators {
     display: none;
+  }
+
+  @media (max-width: 767.98px) {
+    .theme-banner-light {
+      display: flex;
+      flex-direction: column-reverse;
+      position: relative
+    }
+
+    img {
+      position: absolute;
+      bottom: 0
+    }
   }
 }
 
@@ -271,17 +285,17 @@ $carousel-indicator-height: 20px;
         color: $color-white;
       }
 
-      a.lnk {
-        border-color: $color-white;
-        background-color: transparent;
-        color: $color-white;
+      // a.lnk {
+      //   border-color: $color-white;
+      //   background-color: transparent;
+      //   color: $color-white;
 
-        &:hover {
-          border-color: $color-white;
-          background-color: $color-white;
-          color: $color-link-hover-dark;
-        }
-      }
+      //   &:hover {
+      //     border-color: $color-white;
+      //     background-color: $color-white;
+      //     color: $color-link-hover-dark;
+      //   }
+      // }
     }
 
     p {
@@ -353,42 +367,43 @@ $carousel-indicator-height: 20px;
     }
 
     a.lnk {
-      font-size: 14px;
-      color: $color-primary; //mods _link.scss
-      display: inline-block;
-      width: fit-content;
-      border: 1px solid $color-white;
-      border-radius: 3px;
-      padding: 6px 23px;
-      margin: 15px 0 5px 0;
-      text-decoration: none;
-      line-height: 1.5;
-      font-weight: 300;
-      transition: all 0.2s ease;
-      border-color: $color-white;
-      background-color: $color-primary;
-      color: $color-white;
-      background: $color-primary;
+      // font-size: 14px;
+      // color: $color-primary; //mods _link.scss
+      // display: inline-block;
+      // width: fit-content;
+      // border: 1px solid $color-white;
+      // border-radius: 3px;
+      // padding: 6px 23px;
+      // margin: 15px 0 5px 0;
+      // text-decoration: none;
+      // line-height: 1.5;
+      // font-weight: 300;
+      // transition: all 0.2s ease;
+      // border-color: $color-white;
+      // background-color: $color-primary;
+      // color: $color-white;
+      // background: $color-primary;
 
-      &:hover {
-        border-color: $color-primary;
-        background-color: $color-white;
-        color: $color-primary;
-      }
+      // &:hover {
+      //   border-color: $color-primary;
+      //   background-color: $color-white;
+      //   color: $color-primary;
+      // }
 
-      @media (max-width: 460px) {
-        margin-top: 7px;
-      }
+      // @media (max-width: 460px) {
+      //   margin-top: 7px;
+      // }
 
 
-      span {
-        display: none;
-      }
+      // span {
+      //   display: none;
+      // }
 
 
       .bi {
         font-size: $font-size-md;
         border: none;
+        display: none;
         margin-left: 5px;
       }
     }
@@ -560,8 +575,7 @@ $carousel-indicator-height: 20px;
     }
 
     .featurette-heading {
-      //font-size: 50px;
-      //text-transform: capitalize;
+
 
 
       @include media-breakpoint-down(md) {
@@ -598,17 +612,69 @@ $carousel-indicator-height: 20px;
             text-decoration: none !important;
           }
 
-          @include media-breakpoint-down(md) {
-            background-color: $color-primary !important;
-            border: 1px solid $color-primary !important;
-            color: $color-white !important;
+          // @include media-breakpoint-down(md) {
+          //   background-color: $color-primary !important;
+          //   border: 1px solid $color-primary !important;
+          //   color: $color-white !important;
 
-            &:hover {
-              background-color: $color-white !important;
-              border: 1px solid $color-primary !important;
-              color: $color-primary !important;
-              text-decoration: none !important;
+          //   &:hover {
+          //     background-color: $color-white !important;
+          //     border: 1px solid $color-primary !important;
+          //     color: $color-primary !important;
+          //     text-decoration: none !important;
+          //   }
+          // }
+        }
+
+        &:nth-of-type(1) {
+          @extend .bttn;
+          @include primary-button;
+          margin-right: 30px;
+
+          a {
+            color: white;
+            text-decoration: none;
+          }
+
+
+          &:hover {
+            @include primary-hover;
+
+            a {
+              color: $color-primary ;
             }
+          }
+
+          &:after {
+            @include button-after;
+          }
+        }
+
+        &:nth-of-type(2) {
+          @extend .bttn;
+          @include secondary-button;
+
+          a {
+
+            text-decoration: none;
+          }
+
+          &:hover {
+            @include secondary-hover;
+
+            a {
+              color: $color-white ;
+            }
+          }
+
+          &:after {
+            @include button-after;
+          }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+          &:nth-of-type(1) {
+            margin-right: 0;
           }
         }
       }

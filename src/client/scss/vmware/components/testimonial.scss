@@ -17,9 +17,7 @@
 
 	.card-body {
 		padding: 50px 60px;
-	}
-
-	.quote {
+		.quote {
 		font-size: 32px;
 		line-height: 42px;
 		text-align: center;
@@ -39,6 +37,9 @@
 		}
 
 	}
+	}
+
+
 
 	.signature,
 	.source {
@@ -59,13 +60,13 @@
 .Testimonial-section {
 	.TestimonialCard {
 		box-shadow: none !important;
-	  
+
 		.cb-cta-link {
 		  align-items: flex-start;
-	  
+
 		  .lnk {
 			@include cta-link-style;
-	  
+
 			&:hover {
 			  background: transparent;
 			  color: $color-primary;
@@ -74,9 +75,9 @@
 			  text-underline-offset: 3px;
 			  text-decoration-thickness: 2px;
 			  border: 0;
-	  
+
 			}
-	  
+
 			&:after {
 			  @include cta-link-after;
 			}
