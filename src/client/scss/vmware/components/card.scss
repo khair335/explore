@@ -256,6 +256,10 @@
             background-size: cover;
         }
 
+        &:before{
+            content: unset;
+        }
+
     }
 
     .video-duration {

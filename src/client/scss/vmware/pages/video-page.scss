@@ -257,6 +257,9 @@
         background-position: center center;
         background-size: cover;
       }
+      &:before{
+            content: unset;
+        }
 
     }
   }
