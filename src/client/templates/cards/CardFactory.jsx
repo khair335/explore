@@ -14,6 +14,8 @@ import { BodyResource } from 'components/Body.jsx';
 import Video, { VideoImageModal } from 'components/Video.jsx';
 import classnames from "classnames";
 import { msToTime } from 'components/LibraryElements.jsx';
+import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
+
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
@@ -539,7 +541,7 @@ export const VideoCard = (props) => {
                 </SiteLink>
                 <div className="video-info">
                     <div>
-                    <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name && <>{video_content?.name} {video_content?.name && video_content?.views && <> | </>}</>} {video_content?.views>=0 && <>{video_content.views} views</>}</span></SiteLink>
+                        <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name && <>{video_content?.name} {video_content?.name && video_content?.views && <> | </>}</>} {video_content?.views >= 0 && <>{video_content.views} views</>}</span></SiteLink>
                     </div>
                     <div>
                         {video_content?.description && <SiteLink className='card-video-title' to={url_path} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 27) }}></h5>}</SiteLink>}
@@ -549,6 +551,14 @@ export const VideoCard = (props) => {
             </div>
         </div>
     );
+}
+
+/**
+ *  @brief AccordionCard
+ *  @details
+ */
+export const AccordionCard = (props) => {
+    return getComponentFromTemplate("Accordion", props.data);
 }
 
 /**
@@ -567,6 +577,7 @@ const templates = {
     CaseCard,
     AnalystReportCard,
     VideoCard,
+    AccordionCard,
 };
 
 /**
@@ -646,11 +657,14 @@ export function applyCardType(card, default_type, image_position) {
         case "empty":
             type = "EmptyCard";
             break;
+        case "Accordion":
+            type = "AccordionCard";
+            break;
         default:
             // Use the asset_type to determine card.
             // Only if top card.
             if ((card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page')) {
-                if (image_position !== 'Left' && image_position !== 'Right') {   
+                if (image_position !== 'Left' && image_position !== 'Right') {
                     type = 'ProductCard'
                 }
                 else {

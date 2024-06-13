@@ -4,10 +4,17 @@
 
 @import "../base/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
-
+@import "../base/buttons";
+// Fontawesome
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
 
 #VMmarkLanding {
 
+    .top-scores{
+        margin-bottom:40px;
+    }
     .container {
         font-family: Arial, sans-serif;
     }
@@ -118,11 +125,11 @@
 
         .main-card {
             // background-color: white;
-            background-color: $background-light-blue;
+            background-color: $background-light-gray;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             // width: 100%;
-            margin: 5px;
+           // margin: 5px;
             padding: 20px 25px;
             position: relative;
 
@@ -131,9 +138,15 @@
                 color: #333;
                 // padding: 10px;
                 font-size: 16px;
-                text-align: center;
+                text-align: left;
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 0;
+                h4{
+                    line-height: 1;
+                    font-size: 20px;
+                    font-weight: 400;
+                }
 
                 div {
                     display: flex;
@@ -147,6 +160,7 @@
                     }
                 }
             }
+            
 
             .card-button {
                 color: #557e8e;
@@ -154,20 +168,40 @@
                 position: absolute;
                 left: 0;
                 bottom: 0;
-
+                i{
+                    margin-left: 5px;
+                }
 
                 &:hover {
                     border: none;
                 }
+                
 
             }
 
             .table {
+                margin-top: 10px;
                 margin-bottom: 10px;
-
+                th{
+                    padding: 8px !important;
+                    
+                    font-size: 18px;
+                    text-align: left;
+                    font-weight: 400;
+                    color: $color-grey--700;
+                    // &:first-child{
+                    //     width:30%;
+                    // }
+                    
+                }
                 td {
-                    padding-left: 5px;
-                    padding-right: 5px;
+                    padding: 2px 5px !important;
+                    box-shadow: none !important;
+                   // width:30%;
+                    vertical-align: top !important;
+                    // &:first-child{
+                    //     width:30%;
+                    // }
                 }
             }
         }
@@ -230,9 +264,16 @@
     }
 
     .spotlight-item {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
+        margin-bottom: 5px;
+       // padding-bottom: 10px;
         border-bottom: 1px solid #eee;
+        a{
+            text-decoration: none;
+        }
+        td{
+            box-shadow: none !important;
+            vertical-align: top !important;
+        }
     }
 
     .spotlight-date {
@@ -247,12 +288,19 @@
     }
 
     //for other results
+    .related-vmmark-results{
+        background-color: $background-light-blue;
+        margin-top: 30px;
+        h3{
+            padding: 20px;
+        }
+    }
 
     .card-row {
         // display: flex;
         // justify-content: space-between;
         /* Spreads the cards evenly across the row */
-        margin: 20px;
+        padding: 0 20px 30px 20px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
@@ -272,12 +320,17 @@
         border-radius: 5px;
         margin: 10px;
         // padding-bottom: 40px;
-        background-color: $background-light-blue;
+       
+        a{
+            text-decoration: none;
+        }
     }
 
     .card h4 {
-        color: #333;
-        margin-bottom: 10px;
+        color: $color-primary;
+        font-size: 20px;
+        //margin-bottom: 10px;
+
     }
 
     .card p {
@@ -326,7 +379,7 @@
     }
 
     .performance-only {
-
+        margin-bottom:40px;
 
         .vmmark-top-search-container {
             .search-bar {
@@ -335,364 +388,7 @@
                 height: 41px;
                 display: flex;
                 align-items: center;
-                /*
-                * pages/vmmark-landing.scss
-                */
-
-                @import "../base/variables";
-
-                #VMmarkLanding {
-
-                    .container {
-                        font-family: Arial, sans-serif;
-                    }
-
-                    .tabs {
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 10px;
-                        background-color: #f1f1f1;
-                        border-bottom: 2px solid #ccc;
-                    }
-
-                    .tab {
-                        padding: 10px;
-                        cursor: pointer;
-                    }
-
-                    .tab.active {
-                        border-bottom: 3px solid blue;
-                    }
-
-                    .content {
-                        padding: 20px;
-                        background-color: #fff;
-                        min-height: 200px;
-                    }
-
-                    //for top scores
-                    .card-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-around;
-                        padding: 20px;
-                        background-color: #f9f9f9;
-                    }
-
-                    .card {
-                        width: 300px;
-                        margin: 10px;
-                        background-color: white;
-                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                        border-radius: 5px;
-                        overflow: hidden;
-                    }
-
-                    .card-title {
-                        background-color: #004a99;
-                        color: white;
-                        padding: 10px;
-                        font-size: 16px;
-                        text-align: center;
-                    }
-
-                    .card-content {
-                        padding: 20px;
-                        line-height: 1.5;
-                        font-size: 14px;
-                    }
-
-                    .view-all {
-                        display: block;
-                        width: 100%;
-                        padding: 10px;
-                        background-color: #007bff;
-                        color: white;
-                        border: none;
-                        cursor: pointer;
-                        text-align: center;
-                    }
-
-                    //spotlight
-                    .spotlight-card {
-                        background: #fff;
-                        padding: 20px;
-                        margin: 20px;
-                        border-radius: 8px;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .spotlight-title {
-                        font-size: 18px;
-                        font-weight: bold;
-                        margin-bottom: 15px;
-                        color: #333;
-                    }
-
-                    .spotlight-item {
-                        margin-bottom: 10px;
-                        padding-bottom: 10px;
-                        border-bottom: 1px solid #eee;
-                    }
-
-                    .spotlight-date {
-                        font-size: 14px;
-                        color: #666;
-                    }
-
-                    .spotlight-description {
-                        font-size: 16px;
-                        color: #333;
-                    }
-
-                    //for other results
-
-                    .card-row {
-                        display: flex;
-                        justify-content: space-between;
-                        /* Spreads the cards evenly across the row */
-                        margin: 20px;
-                    }
-
-                    .card {
-                        width: 30%;
-                        /* Each card takes up roughly one-third of the container's width */
-                        padding: 20px;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                        background-color: white;
-                        border-radius: 5px;
-                        margin: 10px;
-                    }
-
-                    .card h4 {
-                        color: #333;
-                        margin-bottom: 10px;
-                    }
-
-                    .card p {
-                        color: #666;
-                    }
-
-                    //for guidelines 
-
-                    .guidelines-container {
-                        padding: 20px;
-                        background-color: #f4f4f4;
-                        border-radius: 5px;
-                        margin: 20px;
-                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .guidelines-container h1 {
-                        color: #333;
-                        font-size: 24px;
-                        margin-bottom: 10px;
-                    }
-
-                    .guidelines-container ul {
-                        list-style-type: none;
-                        /* Removes the default list style */
-                        padding: 0;
-                    }
-
-                    .guidelines-container li {
-                        margin-bottom: 10px;
-                        padding-left: 20px;
-                        text-indent: -20px;
-                        /* Aligns text nicely with the bullet points */
-                        line-height: 1.6;
-                        font-size: 16px;
-                    }
-
-                    .guidelines-container li:before {
-                        content: "•";
-                        /* Custom bullet point */
-                        color: #007BFF;
-                        /* Example color */
-                        display: inline-block;
-                        width: 20px;
-                        /* Ensures that the bullet and text align */
-                    }
-
-                    .performance-only {
-                        .vmmark-top-search-container {
-                            .search-bar {
-                                max-width: 100%;
-                                width: 100%;
-                                height: 41px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: flex-start;
-                                border-radius: 4px;
-                                border: 1px solid #999;
-                                background-color: #fff;
-
-                                margin: 16px 0;
-                                gap: 10px;
-                                padding: 6px 12px 6px 20px;
-
-                                input {
-                                    width: 100%;
-                                    font-weight: 300;
-                                    font-size: 18px;
-                                    color: #565656;
-                                    border: none;
-                                    outline: none;
-                                }
-                            }
-
-                            .search-bar input {
-                                width: 100%;
-                                padding: 10px;
-                                font-size: 16px;
-                            }
-                        }
-
-                        .result-page {
-
-
-                            display: flex;
-                            justify-content: flex-end;
-                            align-items: center;
-                            gap: 10px;
-
-                            .results-info {
-
-                                flex-grow: 1;
-                            }
-
-
-
-                            .results-dropdown {
-                                padding: 5px;
-                                margin-left: 5px;
-                                // display: inline-block;
-                                margin-left: 10px
-                            }
-
-                            .manage-export {
-
-                                // display: inline-block;
-                                display: flex;
-
-
-
-
-                                .manage-columns {
-                                    display: inline-block;
-                                    margin-right: 10px;
-                                    background-color: #007bff;
-                                    color: white;
-
-
-                                    // margin-left: 10px
-
-                                }
-
-                                .export-data {
-                                    display: inline-block;
-
-                                    // margin-left: 10px
-
-
-                                }
-                            }
-
-
-
-                        }
-
-                        //                     .table-results {
-                        //                         overflow-x: auto !important;
-                        //                         width: 100% ;
-                        //                         // margin: 20px;
-
-                        //                         .scrollable-table {
-                        //                             display: block;
-                        //                             overflow-x: auto;
-                        //                             white-space: nowrap;
-                        //                             // width: 100%;
-
-                        //                             table {
-                        //                                 width: 100%;
-                        //                                 border-collapse: collapse;
-                        //                             }
-
-                        //                             th,
-                        //                             td {
-                        //                                 padding: 8px;
-                        //                                 text-align: left;
-                        //                                 border-bottom: 1px solid #ddd;
-                        //                             }
-
-                        //                             // th.sticky-col,
-                        //                             // td.sticky-col {
-                        //                             //     min-width: 150px;
-                        //                             // }
-
-                        //                             .sticky-col {
-                        //                                 position: -webkit-sticky;
-                        //                                 position: sticky;
-                        //                                 left: 0;
-                        //                                 background-color: #f9f9f9;
-                        //                                 z-index: 2;
-                        //                             }
-
-                        //                             .sticky-col + .sticky-col{
-                        //                                 left: 100px; /* Adjust this value based on the width of the first sticky column */
-                        //                             }
-                        // // overflow-x: auto;
-                        //                         }
-                        //                     }
-
-                        // .scrollable-table {
-                        //     display: block;
-                        //     overflow-x: auto;
-                        //     white-space: nowrap;
-                        //     // width: 100%;
-                        // overflow-x: auto;
-                        // }
-
-                        // .sticky-col {
-                        //     position: sticky;
-                        //     left: 0;
-                        //     background-color: white;
-                        //     z-index: 100;
-                        // }
-
-                        // table {
-                        //     width: 100%;
-                        //     border-collapse: collapse;
-                        // }
-
-                        // th,
-                        // td {
-                        //     padding: 8px;
-                        //     text-align: left;
-                        //     border-bottom: 1px solid #ddd;
-                        // }
-
-                        // // th.sticky-col,
-                        // // td.sticky-col {
-                        // //     min-width: 150px;
-                        // // }
-
-                        // .sticky-col {
-                        //     position: -webkit-sticky;
-                        //     position: sticky;
-                        //     left: 0;
-                        //     background-color: #f9f9f9;
-                        //     z-index: 2;
-                        // }
-
-                        // .sticky-col + .sticky-col{
-                        //     left: 100px; /* Adjust this value based on the width of the first sticky column */
-                        // }
-
-                    }
-
-
-                }
+                
 
                 justify-content: flex-start;
                 border-radius: 4px;
@@ -710,6 +406,7 @@
                     color: #565656;
                     border: none;
                     outline: none;
+                    background-color: transparent;
                 }
             }
 
@@ -727,6 +424,7 @@
             justify-content: flex-end;
             align-items: center;
             gap: 10px;
+            margin-top:20px;
 
             .results-info {
 
@@ -739,7 +437,13 @@
                 padding: 5px;
                 margin-left: 5px;
                 // display: inline-block;
-                margin-left: 10px
+                margin-left: 10px;
+                select{
+                    border:0;
+                    outline:0;
+                    color:$color-primary;
+                    background-color: transparent;
+                }
             }
 
             .manage-export {
@@ -753,11 +457,51 @@
                 .manage-columns {
                     display: inline-block;
                     margin-right: 10px;
-                    background-color: #007bff;
-                    color: white;
+                    // background-color: #007bff;
+                    // color: white;
 
 
                     // margin-left: 10px
+                    .dropdown {
+                        flex: 1;
+            
+                        &.show {
+            
+                            .dropdown-caret {
+                                @include fa-icon-solid($fa-var-chevron-right);
+                                transition: 0.2s ease-in-out;
+                                transform: rotate(90deg);
+                            }
+                        }
+            
+                        button {
+            
+                            @include secondary-button;
+                            width: 100%;
+                            text-align: left;
+                            display: inline-block;
+                            padding-left: 10px;
+                            padding-right: 30px;
+            
+                            // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
+                            .dropdown-caret {
+                                @include fa-icon-solid($fa-var-chevron-right);
+                                transition: 0.2s ease-in-out;
+                                right: 8px;
+                                position: absolute;
+                                top: 15px;
+                            }
+            
+            
+                            &:hover {
+            
+                                @include secondary-hover;
+                            }
+            
+            
+            
+                        }
+                    }
 
                 }
 
@@ -765,7 +509,11 @@
                     display: inline-block;
 
                     // margin-left: 10px
-
+                    button{
+                        background-color: #fff;
+                        color:$color-primary;
+                        border: 1px solid $color-primary;
+                    }
 
                 }
             }
@@ -794,46 +542,19 @@
                 //     transform: rotateX(180deg);
 
                 // }
-                .pagination-section {
-                    margin-top: 20px;
-                    margin-bottom: 20px;
-
-                    .pagination {
-                        justify-content: center;
-
-                        .page-link {
-                            color: $color-primary;
-                            font-size: 1.125rem;
-                            border: 0;
-
-                            &:hover {
-                                background-color: #fff;
-                            }
-                        }
-
-                        [aria-label="Previous"] span {
-                            content: "\f053";
-                            font-family: 'Font Awesome 6 Free';
-                        }
-
-                        [aria-label="Next"] span {
-                            content: "\f054";
-                            font-family: 'Font Awesome 6 Free';
-                        }
-
-                        .page-item.active .page-link {
-                            background-color: #fff;
-                            color: $color-grey--700;
-                        }
-                    }
-                }
+                
 
 
                 table {
                     width: 100%;
                     border-collapse: collapse;
                     // transform: rotateX(180deg);
-
+                    tbody tr:nth-of-type(odd) {
+                        background-color: $background-light-blue;
+                        .sticky-col{
+                            background-color: $background-light-blue;
+                        }
+                    }
                 }
 
                 th,
@@ -853,6 +574,23 @@
 
                 .table-th-container {
                     display: flex;
+                    align-items: center;
+                    span{
+                        display: flex;
+                        flex-direction: column;
+                        cursor: pointer;
+                        margin-left:15px;
+                        i{
+                          font-size: 14px;
+                          //font-weight: 500;
+                          line-height: 1;
+                          color:$color-grey--300;
+                          &.sorted{
+                            color:$color-primary--dark;
+                            font-weight: 700;
+                          }
+                        }
+                      }
                 }
 
                 .table-text {
@@ -895,6 +633,39 @@
                 // overflow-x: auto;
             }
 
+            .pagination-section {
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .pagination {
+                    justify-content: center;
+
+                    .page-link {
+                        color: $color-primary;
+                        font-size: 1.125rem;
+                        border: 0;
+
+                        &:hover {
+                            background-color: #fff;
+                        }
+                    }
+
+                    [aria-label="Previous"] span {
+                        content: "\f053";
+                        font-family: 'Font Awesome 6 Free';
+                    }
+
+                    [aria-label="Next"] span {
+                        content: "\f054";
+                        font-family: 'Font Awesome 6 Free';
+                    }
+
+                    .page-item.active .page-link {
+                        background-color: #fff;
+                        color: $color-grey--700;
+                    }
+                }
+            }
         }
 
         .scrollable-table::-webkit-scrollbar {
@@ -1110,6 +881,7 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
+            margin-top:20px;
         }
     }
 

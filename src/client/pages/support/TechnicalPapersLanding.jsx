@@ -235,8 +235,8 @@ const TechnicalPapersLanding = (props) => {
     };
 
     //Sort function
-    const handleSort = (sortcolumn) => {
-        sortcolumn = headerKeyMap[sortcolumn]
+    const handleSort = (key) => {
+        const sortcolumn = headerKeyMap[key]
         let sortorder = 'sorting_asc';
         if (sortConfig.sortcolumn === sortcolumn && sortConfig.sortorder === 'sorting_asc') {
             sortorder = 'sorting_dsc';
@@ -396,14 +396,26 @@ const TechnicalPapersLanding = (props) => {
 
                                             </div>
                                             <div>
-                                                {sortConfig.sortcolumn === key && sortConfig.sortorder === 'sorting_asc' && (
-                                                    <img src='/img/sort_asc.png' alt="Ascending" />
+                                                {sortConfig.sortcolumn === key.toLowerCase() && sortConfig.sortorder === 'sorting_asc' && (
+                                                    // <img src='/img/sort_asc.png' alt="Ascending" />
+                                                    <span>
+                                                        <i className="fa-solid fa-chevron-up sorted"></i>
+                                                        <i className="fa-solid fa-chevron-down"></i>
+                                                    </span>
                                                 )}
-                                                {sortConfig.sortcolumn === key && sortConfig.sortorder === 'sorting_dsc' && (
-                                                    <img src='/img/sort_desc.png' alt="Descending" />
+                                                {sortConfig.sortcolumn === key.toLowerCase() && sortConfig.sortorder === 'sorting_dsc' && (
+                                                    // <img src='/img/sort_desc.png' alt="Descending" />
+                                                    <span>
+                                                        <i className="fa-solid fa-chevron-up"></i>
+                                                        <i className="fa-solid fa-chevron-down sorted"></i>
+                                                    </span>
                                                 )}
-                                                {sortConfig.sortcolumn !== key && (
-                                                    <img src='/img/sort_both.png' alt="Sortable" />
+                                                {sortConfig.sortcolumn !== key.toLowerCase() && (
+                                                    // <img src='/img/sort_both.png' alt="Sortable" />
+                                                    <span>
+                                                        <i className="fa-solid fa-chevron-up"></i>
+                                                        <i className="fa-solid fa-chevron-down"></i>
+                                                    </span>
                                                 )}
                                             </div>
                                         </div>

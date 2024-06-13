@@ -242,8 +242,6 @@ const CarouselContentBlock = (props) => {
 			if (content_block.template === 'ContentCard' && content_block?.columns?.length < max_cols) {
 				let empties = new Array(max_cols - content_block?.columns?.length);
 				content_block.columns.push(...empties.fill([{'template': 'empty'}]));
-
-				console.log(empties, content_block.columns);
 			}
 		});
 

@@ -8,184 +8,234 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 #footer {
-  //margin-top: 100px;    // I removed the margin at the top.
 
-  border-top: solid 6px $color-primary;
-  box-sizing: border-box;
-  padding-top: 30px;
+  .autopilot {
+    margin-top: 32px;
+    margin-bottom: 32px;
 
-  // JD - Reproduced gradient with borders instead.
-  // border-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100;
-  // border-left: none;
-  // border-right: none;
-  // border-bottom: none;
-
-
-  // JD - Unsure what the intent for this border, but I reduced it just a simple border-top.
-  // .container:before {
-  //   content: "" !important;
-  //   position: absolute !important;
-  //   margin-top: -36px !important;
-  //   left: 0 !important;
-  //   right: 0 !important;
-  //   width: 100% !important;
-  //   //height: 6px !important;
-  //   //background-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) !important;
-  //   border: solid 3px $color-primary;
-  // }
-
-  .container {
-
-    img {
-      max-width: 140px;
-      width: 100%;
-      height: 42px;
-    }
-
-    li {
-      list-style: none;
-    }
-
-    .copyright-text {
+    .section-title {
+      font-size: 32px;
+      line-height: 42px;
+      font-weight: 300;
       text-align: center;
-      padding-top: 30px;
-      border-top: 1px solid;
-      margin-top: 40px;
+      margin-bottom: 16px;
     }
 
-    .navbar-nav {
-      .footer_menu {
-        display: flex !important;
-        justify-content: space-between !important;
+    .autopilot-links {
+      @include media-breakpoint-up(lg) {
+          display: flex;
+          justify-content: space-around;
+          column-gap: 20px;
+          row-gap: 10px;
+          font-size: 12px;
+       
+      }
 
-        a {
-          font-weight: 300 !important;
+      .lnk {
+        text-decoration: none;
+        font-weight: 300;
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
 
 
-        }
+
+       
+
       }
 
     }
 
-    .footer-menu-section-title {
-      margin-bottom: 20px;
-      font-size: 26px;
-      text-align: left;
-      height:45px;
 
-      @include media-breakpoint-down(md) {
-        text-align: center;
-        margin: 16px 0;
-        
-      }
-    }
 
-    .footer-image-link {
-      display: flex;
-      justify-content: start;
-      align-items: center;
+  }
 
-      @include media-breakpoint-down(md) {
-        justify-content: center;
-        padding-bottom: 35px;
+  .footer-content {
+    //margin-top: 100px;    // I removed the margin at the top.
 
-      }
-    }
+    border-top: solid 6px $color-primary;
+    box-sizing: border-box;
+    padding-top: 30px;
 
-    .footer-menu-cols {
-      .nav-item {
-        margin-bottom: 20px;
-        text-align: left;
+    // JD - Reproduced gradient with borders instead.
+    // border-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100;
+    // border-left: none;
+    // border-right: none;
+    // border-bottom: none;
 
-        @include media-breakpoint-down(md) {
-          text-align: center;
-        }
 
-        a {
-          font-size: 14px;
-          font-weight: 300;
-          color: $color-black;
-          margin: 0;
-          text-transform: capitalize;
-          text-decoration: none;
-          &:hover {
-            color: $color-primary;
-            text-decoration: underline;
-            text-decoration-line: underline;
-            text-underline-offset: 3px;
-            text-decoration-thickness: 2px;
-        }
+    // JD - Unsure what the intent for this border, but I reduced it just a simple border-top.
+    // .container:before {
+    //   content: "" !important;
+    //   position: absolute !important;
+    //   margin-top: -36px !important;
+    //   left: 0 !important;
+    //   right: 0 !important;
+    //   width: 100% !important;
+    //   //height: 6px !important;
+    //   //background-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) !important;
+    //   border: solid 3px $color-primary;
+    // }
 
-        }
-      }
-    }
+    .container {
 
-    .social-nav {
-      padding-left: 40px;
-      
-      @include media-breakpoint-down(md) {
-        padding-left: 0px;
-        padding-top: 36px;
-        margin-top:60px;
-
+      img {
+        max-width: 140px;
+        width: 100%;
+        height: 42px;
       }
 
       li {
-        margin-bottom: 10px;
+        list-style: none;
+      }
+
+      .copyright-text {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid;
+        margin-top: 40px;
+      }
+
+      .navbar-nav {
+        .footer_menu {
+          display: flex !important;
+          justify-content: space-between !important;
+
+          a {
+            font-weight: 300 !important;
+
+
+          }
+        }
+
+      }
+
+      .footer-menu-section-title {
+        margin-bottom: 20px;
+        font-size: 26px;
+        text-align: left;
+        height: 45px;
+
+        @include media-breakpoint-down(md) {
+          text-align: center;
+          margin: 16px 0;
+
+        }
+      }
+
+      .footer-image-link {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+          justify-content: center;
+          padding-bottom: 35px;
+
+        }
+      }
+
+      .footer-menu-cols {
+        .nav-item {
+          margin-bottom: 20px;
+          text-align: left;
+
+          @include media-breakpoint-down(md) {
+            text-align: center;
+          }
+
+          a {
+            font-size: 14px;
+            font-weight: 300;
+            color: $color-black;
+            margin: 0;
+            text-transform: capitalize;
+            text-decoration: none;
+
+            &:hover {
+              color: $color-primary;
+              text-decoration: underline;
+              text-decoration-line: underline;
+              text-underline-offset: 3px;
+              text-decoration-thickness: 2px;
+            }
+
+          }
+        }
+      }
+
+      .social-nav {
+        padding-left: 40px;
+
+        @include media-breakpoint-down(md) {
+          padding-left: 0px;
+          padding-top: 36px;
+          margin-top: 60px;
+
+        }
+
+        li {
+          margin-bottom: 10px;
+
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 300;
+            font-size: 14px;
+            justify-content: start;
+            text-transform: capitalize;
+            color: $color-black;
+
+            @include media-breakpoint-down(md) {
+              justify-content: center;
+            }
+
+            &:hover {
+              text-decoration: underline;
+              text-decoration-line: underline;
+              text-underline-offset: 3px;
+              text-decoration-thickness: 2px;
+              color: $color-primary;
+            }
+
+            img {
+              max-width: 25px;
+              width: 100%;
+              height: 25px;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+
+      .footer-secondary-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+        padding-top: 30px;
+        flex-direction: row;
+
+        @include media-breakpoint-down(md) {
+          flex-direction: column;
+        }
 
         a {
-          display: flex;
-          align-items: center;
-          gap: 10px;
           font-weight: 300;
-          font-size: 14px;
-          justify-content: start;
-          text-transform: capitalize;
+          font-size: 15px;
           color: $color-black;
-          @include media-breakpoint-down(md) {
-            justify-content: center;
-          }
-          &:hover {
-            text-decoration: underline;
-            text-decoration-line: underline;
-            text-underline-offset: 3px;
-            text-decoration-thickness: 2px;
-            color: $color-primary;
-        }
+          text-transform: capitalize;
 
-          img {
-            max-width: 25px;
-            width: 100%;
-            height: 25px;
-            object-fit: contain;
-          }
         }
       }
+
     }
 
-    .footer-secondary-nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 20px;
-      padding-top: 30px;
-      flex-direction: row;
-
-      @include media-breakpoint-down(md) {
-        flex-direction: column;
-      }
-
-      a {
-        font-weight: 300;
-        font-size: 15px;
-        color: $color-black;
-        text-transform: capitalize;
-          
-      }
+    a {
+      text-decoration: none;
     }
-
-  }
-  a {
-    text-decoration: none;
   }
 }
+
+// With autopilot

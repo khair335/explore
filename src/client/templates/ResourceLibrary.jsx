@@ -143,17 +143,18 @@ const ResourceLibrary = ({ content_block }) => {
 
     return (
         <div className="ResourceLibrary">
-            <div className="sorting-dropdown">
-                <label>
-                    Sort By
-                    <select value={sortMode} onChange={handleSort}>
-                        <option value="category">Category</option>
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                    </select>
-                </label>
-            </div>
+
             <SideInPageNavigation navs={getNestedNavs(categories)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+                <div className="sorting-dropdown">
+                    <label>
+                        Sort By
+                        <select value={sortMode} onChange={handleSort}>
+                            <option value="category">Category</option>
+                            <option value="a-z">A-Z</option>
+                            <option value="z-a">Z-A</option>
+                        </select>
+                    </label>
+                </div>
                 <div className={classnames("resource-library-modules")}>
                     {displayData.map((category, index) => (
                         <Fragment key={category.hash} >
@@ -161,13 +162,13 @@ const ResourceLibrary = ({ content_block }) => {
                                 <h3>{category.title}</h3>
                                 {category.links && category.links.length > 0 && <LeftImageCard links={category.links} />}
                                 {category.categories && category.categories.map((subCategory) => (
-                                <ResourceSection key={subCategory.hash} show={false /* We dont want sub sections active*/} hash={subCategory.hash}>
-                                    <h5>{subCategory.title}</h5>
-                                    {subCategory.links && subCategory.links.length > 0 && <LeftImageCard links={subCategory.links} />}
-                                </ResourceSection>
-                            ))}
+                                    <ResourceSection key={subCategory.hash} show={false /* We dont want sub sections active*/} hash={subCategory.hash}>
+                                        <h5>{subCategory.title}</h5>
+                                        {subCategory.links && subCategory.links.length > 0 && <LeftImageCard links={subCategory.links} />}
+                                    </ResourceSection>
+                                ))}
                             </ResourceSection>
-                            
+
                         </Fragment>
                     ))}
                 </div>

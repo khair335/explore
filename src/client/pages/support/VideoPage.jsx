@@ -209,8 +209,8 @@ class VideoPage extends PageComponent {
 					name: 'Twitter', socialLink: this.get_shareLinks({
 						url: shareUrl,
 						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						image: this.state.image,
+						desc: this.state?.videoDetails?.long_description,
 						via: this.state.via,
 						platform: 'twitter'
 					}), className: 'bi brcmicon-twitter'
@@ -219,8 +219,8 @@ class VideoPage extends PageComponent {
 					name: 'LinkedIn', socialLink: this.get_shareLinks({
 						url: shareUrl,
 						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						image: this.state.image,
+						desc: this.state?.videoDetails?.long_description,
 						via: this.state.via,
 						platform: 'linkedin'
 					}), className: 'bi brcmicon-linkedin'
@@ -229,8 +229,8 @@ class VideoPage extends PageComponent {
 					name: 'Facebook', socialLink: this.get_shareLinks({
 						url: shareUrl,
 						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: this.state?.videoDetails?.long_description,
+						image: this.state.image,
+						desc: this.state?.videoDetails?.long_description,
 						via: this.state.via,
 						platform: 'facebook'
 					}), className: 'bi brcmicon-facebook'
@@ -239,8 +239,8 @@ class VideoPage extends PageComponent {
 					name: 'Email', socialLink: this.get_shareLinks({
 						url: shareUrl,
 						title: this.state?.videoDetails?.description,
-                        image: this.state.image,
-                        desc: 'Shareable Video Link: '+shareUrl,
+						image: this.state.image,
+						desc: 'Shareable Video Link: ' + shareUrl,
 						via: this.state.via,
 						platform: 'email'
 					}), className: 'bi brcmicon-email'
@@ -438,12 +438,12 @@ class VideoPage extends PageComponent {
 		let main_url = ''
 
 		if (this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_) {
-            main_title = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
-            main_url = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/searchpage' : '/support/video-webinar-library'
-        } else {
-            main_title = 'VMware Explore 2023'
-            main_url = '/explore/video-library/search'
-        }
+			main_title = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
+			main_url = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/searchpage' : '/support/video-webinar-library'
+		} else {
+			main_title = 'VMware Explore 2023'
+			main_url = '/explore/video-library/search'
+		}
 
 
 		// an array for tabs
@@ -463,7 +463,9 @@ class VideoPage extends PageComponent {
 				<Loading isLoading={this.state.loading}>
 					{!this.state.error
 						? <Fragment>
-							<SubHead {...this.props.page} breadcrumb={breadcrumb} />
+							{/* <SubHead {...this.props.page} breadcrumb={breadcrumb} />
+							 */}
+							<SubHead {...this.props.page} breadcrumb={config.hide_breadcrumbs ? null : breadcrumb} />
 							<Row>
 								<div className={classnames("video-box col-lg-12 col-md-12 col-sm-12 col-xs-12")}>
 									<Video mediaid={this.state.mediaid} controls onMediaData={this.setMediaData} {...settings} />
@@ -586,9 +588,9 @@ class VideoPage extends PageComponent {
 
 
 																	<div className="video-info">
-																	{video?.name && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video?.name}</span></SiteLink>}
-                                                                        {video?.description && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>}
-                                                                        {video?.long_description && <p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>}
+																		{video?.name && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video?.name}</span></SiteLink>}
+																		{video?.description && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>}
+																		{video?.long_description && <p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>}
 																	</div>
 																</div>
 															))}

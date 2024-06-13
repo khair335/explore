@@ -114,77 +114,79 @@ const ProductLibrary = (props) => {
 	}, [displayData]);
 
 	useEffect(() => {
-        let processedData = [...products];
+		let processedData = [...products];
 
-        if (searchTerm) {
-            processedData = processedData.map(product => {
-                const filteredLinks = product.links?.filter(link => link.title.toLowerCase().includes(searchTerm.toLowerCase())) || [];
-                return { ...product, links: filteredLinks};
-            }).filter(product => product.links.length > 0);
-        }
+		if (searchTerm) {
+			processedData = processedData.map(product => {
+				const filteredLinks = product.links?.filter(link => link.title.toLowerCase().includes(searchTerm.toLowerCase())) || [];
+				return { ...product, links: filteredLinks };
+			}).filter(product => product.links.length > 0);
+		}
 
-        if (sortMode === 'a-z' || sortMode === 'z-a') {
-            let allLinks = [];
-            processedData.forEach(category => {
-                allLinks.push(...(category.links || []));
-            });
-            allLinks.sort((a, b) => sortMode === 'a-z' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
+		if (sortMode === 'a-z' || sortMode === 'z-a') {
+			let allLinks = [];
+			processedData.forEach(category => {
+				allLinks.push(...(category.links || []));
+			});
+			allLinks.sort((a, b) => sortMode === 'a-z' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
 
-            processedData = [{ links: allLinks }];
-        }
+			processedData = [{ links: allLinks }];
+		}
 
-        setDisplayData(processedData);
-    }, [products, searchTerm, sortMode]);
+		setDisplayData(processedData);
+	}, [products, searchTerm, sortMode]);
 
 	const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        setSearchTerm(inputChange.trim());
-    };
+		e.preventDefault();
+		setSearchTerm(inputChange.trim());
+	};
 
-    const handleInputChange = (e) => {
-        setInputChange(e.target.value);
-    };
+	const handleInputChange = (e) => {
+		setInputChange(e.target.value);
+	};
 
-    const handleSort = (e) => {
-        setSortMode(e.target.value);
-    };
+	const handleSort = (e) => {
+		setSortMode(e.target.value);
+	};
 
-    const generateHash = (title) => {
-        return title.toLowerCase().replace(/\s+/g, '-');
-    }
+	const generateHash = (title) => {
+		return title.toLowerCase().replace(/\s+/g, '-');
+	}
 
-    const getNestedNavs = (products) => {
-        return products.map(product => ({
-            hash: product.hash || generateHash(product.title),
-            label: product.title,
-        }));
-    };
+	const getNestedNavs = (products) => {
+		return products.map(product => ({
+			hash: product.hash || generateHash(product.title),
+			label: product.title,
+		}));
+	};
 
 	return (
 		<div className="ProductLibrary">
-            <div className="sorting-dropdown">
-                <label>
-                    Sort By
-                    <select value={sortMode} onChange={handleSort}>
-                        <option value="category">Category</option>
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                    </select>
-                </label>
-            </div>
-            <SideInPageNavigation navs={getNestedNavs(products)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
-                <div className={classnames("product-library-modules")}>
-                    {displayData.map((product, index) => (
-                        <Fragment key={product.hash} >
-                            <ResourceSection show={sortMode === 'category'} hash={product.hash}>
-                                <h3>{product.title}</h3>
-                                {product.links && product.links.length > 0 && <ImageCard links={product.links} />}
-                            </ResourceSection>
-                        </Fragment>
-                    ))}
-                </div>
-            </SideInPageNavigation>
-        </div>
+
+			<SideInPageNavigation navs={getNestedNavs(products)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+				<div className="sorting-dropdown">
+					<label>
+						Sort By
+						<select value={sortMode} onChange={handleSort}>
+							<option value="category">Category</option>
+							<option value="a-z">A-Z</option>
+							<option value="z-a">Z-A</option>
+						</select>
+					</label>
+				</div>
+
+				<div className={classnames("product-library-modules")}>
+					{displayData.map((product, index) => (
+						<Fragment key={product.hash} >
+							<ResourceSection show={sortMode === 'category'} hash={product.hash}>
+								<h3>{product.title}</h3>
+								{product.links && product.links.length > 0 && <ImageCard links={product.links} />}
+							</ResourceSection>
+						</Fragment>
+					))}
+				</div>
+			</SideInPageNavigation>
+		</div>
 	)
 }
 
@@ -195,28 +197,28 @@ ProductLibrary.propTypes = {
 export default withLiveEvents(ProductLibrary);
 
 const ResourceSection = ({ show, hash, children }) => {
-    const Tag = show ? 'section' : 'div';
-    return (
-        <Tag id={hash} className="product-library-module-section">
-            {children}
-        </Tag>
-    );
+	const Tag = show ? 'section' : 'div';
+	return (
+		<Tag id={hash} className="product-library-module-section">
+			{children}
+		</Tag>
+	);
 };
 
 const ImageCard = ({ links }) => {
-    return (
-        <div className="product-library-container">
-            {links.map((link, index) => (
-                <div className="card" key={link.content_id}>
-                    <div className="card-body">
-                        <Row>
-                            <Col>
-                                <SiteLink to={link.url} className="card-title" key={link.content_id || index}>{link.title}</SiteLink>
-                            </Col>
-                        </Row>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
+	return (
+		<div className="product-library-container">
+			{links.map((link, index) => (
+				<div className="card" key={link.content_id}>
+					<div className="card-body">
+						<Row>
+							<Col>
+								<SiteLink to={link.url} className="card-title" key={link.content_id || index}>{link.title}</SiteLink>
+							</Col>
+						</Row>
+					</div>
+				</div>
+			))}
+		</div>
+	);
 };

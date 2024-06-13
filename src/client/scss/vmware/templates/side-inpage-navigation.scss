@@ -5,7 +5,10 @@
 
 
 @import "../base/base";
-
+// Fontawesome
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
 
 .SideInPageNavigation {
   position: relative;
@@ -35,10 +38,64 @@
     }
   }
 
+  .side-nav-sticky-mobile {
+    position: sticky;
+    top: 0px;
+    z-index: 2;   // For sticky
+    background-color: $color-white;
+    @include media-breakpoint-down(lg) {
+      .side-nav {
+        position: relative; // Reset us.
+      }
+
+    }
+  }
+
   .side-nav {
-    position: -webkit-sticky;
     position: sticky;
     top: 20px;
+    z-index: 2;   // For sticky
+    background-color: $color-white;
+
+    .nav-item {
+      .secondary-bttn {
+        display: none;
+      }
+    }
+
+    &.side-nav-static {
+
+      // Use arrows instead of + -.
+      .brcmicon-plus {
+        @include fa-icon-solid($fa-var-chevron-right);
+        transition: 0.2s ease-in-out;
+      }
+
+      .brcmicon-window-minimize {
+        @include fa-icon-solid($fa-var-chevron-right);
+        transition: 0.2s ease-in-out;
+        transform: rotate(90deg);
+      }
+
+      @include media-breakpoint-down(lg) {
+        position: relative;
+
+        // Added right arrow
+        .nav-item {
+          .secondary-bttn {
+            float: right;
+            display: inline-block;
+          }
+        }
+
+      }
+    }
+
+
+
+    .side-inpage-nav {
+      background-color: $color-white;
+    }
 
 
     // Hide the dropdown for desktop
@@ -66,9 +123,10 @@
       .nav-item {
 
         .nav-item-child {
+
           // Hide the children.               
           &.collapse {
-              display: none;
+            display: none;
           }
 
           li {
@@ -82,21 +140,11 @@
     }
   }
 
-  @media (max-width:767px) {
-    >.row {
-
-      >.col {
-        position: sticky;
-        top: 0px;
-        z-index: 9;
-      }
-    }
-  }
 
   .side-nav .nav {
 
     .nav-item {
-      
+
       flex-direction: column;
 
       .nav-link {
@@ -109,11 +157,11 @@
       }
 
       &.active {
-       
 
 
-        > .nav-link {
-          
+
+        >.nav-link {
+
           background: $background-light-blue;
           border-left: 2px solid $color-primary;
           color: $color-primary;
@@ -128,32 +176,35 @@
   }
 
   .side-nav {
-    @media (max-width:767px) {
+    @include media-breakpoint-down(lg) {
 
       margin-bottom: 40px;
 
-      .side-nav-toggle {
-        border-bottom: 1px solid !important;
-        border-radius: 0;
-        width: 100%;
-        height: auto;
-        padding-right: 0;
-        padding-left: 0;
-        background-color: $color-white;
-        color: $color-primary;
-        font-size: 16px;
-        font-weight: 300;
-
-        &:hover {
-          border: 0;
-        }
-
-        .brcmicon-caret-down,
-        .brcmicon-caret-up {
+      &.side-nav-scrollspy {
+        .side-nav-toggle {
+          display: block;
+          border-bottom: 1px solid !important;
+          border-radius: 0;
+          width: 100%;
+          height: auto;
+          padding-right: 0;
+          padding-left: 0;
+          background-color: $color-white;
           color: $color-primary;
+          font-size: 16px;
+          font-weight: 300;
+
+          &:hover {
+            border: 0;
+          }
+
+          .brcmicon-caret-down,
+          .brcmicon-caret-up {
+            color: $color-primary;
+          }
+
+
         }
-
-
       }
 
       .side-nav-collapse-wrapper {
@@ -176,9 +227,49 @@
         }
       }
     }
+
+    @include media-breakpoint-down(lg) {
+      .side-nav-result {
+        border-top: 1px solid $color-grey--100;
+        border-bottom: 1px solid $color-grey--100;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+
+        .side-nav-toggle {
+          all: unset;
+          color: $color-primary;
+          cursor: pointer;
+
+          .bi {
+            color: $color-primary;
+          }
+        }
+      }
+
+      .side-inpage-content {
+        left: calc(-50vw + 50%);
+        padding-right: 0;
+        padding-left: 0;
+        width: 100vw;
+        max-width: 100vw;
+
+      }
+    }
   }
 
 
+  .brcmicon-caret-up {
+    @include fa-icon-solid($fa-var-chevron-right);
+    transform: rotate(-90deg);
+    transition: 0.2s ease-in-out;
+  }
 
+  .brcmicon-caret-down {
+    @include fa-icon-solid($fa-var-chevron-right);
+    transition: 0.2s ease-in-out;
+    transform: rotate(90deg);
+  }
 
 }

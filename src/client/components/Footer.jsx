@@ -48,11 +48,11 @@ const Autopilot = () => {
         const urls = [{
             // Brightedge - autopilot, we need to get the config to see what pages we should display on.
             //https://api.brightedge.com/api/ixf/1.0.0/get_capsule/f00000000037426/global.json
-            url: '/api/ixf/1.0.0/get_capsule/f00000000037426/global.json',
+            url: `/api/ixf/1.0.0/get_capsule/${config.autopilot_id}/global.json`,
             options: null,
         }, {
             // Brightedge - autopilot, just get the page at the same time. https://www.broadcom.com/products/software/automation/appworx
-            url: `/api/ixf/1.0.0/get_capsule/f00000000037426/${getPageHash(`https://www.broadcom.com${location.pathname}`)}`,
+            url: `/api/ixf/1.0.0/get_capsule/${config.autopilot_id}/${getPageHash(`${config.autopilot_base}${location.pathname}`)}`,
             options: null,
         }];
 
@@ -85,7 +85,7 @@ const Autopilot = () => {
                                 else {
                                     let url = contain.replace(/\\/g, '');
 
-                                    url = url.replace('www.broadcom.com', '');		// It's a url, strip out www.
+                                    url = url.replace(config.autopilot_base_domain, '');		// It's a url, strip out www.
                                     url = url.replace(/\/$/, "");					// Replace the trailing slash
 
                                     if (path.includes(url)) {
@@ -112,6 +112,7 @@ const Autopilot = () => {
                         if (autopilot_exclude) {
                             break;
                         }
+                        
 
                         // Save our first one since we are going through priority.
                         if (autopilot_include && !autopilot_include_default) {
@@ -200,7 +201,7 @@ const Autopilot = () => {
                 <div className="autopilot-links">
                     {links && links.map(link => {
                         return (
-                            <SiteLink to={link.url} key={link.url}>{link.anchor_text}</SiteLink>
+                            <SiteLink to={link.url} key={link.url}>{link.anchor_text || link.h1}</SiteLink>
                         );
                     })}
                 </div>
@@ -445,9 +446,13 @@ const Footer = (props) => {
 
             <Autopilot />
             {/* HACK: JD - We don't have a header yet, so don't show us for explore */}
+
             {((config.site === 'vm' && navigation.loaded) || config.site === 'broadcom') &&
-                <FooterTemplate navigation={navigation} />
+                <div className="footer-content">
+                    <FooterTemplate navigation={navigation} />
+                </div>
             }
+
 
         </footer>
 

@@ -73,6 +73,9 @@
         tbody tr:nth-of-type(odd) {
           background-color: $background-light-blue;
         }
+        tr{
+          cursor: pointer;
+        }
         td{
           vertical-align: top !important;
           i{
@@ -144,9 +147,27 @@
 
       .table-th-container{
         display: flex;
+        align-items: center;
         .table-text{
           p{
             margin-bottom: 0;
+          }
+        }
+     
+        span{
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          margin-left:15px;
+          i{
+            font-size: 14px;
+            //font-weight: 500;
+            line-height: 1;
+            color:$color-grey--300;
+            &.sorted{
+              color:$color-primary--dark;
+              font-weight: 700;
+            }
           }
         }
         

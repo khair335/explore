@@ -86,17 +86,21 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 					</div>
 				))}
 			</div>
-			<div className="card-container row">
+			<div className="card-container">
 				{scores.map((score, index) => (
 					<div key={index} className="main-card">
 						<div className="card-title">
 							<h4>{score.filter_title}</h4>
 							<div>
-								<InfoPopover onClick={() => toggle(score)}>
+								{/* <InfoPopover onClick={() => toggle(score)}>
 									<span dangerouslySetInnerHTML={{ __html: score.abstract }} />
-								</InfoPopover>
+								</InfoPopover> */}
+								<button className="icon-bttn" title="info" aria-label="info" onClick={() => toggle(score)}>
+									<i className="bi brcmicon-info-circle primary"></i>
+								</button>
 							</div>
 						</div>
+						{score.filter_subtitle && <span className='card-subtitle'>{score.filter_subtitle}</span>}
 						<Table>
 							<thead>
 								<tr>
@@ -119,7 +123,7 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 
 							</tbody>
 						</Table>
-						<SiteLink to={`${url.pathname}?${score.search_url}#${tabHashMapping[score.category]}`} target="__blank"><button className="card-button">VIEW ALL</button></SiteLink>
+						<SiteLink to={`${url.pathname}?${score.search_url}#${tabHashMapping[score.category]}`} target="__blank"><button className="card-button">VIEW ALL <i className="fa-solid fa-chevron-right"></i></button></SiteLink>
 					</div>
 				))}
 				{activeScore && (
@@ -131,28 +135,31 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 					</Modal>
 				)}
 			</div>
-			<div className="card-row">
-				{content_blocks.map((card, index) => (
-					<div key={index} className="card">
-						<Row>
-							<Col xs="3">
-								<ImageBase src="/img/resource-library/link.svg"
-									alt="links" width="63" height="63" />
-							</Col>
+			<div className='related-vmmark-results'>
+				<h3>Other Related VMmark Results</h3>
+				<div className="card-row">
+					{content_blocks.map((card, index) => (
+						<div key={index} className="card">
+							<Row>
+								<Col xs="3">
+									<ImageBase src="/img/resource-library/link.svg"
+										alt="links" width="63" height="63" />
+								</Col>
 
-							<Col>
-								<SiteLink to={card.links[0].url} target={card.links[0].target}><h4>{card.links[0].title}</h4></SiteLink>
-							</Col>
-						</Row>
-					</div>
-				))}
+								<Col>
+									<SiteLink to={card.links[0].url} target={card.links[0].target}><h4>{card.links[0].title}</h4></SiteLink>
+								</Col>
+							</Row>
+						</div>
+					))}
+				</div>
 			</div>
 			<div dangerouslySetInnerHTML={{ __html: body }}></div>
 		</div>
 	);
 };
 
-const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }) => {
+const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, content_blocks, body }) => {
 	const navigate = useNavigate();
 	const moment = require('moment');
 	const location = useLocation();
@@ -702,7 +709,6 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			</div>
 
 			<div className="table-results">
-
 				<div className="scrollable-table">
 					<table>
 						<thead>
@@ -728,13 +734,25 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 												</div>
 												<div>
 													{sortConfig.sort === dataKey && sortConfig.sortorder === 'sorting_asc' && (
-														<img src='/img/sort_asc.png' alt="Ascending" />
+														// <img src='/img/sort_asc.png' alt="Ascending" />
+														<span>
+															<i className="fa-solid fa-chevron-up sorted"></i>
+															<i className="fa-solid fa-chevron-down"></i>
+														</span>
 													)}
 													{sortConfig.sort === dataKey && sortConfig.sortorder === 'sorting_dsc' && (
-														<img src='/img/sort_desc.png' alt="Descending" />
+														// <img src='/img/sort_desc.png' alt="Descending" />
+														<span>
+															<i className="fa-solid fa-chevron-up"></i>
+															<i className="fa-solid fa-chevron-down sorted"></i>
+														</span>
 													)}
 													{sortConfig.sort !== dataKey && isSortable && (
-														<img src='/img/sort_both.png' alt="Sortable" />
+														// <img src='/img/sort_both.png' alt="Sortable" />
+														<span>
+															<i className="fa-solid fa-chevron-up"></i>
+															<i className="fa-solid fa-chevron-down"></i>
+														</span>
 													)}
 												</div>
 											</div>
@@ -763,10 +781,10 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 										}
 
 										// return <td className={className} key={`${item.content_id}-${key}`}>{displayValue}</td>;
-										return <td className={className} key={`${item.content_id}-${key}` } dangerouslySetInnerHTML={{ __html: displayValue }}></td>;
+										return <td className={className} key={`${item.content_id}-${key}`} dangerouslySetInnerHTML={{ __html: displayValue }}></td>;
 
 
-										
+
 									})}
 								</tr>
 							))}
@@ -774,25 +792,46 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 							No data available
 						</td></tr></tbody>}
 					</table>
-					<div className='pagination-section'>
-						<Pagination>
-							<PaginationItem disabled={currentPage === 1}>
-								<PaginationLink previous onClick={() => handleClick(currentPage - 1)} />
+
+				</div>
+				<div className='pagination-section'>
+					<Pagination>
+						<PaginationItem disabled={currentPage === 1}>
+							<PaginationLink previous onClick={() => handleClick(currentPage - 1)} />
+						</PaginationItem>
+						{[...Array(totalPages).keys()].map((page) => (
+							<PaginationItem key={page} active={page + 1 === currentPage}>
+								<PaginationLink onClick={() => handleClick(page + 1)}>
+									{page + 1}
+								</PaginationLink>
 							</PaginationItem>
-							{[...Array(totalPages).keys()].map((page) => (
-								<PaginationItem key={page} active={page + 1 === currentPage}>
-									<PaginationLink onClick={() => handleClick(page + 1)}>
-										{page + 1}
-									</PaginationLink>
-								</PaginationItem>
-							))}
-							<PaginationItem disabled={currentPage === totalPages}>
-								<PaginationLink next onClick={() => handleClick(currentPage + 1)} />
-							</PaginationItem>
-						</Pagination>
-					</div>
+						))}
+						<PaginationItem disabled={currentPage === totalPages}>
+							<PaginationLink next onClick={() => handleClick(currentPage + 1)} />
+						</PaginationItem>
+					</Pagination>
 				</div>
 			</div>
+			<div className='related-vmmark-results'>
+				<h3>Other Related VMmark Results</h3>
+				<div className="card-row">
+					{content_blocks.map((card, index) => (
+						<div key={index} className="card">
+							<Row>
+								<Col xs="3">
+									<ImageBase src="/img/resource-library/link.svg"
+										alt="links" width="63" height="63" />
+								</Col>
+
+								<Col>
+									<SiteLink to={card.links[0].url} target={card.links[0].target}><h4>{card.links[0].title}</h4></SiteLink>
+								</Col>
+							</Row>
+						</div>
+					))}
+				</div>
+			</div>
+			<div dangerouslySetInnerHTML={{ __html: body }}></div>
 		</div>);
 }
 
@@ -900,7 +939,7 @@ const VMmarkLanding = (props) => {
 							<TopScores scores={props.data.vmmark_filter} spotlight={props.data.spotlight} body={props.data.body} content_blocks={props.content_blocks} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} />
 						</TabPane>
 							: <TabPane key={tab.id} tabId={tab.title}>
-								<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} />
+								<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} content_blocks={props.content_blocks} body={props.data.body} />
 							</TabPane>
 					))}
 				</TabContent>

@@ -29,10 +29,10 @@ $color-grey--625: hsl(0, 0%, 34%); //do not use for vmware
 
 
 // vmware gray
-$color-grey--700: #3D3D3D;
+$color-grey--700: #3D3D3D;	
 $color-grey--600: #565656;	// default body text color
-$color-grey--500: #717074;
-$color-grey--400: #8D8D90;
+$color-grey--500: #717074; 
+$color-grey--400: #8D8D90;	
 $color-grey--300: #AAA9AC;
 $color-grey--200: #C6C6C7;
 $color-grey--100: #E3E2E3;
@@ -43,7 +43,7 @@ $color-grey--10:  #EBEBEB; // border color;
 
 //Aqua
 $color-aqua: #007BBC; //brand colors / Aqua
-$color-aqua-light: #01B9C6; //Lignt mode / primary light
+$color-aqua-light: #01B9C6; //Lignt mode / primary light 
 $color-aqua-dark: #01B9C6; //Dark mode / primary dark
 
 //Green
@@ -82,7 +82,7 @@ $shadow-4: 0 16px 24px 0 rgba(17, 69, 134, 0.12);
 $shadow-5: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
 // Base Color
-$color-white: #FFFFFF;
+$color-white: #FFFFFF; 
 $color-black: #000000; //text color for titles,
 $color-body: $color-grey--600; // body text color in Light Mode
 $color-body-dark: $color-white; // body text color in Dark Mode
@@ -207,7 +207,7 @@ display: flex;
 	background-color: transparent;
 	font-family: $font-family--secondary;
 	color: $color-primary;
-	font-weight: 300;
+	font-weight: 300; //metro-mod
 	//letter-spacing: .25px; //metro-mod
 	border: 0;
 	font-size: 16px;

@@ -163,17 +163,18 @@ const RoadmapLibraryNav = (props) => {
 
 	return (
 		<div className="roadmap-library-nav">
-			<div className="sorting-dropdown">
-				<label>
-					Sort By
-					<select value={sortMode} onChange={handleSort}>
-						<option value="category">Category</option>
-						<option value="a-z">A-Z</option>
-						<option value="z-a">Z-A</option>
-					</select>
-				</label>
-			</div>
+
 			<SideInPageNavigation navs={getNestedNavs(categories)} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+				<div className="sorting-dropdown">
+					<label>
+						Sort By
+						<select value={sortMode} onChange={handleSort}>
+							<option value="category">Category</option>
+							<option value="a-z">A-Z</option>
+							<option value="z-a">Z-A</option>
+						</select>
+					</label>
+				</div>
 				<div className={classnames("resource-library-modules")}>
 					{sortMode === 'category' ? (
 						displayData.map((category) => (
