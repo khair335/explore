@@ -662,6 +662,10 @@
 
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
+       .quote {
+            font-size: 24px;
+                line-height: 36px;
+      }
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -681,6 +685,10 @@
 
   &.theme-content-block-cta-card-primary {
     .TestimonialCard {
+      .quote {
+            font-size: 24px;
+                line-height: 36px;
+      }
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -2978,3 +2986,24 @@
       }
     }
   }
+
+
+.ResourceLibrary-section{
+ .resource-library-container{
+  .card{
+    .card-body{
+      .row{
+        .col{
+          a{
+            height: auto ;
+          }
+          button{
+            height: auto;
+          }
+        }
+      }
+    }
+
+  }
+ }
+}
