@@ -662,10 +662,22 @@
 
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
-       .quote {
-            font-size: 24px;
-                line-height: 36px;
+      .quote {
+        font-size: 16px;
+        line-height: 26px;
+
       }
+
+      .signature {
+        font-size: 16px;
+        font-style: normal;
+        line-height: 26px;
+        position: relative;
+
+
+
+      }
+
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -686,9 +698,17 @@
   &.theme-content-block-cta-card-primary {
     .TestimonialCard {
       .quote {
-            font-size: 24px;
-                line-height: 36px;
+        font-size: 16px;
+        line-height: 26px;
+
       }
+
+      .signature {
+        font-size: 16px;
+        font-style: normal;
+        line-height: 26px;
+      }
+
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -725,6 +745,7 @@
 
     .quote-image img {
       object-fit: contain;
+      max-height: 195px;
     }
   }
 
@@ -1464,13 +1485,15 @@
 
     }
   }
-  &.theme-content-block-cta-card-primary{
-    .cb-cta-link{
-      .lnk{
-        padding: 6px 24px ;
+
+  &.theme-content-block-cta-card-primary {
+    .cb-cta-link {
+      .lnk {
+        padding: 6px 24px;
       }
     }
   }
+
   .cb-cta-link {
     .lnk {
       @include cta-link-style;
@@ -2302,7 +2325,9 @@
   .HorizontalTab {
     .ContentList {
       >.container {
+
         >div {
+
           &:first-child {
             .card {
 
@@ -2312,6 +2337,38 @@
         }
       }
 
+    }
+    .ContentCard{
+      .container{
+          >.row{
+            >div{
+              // height: 100% !important;
+              >div{
+                height: 100%;
+                .card{
+                  height: 100%;
+                }
+              }
+            }
+          }
+      }
+    }
+    .TestimonialCard {
+      .quote-image img {
+        object-fit: contain;
+        max-height: 195px;
+      }
+      .card-body{
+        flex-direction: column;
+    display: flex;
+    flex: 1 1 auto !important;
+    .testimonial-cta{
+          flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    }
+      }
     }
   }
 }
@@ -2956,54 +3013,60 @@
 
 
 }
-.modal-dialog {
-    // display: flex !important;
-    // justify-content: center !important;
 
-    .modal-content {
-      // max-width: 500px !important;
-      .modal-body{
-        color: #fff;
-        .modal_buttonWrap{
-          .primary-bttn{
-              .lnk{
-                text-decoration: none;
-              }
-            &:hover{
-              .lnk{
+.modal-dialog {
+  // display: flex !important;
+  // justify-content: center !important;
+
+  .modal-content {
+
+    // max-width: 500px !important;
+    .modal-body {
+      color: #fff;
+
+      .modal_buttonWrap {
+        .primary-bttn {
+          .lnk {
+            text-decoration: none;
+          }
+
+          &:hover {
+            .lnk {
 
               color: $color-primary;
-              }
-                .brcmicon-play-circle{
-                  &:before{
-                    color: $color-primary;
-                          }
-                          }
             }
 
+            .brcmicon-play-circle {
+              &:before {
+                color: $color-primary;
+              }
+            }
           }
+
         }
       }
     }
   }
+}
 
 
-.ResourceLibrary-section{
- .resource-library-container{
-  .card{
-    .card-body{
-      .row{
-        .col{
-          a{
-            height: auto ;
-          }
-          button{
-            height: auto;
+.ResourceLibrary-section {
+  .resource-library-container {
+    .card {
+      .card-body {
+        .row {
+          .col {
+            a {
+              height: auto;
+            }
+
+            button {
+              height: auto;
+            }
           }
         }
       }
-    }
 
+    }
   }
- }
 }
