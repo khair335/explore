@@ -29,17 +29,17 @@
 
 .card-title {
   .lnk {
-    font-size: 25px !important;
+    font-size: 25px!important;
     color: $color-primary;
-    font-weight: 300 !important;
-    text-decoration: none !important;
+    font-weight: 300!important;
+    text-decoration: none!important;
     line-height: 33px;
 
     &:hover {
-      text-decoration: underline !important;
-      text-decoration-line: underline !important;
-      text-underline-offset: 5px !important;
-      text-decoration-thickness: 2px !important;
+      text-decoration: underline!important;
+      text-decoration-line: underline!important;
+      text-underline-offset: 5px!important;
+      text-decoration-thickness: 2px!important;
 
     }
   }
@@ -194,11 +194,9 @@
 
   .featured-cards~.col>.row:nth-child(2) .card {
     margin-top: 20px;
-
     @media (max-width:991px) {
       margin-top: 0;
     }
-
     .card-body {
       gap: 0;
       flex: initial;
@@ -206,11 +204,9 @@
       >div {
         &:first-child {
           width: 10%;
-
           @media (max-width:991px) {
             width: 20%;
           }
-
           @media (max-width:767px) {
             width: 20%;
           }
@@ -220,11 +216,9 @@
 
       .card-title {
         width: 90%;
-
         @media (max-width:991px) {
           width: 79%;
         }
-
         @media (max-width:767px) {
           width: 80%;
         }
@@ -233,11 +227,9 @@
       .card-text {
         width: 90%;
         margin-top: 0px !important;
-
         @media (max-width:991px) {
           width: 79%;
         }
-
         @media (max-width:767px) {
           width: 80%;
         }
@@ -346,7 +338,6 @@
       margin-bottom: 15px;
     }
   }
-
   .section-title {
     padding-bottom: 8px;
   }
@@ -364,7 +355,7 @@
       }
 
       @media (max-width: 767.98px) {
-        >.row {
+        >.row{
           gap: 30px
         }
       }
@@ -380,12 +371,12 @@
 
 
   .HorizontalTab {
-    .ContentCardTwoColumn {
-      .row {
-        >div {
-          &:nth-child(2) {
-            .lnk {
-              &:after {
+    .ContentCardTwoColumn{
+      .row{
+        >div{
+          &:nth-child(2){
+            .lnk{
+              &:after{
                 content: unset !important;
               }
             }
@@ -393,8 +384,7 @@
         }
       }
     }
-
-    .card-body {
+    .card-body{
       flex: none !important;
     }
 
@@ -662,22 +652,6 @@
 
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
-      .quote {
-        font-size: 16px;
-        line-height: 26px;
-
-      }
-
-      .signature {
-        font-size: 16px;
-        font-style: normal;
-        line-height: 26px;
-        position: relative;
-
-
-
-      }
-
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -697,18 +671,6 @@
 
   &.theme-content-block-cta-card-primary {
     .TestimonialCard {
-      .quote {
-        font-size: 16px;
-        line-height: 26px;
-
-      }
-
-      .signature {
-        font-size: 16px;
-        font-style: normal;
-        line-height: 26px;
-      }
-
       .cb-cta-link {
         .lnk {
           @extend .bttn;
@@ -745,78 +707,73 @@
 
     .quote-image img {
       object-fit: contain;
-      max-height: 195px;
     }
   }
 
 
 
 }
+  .ProductCard {
+    min-height: 100%;
 
-.ProductCard {
-  min-height: 100%;
-
-  .lnk {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 300;
-    text-align: center;
-    width: 100%;
-  }
-
-  >div {
-    flex-wrap: nowrap !important;
-    padding: 15px;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
+    .lnk {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 300;
+      text-align: center;
+      width: 100%;
+    }
 
     >div {
-      &:first-child {
-        max-width: 100% !important;
-        min-width: 100% !important;
-        margin-left: 12px !important;
-        padding: 0;
+      flex-wrap: nowrap !important;
+      padding: 15px;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
 
-        &.col-lg-8 {
-          margin: 0 !important;
+
+      >div {
+        &:first-child {
+          max-width: 100% !important;
+          min-width: 100% !important;
+          margin-left: 12px !important;
+          padding: 0;
+
+          &.col-lg-8 {
+            margin: 0 !important;
+          }
+
+          img {
+
+            max-width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            object-fit: cover;
+            margin-bottom: 16px !important;
+          }
         }
 
-        img {
-
-          max-width: 150px;
-          height: 150px;
-          margin: 0 auto;
-          object-fit: cover;
-          margin-bottom: 16px !important;
+        &:nth-child(2) {
+          max-width: 100% !important;
         }
-      }
-
-      &:nth-child(2) {
-        max-width: 100% !important;
-      }
-
-      .product-link {
+        .product-link{
         @include cta-link-style;
-        font-size: 25px;
-        font-weight: 300;
-        text-transform: capitalize;
+          font-size: 25px;
+              font-weight: 300;
+    text-transform: capitalize;
+      }
       }
     }
-  }
-
-  &.LeftImageCard {
-    >div {
+    &.LeftImageCard{
+      >div {
       flex-wrap: nowrap !important;
       padding: 15px;
       display: flex !important;
       flex-direction: row;
       align-items: flex-start;
       gap: 0px;
-
       >div {
         &:first-child {
           max-width: 21% !important;
@@ -841,26 +798,23 @@
           max-width: 82% !important;
         }
       }
-
-      .product-link {
+      .product-link{
         @include cta-link-style;
         text-align: left;
         font-size: 25px;
-        font-weight: 300;
-        text-transform: capitalize;
+            font-weight: 300;
+    text-transform: capitalize;
       }
     }
-  }
-
-  &.RightImageCard {
-    >div {
+    }
+    &.RightImageCard{
+      >div {
       flex-wrap: nowrap !important;
       padding: 15px;
       display: flex !important;
       flex-direction: row-reverse;
       align-items: flex-start;
       gap: 0px;
-
       >div {
         &:first-child {
           max-width: 21% !important;
@@ -885,18 +839,16 @@
           max-width: 82% !important;
         }
       }
-
-      .product-link {
+      .product-link{
         @include cta-link-style;
         text-align: left;
         font-size: 25px;
-        font-weight: 300;
-        text-transform: capitalize;
+            font-weight: 300;
+    text-transform: capitalize;
       }
     }
+    }
   }
-}
-
 .InPageNavigation {
   .nav-item {
     .lnk {
@@ -1075,7 +1027,6 @@
         &:after {
           @include cta-link-after;
         }
-
         &:hover {
           border: 0;
         }
@@ -1399,17 +1350,16 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard {
+    .ImageCard  {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,
-          .link-bttn {
+          .lnk,.link-bttn {
 
             @include cta-link-style;
 
             &:after {
-              @include cta-link-after;
+              @include cta-link-after ;
             }
 
 
@@ -1418,13 +1368,12 @@
       }
     }
   }
-
-  &.theme-cbl-card-transparent {
-    .card {
+  &.theme-cbl-card-transparent{
+    .card{
       box-shadow: none;
     }
   }
-
+  
   &.theme-content-block-dark {
     &.theme-content-block-cta-card-primary {
       .LeftImageCard {
@@ -1459,12 +1408,12 @@
 
     &.theme-content-block-cta-card-link {
       a {
-        color: #47B2D3 !important;
+        color: $color-link-dark!important;
         text-decoration: none;
 
         &:hover {
           background: transparent !important;
-          text-decoration-color: #47B2D3;
+          text-decoration-color: $color-link-dark;
           text-decoration: underline;
         }
       }
@@ -1478,22 +1427,22 @@
 
             &:after {
               @include cta-link-after;
-            }
+
           }
+        }
         }
       }
 
     }
   }
 
-  &.theme-content-block-cta-card-primary {
-    .cb-cta-link {
-      .lnk {
-        padding: 6px 24px;
+  &.theme-content-block-cta-card-primary{
+    .cb-cta-link{
+      .lnk{
+        padding: 6px 24px ;
       }
     }
   }
-
   .cb-cta-link {
     .lnk {
       @include cta-link-style;
@@ -1503,7 +1452,6 @@
       }
     }
   }
-
 
 
 }
@@ -1644,7 +1592,6 @@
       }
     }
   }
-
   &.theme-cbl-card-transparent {
     .card {
       &.LeftImageCard {
@@ -1869,9 +1816,8 @@
           @include link-hover;
           border: none;
         }
-
-        &:after {
-          @include cta-link-after
+        &:after{
+         @include  cta-link-after
         }
       }
 
@@ -2152,11 +2098,9 @@
   .card-title {
     color: $color-black;
   }
-
   .section-title {
     color: $color-black;
   }
-
   &.theme-cbl-card-transparent {
     .section-title {
       color: $color-black;
@@ -2213,11 +2157,10 @@
     }
   }
 
-  &.theme-content-block-dark {
+  &.theme-content-block-dark{
     .section-title {
       color: $color-white;
     }
-
     .card-title {
       color: $color-white;
     }
@@ -2325,9 +2268,7 @@
   .HorizontalTab {
     .ContentList {
       >.container {
-
         >div {
-
           &:first-child {
             .card {
 
@@ -2337,38 +2278,6 @@
         }
       }
 
-    }
-    .ContentCard{
-      .container{
-          >.row{
-            >div{
-              // height: 100% !important;
-              >div{
-                height: 100%;
-                .card{
-                  height: 100%;
-                }
-              }
-            }
-          }
-      }
-    }
-    .TestimonialCard {
-      .quote-image img {
-        object-fit: contain;
-        max-height: 195px;
-      }
-      .card-body{
-        flex-direction: column;
-    display: flex;
-    flex: 1 1 auto !important;
-    .testimonial-cta{
-          flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    }
-      }
     }
   }
 }
@@ -2467,29 +2376,24 @@
 
                   display: flex;
                   flex-wrap: wrap;
-
                   >h3~div {
                     width: 78%;
 
                     margin-top: -0px !important;
-
-                    >p {
+                    >p{
                       margin-top: 82px !important;
-
                       @media (max-width:767px) {
                         width: 100% !important;
-                        margin-top: 0px !important;
+                      margin-top: 0px  !important;
                         margin-left: 0;
                       }
                     }
 
                   }
-
                   >.lnk~h3~div {
                     width: 78%;
                     margin-top: -0px !important;
-
-                    >p {
+                    >p{
                       margin-top: 0px !important;
                     }
 
@@ -2505,12 +2409,10 @@
                       margin-top: 8px !important;
                     }
                   }
-
                   >div:nth-child(2) {
 
                     &.card-text {
                       margin-top: -72px !important;
-
                       @media (max-width:767px) {
                         margin-top: 20px !important;
                         width: 100%;
@@ -2534,7 +2436,6 @@
                     line-height: 24px;
                     height: min-content;
                     margin: 0;
-
                     .lnk {
                       width: 78% !important;
                       padding-top: 0;
@@ -2733,17 +2634,15 @@
   }
 }
 
-.theme-card-cta-link {
+.theme-card-cta-link{
   height: 100%;
-
-  .card {
+  .card{
     height: 100%;
   }
 }
 
 .ContentList-section {
   .ContentList {
-
     .content-block-right,
     .content-block-left {
       .cb-cta-link {
@@ -2757,7 +2656,6 @@
 
   }
 }
-
 .ContentList-section {
   .ContentCardTwoColumn {
     .row {
@@ -2766,7 +2664,6 @@
           text-align: left;
         }
       }
-
       >div {
 
         >div {
@@ -2807,7 +2704,7 @@
 .VerticalTab-section {
   .VerticalTab {
 
-    .video-box {
+    .video-box{
       width: 100%;
       max-width: 100% !important;
       flex: none !important;
@@ -2833,18 +2730,15 @@
         padding-left: 20px;
       }
     }
-
     .content-block-center {
       display: flex;
       flex-direction: column-reverse;
-
-      .content-block-title {
+      .content-block-title{
         margin-top: 20px;
       }
     }
   }
 }
-
 .Testimonial-section {
   .TestimonialCard {
     box-shadow: none !important;
@@ -2927,146 +2821,4 @@
     }
   }
 
-}
-
-
-.VideoLibrary-section {
-  .dropdown-menu {
-    transform: translate3d(84px, 325px, 0px) !important;
-  }
-
-  #channel-menu {
-    position: relative;
-    z-index: 21;
-  }
-
-  #playlist-title {
-    h2 {
-      font-weight: 500;
-    }
-  }
-
-  .playlist-more {
-    margin-top: -11px;
-    background: transparent;
-    font-weight: 300;
-    text-transform: capitalize;
-    color: #fff;
-
-    &:hover {
-      border: none;
-    }
-  }
-
-  #playlist-menu {
-    background-color: #eaebeb;
-
-    .link-bttn {
-      border-radius: 0;
-      height: fit-content;
-
-      &:hover {
-        text-decoration-color: $color-primary;
-        text-decoration-thickness: 2px;
-      }
-
-      .active {
-        text-decoration: none !important;
-        border-bottom: 3px solid $color-primary;
-
-        font-weight: 500;
-
-        &:hover {
-          text-decoration: none !important;
-        }
-      }
-    }
-  }
-
-  #all-playlists {
-    .video-card {
-      width: 100%;
-
-      max-width: 250px;
-
-      .icon-bttn {
-        padding: 10px;
-        flex-direction: column;
-        height: auto !important;
-
-        h5 {
-          .lnk {
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-
-          }
-
-          :hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-    }
-  }
-
-
-}
-
-.modal-dialog {
-  // display: flex !important;
-  // justify-content: center !important;
-
-  .modal-content {
-
-    // max-width: 500px !important;
-    .modal-body {
-      color: #fff;
-
-      .modal_buttonWrap {
-        .primary-bttn {
-          .lnk {
-            text-decoration: none;
-          }
-
-          &:hover {
-            .lnk {
-
-              color: $color-primary;
-            }
-
-            .brcmicon-play-circle {
-              &:before {
-                color: $color-primary;
-              }
-            }
-          }
-
-        }
-      }
-    }
-  }
-}
-
-
-.ResourceLibrary-section {
-  .resource-library-container {
-    .card {
-      .card-body {
-        .row {
-          .col {
-            a {
-              height: auto;
-            }
-
-            button {
-              height: auto;
-            }
-          }
-        }
-      }
-
-    }
-  }
 }
