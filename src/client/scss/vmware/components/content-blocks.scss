@@ -216,6 +216,7 @@
 
       .card-title {
         width: 90%;
+        margin-top: -10px;
         @media (max-width:991px) {
           width: 79%;
         }
@@ -239,11 +240,16 @@
         img {
           max-width: 65.99px;
           width: 100%;
+              margin-right: 0px !important;
+    margin-left: 0px !important;
           height: 65.99px;
 
 
         }
       }
+    }
+    .card-footer{
+          width: 89%;
     }
   }
 
@@ -1373,7 +1379,7 @@
       box-shadow: none;
     }
   }
-  
+
   &.theme-content-block-dark {
     &.theme-content-block-cta-card-primary {
       .LeftImageCard {
