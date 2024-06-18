@@ -28,11 +28,21 @@ import 'scss/pages/tab-search.scss';
 
 
 const Result = (props) => {
+	// Display full path with host
+	let display_url = props.result.url;
+	try {
+		display_url = new URL(props.result.url, location.origin);
+	}
+	catch {
+		display_url = props.result.url;
+	}
+
+	
 	return (
 		<div className="tabsearch-result">
 			<SiteLink className="tabsearch-result-title" to={props.result.url}>{props.result.title}</SiteLink>
 			<div className="tabsearch-result-description" dangerouslySetInnerHTML={{ __html: props.result.abstract }} />
-			<SiteLink className="tabsearch-result-url" to={props.result.url}>{props.result.url}</SiteLink>
+			<SiteLink className="tabsearch-result-url" to={props.result.url}>{display_url.toString()}</SiteLink>
 		</div>
 	);
 }
@@ -69,7 +79,7 @@ const TabSearch = (props) => {
 	const [all_total_pages, setAllTotalPages] = useState(0);
 
 	const [query, setQuery] = useState(queryString.parse(location.search).q);
-	const [currentPage, setCurrentPage] = useState(queryString.parse(search).page || 1);
+	const [currentPage, setCurrentPage] = useState(parseInt(queryString.parse(search).page) || 1);
 	const [sortBy, setSortBy] = useState(queryString.parse(search).sort_by || '');
 	const [sortDir, setSortDir] = useState('asc');
 	const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -79,7 +89,7 @@ const TabSearch = (props) => {
 	let active_tab_title = tab?.label || '';
 
 
-	
+
 
 	// Init/componentDidMount
 	useEffect(() => {
@@ -120,7 +130,7 @@ const TabSearch = (props) => {
 	}, []);
 
 	useEffect(() => {
-		
+
 		if (search) {
 			// Parse it out
 			let query = queryString.parse(search);
@@ -137,6 +147,10 @@ const TabSearch = (props) => {
 		getResults();
 
 		setLocation();
+
+		document.querySelector('.tab-page-collapse-wrapper')?.scrollIntoView({
+			behavior: 'smooth'
+		});
 
 	}, [active_tab, JSON.stringify(tabs), currentPage, sortBy, query]);
 
@@ -184,7 +198,7 @@ const TabSearch = (props) => {
 					pane.results = json?.records?.pages;
 					pane.total_pages = json?.info?.pages?.num_pages;
 
-					
+
 					setTotalPages(json?.info?.pages?.total_result_count);
 					setPane(pane);
 					setLoading(false);
@@ -228,9 +242,10 @@ const TabSearch = (props) => {
 					data.forEach((datum, index) => {
 
 						/// Ignore our first because we just want total count.
-						if (index !== 0) {
+						if (index !== 0 && datum.record_count > 0) {
 							nextPane.facets.push({
-								label: Object.keys(datum?.info?.pages?.facets?.content_type)[0]?.replace('_', ''),
+								label: Object.keys(datum?.info?.pages?.facets?.content_type)[0]?.replace('_', ' '),
+								hash: encodeTabHash(Object.keys(datum?.info?.pages?.facets?.content_type)[0]),
 								results: datum?.records?.pages,
 								total: datum?.info?.pages?.total_result_count,	// Total count.
 								total_pages: datum?.info?.pages?.num_pages
@@ -314,10 +329,30 @@ const TabSearch = (props) => {
 	}
 
 	const handlePage = (page) => {
-		setCurrentPage(page);
+		if (page <= totalPages) {
+			setCurrentPage(page);
+		}
 	}
 
 
+	const handleMore = (tab) => {
+		setCurrentPage(1);
+		setActiveTab(tab);
+		setCollapse(true);
+	}
+
+
+	// Chunks of pagination
+	let pagination_numbers = [];
+	const num_chunk_pages = 5;
+	let start_chunk_page = Math.max((Math.floor((currentPage - 1) / num_chunk_pages) * num_chunk_pages), 0);		// zero base
+	let end_chunk_page = start_chunk_page + num_chunk_pages;
+
+	for (let i = start_chunk_page; i < end_chunk_page && i <= pane?.total_pages; i++) {
+		pagination_numbers.push(i + 1);
+	}
+
+	
 	return (
 		<Container id="TabSearch">
 			<SubHeadHero {...props} />
@@ -402,7 +437,7 @@ const TabSearch = (props) => {
 											{facet?.results.map(result => (
 												<Result result={result} key={result.id} />
 											))}
-											<button className="lnk">See {facet.total_pages} more results</button>
+											<button className="lnk" onClick={(event) => handleMore(encodeTabHash(facet.hash))}>See {facet.total_pages} more results</button>
 										</div>
 									))}
 								</div>
@@ -416,18 +451,40 @@ const TabSearch = (props) => {
 									{pane?.total_pages > 1 &&
 										<Pagination>
 											<PaginationItem disabled={currentPage === 1}>
+												<PaginationLink first onClick={() => handlePage(1)} />
+											</PaginationItem>
+											<PaginationItem disabled={currentPage === 1}>
 												<PaginationLink previous onClick={() => handlePage(currentPage - 1)} />
 											</PaginationItem>
-											{[...Array(pane?.total_pages).keys()].map((page) => (
-												<PaginationItem key={page} active={page + 1 === currentPage}>
-													<PaginationLink onClick={() => handlePage(page + 1)}>
-														{page + 1}
+
+											{start_chunk_page >= num_chunk_pages &&
+												<PaginationItem >
+													<PaginationLink onClick={() => handlePage(start_chunk_page)}>
+														...
+													</PaginationLink>
+												</PaginationItem>
+											}
+
+											{pagination_numbers.map((page) => (
+												<PaginationItem key={page} active={page === currentPage}>
+													<PaginationLink onClick={() => handlePage(page)}>
+														{page}
 													</PaginationLink>
 												</PaginationItem>
 											))}
 
-											<PaginationItem disabled={currentPage === pane?.totalPages}>
+											{end_chunk_page <= pane?.total_pages &&
+												<PaginationItem >
+													<PaginationLink onClick={() => handlePage(end_chunk_page + 1)}>
+														...
+													</PaginationLink>
+												</PaginationItem>
+											}
+											<PaginationItem disabled={currentPage === pane?.total_pages}>
 												<PaginationLink next onClick={() => handlePage(currentPage + 1)} />
+											</PaginationItem>
+											<PaginationItem disabled={currentPage === pane?.total_pages}>
+												<PaginationLink last onClick={() => handlePage(pane?.total_pages)} />
 											</PaginationItem>
 
 										</Pagination>

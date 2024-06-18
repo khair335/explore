@@ -37,7 +37,7 @@ const AtoZ = (props) => {
 
 	useEffect(() => {
 		const letters = glossary_list.reduce((acc, term) => {
-			const firstLetter = term.name[0].toUpperCase();
+			const firstLetter = term.title[0].toUpperCase();
 			if (!acc[firstLetter]) {
 				acc[firstLetter] = true;
 			}
@@ -116,10 +116,10 @@ const AtoZ = (props) => {
 									<li key={term.name}><SiteLink to={term.url}>{term.name}</SiteLink></li>
 								))} */}
 								{glossary_list
-									.filter(term => term.name.startsWith(letter))
-									.sort((a, b) => a.name.localeCompare(b.name))
+									.filter(term => term.title.startsWith(letter))
+									.sort((a, b) => a.title.localeCompare(b.title))
 									.map(term => (
-										<li key={term.name}><SiteLink to={term.url}>{term.name}</SiteLink></li>
+										<li key={term.title}><SiteLink to={term.url}>{term.title}</SiteLink></li>
 									))}
 							</ul>
 						</div>

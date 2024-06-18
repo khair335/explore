@@ -41,6 +41,8 @@ return (
 	<div id="TabbedContent">
 		<SubHeadHero {...props} />
 
+		{props.data?.top_content_blocks && <ContentBlocksSection contentBlocks={props.data?.top_content_blocks} />}
+
 		<Container>
 			<a id="top"></a>
 

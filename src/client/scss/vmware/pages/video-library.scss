@@ -1,6 +1,7 @@
 @import "../base/variables";
 @import "../base/link";
 @import "../base/icon";
+@import "../base/buttons";
 
 
 #video-library-loading {
@@ -18,7 +19,7 @@
     position: relative;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: linear-gradient(#474a4b, #101012);
+    background: $background-dark;
     z-index: 30;
 
     .featured-info {
@@ -63,7 +64,7 @@
 }
 
 #playlist-title, #playlist-menu-btn {
-    background-color: $color-grey--800;
+    background-color: $background-dark;
     color: $color-white;
     min-height: 44px;
     z-index: 30;
@@ -100,7 +101,8 @@
         }
 
         &:hover {
-            background-color: $color-grey--800;                 //mods button _buttons.scss
+            background-color: $background-dark;          
+            
         }
 
     }
@@ -116,13 +118,13 @@
 }
 
 #playlist-menu {
-    background-color: $color-grey--600;
+    background-color: $background-light-blue;
     padding-top: 1em;
     padding-bottom: 1em;
     transform: translateY(-110%);
     transition: transform .5s ease-in;
     z-index: 20;
-    box-shadow: 0px 5px 3px #999;
+    box-shadow: $shadow-1;
     max-height: 0;
     transition: max-height 0.5s ease-out;
     overflow: hidden;
@@ -164,20 +166,39 @@
     justify-content: center;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 50px;
 
     .paging-wrapper {
-        position: absolute;
-        bottom: -20px;
+        // position: absolute;
+        // bottom: -20px;
         margin-top: 10px;
         text-align: center;
+        display: flex;
+        .link-bttn{
+            margin: 5px 10px;
+        }
     }
 
     button.link-bttn {                              // <== uses new button styling
-        color: $color-secondary;                    //TEMP STYLING till new buttons
-        font-size: $font-size-lg;                   //DELETE / MODIFY on install
-        font-family: $font-family--secondary;
-        background-color: transparent;
-        margin-right: 20px;
+        //color: $color-secondary;                    //TEMP STYLING till new buttons
+        //font-size: $font-size-lg;                   //DELETE / MODIFY on install
+        //font-family: $font-family--secondary;
+        //background-color: transparent;
+        padding: 0 20px;
+        @extend .bttn;
+        @include primary-button;
+
+
+        &:hover {
+          @include primary-hover;
+        }
+
+        &:after {
+          @include button-after;
+        }
+
+        
+
     }
 
     button.hide {display: none;}
@@ -196,7 +217,7 @@
 
 .channel-card, .video-card {
     width: 250px;
-    border: 1px solid $color-grey--700;
+   // border: 1px solid $color-grey--700;
     margin: 2em 1%;
 
     button {
@@ -269,7 +290,7 @@
     flex-direction: column;
     justify-content: space-between;
     min-width: 200px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: $shadow-1;
     background-color: $color-white;
 
 
@@ -326,12 +347,134 @@
 .modal-content{
     border-radius: 4px;
     padding: 10px;
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
-    0 0  0 2px rgb(255,255,255),
-    0.3em 0.3em 1em rgba(0,0,0,0.3);;
-    background-color: $color-grey--600;
-    border: 1px #999 solid;
+    box-shadow: $shadow-1;
+    background-color: $background-dark;
+    //border: 1px #999 solid;
 }
+
+
+.VideoLibrary-section {
+    .dropdown-menu {
+      transform: translate3d(84px, 325px, 0px) !important;
+    }
+  
+    #channel-menu {
+      position: relative;
+      z-index: 21;
+    }
+  
+    #playlist-title {
+      h2 {
+        font-weight: 500;
+      }
+    }
+  
+    .playlist-more {
+      margin-top: -11px;
+      background: transparent;
+      font-weight: 300;
+      text-transform: capitalize;
+      color: #fff;
+  
+      &:hover {
+        border: none;
+      }
+    }
+  
+    #playlist-menu {
+      background-color: $background-light-blue;
+  
+      .link-bttn {
+        border-radius: 0;
+        height: fit-content;
+  
+        &:hover {
+          text-decoration-color: $color-primary;
+          text-decoration-thickness: 2px;
+        }
+  
+        .active {
+          text-decoration: none !important;
+          border-bottom: 3px solid $color-primary;
+  
+          font-weight: 500;
+  
+          &:hover {
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  
+    #all-playlists {
+      .video-card {
+        width: 100%;
+  
+        max-width: 250px;
+  
+        .icon-bttn {
+          padding: 10px;
+          flex-direction: column;
+          height: auto !important;
+  
+          h5 {
+            .lnk {
+              font-size: 16px;
+              font-weight: 300;
+              text-decoration: none;
+              text-transform:none;
+  
+            }
+  
+            :hover {
+              text-decoration: underline;
+            }
+          }
+        }
+  
+      }
+    }
+  
+  
+  }
+  .modal-dialog {
+      // display: flex !important;
+      // justify-content: center !important;
+  
+      .modal-content {
+        // max-width: 500px !important;
+        .modal-body{
+          color: #fff;
+          .modal_buttonWrap{
+            .primary-bttn{
+                .lnk{
+                  text-decoration: none;
+                }
+              &:hover{
+                .lnk{
+  
+                color: $color-primary;
+                }
+                  .brcmicon-play-circle{
+                    display: none;
+                            }
+              }
+  
+            }
+          }
+        }
+      }
+    }
+  
+    // remopve the carrot before all channel
+    .brcmicon-arrow-circle-left, .brcmicon-arrow-circle-right, .brcmicon-play-circle {
+        display: none;
+    }
+    .brcmicon-info-circle {
+        color:$color-primary
+    }
+   
+    
 
 
 

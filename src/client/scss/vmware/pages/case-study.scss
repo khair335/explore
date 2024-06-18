@@ -108,6 +108,35 @@
 		padding-top: 16px;
 		padding-bottom:16px;
 		border-bottom: 1px solid $color-grey--300;
+		.product-results, .resource-results, .solution-results{
+			a{
+				text-decoration: none;
+			}
+			// display: flex;
+			// flex-direction: column;
+		}
+		.resource-results{
+			display: flex;
+
+			.bi {
+				margin-right: 4px;
+			}
+
+			.VideoLink {
+				// Unset all our button stuff.
+				.bi {
+					margin-left: 0;
+					margin-right: 6px;
+				}
+
+				.link-bttn {
+					padding: 0;
+					margin: 0;
+					height: auto;
+				}
+			}
+
+		}
 	}
 
 	h5 {

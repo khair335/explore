@@ -415,7 +415,7 @@ export default function (props) {
 				}];
 				 
 				if (config.site === "vm") {
-					card.description = card.meta_description || "no descriptiion";
+					card.description = card.abstract || "no descriptiion";
 					card.title = card.customer_name || "no name";
 				}
 

@@ -35,6 +35,29 @@ export default class MainNavExplore extends Component {
         this.setState({
             activeMenu: index
         })
+
+        if (index === false) { this.menuToggle() }
+
+/**
+ * creates empty white window under the menu dropdown
+ * this eliminates flash of main page while clicking through main menu items
+ * new window is created/appended and then deleted when window closes
+ * note: there is a window close command issued between each menu item/new dropdown click 
+ * -you have to account for that
+ */
+
+        if(index === false) {
+            let el = document.getElementsByClassName('laurels-window');
+            setTimeout(() => {
+                el[0].parentElement.removeChild(el[0]);
+            },250);
+        } else {
+            let content = document.getElementById('content');
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('laurels-window');
+            content.insertBefore(newDiv, content.firstChild );
+        }
+
 /*         if (index === false) { 
             this.menuToggle();
             document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background
@@ -207,14 +230,14 @@ class MenuWindow extends Component {
             <div id="menuWindow" ref={this.menuRef} className="fadein">
                 <div className='menuWrapper'>
                     <Row>
-                        <Col sm="12" md="12" lg="12">
+                        <Col sm="12" md="12" lg="12" className='back-btn-wrap'>
                             <button onClick={() => this.handleBack()} className="back" aria-label="Back to main level navigation">
                                 <span className="bi bi-rotate-180 brcmicon-arrow-circle-right"></span>
                             </button>
                         </Col>
                         {item.child.map((level_1, index) => {
                             return (
-                                <Col className={classnames({ 'highlight' : level_1.show_as_card })} >
+                                <Col className={classnames({ 'highlight' : level_1.show_as_card })} sm="12" md="4">
 
                                     {level_1?.child[0]?.content_block?.content_type === 'content_block' ?
 
@@ -223,7 +246,7 @@ class MenuWindow extends Component {
                                         </div>
                                     :
                                         <Fragment>
-                                            <h4 className="title" key={level_1.title}>{level_1.title}</h4>
+                                            <h4 className={classnames('title', { 'empty-spacer' : !level_1.title })} key={level_1.title}>{level_1.title}</h4>
                                             <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
                                             {level_1.child ? 
                                                 <ul>

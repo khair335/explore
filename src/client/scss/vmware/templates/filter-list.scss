@@ -1,0 +1,212 @@
+
+@import "../base/variables";
+
+// Fontawesome
+@import "../fontawesome/fontawesome";
+
+.tab-content {
+    h2.section-title {display: none;}
+}
+
+#filtered-listing {
+
+    h4 {
+        //font-size: ;
+        padding: 15px;
+        font-weight: 500;
+        line-height: 28px;
+    }
+
+    .CollapseBox {
+
+        .card {
+            border: none;
+
+            .card-body {
+
+                .collapse ul {
+                    padding-top: 30px;
+                    list-style-type: none;
+
+                    li label {
+                        font-size: $font-size-lg;
+                        font-weight: 300;
+                        margin-bottom: 25px;
+                        display: flex;
+                        flex-direction: row;
+
+                        input {
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                .card-head {
+                    padding: 7px 10px;
+                    background-color: $background-dark-blue;
+                    border-left: 2px solid $color-black;
+    
+                    .text-right {
+                        padding: 0;
+                    }
+    
+                    button.icon-bttn {
+                        padding: 0;
+                        margin-left: -5px;
+    
+                        .secondary-bttn {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        button.link-bttn-no-hover h6 {
+            font-size: 18px;
+            font-weight: 300;
+            color: $color-black;
+        }
+    }
+    
+    .card-list-wrapper {
+        background-color: $background-dark-blue;
+
+        h2 {
+            padding: 20px;
+        }
+    }
+    .card-list {
+        background-color: $background-dark-blue;
+/*         column-count: 2;
+        column-gap: 20px;
+        column-width: 300px;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        text-align: center; */
+
+        .card-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .detail-card {
+            position: relative;
+            display: inline-block;
+            text-align: left;
+            font-size: $font-size-md;;
+            border: 1px solid transparent;
+            box-shadow: 0 5px 13px 6px rgb(5 50 69 / 18%);
+            background-color: #fff;
+            border-radius: 2px;
+            padding: 20px;
+            height: 166px;
+/*             width: 300px; */
+            margin-bottom: 20px;
+            margin-left: 20px;
+           /*  margin-right: 20px; */
+
+            h5 {
+                margin-top: 10px;
+            }
+
+            .link-label {
+                font-size: $font-size-md;
+                position:absolute;
+                bottom: 10px;
+            }
+        }
+    }
+} //#filtered-listing
+
+#dropdown-filtered-listing {
+    background-color: $background-dark-blue;
+
+    .selected {
+        margin-top: 10px;
+        display: inline-block;
+        font-weight: 500;
+
+        span {
+            font-weight: 300;
+            margin-right: 4px;
+
+            &::after {
+                content: (',');
+            }
+        }
+        
+    }
+
+    .dropdown {
+        display: inline-block;
+
+        button.dropdown-toggle {
+            background-color: transparent;
+            color:$color-black;
+            font-size: $font-size-lg;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-right: 20px;
+
+            .dropdown-caret {
+                @include fa-icon-solid($fa-var-chevron-down);
+                transition: 0.2s ease-in-out;
+                right: 8px;
+                position: absolute;
+                top: 15px;
+            }
+
+            .dropdown-label {
+                font-weight: 300;
+                text-transform: none;
+                margin-right: 6px;
+            }
+        }
+
+        .dropdown-menu {
+            overflow-y: scroll;
+            max-height: 600px;
+
+            .dropdown-item {
+                input {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .detail-cards {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .detail-card {
+        box-shadow: 0 1px 10px 0 rgb(97 113 125 / 45%);
+        padding: 18px;
+        height: 294px;
+        background-color: $color-white;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-weight: 300;
+        line-height: 24px;
+
+        h5 a {
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 20px;;
+        }
+
+        img {
+            position: absolute;
+            bottom: 33px
+        }
+            
+
+
+    }
+}

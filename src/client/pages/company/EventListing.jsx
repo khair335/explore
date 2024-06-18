@@ -117,13 +117,16 @@ const EventListing = (props) => {
 
 export default EventListing;
 
+const displayDate = (date) => {
+	return new Date(date).toLocaleDateString('en-us', { timeZone: 'UTC' })
+}
+
 const Events = (props) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 
-	const moment = require('moment');
 	const logo = ">>"
 	const [events, setEvents] = useState(props.events);
 	const [searchTerm, setSearchTerm] = useState('');
@@ -495,13 +498,25 @@ const Events = (props) => {
 												</div>
 												<div>
 													{sortConfig.sortcolumn === dataKey && sortConfig.sortorder === 'sorting_asc' && (
-														<img src='/img/sort_asc.png' alt="Ascending" />
+														// <img src='/img/sort_asc.png' alt="Ascending" />
+														<span>
+															<i className="fa-solid fa-chevron-up sorted"></i>
+															<i className="fa-solid fa-chevron-down"></i>
+                                                    	</span>
 													)}
 													{sortConfig.sortcolumn === dataKey && sortConfig.sortorder === 'sorting_dsc' && (
-														<img src='/img/sort_desc.png' alt="Descending" />
+														// <img src='/img/sort_desc.png' alt="Descending" />
+														<span>
+															<i className="fa-solid fa-chevron-up"></i>
+															<i className="fa-solid fa-chevron-down sorted"></i>
+														</span>
 													)}
 													{sortConfig.sortcolumn !== dataKey && (
-														<img src='/img/sort_both.png' alt="Sortable" />
+														// <img src='/img/sort_both.png' alt="Sortable" />
+														<span>
+															<i className="fa-solid fa-chevron-up"></i>
+															<i className="fa-solid fa-chevron-down"></i>
+														</span>
 													)}
 												</div>
 											</div>
@@ -524,7 +539,7 @@ const Events = (props) => {
 									className={index % 2 === 1 ? '' : 'bg--gray'}
 								>
 									<td>{event.title}</td>
-									<td>{moment(event.start_date).format('MM/DD/YYYY')} - {moment(event.end_date).format('MM/DD/YYYY')}</td>
+									<td>{displayDate(event.start_date)} - {displayDate(event.end_date)}</td>
 									<td>{event.event_format}</td>
 									<td>{event.location}, {event.state}</td>
 									<td>{<SiteLink to={event.link.url}>Learn More </SiteLink>}</td>

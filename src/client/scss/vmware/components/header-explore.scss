@@ -31,6 +31,9 @@
     padding-top: 0;
   }
 
+  .hide {display: none;}
+  .empty-spacer{height: 22px;}
+
   .header_location {
 
     font-size: 13px; //???
@@ -337,7 +340,7 @@
     padding-left:16px;
     padding-right:16px;
 
-    button.back {display: none}       // closes flyh-out/dropdown menu in moblie
+    .back-btn-wrap {display: none}       // closes flyh-out/dropdown menu in moblie
 
     .content-block .col {
       padding: 32px;
@@ -356,8 +359,9 @@
         padding-bottom: 30px; 
       }
 
-      .col {
+      div[class*="col-"] {
         padding-top: 20px;
+        padding-bottom: 50px;
 
         h2.content-block-title {
           text-align: center;
@@ -428,7 +432,11 @@
         }
       }
 
-      .col.highlight {
+      .content-block ul.cb-cta-link {
+        flex-direction: column;
+      }
+
+      .highlight .content-block .col {
         background-color: $background-dark-blue;
 
         a.key-link {
@@ -473,10 +481,19 @@
   } //menuWindow
 
 
-  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {   //md=768
 
     .top-banner {
       margin-top: 0px;
+    }
+
+    .content-block ul.cb-cta-link li a{
+      font-size: $font-size-sm;
+    }
+
+    #header-explore #menuWindow .content-block .col {
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     #header-explore {
@@ -514,11 +531,15 @@
           justify-content: center;
         }
 
-        button.back {
+        .back-btn-wrap {
           display: flex;
-          margin-top: -10px;
-          margin-left: 6px;
-          justify-content: left;
+
+          button.back {
+            display: flex;
+            margin-top: -10px;
+            margin-left: 6px;
+            justify-content: left;
+          }
 
           span {
               color: $color-grey--600;

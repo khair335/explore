@@ -23,7 +23,15 @@ const displayDay = (date) => {
 	// Unsure what format we are receivig, so just converting it to UTC.
 	let locale = config.explore_event === 'eu' ? 'en-gb' : 'en-us';
 	
-	return new Date(date).toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric", timeZone: 'UTC' })
+	let format_date = new Date(date).toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric", timeZone: 'UTC' });
+
+	// https://hgsdigitalprojects.atlassian.net/browse/BCVW-720
+	// Firefox seems to work, but others it doesn't. Let's fix it by assumming no commas exist.
+	if (!format_date.includes(',')) {
+		format_date = format_date.replace(" ", ", ");
+	}
+
+	return format_date;
 
 }
 

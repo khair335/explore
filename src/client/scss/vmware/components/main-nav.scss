@@ -5,6 +5,16 @@
 
 @import "../base/variables";
 
+.laurels-window {
+    background-color: #fff;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3; //on explore and some pages carousel / hero banner has a z-index of 2
+}
 
 // main menu in header 
 #header .navMenu .navbar-collapse { 
@@ -130,7 +140,7 @@
 #menuWindow {
     min-width: 100%;
     transform: translate(0,0);
-    transition: transform .3s ease-out;
+/*     transition: transform .3s ease-out; */
     position: fixed;
     top: $header-height;
     bottom: 0;

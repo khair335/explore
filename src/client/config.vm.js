@@ -181,7 +181,7 @@ class Config {
 		if (ENVIRONMENT) {
 			switch (ENVIRONMENT) {
 				case 'local':
-					this.swifttype.engine_key = 'FGq2x_7zpGpZ68xHePFN'; // 'myuc5Dc4M6MBzSkEzkxN'; //
+					this.swifttype.engine_key = 'TFtCTGCDYLVc5jcy8kW2'; // 'myuc5Dc4M6MBzSkEzkxN'; //
 					// SEE /server/proxy.local.js this.api_url = 'http://cmsgwdev2.aws.broadcom.com/api/';//'http://cmsgwqa.aws.broadcom.com/api/';//'http://cmsgwdev2.aws.broadcom.com/api/';
 					this.media_host = 'http://ichabodgwdev.aws.broadcom.com/'; //'https://dev.aws.broadcom.com/' 	//"https://avagoredo:PA55@dev.aws.broadcom.com/"
 					this.cookie.domain = "localhost";

@@ -19,19 +19,19 @@ import 'scss/templates/products-library.scss';
 
 const ProductLibrary = (props) => {
 	const navigate = useNavigate();
-	const locationSearch = window.location.search;
+	let locationSearch = location.search
 	let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
 
 	const [products, setProducts] = useState(props.content_block?.products || []);
-	const [inputChange, setInputChange] = useState('');
+	const [inputChange, setInputChange] = useState(searchParams.term || '');
 	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
 	const [sortMode, setSortMode] = useState('category');
 	const [displayData, setDisplayData] = useState(products);
 	const [resultCount, setResultCount] = useState(0)
 
 	useEffect(() => {
-		setInputChange(searchParams.term || '');
-		setSearchTerm(searchParams.term || '');
+		// setInputChange(searchParams.term || '');
+		// setSearchTerm(searchParams.term || '');
 	}, []);
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const ProductLibrary = (props) => {
 		} else {
 			delete searchParams['term'];
 		}
-		navigate({ search: `?${queryString.stringify(searchParams)}` });
+		navigate({ search: `${queryString.stringify(searchParams)}`, hash: location.hash, });
 	}, [searchTerm]);
 
 	useEffect(() => {

@@ -92,6 +92,9 @@
             overflow-y: auto;
             overflow-x: hidden;
             border-radius: 0;
+            @media (max-width:767px){
+                max-width: 75%;
+            }
 
             &::-webkit-scrollbar {
                 height: 8px;
@@ -136,6 +139,7 @@
                     font-weight: 300;
                     text-wrap: initial;
                     padding-bottom: 10px;
+                    white-space: normal;
                 }
             }
         }

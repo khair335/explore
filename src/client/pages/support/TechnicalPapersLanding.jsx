@@ -20,11 +20,13 @@ import { filterParams } from 'components/utils.jsx';
 
 import 'scss/pages/technical-papers.scss';
 
+const displayDate = (date) => {
+	return new Date(date).toLocaleDateString('en-us', { timeZone: 'UTC' })
+}
 
 
 const TechnicalPapersLanding = (props) => {
     const navigate = useNavigate();
-    const moment = require('moment');
     const location = useLocation();
     const location_search = window.location.search;
     let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
@@ -441,7 +443,7 @@ const TechnicalPapersLanding = (props) => {
                                             )}
                                             </td>
                                             <td>{item.filter_values.publisher.join(', ')}</td>
-                                            <td>{moment(item.revision_date).format('MM/DD/YYYY')}</td>
+                                            <td>{displayDate(item.revision_date)}</td>
                                             <td><SiteLink to={item.url}>Download PDF</SiteLink></td>
                                         </tr>
                                         {/* {openRow === item.content_id && (

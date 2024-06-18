@@ -20,19 +20,19 @@ import 'scss/templates/roadmap-library.scss'
 const RoadmapLibraryNav = (props) => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const location_search = window.location.search;
+	let location_search = location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 	const [categories, setCategories] = useState(props.content_block.filters || []);
 	const [content, setContent] = useState(props.content_block.cards || []);
 	const [displayData, setDisplayData] = useState(categories);
-	const [inputChange, setInputChange] = useState('');
-	const [searchTerm, setSearchTerm] = useState('');
+	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
+    const [inputChange, setInputChange] = useState(searchParams.term || '');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [sortMode, setSortMode] = useState('category');
 
 	useEffect(() => {
-		setInputChange(searchParams.term || '');
-		setSearchTerm(searchParams.term || '');
+		// setInputChange(searchParams.term || '');
+		// setSearchTerm(searchParams.term || '');
 	}, []);
 
 	useEffect(() => {
@@ -85,7 +85,7 @@ const RoadmapLibraryNav = (props) => {
 			delete searchParams['term']
 		};
 
-		navigate({ search: `?${queryString.stringify(searchParams)}` });
+		navigate({ search: `${queryString.stringify(searchParams)}`,hash: location.hash, });
 	}, [searchTerm])
 
 	const generateHash = (title) => {

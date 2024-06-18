@@ -50,11 +50,12 @@ const Featured = React.lazy(() => import('templates/Featured.jsx'));		// https:/
 const HorizontalTab = React.lazy(() => import('templates/HorizontalTab.jsx'));		// Same as split, but with arrows
 const Agenda = React.lazy(() => import('templates/Agenda.jsx'));		// VMware Explore agenda
 const VerticalTab = React.lazy(() => import('templates/VerticalTab.jsx'));		//Vertical
+const FilteredListing = React.lazy(() => import('templates/FilterList.jsx'));		//filters list - checkboxes ui
+const DropdownFilterListing = React.lazy(() => import('templates/FilterDropDown.jsx'));		//filters list - dropdown select ui
 const ResourceLibrary = React.lazy(() => import('templates/ResourceLibrary.jsx'));
 const RoadmapLibrary = React.lazy(() => import('templates/RoadmapLibrary.jsx'));
 const RowOfImages = React.lazy(() => import('templates/RowOfImages.jsx'));
 const ProductLibrary = React.lazy(()=> import('templates/ProductLibrary.jsx'));
-
 
 
 import(/* webpackPreload: true */ 'scss/components/content-blocks.scss');
@@ -104,6 +105,8 @@ const templates = {
 	HorizontalTab,
 	Agenda,
 	VerticalTab,
+	FilteredListing,
+	DropdownFilterListing,
 	ResourceLibrary,
 	RoadmapLibrary,
 	RowOfImages,
