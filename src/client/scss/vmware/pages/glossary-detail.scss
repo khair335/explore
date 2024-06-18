@@ -135,7 +135,55 @@
     margin: 60px 0 0;
     padding: 40px 0 100px 0;
     background-color: $background-light-gray;
+    .glossary-detail-module{
+      .ProductCard {
 
+
+
+
+  >div {
+
+
+
+    >div {
+      &:first-child {
+
+
+        img {
+
+ object-fit: contain;
+        }
+      }
+
+
+    }
+  }
+
+  &.LeftImageCard {
+    >div {
+      >div {
+        &:first-child {
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+
+  &.RightImageCard {
+    >div {
+      >div {
+        &:first-child {
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
+    }
   }
 
   .glossary-module-related {
