@@ -105,6 +105,13 @@
         color: $color-body-dark;
         .card-text {
             color: $color-body-dark;
+            a{
+                         color: #fff;
+                         &:hover{
+                             text-decoration-color: #fff;
+                         }
+
+            }
         }
    }
 }
