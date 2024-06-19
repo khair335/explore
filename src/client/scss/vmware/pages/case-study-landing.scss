@@ -60,6 +60,69 @@
         }
 
     }
+    .result-page {
+
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        margin-top:20px;
+
+        .results-info {
+
+            flex-grow: 1;
+        }
+       
+
+
+        .results-dropdown {
+            padding: 5px;
+            margin-left: 5px;
+            // display: inline-block;
+            margin-left: 10px;
+            select{
+                border:0;
+                outline:0;
+                color:$color-primary;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .pagination-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .pagination {
+            justify-content: center;
+
+            .page-link {
+                color: $color-primary;
+                font-size: 1.125rem;
+                border: 0;
+
+                &:hover {
+                    background-color: $background-color;
+                }
+            }
+
+            [aria-label="Previous"] span {
+                content: "\f053";
+                font-family: 'Font Awesome 6 Free';
+            }
+
+            [aria-label="Next"] span {
+                content: "\f054";
+                font-family: 'Font Awesome 6 Free';
+            }
+
+            .page-item.active .page-link {
+                background-color: $background-color;
+                color: $color-grey--700;
+            }
+        }
+    }
 
     .search-more button {
         margin: 0 auto;

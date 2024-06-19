@@ -52,7 +52,7 @@ export default class BrightcoveVideo extends Component {
                         refNode: document.querySelector('#' + this.id),
                         //refNodeInsert: 'replace',
                         accountId: config.video.account_id,
-                        playerId: config.video.player_id,
+                        playerId: self.props.playerid || config.video.player_id,
                         //playerId: 'AbCDeFgHi',
                         //embedId: 'default',
                         //videoId: '5550679964001'
@@ -64,8 +64,51 @@ export default class BrightcoveVideo extends Component {
 
 
                             self.player.ready(() => {
+                                
                                 if (self.props.audio) {
                                     self.player.audioOnlyMode(true);
+                                }
+
+                                
+                                // VMWare event live
+                                if (self.props.onReady) {
+
+                                    self.player.on('canplay', () => {
+                                        console.log('canplay', self.player.readyState());
+                                        self.props.onReady();   // Show only if we are ready.
+                                        if (self.props.autoplay) {
+                    
+                                            self.player.play();
+                                        }
+                                    });
+                                    
+                                    self.player.on('loadedmetadata', () => {
+                                        console.log('loadedmetadata', self.player.readyState());
+                                        self.props.onReady();   // Show only if we are ready.
+                                    });
+
+                                    self.player.on('loadeddata', () => {
+                                        //https://videojs.com/guides/live/#istracking-and-islive
+                                        // https://docs.brightcove.com/brightcove-player/current-release/LiveTracker.html#isLive
+                                        console.log("loaded", self.player.liveTracker.isTracking());
+                                        console.log('loadeddata', self.player.readyState());
+                                        // console.log("loaded", self.player.liveTracker.isLive());
+                                        // if (self.player.readyState() > 0) {     // We have data and are ready.
+                                        //     self.props.onReady();
+                                        // }
+
+                                    });
+                                }
+                                if (self.props.onEnded) {
+                                    self.player.on('ended', () => {
+                                        console.log('ended');
+                                        self.props.onEnded();
+                                    });
+
+                                    self.player.on('error', (event) => {
+                                        console.log('error');
+                                        self.props.onEnded();
+                                    });
                                 }
                             });
 
@@ -79,7 +122,7 @@ export default class BrightcoveVideo extends Component {
                                 loading: false,
                             });
 
-                            
+
                             // Cardinal Path.
                             gtmPushTag({
                                 "id": "I037",
@@ -137,6 +180,7 @@ export default class BrightcoveVideo extends Component {
                 self.player.catalog.load(video);
 
                 if (self.props.autoplay) {
+                    
                     self.player.play();
                 }
             });
@@ -164,6 +208,7 @@ BrightcoveVideo.defaultProps = {
     //onMediaData: (title, description, duration) => {},	
     autoplay: false,
     mediaid: null,
+    onEnded: null,      // function that returns when video has ended.
 }
 
 BrightcoveVideo.propTypes = {

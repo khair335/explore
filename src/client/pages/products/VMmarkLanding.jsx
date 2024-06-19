@@ -24,7 +24,7 @@ import 'scss/pages/vmmark-landing.scss';
 
 
 
-const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, content_blocks }) => {
+const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 	const [modal, setModal] = useState(false);
 	const [activeScore, setActiveScore] = useState(null);
 	const navigate = useNavigate();
@@ -76,7 +76,7 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 		<div className='top-scores'>
 			<div className="spotlight-card">
 				<div className="spotlight-title">Spotlight</div>
-				{spotlight?.map((spotlight, index) => (
+				{/* {spotlight?.map((spotlight, index) => (
 					<div key={index} className="spotlight-item">
 						<tr>
 							<td><div className="spotlight-date">{spotlight.date}</div></td>
@@ -85,7 +85,21 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 							</SiteLink></td>
 						</tr>
 					</div>
-				))}
+				))} */}
+				<div className="spotlight-items">
+					{spotlight?.sort((a, b) => {
+						let a_date = a.date || "";
+						let b_date = b.date || "";
+						return b_date.localeCompare(a_date)
+					}).map((spotlight, index) => (
+						<div key={index} className="spotlight-item">
+							<div className="spotlight-date">{spotlight.date}</div>
+							<SiteLink to={spotlight.link.url} target={spotlight.link.target}>
+								<div className="spotlight-description">{spotlight.title}</div>
+							</SiteLink>
+						</div>
+					))}
+				</div>
 			</div>
 			<div className="card-container">
 				{scores.map((score, index) => (
@@ -136,35 +150,12 @@ const TopScores = ({ scores, spotlight, body, url, location_hash, hashFlag, cont
 					</Modal>
 				)}
 			</div>
-			{/* <div className='related-vmmark-results'>
-				<h3>Other Related VMmark Results</h3>
-				<div className="card-row">
-					{content_blocks.map((card, index) => (
-						<div key={index} className="card">
-							<Row>
-								<Col xs="3">
-									<ImageBase src="/img/resource-library/link.svg"
-										alt="links" width="63" height="63" />
-								</Col>
-
-								<Col>
-									<SiteLink to={card.links[0]?.url} target={card.links[0]?.target}><h4>{card.links[0]?.title}</h4></SiteLink>
-								</Col>
-							</Row>
-						</div>
-					))}
-				</div>
-			</div>
-			<div className='fair-guidelines'>
-				<div dangerouslySetInnerHTML={{ __html: body }}></div>
-			</div> */}
 		</div>
 	);
 };
 
-const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, content_blocks, body }) => {
+const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }) => {
 	const navigate = useNavigate();
-	const moment = require('moment');
 	const location = useLocation();
 	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
@@ -652,7 +643,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 
 					<form onSubmit={handleSearchSubmit} className="search-bar">
 						{/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(0,122,184,1)"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg> */}
-						<i class="fa fa-search"></i>
+						<i className="fa fa-search"></i>
 						<input
 							type="text"
 							value={inputChange}
@@ -718,7 +709,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 						<table>
 							<thead>
 								<tr>
-									{keysToDisplay.map((key) => {
+									{keysToDisplay.map((key, index) => {
 										if (!visibleColumns.has(key)) return null;
 
 										const dataKey = headerKeyMap[key];
@@ -729,7 +720,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 										return (
 											<th
 												className={`${className} ${isSortable ? 'sortable' : ''}`}
-												key={key}
+												key={key+index}
 												onClick={isSortable ? () => handleSort(dataKey) : undefined}
 											>
 												<div className='table-th-container'>
@@ -767,8 +758,8 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 								</tr>
 							</thead>
 							{searchResults?.length > 0 ? <tbody>
-								{showData?.map(item => (
-									<tr key={item.content_id}>
+								{showData?.map((item, index) => (
+									<tr key={`${item.content_id}-${index}`}>
 										{keysToDisplay.map(key => {
 											const isSticky = key === "Performance Score" || key === "Submitter";
 											const className = isSticky ? 'sticky-col' : '';
@@ -789,8 +780,8 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 												return (
 													<td className={className} key={`${item.content_id}-${key}`}>
 														{/* <a href={`/details/${item.content_id}`} target="_blank">det</a> */}
-															<span dangerouslySetInnerHTML={{ __html: displayValue }}></span>
-															<SiteLink to={item.disclosure_document.url} target='__blank'>Details</SiteLink>
+														<span dangerouslySetInnerHTML={{ __html: displayValue }}></span>
+														{item?.disclosure_document?.url && <SiteLink to={item?.disclosure_document?.url} target='__blank'>Details</SiteLink>}
 
 													</td>
 												);
@@ -829,28 +820,6 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag, 
 					</Pagination>
 				</div>
 			</div>
-			{/* <div className='related-vmmark-results'>
-				<h3>Other Related VMmark Results</h3>
-				<div className="card-row">
-					{content_blocks.map((card, index) => (
-						<div key={index} className="card">
-							<Row>
-								<Col xs="3">
-									<ImageBase src="/img/resource-library/link.svg"
-										alt="links" width="63" height="63" />
-								</Col>
-
-								<Col>
-									<SiteLink to={card.links[0]?.url} target={card.links[0]?.target}><h4>{card.links[0]?.title}</h4></SiteLink>
-								</Col>
-							</Row>
-						</div>
-					))}
-				</div>
-			</div>
-			<div className='fair-guidelines'>
-				<div dangerouslySetInnerHTML={{ __html: body }}></div>
-			</div> */}
 		</div>);
 }
 
@@ -961,42 +930,20 @@ const VMmarkLanding = (props) => {
 					<TabContent activeTab={activeTab}>
 						{tabsData.map((tab) => (
 							tab.title === 'Top Scores' ? <TabPane key={tab.id} tabId={tab.title}>
-								<TopScores scores={props.data.vmmark_filter} spotlight={props.data.spotlight} body={props.data.body} content_blocks={props.content_blocks} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} />
+								<TopScores scores={props.data?.vmmark_filter} spotlight={props.data?.spotlight} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} />
 							</TabPane>
 								: <TabPane key={tab.id} tabId={tab.title}>
-									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} content_blocks={props.content_blocks} body={props.data.body} />
+									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} />
 								</TabPane>
 						))}
 					</TabContent>
 				</div>
-				{/* <div className='related-vmmark-results'>
-				<h3>Other Related VMmark Results</h3>
-				<div className="card-row">
-					{props.content_blocks.map((card, index) => (
-						<div key={index} className="card">
-							<Row>
-								<Col xs="3">
-									<ImageBase src="/img/resource-library/link.svg"
-										alt="links" width="63" height="63" />
-								</Col>
-
-								<Col>
-									<SiteLink to={card.links[0]?.url} target={card.links[0]?.target}><h4>{card.links[0]?.title}</h4></SiteLink>
-								</Col>
-							</Row>
-						</div>
-					))}
-				</div>
-			</div>
-			<div className='fair-guidelines'>
-				<div dangerouslySetInnerHTML={{ __html: props.data.body }}></div>
-			</div> */}
 			</Container>
 			<div>
-				<div className='related-vmmark-results'>
+				{props?.content_blocks && <div className='related-vmmark-results'>
 					<h3>Other Related VMmark Results</h3>
 					<div className="card-row">
-						{props.content_blocks.map((card, index) => (
+						{props.content_blocks?.map((card, index) => (
 							<div key={index} className="card">
 								<Row>
 									<Col xs="3">
@@ -1005,16 +952,16 @@ const VMmarkLanding = (props) => {
 									</Col>
 
 									<Col>
-										<SiteLink to={card.links[0]?.url} target={card.links[0]?.target}><h4>{card.links[0]?.title}</h4></SiteLink>
+										<SiteLink to={card?.links[0]?.url} target={card?.links[0]?.target}><h4>{card?.links[0]?.title}</h4></SiteLink>
 									</Col>
 								</Row>
 							</div>
 						))}
 					</div>
-				</div>
-				<div className='fair-guidelines'>
+				</div>}
+				{props.data.body && <div className='fair-guidelines'>
 					<div dangerouslySetInnerHTML={{ __html: props.data.body }}></div>
-				</div>
+				</div>}
 			</div>
 		</div>
 	);

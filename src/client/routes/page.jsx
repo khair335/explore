@@ -333,7 +333,7 @@ const loadPageData = ({ request }) => {
 						let page_title = data.title || data.category_title || data.part_number || data.page_title;		// PageTitle = company/news/financial-releases/2387502
 						if (config.hide_page_title) {
 							// Our banner has a title so just hide our page title.
-							if (data?.hero_banner?.some(banner => banner.title)) {
+							if ((Array.isArray(data?.hero_banner) && data?.hero_banner?.some(banner => banner.title)) || data.hero_banner?.title) {
 								// Clear out our title
 								page_title = '';
 							}
@@ -370,9 +370,9 @@ const loadPageData = ({ request }) => {
 						// ignore because we are just aborting.
 						if (error !== "abort") {
 
-							throw new Response("Error fetching page data", { status: 500 });
-
 							console.log(`Error fetching page data. ${error} `);
+
+							throw new Response("Error fetching page data", { status: 500 });
 						}
 					});
 			});

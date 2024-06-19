@@ -301,7 +301,7 @@ class Config {
 
 
 		this.site_link = {
-			base_domains: [], // Disable for now. ['vmware.com', 'www.vmware.com'],				// This is used to do a check against any site links. If the href matches/contains base_domain, it means its a relative link.
+			base_domains:  ['vmware.com', 'www.vmware.com'],				// This is used to do a check against any site links. If the href matches/contains base_domain, it means its a relative link.
 			doc_pathnames: ['/docs/', '/html-docs/'],								// Path name starts with /docs/ means it is a document to download.
 			doc_domains: {
 				'devdocs-ichabod.aws.broadcom.com': 'cmsgwdev2.aws.broadcom.com',

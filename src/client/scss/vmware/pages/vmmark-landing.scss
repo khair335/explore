@@ -274,6 +274,7 @@
     }
 
     .spotlight-item {
+        display: flex;
         margin-bottom: 5px;
        // padding-bottom: 10px;
         // border-bottom: 1px solid #eee;
@@ -289,7 +290,7 @@
     .spotlight-date {
         font-size: 16px;
         color: $color-black;
-        margin-right: 25px;
+        width: 115px;
     }
 
     .spotlight-description {

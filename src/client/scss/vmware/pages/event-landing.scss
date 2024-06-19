@@ -1,0 +1,122 @@
+/*
+* pages/event-landing.scss
+*/
+// VMware's live broadcast for events.
+
+@import "../base/variables";
+@import "../base/buttons";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+#EventLanding {
+
+    @include media-breakpoint-up(lg) {
+        .top-banner {
+
+            div[role="banner"] {
+                margin-top: 0; // Remove our negative margin due to hiding breadcrumbs.
+            }
+
+            .carousel-inner .size-large .caption {
+                max-width: 760px;
+
+            }
+        }
+
+        
+    }
+
+    .section {
+        margin-top: 40px; // Margin below banner and above first section
+    }
+
+    // -----------------------------
+    // Pre
+    // -----------------------------
+
+
+    .banner-caption-card {
+        @include media-breakpoint-up(lg) {
+            margin-top: 60px;
+        }
+
+
+        .event-live-pre-timer {
+
+            background-color: $color-white;
+            color: $color-body;
+
+            .event-live-pre-timer-body {
+                @include media-breakpoint-up(lg) {
+                    padding: 40px;
+                }
+
+                .event-live-pre-timer-title {
+                    margin-bottom: 10px;
+                }
+
+                text-align: center;
+
+                .timer {
+                    display: flex;
+                    justify-content: center;
+                    gap: 8px;
+                }
+
+            }
+
+            .time {
+                font-size: 40px;
+            }
+        }
+    }
+
+    // -----------------------------
+    // Live
+    // -----------------------------
+
+    .event-live-live {
+        &.hide-content {
+            visibility: hidden;     // Hide our content while we check if the video is valid.
+        }
+
+        .event-live-player {
+            position: relative;
+            overflow: hidden; // Hide our banner
+
+
+            .event-live-player-background {
+                position: absolute;
+            }
+
+            .event-live-player-body {
+                padding: 100px 0;
+                position: relative;
+                color: $color-white;
+
+                .live-title {
+                    text-align: center;
+                }
+
+                .live-video-caption {
+                    text-align: center;
+                    font-size: $font-size-sm;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    padding: 0 20%;
+                }
+
+            }
+
+        }
+
+        .hide-player {
+            // Hide the player visually but it needs to appear in the dom font-synthesis-small-caps: ;
+            visibility: hidden;
+            height: 0;
+        }
+    }
+
+    // -----------------------------
+    // Post
+    // -----------------------------
+}

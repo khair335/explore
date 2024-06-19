@@ -407,8 +407,15 @@ export default class HomeHero extends Component {
 									</Col>
 									{item.video &&
 										<Col>
-										<div className="banner-caption-video">
-											<Video mediaid={item.video.media_id} account={item.video.account_id} />
+											<div className="banner-caption-video">
+												<Video mediaid={item.video.media_id} account={item.video.account_id} />
+											</div>
+										</Col>
+									}
+									{this.props.children &&
+										<Col>
+											<div className="banner-caption-card">
+												{this.props.children}
 											</div>
 										</Col>
 									}

@@ -138,12 +138,15 @@ const TabSearch = React.lazy(() => import('pages/search/TabSearch.jsx'));
 
 // Explore
 const ExploreSearchVideos = React.lazy(() => import('pages/search/ExploreSearchVideos.jsx'));
+const EventLanding = React.lazy(() => import('pages/others/EventLanding.jsx'));
 
 // VMare
 const GlossaryAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/topics/glossary.html#K
 const TechdocsAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www.vmware.com/techpapers/techpaper_gsa_seed.html
 const SearchVideos = React.lazy(() => import('pages/search/SearchVideos.jsx'));		// VMWare video search page.
 const TechnicalPapersLanding = React.lazy(() => import('pages/support/TechnicalPapersLanding.jsx'));
+
+
 
 const templates = {
 	home,					// Template name is lower case in JSON.
@@ -247,6 +250,7 @@ const templates = {
 	ProductSearch,
 	TabSearch,
 	ExploreSearchVideos,
+	EventLanding,
 	GlossaryAtoZ,
 	TechdocsAtoZ,
 	SearchVideos,
