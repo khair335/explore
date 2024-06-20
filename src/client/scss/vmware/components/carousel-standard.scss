@@ -252,7 +252,17 @@ $carousel-indicator-padding: 40px;
             }
 
         }
+        .card{
+            .card-title{
+                a{
+                         color: $color-link-dark;
+                         &:hover{
+                         text-decoration-color: $color-link-dark;
+                         }
 
+            }
+            }
+        }
 
 
 

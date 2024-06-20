@@ -159,7 +159,7 @@ $carousel-indicator-height: 20px;
 
       .size-medium {
         .featurette-heading {
-          font-size: 50px;
+          font-size: 40px;
         }
 
         .banner-cta-title {
@@ -248,11 +248,26 @@ $carousel-indicator-height: 20px;
       }
 
       .theme-banner-default{
-        >picture{
-          img{
-            left: 0 ;
-            right: 0 ;
-            margin: 0 auto;
+        // >picture{
+        //   img{
+        //     left: 0 ;
+        //     right: 0 ;
+        //     margin: 0 auto;
+        //   }
+        // }
+        .banner-caption-container{
+          // margin-top: 80px;
+          .container{
+            >.row{
+              >div{
+                &:nth-child(1){
+    margin-top: 40px;
+                }
+                &:nth-child(2){
+                      margin-top: 50px;
+                }
+              }
+            }
           }
         }
       }
@@ -333,7 +348,8 @@ $carousel-indicator-height: 20px;
 
     h1 {
       padding: 20px 6px 10px 0;
-      font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
+      // font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
+      font-size: 40px;
       color: $color-black;
 
       @media screen and (min-width: 1980px) {

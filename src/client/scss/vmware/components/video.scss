@@ -263,7 +263,13 @@
 					}
 			}
 		}
-
+	@media (max-width:767px) {
+		    max-width: 100% !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	}
 }
 
 button.video-image-modal-button {
