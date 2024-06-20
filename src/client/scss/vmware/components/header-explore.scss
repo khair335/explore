@@ -25,7 +25,7 @@
   display: -webkit-flex;
   display: flex;
   font-family: $font-family--secondary;
-  z-index: 10;
+  z-index: 100;
 
   .navbar-brand {
     padding-top: 0;
@@ -436,7 +436,7 @@
         flex-direction: column;
       }
 
-      .highlight .content-block .col {
+      .highlight .content-block .col, .hi-col.highlight {
         background-color: $background-dark-blue;
 
         a.key-link {
@@ -806,6 +806,3 @@
 /*   filter: blur(8px); */
 }
 
-.explore-footer-adjust {      //special case for Explore 404 pages
-  margin-bottom: -33px;
-}

@@ -19,6 +19,7 @@ import ImageBase from 'components/ImageBase.jsx';
 import classnames from 'classnames';
 // import DoubleScrollBar from 'react-double-scrollbar';
 import DoubleScrollBar from 'components/DoubleScrollBar.jsx';
+import Icon from 'components/Icon.jsx';
 
 import 'scss/pages/vmmark-landing.scss';
 
@@ -73,19 +74,10 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 
 
 	return (
+		
 		<div className='top-scores'>
-			<div className="spotlight-card">
+			{spotlight?.length > 0 && <div className="spotlight-card">
 				<div className="spotlight-title">Spotlight</div>
-				{/* {spotlight?.map((spotlight, index) => (
-					<div key={index} className="spotlight-item">
-						<tr>
-							<td><div className="spotlight-date">{spotlight.date}</div></td>
-							<td><SiteLink to={spotlight.link.url} target={spotlight.link.target}>
-								<div className="spotlight-description">{spotlight.title}</div>
-							</SiteLink></td>
-						</tr>
-					</div>
-				))} */}
 				<div className="spotlight-items">
 					{spotlight?.sort((a, b) => {
 						let a_date = a.date || "";
@@ -100,16 +92,13 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 						</div>
 					))}
 				</div>
-			</div>
+			</div>}
 			<div className="card-container">
-				{scores.map((score, index) => (
+				{scores?.length > 0 && scores?.map((score, index) => (
 					<div key={index} className="main-card">
 						<div className="card-title">
 							<h4>{score.filter_title}</h4>
 							<div>
-								{/* <InfoPopover onClick={() => toggle(score)}>
-									<span dangerouslySetInnerHTML={{ __html: score.abstract }} />
-								</InfoPopover> */}
 								<button className="icon-bttn" title="info" aria-label="info" onClick={() => toggle(score)}>
 									<i className="bi brcmicon-info-circle primary"></i>
 								</button>
@@ -170,6 +159,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const [totalHosts, setTotalHosts] = useState([]);
 	const [primaryStorage, setPrimaryStorage] = useState([]);
 	const [totalSockets, setTotalSockets] = useState([]);
+	const [processorModel, setProcessorModel] = useState([]);
 	const [matchedPair, setMatchedPair] = useState([]);
 	const [systemDescription, setSystemDescription] = useState([]);
 	const [totalThreads, setTotalThreads] = useState([]);
@@ -180,7 +170,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const [version, setVersion] = useState([]);
 	const [searchResults, setSearchResults] = useState(categoryList);
 	const [showData, setShowData] = useState(searchResults);
-	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
+	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
 	const [manageColumns, setManageColumns] = useState(keysToDisplay)
 	const [visibleColumns, setVisibleColumns] = useState(new Set(keysToDisplay));
 	const [sortConfig, setSortConfig] = useState({ sortorder: null, sort: null });
@@ -198,6 +188,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		'Total Sockets': 'total_sockets',
 		'Total Cores': 'total_cores',
 		'Server Description': 'system_description',
+		'Processor Model': 'processor_model',
 		'Primary Storage': 'primary_storage',
 		'Hypervisor': 'hypervisor',
 		'VMmark Version': 'version',
@@ -213,6 +204,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		total_sockets: [],
 		matched_pair: [],
 		system_description: [],
+		processor_model:[],
 		total_threads: [],
 		uniform_hosts: [],
 		version: [],
@@ -237,6 +229,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			updatedSelectedValues.primary_storage = searchParams.primary_storage.split(',');
 		} else {
 			updatedSelectedValues.primary_storage = [];
+		}
+
+		if (searchParams.processor_model) {
+			updatedSelectedValues.processor_model = searchParams.processor_model.split(',');
+		} else {
+			updatedSelectedValues.processor_model = [];
 		}
 
 		if (searchParams.total_sockets) {
@@ -372,9 +370,11 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		const localTotalCores = [];
 		const localHypervisor = [];
 		const localSubmitter = [];
+		const localProcessorModel = [];
 
 		props[0]?.category_list?.forEach(item => {
 			if (!localTotalHosts.includes(item.total_hosts)) localTotalHosts.push(item.total_hosts);
+			if (!localProcessorModel.includes(item.processor_model)) localProcessorModel.push(item.processor_model);
 			if (!localPrimaryStorage.includes(item.primary_storage)) localPrimaryStorage.push(item.primary_storage);
 			if (!localTotalSockets.includes(item.total_sockets)) localTotalSockets.push(item.total_sockets);
 			// if (!localMatchedPair.includes(item.matched_pair)) localMatchedPair.push(item.matched_pair);
@@ -397,6 +397,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		updateUniqueItems(setTotalCores, totalCores, localTotalCores);
 		updateUniqueItems(setHypervisor, hypervisor, localHypervisor);
 		updateUniqueItems(setSubmitter, submitter, localSubmitter);
+		updateUniqueItems(setProcessorModel, processorModel, localProcessorModel);
 	};
 
 
@@ -416,6 +417,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			total_sockets: [],
 			matched_pair: [],
 			system_description: [],
+			processor_model:[],
 			total_threads: [],
 			uniform_hosts: [],
 			version: [],
@@ -433,6 +435,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		{ label: "Total Sockets", attribute: "total_sockets", tags: totalSockets },
 		{ label: "Matched Pair", attribute: "matched_pair", tags: ["Matched Pair", "Not Matched Pair"] },
 		{ label: "System Description", attribute: "system_description", tags: systemDescription },
+		{ label: "Processor Model", attribute: "processor_model", tags: processorModel },
 		{ label: "Total Threads", attribute: "total_threads", tags: totalThreads },
 		{ label: "Uniform Hosts", attribute: "uniform_hosts", tags: ["True", "False"] },
 		{ label: "Total Cores", attribute: "total_cores", tags: totalCores },
@@ -488,20 +491,30 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
 				return 0;
 			}
-
-			const varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
-			const varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
-
+	
+			let varA, varB;
+	
+			if (key === 'score') {
+				// Convert to numbers if the key is score
+				varA = parseFloat(a[key]);
+				varB = parseFloat(b[key]);
+			} else {
+				// Handle other cases (strings or other types)
+				varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+				varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+			}
+	
 			let comparison = 0;
 			if (varA < varB) {
 				comparison = -1;
 			} else if (varA > varB) {
 				comparison = 1;
 			}
-
+	
+			// Handle null or undefined values
 			if (varA === null || varA === undefined) comparison = -1;
 			if (varB === null || varB === undefined) comparison = 1;
-
+	
 			return (
 				(order === 'sorting_dsc') ? (comparison * -1) : comparison
 			);
@@ -545,6 +558,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 					case "total_cores":
 					case "hypervisor":
 					case "version":
+					case "processor_model":
 						return filterWithRemoveParentheses(key);
 
 					case "matched_pair":
@@ -628,7 +642,19 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			keysToDisplay.forEach(key => {
 				if (visibleColumns.has(key)) {
 					const dataKey = headerKeyMap[key];
-					row[key] = item[dataKey];
+					if (dataKey === "submitter") {
+						row[key] = item[dataKey].submitter_data;
+					} else if (dataKey === "system_description") {
+						row[key] = item[dataKey].replace(/<\/?[^>]+(>|$)/g, "")
+					} else if (dataKey === "score") {
+						row[key] = item[dataKey]
+						if (item.disclosure_document.url) {
+							row["PDF"] = item?.disclosure_document?.url
+						}
+					}
+					else {
+						row[key] = item[dataKey];
+					}
 				}
 			});
 			return row;
@@ -720,7 +746,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 										return (
 											<th
 												className={`${className} ${isSortable ? 'sortable' : ''}`}
-												key={key+index}
+												key={key + index}
 												onClick={isSortable ? () => handleSort(dataKey) : undefined}
 											>
 												<div className='table-th-container'>
@@ -741,6 +767,13 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 															<span>
 																<i className="fa-solid fa-chevron-up"></i>
 																<i className="fa-solid fa-chevron-down sorted"></i>
+															</span>
+														)}
+														{sortConfig?.sort === dataKey && sortConfig.sortorder === null && (
+															// <img src='/img/sort_both.png' alt="Sortable" />
+															<span>
+																<i className="fa-solid fa-chevron-up"></i>
+																<i className="fa-solid fa-chevron-down"></i>
 															</span>
 														)}
 														{sortConfig?.sort !== dataKey && isSortable && (
@@ -781,7 +814,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 													<td className={className} key={`${item.content_id}-${key}`}>
 														{/* <a href={`/details/${item.content_id}`} target="_blank">det</a> */}
 														<span dangerouslySetInnerHTML={{ __html: displayValue }}></span>
-														{item?.disclosure_document?.url && <SiteLink to={item?.disclosure_document?.url} target='__blank'>Details</SiteLink>}
+														{item?.disclosure_document?.url && <SiteLink to={item?.disclosure_document?.url} target='__blank'>Details<Icon type="pdf" /></SiteLink>}
 
 													</td>
 												);
@@ -941,26 +974,31 @@ const VMmarkLanding = (props) => {
 			</Container>
 			<div>
 				{props?.content_blocks && <div className='related-vmmark-results'>
-					<h3>Other Related VMmark Results</h3>
-					<div className="card-row">
-						{props.content_blocks?.map((card, index) => (
-							<div key={index} className="card">
-								<Row>
-									<Col xs="3">
-										<ImageBase src="/img/resource-library/link.svg"
-											alt="links" width="63" height="63" />
-									</Col>
+					<div className="container">
+						<h3>Other Related VMmark Results</h3>
+						<div className="card-row">
+							{props.content_blocks?.map((card, index) => (
+								<div key={index} className="card">
+									<Row>
+										<Col xs="3">
+											{/* <ImageBase src="/img/resource-library/link.svg"
+												alt="links" width="63" height="63" /> */}
+											<Icon type="link" />
+										</Col>
 
-									<Col>
-										<SiteLink to={card?.links[0]?.url} target={card?.links[0]?.target}><h4>{card?.links[0]?.title}</h4></SiteLink>
-									</Col>
-								</Row>
-							</div>
-						))}
+										<Col>
+											<SiteLink to={card?.links[0]?.url} target={card?.links[0]?.target}><h4>{card?.links[0]?.title}</h4></SiteLink>
+										</Col>
+									</Row>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>}
 				{props.data.body && <div className='fair-guidelines'>
-					<div dangerouslySetInnerHTML={{ __html: props.data.body }}></div>
+					<div className="container">
+						<div dangerouslySetInnerHTML={{ __html: props.data.body }}></div>
+					</div>
 				</div>}
 			</div>
 		</div>

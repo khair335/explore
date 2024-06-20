@@ -344,6 +344,19 @@ const loadPageData = ({ request }) => {
 							data.breadcrumb_list = null;
 						}
 
+						// Put CTA in inpage navigation if it exists.
+						// https://hgsdigitalprojects.atlassian.net/browse/BVCM-251
+						let ctas = data.cta;
+						if (config.cta_in_anchor) {
+							// Do we have in page navigation?
+							let i = content_blocks?.findIndex(content_block => content_block.template === "InPageNavigation")
+							if (content_blocks && i !== -1) {
+								content_blocks[i].ctas = ctas;
+								ctas = null;			// Dont display us normally.
+							}
+
+						}
+
 						return {
 							error: null,
 							loading: false,
@@ -355,7 +368,7 @@ const loadPageData = ({ request }) => {
 								hide_print_share: data.hide_print_share,
 								title: page_title,
 								sub_title: data.sub_title,					// adding back in since it is page form and json for cms 2.0. dont know about this note => TODO: Subtitle, currently not being used anymore.
-								ctas: data.cta,
+								ctas: ctas,
 								left_nav: leftnav && Object.keys(leftnav).length > 0 ? leftnav : null,
 								hash: data.tabbed_page_name ? encodeTabHash(data.tabbed_page_name) : null,
 							},

@@ -14,12 +14,14 @@ import ImageBase from 'components/ImageBase.jsx';
 import SideInPageNavigation from 'templates/SideInPageNavigation.jsx';
 import classnames from "classnames";
 import { withLiveEvents } from 'components/liveEvents.js';
+import { useLocationSearch } from 'routes/router.jsx';
+
 
 import 'scss/templates/products-library.scss';
 
 const ProductLibrary = (props) => {
 	const navigate = useNavigate();
-	let locationSearch = location.search
+    let locationSearch = useLocationSearch();;
 	let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
 
 	const [products, setProducts] = useState(props.content_block?.products || []);
@@ -30,18 +32,31 @@ const ProductLibrary = (props) => {
 	const [resultCount, setResultCount] = useState(0)
 
 	useEffect(() => {
-		// setInputChange(searchParams.term || '');
-		// setSearchTerm(searchParams.term || '');
-	}, []);
+        setInputChange(searchParams.term || '');
+        setSearchTerm(searchParams.term || '');
+    }, [locationSearch]);
 
-	useEffect(() => {
-		if (searchTerm) {
-			searchParams['term'] = searchTerm;
-		} else {
-			delete searchParams['term'];
-		}
-		navigate({ search: `${queryString.stringify(searchParams)}`, hash: location.hash, });
-	}, [searchTerm]);
+    useEffect(() => {
+
+        let update = (searchParams['term'] || '' ) !== searchTerm;  // Could be undefined so check that
+
+        if (searchTerm) {
+            searchParams['term'] = searchTerm;
+        } else {
+            delete searchParams['term'];
+
+        }
+
+        // Stop adding history if we are the same
+        
+        if (update) {
+            navigate({
+                search: `${queryString.stringify(searchParams)}`,
+                hash: location.hash,
+            });
+        }
+
+    }, [searchTerm]);
 
 	useEffect(() => {
 

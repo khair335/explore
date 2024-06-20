@@ -26,6 +26,7 @@ class Config {
 		this.autopilot_id = 'f00000000000246';
 		this.autopilot_base = 'https://www.vmware.com';
 		this.autopilot_base_domain = 'www.vmware.com';
+		this.cta_in_anchor = true;				// Our CTA will exist in inpagenavigation/anchor if it exists.
 		this.swifttype = {
 			/*
 				qa-broadcom: baa1mmC9AaCnz7My4Ksz  (API key: scB9ef83inQ6z6-8yxwc)

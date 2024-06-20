@@ -6,9 +6,11 @@ import config from 'client/config.js';
 import React, { Component, PureComponent } from 'react';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
-import {withLiveEvents} from 'components/liveEvents.js';
+import { withLiveEvents } from 'components/liveEvents.js';
 import ScrollToLink from "components/ScrollToLink.jsx";
 import smoothscroll from 'smoothscroll-polyfill';
+
+import 'scss/components/in-page-navigation.scss';
 
 
 class InPageNavigation extends Component {
@@ -23,7 +25,7 @@ class InPageNavigation extends Component {
 
 	componentDidMount() {
 		require('smoothscroll-polyfill').polyfill();
-		
+
 		// Let's scroll to our page after we are loaded.
 		// HACK: Since we can be anywhere on the page and each component can be loaded at different times, let's do a delay
 		setTimeout(() => {
@@ -31,14 +33,14 @@ class InPageNavigation extends Component {
 				let id = window.location.hash.substring(1);		// Remove #.
 				let dom = document.getElementById(decodeURI(id));
 				if (dom) {
-					
+
 					dom.scrollIntoView({
 						behavior: 'smooth'
 					});
 				}
 			}
 		}, 1000);
-		
+
 		this.sections = this.props.content_block.navigation.map(item => ({
 			id: item.hash_tag_name ? item.hash_tag_name.toLowerCase().replace(/ /g, '-') : '',
 			element: document.getElementById(item.hash_tag_name ? item.hash_tag_name.toLowerCase().replace(/ /g, '-') : '')
@@ -52,7 +54,7 @@ class InPageNavigation extends Component {
 	}
 
 	handleScroll() {
-		let scrollPosition = document.documentElement.scrollTop + 100 || document.body.scrollTop + 100 ;
+		let scrollPosition = document.documentElement.scrollTop + 100 || document.body.scrollTop + 100;
 
 		for (let section of this.sections) {
 			if (section.element) {
@@ -94,7 +96,18 @@ class InPageNavigation extends Component {
 									</li>
 								)
 							})}
+							{this.props.content_block.ctas &&
+								this.props.content_block.ctas?.map(cta => (
+									<li className="nav-item cta" key={cta.content_id}>
+										<div className="bttn primary-bttn">
+											<SiteLink to={cta.url} target={cta.target} subtype={cta.subtype}>{cta.title}</SiteLink>
+										</div>
+									</li>
+								))
+
+							}
 						</ul>
+
 					</div>
 				</nav>
 			</div>
@@ -103,7 +116,7 @@ class InPageNavigation extends Component {
 }
 
 InPageNavigation.propTypes = {
-	content_block: PropTypes.object.isRequired, 
+	content_block: PropTypes.object.isRequired,
 };
 
 export default withLiveEvents(InPageNavigation);

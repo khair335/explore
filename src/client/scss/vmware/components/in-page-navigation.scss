@@ -56,6 +56,20 @@
                 &.active {
                     border-bottom: 3px solid $color-primary;
                 }
+
+                &.cta {
+                    padding-top: 0;
+                    padding-bottom: 0;
+
+                    // Override link color.
+                    .lnk {
+                        color: $color-white;
+                        &:hover {
+                            color: inherit;
+                        }
+                    }
+                    
+                }
             }
 
 

@@ -46,6 +46,7 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
             />
 
             <PillsFilter
+                items={items}
                 selectedValues={selectedValues}
                 onRemove={handleRemove}
                 hasSelectedValues={hasSelectedValues}

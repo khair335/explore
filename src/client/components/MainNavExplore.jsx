@@ -237,7 +237,7 @@ class MenuWindow extends Component {
                         </Col>
                         {item.child.map((level_1, index) => {
                             return (
-                                <Col className={classnames({ 'highlight' : level_1.show_as_card })} sm="12" md="4">
+                                <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4">
 
                                     {level_1?.child[0]?.content_block?.content_type === 'content_block' ?
 

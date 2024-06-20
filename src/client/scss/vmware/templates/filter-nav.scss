@@ -1,0 +1,162 @@
+
+@import "../base/variables";
+
+#nav-style-filter {
+
+    .CollapseBox {
+
+        .card {
+            border: none;
+
+            .card-body {
+
+                 ul {
+                    padding-top: 30px;
+                    list-style-type: none;
+
+                    li label {
+                        font-size: $font-size-lg;
+                        font-weight: 300;
+                        margin-bottom: 25px;
+                        display: flex;
+                        flex-direction: row;
+
+                        input {
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                .card-head {
+                    padding: 7px 10px;
+                    background-color: $background-dark-blue;
+                    border-left: 2px solid $color-black;
+    
+                    .text-right {
+                        padding: 0;
+                    }
+    
+                    button.icon-bttn {
+                        padding: 0;
+                        margin-left: -5px;
+    
+                        .secondary-bttn {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        button.link-bttn-no-hover h6 {
+            font-size: 18px;
+            font-weight: 300;
+            color: $color-black;
+        }
+    }
+
+
+    .display-cards {
+        padding: 20px 30px 20px 15px;
+        background-color: $background-dark-blue;
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        h5 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+
+
+
+    .feature-card {                 //copied directly (no changes) from roadmap-library.scss - these should be combined 
+        background: $color-white;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+
+        .spotlight {
+            height: 30px;
+            max-width: 100px;
+            background: $color-primary;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .collapsible {
+            margin: 5px;
+
+            .content {
+                flex: 3;
+                // background: #f0f0f0;
+                padding: 20px;
+                overflow-y: auto;
+
+                .show {
+                    max-height: 1000px;
+
+
+                }
+
+                .tags {
+                    gap: 10px;
+
+
+                    .keywords-tag {
+                        height: 30px;
+                        // background: red;
+                        color: blue;
+                        font-size: 14px;
+                        font-weight: 300;
+                        border: #333;
+                        border: 1px solid blue;
+                        border-radius: 100px;
+                        padding: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                        margin: 5px;
+                    }
+                }
+
+            }
+
+            .collapsible-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background: none;
+                border: none;
+                text-align: center;
+                padding: 0;
+                color: #333;
+                padding: 20px;
+
+                .feature-card-title {
+                    display: flex;
+
+                    .feature-card-caret {
+                        color: black;
+                    }
+                }
+            }
+
+        }
+    }
+}

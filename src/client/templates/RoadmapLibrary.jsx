@@ -14,14 +14,17 @@ import classnames from "classnames";
 import queryString from 'query-string';
 import { Container, Row, Col, Nav, NavItem, NavLink, Collapse, Badge } from 'reactstrap';
 import ImageBase from 'components/ImageBase.jsx';
+import NavStyleFilter from 'templates/FilterNav.jsx';
+import { useLocationSearch } from 'routes/router.jsx';
+
 
 import 'scss/templates/roadmap-library.scss'
 
 const RoadmapLibraryNav = (props) => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	let location_search = location.search;
-	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
+	let locationSearch = useLocationSearch();
+	let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
 	const [categories, setCategories] = useState(props.content_block.filters || []);
 	const [content, setContent] = useState(props.content_block.cards || []);
 	const [displayData, setDisplayData] = useState(categories);
@@ -31,9 +34,9 @@ const RoadmapLibraryNav = (props) => {
 	const [sortMode, setSortMode] = useState('category');
 
 	useEffect(() => {
-		// setInputChange(searchParams.term || '');
-		// setSearchTerm(searchParams.term || '');
-	}, []);
+        setInputChange(searchParams.term || '');
+        setSearchTerm(searchParams.term || '');
+    }, [locationSearch]);
 
 	useEffect(() => {
 		const updatedCategories = categories.map(category => {
@@ -79,13 +82,21 @@ const RoadmapLibraryNav = (props) => {
 
 	useEffect(() => {
 
+		let update = (searchParams['term'] || '' ) !== searchTerm;  // Could be undefined so check that
+
 		if (searchTerm.length > 0) {
 			searchParams['term'] = searchTerm
 		} else {
 			delete searchParams['term']
 		};
 
-		navigate({ search: `${queryString.stringify(searchParams)}`,hash: location.hash, });
+		// Stop adding history if we are the same
+        if (update) {
+            navigate({
+                search: `${queryString.stringify(searchParams)}`,
+                hash: location.hash,
+            });
+        }
 	}, [searchTerm])
 
 	const generateHash = (title) => {
@@ -269,7 +280,7 @@ const Collapsible = ({ title, children }) => {
 
 const RoadmapLibraryFilter = (props) => {
 	return (
-		<div className="roadmap-library-filter">RoadmapLibraryFilter</div>
+		<NavStyleFilter className="roadmap-library-filter" props={props} />
 	);
 }
 

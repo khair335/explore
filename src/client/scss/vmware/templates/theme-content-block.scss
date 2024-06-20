@@ -106,9 +106,9 @@
         .card-text {
             color: $color-body-dark;
             a{
-                         color: #fff;
+                         color: $color-link-dark;
                          &:hover{
-                             text-decoration-color: #fff;
+                         text-decoration-color: $color-link-dark;
                          }
 
             }

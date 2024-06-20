@@ -19,7 +19,6 @@ import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
-import 'scss/components/in-page-navigation.scss';
 
 const ErrorTemplate = (props) => (<div>No card for {props.message}</div>);
 const EmptyCard = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
@@ -644,6 +643,7 @@ export function applyCardType(card, default_type, image_position) {
         case "video":
             type = "VideoCard";
             break;
+        case "SolutionTab":
         case "Solution":
             // HACK - JD transform and remap the data. // https://hgsdigitalprojects.atlassian.net/browse/BVCM-163
             card.body = card.description;

@@ -134,8 +134,8 @@ export default function (props) {
 		products: [],
 		geographies: [],
 		customers: [],
-		regions: [],
-		countries: [],
+		// regions: [],
+		// countries: [],
 		industries: [],
 	})
 
@@ -166,16 +166,16 @@ export default function (props) {
 			updatedSelectedValues.customers = [];
 		}
 
-		if (searchParams.regions) {
-			updatedSelectedValues.regions = searchParams.regions.split(',');
-		} else {
-			updatedSelectedValues.regions = [];
-		}
-		if (searchParams.countries) {
-			updatedSelectedValues.countries = searchParams.countries.split(',');
-		} else {
-			updatedSelectedValues.countries = [];
-		}
+		// if (searchParams.regions) {
+		// 	updatedSelectedValues.regions = searchParams.regions.split(',');
+		// } else {
+		// 	updatedSelectedValues.regions = [];
+		// }
+		// if (searchParams.countries) {
+		// 	updatedSelectedValues.countries = searchParams.countries.split(',');
+		// } else {
+		// 	updatedSelectedValues.countries = [];
+		// }
 
 		if (searchParams.industries) {
 			updatedSelectedValues.industries = searchParams.industries.split(',');
@@ -207,8 +207,8 @@ export default function (props) {
 		const productsSet = new Set();
 		const geographiesSet = new Set();
 		const customersSet = new Set();
-		const regionsSet = new Set();
-		const countriesSet = new Set();
+		// const regionsSet = new Set();
+		// const countriesSet = new Set();
 		const industriesSet = new Set();
 
 		props.data.cases.forEach(item => {
@@ -216,8 +216,8 @@ export default function (props) {
 			item.filters?.products?.forEach(product => productsSet.add(product));
 			item.filters?.geographies?.forEach(geography => geographiesSet.add(geography));
 			item.filters?.customers?.forEach(customer => customersSet.add(customer));
-			item.filters?.regions?.forEach(region => regionsSet.add(region));
-			item.filters?.countries?.forEach(country => countriesSet.add(country));
+			// item.filters?.regions?.forEach(region => regionsSet.add(region));
+			// item.filters?.countries?.forEach(country => countriesSet.add(country));
 			item.filters?.industries?.forEach(industry => industriesSet.add(industry));
 		});
 
@@ -225,8 +225,8 @@ export default function (props) {
 		setProducts(Array.from(productsSet))
 		setGeographies(Array.from(geographiesSet))
 		setCustomers(Array.from(customersSet))
-		setRegions(Array.from(regionsSet))
-		setCountries(Array.from(countriesSet))
+		// setRegions(Array.from(regionsSet))
+		// setCountries(Array.from(countriesSet))
 		setIndustries(Array.from(industriesSet))
 	};
 
@@ -241,8 +241,8 @@ export default function (props) {
 		{ label: "Industry", attribute: "industries", tags: industries },
 		{ label: "Customers", attribute: "customers", tags: customers },
 		{ label: "Geographies", attribute: "geographies", tags: geographies },
-		{ label: "Region", attribute: "regions", tags: regions },
-		{ label: "Country", attribute: "countries", tags: countries },
+		// { label: "Region", attribute: "regions", tags: regions },
+		// { label: "Country", attribute: "countries", tags: countries },
 	]
 
 	const removeParenthesesContent = (strings) => {
@@ -269,12 +269,12 @@ export default function (props) {
 				if (key == "geographies") {
 					return removeParenthesesContent(values).some(selectedValue => item.filters?.geographies?.includes(selectedValue));
 				}
-				if (key == "regions") {
-					return removeParenthesesContent(values).some(selectedValue => item.filters?.regions?.includes(selectedValue));
-				}
-				if (key == "countries") {
-					return removeParenthesesContent(values).some(selectedValue => item.filters?.countries?.includes(selectedValue));
-				}
+				// if (key == "regions") {
+				// 	return removeParenthesesContent(values).some(selectedValue => item.filters?.regions?.includes(selectedValue));
+				// }
+				// if (key == "countries") {
+				// 	return removeParenthesesContent(values).some(selectedValue => item.filters?.countries?.includes(selectedValue));
+				// }
 			});
 		});
 
@@ -746,8 +746,8 @@ export default function (props) {
 					products: [],
 					geographies: [],
 					customers: [],
-					regions: [],
-					countries: [],
+					// regions: [],
+					// countries: [],
 					industries: []
 				});
 

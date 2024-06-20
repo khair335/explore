@@ -30,7 +30,8 @@ const MultiSelectDropdown = ({ items, selectedValues, onSelectionChange, default
                                                 checked={selectedValues[item.attribute]?.includes(option)}
                                                 onChange={() => onSelectionChange(item.attribute, option)}
                                             />
-                                            {option}
+                                            {/* {option} */}
+                                            <span dangerouslySetInnerHTML={{ __html: option }} />
                                         </label>
                                     </DropdownItem>
                                 ))}

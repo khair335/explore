@@ -5,6 +5,7 @@
 // this mods the existing casestudyLanding css which uses case-study-landing, content-blocks, and download-search
 
 @import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
 
 #CaseStudyLanding {
 
@@ -154,6 +155,12 @@
 
         #top {
             float: left;
+        }
+    }
+    
+    @include media-breakpoint-down(md) {
+        .section-highlight{
+            display: none;
         }
     }
 

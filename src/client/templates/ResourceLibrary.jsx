@@ -14,41 +14,49 @@ import ImageBase from 'components/ImageBase.jsx';
 import SideInPageNavigation from 'templates/SideInPageNavigation.jsx';
 import classnames from "classnames";
 import { withLiveEvents } from 'components/liveEvents.js';
+import { useLocationSearch } from 'routes/router.jsx';
+
 
 import 'scss/templates/resource-library.scss';
 
 const ResourceLibrary = ({ content_block }) => {
     const navigate = useNavigate();
-    let locationSearch = location.search;
+    let locationSearch = useLocationSearch();;
     let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
 
     const [categories, setCategories] = useState(content_block?.categories || []);
     const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
-    const [inputChange, setInputChange] = useState(searchParams.term || '');    
+    const [inputChange, setInputChange] = useState(searchParams.term || '');
     const [sortMode, setSortMode] = useState('category');
     const [displayData, setDisplayData] = useState(categories);
     const [resultCount, setResultCount] = useState(0)
 
 
     useEffect(() => {
-        //setInputChange(searchParams.term || '');
-    }, []);
+        setInputChange(searchParams.term || '');
+        setSearchTerm(searchParams.term || '');
+    }, [locationSearch]);
 
     useEffect(() => {
-        
-        
+
+        let update = (searchParams['term'] || '' ) !== searchTerm;  // Could be undefined so check that
+
         if (searchTerm) {
             searchParams['term'] = searchTerm;
         } else {
             delete searchParams['term'];
-        
-        }
-       
 
-        navigate({ 
-            search: `${queryString.stringify(searchParams)}` ,
-            hash: location.hash,
-    });
+        }
+
+        // Stop adding history if we are the same
+        
+        if (update) {
+            navigate({
+                search: `${queryString.stringify(searchParams)}`,
+                hash: location.hash,
+            });
+        }
+
     }, [searchTerm]);
 
     useEffect(() => {
@@ -152,7 +160,7 @@ const ResourceLibrary = ({ content_block }) => {
     return (
         <div className="ResourceLibrary">
 
-            <SideInPageNavigation navs={getNestedNavs(categories)}  resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+            <SideInPageNavigation navs={getNestedNavs(categories)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
                 <div className="sorting-dropdown">
                     <label>
                         Sort By
@@ -227,7 +235,7 @@ const LeftImageCard = ({ links }) => {
                             }
                             <Col>
                                 <SiteLink to={link.url} target={link.target} subtype={link.subtype} className="card-title" key={link.content_id || index}>{link.title}</SiteLink>
-                                {link.description && <p dangerouslySetInnerHTML={{__html: link.description}}></p>}
+                                {link.description && <p dangerouslySetInnerHTML={{ __html: link.description }}></p>}
                             </Col>
                         </Row>
                     </div>
