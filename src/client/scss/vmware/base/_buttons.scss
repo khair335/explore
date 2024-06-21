@@ -133,7 +133,7 @@ button {
     text-align: center;
     padding: 6px 24px;
     line-height: 1.5;
-    font-weight: 400;
+    font-weight: 300 !important;
     text-transform: uppercase;
     transition: all 0.2s ease;
     border: 1px solid transparent;
@@ -143,9 +143,6 @@ button {
     justify-content: center;
     // width: max-content;
 
-    @media screen and (min-width: 1980px) {
-        font-size: 16px;
-    }
 
 
     .bi {

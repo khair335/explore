@@ -357,7 +357,8 @@
       }
 
       .cb-cta-link {
-        padding-top: 32px !important;
+        // padding-top: 32px !important;
+            margin-top: 10px;
       }
 
       @media (max-width: 767.98px) {
@@ -569,9 +570,7 @@
                   @include button-after;
                 }
 
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
+
               }
             }
 
@@ -586,9 +585,7 @@
                   @include button-after;
                 }
 
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
+
 
               }
             }
@@ -1083,9 +1080,7 @@
                 @include cta-link-after;
               }
 
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
+
 
             }
           }
@@ -1118,9 +1113,6 @@
                   @include primary-hover;
                 }
 
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
               }
             }
 
@@ -1137,9 +1129,7 @@
                   @include secondary-hover;
                 }
 
-                @media screen and (min-width: 1980px) {
-                  font-size: 16px;
-                }
+
 
               }
             }
@@ -1312,9 +1302,7 @@
                 @include primary-hover;
               }
 
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
+
             }
           }
 
@@ -1331,9 +1319,7 @@
                 @include secondary-hover;
               }
 
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
+
 
             }
           }
@@ -1559,9 +1545,7 @@
             .button {
               @extend .bttn;
 
-              @media screen and (min-width: 1980px) {
-                font-size: 16px;
-              }
+
             }
 
           }
