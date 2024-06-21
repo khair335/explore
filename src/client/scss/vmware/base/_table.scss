@@ -116,11 +116,11 @@ table {
   .rTableRow {
     .rTableCell {
 
-      padding: 10px 0 !important;
+      // padding: 10px 0 !important;
 
       @media (max-width:767px) {
         font-size: 10px;
-        padding: 0 !important;
+        // padding: 0 !important;
       }
     }
 
@@ -213,7 +213,7 @@ table {
     &:hover {
       color: #005C8A;
     }
-    
+
     &.hide {
       display: none;    //Hide the show more for mobile when showing the collapse
     }
@@ -336,3 +336,24 @@ table {
     display: table;
   }
 }
+
+ table {
+
+        tbody {
+
+
+          tr:nth-child(even) {
+            background: #E3E2E3 !important;
+          }
+          tr:nth-child(odd) {
+            background: #fff !important;
+          }
+          tr {
+            td {
+              /* Your styles for the first td child here */
+
+              padding: 20px !important;
+            }
+          }
+        }
+      }

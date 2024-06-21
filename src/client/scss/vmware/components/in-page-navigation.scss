@@ -4,6 +4,7 @@
 // Styling for broadcom custom in page navigation
 
 @import "../base/variables";
+@import "../base/buttons";
 @import "~bootstrap/scss/mixins/breakpoints";
 
 // -----------------------------------------------------------------------------
@@ -64,11 +65,37 @@
                     // Override link color.
                     .lnk {
                         color: $color-white;
+
                         &:hover {
                             color: inherit;
                         }
                     }
-                    
+
+                }
+
+                .bttn,
+                .primary-bttn {
+                    @extend .bttn;
+                    @include primary-button;
+
+
+                    &:hover {
+                        @include primary-hover;
+
+                        background: transparent;
+                        .lnk{
+                        color:  $color-primary;
+                    }
+                    }
+
+                    &:after {
+                        @include button-after;
+                    }
+                    .lnk{
+
+                        font-size: 14px !important;
+                    }
+
                 }
             }
 
