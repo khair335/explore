@@ -47,7 +47,7 @@ table {
       border: 0 !important;
       box-shadow: inset 0px -1px 0px 0px $color-grey--100 !important;
       vertical-align: middle !important;
-      padding: 20px !important;
+      padding: 25px 0 !important;
 
       @media (max-width:767px) {
         padding: 4px 0 !important;
@@ -114,12 +114,9 @@ table {
   }
 
   .rTableRow {
-    &:nth-child(even){
-          background: #E3E2E3;
-      }
     .rTableCell {
 
-      padding: 20px !important;
+      padding: 10px 0 !important;
 
       @media (max-width:767px) {
         font-size: 10px;
@@ -133,7 +130,7 @@ table {
         display: flex;
 
         align-items: center;
-        // padding-left: 10px !important;
+
         .live-info-popup {
           display: flex;
 
@@ -146,7 +143,6 @@ table {
           }
         }
       }
-
     }
 
   }
@@ -217,7 +213,7 @@ table {
     &:hover {
       color: #005C8A;
     }
-
+    
     &.hide {
       display: none;    //Hide the show more for mobile when showing the collapse
     }
@@ -338,30 +334,5 @@ table {
 
   @media (min-width:800px) {
     display: table;
-  }
-}
-
-
-.ContentList-section {
-
-  .ContentList {
-
-      table {
-
-        tbody {
-
-
-          tr:nth-child(even) {
-            background: #E3E2E3 !important;
-          }
-          tr {
-            td:first-child {
-              /* Your styles for the first td child here */
-
-              padding-left: 20px !important;
-            }
-          }
-        }
-      }
   }
 }

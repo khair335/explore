@@ -38,7 +38,7 @@ const PreRoll = ({ event_timer, hero_banner, contentBlocks, onNextRoll }) => {
 
 			// Find the distance between now and the count down date
 			//let distance = new Date(test_now || 0).getTime() - now; //Date(start_time || 0).getTime() - now;
-			let distance = new Date(event_timer.start_time || 0).getTime() - now;
+			let distance = new Date(event_timer.start_date_and_time || 0).getTime() - now;
 
 			// Time calculations for days, hours, minutes and seconds
 			let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -62,7 +62,7 @@ const PreRoll = ({ event_timer, hero_banner, contentBlocks, onNextRoll }) => {
 
 
 				// Find the distance between now and the count down date
-				let distance = new Date(test_now || 0).getTime() - now; //Date(start_time || 0).getTime() - now;
+				let distance = new Date(event_timer.start_date_and_time || 0).getTime() - now; //Date(start_time || 0).getTime() - now;
 				//let distance = new Date(start_time || 0).getTime() - now;
 
 				// Display the result in the element with id="demo"

@@ -74,7 +74,7 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 
 
 	return (
-		
+
 		<div className='top-scores'>
 			{spotlight?.length > 0 && <div className="spotlight-card">
 				<div className="spotlight-title">Spotlight</div>
@@ -127,7 +127,9 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 
 							</tbody>
 						</Table>}
-						<SiteLink to={`${url.pathname}?${score.search_url}#${tabHashMapping[score.category]}`} target="__blank"><button className="card-button">VIEW ALL <i className="fa-solid fa-chevron-right"></i></button></SiteLink>
+						<SiteLink to={`${url.pathname}?${score.search_url}#${tabHashMapping[score.category]}`}>
+							<div className="card-button">VIEW ALL <i className="fa-solid fa-chevron-right"></i></div>
+						</SiteLink>
 					</div>
 				))}
 				{activeScore && (
@@ -160,6 +162,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const [primaryStorage, setPrimaryStorage] = useState([]);
 	const [totalSockets, setTotalSockets] = useState([]);
 	const [processorModel, setProcessorModel] = useState([]);
+	const [typeOfStorage, setTypeOfStorage] = useState([]);
 	const [matchedPair, setMatchedPair] = useState([]);
 	const [systemDescription, setSystemDescription] = useState([]);
 	const [totalThreads, setTotalThreads] = useState([]);
@@ -170,7 +173,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const [version, setVersion] = useState([]);
 	const [searchResults, setSearchResults] = useState(categoryList);
 	const [showData, setShowData] = useState(searchResults);
-	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
+	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Type Of Storage", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
 	const [manageColumns, setManageColumns] = useState(keysToDisplay)
 	const [visibleColumns, setVisibleColumns] = useState(new Set(keysToDisplay));
 	const [sortConfig, setSortConfig] = useState({ sortorder: null, sort: null });
@@ -189,6 +192,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		'Total Cores': 'total_cores',
 		'Server Description': 'system_description',
 		'Processor Model': 'processor_model',
+		'Type Of Storage': 'type_of_storage',
 		'Primary Storage': 'primary_storage',
 		'Hypervisor': 'hypervisor',
 		'VMmark Version': 'version',
@@ -204,7 +208,8 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		total_sockets: [],
 		matched_pair: [],
 		system_description: [],
-		processor_model:[],
+		processor_model: [],
+		type_of_storage: [],
 		total_threads: [],
 		uniform_hosts: [],
 		version: [],
@@ -235,6 +240,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			updatedSelectedValues.processor_model = searchParams.processor_model.split(',');
 		} else {
 			updatedSelectedValues.processor_model = [];
+		}
+
+		if (searchParams.type_of_storage) {
+			updatedSelectedValues.type_of_storage = searchParams.type_of_storage.split(',');
+		} else {
+			updatedSelectedValues.type_of_storage = [];
 		}
 
 		if (searchParams.total_sockets) {
@@ -371,10 +382,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		const localHypervisor = [];
 		const localSubmitter = [];
 		const localProcessorModel = [];
+		const localTypeOfStorage = [];
 
 		props[0]?.category_list?.forEach(item => {
 			if (!localTotalHosts.includes(item.total_hosts)) localTotalHosts.push(item.total_hosts);
 			if (!localProcessorModel.includes(item.processor_model)) localProcessorModel.push(item.processor_model);
+			if (!localTypeOfStorage.includes(item.type_of_storage)) localTypeOfStorage.push(item.type_of_storage);
 			if (!localPrimaryStorage.includes(item.primary_storage)) localPrimaryStorage.push(item.primary_storage);
 			if (!localTotalSockets.includes(item.total_sockets)) localTotalSockets.push(item.total_sockets);
 			// if (!localMatchedPair.includes(item.matched_pair)) localMatchedPair.push(item.matched_pair);
@@ -398,6 +411,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		updateUniqueItems(setHypervisor, hypervisor, localHypervisor);
 		updateUniqueItems(setSubmitter, submitter, localSubmitter);
 		updateUniqueItems(setProcessorModel, processorModel, localProcessorModel);
+		updateUniqueItems(setTypeOfStorage, typeOfStorage, localTypeOfStorage);
 	};
 
 
@@ -417,7 +431,8 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			total_sockets: [],
 			matched_pair: [],
 			system_description: [],
-			processor_model:[],
+			processor_model: [],
+			type_of_storage: [],
 			total_threads: [],
 			uniform_hosts: [],
 			version: [],
@@ -436,6 +451,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		{ label: "Matched Pair", attribute: "matched_pair", tags: ["Matched Pair", "Not Matched Pair"] },
 		{ label: "System Description", attribute: "system_description", tags: systemDescription },
 		{ label: "Processor Model", attribute: "processor_model", tags: processorModel },
+		{ label: "Type Of Storage", attribute: "type_of_storage", tags: typeOfStorage },
 		{ label: "Total Threads", attribute: "total_threads", tags: totalThreads },
 		{ label: "Uniform Hosts", attribute: "uniform_hosts", tags: ["True", "False"] },
 		{ label: "Total Cores", attribute: "total_cores", tags: totalCores },
@@ -491,9 +507,9 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
 				return 0;
 			}
-	
+
 			let varA, varB;
-	
+
 			if (key === 'score') {
 				// Convert to numbers if the key is score
 				varA = parseFloat(a[key]);
@@ -503,18 +519,18 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 				varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
 				varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
 			}
-	
+
 			let comparison = 0;
 			if (varA < varB) {
 				comparison = -1;
 			} else if (varA > varB) {
 				comparison = 1;
 			}
-	
+
 			// Handle null or undefined values
 			if (varA === null || varA === undefined) comparison = -1;
 			if (varB === null || varB === undefined) comparison = 1;
-	
+
 			return (
 				(order === 'sorting_dsc') ? (comparison * -1) : comparison
 			);
@@ -559,6 +575,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 					case "hypervisor":
 					case "version":
 					case "processor_model":
+					case "type_of_storage":
 						return filterWithRemoveParentheses(key);
 
 					case "matched_pair":
@@ -651,6 +668,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 						if (item.disclosure_document.url) {
 							row["PDF"] = item?.disclosure_document?.url
 						}
+					} else if(dataKey ==="matched_pair" || dataKey === "uniform_hosts") {
+						if(item[dataKey]){
+							row[key] = "True"
+						} else {
+							row[key] = "False"
+						}
 					}
 					else {
 						row[key] = item[dataKey];
@@ -740,7 +763,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 
 										const dataKey = headerKeyMap[key];
 										const isSticky = key === "Performance Score" || key === "Submitter";
-										const className = isSticky ? 'sticky-col' : '';
+										const className = key === "Submitter" ? 'sticky-col submitter-only' : isSticky ? 'sticky-col performance-score' : '';
 										const isSortable = key === "Performance Score" || key === "Date";
 
 										return (
@@ -795,7 +818,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 									<tr key={`${item.content_id}-${index}`}>
 										{keysToDisplay.map(key => {
 											const isSticky = key === "Performance Score" || key === "Submitter";
-											const className = isSticky ? 'sticky-col' : '';
+											const className = key === "Submitter" ? 'sticky-col submitter-only' : isSticky ? 'sticky-col performance-score' : '';
 											if (!visibleColumns.has(key)) return null;
 											const dataKey = headerKeyMap[key];
 											let displayValue = item[dataKey];
@@ -912,6 +935,12 @@ const VMmarkLanding = (props) => {
 			title: 'Server and Storage Power-Performance',
 			hashValue: 'server-storage-power-performance',
 			content: props.data.list?.filter(list => list?.category_name === 'Server and Storage Power-Performance'),
+		},
+		{
+			id: '5',
+			title: 'Performance',
+			hashValue: 'performance',
+			content: props.data.list?.filter(list => list?.category_name === 'Performance'),
 		}
 	];
 
@@ -945,17 +974,34 @@ const VMmarkLanding = (props) => {
 						<div className="horizontal-tab-collapse-wrapper">
 							<Collapse isOpen={!collapse} className="horizontal-tab-collapse">
 								<Nav tabs>
-									{tabsData.map((tab) => (
-										<NavItem key={tab.id}>
-											<NavLink
-												className={classnames('lnk', activeTab === tab.title ? 'active' : '')}
-												onClick={() => toggleTab(tab.title, tab.hashValue)}
-												href={`#${tab.hashValue}`}
-											>
-												{tab.title}
-											</NavLink>
-										</NavItem>
-									))}
+									{tabsData.map((tab) => {
+										if (tab.title == "Top Scores" && (props.data?.vmmark_filter || props.data?.spotlight)) {
+											return (
+												<NavItem key={tab.id}>
+													<NavLink
+														className={classnames('lnk', activeTab === tab.title ? 'active' : '')}
+														onClick={() => toggleTab(tab.title, tab.hashValue)}
+														href={`#${tab.hashValue}`}
+													>
+														{tab.title}
+													</NavLink>
+												</NavItem>
+											)
+										}
+										if (tab.title != "Top Scores" && props?.data?.list?.some(item => item.category_name == tab.title)) {
+											return (
+												<NavItem key={tab.id}>
+													<NavLink
+														className={classnames('lnk', activeTab === tab.title ? 'active' : '')}
+														onClick={() => toggleTab(tab.title, tab.hashValue)}
+														href={`#${tab.hashValue}`}
+													>
+														{tab.title}
+													</NavLink>
+												</NavItem>
+											)
+										}
+									})}
 								</Nav>
 							</Collapse>
 						</div>

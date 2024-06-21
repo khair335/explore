@@ -94,6 +94,7 @@ const BlogAuthor_v2 = React.lazy(() => import('pages/blog/BlogAuthor_v2.jsx'));
 const BlogDetail_V2 = React.lazy(() => import('pages/blog/BlogDetail_v2.jsx'));
 // // Case Study
 const CaseStudy = React.lazy(() => import('pages/casestudies/CaseStudy.jsx'));
+const CustomerStory = React.lazy(() => import('pages/casestudies/CaseStudy.jsx'));		// Same code base. This is VMware's customer story detail page.
 const CaseStudyLanding = React.lazy(() => import('pages/casestudies/CaseStudyLanding.jsx'));
 // // Analyst Reports
 const AnalystReport = React.lazy(() => import('pages/casestudies/AnalystReport.jsx'));
@@ -216,8 +217,8 @@ const templates = {
 	PartnerDistLookup,
 	ExecutiveDetail,
 	CaseStudy,
+	CustomerStory,
 	CaseStudyLanding,
-	// CaseStudy,
 	AnalystReportLanding,			// Essentially the same as CaseStudyLanding
 	AnalystReport,
 	// SolutionsDetail,

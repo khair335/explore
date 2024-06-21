@@ -380,7 +380,7 @@ export default class HomeHero extends Component {
 															{link.hero_banner_abstract &&
 																<div dangerouslySetInnerHTML={{ __html: link.hero_banner_abstract }} />
 															}
-															<div>
+															<div className="banner-cta-links">
 																{(link.url && link.content_type === "video" && link.subtype === 'Brightcove')
 																	? <SiteLink key={link.content_id}
 																		gtmevent={{ "id": "U006", "title": link.title }}

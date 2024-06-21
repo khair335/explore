@@ -16,14 +16,12 @@
                 margin-top: 0; // Remove our negative margin due to hiding breadcrumbs.
             }
 
-            .carousel-inner .size-large .caption {
-                max-width: 760px;
 
-            }
+
         }
-
-        
     }
+
+
 
     .section {
         margin-top: 40px; // Margin below banner and above first section
@@ -32,40 +30,107 @@
     // -----------------------------
     // Pre
     // -----------------------------
+    .event-live-pre {
 
-
-    .banner-caption-card {
         @include media-breakpoint-up(lg) {
-            margin-top: 60px;
-        }
-
-
-        .event-live-pre-timer {
-
-            background-color: $color-white;
-            color: $color-body;
-
-            .event-live-pre-timer-body {
-                @include media-breakpoint-up(lg) {
-                    padding: 40px;
-                }
-
-                .event-live-pre-timer-title {
-                    margin-bottom: 10px;
-                }
-
-                text-align: center;
-
-                .timer {
-                    display: flex;
-                    justify-content: center;
-                    gap: 8px;
-                }
-
+            .banner-caption-container {
+                // Override our global.
+                top: 50%;
             }
 
-            .time {
-                font-size: 40px;
+            .carousel-inner .size-large .caption {
+                max-width: 55%;
+            }
+
+            // HACK: We must resize
+            .carousel-inner .size-large .caption {
+                h1 {
+                    padding-top: 0;
+                }
+
+                .teaser {
+                    margin: 0;
+                }
+            }
+
+        }
+
+        @include media-breakpoint-only(lg) {
+            .banner-caption-container {
+                // Override our global.
+                position: relative;
+                transform: translate(0, 0);
+
+                // copied from home-hero.scss
+                .banner-cta-wrapper {
+                    .banner-cta-links {
+                        >div {
+                            >p {
+                                display: block;
+                            }
+                        }
+
+                        .lnk {
+                            width: max-content;
+                            text-transform: uppercase;
+                            background-color: $color-primary;
+                            border: 1px solid $color-primary;
+                            color: $color-white;
+
+                            &:hover {
+
+                                text-decoration: none;
+                                background-color: $color-white;
+                                border: 1px solid $color-primary;
+                                color: $color-primary;
+                                text-decoration: none;
+                            }
+
+                        }
+                    }
+                }
+
+                .caption {
+                    max-width: 100%;
+                    margin-top: 20px;
+
+                    h1,
+                    h2,
+                    div {
+                        color: $color-body;
+                    }
+                }
+            }
+        }
+
+        .banner-caption-card {
+            .event-live-pre-timer {
+
+                background-color: $color-white;
+                color: $color-body;
+
+                .event-live-pre-timer-body {
+                    @include media-breakpoint-up(lg) {
+                        padding: 40px;
+                    }
+
+                    .event-live-pre-timer-title {
+                        margin-bottom: 10px;
+                    }
+
+                    text-align: center;
+
+                    .timer {
+                        display: flex;
+                        justify-content: center;
+                        gap: 8px;
+                    }
+
+                }
+
+                .time {
+                    font-size: 40px;
+                }
             }
         }
     }
@@ -76,7 +141,7 @@
 
     .event-live-live {
         &.hide-content {
-            visibility: hidden;     // Hide our content while we check if the video is valid.
+            visibility: hidden; // Hide our content while we check if the video is valid.
         }
 
         .event-live-player {
@@ -86,6 +151,14 @@
 
             .event-live-player-background {
                 position: absolute;
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    height: auto;
+                }
             }
 
             .event-live-player-body {

@@ -40,13 +40,17 @@
 
     .dropdown-container {
         gap: 16px;
-
-
+        
+        
         .dropdown {
             flex: 1;
 
             &.show {
-
+                // > button{
+                //     color: $color-primary--dark;
+                //     box-shadow: 0px 0px 4px 0px #0F7CB2;
+                //     border: 1px solid $color-primary--dark;;
+                // }
                 .dropdown-caret {
                     @include fa-icon-solid($fa-var-chevron-right);
                     transition: 0.2s ease-in-out;
@@ -60,31 +64,59 @@
                 width: 100%;
                 text-align: left;
                 display: inline-block;
-                padding-left: 10px;
-                padding-right: 30px;
+                // padding-left: 10px;
+                // padding-right: 30px;
+                border-radius: 5px;
+                border:  1px solid $color-grey--400;
+                padding: 8px 30px 8px 16px;
+                text-transform: none;
+                background-color: $background-color;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 300;
 
                 // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
                 .dropdown-caret {
                     @include fa-icon-solid($fa-var-chevron-right);
                     transition: 0.2s ease-in-out;
-                    right: 8px;
+                    //right: 8px;
                     position: absolute;
                     top: 15px;
+                    right:10px;
                 }
 
 
                 &:hover {
 
                     @include secondary-hover;
+                    color: $color-primary--dark;
+                    background-color: $background-color;
+                    .dropdown-caret {
+                        color: $color-primary--dark;
+                    }
                 }
 
+                &:active{
+                    color: $color-primary--dark;
+                    box-shadow: 0px 0px 4px 0px #0F7CB2;
+                    border: 1px solid $color-primary--dark;
+                    .dropdown-caret {
+                        color: $color-primary--dark;
+                    }
+                }
+                &:focus{
+                    border: 1px solid $color-grey--400;
+                    background-color: $background-color;
+                    outline: 2px solid $color-primary;
+                    outline-offset:3px;
+                }
 
 
             }
         }
 
         .dropdown-menu {
-            max-width: 151.42px;
+            max-width: 100%;
             min-width: 151.42px;
             width: 100%;
             padding: 10px;

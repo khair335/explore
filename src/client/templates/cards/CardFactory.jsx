@@ -650,10 +650,10 @@ export function applyCardType(card, default_type, image_position) {
             // Make the url the title link.
             if (card.url) {
                 card.title_link = {
-                    title_url: card.url,
+                    url: card.url,
                 }
             }
-            break;
+            break;        
         case "empty":
             type = "EmptyCard";
             break;
@@ -674,7 +674,7 @@ export function applyCardType(card, default_type, image_position) {
                     // Make the url the title link.
                     if (card.url) {
                         card.title_link = {
-                            title_url: card.url,
+                            url: card.url,
                         }
                     }
                 }

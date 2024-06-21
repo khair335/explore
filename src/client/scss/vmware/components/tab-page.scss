@@ -7,6 +7,9 @@
 @import "../base/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
 
+.tab-page {
+	padding-top: 30px;
+}
 
 .nav-tabs {
 	border-bottom: 0;

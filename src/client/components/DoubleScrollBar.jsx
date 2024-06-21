@@ -76,7 +76,7 @@ class DoubleScrollBar extends React.Component {
         <div ref="outerDiv" style={outerDivStyle}>
           <div ref="innerDiv" style={innerDivStyle}>&nbsp;</div>
         </div>
-        <div ref="childrenWrapper" style={childDivStyle} >
+        <div className="table-scroll-wrapper" ref="childrenWrapper" style={childDivStyle} >
           {this.props.children}
         </div>
       </div>
