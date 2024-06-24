@@ -357,3 +357,23 @@ table {
           }
         }
       }
+
+  .scrollable-table{
+     table {
+
+        tbody {
+
+           tr:nth-child(even) {
+            background: #fff !important;
+          }
+         .sticky-col {
+            background: #fff !important;
+          }
+          td {
+              /* Your styles for the first td child here */
+
+              padding: 20px !important;
+            }
+        }
+      }
+  }
