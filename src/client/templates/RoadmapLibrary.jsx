@@ -16,6 +16,7 @@ import { Container, Row, Col, Nav, NavItem, NavLink, Collapse, Badge } from 'rea
 import ImageBase from 'components/ImageBase.jsx';
 import NavStyleFilter from 'templates/FilterNav.jsx';
 import { useLocationSearch } from 'routes/router.jsx';
+import NoResult from 'components/NoResult.jsx';
 
 
 import 'scss/templates/roadmap-library.scss'
@@ -172,10 +173,15 @@ const RoadmapLibraryNav = (props) => {
 		setSortMode(e.target.value);
 	};
 
+	const handleClearInput = () => {
+		setInputChange('');
+		setSearchTerm('');
+	};
+
 	return (
 		<div className="roadmap-library-nav">
 
-			<SideInPageNavigation navs={getNestedNavs(categories)} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+			<SideInPageNavigation navs={getNestedNavs(categories)} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange} handleClearInput={handleClearInput} searchTerm={searchTerm}>
 				<div className="sorting-dropdown">
 					<label>
 						Sort By
@@ -187,7 +193,7 @@ const RoadmapLibraryNav = (props) => {
 					</label>
 				</div>
 				<div className={classnames("resource-library-modules")}>
-					{sortMode === 'category' ? (
+					{displayData.length > 0 ? sortMode === 'category' ? (
 						displayData.map((category) => (
 							<Fragment key={category.hash} >
 								<ResourceSection show={sortMode === 'category'} hash={category.hash}>
@@ -203,7 +209,7 @@ const RoadmapLibraryNav = (props) => {
 						))
 					) : (
 						displayData[0].links && <ImageList links={displayData[0].links} />
-					)}
+					) : <NoResult />}
 				</div>
 			</SideInPageNavigation>
 		</div>

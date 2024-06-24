@@ -96,7 +96,7 @@
                     }
                 }
 
-                &:active{
+                &:focus{
                     color: $color-primary--dark;
                     box-shadow: 0px 0px 4px 0px #0F7CB2;
                     border: 1px solid $color-primary--dark;
@@ -104,7 +104,7 @@
                         color: $color-primary--dark;
                     }
                 }
-                &:focus{
+                &:focus-visible{
                     border: 1px solid $color-grey--400;
                     background-color: $background-color;
                     outline: 2px solid $color-primary;

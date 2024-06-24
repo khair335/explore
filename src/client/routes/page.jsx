@@ -86,6 +86,14 @@ const loadPageData = ({ request }) => {
 		console.log('path: ', path);
 	}
 
+	// Scroll to the top for now. SPA we need to scroll into view instead of staying at the bottom.
+	const content_container = document.getElementById("content-container");
+	if (content_container) {
+		
+		content_container.scrollIntoView({
+			behavior: 'smooth',
+		});
+	} 
 
 	// OPTIMAZATION: getmetadata is causing issues with slowdown, we we need a precheck.
 	const getPubdate = new Promise((resolve, reject) => {

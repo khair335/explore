@@ -156,7 +156,11 @@ const updateList = (filters) => {
                 </Col>
             </Row>
             <Row className='detail-cards'>
-                {filteredItems.map(details =>{
+                {filteredItems?.sort((a, b) => {
+						let a_title = a.name || "";
+						let b_title = b.name || "";
+						return a_title.localeCompare(b_title)
+					})?.map(details =>{
                     if (details) {
                         return (
 

@@ -36,13 +36,30 @@
       border: none;
       outline: none;
     }
+
+    .clear-button {
+      position: absolute;
+      right: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0 10px;
+      color: #5e5d5d;
+
+    }
+
+    .clear-button:hover {
+      color: #272626;
+    }
   }
 
   .side-nav-sticky-mobile {
     position: sticky;
     top: 0px;
-    z-index: 2;   // For sticky
+    z-index: 2; // For sticky
     background-color: $color-white;
+
     @include media-breakpoint-down(lg) {
       .side-nav {
         position: relative; // Reset us.
@@ -54,7 +71,7 @@
   .side-nav {
     position: sticky;
     top: 20px;
-    z-index: 2;   // For sticky
+    z-index: 2; // For sticky
     background-color: $color-white;
 
     .nav-item {

@@ -37,7 +37,7 @@ export default class CAPageNotFound extends PageComponent {
 				<Container>
 					<SubHeadTitle {...this.props.page} />
 					
-					<SearchBox endpoint={config.product_search.typeahead_endpoint} results_page="/broadcom-faceted-search"  placeholder={localizeText("E001","What product are you looking for?")}/>
+					<SearchBox endpoint={config.fourofour_search.typeahead_endpoint} results_page={config.fourofour_search.results_url}  placeholder={localizeText("E001","What product are you looking for?")}/>
 					
 					
 					<Body body={this.props.page.body} /> 

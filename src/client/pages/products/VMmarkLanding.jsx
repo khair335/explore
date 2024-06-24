@@ -20,6 +20,7 @@ import classnames from 'classnames';
 // import DoubleScrollBar from 'react-double-scrollbar';
 import DoubleScrollBar from 'components/DoubleScrollBar.jsx';
 import Icon from 'components/Icon.jsx';
+import { useLocationSearch } from 'routes/router.jsx';
 
 import 'scss/pages/vmmark-landing.scss';
 
@@ -70,7 +71,6 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 			window.location.hash = hash;
 		}
 	};
-
 
 
 	return (
@@ -150,13 +150,14 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const location = useLocation();
 	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
-	const [activeTab, setActiveTab] = useState(currentTab)
-	const [hashFlag, setHashFlag] = useState(flag)
 	const tabsMap = tabsMapping
+	const [activeTab, setActiveTab] = useState(tabsMap[location_hash.substring(1)] || currentTab)
+	const [hashFlag, setHashFlag] = useState(tabsMap[location_hash.substring(1)] ? true : false || flag)
+
 
 	const [categoryList, setCategoryList] = useState(props[0]?.category_list)
-	const [searchTerm, setSearchTerm] = useState('');
-	const [inputChange, setInputChange] = useState('');
+	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
+	const [inputChange, setInputChange] = useState(searchParams.term || '');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [totalHosts, setTotalHosts] = useState([]);
 	const [primaryStorage, setPrimaryStorage] = useState([]);
@@ -182,6 +183,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 	const [currentPage, setCurrentPage] = useState(1);
 	const [start, setStart] = useState(0);
 	const [end, setEnd] = useState(0);
+
 
 	const headerKeyMap = {
 		'Submitter': 'submitter',
@@ -218,10 +220,10 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		submitter: [],
 	})
 	useEffect(() => {
-		setInputChange(searchParams.term || '');
-		setSearchTerm(searchParams.term || '');
-		setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
-		setHashFlag(tabsMap[location_hash.substring(1)] ? true : false)
+		// setInputChange(searchParams.term || '');
+		// setSearchTerm(searchParams.term || '');
+		// setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
+		// setHashFlag(tabsMap[location_hash.substring(1)] ? true : false)
 		const updatedSelectedValues = {};
 
 		if (searchParams.total_hosts) {
@@ -668,8 +670,8 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 						if (item.disclosure_document.url) {
 							row["PDF"] = item?.disclosure_document?.url
 						}
-					} else if(dataKey ==="matched_pair" || dataKey === "uniform_hosts") {
-						if(item[dataKey]){
+					} else if (dataKey === "matched_pair" || dataKey === "uniform_hosts") {
+						if (item[dataKey]) {
 							row[key] = "True"
 						} else {
 							row[key] = "False"
@@ -895,23 +897,10 @@ const VMmarkLanding = (props) => {
 		'server-storage-power-performance': 'Server and Storage Power-Performance',
 	}
 
-	// const containerRef = useRef(null);
-
-
 	const location_hash = window.location.hash;
-	const [activeTab, setActiveTab] = useState(tabsMap['top-scores']);
+	// const [activeTab, setActiveTab] = useState((props.data?.vmmark_filter || props.data?.spotlight) ? tabsMap['top-scores'] : );
 	const [hashFlag, setHashFlag] = useState(false);
 	const [collapse, setCollapse] = useState(true);
-
-
-	const toggleTab = (title) => {
-		if (activeTab !== title) {
-			setActiveTab(title);
-			setHashFlag(true);
-			setCollapse(true);
-		}
-	};
-
 	const tabsData = [
 		{
 			id: '1',
@@ -944,11 +933,37 @@ const VMmarkLanding = (props) => {
 		}
 	];
 
+
+	const toggleTab = (title) => {
+		if (activeTab !== title) {
+			setActiveTab(title);
+			setHashFlag(true);
+			setCollapse(true);
+		}
+	};
+
+	const determineInitialTab = (tabsData) => {
+		for (let tab of tabsData) {
+			if (tab.hashValue === 'top-scores' && (props.data?.vmmark_filter || props.data?.spotlight)) {
+				return 'top-scores';
+			} else if (tab.content && tab.content.length > 0) {
+				return tab.hashValue;
+			}
+		}
+		// Fallback to the first tab if none have content
+		return tabsData[0].hashValue;
+	};
+
+	const initialTab = determineInitialTab(tabsData);
+	const [activeTab, setActiveTab] = useState( tabsMap[location_hash.substring(1)] || tabsMap[initialTab]);
+
+
+
 	// Sync state with URL hash changes
 	useEffect(() => {
 
 
-		setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
+		// setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
 	}, []);
 
 	return (

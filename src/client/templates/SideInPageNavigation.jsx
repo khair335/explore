@@ -203,15 +203,15 @@ const SideNav = (props) => {
 	}
 	return (
 		<div className={classnames("side-nav", "side-nav-static")}>
-			<div className="side-nav-result">
-				{props.resultCount && <div className='result-container'><h5><b>{props.resultCount} Results</b></h5></div>}
+			{props.resultCount>=0 && <div className="side-nav-result">
+				<div className='result-container'><h5><b>{props.resultCount} Results</b></h5></div>
 						<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
 							{collapse
 								? <span>Show Filters<i className="bi brcmicon-caret-down"></i></span>
 								: <span>Hide Filters<i className="bi brcmicon-caret-up"></i></span>
 							}
 						</button>
-			</div>
+			</div>}
 			{props.handleSearchSubmit &&
 				<Collapse isOpen={!collapse} className="side-nav-collapse">
 					<div className='search-container'>
@@ -223,6 +223,7 @@ const SideNav = (props) => {
 								onChange={props.handleInputChange}
 								placeholder="Search"
 							/>
+							{props.searchTerm && <button type="button" onClick={props.handleClearInput} className="clear-button">×</button>}
 						</form>
 					</div>
 				</Collapse>}

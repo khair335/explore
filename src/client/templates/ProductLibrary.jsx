@@ -15,6 +15,7 @@ import SideInPageNavigation from 'templates/SideInPageNavigation.jsx';
 import classnames from "classnames";
 import { withLiveEvents } from 'components/liveEvents.js';
 import { useLocationSearch } from 'routes/router.jsx';
+import NoResult from 'components/NoResult.jsx';
 
 
 import 'scss/templates/products-library.scss';
@@ -175,10 +176,15 @@ const ProductLibrary = (props) => {
 		}));
 	};
 
+	const handleClearInput = () => {
+		setInputChange('');
+		setSearchTerm('');
+	};
+	
 	return (
 		<div className="ProductLibrary">
 
-			<SideInPageNavigation navs={getNestedNavs(products)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+			<SideInPageNavigation navs={getNestedNavs(products)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange} handleClearInput={handleClearInput} searchTerm={searchTerm}>
 				<div className="sorting-dropdown">
 					<label>
 						Sort By
@@ -191,14 +197,14 @@ const ProductLibrary = (props) => {
 				</div>
 
 				<div className={classnames("product-library-modules")}>
-					{displayData.map((product, index) => (
+					{displayData.length > 0 ? displayData.map((product, index) => (
 						<Fragment key={product.hash} >
 							<ResourceSection show={sortMode === 'category'} hash={product.hash}>
 								<h3>{product.title}</h3>
 								{product.links && product.links.length > 0 && <ImageCard links={product.links} />}
 							</ResourceSection>
 						</Fragment>
-					))}
+					)):<NoResult />}
 				</div>
 			</SideInPageNavigation>
 		</div>

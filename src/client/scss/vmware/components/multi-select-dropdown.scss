@@ -133,5 +133,53 @@
 
 
     }
+    
+    .show-filters-btn {
+        display: none;
+        border: none;
+        // background-color: transparent; /* Optional: make the background transparent */
+        cursor: pointer;
+        outline: none;  
+        margin-left:auto;
+        background:none;
+        color:$color-primary;
+        text-transform: none;
+        padding: 0;
+        span{
+            display: flex;
+            align-items: center;
+            i{
+                margin-left:5px;
+            }
+        }
+    }
+    
+    .show-filters-btn:hover,
+    .show-filters-btn:focus,
+    .show-filters-btn:active {
+        border: none; 
+        outline: none;
+    }
+    
+    .dropdown-container {
+        display: block;
+    }
+    
+    @media (max-width: 768px) {
+        .show-filters-btn {
+            display: flex;
+        }
+    
+        .dropdown-container.no-show{
+            display: none;
+        }
+    
+        .dropdown-container.show {
+            display: flex;
+        }
+
+        
+    }
+    
 
 }

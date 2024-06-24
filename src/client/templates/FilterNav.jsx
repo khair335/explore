@@ -18,8 +18,8 @@ import 'scss/templates/filter-nav.scss';
 
 
 export const NavStyleFilter = (props) => {
-console.log("props=>");
-console.dir(props);
+// console.log("props=>");
+// console.dir(props);
 
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [filteredItems, setFilteredItems] = useState([props.props.content_block.cards]);
@@ -29,7 +29,7 @@ console.dir(props);
 
   useEffect(() => {
 
-    console.dir(props.props.content_block.cards);
+    // console.dir(props.props.content_block.cards);
 
     let tempFilters = showFilters[0];
     let tempCards = itemList[0];

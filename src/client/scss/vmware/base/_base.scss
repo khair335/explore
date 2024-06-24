@@ -67,31 +67,6 @@ body{
     font-size: 26px;
     margin-bottom: 16px;
   }
-
-
-  &.autopilot-show {
-    padding-bottom: $autopilot-footer-height;
-  }
-
-  @media screen and (min-width: map-get($grid-breakpoints, md)) {
-    padding-bottom: $footer-height-md;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-md;
-    }
-  }
-  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
-    padding-bottom: $footer-height-lg;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-lg;
-    }
-  }
-  @media screen and (min-width: map-get($grid-breakpoints, xl)) {
-    padding-bottom: $footer-height-xl;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-xl;
-    }
-  }
-
 }
 
 #main {

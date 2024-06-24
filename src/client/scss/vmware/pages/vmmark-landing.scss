@@ -643,7 +643,7 @@
                                 }
                             }
 
-                            &:active {
+                            &:focus {
                                 color: $color-primary--dark;
                                 box-shadow: 0px 0px 4px 0px #0F7CB2;
                                 border: 1px solid $color-primary--dark;
@@ -653,7 +653,7 @@
                                 }
                             }
 
-                            &:focus {
+                            &:focus-visible {
                                 border: 1px solid $color-grey--400;
                                 background-color: $background-color;
                                 outline: 2px solid $color-primary;
@@ -810,22 +810,24 @@
 
                 th,
                 td {
-                    padding: 8px !important;
+                    padding: 2px 10px !important;
                     text-align: left;
                     border-bottom: 1px solid $color-grey--10;
                     width: 160px;
                     min-width: 160px;
                     max-width: 160px;
                     white-space: break-spaces;
+                    height: 81px;
                 }
 
                 td:first-child {
                     text-align: center;
-
+                    padding:0 !important;
                     //box-shadow: none !important;
                     img {
-                        max-height: 86px;
+                        // max-height: 86px;
                         display: inline-block;
+                        height: 50px;
                     }
                 }
 
@@ -1016,6 +1018,16 @@
             left: 0;
             background-color: $background-color;
             z-index: 2;
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                width: 100%;
+                top: 0;
+                left: 0;
+                height: 100%;
+                box-shadow: 5px 0px 8px 0px #E3E2E3 !important;
+            }
         }
 
         .sticky-col.performance-score {
@@ -1153,9 +1165,13 @@
 
         .result-page {
             display: flex;
-            align-items: flex-start;
+            align-items: flex-start !important;
             flex-direction: column;
             margin-top: 20px;
+            .results-dropdown{
+                margin-left:0 !important;
+                padding-left:0 !important; 
+            }
         }
     }
 

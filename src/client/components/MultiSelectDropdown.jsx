@@ -6,14 +6,22 @@ import 'scss/components/multi-select-dropdown.scss';
 
 const MultiSelectDropdown = ({ items, selectedValues, onSelectionChange, defaultLabel }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [showFilters, setShowFilters] = useState(false);
 
     const toggleDropdown = (attribute) => {
         setOpenDropdown(openDropdown === attribute ? null : attribute);
     };
 
+    const toggleShowFilters = () => {
+        setShowFilters(!showFilters);
+    };
+
     return (
         <div className="multi-select-dropdown">
-            <div className='dropdown-container'>
+            <button className="show-filters-btn" onClick={toggleShowFilters}>
+                {showFilters ? <span>Hide Filters<i className="fa-solid fa-chevron-up"></i></span> : <span>Show Filters<i className="fa-solid fa-chevron-down"></i></span>}
+            </button>
+            <div className={`dropdown-container ${showFilters ? 'show' : 'no-show'}`}>
                 {items?.map(item => (
                     (!defaultLabel || item.label.toLowerCase() !== defaultLabel.toLowerCase()) && (
                         <Dropdown key={item.attribute} isOpen={openDropdown === item.attribute} toggle={() => toggleDropdown(item.attribute)}>

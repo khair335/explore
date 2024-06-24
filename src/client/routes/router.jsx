@@ -40,7 +40,7 @@ const PathnameProvider = ({ children }) => {
 
     useEffect(() => {
         //if (location.pathname !== pathname) {
-            setPathname(location.pathname);
+        setPathname(location.pathname);
         //}        
     })
 
@@ -105,15 +105,17 @@ const Layout = () => {
         <>
             <NavigationProvider>
                 <Header />
-                <Suspense fallback={<Loading isLoading={true} className="page-loading" />}>
-                    {/* SSR: We need to initially stop rendering the page because we are just a 404. Error page resets it to 200 for SPA. */}
+                <div id="content-container">
+                    <Suspense fallback={<Loading isLoading={true} className="page-loading" />}>
+                        {/* SSR: We need to initially stop rendering the page because we are just a 404. Error page resets it to 200 for SPA. */}
 
-                    <PathnameProvider>
-                        <LocationSearchProvider>
-                            <Outlet />
-                        </LocationSearchProvider>
-                    </PathnameProvider>
-                </Suspense>
+                        <PathnameProvider>
+                            <LocationSearchProvider>
+                                <Outlet />
+                            </LocationSearchProvider>
+                        </PathnameProvider>
+                    </Suspense>
+                </div>
                 <Footer />
             </NavigationProvider>
         </>
@@ -164,7 +166,7 @@ const router = createBrowserRouter([
             errorElement: <ErrorPage code="400" />,
         }, {
             path: "*",
-            loader: deferLoadPageData,           
+            loader: deferLoadPageData,
             shouldRevalidate: shouldRevalidate,
             element: <PageDataProvider><PageTemplateRouter /></PageDataProvider>, // Use our template routing.
             errorElement: <ErrorPage code="400" />,

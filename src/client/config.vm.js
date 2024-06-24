@@ -290,6 +290,10 @@ class Config {
 			url: '',			// This is globally changed from the page json. We will just set it on every fetch.
 		};
 
+		this.fourofour_search = {
+			typeahead_endpoint: this.site_search.typeahead_endpoint,
+			results_url: '/site-search', 
+		};
 
 		this.video_library = {
 			endpoint: 'https://production-ps.lvp.llnw.net/r/PlaylistService/channel/',

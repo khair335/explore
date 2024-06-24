@@ -45,7 +45,7 @@ table {
   tbody {
     td {
       border: 0 !important;
-      box-shadow: inset 0px -1px 0px 0px $color-grey--100 !important;
+      box-shadow: inset 0px -1px 0px 0px $color-grey--50 !important;
       vertical-align: middle !important;
       padding: 25px 0 !important;
 
@@ -343,10 +343,10 @@ table {
 
 
           tr:nth-child(even) {
-            background: #E3E2E3 !important;
+            background: $color-grey--50 !important;
           }
           tr:nth-child(odd) {
-            background: #fff !important;
+            background: $color-white !important;
           }
           tr {
             td {

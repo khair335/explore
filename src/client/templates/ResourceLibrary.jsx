@@ -15,6 +15,7 @@ import SideInPageNavigation from 'templates/SideInPageNavigation.jsx';
 import classnames from "classnames";
 import { withLiveEvents } from 'components/liveEvents.js';
 import { useLocationSearch } from 'routes/router.jsx';
+import NoResult from 'components/NoResult.jsx';
 
 
 import 'scss/templates/resource-library.scss';
@@ -39,7 +40,7 @@ const ResourceLibrary = ({ content_block }) => {
 
     useEffect(() => {
 
-        let update = (searchParams['term'] || '' ) !== searchTerm;  // Could be undefined so check that
+        let update = (searchParams['term'] || '') !== searchTerm;  // Could be undefined so check that
 
         if (searchTerm) {
             searchParams['term'] = searchTerm;
@@ -49,7 +50,7 @@ const ResourceLibrary = ({ content_block }) => {
         }
 
         // Stop adding history if we are the same
-        
+
         if (update) {
             navigate({
                 search: `${queryString.stringify(searchParams)}`,
@@ -60,25 +61,52 @@ const ResourceLibrary = ({ content_block }) => {
     }, [searchTerm]);
 
     useEffect(() => {
-        const updatedCategories = categories.map(category => {
+        let filteredLinks = [];
+        let subFilteredLinks = [];
+        const updatedCategories = categories?.sort((a, b) => {
+            let a_title = a.title || "";
+            let b_title = b.title || "";
+            return a_title.localeCompare(b_title)
+        }).map(category => {
             if (category.title) {
                 let hash = encodeTabHash(category.title);
                 hash = hash.replace(/[^\w_-]+/g, "");
                 category.hash = encodeTabHash(hash);
 
                 if (category.categories) {
-                    category.categories = category.categories.map(subCategory => {
+                    category.categories = category.categories.sort((a, b) => {
+                        let a_title = a.title || "";
+                        let b_title = b.title || "";
+                        return a_title.localeCompare(b_title)
+                    }).map(subCategory => {
                         if (subCategory.title) {
                             let subHash = encodeTabHash(subCategory.title);
                             subHash = subHash.replace(/[^\w_-]+/g, "");
                             subCategory.hash = encodeTabHash(subHash);
                         }
-                        return subCategory;
+                        if (subCategory.links) {
+                            subFilteredLinks = subCategory.links?.sort((a, b) => {
+                                let a_title = a.title || "";
+                                let b_title = b.title || "";
+                                return a_title.localeCompare(b_title)
+                            });
+                        }
+                        // return subCategory;
+                        return { ...subCategory, links: subFilteredLinks }
                     });
                 }
             }
-            return category;
+            if (category.links) {
+                filteredLinks = category.links?.sort((a, b) => {
+                    let a_title = a.title || "";
+                    let b_title = b.title || "";
+                    return a_title.localeCompare(b_title)
+                });
+            }
+            // return category;
+            return { ...category, links: filteredLinks}
         });
+        console.log(updatedCategories)
         setDisplayData(updatedCategories);
     }, []);
 
@@ -101,7 +129,7 @@ const ResourceLibrary = ({ content_block }) => {
     useEffect(() => {
         let processedData = [...categories];
 
-        if (searchTerm) {
+        if (searchTerm.length > 0) {
             processedData = processedData.map(category => {
                 const filteredLinks = category.links?.filter(link => link.title.toLowerCase().includes(searchTerm.toLowerCase())) || [];
                 const filteredSubCategories = category.categories?.map(subCat => {
@@ -157,10 +185,15 @@ const ResourceLibrary = ({ content_block }) => {
         }));
     };
 
+    const handleClearInput = () => {
+		setInputChange('');
+		setSearchTerm('');
+	};
+
     return (
         <div className="ResourceLibrary">
 
-            <SideInPageNavigation navs={getNestedNavs(categories)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange}>
+            <SideInPageNavigation navs={getNestedNavs(categories)} resultCount={resultCount} handleSearchSubmit={handleSearchSubmit} handleInputChange={handleInputChange} inputChange={inputChange} handleClearInput={handleClearInput} searchTerm={searchTerm}>
                 <div className="sorting-dropdown">
                     <label>
                         Sort By
@@ -172,7 +205,7 @@ const ResourceLibrary = ({ content_block }) => {
                     </label>
                 </div>
                 <div className={classnames("resource-library-modules")}>
-                    {displayData.map((category, index) => (
+                    {displayData.length > 0 ? displayData.map((category, index) => (
                         <Fragment key={category.hash} >
                             <ResourceSection show={sortMode === 'category'} hash={category.hash}>
                                 <h3>{category.title}</h3>
@@ -186,7 +219,7 @@ const ResourceLibrary = ({ content_block }) => {
                             </ResourceSection>
 
                         </Fragment>
-                    ))}
+                    )) : <NoResult />}
                 </div>
             </SideInPageNavigation>
         </div>

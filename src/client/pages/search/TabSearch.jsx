@@ -18,6 +18,7 @@ import UrlParse from "url-parse";
 import Loading from 'components/Loading.jsx';
 import queryString from 'query-string';
 import { SearchBox } from 'components/TypeAhead.jsx';
+import NoResult from 'components/NoResult.jsx';
 import { useLocationSearch } from 'routes/router.jsx';
 import { router } from 'routes/router.jsx';
 
@@ -47,18 +48,6 @@ const Result = (props) => {
 	);
 }
 
-const NoResults = () => {
-	return (
-		<div className="tabsearch-noresult">
-			<h5>No results were found. Try a new search or our recommendations.</h5>
-			<ul>
-				<li>Make sure all words are spelled correctly</li>
-				<li>Try different or more general keywords</li>
-			</ul>
-
-		</div>
-	);
-}
 
 const TabSearch = (props) => {
 	//let tabs = [{ hash: '1234', label: '1234' }, { hash: 'abcde', label: 'abcde' }];
@@ -405,7 +394,7 @@ const TabSearch = (props) => {
 				</div>
 				<Loading isLoading={loading}>
 					{totalPages === 0 && !loading &&
-						<NoResults />
+						<NoResult />
 					}
 
 					{totalPages !== 0 &&
