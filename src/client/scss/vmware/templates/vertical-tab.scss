@@ -399,11 +399,29 @@
                 }
 
 
+
             }
 
         }
     }
 
+    .CollapseBox{
 
+  .card-body{
+
+    .collapse {
+
+.lnk{
+      @include cta-link-style;
+    text-transform: capitalize;
+            &:after {
+              @include cta-link-after ;
+            }
+
+    }
+    }
+
+  }
+}
 
 }

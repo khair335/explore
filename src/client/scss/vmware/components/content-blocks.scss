@@ -588,6 +588,18 @@
 
 
               }
+
+              .link-bttn{
+                  @extend .bttn;
+                @include secondary-button;
+                  padding: 6px 24px;
+                &:after {
+                  @include button-after;
+                }
+                &:hover{
+                  text-decoration: none;
+                }
+                  }
             }
           }
 
@@ -706,6 +718,15 @@
        .quote {
         font-size: 16px;
         line-height: 26px;
+        &:before{
+           content: "“";
+        }
+        &:after{
+            content: "”";
+        }
+        p{
+          display: inline;
+        }
 
       }
 
@@ -726,7 +747,6 @@
       max-height: 195px;
     }
   }
-
 
 
 }
@@ -1489,7 +1509,24 @@
       }
     }
   }
+  &.theme-content-block-cta-card-secondary{
+    .cb-cta-link{
+      .link-bttn{
+        @extend .bttn;
+              @include secondary-button;
+    padding: 6px 24px;
+              &:after {
+                @include button-after;
+                content: unset;
+              }
 
+              &:hover {
+                @include secondary-hover;
+                color: #fff;
+              }
+      }
+    }
+  }
 
 }
 

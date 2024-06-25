@@ -150,6 +150,13 @@
             }
         }
     }
+    .card{
+            .card-title{
+        .lnk{
+            text-transform: capitalize;
+        }
+    }
+    }
 
     @media (max-width: 767px) {
         .nav-tabs {
