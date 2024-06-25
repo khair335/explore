@@ -5,7 +5,7 @@
  */
 import config from 'client/config.js';
 import React, { Component, useEffect, useState, useRef } from 'react';
-import { BrowserRouter as Router, useNavigate, useLocation, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate, useLocation, useHistory, useSearchParams } from 'react-router-dom';
 import SiteLink from "components/SiteLink.jsx";
 import { SubHeadHero } from 'components/subHeader.jsx';
 import { Collapse, Container } from 'reactstrap';
@@ -145,86 +145,21 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 	);
 };
 
-const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }) => {
+const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, location_search, flag }) => {
 	const navigate = useNavigate();
-	const location = useLocation();
-	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 	const tabsMap = tabsMapping
 	const [activeTab, setActiveTab] = useState(tabsMap[location_hash.substring(1)] || currentTab)
 	const [hashFlag, setHashFlag] = useState(tabsMap[location_hash.substring(1)] ? true : false || flag)
 
 
-	const [categoryList, setCategoryList] = useState(props[0]?.category_list)
-	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
-	const [inputChange, setInputChange] = useState(searchParams.term || '');
-	const [isSubmit, setIsSubmit] = useState(false);
-	const [totalHosts, setTotalHosts] = useState([]);
-	const [primaryStorage, setPrimaryStorage] = useState([]);
-	const [totalSockets, setTotalSockets] = useState([]);
-	const [processorModel, setProcessorModel] = useState([]);
-	const [typeOfStorage, setTypeOfStorage] = useState([]);
-	const [matchedPair, setMatchedPair] = useState([]);
-	const [systemDescription, setSystemDescription] = useState([]);
-	const [totalThreads, setTotalThreads] = useState([]);
-	const [uniformHosts, setUniformHosts] = useState([]);
-	const [totalCores, setTotalCores] = useState([]);
-	const [hypervisor, setHypervisor] = useState([]);
-	const [submitter, setSubmitter] = useState([]);
-	const [version, setVersion] = useState([]);
-	const [searchResults, setSearchResults] = useState(categoryList);
-	const [showData, setShowData] = useState(searchResults);
-	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Type Of Storage", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
-	const [manageColumns, setManageColumns] = useState(keysToDisplay)
-	const [visibleColumns, setVisibleColumns] = useState(new Set(keysToDisplay));
-	const [sortConfig, setSortConfig] = useState({ sortorder: null, sort: null });
-	const [resultsPerPage, setResultsPerPage] = useState(20);
-	const [totalPages, setTotalPages] = useState(0);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [start, setStart] = useState(0);
-	const [end, setEnd] = useState(0);
-
-
-	const headerKeyMap = {
-		'Submitter': 'submitter',
-		'Performance Score': 'score',
-		'Date': 'date',
-		'Total Hosts': 'total_hosts',
-		'Total Sockets': 'total_sockets',
-		'Total Cores': 'total_cores',
-		'Server Description': 'system_description',
-		'Processor Model': 'processor_model',
-		'Type Of Storage': 'type_of_storage',
-		'Primary Storage': 'primary_storage',
-		'Hypervisor': 'hypervisor',
-		'VMmark Version': 'version',
-		'Matched Pair': 'matched_pair',
-		'Total Threads': 'total_threads',
-		'Uniform Hosts': 'uniform_hosts',
-		'Category': 'category',
-	};
-
-	const [selectedValues, setSelectedValues] = useState({
-		total_hosts: [],
-		primary_storage: [],
-		total_sockets: [],
-		matched_pair: [],
-		system_description: [],
-		processor_model: [],
-		type_of_storage: [],
-		total_threads: [],
-		uniform_hosts: [],
-		version: [],
-		total_cores: [],
-		hypervisor: [],
-		submitter: [],
-	})
-	useEffect(() => {
+	const updatedSelectValues = () => {
 		// setInputChange(searchParams.term || '');
 		// setSearchTerm(searchParams.term || '');
 		// setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
 		// setHashFlag(tabsMap[location_hash.substring(1)] ? true : false)
 		const updatedSelectedValues = {};
+
 
 		if (searchParams.total_hosts) {
 			updatedSelectedValues.total_hosts = searchParams.total_hosts.split(',');
@@ -242,6 +177,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			updatedSelectedValues.processor_model = searchParams.processor_model.split(',');
 		} else {
 			updatedSelectedValues.processor_model = [];
+		}
+
+		if (searchParams.datacenter_management) {
+			updatedSelectedValues.datacenter_management = searchParams.datacenter_management.split(',');
+		} else {
+			updatedSelectedValues.datacenter_management = [];
 		}
 
 		if (searchParams.type_of_storage) {
@@ -309,6 +250,10 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			updatedSelectedValues.submitter = [];
 		}
 
+		return updatedSelectedValues;
+	};
+
+	const updatedSortConfig = () => {
 		const updatedSortConfig = {}
 
 		if (searchParams.sort) {
@@ -323,16 +268,80 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			updatedSortConfig.sortorder = null;
 		}
 
+		return updatedSortConfig;
+	}
 
-		filterParams(updatedSelectedValues);
+	const [categoryList, setCategoryList] = useState(props[0]?.category_list)
+	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
+	const [inputChange, setInputChange] = useState(searchParams.term || '');
+	const [isSubmit, setIsSubmit] = useState(false);
+	const [totalHosts, setTotalHosts] = useState([]);
+	const [primaryStorage, setPrimaryStorage] = useState([]);
+	const [totalSockets, setTotalSockets] = useState([]);
+	const [processorModel, setProcessorModel] = useState([]);
+	const [typeOfStorage, setTypeOfStorage] = useState([]);
+	const [datacenterManagement, setdatacenterManagement] = useState([]);
+	const [matchedPair, setMatchedPair] = useState([]);
+	const [systemDescription, setSystemDescription] = useState([]);
+	const [totalThreads, setTotalThreads] = useState([]);
+	const [uniformHosts, setUniformHosts] = useState([]);
+	const [totalCores, setTotalCores] = useState([]);
+	const [hypervisor, setHypervisor] = useState([]);
+	const [submitter, setSubmitter] = useState([]);
+	const [version, setVersion] = useState([]);
+	const [searchResults, setSearchResults] = useState(categoryList);
+	const [showData, setShowData] = useState(searchResults);
+	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Type Of Storage", "Datacenter Management", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
+	const [manageColumns, setManageColumns] = useState(keysToDisplay)
+	const [visibleColumns, setVisibleColumns] = useState(new Set(keysToDisplay));
+	const [sortConfig, setSortConfig] = useState(updatedSortConfig());
+	const [resultsPerPage, setResultsPerPage] = useState(20);
+	const [totalPages, setTotalPages] = useState(0);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [start, setStart] = useState(0);
+	const [end, setEnd] = useState(0);
 
-		setSortConfig(updatedSortConfig)
 
-		setSelectedValues(updatedSelectedValues);
+	const headerKeyMap = {
+		'Submitter': 'submitter',
+		'Performance Score': 'score',
+		'Date': 'date',
+		'Total Hosts': 'total_hosts',
+		'Total Sockets': 'total_sockets',
+		'Total Cores': 'total_cores',
+		'Server Description': 'system_description',
+		'Processor Model': 'processor_model',
+		'Datacenter Management' : 'datacenter_management',
+		'Type Of Storage': 'type_of_storage',
+		'Primary Storage': 'primary_storage',
+		'Hypervisor': 'hypervisor',
+		'VMmark Version': 'version',
+		'Matched Pair': 'matched_pair',
+		'Total Threads': 'total_threads',
+		'Uniform Hosts': 'uniform_hosts',
+		'Category': 'category',
+	};
 
-	}, []);
+	const [selectedValues, setSelectedValues] = useState(
+		updatedSelectValues()
+	)
+
+
 
 	useEffect(() => {
+		setSortConfig(updatedSortConfig())
+
+		setSelectedValues(updatedSelectValues());
+
+	}, [location_search]);
+
+
+
+	useEffect(() => {
+
+		let prev_searchParams = queryString.stringify(searchParams);
+
+
 		Object.keys(selectedValues).forEach(category => {
 			if (selectedValues[category].length > 0) {
 				searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
@@ -362,8 +371,16 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			}
 		})
 
-		hashFlag ? navigate({ search: `?${queryString.stringify(searchParams)}`, hash: `#${hashKey}` }) : navigate({ search: `?${queryString.stringify(searchParams)}` });
-	}, [selectedValues, searchTerm, sortConfig, activeTab])
+		// Update only on change. Change is occuring because of the useState isn't init properly.
+		if (prev_searchParams !== queryString.stringify(searchParams)) {
+
+			navigate({
+				search: `?${queryString.stringify(searchParams)}`,
+				hash: location_hash,
+			});
+		}
+
+	}, [JSON.stringify(selectedValues), searchTerm, JSON.stringify(sortConfig), activeTab])
 
 	const updateUniqueItems = (setter, existingItems, newItems) => {
 		const uniqueSet = new Set(existingItems);
@@ -385,11 +402,13 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		const localSubmitter = [];
 		const localProcessorModel = [];
 		const localTypeOfStorage = [];
+		const localdatacenterManagement = [];
 
 		props[0]?.category_list?.forEach(item => {
 			if (!localTotalHosts.includes(item.total_hosts)) localTotalHosts.push(item.total_hosts);
 			if (!localProcessorModel.includes(item.processor_model)) localProcessorModel.push(item.processor_model);
 			if (!localTypeOfStorage.includes(item.type_of_storage)) localTypeOfStorage.push(item.type_of_storage);
+			if (!localdatacenterManagement.includes(item.datacenter_management)) localdatacenterManagement.push(item.datacenter_management);
 			if (!localPrimaryStorage.includes(item.primary_storage)) localPrimaryStorage.push(item.primary_storage);
 			if (!localTotalSockets.includes(item.total_sockets)) localTotalSockets.push(item.total_sockets);
 			// if (!localMatchedPair.includes(item.matched_pair)) localMatchedPair.push(item.matched_pair);
@@ -414,6 +433,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		updateUniqueItems(setSubmitter, submitter, localSubmitter);
 		updateUniqueItems(setProcessorModel, processorModel, localProcessorModel);
 		updateUniqueItems(setTypeOfStorage, typeOfStorage, localTypeOfStorage);
+		updateUniqueItems(setdatacenterManagement, datacenterManagement, localdatacenterManagement);
 	};
 
 
@@ -435,6 +455,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 			system_description: [],
 			processor_model: [],
 			type_of_storage: [],
+			datacenter_management: [],
 			total_threads: [],
 			uniform_hosts: [],
 			version: [],
@@ -454,6 +475,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 		{ label: "System Description", attribute: "system_description", tags: systemDescription },
 		{ label: "Processor Model", attribute: "processor_model", tags: processorModel },
 		{ label: "Type Of Storage", attribute: "type_of_storage", tags: typeOfStorage },
+		{ label: "Datacenter Management", attribute: "datacenter_management", tags: datacenterManagement },
 		{ label: "Total Threads", attribute: "total_threads", tags: totalThreads },
 		{ label: "Uniform Hosts", attribute: "uniform_hosts", tags: ["True", "False"] },
 		{ label: "Total Cores", attribute: "total_cores", tags: totalCores },
@@ -578,6 +600,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, flag }
 					case "version":
 					case "processor_model":
 					case "type_of_storage":
+					case "datacenter_management":
 						return filterWithRemoveParentheses(key);
 
 					case "matched_pair":
@@ -897,7 +920,9 @@ const VMmarkLanding = (props) => {
 		'server-storage-power-performance': 'Server and Storage Power-Performance',
 	}
 
-	const location_hash = window.location.hash;
+	const location = useLocation();
+	const location_search = useLocationSearch();
+	const location_hash = location.hash;
 	// const [activeTab, setActiveTab] = useState((props.data?.vmmark_filter || props.data?.spotlight) ? tabsMap['top-scores'] : );
 	const [hashFlag, setHashFlag] = useState(false);
 	const [collapse, setCollapse] = useState(true);
@@ -955,7 +980,7 @@ const VMmarkLanding = (props) => {
 	};
 
 	const initialTab = determineInitialTab(tabsData);
-	const [activeTab, setActiveTab] = useState( tabsMap[location_hash.substring(1)] || tabsMap[initialTab]);
+	const [activeTab, setActiveTab] = useState(tabsMap[location_hash.substring(1)] || tabsMap[initialTab]);
 
 
 
@@ -963,8 +988,10 @@ const VMmarkLanding = (props) => {
 	useEffect(() => {
 
 
+		setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap[initialTab]);
+
 		// setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
-	}, []);
+	}, [location]);
 
 	return (
 		<div>
@@ -1027,7 +1054,7 @@ const VMmarkLanding = (props) => {
 								<TopScores scores={props.data?.vmmark_filter} spotlight={props.data?.spotlight} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} />
 							</TabPane>
 								: <TabPane key={tab.id} tabId={tab.title}>
-									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} />
+									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} location_search={location_search} />
 								</TabPane>
 						))}
 					</TabContent>

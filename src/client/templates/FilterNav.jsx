@@ -22,9 +22,9 @@ export const NavStyleFilter = (props) => {
 // console.dir(props);
 
     const [selectedFilters, setSelectedFilters] = useState([]);
-    const [filteredItems, setFilteredItems] = useState([props.props.content_block.cards]);
-    const [itemList, setitemList] = useState([props.props.content_block.cards]);
-    const [showFilters, setShowFilters] = useState([props.props.content_block.filters]);
+    const [filteredItems, setFilteredItems] = useState([props.props?.content_block?.cards]);
+    const [itemList, setitemList] = useState([props.props?.content_block?.cards]);
+    const [showFilters, setShowFilters] = useState([props.props?.content_block?.filters]);
 
 
   useEffect(() => {
@@ -168,7 +168,7 @@ const updateList = (filters) => {
                                                     <h5>{cat.title}</h5>
                                                     {filteredItems.map(details =>{
                                                         return (
-                                                            details.categories.map(card => {
+                                                            details.categories?.map(card => {
                                                                 let tempCard = card.title.toLowerCase();
                                                                 if(tempCat === tempCard && selectedFilters.includes(tempCard)) {
                                                                     return (

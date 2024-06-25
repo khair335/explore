@@ -1,0 +1,185 @@
+/*
+* components/multi-select-dropdown.scss
+*/
+// Styling for broadcom custom MultiSelectDropdown
+
+@import "../base/variables";
+@import "../base/buttons";
+@import "../components/card.scss";
+
+// Fontawesome
+@import "../fontawesome/fontawesome";
+@import "../fontawesome/solid";
+@import '../fontawesome/brands';
+
+
+.multi-select-dropdown {
+    .dropdown-container {
+        display: flex;
+    }
+
+    .dropdown-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .keywords-tag {
+        display: flex;
+    }
+
+
+    .dropdown-container {
+        gap: 16px;
+
+
+        .dropdown {
+            flex: 1;
+
+            &.show {
+
+                .dropdown-caret {
+                    @include fa-icon-solid($fa-var-chevron-right);
+                    transition: 0.2s ease-in-out;
+                    transform: rotate(90deg);
+                }
+            }
+
+            button {
+
+                @include secondary-button;
+                width: 100%;
+                text-align: left;
+                display: inline-block;
+                padding-left: 10px;
+                padding-right: 30px;
+
+                // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
+                .dropdown-caret {
+                    @include fa-icon-solid($fa-var-chevron-right);
+                    transition: 0.2s ease-in-out;
+                    right: 8px;
+                    position: absolute;
+                    top: 15px;
+                }
+
+
+                &:hover {
+
+                    @include secondary-hover;
+                }
+
+
+
+            }
+        }
+
+        .dropdown-menu {
+            max-width: 151.42px;
+            min-width: 151.42px;
+            width: 100%;
+            padding: 10px;
+            max-height: 190px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border-radius: 0;
+
+            &::-webkit-scrollbar {
+                height: 8px;
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+                border-radius: 0px;
+                background-color: #DFE9EB;
+            }
+
+            &::-webkit-scrollbar-track:hover {
+                background-color: #B8C0C2;
+            }
+
+            &::-webkit-scrollbar-track:active {
+                background-color: #B8C0C2;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 0px;
+                background-color: #555555;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #555555;
+            }
+
+            &::-webkit-scrollbar-thumb:active {
+                background-color: #555555;
+            }
+
+            button {
+                padding: 0;
+                border: none;
+                height: auto;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 300;
+                    text-wrap: initial;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+
+    }
+    
+    .show-filters-btn {
+        display: none;
+        border: none;
+        // background-color: transparent; /* Optional: make the background transparent */
+        cursor: pointer;
+        outline: none;  
+        margin-left:auto;
+        background:none;
+        color:$color-primary;
+        text-transform: none;
+        padding: 0;
+        span{
+            display: flex;
+            align-items: center;
+            i{
+                margin-left:5px;
+            }
+        }
+    }
+    
+    .show-filters-btn:hover,
+    .show-filters-btn:focus,
+    .show-filters-btn:active {
+        border: none; 
+        outline: none;
+    }
+    
+    .dropdown-container {
+        display: block;
+    }
+    
+    @media (max-width: 768px) {
+        .show-filters-btn {
+            display: flex;
+        }
+    
+        .dropdown-container.no-show{
+            display: none;
+        }
+    
+        .dropdown-container.show {
+            display: flex;
+        }
+
+        
+    }
+    
+
+}

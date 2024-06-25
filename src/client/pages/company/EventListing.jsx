@@ -23,7 +23,7 @@ const EventListing = (props) => {
 	let mainEvents = [];
 	let eventsOnDemand = [];
 	let eventsUpcoming = [];
-	const [tabsData,setTabsData] = useState([]);
+	const [tabsData, setTabsData] = useState([]);
 	const location_hash = window.location.hash;
 	const tabsMap = { 'on_demand': 'On Demand', 'upcoming': 'Upcoming' }
 	const [activeTab, setActiveTab] = useState(tabsMap['upcoming']);
@@ -39,14 +39,28 @@ const EventListing = (props) => {
 		setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['upcoming'])
 	}, []);
 
+	const eventsWithData = (mainEvents) => {
+		let currentDate = new Date().toJSON();
+
+		const upComingFilters = mainEvents?.filter((event) => {
+			return new Date(event.start_date) >= new Date(currentDate);
+		});
+		const onDemandFilters = mainEvents?.filter((event) => {
+			return new Date(event.start_date) < new Date(currentDate);
+		});
+
+		return [upComingFilters,onDemandFilters]
+
+	}
+
 
 	useEffect(() => {
 		fetch(`${props.data.event_api}`, options)
 			.then(resp => resp.json())
 			.then(json => {
 				mainEvents = json;
-				eventsOnDemand = mainEvents.filter(event => event['permanent_event'] == 'Yes');
-				eventsUpcoming = mainEvents.filter(event => event['permanent_event'] == 'No');
+				eventsOnDemand = eventsWithData(mainEvents)[1]
+				eventsUpcoming = eventsWithData(mainEvents)[0]
 				setTabsData([
 					{
 						id: '1',
@@ -502,7 +516,7 @@ const Events = (props) => {
 														<span>
 															<i className="fa-solid fa-chevron-up sorted"></i>
 															<i className="fa-solid fa-chevron-down"></i>
-                                                    	</span>
+														</span>
 													)}
 													{sortConfig.sortcolumn === dataKey && sortConfig.sortorder === 'sorting_dsc' && (
 														// <img src='/img/sort_desc.png' alt="Descending" />
