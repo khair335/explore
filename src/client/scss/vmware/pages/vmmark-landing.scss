@@ -793,6 +793,10 @@
                 white-space: nowrap;
                 width: 100%;
                 margin-top: 20px;
+                > div{
+                    display: block;
+                    padding-right:10px;
+                }
                 // transform: rotateX(180deg);
 
                 // .pagination-section{
@@ -802,8 +806,10 @@
                 //box-shadow: inset -6px 0 5px -2px #e5eaf2;
                 //box-shadow: 5px 0 10px -4px #e5eaf2;
                 .table-scroll-wrapper {
-                    box-shadow: 5px 0 10px -4px #e5eaf2;
-                    margin-right: 5px;
+                    box-shadow: 5px 0 10px -4px #E3E2E3;
+                    //margin-right: 5px;
+                    display: block;
+                    width: 100%;
                 }
 
                 >div>div,

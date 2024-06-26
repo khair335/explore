@@ -910,7 +910,8 @@ const VMmarkLanding = (props) => {
 		'Top Scores': 'top-scores',
 		'Performance Only': 'performance-only',
 		'Server Power-Performance': 'server-power-performance',
-		'Server and Storage Power-Performance': 'server-storage-power-performance'
+		'Server and Storage Power-Performance': 'server-storage-power-performance',
+		'Performance': 'performance'
 	};
 
 	const tabsMap = {
@@ -918,6 +919,7 @@ const VMmarkLanding = (props) => {
 		'performance-only': 'Performance Only',
 		'server-power-performance': 'Server Power-Performance',
 		'server-storage-power-performance': 'Server and Storage Power-Performance',
+		'performance': 'Performance'
 	}
 
 	const location = useLocation();

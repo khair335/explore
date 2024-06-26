@@ -299,6 +299,8 @@ export class TestimonialCard extends PureComponent {
                         </div>
                     }
 
+                    {this.props.data.title && <h3 class="card-title" dangerouslySetInnerHTML={{ __html: this.props.data.title }} />}
+
                     <div className="quote" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />
 
                     <div className="signature" dangerouslySetInnerHTML={{ __html: this.props.data.author }} />

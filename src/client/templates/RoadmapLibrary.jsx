@@ -27,7 +27,7 @@ const RoadmapLibraryNav = (props) => {
 	let locationSearch = useLocationSearch();
 	let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
 	const [categories, setCategories] = useState(props.content_block.filters || []);
-	const [content, setContent] = useState(props.content_block.cards || []);
+	const [content, setContent] = useState(props?.content_block?.cards || []);
 	const [displayData, setDisplayData] = useState(categories);
 	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
     const [inputChange, setInputChange] = useState(searchParams.term || '');
@@ -64,7 +64,7 @@ const RoadmapLibraryNav = (props) => {
 			return category;
 		});
 
-		content.forEach(card => {
+		content?.forEach(card => {
 			card.categories.forEach(cardCategory => {
 				updatedCategories.forEach(mainCategory => {
 					mainCategory.categories.forEach(subCategory => {
@@ -231,22 +231,24 @@ const ImageList = ({ links }) => {
 			{links?.map((feature, index) => (
 				<FeatureCard
 					key={feature.content_id}
-					title={feature.title}
-					description={feature.description}
-					tags={feature.categories}
-					spotlight={feature.type === 'Spotlight'}
-					url={feature.links ? feature.links[0].url : false}
-					target={feature.links ? feature.links[0].target : false}
+					title={feature?.title}
+					description={feature?.description}
+					tags={feature?.categories}
+					spotlight={feature?.type ? feature.label : false} 
+					duration={feature?.duration}
+					url={feature?.links ? feature.links[0]?.url : false}
+					target={feature?.links ? feature.links[0]?.target : false}
 				/>
 			))}
 		</div>
 	);
 };
 
-const FeatureCard = ({ title, description, tags, spotlight, url, target }) => {
+const FeatureCard = ({ title, description, tags, spotlight, duration, url, target }) => {
 	return (
 		<div className="feature-card shadow-sm">
-			{spotlight && <span className='spotlight'>SPOTLIGHT</span>}
+			{spotlight && <span className='spotlight'>{spotlight}</span>}
+            {duration && <span className='duration'>{duration}</span>}
 			<Collapsible title={url ? <SiteLink to={url} target={target}><h5>{title}</h5></SiteLink> : <h5>{title}</h5>}>
 				<p dangerouslySetInnerHTML={{ __html: description }}></p>
 				<Row>

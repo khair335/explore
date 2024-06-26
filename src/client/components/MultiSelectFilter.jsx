@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
-import MultiSelectDropdown from 'components/MultiSelectDropdown.jsx';
+import MultiSelectDropdowns from 'components/MultiSelectDropdown.jsx';
 import PillsFilter from 'components/PillsFilter.jsx';
 import { filterParams } from 'components/utils.jsx';
 import 'scss/components/multi-select-filter.scss';
@@ -38,7 +38,7 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
 
     return (
         <div className="multi-select-filter">
-            <MultiSelectDropdown
+            <MultiSelectDropdowns
                 items={items}
                 selectedValues={selectedValues}
                 onSelectionChange={handleCheckboxChange}

@@ -106,7 +106,6 @@ const ResourceLibrary = ({ content_block }) => {
             // return category;
             return { ...category, links: filteredLinks}
         });
-        console.log(updatedCategories)
         setDisplayData(updatedCategories);
     }, []);
 
@@ -208,11 +207,11 @@ const ResourceLibrary = ({ content_block }) => {
                     {displayData.length > 0 ? displayData.map((category, index) => (
                         <Fragment key={category.hash} >
                             <ResourceSection show={sortMode === 'category'} hash={category.hash}>
-                                <h3>{category.title}</h3>
+                                {category.url ? <SiteLink to={category.url} className="category-title"><h3>{category.title}</h3></SiteLink> : <h3>{category.title}</h3>}
                                 {category.links && category.links.length > 0 && <LeftImageCard links={category.links} />}
                                 {category.categories && category.categories.map((subCategory) => (
                                     <ResourceSection key={subCategory.hash} show={false /* We dont want sub sections active*/} hash={subCategory.hash}>
-                                        <h5>{subCategory.title}</h5>
+                                        {subCategory.url ? <SiteLink to={subCategory.url} className="category-title"><h5>{subCategory.title}</h5></SiteLink> : <h5>{subCategory.title}</h5>}
                                         {subCategory.links && subCategory.links.length > 0 && <LeftImageCard links={subCategory.links} />}
                                     </ResourceSection>
                                 ))}

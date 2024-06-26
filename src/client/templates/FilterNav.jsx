@@ -18,9 +18,6 @@ import 'scss/templates/filter-nav.scss';
 
 
 export const NavStyleFilter = (props) => {
-// console.log("props=>");
-// console.dir(props);
-
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [filteredItems, setFilteredItems] = useState([props.props?.content_block?.cards]);
     const [itemList, setitemList] = useState([props.props?.content_block?.cards]);
@@ -39,10 +36,11 @@ export const NavStyleFilter = (props) => {
 
 }, []) 
 
-const FeatureCard = ({ title, description, tags, spotlight, url, target }) => {
+const FeatureCard = ({ title, description, tags, spotlight, duration, url, target }) => {
 	return (
 		<div className="feature-card shadow-sm">
-			{spotlight && <span className='spotlight'>SPOTLIGHT</span>}
+			{spotlight && <span className='spotlight'>{spotlight}</span>}
+            {duration && <span className='duration'>{duration}</span>}
 			<Collapsible title={url ? <SiteLink to={url} target={target}><h5>{title}</h5></SiteLink> : <h5>{title}</h5>}>
 				<p dangerouslySetInnerHTML={{ __html: description }}></p>
 				<Row>
@@ -149,9 +147,9 @@ const updateList = (filters) => {
                     </Col>
                     <Col md="9" className='display-cards'>
                         {selectedFilters.length <= 0 ? 
-                            filteredItems.map(details =>{
+                            filteredItems?.map(details =>{
                                     return (
-                                        <FeatureCard title={details.title} description={details.description} tags={false} spotlight={false} url={null} target={null} />
+                                        <FeatureCard title={details.title} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} />
                                     )
                                 })
 
