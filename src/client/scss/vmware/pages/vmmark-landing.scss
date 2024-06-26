@@ -142,9 +142,9 @@
             position: relative;
             display: flex;
             flex-direction: column;
-          
 
-           
+
+
 
             .card-title {
                 // background-color: #71a3d9;
@@ -181,15 +181,15 @@
             }
 
             .card-subtitle {
-                
+
                 font-style: italic;
                 font-weight: 300;
                 padding-top: 4px;
             }
 
-            
 
-           
+
+
 
             .card-button {
                 color: $color-primary;
@@ -233,7 +233,7 @@
                     box-shadow: none !important;
                     // width:30%;
                     vertical-align: top !important;
-                    
+
                 }
 
                 tbody {
@@ -313,7 +313,7 @@
             margin-bottom: 5px;
         }
 
-      
+
         // margin-bottom: 10px;
         a {
             text-decoration: none;
@@ -860,15 +860,13 @@
                             }
 
                             &:nth-child(even) {
-                                background: transparent !important;
-                            }
-                            &:hover{
-                                    background: #f4f8fa !important;
+                                  background: #f4f8fa !important;
                                     .sticky-col {
                                     background: #f4f8fa !important;
 
                                     }
                             }
+
                         }
                     }
 

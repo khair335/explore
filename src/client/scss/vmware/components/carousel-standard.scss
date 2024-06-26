@@ -270,6 +270,55 @@ $carousel-indicator-padding: 40px;
 
     }
 
+    .TestimonialCard {
+    height: 100%;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+
+      .testimonial-cta {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+      }
+    }
+      .card-body {
+       .quote {
+        font-size: 16px;
+        line-height: 26px;
+        &:before{
+           content: "“";
+        }
+        &:after{
+            content: "”";
+        }
+        p{
+          display: inline;
+        }
+
+      }
+
+      }
+
+      .signature {
+        font-size: 16px;
+        font-style: normal;
+        line-height: 26px;
+        position: relative;
+
+
+
+      }
+
+    .quote-image img {
+      object-fit: contain;
+      max-height: 195px;
+    }
+  }
+
+
 
 }
 

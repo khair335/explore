@@ -1467,6 +1467,14 @@
       .lnk{
         padding: 6px 24px ;
       }
+      .link-bttn{
+         @extend .bttn;
+        @include primary-button;
+         padding: 6px 24px ;
+         &:hover{
+          text-decoration: none;
+         }
+      }
     }
   }
   .cb-cta-link {
@@ -1481,6 +1489,22 @@
   .ContentCard{
     .LeftImageCard{
       .card-body{
+        .card-text{
+          .VideoLink{
+            .link-bttn{
+              text-transform: capitalize;
+              text-decoration: underline;
+              font-size: 16px;
+                text-underline-offset: 3px;
+
+              &:hover{
+                    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+              }
+            }
+          }
+        }
         >.row{
           height: 100%;
       >div{

@@ -64,6 +64,8 @@
                 text-decoration: none;
                 font-weight: 300;
                 align-items: center;
+                border: none;
+
 
 
 
@@ -84,7 +86,7 @@
                     color: $color-primary;
                     text-decoration: none !important; //mods _link.scss - necessary to keep from having double red lines on hover
                     border: 0 !important;
-                    border-left: 1px solid $color-grey--700 !important;
+
                     cursor: pointer;
                 }
 
