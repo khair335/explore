@@ -13,12 +13,16 @@ $carousel-indicator-height: 20px;
 
   // Only if we actually have a banner because top-banner can still be rendered
   div[role=banner] {
-    overflow: hidden;
+    // overflow: hidden;
+    min-height: 440px;
+
     position: relative;
     width: 100%;
     z-index: 1;
     margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
-
+    .carousel-inner {
+      overflow: inherit !important;
+    }
     @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
       // in mobile not needed
       margin-top: 0px;
@@ -50,6 +54,14 @@ $carousel-indicator-height: 20px;
       //transition: transform .6s ease-in-out;
       //backface-visibility: hidden;
       //perspective: 1000px;
+      .theme-default.theme-banner-default.size-default{
+        >img{
+          &.img-fluid{
+            min-height: 450px !important;
+          }
+        }
+      }
+
       .size-large {
 
         .teaser {
@@ -118,11 +130,15 @@ $carousel-indicator-height: 20px;
 
       // Use absolutes to center us vertically within the banner.
       .banner-caption-container {
-        position: absolute;
-        top: 45%;
-        width: 100%;
-        transform: translate(0, -50%);
-        z-index: 2;
+       position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    /* transform: translate(0, -50%); */
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
 
         @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
           max-width: none;

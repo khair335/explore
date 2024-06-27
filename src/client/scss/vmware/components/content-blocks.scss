@@ -390,6 +390,11 @@
           }
         }
       }
+      .lnk-image{
+        &:after{
+          content: unset  !important;
+        }
+      }
     }
     .card-body{
       flex: none !important;
