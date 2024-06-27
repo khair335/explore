@@ -2697,6 +2697,23 @@
 
                       }
                     }
+                      .VideoLink {
+
+                      .link-bttn {
+                         @extend .bttn;
+                      @include ghost-button;
+
+                      &:after {
+                        @include button-after;
+                      }
+
+                      &:hover {
+                        @include ghost-hover;
+                        text-decoration: none;
+
+                      }
+                      }
+                    }
                   }
 
                 }
