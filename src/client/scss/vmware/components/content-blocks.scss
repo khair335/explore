@@ -1436,9 +1436,7 @@
       }
     }
 
-
-    &.theme-content-block-cta-card-link {
-      a {
+  a {
         color: $color-link-dark!important;
         text-decoration: none;
 
@@ -1448,6 +1446,8 @@
           text-decoration: underline;
         }
       }
+    &.theme-content-block-cta-card-link {
+
 
       .card-footer {
         .cb-cta-link {
@@ -2991,4 +2991,26 @@
 
   }
  }
+}
+
+.theme-card-cta-plain{
+  .cb-cta-link{
+        flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start;
+    .link-bttn{
+       text-transform: capitalize;
+       text-decoration: underline;
+      &:after{
+        content: unset!important;
+      }
+    }
+    .VideoLink, .lnk, .card-link{
+      text-transform: capitalize;
+      text-decoration: underline;
+      &:after{
+        content: unset!important;
+      }
+    }
+  }
 }
