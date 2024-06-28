@@ -13,10 +13,8 @@
 @import '../fontawesome/brands';
 
 
-.multi-select-dropdown {
-    .dropdown-container {
-        display: flex;
-    }
+.multi-select-dropdowns {
+
 
     .dropdown-container {
         display: flex;
@@ -31,109 +29,14 @@
 
     .dropdown-container {
         gap: 16px;
+        display: block;
 
-
-        .dropdown {
-            flex: 1;
-
-            &.show {
-
-                .dropdown-caret {
-                    @include fa-icon-solid($fa-var-chevron-right);
-                    transition: 0.2s ease-in-out;
-                    transform: rotate(90deg);
-                }
-            }
-
-            button {
-
-                @include secondary-button;
-                width: 100%;
-                text-align: left;
-                display: inline-block;
-                padding-left: 10px;
-                padding-right: 30px;
-
-                // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
-                .dropdown-caret {
-                    @include fa-icon-solid($fa-var-chevron-right);
-                    transition: 0.2s ease-in-out;
-                    right: 8px;
-                    position: absolute;
-                    top: 15px;
-                }
-
-
-                &:hover {
-
-                    @include secondary-hover;
-                }
-
-
-
-            }
-        }
-
+        // Custom width of dropdown due to multi filters
         .dropdown-menu {
-            max-width: 151.42px;
+            max-width: 100%;
             min-width: 151.42px;
-            width: 100%;
-            padding: 10px;
-            max-height: 190px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            border-radius: 0;
-
-            &::-webkit-scrollbar {
-                height: 8px;
-                width: 8px;
-            }
-
-            &::-webkit-scrollbar-track {
-                border-radius: 0px;
-                background-color: #DFE9EB;
-            }
-
-            &::-webkit-scrollbar-track:hover {
-                background-color: #B8C0C2;
-            }
-
-            &::-webkit-scrollbar-track:active {
-                background-color: #B8C0C2;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                border-radius: 0px;
-                background-color: #555555;
-            }
-
-            &::-webkit-scrollbar-thumb:hover {
-                background-color: #555555;
-            }
-
-            &::-webkit-scrollbar-thumb:active {
-                background-color: #555555;
-            }
-
-            .dropdown-item {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-weight: 300;
-                text-wrap: initial;
-                padding: 0;
-                padding-bottom: 10px;
-                color: $color-primary;
-                align-items: start;     // Top align
-
-                label {
-                    input {
-                        margin-right: 10px;
-                    }
-                }
-            }
-
         }
+
 
 
     }
@@ -167,9 +70,7 @@
         outline: none;
     }
 
-    .dropdown-container {
-        display: block;
-    }
+
 
     @media (max-width: 768px) {
         .show-filters-btn {
@@ -188,4 +89,153 @@
     }
 
 
+}
+
+.multi-select-dropdown {
+    &.dropdown {
+        flex: 1;
+
+        &.show {
+
+            // > button{
+            //     color: $color-primary--dark;
+            //     box-shadow: 0px 0px 4px 0px #0F7CB2;
+            //     border: 1px solid $color-primary--dark;;
+            // }
+            .dropdown-caret {
+                @include fa-icon-solid($fa-var-chevron-right);
+                transition: 0.2s ease-in-out;
+                transform: rotate(90deg);
+            }
+        }
+
+        button {
+
+            @include secondary-button;
+            width: 100%;
+            text-align: left;
+            display: inline-block;
+            // padding-left: 10px;
+            // padding-right: 30px;
+            border-radius: 5px;
+            border: 1px solid $color-grey--400;
+            padding: 8px 30px 8px 16px;
+            text-transform: none;
+            background-color: $background-color;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 300;
+            
+
+            // HACK: JD - we had to create a div for the carot vs adding as content. there are content: unset !importants overriding fontawesome.
+            .dropdown-caret {
+                @include fa-icon-solid($fa-var-chevron-right);
+                transition: 0.2s ease-in-out;
+                //right: 8px;
+                position: absolute;
+                top: 15px;
+                right: 10px;
+            }
+
+
+            &:hover {
+
+                @include secondary-hover;
+                border: 1px solid #8d8d90;
+                color: $color-primary--dark;
+                background-color: $background-color;
+
+                .dropdown-caret {
+                    color: $color-primary--dark;
+                }
+            }
+
+            &:focus {
+                color: $color-primary--dark;
+                box-shadow: 0px 0px 4px 0px #0F7CB2;
+                border: 1px solid $color-primary--dark;
+
+                .dropdown-caret {
+                    color: $color-primary--dark;
+                }
+            }
+
+            &:focus-visible {
+                border: 1px solid $color-grey--400;
+                background-color: $background-color;
+                outline: 2px solid $color-primary;
+                outline-offset: 3px;
+            }
+
+
+        }
+    }
+
+
+
+    .dropdown-menu {
+
+        width: 100%;
+        //padding: 10px;
+        max-height: 190px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 0;
+        box-shadow: $shadow-5;
+
+        @media (max-width:767px) {
+            max-width: 75%;
+        }
+
+        &::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 0px;
+            background-color: #DFE9EB;
+        }
+
+        &::-webkit-scrollbar-track:hover {
+            background-color: #B8C0C2;
+        }
+
+        &::-webkit-scrollbar-track:active {
+            background-color: #B8C0C2;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 0px;
+            background-color: #555555;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: #555555;
+        }
+
+        &::-webkit-scrollbar-thumb:active {
+            background-color: #555555;
+        }
+
+        .dropdown-item {
+            font-weight: $font-weight-light;
+            color: $color-primary;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 300;
+            text-wrap: initial;
+            padding: 6px 10px;
+            //padding-bottom: 10px;
+            color: $color-primary;
+            align-items: start; // Top align
+
+
+            input {
+                margin-top: 4px; // Align the tops of the checkbox and text.
+            }
+        }
+
+    }
 }

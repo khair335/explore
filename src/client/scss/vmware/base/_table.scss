@@ -342,12 +342,6 @@ table {
         tbody {
 
 
-          tr:nth-child(even) {
-            background: $color-grey--50 !important;
-          }
-          tr:nth-child(odd) {
-            background: $color-white !important;
-          }
           tr {
             td {
               /* Your styles for the first td child here */

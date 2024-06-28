@@ -311,7 +311,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		'Total Cores': 'total_cores',
 		'Server Description': 'system_description',
 		'Processor Model': 'processor_model',
-		'Datacenter Management' : 'datacenter_management',
+		'Datacenter Management': 'datacenter_management',
 		'Type Of Storage': 'type_of_storage',
 		'Primary Storage': 'primary_storage',
 		'Hypervisor': 'hypervisor',
@@ -605,10 +605,13 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 
 					case "matched_pair":
 						const booleanValues = values.map(mapSelectionToBoolean);
-						return booleanValues.some(booleanValue => item.matched_pair === booleanValue);
+						const itemMatchedPair = item.matched_pair ?? false;
+						return booleanValues.some(booleanValue => itemMatchedPair === booleanValue);
 
 					case "uniform_hosts":
-						return values.map(mapSelectionToBoolean).some(booleanValue => item.uniform_hosts === booleanValue);
+						const uniformBoolean = values.map(mapSelectionToBoolean);
+						const itemUniformHosts = item.uniform_hosts ?? false;
+						return uniformBoolean.some(booleanValue => itemUniformHosts === booleanValue);
 
 					case "submitter":
 						return removeParenthesesContent(values).some(selectedValue =>
@@ -783,12 +786,17 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 						<table>
 							<thead>
 								<tr>
-									{keysToDisplay.map((key, index) => {
-										if (!visibleColumns.has(key)) return null;
-
+									{keysToDisplay.filter(key => visibleColumns.has(key)).map((key, index) => {
+										
 										const dataKey = headerKeyMap[key];
-										const isSticky = key === "Performance Score" || key === "Submitter";
-										const className = key === "Submitter" ? 'sticky-col submitter-only' : isSticky ? 'sticky-col performance-score' : '';
+										const isSticky = keysToDisplay.filter(k => visibleColumns.has(k) && (k === "Performance Score" || k === "Submitter")).length;			// HACK: JD - we are checking on every key, move it out.
+										const className = classnames({
+											'sticky-col': isSticky > 0 && index < isSticky,
+											['sticky-col-' + index]: isSticky > 0 && index < isSticky,		// HACK
+											'submitter-only': key === "Submitter",
+											'performance-score': key === "Performance Score",
+											'sticky-col-shadow': isSticky > 0 && isSticky - 1 === index,		// HACK: Just trying to get a shadow.
+										});
 										const isSortable = key === "Performance Score" || key === "Date";
 
 										return (
@@ -841,10 +849,19 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 							{searchResults?.length > 0 ? <tbody>
 								{showData?.map((item, index) => (
 									<tr key={`${item.content_id}-${index}`}>
-										{keysToDisplay.map(key => {
-											const isSticky = key === "Performance Score" || key === "Submitter";
-											const className = key === "Submitter" ? 'sticky-col submitter-only' : isSticky ? 'sticky-col performance-score' : '';
-											if (!visibleColumns.has(key)) return null;
+										{keysToDisplay.filter(key => visibleColumns.has(key)).map((key, index) => {
+
+											const isSticky = keysToDisplay.filter(k => visibleColumns.has(k) && (k === "Performance Score" || k === "Submitter")).length;			// HACK: JD - we are checking on every key, move it out.
+											const className = classnames({
+												'sticky-col': isSticky > 0 && index < isSticky,
+												['sticky-col-' + index]: isSticky > 0 && index < isSticky,		// HACK
+												'submitter-only': key === "Submitter",
+												'performance-score': key === "Performance Score",
+												'sticky-col-shadow': isSticky > 0 && isSticky - 1 === index,		// HACK: Just trying to get a shadow.
+											});
+
+
+
 											const dataKey = headerKeyMap[key];
 											let displayValue = item[dataKey];
 											if (dataKey === 'matched_pair') {

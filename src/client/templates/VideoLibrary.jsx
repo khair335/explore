@@ -63,6 +63,7 @@ class VideoLibrary extends Component {
 
 		this.getGTMdata = this.getGTMdata.bind(this);
 		this.getGTMend = this.getGTMend.bind(this);
+		
 	}
 
 
@@ -420,7 +421,7 @@ class VideoLibrary extends Component {
 
 				<Row id="channel-menu">
 					<Col md="9" id="playlist-title">
-						<h2>{(this.state.channels_list) ? "Broadcom Video Channels" : this.state.channels[this.state.channel_index].title} </h2>
+						<h2>{(this.state.channels_list) ? localizeText("TO37","Broadcom Video Channels") : this.state.channels[this.state.channel_index].title} </h2>
 					</Col>
 					<Col md="3" id="playlist-menu-btn">
 						<button className="playlist-more" onClick={this.showMenu}>
@@ -432,7 +433,7 @@ class VideoLibrary extends Component {
 				{!this.state.channels_list ?
 					<Row className='allChannels'>
 						<Col>
-							<span className='bi brcmicon-arrow-circle-left'></span><a className="lnk" href='/support/resources/video-webinar-library'>{localizeText("T032","All Channels")}</a>
+							<span className='bi brcmicon-arrow-circle-left'></span><a className="lnk" href={location.pathname}>{localizeText("T032","All Channels")}</a>
 						</Col>
 					</Row>
 					:

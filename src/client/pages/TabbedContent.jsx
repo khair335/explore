@@ -4,18 +4,25 @@
  *  
  */
 import config from 'client/config.js';
-import React, { Component, useEffect } from 'react';
+import utils from 'components/utils.jsx';
+import React, { Component, useEffect, useState, useRef } from 'react';
 import SiteLink from "components/SiteLink.jsx";
 import { SubHeadHero } from 'components/subHeader.jsx';
 import { Container } from 'reactstrap';
 import liveEvents from 'components/liveEvents.js';
 import TabPage from 'components/TabPage.jsx';
 import { ContentBlocksSection } from 'components/ContentBlock.jsx';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 import 'scss/pages/tabbed-content.scss';
 
 const TabbedContent = (props) => {
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const [hash, setHash] = useState(location.hash || props?.page?.hash);
+	const topRef = useRef();
 
 	const tabs = !props?.data?.tabs_content ? []
 		: props?.data?.tabs_content?.map((tab, index) => {
@@ -32,30 +39,56 @@ const TabbedContent = (props) => {
 		});
 
 
-// Init/componentDidMount
-useEffect(() => {
-	liveEvents();
-}, []);
+	// Init/componentDidMount
+	useEffect(() => {
+		liveEvents();
+	}, []);
 
-return (
-	<div id="TabbedContent">
-		<SubHeadHero {...props} />
+	// Updated URL.
+	useEffect(() => {
+		let updated_hash = utils.sanitize(location.hash).replace('#', '');
+			
+		if (true) { // All the time. hash !== updated_hash) {
+			setHash(updated_hash);
 
-		{props.data?.top_content_blocks && <ContentBlocksSection contentBlocks={props.data?.top_content_blocks} />}
+			// Scroll to the top
+			if (topRef) {
 
-		<Container>
-			<a id="top"></a>
+				topRef.current.scrollIntoView({
+					behavior: 'smooth',
+				});
+			}
+		}
 
-			<div className="intro-content">
-				<p dangerouslySetInnerHTML={{ __html: props.data.body }}></p>
-			</div>
-		</Container>
+	}, [utils.sanitize(location.hash).replace('#', '')]);
 
-		<TabPage tabs={tabs} defaulttab={props.page.hash} />
+	const handleTabs = (tab) => {
+		// Change our hash in our history.
+		navigate({
+			search: location.search,
+			hash: tab,
+		});
+	}
 
-		{props.content_blocks && <ContentBlocksSection contentBlocks={props.content_blocks} />}
-	</div>
-);
+	return (
+		<div id="TabbedContent">
+			<SubHeadHero {...props} />
+
+			{props.data?.top_content_blocks && <ContentBlocksSection contentBlocks={props.data?.top_content_blocks} />}
+
+			<Container>
+				<a id="top" ref={topRef}></a>
+
+				<div className="intro-content">
+					<p dangerouslySetInnerHTML={{ __html: props.data.body }}></p>
+				</div>
+			</Container>
+
+			<TabPage tabs={tabs} defaulttab={hash} onTabs={handleTabs} />
+
+			{props.content_blocks && <ContentBlocksSection contentBlocks={props.content_blocks} />}
+		</div>
+	);
 }
 
 

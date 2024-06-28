@@ -42,7 +42,8 @@ const NavigationProvider = ({ children }) => {
 
     const loop = (navItems) => {                                                                                            //loop thru navigation json & unpack
         if (navItems === null || navItems === undefined || navItems === []) { return };
-        return (navItems.map(item => ({
+        return (navItems.map(item => (
+            {
             id: (item.content_id) ? item.content_id : false,
             title: filterNav(item.url, item.title, item.template),
             url: (item.url === "#" || !item.url || item.template === "LabelWithNoURL") ? false : item.url, 		// biz rule: noURL template = its a page for content tree nav but there is no page it should be a label
@@ -54,7 +55,7 @@ const NavigationProvider = ({ children }) => {
             links_title: (item.links_group_title) ? item.links_group_title : false,
             ctas: (item.menu_ctas) ? item.menu_ctas : false,
             content_block: (item.content_type === "content_block") ? item :false,
-            child: [...(item.children ? loop(item.children) : [])]                                  		    // children? create a new loop
+            child: [...(item?.children ? loop(item.children) : [])]                                  		    // children? create a new loop
         })
         ));
     }

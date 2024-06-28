@@ -19,11 +19,11 @@ const BoilerPlate = (props) => {
 	}, []);
 
 	return (
-		<Container id="##CLASSNAME##">
+		<div id="##CLASSNAME##">
 			<SubHeadHero {...props} />
 
 			{/* Add content here */}
-		</Container>
+		</div>
 	);
 }
 

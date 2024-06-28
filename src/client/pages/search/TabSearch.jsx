@@ -337,7 +337,7 @@ const TabSearch = (props) => {
 	let start_chunk_page = Math.max((Math.floor((currentPage - 1) / num_chunk_pages) * num_chunk_pages), 0);		// zero base
 	let end_chunk_page = start_chunk_page + num_chunk_pages;
 
-	for (let i = start_chunk_page; i < end_chunk_page && i <= pane?.total_pages; i++) {
+	for (let i = start_chunk_page; i < end_chunk_page && i < pane?.total_pages; i++) {
 		pagination_numbers.push(i + 1);
 	}
 
@@ -401,7 +401,7 @@ const TabSearch = (props) => {
 						<>
 							<div className="tabsearch-header">
 								<div className="tabsearch-total">
-									{totalPages} Results {getActiveTabLabel() && <>in {getActiveTabLabel()}</>}
+									{totalPages} results {getActiveTabLabel() && <>in {getActiveTabLabel()}</>}
 								</div>
 								<div className='sort-btn-group'>
 									<div><label className='sort-by'>Sort By</label></div>

@@ -13,7 +13,7 @@
     h4 {
         //font-size: ;
         padding: 15px;
-        font-weight: 500;
+        font-weight: 300;
         line-height: 28px;
     }
 
@@ -100,9 +100,9 @@
             text-align: left;
             font-size: $font-size-md;;
             border: 1px solid transparent;
-            box-shadow: 0 5px 13px 6px rgb(5 50 69 / 18%);
-            background-color: #fff;
-            border-radius: 2px;
+            box-shadow: $shadow-1;
+            background-color: $color-white;
+            border-radius: 4px;
             padding: 20px;
             height: 166px;
 /*             width: 300px; */
@@ -112,6 +112,8 @@
 
             h5 {
                 margin-top: 10px;
+                
+
             }
 
             .link-label {
@@ -125,6 +127,7 @@
 
 #dropdown-filtered-listing {
     background-color: $background-dark-blue;
+    padding: 20px 20px;
 
     .selected {
         margin-top: 10px;
@@ -149,9 +152,23 @@
             background-color: transparent;
             color:$color-black;
             font-size: $font-size-lg;
-            font-weight: 600;
+            font-weight: 300;
             text-transform: capitalize;
             margin-right: 20px;
+            border: none;
+
+            &:hover {
+                border: none;       // Undo our global.
+                border-color: transparent;      // Shifting so just 
+            }
+
+            // ignore click so it bubbles to the parent.
+            // "Filter By:"
+            span {
+                pointer-events: none;
+                font-weight: 300;
+                margin-right: 4px;
+            }
 
             .dropdown-caret {
                 @include fa-icon-solid($fa-var-chevron-down);
@@ -171,12 +188,6 @@
         .dropdown-menu {
             overflow-y: scroll;
             max-height: 600px;
-
-            .dropdown-item {
-                input {
-                    margin-right: 10px;
-                }
-            }
         }
     }
 
@@ -186,7 +197,7 @@
     }
 
     .detail-card {
-        box-shadow: 0 1px 10px 0 rgb(97 113 125 / 45%);
+        box-shadow: $shadow-1;
         padding: 18px;
         height: 294px;
         background-color: $color-white;
@@ -196,9 +207,10 @@
         line-height: 24px;
 
         h5 a {
-            font-size: 25px;
-            font-weight: 500;
+            font-size: 20px;
+            font-weight: 300;
             margin-bottom: 20px;;
+            text-decoration: none;
         }
 
         img {
@@ -216,7 +228,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;     
+        text-align: center; 
+        .compliance-title, .compliance-body {
+         padding: 20px 0;
+
+        }
     }
+    
     
 }

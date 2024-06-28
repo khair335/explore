@@ -235,46 +235,50 @@ class MenuWindow extends Component {
                                 <span className="bi bi-rotate-180 brcmicon-arrow-circle-right"></span>
                             </button>
                         </Col>
-                        {item.child.map((level_1, index) => {
+                        {item.child?.map((level_1, index) => {
                             return (
                                 <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4">
+                                    <h4 className={classnames('title', { 'hide' : !level_1.title })} key={level_1.title}>{level_1.title}</h4>
+                                    <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
+                                        <ul className={classnames({'no-title' : !level_1.title })}>
+                                                {level_1.child?.map((level_2, index) => {
 
-                                    {level_1?.child[0]?.content_block?.content_type === 'content_block' ?
-
-                                         <div>
-                                                {getComponentFromTemplate(level_1.child[0].content_block.template, level_1.child[0].content_block)}
-                                        </div>
-                                    :
-                                        <Fragment>
-                                            <h4 className={classnames('title', { 'empty-spacer' : !level_1.title })} key={level_1.title}>{level_1.title}</h4>
-                                            <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
-                                            {level_1.child ? 
-                                                <ul>
-                                                {level_1.child.map((level_2, index) => {
                                                     return(
-                                                        <li className="link" key={level_2.title}>
-                                                            <h5 className={level_2.title ? "" : "hide"}><SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink></h5>
-                                                            <p className={level_2.abstract ? "" : "hide"} >{level_2.abstract}</p>
-                                                            {level_2.links ? 
-                                                                <Fragment>
-                                                                    <h6 className={level_2.links_title ? "" : "hide"}>{level_2.links_title }</h6>
-                                                                    {level_2.links.map(link => {
-                                                                        return(
-                                                                            <SiteLink to={link.url}  className="key-link" key={link.title}>{link.title}</SiteLink>
-                                                                        )
-                                                                    })}
-                                                                </Fragment>
+                                                    <Fragment>
+                                                        {level_2.content_block?.content_type === 'content_block' ?
+                                                            <li key={level_2.title}>
+                                                                {getComponentFromTemplate(level_2.content_block.template, level_2.content_block)}
+                                                            </li>
+                                                        :
+                                                            <li className="link" key={level_2.title}>
+                                                                <h5 className={level_2.title ? "" : "hide"}>
+                                                                    {level_2.url ? 
+                                                                        <SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink>
+                                                                    :
+                                                                        <span>{level_2.title}</span>
+                                                                    }
+                                                                    
+                                                                    </h5>
+                                                                <p className={level_2.abstract ? "" : "hide"} >{level_2.abstract}</p>
+                                                                {level_2.links ? 
+                                                                    <Fragment>
+                                                                        <h6 className={level_2.links_title ? "" : "hide"}>{level_2.links_title }</h6>
+                                                                        {level_2.links.map(link => {
+                                                                            return(
+                                                                                <SiteLink to={link.url}  className="key-link" key={link.title}>{link.title}</SiteLink>
+                                                                            )
+                                                                        })}
+                                                                    </Fragment>
                                                                 :
-                                                                ""
-                                                            }
-                                                        </li>)
-                                                    })}
-                                                </ul>
-                                                :
-                                                ""
-                                            }
-                                        </Fragment>
-                                    }
+                                                                    ""
+                                                                }
+                                                            </li>
+                                                        }
+                                                    </Fragment>
+                                                    )
+                                                })}
+
+                                        </ul>
                                 </Col>
                             )
                         })}
@@ -301,13 +305,3 @@ class MenuWindow extends Component {
     }
 
 }
-
-/* dangerouslySetInnerHTML={{ __html: level_1.title }}
-dangerouslySetInnerHTML={{ __html: level_1.abstract }} */
-
- {/* <ContentBlocksSection contentBlocks={level_1.child[0].content_block} /> */}
-
-/*  {getComponentFromTemplate(level_1.child[0].content_block.template, level_1.child[0].content_block)} */
-
-/* {console.log("content block:")}
-{console.dir(level_1.child[0].content_block)} */
