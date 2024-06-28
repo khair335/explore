@@ -13,6 +13,8 @@ import SiteLink from 'components/SiteLink.jsx';
 import { withLiveEvents } from 'components/liveEvents.js';
 import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
 import ImageBase from 'components/ImageBase.jsx';
+import { MultiSelectDropdown } from 'components/MultiSelectDropdown.jsx';
+
 
 import 'scss/templates/filter-list.scss';
 
@@ -114,26 +116,17 @@ export const DropdownFilterListing = (props) => {
             </div>
             <Row>
                 <Col md="6">
-                    {Object.keys(showFilters).map(key => {
-                        return (
-                            <Dropdown key={showFilters[key].label} isOpen={openDropdown === showFilters[key].label} toggle={() => toggleDropdown(showFilters[key].label)} data-bs-toggle="dropdown">
-                                <DropdownToggle caret>
-                                    <div className='dropdown-label'>Filter by: </div>
-                                    {showFilters[key].label}
-                                    <div className="dropdown-caret"></div>
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                    {showFilters[key].options?.map(filter => {
-                                        return (
-                                            <DropdownItem key={filter.id} toggle={false}>
-                                                <Checkbox label={filter.value} onChange={() => handleCheck(filter.id)} checked={selectedFilters.includes(filter.id)} />
-                                            </DropdownItem>
-                                        )
-                                    })}
-                                </DropdownMenu>
-                            </Dropdown>
-                        )
-                    })}
+                    {Object.keys(showFilters).map(key => (
+                        <MultiSelectDropdown key={showFilters[key].label}
+                            options={showFilters[key].options?.map(filter => { return { label: filter.value, id: filter.id } })}
+                            selectedValues={selectedFilters} 
+                            onSelectionChange={handleCheck}
+                        >
+                            <span>Filter by: </span> {showFilters[key].label}
+                        </MultiSelectDropdown>
+                    ))}
+
+
                 </Col>
                 <Col md="6">
                     {selectedFilters.length <= 0 ?

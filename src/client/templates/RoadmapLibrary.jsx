@@ -69,9 +69,9 @@ const RoadmapLibraryNav = (props) => {
 				updatedCategories.forEach(mainCategory => {
 					mainCategory.categories.forEach(subCategory => {
 						if (subCategory.title === cardCategory.title) {
-							if (!subCategory.links.some(link => link.name === card.name)) {
+							// if (!subCategory.links.some(link => link.name === card.name)) {
 								subCategory.links.push(card);
-							}
+							// }
 						}
 					});
 				});

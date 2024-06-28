@@ -43,10 +43,10 @@ const EventListing = (props) => {
 		let currentDate = new Date().toJSON();
 
 		const upComingFilters = mainEvents?.filter((event) => {
-			return new Date(event.start_date) >= new Date(currentDate);
+			return new Date(event.start_date) > new Date(currentDate);
 		});
 		const onDemandFilters = mainEvents?.filter((event) => {
-			return new Date(event.start_date) < new Date(currentDate);
+			return (new Date(event.start_date) <= new Date(currentDate) && new Date(event.event_listing_end_date) >= new Date(currentDate));
 		});
 
 		return [upComingFilters,onDemandFilters]

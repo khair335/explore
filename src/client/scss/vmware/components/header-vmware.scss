@@ -169,14 +169,25 @@
 
         top: 125px;
 
-        .container .col {
+        .menuWrapper {
 
-            h2.content-block-title {
+            div[class*=col-] .content-block h2.content-block-title {
                 text-align: left;
+                font-size: 20px;
               }
             
             ul.cb-cta-link {
                 justify-content: left;
+            }
+
+            .content-block a.lnk:not(.bttn) {
+                text-decoration: none;
+                font-size: $font-size-md;
+                padding: 16px 0 16px 16px;
+            }
+
+            ul.no-title li:first-child {
+                padding-top: 0;
             }
         }
     }

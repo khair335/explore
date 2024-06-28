@@ -849,6 +849,20 @@ class Utils {
         return isoDuration;
     }
 
+	/**
+	 *  @brief 
+	 *  @details Sanatize string
+	 */
+	sanitize(s) {
+		if (s) {
+			return s.replace(/[^-A-Za-z0-9+&@#/%?=~_|!:,.;\(\)]/, "");
+		}
+
+		return '';
+
+	}
+
+
 }
 
 export default new Utils;
