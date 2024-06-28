@@ -1436,23 +1436,18 @@
       }
 
       a {
-        color: $color-white !important;
+        color: $color-white ;
+        &:hover{
+          background: #fff;
+          color: $color-primary;
+        }
 
 
 
       }
     }
 
-  a {
-        color: $color-link-dark!important;
-        text-decoration: none;
 
-        &:hover {
-          background: transparent !important;
-          text-decoration-color: $color-link-dark;
-          text-decoration: underline;
-        }
-      }
     &.theme-content-block-cta-card-link {
 
 
@@ -1462,11 +1457,20 @@
 
           .lnk {
             @include cta-link-style;
+            color: $color-link-dark;
+            text-decoration: none;
 
             &:after {
               @include cta-link-after;
 
           }
+           &:hover {
+            background: transparent ;
+
+            color: $color-link-dark;
+          text-decoration-color: $color-link-dark;
+          text-decoration: underline;
+        }
         }
         }
       }
@@ -1813,14 +1817,14 @@
     >.cb-cta-link {
       .lnk {
         @extend .bttn;
-        @include ghost-button;
+            @include primary-button;
 
         &:after {
           @include button-after;
         }
 
         &:hover {
-          @include ghost-hover;
+            @include primary-hover;
         }
       }
     }
