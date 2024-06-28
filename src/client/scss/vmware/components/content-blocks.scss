@@ -2999,15 +2999,15 @@
     justify-content: flex-start !important;
     align-items: flex-start;
     .link-bttn{
-       text-transform: capitalize;
-       text-decoration: underline;
+       text-transform: initial;
+       text-decoration: none;
       &:after{
         content: unset!important;
       }
     }
     .VideoLink, .lnk, .card-link{
-      text-transform: capitalize;
-      text-decoration: underline;
+      text-transform: initial;
+      text-decoration: none;
       &:after{
         content: unset!important;
       }
