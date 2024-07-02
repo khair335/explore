@@ -8,7 +8,6 @@
     position: relative;
     width: 100%;
     height: 100px;
-
     .loading {
         position: absolute;
         left: 50%;
@@ -25,13 +24,11 @@
 
     .featured-info {
         color: $color-white;
-
         p a {
-            color: $color-social--twitter; //mods <a> - normally color-secondary but that is too dark on black background - this is lighter blue
+            color: $color-social--twitter;  //mods <a> - normally color-secondary but that is too dark on black background - this is lighter blue
         }
-
         a:hover {
-            color: $color-secondary--dark;
+          color: $color-secondary--dark;
         }
 
         h3 span {
@@ -46,9 +43,15 @@
         }
 
         button {
-            padding: 0; //mods button _buttons.scss
-            background-color: transparent; //mods button
+            padding: 0;                             //mods button _buttons.scss
+            background-color: transparent;          //mods button
             height: auto !important;
+            &:hover {
+                border: none
+                
+            }
+    
+            
         }
 
         .img-wrapper {
@@ -58,18 +61,16 @@
         }
 
         .featured-also {
-            margin-top: 10px;
+            margin-top:10px;
         }
 
         h3.featured-also {
-            font-size: 20px;
-
+            font-size:20px;
         }
     }
 }
 
-#playlist-title,
-#playlist-menu-btn {
+#playlist-title, #playlist-menu-btn {
     background-color: $background-dark;
     color: $color-white;
     min-height: 44px;
@@ -77,45 +78,45 @@
 }
 
 #playlist-title h2 {
-    font-size: 24px;
-    color: inherit;
-    margin-top: 8px;
-}
+        font-size: 24px;
+        color: inherit;
+        margin-top: 8px;
+    }
 
 #playlist-menu-btn {
 
     & .playlist-more {
-        font-size: 18px; //mods button _buttons.scss
+        font-size: 18px;                 //mods button _buttons.scss
         right: 0;
         top: 10px;
         position: absolute;
         margin-right: 1em;
-        padding: 0; //mods button _buttons.scss
+        padding: 0;                     //mods button _buttons.scss
 
         & span {
             margin-right: 6px;
 
-            &.brcmicon-caret-down::after {
+             &.brcmicon-caret-down::after {
                 content: " More Channels";
                 font-family: $font-family--secondary;
-            }
+             }
 
-            &.brcmicon-caret-up::after {
+             &.brcmicon-caret-up::after {
                 content: " Close Menu";
                 font-family: $font-family--secondary;
-            }
+             }
         }
 
         &:hover {
-            background-color: $background-dark;
-
+            background-color: $background-dark;          
+            
         }
 
     }
 }
 
 .allChannels {
-    position: absolute;
+    position:absolute;
     padding-top: 10px;
 
     span {
@@ -151,13 +152,13 @@
 
     & li {
         margin: .5em 1em;
-        list-style: none;
+        list-style:none;
     }
 
     & button {
 
         &.active {
-            color: $color-black;
+            color:$color-black;
             border-bottom: 2px solid $color-primary;
         }
     }
@@ -166,7 +167,7 @@
 }
 
 #all-playlists {
-    display: flex;
+    display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -180,14 +181,12 @@
         margin-top: 10px;
         text-align: center;
         display: flex;
-
-        .link-bttn {
+        .link-bttn{
             margin: 5px 10px;
         }
     }
 
-    button.link-bttn {
-        // <== uses new button styling
+    button.link-bttn {                              // <== uses new button styling
         //color: $color-secondary;                    //TEMP STYLING till new buttons
         //font-size: $font-size-lg;                   //DELETE / MODIFY on install
         //font-family: $font-family--secondary;
@@ -198,37 +197,34 @@
 
 
         &:hover {
-            @include primary-hover;
+          @include primary-hover;
         }
 
         &:after {
-            @include button-after;
+          @include button-after;
         }
 
-
+        
 
     }
 
-    button.hide {
-        display: none;
-    }
+    button.hide {display: none;}
 
 }
 
-#playlist-view {
-    position: relative;
+#playlist-view
+    {position: relative;
 
-    .loading-wrapper {
-        right: 50%;
-        margin-top: -50px;
+        .loading-wrapper {
+            right: 50%;
+            margin-top: -50px;
+        }
     }
-}
 
 
-.channel-card,
-.video-card {
+.channel-card, .video-card {
     width: 250px;
-    // border: 1px solid $color-grey--700;
+   // border: 1px solid $color-grey--700;
     margin: 2em 1%;
 
     button {
@@ -245,7 +241,6 @@
             width: 100%;
             overflow: hidden;
         }
-
         & p {
             height: 1.1em;
             width: 100%;
@@ -254,28 +249,20 @@
             display: block;
             text-overflow: ellipsis;
             padding: 0 6px 0 6px;
-            background-color: $color-white;
+           background-color: $color-white;
         }
     }
 
     & h4 {
-
-        font-size: 16px;
-        font-weight: 300;
-        text-decoration: none;
-        text-transform: none;
         color: $color-primary;
-        margin: 0;
-
-
-
-        :hover {
-            text-decoration: underline;
-        }
+        font-weight: 300;
+        font-size: 18px;
+        padding: 15px 0;
+        z-index: 1000;
     }
 
     & h5 {
-        padding-top: 15px
+        padding-top:15px
     }
 
     & p {
@@ -312,8 +299,7 @@
     }
 }
 
-.video-card,
-.channel-card {
+.video-card, .channel-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -333,10 +319,10 @@
 
     .info-wrap {
         margin: 10px 0;
-        padding: 0 5px;
+        padding:0 5px;
         display: flex;
         justify-content: space-between;
-        cursor: pointer;
+        cursor:pointer;
 
         .info {
             font-size: 18px;
@@ -346,7 +332,9 @@
 
 }
 
-.modal {}
+.modal {
+
+}
 
 .modal-body {
 
@@ -358,10 +346,7 @@
 
         .play_modal {
             margin: 15px 15px 7px 0px;
-
-            .lnk {
-                color: $color-white
-            }
+            .lnk {color:$color-white}
 
             span {
                 margin-left: 5px;
@@ -370,12 +355,10 @@
     }
 
 }
-
 .modal-backdrop.show {
     opacity: 0;
 }
-
-.modal-content {
+.modal-content{
     border-radius: 4px;
     padding: 10px;
     box-shadow: $shadow-1;
@@ -386,133 +369,126 @@
 
 .VideoLibrary-section {
     .dropdown-menu {
-        transform: translate3d(84px, 325px, 0px) !important;
+      transform: translate3d(84px, 325px, 0px) !important;
     }
-
+  
     #channel-menu {
-        position: relative;
-        z-index: 21;
+      position: relative;
+      z-index: 21;
     }
-
+  
     #playlist-title {
-        h2 {
-            font-weight: 500;
-        }
+      h2 {
+        font-weight: 500;
+      }
     }
-
+  
     .playlist-more {
-        margin-top: -11px;
-        background: transparent;
-        font-weight: 300;
-        text-transform: capitalize;
-        color: #fff;
-
-        &:hover {
-            border: none;
-        }
+      margin-top: -11px;
+      background: transparent;
+      font-weight: 300;
+      text-transform: capitalize;
+      color: #fff;
+  
+      &:hover {
+        border: none;
+      }
     }
-
+  
     #playlist-menu {
-        background-color: $background-light-blue;
-
-        .link-bttn {
-            border-radius: 0;
-            height: fit-content;
-
-            &:hover {
-                text-decoration-color: $color-primary;
-                text-decoration-thickness: 2px;
-            }
-
-            .active {
-                text-decoration: none !important;
-                border-bottom: 3px solid $color-primary;
-
-                font-weight: 500;
-
-                &:hover {
-                    text-decoration: none !important;
-                }
-            }
+      background-color: $background-light-blue;
+  
+      .link-bttn {
+        border-radius: 0;
+        height: fit-content;
+  
+        &:hover {
+          text-decoration-color: $color-primary;
+          text-decoration-thickness: 2px;
         }
+  
+        .active {
+          text-decoration: none !important;
+          border-bottom: 3px solid $color-primary;
+  
+          font-weight: 500;
+  
+          &:hover {
+            text-decoration: none !important;
+          }
+        }
+      }
     }
-
+  
     #all-playlists {
-
-
-        .video-card,
-        .channel-card {
-            width: 100%;
-
-            max-width: 250px;
-
-            .icon-bttn {
-                padding: 10px;
-                flex-direction: column;
-                height: auto !important;
-
-                h5 {
-                    .lnk {
-                        font-size: 16px;
-                        font-weight: 300;
-                        text-decoration: none;
-                        text-transform: none;
-
-                    }
-
-                    :hover {
-                        text-decoration: underline;
-                    }
-                }
+      .video-card {
+        width: 100%;
+  
+        max-width: 250px;
+  
+        .icon-bttn {
+          padding: 10px;
+          flex-direction: column;
+          height: auto !important;
+  
+          h5 {
+            .lnk {
+              font-size: 16px;
+              font-weight: 300;
+              text-decoration: none;
+              text-transform:none;
+  
             }
-
+  
+            :hover {
+              text-decoration: underline;
+            }
+          }
         }
+  
+      }
     }
-
-
-
-}
-
-.modal-dialog {
-    // display: flex !important;
-    // justify-content: center !important;
-
-    .modal-content {
-
+  
+  
+  }
+  .modal-dialog {
+      // display: flex !important;
+      // justify-content: center !important;
+  
+      .modal-content {
         // max-width: 500px !important;
-        .modal-body {
-            color: #fff;
-
-            .modal_buttonWrap {
-                .primary-bttn {
-                    .lnk {
-                        text-decoration: none;
-                    }
-
-                    &:hover {
-                        .lnk {
-
-                            color: $color-primary;
-                        }
-
-                        .brcmicon-play-circle {
-                            display: none;
-                        }
-                    }
-
+        .modal-body{
+          color: #fff;
+          .modal_buttonWrap{
+            .primary-bttn{
+                .lnk{
+                  text-decoration: none;
                 }
+              &:hover{
+                .lnk{
+  
+                color: $color-primary;
+                }
+                  .brcmicon-play-circle{
+                    display: none;
+                            }
+              }
+  
             }
+          }
         }
+      }
     }
-}
+  
+    // remopve the carrot before all channel
+    .brcmicon-arrow-circle-left, .brcmicon-arrow-circle-right, .brcmicon-play-circle {
+        display: none;
+    }
+    .brcmicon-info-circle {
+        color:$color-primary
+    }
+   
+    
 
-// remopve the carrot before all channel
-.brcmicon-arrow-circle-left,
-.brcmicon-arrow-circle-right,
-.brcmicon-play-circle {
-    display: none;
-}
 
-.brcmicon-info-circle {
-    color: $color-primary
-}
+

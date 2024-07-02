@@ -162,7 +162,7 @@ export const DropdownFilterListing = (props) => {
 
                             <Col md="4">
                                 <div className='detail-card' key={details.id}>
-                                    <h5><SiteLink to={"#"}>{details?.name}</SiteLink></h5>
+                                    <h5><SiteLink to={`/products/trust-center/certificate?family=${encodeURIComponent(details.family)}`}>{details?.name}</SiteLink></h5>
                                     <div className='summary' dangerouslySetInnerHTML={{ __html: details?.summary }}></div>
                                     <div className='region'><span>Region:</span>{showFilters["region"].options[showFilters["region"].options.findIndex(x => x.id == details.region)].value}</div>
                                     <div className='type' dangerouslySetInnerHTML={{ __html: details.certificateType }}></div>

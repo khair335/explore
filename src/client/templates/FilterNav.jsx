@@ -43,13 +43,13 @@ export const NavStyleFilter = (props) => {
                 {duration && <span className='duration'>{duration}</span>}
                 <Collapsible title={url ? <SiteLink to={url} target={target}><h5>{title}</h5></SiteLink> : <h5>{title}</h5>}>
                     <p dangerouslySetInnerHTML={{ __html: description }}></p>
-                    <Row>
+                    <div className="tag-list">
                         {tags && tags.map((tag, index) => (
                             <div key={index} className='tags'>
                                 <div className='keywords-tag'>{tag.title.toUpperCase()}</div>
                             </div>
                         ))}
-                    </Row>
+                    </div>
                 </Collapsible>
             </div>
         );
@@ -75,10 +75,11 @@ export const NavStyleFilter = (props) => {
                         <Col>
                             {/* <SiteLink to={url} target={target} className="card-title">{title}</SiteLink> */}
                             {spotlight && <span className='spotlight'>{spotlight}</span>}
-                            {duration && <span className='duration'><i className="fa-light fa-clock"></i>{duration}</span>}
-                            <h5>{title}</h5>
+                            {duration && <span className='duration'><i className="fa-regular fa-clock"></i>{duration}</span>}
+                            {/* <h5>{title}</h5> */}
+                            <SiteLink to={url} target={target} className="card-title">{title}</SiteLink>
                             {description && <p dangerouslySetInnerHTML={{ __html: description }}></p>}
-                            <SiteLink>{type === "Hands-On Lab" ? "BEGIN NOW" : "GET STARTED"}</SiteLink>
+                            {/* <SiteLink>{type === "Hands-On Lab" ? "BEGIN NOW" : "GET STARTED"}</SiteLink> */}
                         </Col>
                     </Row>
                 </div>
@@ -97,8 +98,8 @@ export const NavStyleFilter = (props) => {
             <div className="collapsible">
                 <button type="button" className={`collapsible-btn ${isActive ? 'active' : ''}`} onClick={toggleCollapsible}>
                     <div className='feature-card-title'><span>{title}</span>{isActive
-                        ? <i className="bi brcmicon-caret-down feature-card-caret"></i>
-                        : <i className="bi brcmicon-caret-up feature-card-caret"></i>
+                        ? <i className="fa-solid fa-chevron-down feature-card-caret"></i>
+                        : <i className="fa-solid fa-chevron-up feature-card-caret"></i>
                     }</div>
                 </button>
                 <div className={`content ${isActive ? 'show' : 'hide'}`}>

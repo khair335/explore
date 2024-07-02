@@ -9,7 +9,7 @@
 #subhead-navigation-section {
 	// The navigation layers over the banner - we pull top-banner up to be under nav (see home-hero.scss/.top-banner)
 	position: relative; // so z-index works
-	z-index: 10; // .top-banner set to 1
+	z-index: 2; // .top-banner set to 1 - laurels window which hides content when menu open is set to 3
 	height: 42px; // padding + height of content
 
 	@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {

@@ -29,6 +29,7 @@ export default class MainNavExplore extends Component {
 
         this.updateMenu = this.updateMenu.bind(this);                 //from header.jsx or whatever component called MainNavExplore
         this.menuToggle = this.props.menuToggle.bind(this);
+        this.searchToggle = this.props.search.bind(this);
     }
 
     updateMenu(index) {
@@ -36,7 +37,11 @@ export default class MainNavExplore extends Component {
             activeMenu: index
         })
 
+
+
         if (index === false) { this.menuToggle() }
+
+
 
 /**
  * creates empty white window under the menu dropdown
@@ -132,7 +137,7 @@ class MenuItem extends Component {// landing page links handled differently - tr
             :
                 <Fragment>
                     <ButtonTrack onClick={() => this.updateMenu(this.props.index)}
-                            className={classnames({ active: this.props.activeMenu === this.props.index })}
+                            className={classnames({ "active": this.props.activeMenu === this.props.index })}
                             gtmevent={{ 'id': 'N002', 'menu_item_name': this.props.item.title }}
                             dangerouslySetInnerHTML={{ __html: this.props.item.title }}
                         />
@@ -201,7 +206,6 @@ class MenuWindow extends Component {
 
     handleMenuClick(e) {
         e.preventDefault();
-
         if (this.menuRef.current.contains(e.target)) {                           // did we click on something inside the menu?
             let hrefEvent = e.target.getAttribute('href');
 
@@ -211,6 +215,19 @@ class MenuWindow extends Component {
                 }, 400);
             }
         } else {
+            if(e.target.parentElement.classList.contains("MainNavExploreItem")) {
+                    this.setState({
+                        activeLevel_1: false,
+                    }) 
+                if(e.target.classList.contains("active")) {
+                    let el = document.getElementsByClassName('laurels-window');
+                    window.setTimeout(() => {                                       // timeout allows the new page click event to clear before updating state -
+                        this.updateMenuItem(false, this.state);                     // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
+                        el[0].parentElement.removeChild(el[0]);
+                    }, 250);
+                }
+            }
+
             this.updateMenuItem(false, this.state);                              // no, outside click, close window
         }
     }

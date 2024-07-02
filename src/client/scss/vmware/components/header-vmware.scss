@@ -68,7 +68,7 @@
         width: 100%;
         padding: 20px 0;
         background-color: $color-white;
-        z-index: 1001;
+        z-index: 1;
         box-shadow: $shadow-3;
         &.hide {
           display: none
@@ -240,11 +240,16 @@
                 margin-top: 0;
             }
         }
+        
+        .search-box {
+            box-shadow: none;
+            border-bottom: 1px solid $color-grey--600;
+        }
 
         .navMenu {
 
             .navbar-collapse {
-                top: 125px;
+                top: 190px;
             }
         }
         

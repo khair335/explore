@@ -376,6 +376,11 @@
     .table-container-div {
         border-top: 1px solid $color-grey--200;
         margin-top: 20px;
+
+        .info-section{
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     .table {

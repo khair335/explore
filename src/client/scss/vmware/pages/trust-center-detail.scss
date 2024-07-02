@@ -1,0 +1,107 @@
+ /*
+* pages/trust-center-detail.scss
+*/
+
+
+ @import "../base/variables";
+ @import "../base/buttons";
+ @import "../components/card.scss";
+
+ // Fontawesome
+ @import "../fontawesome/fontawesome";
+ @import "../fontawesome/solid";
+ @import '../fontawesome/brands';
+
+
+ #TrustCenterDetail {
+
+     .left-section {
+         flex: 1;
+         padding-right: 20px;
+     }
+
+     .right-section {
+         flex-basis: 250px;
+         /* Adjust based on your image size */
+     }
+
+     .right-section img {
+         width: 100%;
+         height: auto;
+     }
+
+     .certificate-button {
+         color: inherit;
+         text-decoration-line: none;
+         text-transform: $font-cta-case;
+     }
+
+     .information-section{
+        button{
+            margin-top:20px;
+        }
+     }
+
+     .legend-status {
+         display: flex;
+         align-items: center;
+         margin-top:15px;
+         button{
+            height: auto;
+            padding:6px;
+            margin-top:0px;
+         }
+     }
+
+     .service-section {
+         background-color: #f4f8fa;
+         margin-top: 30px;
+         padding: 0 20px;
+
+         .service-title {
+             text-align: center;
+             padding: 50px 0;
+         }
+         table{
+            th{
+                color: $color-primary;
+                font-size: 25px;
+                border-bottom: 2px solid $color-grey--100;
+                border-top: 1px solid $color-grey--100;
+                &:first-child{
+                    text-align: left;
+                }
+            }
+            td{
+                border-top: 1px solid $color-grey--100 !important;
+            }
+         }
+         .downloadlink{
+            margin: 0 5px;
+         }
+     }
+
+     .faq-section{
+        margin-top: 70px;
+        margin-bottom: 50px;
+        .faq-title {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .accordion{
+            .CollapseBox{
+                .card{
+                    border-right: none !important;
+                    border-left: none !important;
+                    box-shadow: none;
+                    .collapse{
+                        padding: 0px 10px 25px;
+                    }
+                    .collapsing{
+                        padding: 0px 10px 25px;
+                    }
+                }
+            }
+        }
+    }
+ }

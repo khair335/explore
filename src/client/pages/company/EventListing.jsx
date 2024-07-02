@@ -556,7 +556,7 @@ const Events = (props) => {
 									<td>{displayDate(event.start_date)} - {displayDate(event.end_date)}</td>
 									<td>{event.event_format}</td>
 									<td>{event.location}, {event.state}</td>
-									<td>{<SiteLink to={event.link.url}>Learn More </SiteLink>}</td>
+									<td className='info-section'>{event.event_links?.length > 0 && event.event_links?.map((item)=> <SiteLink to={item.link_url.url} target={item.link_url.target}>{item.link_title}</SiteLink>)}</td>
 								</tr>
 							))}
 

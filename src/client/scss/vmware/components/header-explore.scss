@@ -520,8 +520,8 @@
         }
 
         #menuWindow {
-
           bottom: 0;
+          padding-top: 10px;
           
           ul li {
           border-bottom: none;
@@ -533,6 +533,9 @@
 
         .back-btn-wrap {
           display: flex;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 0;
 
           button.back {
             display: flex;

@@ -583,9 +583,15 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 			return Object.entries(selectedValues).every(([key, values]) => {
 				if (values.length === 0) return true;
 
+				// const filterWithRemoveParentheses = (key) => {
+				// 	return removeParenthesesContent(values).some(selectedValue =>
+				// 		String(item[key]).includes(selectedValue)
+				// 	);
+				// };
+
 				const filterWithRemoveParentheses = (key) => {
 					return removeParenthesesContent(values).some(selectedValue =>
-						String(item[key]).includes(selectedValue)
+						String(item[key]) === selectedValue
 					);
 				};
 

@@ -44,6 +44,7 @@ const ExploreHeader = (props) => {
 	const toggle = () => {									// open / close whole menu body
 		if (mobile) {
 			setIsOpen(!isOpen);
+/*             setSearch(!searchOpen); */
 		}
 	}
 
@@ -51,9 +52,11 @@ const ExploreHeader = (props) => {
 		setMobile(!mobile);    //true
 		setIsOpen(!isOpen);
 		if (!isOpen) {
-			document.body.style.overflow = 'hidden';
+			/* document.body.style.overflow = 'hidden'; */
+            setSearch(true);
 		  } else {
-			document.body.style.overflow = 'unset';
+		/* 	document.body.style.overflow = 'unset'; */
+            setSearch(false);
 		  }
 	}
 
@@ -88,7 +91,7 @@ const ExploreHeader = (props) => {
                 </div>
 
                 {props?.headerData.search ?
-                    <div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>{/* hide */}
+                    <div className={classnames('search-box ', { 'hide': searchOpen === false })}>{/*  && !mobile */}
                         <Container>
                             <TypeAhead
                                 className="header-typahead"
@@ -147,6 +150,7 @@ const ExploreHeader = (props) => {
                                             {...props}
                                             menuToggle={toggle}
                                             mobile={mobile}
+                                            search={searchBox}
                                         />
                                     </Nav>
                                     </div>

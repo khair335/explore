@@ -115,6 +115,7 @@ const ExploreHeader = (props) => {
 											{...props}
 											menuToggle={toggle}
 											mobile={mobile}
+											search={searchBox}
 										/>
 									</Nav>
 

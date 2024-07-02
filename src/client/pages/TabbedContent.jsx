@@ -47,17 +47,21 @@ const TabbedContent = (props) => {
 	// Updated URL.
 	useEffect(() => {
 		let updated_hash = utils.sanitize(location.hash).replace('#', '');
-			
-		if (true) { // All the time. hash !== updated_hash) {
+
+		if (updated_hash) { // All the time. hash !== updated_hash) {
+
 			setHash(updated_hash);
 
 			// Scroll to the top
-			if (topRef) {
+			// Wait to fully render.
+			setTimeout(() => {
+				if (topRef) {
 
-				topRef.current.scrollIntoView({
-					behavior: 'smooth',
-				});
-			}
+					topRef.current.scrollIntoView({
+						behavior: 'smooth',
+					});
+				}
+			}, 300);
 		}
 
 	}, [utils.sanitize(location.hash).replace('#', '')]);

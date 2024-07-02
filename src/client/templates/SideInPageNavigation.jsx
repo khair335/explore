@@ -6,7 +6,8 @@
  */
 import config from 'client/config.js';
 import utils from 'components/utils.jsx';
-import React, { Component, PureComponent, useEffect, useState } from 'react';
+import React, { Component, PureComponent, useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
 import { withLiveEvents } from 'components/liveEvents.js';
@@ -69,85 +70,154 @@ const NavItemWithSubs = ({ nav, onClick, }) => {
 	);
 };
 
-const SmoothScroll = (href) =>  {
+const SmoothScroll = (href) => {
 	// Set the href;
-		//window.location.hash = href;
-		history.pushState({}, '', href);
+	//window.location.hash = href;
+	history.pushState({}, '', href);
 
-		// Smooth scroll
-		const toggles = document.getElementsByClassName('side-nav-toggle');
-		if (toggles && toggles[0] && toggles[0].offsetParent) {		// Our button is visible if offsetParent !== null
-			// Calculate sticky to create an offset.
+	// Smooth scroll
+	const toggles = document.getElementsByClassName('side-nav-toggle');
+	if (toggles && toggles[0] && toggles[0].offsetParent) {		// Our button is visible if offsetParent !== null
+		// Calculate sticky to create an offset.
 
 
-			const getHeight = (el) => {
-				var el_style = window.getComputedStyle(el),
-					el_display = el_style.display,
-					el_position = el_style.position,
-					el_visibility = el_style.visibility,
-					el_max_height = el_style.maxHeight.replace('px', '').replace('%', ''),
+		const getHeight = (el) => {
+			var el_style = window.getComputedStyle(el),
+				el_display = el_style.display,
+				el_position = el_style.position,
+				el_visibility = el_style.visibility,
+				el_max_height = el_style.maxHeight.replace('px', '').replace('%', ''),
 
-					wanted_height = 0;
+				wanted_height = 0;
 
-				// if its not hidden we just return normal height
-				if (el_display !== 'none' && el_max_height !== '0') {
-					return el.offsetHeight;
-				}
-
-				// the element is hidden so:
-				// making the el block so we can meassure its height but still be hidden
-				el.style.position = 'absolute';
-				el.style.visibility = 'hidden';
-				el.style.display = 'block';
-
-				wanted_height = el.offsetHeight;
-
-				// reverting to the original values
-				el.style.display = el_display;
-				el.style.position = el_position;
-				el.style.visibility = el_visibility;
-
-				return wanted_height;
+			// if its not hidden we just return normal height
+			if (el_display !== 'none' && el_max_height !== '0') {
+				return el.offsetHeight;
 			}
 
-			let yOffset = 10;
-			let collapses = document.getElementsByClassName('side-nav-collapse');
-			if (collapses && collapses[0]) {
-				yOffset += getHeight(collapses[0]);
-			}
+			// the element is hidden so:
+			// making the el block so we can meassure its height but still be hidden
+			el.style.position = 'absolute';
+			el.style.visibility = 'hidden';
+			el.style.display = 'block';
 
-			// Now get the height of the button.
-			yOffset += toggles[0].offsetHeight;
+			wanted_height = el.offsetHeight;
 
-			let id = href?.substring(1) || '';		// Remove #.
-			let element = document.getElementById(decodeURI(id));
-			if (element) {
-				let top = element.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - yOffset;
+			// reverting to the original values
+			el.style.display = el_display;
+			el.style.position = el_position;
+			el.style.visibility = el_visibility;
 
-				window.scroll({
-					top: top,
-					behavior: 'smooth'
-				});
-			}
-
+			return wanted_height;
 		}
-		else {
 
-			document.querySelector(href)?.scrollIntoView({
+		let yOffset = 10;
+		let collapses = document.getElementsByClassName('side-nav-collapse');
+		if (collapses && collapses[0]) {
+			yOffset += getHeight(collapses[0]);
+		}
+
+		// Now get the height of the button.
+		yOffset += toggles[0].offsetHeight;
+
+		let id = href?.substring(1) || '';		// Remove #.
+		let element = document.getElementById(decodeURI(id));
+		if (element) {
+			let top = element.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - yOffset;
+
+			window.scroll({
+				top: top,
 				behavior: 'smooth'
 			});
 		}
+
+	}
+	else {
+
+		document.querySelector(href)?.scrollIntoView({
+			behavior: 'smooth'
+		});
+	}
 }
 
 const SideNav = (props) => {
+	const location = useLocation();
 	const [collapse, setCollapse] = useState(true);
+	const navRef = useRef();
+	const hashes = props.navs?.flatMap(nav => nav.subNavs ? [nav.hash, ...nav.subNavs.map(sub => sub?.hash?.replace(/[^\w_-]+/g, ""))] : nav.hash);
 
 
-	// Init
 	useEffect(() => {
+		let updated_hash = utils.sanitize(location.hash).replace('#', '');
 
-	
+		// HACK: JD - Nav hasn't rendered yet and is out of view, so we can't scroll to it.
+		setTimeout(() => {
+			handleHref(updated_hash);
+		}, 200);
+		
+
 	}, []);
+	
+	// Jump to hash.
+	useEffect(() => {
+		let updated_hash = utils.sanitize(location.hash).replace('#', '');
+
+				// HACK: JD - Nav hasn't rendered yet and is out of view, so we can't scroll to it.
+		setTimeout(() => {
+			handleHref(updated_hash);
+		}, 200);
+
+	}, [utils.sanitize(location.hash).replace('#', '')]);
+
+	const handleHref = (href, element) => {
+		// Set the nav active if selected.
+		// Are we going to scroll?
+
+		// Invalid
+		if (!href || !hashes.some(hash => hash === href)) {
+			
+			return;
+		}
+
+		const nav = navRef.current;
+		const target = element || nav.querySelector(`a[href*="#${href}"]`);
+
+		if (href) {
+			nav.querySelector('.active')?.classList?.remove('active');			// Remove any active
+
+			// Business requriement
+			// Only active the parent category.
+			// So hacky
+			// Are we a child
+			if (target?.closest('.nav-item-child')) {
+				// Find the closest parent.
+				target?.closest('.nav-item-child')?.closest('.nav-item')?.classList.add('active');
+			}
+			else {//if (props.navs?.some(n => n.hash === href)) {			// Only top levels. Who cares about the children.
+				target?.parentNode?.classList.add('active');
+
+			}
+		}
+
+		// Collapse or not on click
+		if (nav) {
+			let nav_item_children = nav.querySelectorAll('.nav-item-child');
+			if (nav_item_children) {
+				nav_item_children.forEach(item => {
+					item?.classList?.add('collapse');
+				});
+			}
+
+			let parent = target?.parentNode;
+			if (parent) {
+				//parent.classList.add('active');
+				parent.querySelector('.nav-item-child')?.classList?.remove('collapse');
+				parent.closest('.nav-item-child')?.classList.remove('collapse');		// Show the other children
+			}
+		}
+
+		SmoothScroll('#'+href);
+	}
 
 	const handleClick = (event, label) => {
 		event.preventDefault();
@@ -160,57 +230,19 @@ const SideNav = (props) => {
 
 		const href = event.target.getAttribute('href') || '';
 
-		// Set the nav active if selected.
-		// Are we going to scroll?
-		if (href) {
-			const nav = document.querySelector('.side-inpage-nav');
-			nav.querySelector('.active')?.classList?.remove('active');			// Remove any active
+		handleHref(href?.replace('#', ''), event.target);
 
-			// Business requriement
-			// Only active the parent category.
-			// So hacky
-			// Are we a child
-			if (event.target?.closest('.nav-item-child')) {
-				// Find the closest parent.
-				event.target?.closest('.nav-item-child')?.closest('.nav-item')?.classList.add('active');
-			}
-			else {
-				nav.querySelector(`a[href*=${href.replace('#', '')}]`)?.parentNode?.classList.add('active');
-			
-			}
-		}
-
-		// Collapse or not on click
-		let nav = document.querySelector('.side-inpage-nav');
-		if (nav) {
-			let nav_item_children = nav.querySelectorAll('.nav-item-child');
-			if (nav_item_children) {
-				nav_item_children.forEach(item => {
-					item?.classList?.add('collapse');
-				});
-			}
-
-			let parent = event.target?.parentNode;
-			if (parent) {
-				//parent.classList.add('active');
-				parent.querySelector('.nav-item-child')?.classList?.remove('collapse');
-				parent.closest('.nav-item-child')?.classList.remove('collapse');		// Show the other children
-			}
-		}
-
-		SmoothScroll(href);
-		
 	}
 	return (
 		<div className={classnames("side-nav", "side-nav-static")}>
-			{props.resultCount>=0 && <div className="side-nav-result">
+			{props.resultCount >= 0 && <div className="side-nav-result">
 				<div className='result-container'><h5><b>{props.resultCount} Results</b></h5></div>
-						<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
-							{collapse
-								? <span>Show Filters<i className="bi brcmicon-caret-down"></i></span>
-								: <span>Hide Filters<i className="bi brcmicon-caret-up"></i></span>
-							}
-						</button>
+				<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
+					{collapse
+						? <span>Show Filters<i className="bi brcmicon-caret-down"></i></span>
+						: <span>Hide Filters<i className="bi brcmicon-caret-up"></i></span>
+					}
+				</button>
 			</div>}
 			{props.handleSearchSubmit &&
 				<Collapse isOpen={!collapse} className="side-nav-collapse">
@@ -227,14 +259,16 @@ const SideNav = (props) => {
 						</form>
 					</div>
 				</Collapse>}
-			
+
 			<Collapse isOpen={!collapse} className="side-nav-collapse">
-				<Nav vertical className="side-inpage-nav">
-					{props.navs?.map((nav, index) => (
-						<NavItem key={nav.hash + index}>
-							<NavItemWithSubs nav={nav} onClick={handleClick} />
-						</NavItem>
-					))}
+				<Nav vertical className="side-inpage-nav" >
+					<div ref={navRef}>
+						{props.navs?.map((nav, index) => (
+							<NavItem key={nav.hash + index}>
+								<NavItemWithSubs nav={nav} onClick={handleClick} />
+							</NavItem>
+						))}
+					</div>
 				</Nav>
 			</Collapse>
 		</div>
@@ -383,21 +417,21 @@ const SideNavScrollSpy = (props) => {
 	}
 	return (
 		<div className={classnames("side-nav", "side-nav-scrollspy")}>
-			
-			
-				<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
-					<Row>
-						<Col className="text-left col-9">
-							{active_title}
-						</Col>
-						<Col className="text-right col-3">
-							{collapse
-								? <i className="bi brcmicon-caret-down"></i>
-								: <i className="bi brcmicon-caret-up"></i>
-							}
-						</Col>
-					</Row>
-				</button>
+
+
+			<button onClick={() => setCollapse(!collapse)} className="side-nav-toggle">
+				<Row>
+					<Col className="text-left col-9">
+						{active_title}
+					</Col>
+					<Col className="text-right col-3">
+						{collapse
+							? <i className="bi brcmicon-caret-down"></i>
+							: <i className="bi brcmicon-caret-up"></i>
+						}
+					</Col>
+				</Row>
+			</button>
 			<Collapse isOpen={!collapse} className="side-nav-collapse">
 				<Nav vertical className="side-inpage-nav">
 					{props.navs?.map((nav, index) => (

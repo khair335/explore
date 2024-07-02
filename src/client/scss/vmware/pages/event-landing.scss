@@ -36,6 +36,9 @@
             .banner-caption-container {
                 // Override our global.
                 top: 50%;
+                transform: translate(0, -50%);
+                // justify-content: start;
+                // top: 20px;
             }
 
             .carousel-inner .size-large .caption {
@@ -60,6 +63,7 @@
                 // Override our global.
                 position: relative;
                 transform: translate(0, 0);
+                margin-top: 20px;
 
                 // copied from home-hero.scss
                 .banner-cta-wrapper {
@@ -108,6 +112,19 @@
 
                 background-color: $color-white;
                 color: $color-body;
+
+                .event-live-pre-timer-image {
+
+                    img {
+                        height: auto;;
+                    }
+
+                    // Image is way to big in tablet.
+                    @include media-breakpoint-only(md) {
+                        max-width: 75%;
+                        margin: auto;
+                    }
+                }
 
                 .event-live-pre-timer-body {
                     @include media-breakpoint-up(lg) {
