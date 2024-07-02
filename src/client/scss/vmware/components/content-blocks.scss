@@ -1463,15 +1463,33 @@
             &:after {
               @include cta-link-after;
 
-          }
-           &:hover {
+            }
+            &:hover {
             background: transparent ;
 
+            color: $color-link-hover-dark;
+            text-decoration-color: $color-link-hover-dark;
+            text-decoration: underline;
+           }
+          }
+
+          .link-bttn{
+               @include cta-link-style;
             color: $color-link-dark;
-          text-decoration-color: $color-link-dark;
-          text-decoration: underline;
-        }
-        }
+            text-decoration: none;
+
+            &:after {
+              @include cta-link-after;
+
+            }
+            &:hover {
+            background: transparent ;
+
+            color: $color-link-hover-dark;
+            text-decoration-color: $color-link-hover-dark;
+            text-decoration: underline;
+           }
+          }
         }
       }
 
@@ -2896,6 +2914,16 @@
       flex-direction: column-reverse;
       .content-block-title{
         margin-top: 20px;
+      }
+    }
+
+    .tab-content{
+      .row{
+        >.col{
+          .content-block-title{
+            margin-top: 20px;
+          }
+        }
       }
     }
   }
