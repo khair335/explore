@@ -1449,7 +1449,11 @@
 
 
     &.theme-content-block-cta-card-link {
-
+.card-text{
+  a{
+     color: $color-link-dark;
+  }
+}
 
       .card-footer {
         .cb-cta-link {
