@@ -172,7 +172,8 @@ $carousel-indicator-padding: 40px;
             .cb-cta-link {
                 justify-content: center;
 
-                .lnk {
+                .lnk,
+                .link-bttn {
 
                     @include cta-link-style;
 

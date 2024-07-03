@@ -229,6 +229,7 @@ button {
         text-align: left;
         border: 0;
 
+
         &:after {
             // @include cta-link-after;
             content: unset !important;
@@ -523,7 +524,8 @@ a.bttn:hover {
     }
 
     a.lnk,
-    .lnk {
+    .lnk,
+    .link-bttn {
 
         border-radius: 3px;
         text-align: center;
@@ -537,6 +539,11 @@ a.bttn:hover {
             @include cta-link-after;
         }
     }
+
+    .link-bttn {
+        font-size: 16px;
+        text-decoration: underline;
+    }
 }
 
 .theme-card-cta-primary .cb-cta-link,
@@ -544,17 +551,39 @@ a.bttn:hover {
     justify-content: center !important;
 }
 
-.theme-card-cta-secondary .cb-cta-link .card-link {
-    @extend .bttn;
-    @include secondary-button;
+.theme-card-cta-secondary {
+    .card-link {
+        .card-link {
+            @extend .bttn;
+            @include secondary-button;
 
-    &:hover {
-        @include secondary-hover;
+            &:hover {
+                @include secondary-hover;
+            }
+
+            @media screen and (min-width: 1980px) {
+                font-size: 16px;
+            }
+        }
     }
 
-    @media screen and (min-width: 1980px) {
-        font-size: 16px;
+    ul {
+        li {
+            a {
+                @extend .bttn;
+                @include secondary-button;
+
+                &:hover {
+                    @include secondary-hover;
+                }
+
+                @media screen and (min-width: 1980px) {
+                    font-size: 16px;
+                }
+            }
+        }
     }
+
 }
 
 .theme-card-cta-primary .cb-cta-link .card-link {
