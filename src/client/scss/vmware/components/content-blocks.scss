@@ -510,6 +510,8 @@
             @include button-after;
           }
         }
+
+
       }
 
       li:nth-child(2) {
@@ -562,8 +564,10 @@
           justify-content: center;
 
           li {
+
             &:first-child {
-              .button {
+
+              .button,.link-bttn {
                 @extend .bttn;
                 @include primary-button;
 
@@ -577,6 +581,11 @@
 
 
               }
+              .link-bttn{
+                    padding: 10px 24px;
+              }
+
+
             }
 
             &:nth-child(2) {
