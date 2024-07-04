@@ -118,9 +118,8 @@
         flex-grow: 1;
 
 
-
-
-        .lnk {
+.theme-card-standard:not(.theme-card-cta-primary){
+  .lnk {
             margin: 0 !important;
             @include cta-link-style;
             //width: 100%;
@@ -129,6 +128,8 @@
                 @include cta-link-after;
             }
         }
+}
+
 
         .cb-cta-link {
             flex-direction: column;

@@ -328,6 +328,14 @@
       height: 100%;
     }
   }
+  .card-title{
+    a,.lnk{
+      color: $color-link-dark;
+      &:hover{
+        color: $color-link-hover-dark;
+      }
+    }
+  }
 }
 
 .ContentCard-section {
@@ -1449,11 +1457,20 @@
         &:hover{
           background: #fff;
           color: $color-primary;
+
         }
 
 
 
       }
+      .card-title{
+        a{
+          &:hover{
+                background: transparent;
+            }
+        }
+
+          }
     }
 
 
@@ -2920,25 +2937,24 @@
       .cb-cta-link {
         justify-content: flex-start !important;
         padding-left: 20px;
+
+
       }
     }
     .content-block-center {
       display: flex;
       flex-direction: column-reverse;
       .content-block-title{
-        margin-top: 20px;
+        // margin-top: 20px;
       }
     }
-
-    .tab-content{
-      .row{
-        >.col{
-          .content-block-title{
-            margin-top: 20px;
-          }
+     .lnk-image{
+        &:after{
+          content: unset !important;
+          background-image: none !important;
         }
       }
-    }
+
   }
 }
 .Testimonial-section {
@@ -3066,3 +3082,13 @@
     }
   }
 }
+ .video-wrapper{
+        margin-bottom: 20px;
+      }
+
+      .lnk-image{
+        &:after{
+          content: unset !important;
+          background-image: none !important;
+        }
+      }

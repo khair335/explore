@@ -286,6 +286,7 @@
 
         .video-name-data {
             margin: 0;
+            padding: 0 6px;
             display: block;
 
             span {
@@ -318,7 +319,8 @@
 
             h5 {
                 font-size: 18px;
-                padding: 10px 0;
+                padding: 10px 6px;
+
                 text-transform: capitalize;
                 text-decoration: none;
             }
@@ -327,6 +329,7 @@
         .card-video-des {
             font-size: 14px;
             color: $color-black;
+            padding: 0 6px;
 
         }
 

@@ -140,7 +140,7 @@ button {
     text-transform: uppercase;
     transition: all 0.2s ease;
     border: 1px solid transparent;
-    height: 45px;
+    min-height: 45px;
     // display: flex;
     align-items: center;
     justify-content: center;
@@ -507,21 +507,21 @@ a.bttn:hover {
         flex-direction: column;
     }
 
-    li:nth-child(2) {
+    // li:nth-child(2) {
 
-        a.lnk,
-        .lnk {
-            border: 1px solid $color-primary;
-            color: $color-primary;
-            background: $color-white;
+    //     a.lnk,
+    //     .lnk {
+    //         border: 1px solid $color-primary;
+    //         color: $color-primary;
+    //         background: $color-white;
 
-            &:hover {
-                border-color: $color-white;
-                color: $color-white;
-                background: $color-primary;
-            }
-        }
-    }
+    //         &:hover {
+    //             border-color: $color-white;
+    //             color: $color-white;
+    //             background: $color-primary;
+    //         }
+    //     }
+    // }
 
     a.lnk,
     .lnk,
@@ -589,6 +589,13 @@ a.bttn:hover {
 .theme-card-cta-primary .cb-cta-link .card-link {
     @extend .bttn;
     @include primary-button;
+     &:hover {
+            @include primary-hover;
+          }
+
+          &:after {
+            @include button-after;
+          }
 
     @media screen and (min-width: 1980px) {
         font-size: 16px;
