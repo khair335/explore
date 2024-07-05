@@ -689,8 +689,11 @@
 
   &.theme-content-block-cta-card-secondary {
     .TestimonialCard {
-      .cb-cta-link {
-        .lnk {
+      .card-body{
+        .testimonial-cta{
+  .cb-cta-link {
+        li{
+          .lnk,a,button,.link-bttn {
           @extend .bttn;
           @include secondary-button;
 
@@ -702,7 +705,12 @@
             @include secondary-hover;
           }
         }
+        }
       }
+        }
+
+      }
+
     }
   }
 
@@ -1398,23 +1406,33 @@
   }
 
   &.theme-content-block-cta-card-link {
-    .ImageCard,.card   {
+    .ContentCard{
+      .container{
+          .ImageCard,.card   {
       .card-footer {
         .cb-cta-link {
 
-          .lnk,.link-bttn {
+          .lnk,.link-bttn,button,a {
 
             @include cta-link-style;
 
             &:after {
               @include cta-link-after ;
             }
+            &:hover {
+          @include link-hover;
+          border: none;
+        }
 
 
           }
         }
       }
     }
+      }
+
+    }
+
   }
   &.theme-cbl-card-transparent{
     .card{
@@ -3082,9 +3100,14 @@
     }
   }
 }
+
+.tab-content{
  .video-wrapper{
         margin-bottom: 20px;
       }
+
+}
+
 
       .lnk-image{
         &:after{
