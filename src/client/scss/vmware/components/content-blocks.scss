@@ -1079,8 +1079,18 @@
 
       }
     }
+   &.theme-content-block-dark {
 
-    &.theme-content-block-cta-card-link {
+      a,
+      button {
+        color: $color-link-dark;
+
+        &:hover {
+          color: $color-link-hover-dark;
+        }
+      }
+    }
+    &.theme-content-block-cta-card-link:not(.theme-content-block-dark) {
       .ContentCard {
 
         .theme-card-cta-primary,
