@@ -119,7 +119,7 @@ export const DropdownFilterListing = (props) => {
                     {Object.keys(showFilters).map(key => (
                         <MultiSelectDropdown key={showFilters[key].label}
                             options={showFilters[key].options?.map(filter => { return { label: filter.value, id: filter.id } })}
-                            selectedValues={selectedFilters} 
+                            selectedValues={selectedFilters}
                             onSelectionChange={handleCheck}
                         >
                             <span>Filter by: </span> {showFilters[key].label}
@@ -133,13 +133,14 @@ export const DropdownFilterListing = (props) => {
                         null
                         :
                         <div className='selected'>You've selected:&nbsp;
-                            {Object.keys(showFilters).map(key => {
-                                return (showFilters[key].options.map(filter => {
-                                    if (selectedFilters.includes(filter.id)) {
-                                        return <span>{filter.value}</span>
-                                    }
-                                }))
-                            })}
+                            <span>{Object.keys(showFilters)
+                                .map(key => showFilters[key].options
+                                    .filter(filter => selectedFilters.includes(filter.id))
+                                    .map(filter => filter.value)
+                                )
+                                .flat()
+                                .join(', ')
+                            }</span>
                         </div>
 
 
@@ -153,8 +154,8 @@ export const DropdownFilterListing = (props) => {
             </Row>
             <Row className='detail-cards'>
                 {filteredItems?.sort((a, b) => {
-                    let a_title = a.name || "";
-                    let b_title = b.name || "";
+                    let a_title = a.card_name || "";
+                    let b_title = b.card_name || "";
                     return a_title.localeCompare(b_title)
                 })?.map(details => {
                     if (details) {
@@ -162,7 +163,7 @@ export const DropdownFilterListing = (props) => {
 
                             <Col md="4">
                                 <div className='detail-card' key={details.id}>
-                                    <h5><SiteLink to={`/products/trust-center/certificate?family=${encodeURIComponent(details.family)}`}>{details?.name}</SiteLink></h5>
+                                    <h5><SiteLink to={`/info/trust-center/certificate?family=${encodeURIComponent(details?.family)}`}>{details?.card_name}</SiteLink></h5>
                                     <div className='summary' dangerouslySetInnerHTML={{ __html: details?.summary }}></div>
                                     <div className='region'><span>Region:</span>{showFilters["region"].options[showFilters["region"].options.findIndex(x => x.id == details.region)].value}</div>
                                     <div className='type' dangerouslySetInnerHTML={{ __html: details.certificateType }}></div>

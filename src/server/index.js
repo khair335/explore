@@ -30,7 +30,7 @@ app.disable('x-powered-by');				// Remove header x-powered-by.
 // 183430 BSBP2-190 Our API requires basic auth.
 let BASIC_AUTH = '';
 if (env !== 'prod') {
-	BASIC_AUTH = 'avagoredo:PA55@';
+	BASIC_AUTH = `${process.env.username}:${process.env.password}@`;
 }
 
 // TODO: For now we are just hand coding it. Later search directory if file exists then serve it up
@@ -325,7 +325,7 @@ app.get('/justfooter', (req, res) => {
 
 
 // Brightcove video direct. We are just going to set status of 200 and set defaults.
-app.get(['/video/:mediaId'], (req, res) => {
+app.get(['/video/:mediaId'], async (req, res, next) => {
 	let locale = "en-us";
 	let sublocale = "en-us";
 
@@ -353,58 +353,88 @@ app.get(['/video/:mediaId'], (req, res) => {
 
 	if (req.params && req.params.mediaId) {
 
-		request({
-			url: `https://edge.api.brightcove.com/playback/v1/accounts/6415665063001/videos/${req.params.mediaId}`,
-			headers: {
-				'user-agent': req.headers['user-agent'],
-				'Accept': 'application/json;pk=BCpkADawqM1Dw0AItnLv1eoTVT5D9tZbwpBSLlUmAMBHznvkeYaGu3CaQldUaWfpjsk7sJckjI5MZq-_uLsCMvarcsXdTg1I9v6zCQYgndn13fJmETygAUj2ooLpj8_Mtz4pVlsk89fW-s8jIxyWA8F6SZv_yw6sBaQ1uuifz8mkidT6wXF0VAXUejU'
+		const options = {
+			headers: { 'user-agent': req.headers['user-agent'] }
+		};
+
+		if (BASIC_AUTH) {
+			options.headers['Authorization'] = `Basic ${Buffer.from(BASIC_AUTH.replace('@', '')).toString('base64')}`;
+		}
+
+		// HACK: We need to remove the leading forward slash.
+		let path = req.url.replace(/^\//g, '');
+		// URI encode path. Path sometimes has query string in them so we need to encode since we are passing it in.
+		path = encodeURIComponent(path);
+
+		try {
+			let meta_response = await fetch(`${protocol}://${req.headers.host}/api/getmetadata?url=${path}&locale=${locale}`, options);
+			let meta_data = await meta_response.json();
+
+
+			request({
+				url: `https://edge.api.brightcove.com/playback/v1/accounts/6415665063001/videos/${req.params.mediaId}`,
+				headers: {
+					'user-agent': req.headers['user-agent'],
+					'Accept': 'application/json;pk=BCpkADawqM1Dw0AItnLv1eoTVT5D9tZbwpBSLlUmAMBHznvkeYaGu3CaQldUaWfpjsk7sJckjI5MZq-_uLsCMvarcsXdTg1I9v6zCQYgndn13fJmETygAUj2ooLpj8_Mtz4pVlsk89fW-s8jIxyWA8F6SZv_yw6sBaQ1uuifz8mkidT6wXF0VAXUejU'
+				},
+				json: true
 			},
-			json: true
-		},
-			(err, response, data) => {
-				if (err || (data && !data.id)) {		// Just check if we have a valid Brightcove id.
-					fourOfour();
-					return false
-				}
-
-				
-				if (data) {
-					let description = data.description;
-					let title = data.name;
+				(err, response, data) => {
+					if (err || (data && !data.id)) {		// Just check if we have a valid Brightcove id.
+						fourOfour();
+						return false
+					}
 
 
-					let head = getHead(locale, sublocale, {
-						"og:title": title,
-						"browser_title": title,
-						"meta_description": description,
-						"og:description": description,
-						"og:image": data.poster,
-					});
-
-					// 217159 - Translations missing causing 500.
-					request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}${pubdate_url}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (pub_err, pub_response, pub_data) => {
-						if (pub_err) { return console.log(pub_err); }
+					if (data) {
+						let description = data.description;
+						let title = data.name;
 
 
-						request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}/api/label/translations?lastlabeldate=${pub_data.lastlabeldate}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (err, response, translations) => {
-							if (err) { return console.log(err); }
-
-							if (translations) {
-								head.translations = JSON.stringify(translations);		// gLocalizedLabels
+						// Override our data and get it from brightcove
+						console.log(meta_data);
+						meta_data = {
+							...meta_data, ...{
+								"og:title": title,
+								"browser_title": title,
+								"meta_description": description,
+								"og:description": description,
+								"og:image": data.poster,
 							}
+						};
 
-							// Use ejs to render our page, since we are dynamically setting data.
-							res.status(200).render('pages/index', head);
+						
+						let head = getHead(locale, sublocale, meta_data);
+
+						// 217159 - Translations missing causing 500.
+						request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}${pubdate_url}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (pub_err, pub_response, pub_data) => {
+							if (pub_err) { return console.log(pub_err); }
+
+
+							request({ url: `${protocol}://${BASIC_AUTH}${req.headers.host}/api/label/translations?lastlabeldate=${pub_data.lastlabeldate}`, headers: { 'user-agent': req.headers['user-agent'] }, json: true }, (err, response, translations) => {
+								if (err) { return console.log(err); }
+
+								if (translations) {
+									head.translations = JSON.stringify(translations);		// gLocalizedLabels
+								}
+
+								// Use ejs to render our page, since we are dynamically setting data.
+								res.status(200).render('pages/index', head);
+							});
 						});
-					});
-				}
-				else {
-					fourOfour();
-				}
+					}
+					else {
+						fourOfour();
+					}
 
 
 
-			});
+				});
+		}
+		catch (error) {
+			console.log(error);
+			res.render('pages/index', getHead('', '', ''));
+		}
 
 	}
 	else {
@@ -455,7 +485,7 @@ app.get(['/explore/video-library/video/:mediaId'], (req, res) => {
 					return false
 				}
 
-				
+
 				if (data) {
 					let description = data.description;
 					let title = data.name;

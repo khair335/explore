@@ -53,16 +53,18 @@ export default class MainNavExplore extends Component {
 
         if(index === false) {
             let el = document.getElementsByClassName('laurels-window');
-            setTimeout(() => {
-                el[0].parentElement.removeChild(el[0]);
-            },250);
+            if(el && el[0]) {
+                setTimeout(() => {
+                    el[0].parentElement.removeChild(el[0]);
+                },250);
+            }
         } else {
             let content = document.getElementById('content');
             const newDiv = document.createElement('div');
             newDiv.classList.add('laurels-window');
             content.insertBefore(newDiv, content.firstChild );
-        }
 
+    }
 /*         if (index === false) { 
             this.menuToggle();
             document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background
@@ -254,8 +256,8 @@ class MenuWindow extends Component {
                         </Col>
                         {item.child?.map((level_1, index) => {
                             return (
-                                <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4">
-                                    <h4 className={classnames('title', { 'hide' : !level_1.title })} key={level_1.title}>{level_1.title}</h4>
+                                <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4" key={level_1.title}>
+                                    <h4 className={classnames(level_1.title ? "title":"vm-no-title")}>{level_1.title}</h4>
                                     <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
                                         <ul className={classnames({'no-title' : !level_1.title })}>
                                                 {level_1.child?.map((level_2, index) => {

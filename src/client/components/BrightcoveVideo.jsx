@@ -77,7 +77,7 @@ export default class BrightcoveVideo extends Component {
                                         console.log('canplay', self.player.readyState());
                                         self.props.onReady();   // Show only if we are ready.
                                         if (self.props.autoplay) {
-                    
+                                            self.player.volume(0);      // Due to browsers denying autoplay, we must mute first
                                             self.player.play();
                                         }
                                     });
@@ -133,7 +133,7 @@ export default class BrightcoveVideo extends Component {
                         })
                         .catch(function (error) {
                             // Player creation failed!
-                            console.log('error', error);
+                            console.log('brightcove error', error);
                         });
                 });
         });
@@ -167,21 +167,32 @@ export default class BrightcoveVideo extends Component {
             // Dynamically load a video.
             self.player.catalog.getVideo(mediaid, function (error, video) {
 
-                self.video = video;
-
-                self.player.on('loadedmetadata', () => {
-
-                    // Race condition. so wait till the video is loaded.
-                    if (self.props.onMediaData) {
-                        self.props.onMediaData(self.video.name, self.video.description, msToTime(Math.round(self.video.duration * 1000)), self.video);          // Translate from brightcove
+                if (error && error.status !== 200) {
+                    //
+                    //console.log("brightcove error", error);
+                    if (self.props.onEnded()) {
+                        self.props.onEnded();
                     }
-                });
-                //deal with error
-                self.player.catalog.load(video);
+                }
+                else {
 
-                if (self.props.autoplay) {
-                    
-                    self.player.play();
+                    self.video = video;
+
+                    self.player.on('loadedmetadata', () => {
+
+                        // Race condition. so wait till the video is loaded.
+                        if (self.props.onMediaData) {
+                            self.props.onMediaData(self.video.name, self.video.description, msToTime(Math.round(self.video.duration * 1000)), self.video);          // Translate from brightcove
+                        }
+                    });
+                    //deal with error
+                    self.player.catalog.load(video);
+
+                    if (self.props.autoplay) {
+                        
+                        self.player.volume(0);      // Due to browsers denying autoplay, we must mute first
+                        self.player.play();
+                    }
                 }
             });
         }

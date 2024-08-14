@@ -372,6 +372,8 @@
           font-weight: 300;
           color: $color-black;
           margin-bottom: 16px;
+          min-height: 24px;
+          /* height: 24px; */   //removed because 2 line titles break out of the height and overwrites copy below - margin will not solve
         }
 
         p {

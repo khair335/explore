@@ -9,7 +9,7 @@ import { Container, Row, Col } from 'reactstrap';
 import SiteLink from "components/SiteLink.jsx";
 import { SubHeadHero } from 'components/subHeader.jsx';
 import liveEvents from 'components/liveEvents.js';
-import { ContentBlocks } from 'components/ContentBlock.jsx';
+import { ContentBlocksSection } from 'components/ContentBlock.jsx';
 import BrightcoveVideo from 'components/BrightcoveVideo.jsx';
 import Loading from 'components/Loading.jsx';
 import classnames from 'classnames';
@@ -126,7 +126,7 @@ const PreRoll = ({ event_timer, hero_banner, contentBlocks, onNextRoll }) => {
 			</div>
 
 
-			<ContentBlocks contentBlocks={contentBlocks} />;
+			<ContentBlocksSection contentBlocks={contentBlocks} />
 		</div>
 	);
 }
@@ -189,7 +189,7 @@ const LiveRoll = ({ hero_banner, title, video_title, video_description, video_ca
 					</div>
 				</div>
 				{!loading &&
-					<ContentBlocks contentBlocks={contentBlocks} />
+					<ContentBlocksSection contentBlocks={contentBlocks} />
 				}
 			</div>
 		</Loading>
@@ -198,10 +198,10 @@ const LiveRoll = ({ hero_banner, title, video_title, video_description, video_ca
 
 const PostRoll = ({ hero_banner, contentBlocks }) => {
 	return (
-		<div className="event-live-pro fadein">
+		<div className="event-live-post fadein">
 			{hero_banner && <div className="top-banner"><HomeHero data={hero_banner} /></div>}
 
-			<ContentBlocks contentBlocks={contentBlocks} />;
+			<ContentBlocksSection contentBlocks={contentBlocks} />
 		</div>
 	);
 }
@@ -246,7 +246,7 @@ const EventLanding = (props) => {
 				{
 					'pre': <PreRoll {...props.data?.pre_event} contentBlocks={props.data?.pre_event?.content_before_event} onNextRoll={handleNextRoll} />,
 					'live': <LiveRoll {...props.data?.live_event} contentBlocks={props.data?.live_event?.content_during_event} onNextRoll={handleNextRoll} />,
-					'post': <PostRoll {...props.data?.pre_event} contentBlocks={props.data?.post_event?.content_after_event} onNextRoll={handleNextRoll} />,
+					'post': <PostRoll {...props.data?.post_event} contentBlocks={props.data?.post_event?.content_after_event} onNextRoll={handleNextRoll} />,
 				}[roll]
 			}
 		</div>

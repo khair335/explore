@@ -32,7 +32,7 @@ var server = http.createServer(function (req, res) {
 		proxy.web(req, res, {
 			changeOrigin: true,
 			target: 'https://stage-symantec.aws.broadcom.com/',
-			auth: 'avagoredo:PA55',
+			auth: '${process.env.username}:${process.env.password}',
 		});
 	}
 	else {

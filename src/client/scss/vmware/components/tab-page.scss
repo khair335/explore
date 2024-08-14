@@ -9,6 +9,14 @@
 
 .tab-page {
 	padding-top: 30px;
+
+	// Isolate only for tab page
+	.sticky-container {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		background: white;
+	}
 }
 
 .nav-tabs {
@@ -83,6 +91,9 @@
 .tabs-product {
 	margin-bottom: 40px !important;
 }
+
+
+
 
 @media (max-width: 767px) {
 	.nav-tabs {

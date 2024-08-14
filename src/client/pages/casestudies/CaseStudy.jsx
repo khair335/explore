@@ -4,7 +4,7 @@
  *  
  */
 import config from 'client/config.js';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PageComponent, { withPageData } from 'routes/page.jsx';
 import SiteLink from "components/SiteLink.jsx";
 import { SubHeadNavigation, SubHeadTitle } from 'components/subHeader.jsx';
@@ -49,6 +49,19 @@ export default class CaseStudy extends PageComponent {
 				)}
 			</Row>
 		);
+
+		const getFeaturedVideo = (resources) => {
+			let count = 0, limit = 1;
+			
+			return resources.map(resource => {
+				if (resource.content_type === "video" && count < limit) {
+					count += 1;
+					return (
+						<Video mediaid={resource.media_id} className="video-js vjs-16-9" controls key={resource.media_id} />
+					)
+				}
+			})
+		}
 
 		const site = config.site;
 		const leftCol = site === "vm" ? "8" : "8";		// these used to be different - leaving this functionality here in case it changes in the future
@@ -204,14 +217,7 @@ export default class CaseStudy extends PageComponent {
 									</Row>
 								</Col>
 								<Col lg="6" md="6" sm="12">
-									{this.props.data.resources.map(resource => {
-										if (resource.content_type === "video") {
-											return (
-												<Video mediaid={resource.media_id} className="video-js vjs-16-9" controls />
-											)
-										}
-
-									})}
+									{getFeaturedVideo(this.props.data.resources)}
 								</Col>
 							</Row>
 						</Container>

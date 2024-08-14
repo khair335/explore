@@ -31,6 +31,8 @@
         margin-right: 20px;
         /* Add margin to the right of the tabs, if needed */
         border-bottom: none;
+       
+
 
 
 
@@ -38,6 +40,7 @@
 
             margin-right: 0px;
             position: relative;
+            border-left: 1px solid $color-grey--400;
 
             &:first-child {
                 padding-left: 0;
@@ -59,7 +62,7 @@
                 justify-content: space-between;
                 padding: 5px 30px;
                 position: relative;
-                border-left: 1px solid $color-grey--700;
+              
                 margin: 0px 0px;
                 text-decoration: none;
                 font-weight: 300;
@@ -118,8 +121,8 @@
         flex-grow: 1;
 
 
-.theme-card-standard:not(.theme-card-cta-primary){
-  .lnk {
+.theme-card-standard:not(.theme-card-cta-primary), .content-block{
+  .lnk, .link-bttn{
             margin: 0 !important;
             @include cta-link-style;
             //width: 100%;
@@ -128,6 +131,11 @@
                 @include cta-link-after;
             }
         }
+        .lnk-image{
+            &:after{
+              content: unset  !important;
+            }
+          }
 }
 
 
@@ -410,14 +418,14 @@
 
     .CollapseBox{
 
-  .card-body{
+        .card-body{
 
-    .collapse {
+         .collapse {
 
-a{
-      @include cta-link-style;
-    text-transform: capitalize;
-    text-decoration: underline;
+            a{
+            @include cta-link-style;
+            text-transform: initial;
+            text-decoration: underline;
             &:after {
               content: unset;
             }

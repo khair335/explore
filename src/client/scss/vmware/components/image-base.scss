@@ -27,6 +27,9 @@
 
     button {
         font-style: italic;         //mods link-bttn-no-hover _buttons.scss
+        &.link-bttn-no-hover {
+            all: unset;             // Remove all button stylings.
+        }
     }
    
   }

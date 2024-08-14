@@ -54,6 +54,14 @@
     }
   }
 
+  .side-inpage-nav {
+    // position: sticky;
+    // top: 0; 
+    max-height: calc(100vh - 100px); 
+    overflow-y: auto;
+}
+
+
   .side-nav-sticky-mobile {
     position: sticky;
     top: 0px;
@@ -67,6 +75,8 @@
 
     }
   }
+
+
 
   .side-nav {
     position: sticky;

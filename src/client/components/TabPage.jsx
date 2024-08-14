@@ -122,7 +122,7 @@ export default class TabPage extends Component {
 		return (
 			<div className="tab-page">
 				<div {...rest}>
-					<div>
+					<div className="sticky-container">
 						<div className="tab-page-toggle-title">Currently Viewing:</div>
 						<button onClick={this.toggle} className="tab-page-toggle">
 							<Row>
@@ -139,6 +139,7 @@ export default class TabPage extends Component {
 						</button>
 						<div className="tab-page-collapse-wrapper">
 							<Collapse isOpen={!this.state.collapse} className="tab-page-collapse">
+
 								<Nav tabs className="tabs-product d-print-none"> {/* Don't print tabs */}
 									{this.props.tabs.map((tab, index) => {
 										let hash = this.encodeHash(tab.hash);	// Clean up the hash names.

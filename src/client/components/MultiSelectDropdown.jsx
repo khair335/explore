@@ -25,7 +25,7 @@ const MultiSelectDropdowns = ({ items, selectedValues, onSelectionChange, defaul
             </button>
             <div className={`dropdown-container ${showFilters ? 'show' : 'no-show'}`}>
                 {items?.map(item => (
-                    <MultiSelectDropdown key={item.attribute}
+                    item?.tags?.length > 0 && <MultiSelectDropdown key={item.attribute}
                         options={item?.tags?.map(option => { return { label: option, id: option } })}
                         selectedValues={selectedValues[item.attribute]}
                         onSelectionChange={(id) => onSelectionChange(item.attribute, id)}

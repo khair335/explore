@@ -20,7 +20,7 @@ const SearchVideos = (props) => {
 
 	return (
 		<div id="SearchVideos">
-			<ExploreSearchVideos {...props} nofilter noname/>
+			<ExploreSearchVideos {...props} nofilter/>
 			
 			{/* Call ExploreSearchVideos here */}
 		</div>

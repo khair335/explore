@@ -10,6 +10,7 @@
 #header-explore {
 
     height: 125px;
+    border-image: linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100;
 
     .hide {display: none}
 
@@ -75,7 +76,7 @@
         }
 
         form {
-            height: 40px;
+            /* height: 40px; */                                         //july7
             // width: 90%;
             width: 100%;
             margin: 0 auto;
@@ -175,6 +176,10 @@
                 text-align: left;
                 font-size: 20px;
               }
+
+            .vm-no-title {
+                display: none;
+            }
             
             ul.cb-cta-link {
                 justify-content: left;
@@ -244,12 +249,23 @@
         .search-box {
             box-shadow: none;
             border-bottom: 1px solid $color-grey--600;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            z-index: 1;
+
+            .typeahead.dropdown input.bc-input {
+                padding-right: 10px;
+            }
+
+            form {
+               /*  height: 48px; */                     //july7
+            }
         }
 
         .navMenu {
 
             .navbar-collapse {
-                top: 190px;
+                top: 185px;
             }
         }
         

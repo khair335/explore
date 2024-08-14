@@ -28,13 +28,13 @@ const TrustCenterDetail = (props) => {
     const url = props.data.content_blocks.filter((item) => item.template === "DropdownFilterListing")[0].json_url;
     const [regions, setRegions] = useState([])
     const [services, setServices] = useState([])
-    const [familyName, setFamilyName] = useState(searchParams.family || '')
+    const [familyName, setFamilyName] = useState(searchParams.family || 'SOC')
     const [displayData, setDislplayData] = useState({})
     const [serviceMap, setServiceMap] = useState([])
     const [masterServices, setMasterServices] = useState([])
 
     useEffect(() => {
-        console.log(serviceMap)
+        // console.log(serviceMap)
     }, [serviceMap])
 
     const updateServiceMap = (tempItem) => {
@@ -64,7 +64,6 @@ const TrustCenterDetail = (props) => {
                 setServices(json.filter_categories.service.options)
                 let tempItem = json.certificates.filter((certificate) => familyName === certificate.family)
                 let tempPanel = [];
-                console.log(tempItem)
                 if (tempItem[0]?.certificate_details?.faq?.expansion_panel) {
                     tempPanel = tempItem[0].certificate_details.faq.expansion_panel.map((faq) => {
                         return { ...faq, content: faq.text };

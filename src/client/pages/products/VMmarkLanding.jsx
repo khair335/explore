@@ -26,7 +26,7 @@ import 'scss/pages/vmmark-landing.scss';
 
 
 
-const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
+const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_version }) => {
 	const [modal, setModal] = useState(false);
 	const [activeScore, setActiveScore] = useState(null);
 	const navigate = useNavigate();
@@ -36,7 +36,9 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 		'Top Scores': 'top-scores',
 		'Performance Only': 'performance-only',
 		'Server Power-Performance': 'server-power-performance',
-		'Server and Storage Power-Performance': 'server-storage-power-performance'
+		'Server and Storage Power-Performance': 'server-storage-power-performance',
+		'Performance': 'performance',
+		'Performance Score': 'performance-score',
 	};
 
 	useEffect(() => {
@@ -98,11 +100,11 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 					<div key={index} className="main-card">
 						<div className="card-title">
 							<h4>{score.filter_title}</h4>
-							<div>
+							{score.abstract && <div>
 								<button className="icon-bttn" title="info" aria-label="info" onClick={() => toggle(score)}>
 									<i className="bi brcmicon-info-circle primary"></i>
 								</button>
-							</div>
+							</div>}
 						</div>
 						{score.filter_subtitle && <span className='card-subtitle'>{score.filter_subtitle}</span>}
 						{score.vmmark_list?.length > 0 && <Table>
@@ -118,9 +120,13 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 								{score.vmmark_list.map((row, rowIndex) => (
 									<tr key={rowIndex}>
 										{Object.keys(row).map((key, keyIndex) => (
+											
 											<React.Fragment key={keyIndex}>
-												{row[key] && <td dangerouslySetInnerHTML={{ __html: row[key] }}></td>}
+												<td className={key === "date" ? "date-column" : ""}
+													dangerouslySetInnerHTML={{ __html: browser_version?.includes("4.0") && key === "score" ? row[key]?.split('@')[0] : row[key] }}
+												></td>
 											</React.Fragment>
+
 										))}
 									</tr>
 								))}
@@ -145,7 +151,7 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag }) => {
 	);
 };
 
-const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, location_search, flag }) => {
+const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, location_search, flag, browser_version }) => {
 	const navigate = useNavigate();
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 	const tabsMap = tabsMapping
@@ -154,10 +160,6 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 
 
 	const updatedSelectValues = () => {
-		// setInputChange(searchParams.term || '');
-		// setSearchTerm(searchParams.term || '');
-		// setActiveTab(tabsMap[location_hash.substring(1)] || tabsMap['top-scores'])
-		// setHashFlag(tabsMap[location_hash.substring(1)] ? true : false)
 		const updatedSelectedValues = {};
 
 
@@ -291,7 +293,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 	const [version, setVersion] = useState([]);
 	const [searchResults, setSearchResults] = useState(categoryList);
 	const [showData, setShowData] = useState(searchResults);
-	const keysToDisplay = ["Submitter", "Performance Score", "Date", "Total Hosts", "Total Sockets", "Total Cores", "Server Description", "Processor Model", "Type Of Storage", "Datacenter Management", "Primary Storage", "Hypervisor", "VMmark Version", "Matched Pair", "Total Threads", "Uniform Hosts", "Category"];
+	const [keysToDisplay, setKeysToDisplay] = useState([]);
 	const [manageColumns, setManageColumns] = useState(keysToDisplay)
 	const [visibleColumns, setVisibleColumns] = useState(new Set(keysToDisplay));
 	const [sortConfig, setSortConfig] = useState(updatedSortConfig());
@@ -383,9 +385,13 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 	}, [JSON.stringify(selectedValues), searchTerm, JSON.stringify(sortConfig), activeTab])
 
 	const updateUniqueItems = (setter, existingItems, newItems) => {
-		const uniqueSet = new Set(existingItems);
-		newItems.forEach(item => uniqueSet.add(item));
-		setter([...uniqueSet]);
+		if (newItems.length === 0) {
+			setter([]);
+		} else {
+			const uniqueSet = new Set(existingItems);
+			newItems.forEach(item => uniqueSet.add(item));
+			setter([...uniqueSet]);
+		}
 	};
 
 	const populateData = () => {
@@ -405,28 +411,45 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		const localdatacenterManagement = [];
 
 		props[0]?.category_list?.forEach(item => {
-			if (!localTotalHosts.includes(item.total_hosts)) localTotalHosts.push(item.total_hosts);
-			if (!localProcessorModel.includes(item.processor_model)) localProcessorModel.push(item.processor_model);
-			if (!localTypeOfStorage.includes(item.type_of_storage)) localTypeOfStorage.push(item.type_of_storage);
-			if (!localdatacenterManagement.includes(item.datacenter_management)) localdatacenterManagement.push(item.datacenter_management);
-			if (!localPrimaryStorage.includes(item.primary_storage)) localPrimaryStorage.push(item.primary_storage);
-			if (!localTotalSockets.includes(item.total_sockets)) localTotalSockets.push(item.total_sockets);
-			// if (!localMatchedPair.includes(item.matched_pair)) localMatchedPair.push(item.matched_pair);
-			if (!localSystemDescription.includes(item.system_description)) localSystemDescription.push(item.system_description);
-			if (!localTotalThreads.includes(item.total_threads)) localTotalThreads.push(item.total_threads);
-			// if (!localUniformHosts.includes(item.uniform_hosts)) localUniformHosts.push(item.uniform_hosts);
-			if (!localVersion.includes(item.version)) localVersion.push(item.version);
-			if (!localTotalCores.includes(item.total_cores)) localTotalCores.push(item.total_cores);
-			if (!localHypervisor.includes(item.hypervisor)) localHypervisor.push(item.hypervisor);
-			if (!localSubmitter.includes(item.submitter)) localSubmitter.push(item.submitter.submitter_data);
+			if (item.total_hosts !== undefined && !localTotalHosts.includes(item.total_hosts)) localTotalHosts.push(item.total_hosts);
+			if (item.processor_model !== undefined && !localProcessorModel.includes(item.processor_model)) localProcessorModel.push(item.processor_model);
+			if (item.type_of_storage !== undefined && !localTypeOfStorage.includes(item.type_of_storage)) localTypeOfStorage.push(item.type_of_storage);
+			if (item.datacenter_management !== undefined && !localdatacenterManagement.includes(item.datacenter_management)) localdatacenterManagement.push(item.datacenter_management);
+			if (item.primary_storage !== undefined && !localPrimaryStorage.includes(item.primary_storage)) localPrimaryStorage.push(item.primary_storage);
+			if (item.total_sockets !== undefined && !localTotalSockets.includes(item.total_sockets)) localTotalSockets.push(item.total_sockets);
+			if (item.system_description !== undefined && !localSystemDescription.includes(item.system_description)) localSystemDescription.push(item.system_description);
+			if (item.total_threads !== undefined && !localTotalThreads.includes(item.total_threads)) localTotalThreads.push(item.total_threads);
+			if (item.version !== undefined && !localVersion.includes(item.version)) localVersion.push(item.version);
+			if (item.total_cores !== undefined && !localTotalCores.includes(item.total_cores)) localTotalCores.push(item.total_cores);
+			if (item.hypervisor !== undefined && !localHypervisor.includes(item.hypervisor)) localHypervisor.push(item.hypervisor);
+			if (item.submitter?.submitter_data !== undefined && !localSubmitter.includes(item.submitter.submitter_data)) localSubmitter.push(item.submitter.submitter_data);
 		});
+
+		const newKeysToDisplay = ["Submitter", "Performance Score", "Date"]
+		if (localTotalHosts.length > 0) newKeysToDisplay.push("Total Hosts");
+		if (localTotalSockets.length > 0) newKeysToDisplay.push("Total Sockets");
+		if (localTotalCores.length > 0) newKeysToDisplay.push("Total Cores");
+		if (localSystemDescription.length > 0) newKeysToDisplay.push("Server Description");
+		if (localProcessorModel.length > 0) newKeysToDisplay.push("Processor Model");
+		if (localTypeOfStorage.length > 0) newKeysToDisplay.push("Type Of Storage");
+		if (localdatacenterManagement.length > 0) newKeysToDisplay.push("Datacenter Management");
+		if (localPrimaryStorage.length > 0) newKeysToDisplay.push("Primary Storage");
+		if (localHypervisor.length > 0) newKeysToDisplay.push("Hypervisor");
+		if (localVersion.length > 0) newKeysToDisplay.push("VMmark Version");
+		if (browser_version !== "1.0") newKeysToDisplay.push("Matched Pair");
+		if (localTotalThreads.length > 0) newKeysToDisplay.push("Total Threads");
+		if (browser_version !== "1.0") newKeysToDisplay.push("Uniform Hosts");
+		newKeysToDisplay.push("Category");
+
+		setKeysToDisplay(newKeysToDisplay)
+		setManageColumns(newKeysToDisplay)
+		setVisibleColumns(new Set(newKeysToDisplay));
+
 		updateUniqueItems(setTotalHosts, totalHosts, localTotalHosts);
 		updateUniqueItems(setPrimaryStorage, primaryStorage, localPrimaryStorage);
 		updateUniqueItems(setTotalSockets, totalSockets, localTotalSockets);
-		// updateUniqueItems(setMatchedPair, matchedPair, localMatchedPair);
 		updateUniqueItems(setSystemDescription, systemDescription, localSystemDescription);
 		updateUniqueItems(setTotalThreads, totalThreads, localTotalThreads);
-		// updateUniqueItems(setUniformHosts, uniformHosts, localUniformHosts);
 		updateUniqueItems(setVersion, version, localVersion);
 		updateUniqueItems(setTotalCores, totalCores, localTotalCores);
 		updateUniqueItems(setHypervisor, hypervisor, localHypervisor);
@@ -583,12 +606,6 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 			return Object.entries(selectedValues).every(([key, values]) => {
 				if (values.length === 0) return true;
 
-				// const filterWithRemoveParentheses = (key) => {
-				// 	return removeParenthesesContent(values).some(selectedValue =>
-				// 		String(item[key]).includes(selectedValue)
-				// 	);
-				// };
-
 				const filterWithRemoveParentheses = (key) => {
 					return removeParenthesesContent(values).some(selectedValue =>
 						String(item[key]) === selectedValue
@@ -690,7 +707,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 	const handleDownloadCSV = () => {
 		const dataToDownload = searchResults.map(item => {
 			const row = {};
-			keysToDisplay.forEach(key => {
+			keysToDisplay?.forEach(key => {
 				if (visibleColumns.has(key)) {
 					const dataKey = headerKeyMap[key];
 					if (dataKey === "submitter") {
@@ -699,7 +716,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 						row[key] = item[dataKey].replace(/<\/?[^>]+(>|$)/g, "")
 					} else if (dataKey === "score") {
 						row[key] = item[dataKey]
-						if (item.disclosure_document.url) {
+						if (item?.disclosure_document?.url) {
 							row["PDF"] = item?.disclosure_document?.url
 						}
 					} else if (dataKey === "matched_pair" || dataKey === "uniform_hosts") {
@@ -736,7 +753,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 					</form>
 					<div>
 						<MultiSelectFilter
-							items={filters}
+							items={browser_version === "1.0" ? filters?.filter(filter => filter.attribute !== "matched_pair" && filter.attribute !== "uniform_hosts") : filters}
 							placeholder={searchTerm.trim()}
 							selectedValues={selectedValues}
 							setSelectedValues={setSelectedValues}
@@ -789,11 +806,12 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 			<div className="table-results">
 				<div className="scrollable-table">
 					<DoubleScrollBar>
+						<div className='vmmark-table'></div>
 						<table>
 							<thead>
 								<tr>
 									{keysToDisplay.filter(key => visibleColumns.has(key)).map((key, index) => {
-										
+
 										const dataKey = headerKeyMap[key];
 										const isSticky = keysToDisplay.filter(k => visibleColumns.has(k) && (k === "Performance Score" || k === "Submitter")).length;			// HACK: JD - we are checking on every key, move it out.
 										const className = classnames({
@@ -934,7 +952,8 @@ const VMmarkLanding = (props) => {
 		'Performance Only': 'performance-only',
 		'Server Power-Performance': 'server-power-performance',
 		'Server and Storage Power-Performance': 'server-storage-power-performance',
-		'Performance': 'performance'
+		'Performance': 'performance',
+		'Performance Score': 'performance-score'
 	};
 
 	const tabsMap = {
@@ -942,7 +961,8 @@ const VMmarkLanding = (props) => {
 		'performance-only': 'Performance Only',
 		'server-power-performance': 'Server Power-Performance',
 		'server-storage-power-performance': 'Server and Storage Power-Performance',
-		'performance': 'Performance'
+		'performance': 'Performance',
+		'performance-score': 'Performance Score'
 	}
 
 	const location = useLocation();
@@ -980,7 +1000,13 @@ const VMmarkLanding = (props) => {
 			title: 'Performance',
 			hashValue: 'performance',
 			content: props.data.list?.filter(list => list?.category_name === 'Performance'),
-		}
+		},
+		{
+			id: '5',
+			title: 'Performance Score',
+			hashValue: 'performance-score',
+			content: props.data.list?.filter(list => list?.category_name === 'Performance Score'),
+		},
 	];
 
 
@@ -1076,10 +1102,10 @@ const VMmarkLanding = (props) => {
 					<TabContent activeTab={activeTab}>
 						{tabsData.map((tab) => (
 							tab.title === 'Top Scores' ? <TabPane key={tab.id} tabId={tab.title}>
-								<TopScores scores={props.data?.vmmark_filter} spotlight={props.data?.spotlight} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} />
+								<TopScores scores={props.data?.vmmark_filter} spotlight={props.data?.spotlight} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} browser_version={props.data.version} />
 							</TabPane>
 								: <TabPane key={tab.id} tabId={tab.title}>
-									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} location_search={location_search} />
+									<PerformanceOnly props={tab.content} tabsMapping={tabsMap} currentTab={activeTab} location_hash={location_hash} flag={hashFlag} location_search={location_search} browser_version={props.data.version} />
 								</TabPane>
 						))}
 					</TabContent>

@@ -19,6 +19,7 @@ import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
+import { localeData } from 'moment/moment';
 
 const ErrorTemplate = (props) => (<div>No card for {props.message}</div>);
 const EmptyCard = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
@@ -86,7 +87,7 @@ export class ImageCard extends PureComponent {
                 <div className="card-footer"><ul className="cb-cta-link">
                     {this.props.data.links && this.props.data.links.map((link, index) =>
                         <li key={link.content_id + index}>
-                            <SiteLink to={link.url} target={link.target} subtype={link.subtype} className="card-link" key={link.content_id || index}>{link.title}</SiteLink>
+                            <SiteLink to={link.url} target={link.target} subtype={link.subtype} media_id={link.media_id} className="card-link" key={link.content_id || index}>{link.title}</SiteLink>
                         </li>
                     )}
                 </ul>
@@ -511,6 +512,38 @@ export const VideoCard = (props) => {
     const url_path = config.video.videoPath(video_content?.account) + "/" + id;
     const target = "_self"
 
+
+
+    // Remap the data. This should be generic and not specific to brightcove data.
+    let data = {
+        title: video_content?.name,
+        sub_title: '',
+        description: video_content?.description || video_content?.long_description,
+        views: video_content?.views,
+        url: url_path,
+        id: id,
+        image: video_content?.images?.poster,   // Object
+        image_src: video_content?.poster,       // Url
+        duration: video_content?.duration,
+    };
+
+    // HACK: for explore site. Broadcom's account has this special custom field and Explore does not.
+    if (!video_content?.custom_fields?.where_the_video_should_be_hosted_) { // Could be broadcom or vmware, so check if this exists
+        data = {
+            title: video_content?.description,
+            sub_title: video_content?.name,
+            description: video_content?.long_description,
+            views: video_content.views,
+            url: url_path,
+            id: id,
+            image: video_content?.images?.poster,
+            image_src: video_content?.poster,
+            duration: video_content?.duration,
+        };
+
+    }
+
+
     const formatMillisecondsToHours = (milliseconds) => {
         const seconds = Math.floor(milliseconds / 1000);
         const hours = Math.floor(seconds / 3600);
@@ -532,22 +565,35 @@ export const VideoCard = (props) => {
         }
     }
 
+
+
+
     return (
         <div className="VideoCard card">
             <div className="card-body">
-                <SiteLink to={url_path} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
-                    {video_content?.images?.poster ? <ImageBase image={video_content?.images?.poster} alt={video_content?.description} className="video-thumbnail" /> : <ImageBase src={video_content?.poster} alt={video_content?.description} className="video-thumbnail" />}
+                <SiteLink to={data.url} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
+                    {data.image
+                        ? <ImageBase image={data.image} alt={data?.title} className="video-thumbnail" />
+                        : <ImageBase src={data.image_src} alt={data?.title} className="video-thumbnail" />}
                     <div image="" alt="Play button" className="play-button" />
-                    <span className="video-duration">{formatMillisecondsToHours(video_content?.duration)}</span>
+                    <span className="video-duration">{formatMillisecondsToHours(data?.duration)}</span>
                 </SiteLink>
                 <div className="video-info">
+                    {(data?.sub_title || data?.views >= 0) &&
+                        <div>
+                            <SiteLink className='video-name-data' to={data.url} target={target}>
+                                <span>
+                                    {data?.sub_title && <>{data?.sub_title}</>}
+                                    {data?.sub_title && data?.views >= 0 && <> | </>}
+                                    {data?.views >= 0 && <>{video_content.views} views</>}
+                                </span>
+                            </SiteLink>
+                        </div>
+                    }
                     <div>
-                        <SiteLink className='video-name-data' to={url_path} target={target}><span>{video_content?.name && <>{video_content?.name} {video_content?.name && video_content?.views && <> | </>}</>} {video_content?.views >= 0 && <>{video_content.views} views</>}</span></SiteLink>
+                        {data?.title && <SiteLink className='card-video-title' to={data.url} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.title, 27) }}></h5>}</SiteLink>}
                     </div>
-                    <div>
-                        {video_content?.description && <SiteLink className='card-video-title' to={url_path} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.description, 27) }}></h5>}</SiteLink>}
-                    </div>
-                    {video_content?.long_description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(video_content?.long_description, 53) }}></p>}
+                    {data?.description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.description, 53) }}></p>}
                 </div>
             </div>
         </div>
@@ -655,7 +701,7 @@ export function applyCardType(card, default_type, image_position) {
                     url: card.url,
                 }
             }
-            break;        
+            break;
         case "empty":
             type = "EmptyCard";
             break;
@@ -665,7 +711,7 @@ export function applyCardType(card, default_type, image_position) {
         default:
             // Use the asset_type to determine card.
             // Only if top card.
-            if ((card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page')) {
+            if ((card.asset_type === 'Product' || card.asset_type === 'ProductCategory' || card.asset_type === 'Page' || card.asset_type === 'suites')) {
                 if (image_position !== 'Left' && image_position !== 'Right') {
                     type = 'ProductCard'
                 }

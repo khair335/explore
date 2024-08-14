@@ -5,6 +5,7 @@
 import config from '../config.js';
 import utils, { gtmPushTag } from 'components/utils.jsx';
 import React, { Component, Fragment, useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { NavLink } from 'react-router-dom';
 import SiteLink from 'components/SiteLink.jsx';
 import { Container, Row, Col, Button, Navbar, NavbarBrand, NavbarToggler, Collapse, Nav } from 'reactstrap';
@@ -24,7 +25,8 @@ const ExploreHeader = (props) => {
 	const bttnRef = React.useRef();										//navbar toggler button
 	const snavRef = React.useRef();
 	const [isOpen, setIsOpen] = useState(false);
-	const [mobile, setMobile] = useState(false);
+    const mobile = useMediaQuery({ query: `(max-width: 760px)` });
+	/* const [mobile, setMobile] = useState(false); */
 	const [searchOpen, setSearch] = useState(false);
 
 
@@ -43,19 +45,19 @@ const ExploreHeader = (props) => {
 
 	const toggle = () => {									// open / close whole menu body
 		if (mobile) {
-			setIsOpen(!isOpen);
-/*             setSearch(!searchOpen); */
-		}
+			mobileToggle();
+		} else {
+            setIsOpen(!isOpen);
+        }
 	}
 
 	const mobileToggle = () => {						/* this bit of craziness here is to close menu on page select in mobile and click away close on ipad */
-		setMobile(!mobile);    //true
-		setIsOpen(!isOpen);
+        setIsOpen(!isOpen);
 		if (!isOpen) {
-			/* document.body.style.overflow = 'hidden'; */
+			document.body.style.overflow = 'hidden';
             setSearch(true);
 		  } else {
-		/* 	document.body.style.overflow = 'unset'; */
+			document.body.style.overflow = 'scroll';
             setSearch(false);
 		  }
 	}
@@ -67,6 +69,10 @@ const ExploreHeader = (props) => {
 	const searchBox = () => {
 		setSearch(!searchOpen)
 	}
+
+    const searchSubmit = () => {        //                                onChange={() =>toggle()}
+        if(mobile) {setIsOpen(false)}
+    }
 
 	const handleLogoClick = (gtmevent) => {
 		if (gtmevent) { gtmPushTag(gtmevent) };
@@ -98,7 +104,7 @@ const ExploreHeader = (props) => {
                                 endpoint={config.site_search.typeahead_endpoint}
                                 results_page="/site-search"
                                 placeholder="Search"
-                                onClose={() =>setSearch(false)}
+                                onClose={() =>toggle()}
                                 clear
                             />
                         </Container>
@@ -122,7 +128,8 @@ const ExploreHeader = (props) => {
                                             </NavbarToggler>
                                         </div>
                                         <NavLink
-                                            to={props?.headerData.logo?.url}
+                                            // to={config.site !== '"vm" ? props?.headerData.logo?.url}
+                                            to={config.site !== "vm" ? props?.headerData.logo?.url : `/`}
                                             className="navbar-brand"
                                             onClick={event => handleLogoClick({ "id": "N001", "link_url": props?.headerData.logo?.url })}
                                         >

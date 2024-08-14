@@ -1,92 +1,113 @@
-
 @import "../base/variables";
 
 // Fontawesome
 @import "../fontawesome/fontawesome";
 
-.tab-content {
-    h2.section-title {display: none;}
-}
+
 
 #filtered-listing {
+
+    .hide {
+        display: none;
+    }
+
+    .tab-content {
+        h2.section-title {
+            display: none;
+        }
+    }
+
+    .tabs-product {
+        min-height: 56px;
+        justify-content: space-evenly;
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 0 100px;
+
+        li.nav-item a.lnk {
+            font-size: 18px;
+        }
+    }
 
     h4 {
         //font-size: ;
         padding: 15px;
         font-weight: 300;
         line-height: 28px;
+        cursor: pointer;
     }
 
-    .CollapseBox {
+    .card {
+        /*         padding-left: 0;             //july7
+        padding-right: 0; */
+        margin-bottom: 10px;
+        box-shadow: none;
 
-        .card {
-            border: none;
+        .card-head {
+            padding: 7px 10px;
+            background-color: $background-dark-blue;
+            border-left: 2px solid $color-black;
+            box-shadow: 0px 8px 16px 0px rgba(17, 69, 134, 0.1215686275)
+        }
 
-            .card-body {
 
-                ul {
-                    padding-top: 30px;
-                    list-style-type: none;
+        .card-body {
 
-                    li label {
-                        font-size: $font-size-lg;
-                        font-weight: 300;
-                        margin-bottom: 25px;
-                        display: flex;
-                        flex-direction: row;
+            ul {
+                padding-top: 30px;
+                list-style-type: none;
+
+                li label {
+                    font-size: $font-size-lg;
+                    font-weight: 300;
+                    margin-bottom: 25px;
+                    display: flex;
+                    flex-direction: row;
 
                         input {
                             width: 24px;
                             height: 24px;
                             margin-right: 10px;
+                            cursor: pointer;
                         }
-                    }
-                }
 
-                .card-head {
-                    padding: 7px 10px;
-                    background-color: $background-dark-blue;
-                    border-left: 2px solid $color-black;
-    
-                    .text-right {
-                        padding: 0;
-                    }
-    
-                    button.icon-bttn {
-                        padding: 0;
-                        margin-left: -5px;
-    
-                        .secondary-bttn {
-                            padding: 0;
+                        .filter-count {
+                            margin-left: 6px;
+                            letter-spacing: 3px;
                         }
-                    }
                 }
+            }
+
+
+            button.link-bttn-no-hover h6 {
+                font-size: 18px;
+                font-weight: 300;
+                color: $color-black;
             }
         }
 
-        button.link-bttn-no-hover h6 {
-            font-size: 18px;
-            font-weight: 300;
-            color: $color-black;
-        }
     }
-    
+
     .card-list-wrapper {
         background-color: $background-dark-blue;
 
         h2 {
             padding: 20px;
+            cursor: pointer;
         }
     }
+
     .card-list {
         background-color: $background-dark-blue;
-/*         column-count: 2;
-        column-gap: 20px;
-        column-width: 300px;
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        text-align: center; */
+
+        &.row {
+            justify-content: space-evenly;
+            padding-bottom: 20px;
+        }
+
+        .show-button {
+            margin: 0 auto;
+        }
 
         .card-wrapper {
             display: flex;
@@ -98,32 +119,53 @@
             position: relative;
             display: inline-block;
             text-align: left;
-            font-size: $font-size-md;;
+            font-size: $font-size-md;
+            ;
             border: 1px solid transparent;
             box-shadow: $shadow-1;
             background-color: $color-white;
             border-radius: 4px;
             padding: 20px;
             height: 166px;
-/*             width: 300px; */
+            /*             width: 300px; */
             margin-bottom: 20px;
-            margin-left: 20px;
-           /*  margin-right: 20px; */
+            /* margin-left: 20px; */
+            /*  margin-right: 20px; */
 
             h5 {
                 margin-top: 10px;
-                
-
+                font-size: 22px;
+                height: 90px;
             }
 
             .link-label {
                 font-size: $font-size-md;
-                position:absolute;
+                position: absolute;
                 bottom: 10px;
+            }
+
+            .location-card {
+                display: grid;
+                grid-template-columns: 50px 1fr;
+                grid-template-areas: "logo heading";
+
+                .head {
+                    grid-area: "heading";
+                    display: inline-block;
+                    position: relative;
+                }
+
+                .flag-img {
+                    grid-area: "logo";
+                    display: inline-block;
+                    margin-right: 10px;
+                }
             }
         }
     }
-} //#filtered-listing
+}
+
+//#filtered-listing
 
 #dropdown-filtered-listing {
     background-color: $background-dark-blue;
@@ -138,11 +180,11 @@
             font-weight: 300;
             margin-right: 4px;
 
-            &::after {
-                content: (',');
-            }
+            // &::after {
+            //     content: (',');
+            // }
         }
-        
+
     }
 
     .dropdown {
@@ -150,7 +192,7 @@
 
         button.dropdown-toggle {
             background-color: transparent;
-            color:$color-black;
+            color: $color-black;
             font-size: $font-size-lg;
             font-weight: 300;
             text-transform: capitalize;
@@ -158,8 +200,8 @@
             border: none;
 
             &:hover {
-                border: none;       // Undo our global.
-                border-color: transparent;      // Shifting so just 
+                border: none; // Undo our global.
+                border-color: transparent; // Shifting so just 
             }
 
             // ignore click so it bubbles to the parent.
@@ -209,7 +251,8 @@
         h5 a {
             font-size: 20px;
             font-weight: 300;
-            margin-bottom: 20px;;
+            margin-bottom: 20px;
+            ;
             text-decoration: none;
         }
 
@@ -218,7 +261,7 @@
             bottom: 33px;
             height: 80px;
         }
-            
+
 
 
     }
@@ -228,12 +271,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center; 
-        .compliance-title, .compliance-body {
-         padding: 20px 0;
+        text-align: center;
+        margin-top: 60px;
+
+        .compliance-title,
+        .compliance-body {
+            padding: 20px 0;
 
         }
     }
-    
-    
+
+
 }

@@ -43,7 +43,7 @@ var server = http.createServer(function (req, res) {
 		proxy.web(req, res, {
 			changeOrigin: true,
 			target: 'https://vmstg-ui.aws.broadcom.com',
-			auth: 'avagoredo:PA55',
+			auth: '${process.env.username}:${process.env.password}',
 		});
 	}
 	else {

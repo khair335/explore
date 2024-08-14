@@ -134,6 +134,8 @@ export default class SiteLink extends PureComponent {
 		}
 		
 		
+		
+
 		// Does it match our base domain.
 		// HACK: There are certain URL's in the CMS which have absolute URL's in the data and we need to resolve them locally.
 		//if (config.environment === "local") {		
@@ -142,12 +144,20 @@ export default class SiteLink extends PureComponent {
 		}
 		//}
 		
+
 		// JD - Do we need to check the protocol?
 		if (location.host === url.host) {
 			// Clean our url and remove host and protocol.
 			return {location: createLocation(url.pathname+url.query+url.hash, null, null, location), type: "default"}; 
 		}
 		
+		// BUSINESS RULE: All links from our domain should not open in a new tab.
+		let primary_host = host.match(/[^\.]+\.[^\.]+$/);
+		if (primary_host && config.site_link.base_domains.includes(primary_host[0])) {
+			return {location: to, type: "internal"};
+		}
+
+
 		
 		return {location: to, type: "external"};
 	}
@@ -196,6 +206,10 @@ export default class SiteLink extends PureComponent {
 		}
 
 		switch (type) {
+			case "internal": {		// Internal but has different subdomains. 
+				let {target, ...r} = rest;		// remove target and force same tab.
+				return <a {...r} href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;
+			}
 			case "external":
 				let {target, ...r} = rest;
 				return <a {...r} target="_blank" href={location} onClick={this.handleClick} className={classnames("lnk", className)}/>;

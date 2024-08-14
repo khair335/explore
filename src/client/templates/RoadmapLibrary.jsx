@@ -30,14 +30,14 @@ const RoadmapLibraryNav = (props) => {
 	const [content, setContent] = useState(props?.content_block?.cards || []);
 	const [displayData, setDisplayData] = useState(categories);
 	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
-    const [inputChange, setInputChange] = useState(searchParams.term || '');
+	const [inputChange, setInputChange] = useState(searchParams.term || '');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [sortMode, setSortMode] = useState('category');
 
 	useEffect(() => {
-        setInputChange(searchParams.term || '');
-        setSearchTerm(searchParams.term || '');
-    }, [locationSearch]);
+		setInputChange(searchParams.term || '');
+		setSearchTerm(searchParams.term || '');
+	}, [locationSearch]);
 
 	useEffect(() => {
 		const updatedCategories = categories.map(category => {
@@ -70,7 +70,7 @@ const RoadmapLibraryNav = (props) => {
 					mainCategory.categories.forEach(subCategory => {
 						if (subCategory.title === cardCategory.title) {
 							// if (!subCategory.links.some(link => link.name === card.name)) {
-								subCategory.links.push(card);
+							subCategory.links.push(card);
 							// }
 						}
 					});
@@ -83,7 +83,7 @@ const RoadmapLibraryNav = (props) => {
 
 	useEffect(() => {
 
-		let update = (searchParams['term'] || '' ) !== searchTerm;  // Could be undefined so check that
+		let update = (searchParams['term'] || '') !== searchTerm;  // Could be undefined so check that
 
 		if (searchTerm.length > 0) {
 			searchParams['term'] = searchTerm
@@ -92,12 +92,12 @@ const RoadmapLibraryNav = (props) => {
 		};
 
 		// Stop adding history if we are the same
-        if (update) {
-            navigate({
-                search: `${queryString.stringify(searchParams)}`,
-                hash: location.hash,
-            });
-        }
+		if (update) {
+			navigate({
+				search: `${queryString.stringify(searchParams)}`,
+				hash: location.hash,
+			});
+		}
 	}, [searchTerm])
 
 	const generateHash = (title) => {
@@ -201,6 +201,7 @@ const RoadmapLibraryNav = (props) => {
 									{category.categories && category.categories.map((subCategory) => (
 										<ResourceSection key={subCategory.hash} show={false} hash={subCategory.hash}>
 											<h5>{subCategory.title}</h5>
+											{subCategory.description && <p className='subcategory-description' dangerouslySetInnerHTML={{ __html: subCategory.description }}></p>}
 											{subCategory.links && subCategory.links.length > 0 && <ImageList links={subCategory.links} />}
 										</ResourceSection>
 									))}
@@ -234,30 +235,68 @@ const ImageList = ({ links }) => {
 					title={feature?.title}
 					description={feature?.description}
 					tags={feature?.categories}
-					spotlight={feature?.type ? feature.label : false} 
+					spotlight={feature?.type ? feature.label : false}
 					duration={feature?.duration}
 					url={feature?.links ? feature.links[0]?.url : false}
 					target={feature?.links ? feature.links[0]?.target : false}
+					links={feature?.links && feature.links}
 				/>
 			))}
 		</div>
 	);
 };
 
-const FeatureCard = ({ title, description, tags, spotlight, duration, url, target }) => {
+const LeftImageCard = ({ title, type, description, tags, spotlight, duration, url, target }) => {
+	return (
+		<div className="beaker-card shadow-sm">
+			<div className="card-body">
+				<Row>
+					{type == 'Hands-On Lab' &&
+						<Col xs="3">
+							<ImageBase src="/img/vmware/icon-hol-64px.svg"
+								alt="beaker" width="63" height="63" />
+						</Col>
+					}
+					{type == 'Free Product' &&
+						<Col xs="3">
+							<ImageBase src="/img/resource-library/icon Link.svg"
+								alt="links" width="63" height="63" />
+						</Col>
+					}
+					<Col>
+						{/* <SiteLink to={url} target={target} className="card-title">{title}</SiteLink> */}
+						{spotlight && <span className='spotlight'>{spotlight}</span>}
+						{duration && <span className='duration'><i className="fa-regular fa-clock"></i>{duration}</span>}
+						{/* <h5>{title}</h5> */}
+						<SiteLink to={url} target={target} className="card-title">{title}</SiteLink>
+						{description && <p dangerouslySetInnerHTML={{ __html: description }}></p>}
+						{/* <SiteLink>{type === "Hands-On Lab" ? "BEGIN NOW" : "GET STARTED"}</SiteLink> */}
+					</Col>
+				</Row>
+			</div>
+		</div>
+	);
+};
+
+const FeatureCard = ({ title, description, tags, spotlight, duration, url, target,links }) => {
 	return (
 		<div className="feature-card shadow-sm">
-			{spotlight && <span className='spotlight'>{spotlight}</span>}
-            {duration && <span className='duration'>{duration}</span>}
+			{spotlight && <div><span className='spotlight'>{spotlight}</span></div>}
+			{/* {duration && <span className='duration'>{duration}</span>} */}
 			<Collapsible title={url ? <SiteLink to={url} target={target}><h5>{title}</h5></SiteLink> : <h5>{title}</h5>}>
 				<p dangerouslySetInnerHTML={{ __html: description }}></p>
 				<div className="tag-list">
 					{tags && tags.map((tag, index) => (
-						<div key={index} className='tags'>
-							<div className='keywords-tag'>{tag.title.toUpperCase()}</div>
-						</div>
+						// <div key={index} className='tags'>
+						<div className='keywords-tag'>{tag.title.toUpperCase()}</div>
+						//</div>
 					))}
 				</div>
+				{links && <div className='link-list'>
+					{links?.map((link)=>(
+						<SiteLink to={link.url} target={link.target} className='roadmapcard-link'>{link.title} <i className="fa-solid fa-chevron-right feature-card-caret"></i></SiteLink>
+					))}
+					</div>}
 			</Collapsible>
 		</div>
 	);
@@ -287,8 +326,211 @@ const Collapsible = ({ title, children }) => {
 };
 
 const RoadmapLibraryFilter = (props) => {
+	const navigate = useNavigate();
+	let locationSearch = useLocationSearch();
+	let searchParams = queryString.parse(locationSearch, { arrayFormat: 'bracket' });
+
+	const itemList = props?.content_block?.cards || [];
+	// Translate filters and remap to proper attributes for generic filternav
+	const filters = props.content_block?.filters.map(filter => ({
+		title: filter.title,
+		items: filter.categories?.map(category => ({
+			id: category.content_id,
+			title: category.title,
+		}))
+	}));
+
+	const [filteredItems, setFilteredItems] = useState(itemList);
+	const [selectedFilters, setSelectedFilters] = useState([]);
+	const [showFilters, setShowFilters] = useState(filters || []);
+	const [sortMode, setSortMode] = useState('category');
+	const [searchTerm, setSeeachTerm] = useState(searchParams.term || '');
+
+
+	useEffect(() => {
+
+
+		let updatedList = itemList.filter(item => {
+			// Check selected filters.
+			if (!searchTerm
+				|| item.title?.toLowerCase().includes(searchTerm.toLowerCase()
+					|| item.description?.toLowerCase().includes(searchTerm.toLowerCase()))) {
+
+				// Do we have a category selected?
+				if (selectedFilters.length === 0) {
+					return true;
+				}
+				else if (selectedFilters.length 
+					&& 
+					selectedFilters.some(filter => item?.categories?.some(category => category?.title?.toLowerCase() === filter.toLowerCase()))) {
+					return true;
+				}
+			}
+
+			return false;
+		});
+
+
+		// Trim our viewable filters and categories.
+		// This is waaaaay too nested.
+		let updatedFilters = [];
+
+		filters.forEach(filter => {
+
+			let updated_filter = structuredClone(filter);
+
+			// Clear our items first;
+			updated_filter.items = [];
+			
+			// For each item
+			    // For each updatedList
+				// For each category
+			
+			// Easier for me to read vs js array functions
+			let found = false;
+			filter?.items?.forEach(item => {
+
+
+				// Only for selection
+				updatedList.forEach(list => {
+					list?.categories?.forEach(category => {
+
+						
+						if (category?.title?.toLowerCase() === item?.title?.toLowerCase()) {
+
+							if (selectedFilters.length === 0 || selectedFilters.some(filter => filter.toLowerCase() ===  category?.title?.toLowerCase())) {
+
+								found = true;
+								
+								// If it doesn't exist add us.
+								if (!updated_filter.items?.some(exist => exist.title === item.title)) {
+									updated_filter.items.push(item);		// Add us cause they found us.
+								}
+							}
+						}
+					});
+				});
+
+			})
+
+			if (found) {
+				updatedFilters.push(updated_filter);
+			}
+			
+		});
+		
+		
+		setShowFilters(updatedFilters);
+
+
+		if (sortMode !== 'category') {
+			updatedList = updatedList.sort(((a, b) => sortMode === 'a-z' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)));
+		}
+
+
+		
+
+		setFilteredItems(updatedList);
+	}, [sortMode, searchTerm, JSON.stringify(selectedFilters)]);
+
+
+
+	const handleSelectedFilters = (filters) => {
+
+		setSelectedFilters(filters);
+	}
+
+	const handleSearch = (search) => {
+		let update = (searchParams['term'] || '') !== search;  // Could be undefined so check that
+
+		if (search.length > 0) {
+			searchParams['term'] = search
+		} else {
+			delete searchParams['term']
+		};
+
+		// Stop adding history if we are the same
+		if (update) {
+			navigate({
+				search: `${encodeURI(queryString.stringify(searchParams))}`,
+				hash: location.hash,
+			});
+		}
+
+		setSeeachTerm(search);
+	}
+
+	const handleSort = (e) => {
+		setSortMode(e.target.value);
+	};
+
 	return (
-		<NavStyleFilter className="roadmap-library-filter" props={props} />
+		<NavStyleFilter className="roadmap-library-filter"
+			filters={filters}
+			onSelectedFilters={handleSelectedFilters}
+			onSearch={handleSearch}
+			resultCount={filteredItems.length}
+		>
+			<div className="sorting-dropdown">
+				<label>
+					Sort By
+					<select value={sortMode} onChange={handleSort}>
+						<option value="category">Category</option>
+						<option value="a-z">A-Z</option>
+						<option value="z-a">Z-A</option>
+					</select>
+				</label>
+			</div>
+			<div className='display-cards' >
+				{sortMode !== 'category' ?
+					filteredItems?.map(details => {
+						return (
+							details.type === "Hands-On Lab" || details.type === "Free Product" ?
+								<div className='resource-library-container'>									
+									<LeftImageCard title={details.title} type={details.type} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} />
+								</div>
+								:
+								<FeatureCard title={details.title} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} links={details?.links && details.links}/>
+
+						)
+					})
+
+					:
+
+					showFilters.map(filter => {
+						return (
+							filter.items?.map(cat => (
+								<div key={cat.title}>
+									<h3>{filter.title}</h3>
+									<h5>{cat.title}</h5>
+									{filteredItems.map(details => {
+										return (
+											details.categories?.map(card => {
+												let tempCard = card.title.toLowerCase();
+												if (cat?.title?.toLowerCase() === tempCard ) {
+													return (
+														// <FeatureCard title={details.title} description={details.description} tags={false} spotlight={false} url={null} target={null} />
+														// <FeatureCard title={details.title} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} />
+														details.type === "Hands-On Lab" || details.type === "Free Product" ?
+															<div className='resource-library-container'>
+																<LeftImageCard title={details.title} type={details.type} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} />
+															</div>
+															:
+															<FeatureCard title={details.title} description={details.description} tags={details.categories} spotlight={details?.type ? details.label : false} duration={details?.duration} url={details?.links ? details.links[0]?.url : false} target={details?.links ? details.links[0]?.target : false} links={details?.links && details.links}/>
+
+													)
+												}
+											})
+										)
+
+									})}
+								</div>
+							))
+						)
+					})
+				}
+			</div >
+		</NavStyleFilter >
 	);
 }
 

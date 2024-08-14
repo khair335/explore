@@ -96,7 +96,7 @@ class VideoPage extends PageComponent {
 
 		if (meta.custom_fields?.where_the_video_should_be_hosted_) {
 
-			document.title = meta.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware Video Landing' : title;
+			document.title = title;
 		}
 		else {
 			document.title = 'VMware Explore Video Landing';
@@ -398,7 +398,7 @@ class VideoPage extends PageComponent {
 			description: "false",
 		};
 
-		const breadcrumb = [{
+		let breadcrumb = [{
 			"position": 1,
 			"item": {
 				"name": "Support",
@@ -430,6 +430,11 @@ class VideoPage extends PageComponent {
 			"show_in_navigation": true
 		}
 		];
+
+		// HACK: JD - Just turn the breadcrumbs off for vmware
+		if (config.microsite === "vmware") {
+			breadcrumb = [];
+		}
 
 		const { activeSection } = this.state;
 

@@ -266,7 +266,7 @@ const LeftImageCard = ({ links }) => {
                                 </Col>
                             }
                             <Col>
-                                <SiteLink to={link.url} target={link.target} subtype={link.subtype} className="card-title" key={link.content_id || index}>{link.title}</SiteLink>
+                                <SiteLink to={link.url} target={link.target} subtype={link.subtype} media_id={link.media_id} className="card-title" key={link.content_id || index}>{link.title}</SiteLink>
                                 {link.description && <p dangerouslySetInnerHTML={{ __html: link.description }}></p>}
                             </Col>
                         </Row>

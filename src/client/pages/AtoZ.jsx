@@ -96,7 +96,7 @@ const AtoZ = (props) => {
 					{Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map(letter => (
 						<SiteLink
 							key={letter}
-							to={`${letter}`}
+							to={`${window.location.href.split('#')[0]}#${letter}`}
 							onClick={(e) => handleLinkClick(e, letter)}
 							disabled={!activeLetters[letter]}
 							className={`nav-link ${!activeLetters[letter] ? 'disabled' : ''}`}

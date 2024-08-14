@@ -72,7 +72,7 @@ button::-moz-focus-inner,
     @include prime-style;
     color: $color-white;
     background: $color-primary;
-    min-height: 45px
+    //min-height: 45px
 }
 
 @mixin primary-hover {
@@ -87,7 +87,7 @@ button::-moz-focus-inner,
     border: 1px solid $color-primary;
     color: $color-primary;
     background: $color-white;
-    min-height: 45px
+    //min-height: 45px
 }
 
 @mixin secondary-hover {
@@ -102,7 +102,7 @@ button::-moz-focus-inner,
     color: $color-white;
     background: transparent;
     padding: 6px 23px;
-    min-height: 45px
+    //min-height: 45px
 }
 
 @mixin ghost-hover {
@@ -140,7 +140,7 @@ button {
     text-transform: uppercase;
     transition: all 0.2s ease;
     border: 1px solid transparent;
-    min-height: 45px;
+    //min-height: 45px;
     // display: flex;
     align-items: center;
     justify-content: center;

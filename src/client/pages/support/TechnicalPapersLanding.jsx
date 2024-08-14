@@ -431,9 +431,9 @@ const TechnicalPapersLanding = (props) => {
                                             <td>
                                                 <div className="tech-title">
                                                 {openRow === item.content_id ? (
-                                                    <i className="fa-solid fa-chevron-down"></i>
+                                                    <i className="fa-solid fa-chevron-down icon-color"></i>
                                                 ) : (
-                                                    <i className="fa-solid fa-chevron-right"></i>
+                                                    <i className="fa-solid fa-chevron-right icon-color"></i>
                                                 )}
                                                 <span dangerouslySetInnerHTML={{ __html: item.title }} />
                                                 </div>

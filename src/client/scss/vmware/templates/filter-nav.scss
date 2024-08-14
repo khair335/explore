@@ -1,6 +1,91 @@
 @import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 
 #nav-style-filter {
+
+    .nav-style-filter-side {
+
+        // Align the tops of the content and search.
+        @include media-breakpoint-up(lg) {
+            margin-top: 24px;
+
+
+            .side-nav-toggle {
+                display: none;
+            }
+        }
+
+        .side-nav-result {
+            margin-bottom: 10px;
+        }
+
+
+        @include media-breakpoint-down(lg) {
+            .side-nav-result {
+                border-top: 1px solid $color-grey--100;
+                border-bottom: 1px solid $color-grey--100;
+                padding-top: 16px;
+                padding-bottom: 16px;
+                display: flex;
+                justify-content: space-between;
+
+                .side-nav-toggle {
+                    all: unset;
+                    color: $color-primary;
+                    cursor: pointer;
+
+                    .bi {
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    .side-nav-collapse {
+        position: relative; // For the clear button
+    }
+
+    .search-bar {
+        max-width: 100%;
+        width: 100%;
+        height: 41px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 4px;
+        border: 1px solid #999;
+        background-color: #fff;
+        margin-bottom: 16px;
+        gap: 10px;
+        padding: 6px 12px 6px 20px;
+
+        input {
+            width: 100%;
+            font-weight: 300;
+            font-size: 18px;
+            color: #565656;
+            border: none;
+            outline: none;
+        }
+
+        .clear-button {
+            position: absolute;
+            right: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0 10px;
+            color: #5e5d5d;
+
+        }
+
+        .clear-button:hover {
+            color: #272626;
+        }
+    }
 
     .CollapseBox {
 
@@ -24,6 +109,7 @@
                             width: 24px;
                             height: 24px;
                             margin-right: 10px;
+                            min-width: 24px;        // checkbox was resizing due to flex.
                         }
                     }
                 }
@@ -77,36 +163,39 @@
     .feature-card {
         background: #fff;
         // border-radius: 5px;
-       // border: 1px solid #ccc;
+        // border: 1px solid #ccc;
         display: flex;
         flex-direction: column;
-       // margin: 5px;
+        // margin: 5px;
         position: relative;
-        padding:20px 20px 4px 20px;
+        padding: 20px 20px 4px 20px;
         margin-bottom: 25px;
+        box-shadow: 0 .5rem 1rem rgb(0 0 0 / 15%) !important;
         
         .spotlight {
             height: 30px;
-            max-width: 125px;
-            background: $color-primary;
-            color: #fff;
+            // max-width: 125px;
+            background: #D2D9E8;
+            color: $color-grey--600;
             font-size: 14px;
-            font-weight: 700;
+            line-height: 21px;
+            font-weight: 300;
             text-transform: uppercase;
-            padding: 5px;
-            display: flex;
+            padding: 2px 8px 1px 8px;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
-            
+            border-radius: 4px;
+
         }
 
         .duration {
             position: absolute;
             top: 20px;
             right: 20px;
-           // padding: 5px;
+            // padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -114,7 +203,7 @@
         }
 
         .collapsible {
-           // margin: 5px;
+            // margin: 5px;
 
             .content {
                 flex: 3;
@@ -128,10 +217,12 @@
 
                 }
 
-                .tags {
-                    gap: 10px;
+                .tag-list {
+                    gap: 5px;
                     display: flex;
                     margin-bottom: 15px;
+                    flex-wrap: wrap;
+
                     .keywords-tag {
                         //height: 30px;
                         // background: red;
@@ -151,16 +242,22 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        padding: 8px;
-                        gap: 10px;
-                        border-radius: 100px;
-                        margin: 5px 0;
+                        padding: 4px 12px;
+                        gap: 5px;
+                        border-radius: 16px;
+                        // margin: 5px 0;
                         border: 1px solid $color-primary;
                         text-align: center;
                         height: 30px;
                         font-size: 14px;
                         text-transform: uppercase;
-                        line-height: normal;
+                        line-height: 21px;
+                        color: $color-grey--600;
+                        font-weight: 300;
+                        @media (max-width:767px) {
+                            height: auto;
+                            border-radius: 100px;
+                        }
                     }
                 }
 
@@ -176,18 +273,21 @@
                 text-align: left;
                 padding: 0;
                 color: #333;
-               // padding: 20px;
+                // padding: 20px;
                 height: auto;
 
                 .feature-card-title {
                     display: flex;
-                    margin-bottom: 16px;
+                    margin-bottom: 15px;
                     justify-content: space-between;
                     width: 100%;
                     color: $color-primary;
-                    h5{
-                        margin:0;
+                    text-transform: capitalize;
+
+                    h5 {
+                        margin: 0;
                     }
+
                     .feature-card-caret {
                         color: $color-primary;
                         font-size: 20px;
@@ -274,21 +374,27 @@
 
             .spotlight {
                 height: 30px;
-                max-width: 125px;
-                background: #d2d9e8;
+                // max-width: 125px;
+                background: #D2D9E8;
                 color: $color-grey--600;
                 font-size: 14px;
-                font-weight: 400;
+                line-height: 21px;
+                font-weight: 300;
                 text-transform: uppercase;
-                padding: 5px;
-                display: flex;
+                padding: 2px 8px;
+                display: inline-flex;
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
+                border-radius: 4px;
+                @media (max-width:767px) {
+                    height: auto;
+                    max-width: 50%;
+                }
                 
             }
-    
+
             .duration {
                 position: absolute;
                 top: 0;
@@ -298,6 +404,12 @@
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
+                @media (max-width:767px){
+                    padding-left: 10px;
+                    max-width: 50%;
+                    line-height: 1;
+                    gap: 5px;
+                }
             }
 
             .card-title {
@@ -332,7 +444,7 @@
             .col {
                 // display: flex;
                 // align-items: center;
-                padding-left: 24px;
+                // padding-left: 24px;
 
                 // padding-right:0px;
                 button {

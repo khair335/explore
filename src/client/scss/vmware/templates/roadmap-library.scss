@@ -9,22 +9,8 @@
 @import "../base/icons";
 @import "../base/link";
 
-
-.roadmap-library-nav {
-    .app-container {
-        display: flex;
-        height: 100vh;
-    }
-
-    .sidebar {
-        width: 250px;
-        background: #f9f9f9;
-        padding: 20px;
-        border-right: 1px solid #ccc;
-
-
-    }
-
+// Global to the 2 types of filter.
+.RoadmapLibrary {
     .sorting-dropdown {
         margin-bottom: 16px;
         display: flex;
@@ -61,6 +47,24 @@
 
         }
     }
+}
+
+.roadmap-library-nav {
+    .app-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        width: 250px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-right: 1px solid #ccc;
+
+
+    }
+
+
 
     .resource-library-module>div:first-child {
         font-size: 2rem;
@@ -127,6 +131,10 @@
         // margin: auto;
     }
 
+    .subcategory-description{
+        margin-top: 20px;
+    }
+
     //   .card-body {
     //     display: flex;
     //     align-items: center;
@@ -162,36 +170,39 @@
     .feature-card {
         background: #fff;
         // border-radius: 5px;
-       // border: 1px solid #ccc;
+        // border: 1px solid #ccc;
         display: flex;
         flex-direction: column;
-       // margin: 5px;
+        // margin: 5px;
         position: relative;
-        padding:20px 20px 4px 20px;
+        padding: 20px 20px 4px 20px;
         margin-bottom: 25px;
+        box-shadow: 0 .5rem 1rem rgb(0 0 0 / 15%) !important;
         
         .spotlight {
             height: 30px;
-            max-width: 125px;
-            background: $color-primary;
-            color: #fff;
+            // max-width: 125px;
+            background: #D2D9E8;
+            color: $color-grey--600;
             font-size: 14px;
-            font-weight: 700;
+            line-height: 21px;
+            font-weight: 300;
             text-transform: uppercase;
-            padding: 5px;
-            display: flex;
+            padding: 2px 8px 1px 8px;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
-            
+            border-radius: 4px;
+
         }
 
         .duration {
             position: absolute;
             top: 20px;
             right: 20px;
-           // padding: 5px;
+            // padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -199,7 +210,7 @@
         }
 
         .collapsible {
-           // margin: 5px;
+            // margin: 5px;
 
             .content {
                 flex: 3;
@@ -213,10 +224,12 @@
 
                 }
 
-                .tags {
-                    gap: 10px;
+                .tag-list {
+                    gap: 5px;
                     display: flex;
                     margin-bottom: 15px;
+                    flex-wrap: wrap;
+
                     .keywords-tag {
                         //height: 30px;
                         // background: red;
@@ -236,17 +249,32 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        padding: 8px;
-                        gap: 10px;
-                        border-radius: 100px;
-                        margin: 5px 0;
+                        padding: 4px 12px;
+                        gap: 5px;
+                        border-radius: 16px;
+                        // margin: 5px 0;
                         border: 1px solid $color-primary;
                         text-align: center;
                         height: 30px;
                         font-size: 14px;
                         text-transform: uppercase;
-                        line-height: normal;
+                        line-height: 21px;
+                        color: $color-grey--600;
+                        font-weight: 300;
+                        @media (max-width:767px) {
+                            height: auto;
+                            border-radius: 100px;
+                        }
                     }
+                }
+
+                .roadmapcard-link{
+                    text-decoration: none;
+                    margin-right: 8px;
+                }
+
+                .roadmapcard-link:hover{
+                    text-decoration: underline;
                 }
 
             }
@@ -261,7 +289,7 @@
                 text-align: left;
                 padding: 0;
                 color: #333;
-               // padding: 20px;
+                // padding: 20px;
                 height: auto;
 
                 .feature-card-title {
@@ -270,6 +298,7 @@
                     justify-content: space-between;
                     width: 100%;
                     color: $color-primary;
+                    text-transform: capitalize;
 
                     .feature-card-caret {
                         color: $color-primary;
