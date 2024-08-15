@@ -23,6 +23,10 @@ $carousel-indicator-height: 20px;
     .carousel-inner {
       overflow: inherit !important;
     }
+    @media screen and (max-width: 1024px) {
+      // in mobile not needed
+      margin-top: 0px;
+    }
     @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
       // in mobile not needed
       margin-top: 0px;
