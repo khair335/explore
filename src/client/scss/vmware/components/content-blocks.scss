@@ -677,6 +677,7 @@
 
 
         }
+        
       }
     }
   }
@@ -3118,6 +3119,7 @@
         flex-direction: column;
     justify-content: flex-start !important;
     align-items: flex-start;
+    
     .link-bttn{
        text-transform: initial;
        text-decoration: none;
@@ -3125,11 +3127,20 @@
         content: unset!important;
       }
     }
-    .VideoLink, .lnk, .card-link{
-      text-transform: initial;
+    .VideoLink, .lnk, .card-link, a{
+      text-transform: initial !important;
       text-decoration: none;
+      border: 0 !important;
+      padding: 0 !important;
+      transition: unset !important;
       &:after{
         content: unset!important;
+      }
+      &:hover{
+        background-color: transparent !important;
+        text-decoration: underline !important;
+        color: $color-primary !important;
+        text-decoration-color: $color-primary !important;
       }
     }
   }
