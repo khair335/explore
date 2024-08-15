@@ -498,7 +498,9 @@ position: absolute;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      }
       .banner-cta {
         width: max-content;
 
@@ -682,6 +684,9 @@ position: absolute;
     }
 
     .banner-cta-wrapper {
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      }
       .banner-cta {
         >div {
           >p {
