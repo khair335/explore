@@ -56,10 +56,47 @@ $carousel-indicator-height: 20px;
       //perspective: 1000px;
       .theme-default.theme-banner-default.size-default{
         >img{
+          position: absolute;
+@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+  object-position: bottom;
+  bottom: 0;
+  object-fit: contain;
+}
           &.img-fluid{
             min-height: 450px !important;
+            
           }
         }
+        & img{
+          @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+            object-position: bottom;
+            bottom: 0;
+            object-fit: contain;
+          }
+        }
+      }
+      .theme-dark{
+        > img{
+          position: absolute;
+          bottom: 0;
+        @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+          object-position: bottom;
+          bottom: 0;
+          object-fit: contain;
+        }
+      }
+    }
+      .theme-light.size-default{
+> img{
+  position: absolute;
+  bottom: 0;
+@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+  // position: relative;
+  object-position: bottom;
+  bottom: 0;
+  object-fit: contain;
+}
+}
       }
 
       .size-large {
@@ -130,7 +167,8 @@ $carousel-indicator-height: 20px;
 
       // Use absolutes to center us vertically within the banner.
       .banner-caption-container {
-       position: absolute;
+       position: relative;
+       min-height: 400px;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -139,6 +177,10 @@ $carousel-indicator-height: 20px;
     z-index: 2;
     flex-direction: column;
     justify-content: center;
+    padding: 40px 0;
+    .row{
+      align-items: center;
+    }
 
         @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
           max-width: none;
@@ -166,6 +208,13 @@ $carousel-indicator-height: 20px;
           @include media-breakpoint-down(md) {
             max-width: 450px;
             margin: auto;
+            padding: 36px 0;
+            background-color: transparent;
+            box-shadow: unset;
+            > div{
+              background-color: #F4F8FA;
+              box-shadow: 0 2px 4px 0 rgba(17, 69, 134, 0.24);
+            }
           }
 
         }
@@ -211,20 +260,20 @@ $carousel-indicator-height: 20px;
 
           @media only screen and (max-width: 991.98px) {
             transform: none;
-            height: 380px;
+            // height: 380px;
             object-position: 75%;
           }
 
           @media (max-width: 767.98px) {
-            height: 320px;
+            // height: 320px;
           }
 
           @media (max-width: 575.98px) {
-            height: 280px;
+            // height: 280px;
           }
 
           @media (max-width: 460px) {
-            height: 200px;
+            // height: 200px;
           }
         }
       }
@@ -238,20 +287,24 @@ $carousel-indicator-height: 20px;
           height: 100%;
           object-fit: cover;
           width: 100%;
-
-
+position: absolute;
+@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+  object-position: bottom;
+  bottom: 0;
+  object-fit: contain;
+}
           @media only screen and (max-width: 991.98px) {
             transform: none;
-            height: 280px;
-            object-position: 75%;
+            // height: 280px;
+            // object-position: 75%;
           }
 
           @media (max-width: 767.98px) {
-            height: 320px;
+            // height: 320px;
           }
 
           @media (max-width: 460px) {
-            height: 200px;
+            // height: 200px;
           }
         }
       }
@@ -276,12 +329,12 @@ $carousel-indicator-height: 20px;
           .container{
             >.row{
               >div{
-                &:nth-child(1){
-    margin-top: 40px;
-                }
-                &:nth-child(2){
-                      margin-top: 50px;
-                }
+    //             &:nth-child(1){
+    // margin-top: 40px;
+    //             }
+    //             &:nth-child(2){
+    //                   margin-top: 50px;
+    //             }
               }
             }
           }

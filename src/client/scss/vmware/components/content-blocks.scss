@@ -331,6 +331,23 @@
 }
 
 .ContentCard-section {
+  ul {
+    list-style-position: inside; /* Ensure the disc is aligned with the first line */
+  }
+  
+  li {
+    display: block; /* Block display for custom styling */
+    list-style-type: disc;
+    list-style-position: outside; /* Outside ensures the disc is on the left */
+    position: relative; /* Required for pseudo-element styling */
+  }
+  
+  li::before {
+    content: '\2022'; /* Unicode for bullet character */
+    position: absolute;
+    left: -20px; /* Adjust this value to align the disc */
+    top: 0; /* Aligns the bullet with the first line */
+  }
   .theme-card-dark {
     height: 100%;
 
@@ -432,6 +449,56 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  &.theme-content-block-light{
+    .theme-card-cta-primary{
+      a{
+        color: white;
+        text-decoration: none;
+        @extend .bttn;
+      @include primary-button;
+      // margin-right: 30px;
+       &:hover {
+        @include primary-hover;
+
+        a {
+          color: $color-primary ;
+        }
+      }
+
+      &:after {
+        @include button-after;
+      }
+
+      }
+    }
+    .theme-card-cta-primary .card-footer .cb-cta-link li {
+      a{
+        font-size: 14px;
+        color: $color-primary; //mods _link.scss
+        display: inline-block;
+        width: fit-content;
+        border: 1px solid $color-white;
+        border-radius: 3px;
+        padding: 6px 23px;
+        margin: 15px 0 5px 0;
+        text-decoration: none;
+        line-height: 1.5;
+        font-weight: 300;
+        transition: all 0.2s ease;
+        border-color: $color-white;
+        background-color: $color-primary;
+        color: $color-white;
+        background: $color-primary;
+  
+        &:hover {
+          border-color: $color-primary !important;
+          background-color: $color-white !important;
+          color: $color-primary !important;
         }
       }
     }

@@ -15,6 +15,9 @@
 
 .card-footer ul li {
     list-style: none;
+    &::before{
+        content: unset;
+    }
 }
 
 .card {
