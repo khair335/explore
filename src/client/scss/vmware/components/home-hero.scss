@@ -10,18 +10,25 @@
 $carousel-indicator-height: 20px;
 
 .top-banner {
-
+position: relative;
   // Only if we actually have a banner because top-banner can still be rendered
   div[role=banner] {
     // overflow: hidden;
     min-height: 440px;
 
-    position: relative;
+    // position: relative;
     width: 100%;
     z-index: 1;
     margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
     .carousel-inner {
       overflow: inherit !important;
+      position: inherit !important;
+    }
+    .carousel{
+      position: inherit !important;
+    }
+    .carousel-item{
+      position: inherit !important;
     }
     @media screen and (max-width: 1024px) {
       // in mobile not needed
