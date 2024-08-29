@@ -79,14 +79,13 @@
                     height: 15px;
                     width: 15px;
                     display: inline-block;
-                    background-position: 2px 2px;
-                    margin-top: 5px;
+                    background-position: 2px 0px;
                     min-width: 15px;
                 }
 
 
                 &:hover {
-                    color: $color-primary;
+                    color: #04314D;
                     text-decoration: none !important; //mods _link.scss - necessary to keep from having double red lines on hover
                     border: 0 !important;
 
@@ -96,6 +95,11 @@
                 &.active {
                     border-left: 3px solid $color-primary;
                     background-color: $background-light-blue;
+                    margin-left: -2px;
+                    &:hover{
+                        border-left: 3px solid #04314D !important;
+                        background-color: $background-light-blue;
+                    }
 
                 }
             }
@@ -246,18 +250,21 @@
             text-align: left;
             outline: none;
             font-size: 15px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-left: 1px solid $color-grey--700;
+            border-left: 1px solid $color-grey--400;
             height: auto;
             padding: 10px 0;
-
+            border-radius: 0;
+            .col-2{
+            display: flex;
+            align-items: center;
+            } 
 
         }
 
         .collapsible-btn.active {
             background-color: $background-light-blue;
             border-left: 3px solid $color-primary;
+            margin-left: -2px;
 
         }
 
@@ -437,3 +444,4 @@
 }
 
 }
+

@@ -500,6 +500,9 @@
           background-color: $color-white !important;
           color: $color-primary !important;
         }
+        &:after{
+          content: unset !important;
+        }
       }
     }
   }
@@ -3105,6 +3108,7 @@
           }
           button{
             height: auto;
+            text-transform: capitalize;
           }
         }
       }
