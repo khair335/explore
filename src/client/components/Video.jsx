@@ -4,7 +4,7 @@
  *  @details 
  */
 import React, { Component, PureComponent, Fragment, useCase } from 'react';
-import BrightcoveVideo, { BrightcoveVideoImage, BrightcoveVideoPlaylist, getBrightcoveMeta } from 'components/BrightcoveVideo.jsx';
+import BrightcoveVideo, { BrightcoveVideoImage, BrightcoveVideoPlaylist, getBrightcoveMeta, getBrightcoveRelatedVideos } from 'components/BrightcoveVideo.jsx';
 import classnames from 'classnames';
 import { Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Playlist, msToTime } from 'components/LibraryElements.jsx';
@@ -36,35 +36,26 @@ export default class Video extends Component {
     }
 
     // Get data from player.
-    setMetaData(title, description, durationIn, meta) {
-
+    setMetaData(data) {
         // duration is in
         this.setState({
-            title: title,
-            description: description,
-            duration: durationIn,
+            title: data.title,
+            description: data.description,
+            duration: data.duration,
         });
 
         if (this.props.onMediaData) {
-            this.props.onMediaData(title, description, durationIn, meta);
+            this.props.onMediaData(data);
         }
+
+        // youtube specific
         if(this.props.youtube){
-            this.schemaVideo = {
-                "name":title,
-                "description":description,
-                "duration":durationIn,
-                "embedUrl":"https://www.youtube.com/embed/"+this.ytubeId,
-                "thumbnailUrl":'',
-                "uploadDate":'',
-                "contentUrl":"https://www.youtube.com/embed/"+this.ytubeId
-            }
-        }else{
-            this.schemaVideo = meta;
-            this.schemaVideo.duration = utils.convertToISO8601Duration(this.schemaVideo.duration);
-            this.schemaVideo.contentUrl="https://players.brightcove.net/"+this.schemaVideo.account_id+"/"+config.video.player_id+"/index.html?videoId="+this.schemaVideo.id;
-            this.schemaVideo.embedUrl="https://players.brightcove.net/"+this.schemaVideo.account_id+"/"+config.video.player_id+"/index.html?videoId="+this.schemaVideo.id;
-            
+            data.embedUrl = "https://www.youtube.com/embed/"+this.ytubeId; 
         }
+
+        data.duration = utils.convertToISO8601Duration(data.duration);
+
+        this.schemaVideo = data;
     }
 
 
@@ -392,6 +383,14 @@ export class VideoImage extends PureComponent {
             <BrightcoveVideoImage mediaid={mediaid} {...rest} />
         );
     }
+}
+
+/**
+ *  @brief 
+ *  @details fetch api to get related videos.
+ */
+export async function getRelatedVideos(search_url) {
+    return await getBrightcoveRelatedVideos(search_url);
 }
 
 /**

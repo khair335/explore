@@ -289,7 +289,7 @@
     .video-info {
         margin: 0px;
         margin-top: 10px;
-
+        
         .video-name-data {
             margin: 0;
             padding: 0 6px;
@@ -312,6 +312,7 @@
             }
         }
 
+
         .card-video-title {
             margin: 0;
             text-decoration: none;
@@ -331,6 +332,8 @@
                 text-decoration: none;
             }
         }
+        
+        
 
         .card-video-des {
             font-size: 14px;
@@ -341,5 +344,43 @@
 
     }
 
+    // Related videos for VideoPage.jsx
+    .card-body-related-videos {
+        display: flex;
+        max-width: 510px;
+        padding-bottom: 20px;
+
+        .video-info {
+            margin-top: 0;      // Remove marging from original VideoCard
+            flex: 1;
+
+            .video-name-data {
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .col-related-videos {
+            max-width: 244px;
+        }
+
+        .card-related-video-title {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-line: underline;
+                text-underline-offset: 2px;
+                text-decoration-thickness: 2px;
+            }
+
+            h5 {
+                font-size: 16px;
+                padding: 0 6px 10px;
+                text-transform: capitalize;
+                text-decoration: none;
+            }
+        }
+    }
 
 }

@@ -57,10 +57,10 @@
   .side-inpage-nav {
     // position: sticky;
     // top: 0; 
-    max-height: calc(100vh - 100px); 
+    max-height: calc(100vh - 50px); 
     overflow-y: auto;
-}
-
+    display: block;
+  }
 
   .side-nav-sticky-mobile {
     position: sticky;
@@ -68,7 +68,7 @@
     z-index: 2; // For sticky
     background-color: $color-white;
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       .side-nav {
         position: relative; // Reset us.
       }
@@ -104,7 +104,7 @@
         transform: rotate(90deg);
       }
 
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(md) {
         position: relative;
 
         // Added right arrow
@@ -203,7 +203,7 @@
   }
 
   .side-nav {
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
 
       margin-bottom: 40px;
 
@@ -255,7 +255,7 @@
       }
     }
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       .side-nav-result {
         border-top: 1px solid $color-grey--100;
         border-bottom: 1px solid $color-grey--100;

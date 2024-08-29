@@ -9,632 +9,645 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 $carousel-indicator-height: 20px;
 
-.top-banner {
-position: relative;
-  // Only if we actually have a banner because top-banner can still be rendered
-  div[role=banner] {
-    // overflow: hidden;
-    min-height: 440px;
+.site-vmware {
+  .top-banner {
 
-    // position: relative;
-    width: 100%;
-    z-index: 1;
-    margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
+    // Only if we actually have a banner because top-banner can still be rendered
+    div[role=banner] {
+      // overflow: hidden;
+      min-height: 440px;
+
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
+
+      .carousel-inner {
+        overflow: inherit !important;
+      }
+
+      @media screen and (max-width: 1024px) {
+        // in mobile not needed
+        margin-top: 0px;
+      }
+
+      @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        // in mobile not needed
+        margin-top: 0px;
+      }
+
+    }
+
+
+
+    .carousel.slide {
+      padding: 0px;
+    }
+
+    .carousel-indicators {
+      display: none;
+    }
+  }
+
+
+
+
+  .top-banner,
+  #banner {
     .carousel-inner {
-      overflow: inherit !important;
-      position: inherit !important;
-    }
-    .carousel{
-      position: inherit !important;
-    }
-    .carousel-item{
-      position: inherit !important;
-    }
-    @media screen and (max-width: 1024px) {
-      // in mobile not needed
-      margin-top: 0px;
-    }
-    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
-      // in mobile not needed
-      margin-top: 0px;
-    }
+      //background: $color-grey--500;
 
-  }
+      >.carousel-item {
 
+        //transition: transform .6s ease-in-out;
+        //backface-visibility: hidden;
+        //perspective: 1000px;
+        .theme-default.theme-banner-default.size-default {
+          >img {
+            position: absolute;
 
-
-  .carousel.slide {
-    padding: 0px;
-  }
-
-  .carousel-indicators {
-    display: none;
-  }
-}
-
-
-
-
-.top-banner,
-#banner {
-  .carousel-inner {
-    //background: $color-grey--500;
-
-    >.carousel-item {
-
-      //transition: transform .6s ease-in-out;
-      //backface-visibility: hidden;
-      //perspective: 1000px;
-      .theme-default.theme-banner-default.size-default{
-        >img{
-          position: absolute;
-@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-  object-position: bottom;
-  bottom: 0;
-  object-fit: contain;
-}
-          &.img-fluid{
-            min-height: 450px !important;
-            
-          }
-        }
-        & img{
-          @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-            object-position: bottom;
-            bottom: 0;
-            object-fit: contain;
-          }
-        }
-      }
-      .theme-dark{
-        > img{
-          position: absolute;
-          bottom: 0;
-        @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-          object-position: bottom;
-          bottom: 0;
-          object-fit: contain;
-        }
-      }
-    }
-      .theme-light.size-default{
-> img{
-  position: absolute;
-  bottom: 0;
-@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-  // position: relative;
-  object-position: bottom;
-  bottom: 0;
-  object-fit: contain;
-}
-}
-      }
-
-      .size-large {
-
-        .teaser {
-          .banner-cta-wrapper {
-
-            @include media-breakpoint-down(md) {
-              flex-direction: column;
+            @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+              object-position: bottom;
+              bottom: 0;
+              object-fit: contain;
             }
 
-            .banner-cta-title {
+            &.img-fluid {
+              min-height: 450px !important;
 
-              .lnk {
-                border: none !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                margin-right: 0;
-                margin-left: 0;
+            }
+          }
 
-                &:hover {
+          & img {
+            @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+              object-position: bottom;
+              bottom: 0;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .theme-dark {
+          >img {
+            position: absolute;
+            bottom: 0;
+
+            @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+              object-position: bottom;
+              bottom: 0;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .theme-light.size-default {
+          >img {
+            position: absolute;
+            bottom: 0;
+
+            @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+              // position: relative;
+              object-position: bottom;
+              bottom: 0;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .size-large {
+
+          .teaser {
+            .banner-cta-wrapper {
+
+              @include media-breakpoint-down(md) {
+                flex-direction: column;
+              }
+
+              .banner-cta-title {
+
+                .lnk {
                   border: none !important;
-                  background-color: transparent !important;
+                  padding-left: 0 !important;
+                  padding-right: 0 !important;
+                  margin-right: 0;
+                  margin-left: 0;
 
-                }
+                  &:hover {
+                    border: none !important;
+                    background-color: transparent !important;
 
-                @include media-breakpoint-down(md) {
-                  background-color: transparent !important;
-                  color: black !important;
-                  border: none !important;
+                  }
 
-                  h2 {
+                  @include media-breakpoint-down(md) {
+                    background-color: transparent !important;
                     color: black !important;
+                    border: none !important;
+
+                    h2 {
+                      color: black !important;
+                    }
                   }
                 }
               }
+
+            }
+          }
+
+          img {
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: auto; // removed fixed height for large banner as well
+
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              height: 500px;
+              object-position: 75%;
             }
 
+            @media (max-width: 767.98px) {
+              height: 300px;
+            }
+
+            @media (max-width: 575.98px) {
+              height: 260px;
+            }
+
+            @media (max-width: 460px) {
+              height: 200px;
+            }
           }
         }
 
-        img {
-          height: auto;
-          object-fit: cover;
-          object-position: center;
+        // Use absolutes to center us vertically within the banner.
+        .banner-caption-container {
+          position: relative;
+          min-height: 400px;
+          top: 0;
+          bottom: 0;
           width: 100%;
-          height: auto; // removed fixed height for large banner as well
+          display: flex;
+          /* transform: translate(0, -50%); */
+          z-index: 2;
+          flex-direction: column;
+          justify-content: center;
+          padding: 40px 0;
 
-          @media only screen and (max-width: 991.98px) {
+          .row {
+            align-items: center;
+          }
+
+          @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+            max-width: none;
+            position: static;
+            padding: 0px 15px 15px;
+            width: 100%;
             transform: none;
-            height: 500px;
-            object-position: 75%;
-          }
-
-          @media (max-width: 767.98px) {
-            height: 300px;
-          }
-
-          @media (max-width: 575.98px) {
-            height: 260px;
-          }
-
-          @media (max-width: 460px) {
-            height: 200px;
-          }
-        }
-      }
-
-      // Use absolutes to center us vertically within the banner.
-      .banner-caption-container {
-       position: relative;
-       min-height: 400px;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    /* transform: translate(0, -50%); */
-    z-index: 2;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px 0;
-    .row{
-      align-items: center;
-    }
-
-        @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-          max-width: none;
-          position: static;
-          padding: 0px 15px 15px;
-          width: 100%;
-          transform: none;
-          text-align: center !important;
-          color: $color-body;
-
-          .teaser div {
+            text-align: center !important;
             color: $color-body;
-          }
-        }
 
-
-        .banner-caption-video {
-          padding: 8px;
-          border-radius: 3px;
-          background-color: $background-light-blue;
-          box-shadow: $shadow-1;
-          margin: 20px 0 0 30px;
-
-
-          @include media-breakpoint-down(md) {
-            max-width: 450px;
-            margin: auto;
-            padding: 36px 0;
-            background-color: transparent;
-            box-shadow: unset;
-            > div{
-              background-color: #F4F8FA;
-              box-shadow: 0 2px 4px 0 rgba(17, 69, 134, 0.24);
+            .teaser div {
+              color: $color-body;
             }
           }
 
-        }
 
+          .banner-caption-video {
+            padding: 8px;
+            border-radius: 3px;
+            background-color: $background-light-blue;
+            box-shadow: $shadow-1;
+            margin: 20px 0 0 30px;
 
-      }
-
-      .size-medium {
-        .featurette-heading {
-          font-size: 40px;
-        }
-
-        .banner-cta-title {
-
-          .lnk {
-            border: none !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-
-            &:hover {
-              border: none !important;
-              background-color: transparent !important;
-            }
 
             @include media-breakpoint-down(md) {
-              background-color: transparent !important;
-              color: black !important;
-              border: none !important;
+              max-width: 450px;
+              margin: auto;
+              padding: 36px 0;
+              background-color: transparent;
+              box-shadow: unset;
 
-              h2 {
-                color: black !important;
+              >div {
+                background-color: #F4F8FA;
+                box-shadow: 0 2px 4px 0 rgba(17, 69, 134, 0.24);
               }
+            }
+
+          }
+
+
+        }
+
+        .size-medium {
+          .featurette-heading {
+            font-size: 40px;
+          }
+
+          .banner-cta-title {
+
+            .lnk {
+              border: none !important;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+
+              &:hover {
+                border: none !important;
+                background-color: transparent !important;
+              }
+
+              @include media-breakpoint-down(md) {
+                background-color: transparent !important;
+                color: black !important;
+                border: none !important;
+
+                h2 {
+                  color: black !important;
+                }
+              }
+            }
+          }
+
+          img {
+
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+
+
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              // height: 380px;
+              object-position: 75%;
+            }
+
+            @media (max-width: 767.98px) {
+              // height: 320px;
+            }
+
+            @media (max-width: 575.98px) {
+              // height: 280px;
+            }
+
+            @media (max-width: 460px) {
+              // height: 200px;
             }
           }
         }
 
-        img {
+        .size-small {
+          .featurette-heading {
+            font-size: 40px;
+          }
 
-          object-fit: cover;
-          width: 100%;
-          height: auto;
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            position: absolute;
 
+            @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+              object-position: bottom;
+              bottom: 0;
+              object-fit: contain;
+            }
 
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              // height: 280px;
+              // object-position: 75%;
+            }
+
+            @media (max-width: 767.98px) {
+              // height: 320px;
+            }
+
+            @media (max-width: 460px) {
+              // height: 200px;
+            }
+          }
+        }
+
+        .container {
           @media only screen and (max-width: 991.98px) {
-            transform: none;
-            // height: 380px;
-            object-position: 75%;
-          }
-
-          @media (max-width: 767.98px) {
-            // height: 320px;
-          }
-
-          @media (max-width: 575.98px) {
-            // height: 280px;
-          }
-
-          @media (max-width: 460px) {
-            // height: 200px;
+            padding: 0;
+            max-width: none;
           }
         }
-      }
 
-      .size-small {
-        .featurette-heading {
-          font-size: 40px;
-        }
+        .theme-banner-default {
 
-        img {
-          height: 100%;
-          object-fit: cover;
-          width: 100%;
-position: absolute;
-@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-  object-position: bottom;
-  bottom: 0;
-  object-fit: contain;
-}
-          @media only screen and (max-width: 991.98px) {
-            transform: none;
-            // height: 280px;
-            // object-position: 75%;
-          }
+          // >picture{
+          //   img{
+          //     left: 0 ;
+          //     right: 0 ;
+          //     margin: 0 auto;
+          //   }
+          // }
+          .banner-caption-container {
 
-          @media (max-width: 767.98px) {
-            // height: 320px;
-          }
-
-          @media (max-width: 460px) {
-            // height: 200px;
-          }
-        }
-      }
-
-      .container {
-        @media only screen and (max-width: 991.98px) {
-          padding: 0;
-          max-width: none;
-        }
-      }
-
-      .theme-banner-default{
-        // >picture{
-        //   img{
-        //     left: 0 ;
-        //     right: 0 ;
-        //     margin: 0 auto;
-        //   }
-        // }
-        .banner-caption-container{
-          // margin-top: 80px;
-          .container{
-            >.row{
-              >div{
-    //             &:nth-child(1){
-    // margin-top: 40px;
-    //             }
-    //             &:nth-child(2){
-    //                   margin-top: 50px;
-    //             }
+            // margin-top: 80px;
+            .container {
+              >.row {
+                >div {
+                  //             &:nth-child(1){
+                  // margin-top: 40px;
+                  //             }
+                  //             &:nth-child(2){
+                  //                   margin-top: 50px;
+                  //             }
+                }
               }
             }
           }
         }
       }
     }
-  }
 
-  // Slider and Hero banner caption text start
-  .theme-dark {
+    // Slider and Hero banner caption text start
+    .theme-dark {
+      .caption {
+        @media only screen and (max-width: 991.98px) {
+          background: $color-primary;
+        }
+
+
+        @include media-breakpoint-down(md) {
+          background: $color-white;
+        }
+
+        div {
+          color: $color-white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          color: $color-white;
+        }
+
+        a.lnk {
+          border-color: $color-white;
+          background-color: transparent;
+          color: $color-white;
+
+          &:hover {
+            border-color: $color-white;
+            background-color: $color-white;
+            color: $color-primary;
+          }
+        }
+      }
+
+      p {
+        >a {
+          color: $color-white;
+
+          @include media-breakpoint-down(md) {
+            color: $color-black;
+          }
+
+          &:hover {
+            color: $color-primary;
+            text-decoration-color: $color-primary;
+          }
+        }
+      }
+    }
+
     .caption {
-      @media only screen and (max-width: 991.98px) {
-        background: $color-primary;
-      }
+      left: auto;
+      padding: 0 15px; // We are a column so add our gutter back.
+      min-height: 150px;
+      margin: 0;
 
 
-      @include media-breakpoint-down(md) {
-        background: $color-white;
-      }
 
       div {
-        color: $color-white;
+        font-family: $font-family--secondary;
+        //font-weight: 400;
+        //font-size: 19px;
+        font-size: 16px;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 19px;
+        }
       }
 
-      h1,
-      h2,
-      h3,
-      h4 {
-        color: $color-white;
+
+      h1 {
+        padding: 20px 6px 10px 0;
+        // font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
+        font-size: 40px;
+        color: $color-black;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 50px;
+        }
+      }
+
+      h2 {
+        font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1980 - 320)));
+        margin-bottom: 10px;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 40px;
+        }
+      }
+
+      h3 {
+        margin: 15px 0;
+        font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1980 - 320)));
+
+        @media screen and (min-width: 1980px) {
+          font-size: 28px;
+        }
+      }
+
+      .teaser {
+        margin-bottom: 20px;
       }
 
       a.lnk {
+        font-size: 14px;
+        color: $color-primary; //mods _link.scss
+        display: inline-block;
+        width: fit-content;
+        border: 1px solid $color-white;
+        border-radius: 3px;
+        padding: 6px 23px;
+        margin: 15px 0 5px 0;
+        text-decoration: none;
+        line-height: 1.5;
+        font-weight: 300;
+        transition: all 0.2s ease;
         border-color: $color-white;
-        background-color: transparent;
+        background-color: $color-primary;
         color: $color-white;
+        background: $color-primary;
 
         &:hover {
-          border-color: $color-white;
+          border-color: $color-primary;
           background-color: $color-white;
           color: $color-primary;
         }
-      }
-    }
-
-    p {
-      >a {
-        color: $color-white;
-
-        @include media-breakpoint-down(md) {
-          color: $color-black;
-        }
-
-        &:hover {
-          color: $color-primary;
-          text-decoration-color: $color-primary;
-        }
-      }
-    }
-  }
-
-  .caption {
-    left: auto;
-    padding: 0 15px; // We are a column so add our gutter back.
-    min-height: 150px;
-    margin: 0;
-
-
-
-    div {
-      font-family: $font-family--secondary;
-      //font-weight: 400;
-      //font-size: 19px;
-      font-size: 16px;
-
-      @media screen and (min-width: 1980px) {
-        font-size: 19px;
-      }
-    }
-
-
-    h1 {
-      padding: 20px 6px 10px 0;
-      // font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
-      font-size: 40px;
-      color: $color-black;
-
-      @media screen and (min-width: 1980px) {
-        font-size: 50px;
-      }
-    }
-
-    h2 {
-      font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1980 - 320)));
-      margin-bottom: 10px;
-
-      @media screen and (min-width: 1980px) {
-        font-size: 40px;
-      }
-    }
-
-    h3 {
-      margin: 15px 0;
-      font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1980 - 320)));
-
-      @media screen and (min-width: 1980px) {
-        font-size: 28px;
-      }
-    }
-
-    .teaser {
-      margin-bottom: 20px;
-    }
-
-    a.lnk {
-      font-size: 14px;
-      color: $color-primary; //mods _link.scss
-      display: inline-block;
-      width: fit-content;
-      border: 1px solid $color-white;
-      border-radius: 3px;
-      padding: 6px 23px;
-      margin: 15px 0 5px 0;
-      text-decoration: none;
-      line-height: 1.5;
-      font-weight: 300;
-      transition: all 0.2s ease;
-      border-color: $color-white;
-      background-color: $color-primary;
-      color: $color-white;
-      background: $color-primary;
-
-      &:hover {
-        border-color: $color-primary;
-        background-color: $color-white;
-        color: $color-primary;
-      }
-
-      @media (max-width: 460px) {
-        margin-top: 7px;
-      }
-
-
-      span {
-        display: none;
-      }
-
-
-      .bi {
-        font-size: $font-size-md;
-        border: none;
-        margin-left: 5px;
-      }
-    }
-
-    // Make the cta's 2 columns.
-    .banner-cta-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      @include media-breakpoint-down(md) {
-        flex-direction: column;
-      }
-      .banner-cta {
-        width: max-content;
 
         @media (max-width: 460px) {
-          width: 100%;
+          margin-top: 7px;
         }
 
-        .lnk {
-          width: max-content;
+
+        span {
+          display: none;
         }
 
-        &:first-child {
-          padding-right: 20px;
 
-          @media (max-width: 460px) {
-            padding-right: 0;
-            margin-bottom: 15px;
-          }
+        .bi {
+          font-size: $font-size-md;
+          border: none;
+          margin-left: 5px;
         }
       }
-    }
 
-  }
-
-  // Indicators For Both Home and other banner
-  .carousel-indicators {
-    background-color: $color-grey--625;
-    height: $carousel-indicator-height;
-    margin-bottom: 0;
-    width: 100%;
-    left: 0;
-    margin: 0;
-    bottom: 0;
-    display: block;
-
-    li {
-      background: $color-grey--675;
-      width: 33.33%;
-      height: $carousel-indicator-height;
-      margin: 0;
-      display: inline-block;
-      border: none; // added to overwrite new styling from latest BootStrap
-
-      &:nth-child(2) {
-        background: $color-grey--650;
-      }
-
-      &:nth-child(3) {
-        background: $color-grey--625;
-      }
-
-      .progress-bar {
-        height: 100%;
-        background-color: $color-grey--600;
-      }
-
-    }
-  }
-}
-
-.top-banner {
-  .carousel-inner {
-    .size-large {
-      .caption {
-        width: 853px; // 823 + gutter for row
-
-        // JD hack to override col-lg-7 for this large banner unique to Explore
-        @include media-breakpoint-up(md) {
-          flex: 0 0 853px;
-          -webkit-flex: 0 0 853px;
-          max-width: 853px;
-        }
+      // Make the cta's 2 columns.
+      .banner-cta-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
 
         @include media-breakpoint-down(md) {
-          width: auto !important;
+          flex-direction: column;
         }
 
+        .banner-cta {
+          width: max-content;
 
-        .featurette-heading {
-          font-size: 50px !important;
+          @media (max-width: 460px) {
+            width: 100%;
+          }
 
+          .lnk {
+            width: max-content;
+          }
+
+          &:first-child {
+            padding-right: 20px;
+
+            @media (max-width: 460px) {
+              padding-right: 0;
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+
+    }
+
+    // Indicators For Both Home and other banner
+    .carousel-indicators {
+      background-color: $color-grey--625;
+      height: $carousel-indicator-height;
+      margin-bottom: 0;
+      width: 100%;
+      left: 0;
+      margin: 0;
+      bottom: 0;
+      display: block;
+
+      li {
+        background: $color-grey--675;
+        width: 33.33%;
+        height: $carousel-indicator-height;
+        margin: 0;
+        display: inline-block;
+        border: none; // added to overwrite new styling from latest BootStrap
+
+        &:nth-child(2) {
+          background: $color-grey--650;
         }
 
-        .teaser {
+        &:nth-child(3) {
+          background: $color-grey--625;
+        }
+
+        .progress-bar {
+          height: 100%;
+          background-color: $color-grey--600;
+        }
+
+      }
+    }
+  }
+
+  .top-banner {
+    .carousel-inner {
+      .size-large {
+        .caption {
+          width: 853px; // 823 + gutter for row
+
+          // JD hack to override col-lg-7 for this large banner unique to Explore
+          @include media-breakpoint-up(md) {
+            flex: 0 0 853px;
+            -webkit-flex: 0 0 853px;
+            max-width: 853px;
+          }
+
+          @include media-breakpoint-down(md) {
+            width: auto !important;
+          }
+
+
           .featurette-heading {
-            @include media-breakpoint-down(md) {
-              font-size: 50px !important;
-            }
+            font-size: 50px !important;
+
           }
 
-          >div {
-            >p {
-              font-size: 32px;
-              margin-bottom: 30px;
-
+          .teaser {
+            .featurette-heading {
               @include media-breakpoint-down(md) {
-                font-size: 16px !important;
-              }
-            }
-          }
-
-          .banner-cta {
-            h2 {
-              font-size: 40px;
-              //text-transform: capitalize;
-
-              @include media-breakpoint-down(md) {
-                font-size: 30px !important;
+                font-size: 50px !important;
               }
             }
 
             >div {
               >p {
-                font-size: 16px;
-                line-height: 24px;
-                margin: 0;
-                padding: 0;
+                font-size: 32px;
+                margin-bottom: 30px;
+
+                @include media-breakpoint-down(md) {
+                  font-size: 16px !important;
+                }
               }
             }
 
-            .lnk {
-              margin-top: 28px;
-              margin-right: 0;
-              margin-left: 0;
+            .banner-cta {
+              h2 {
+                font-size: 40px;
+                //text-transform: capitalize;
 
-              @include media-breakpoint-down(md) {
-                margin-top: 16px;
+                @include media-breakpoint-down(md) {
+                  font-size: 30px !important;
+                }
+              }
+
+              >div {
+                >p {
+                  font-size: 16px;
+                  line-height: 24px;
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+
+              .lnk {
+                margin-top: 28px;
+                margin-right: 0;
+                margin-left: 0;
+
+                @include media-breakpoint-down(md) {
+                  margin-top: 16px;
+                }
               }
             }
           }
@@ -642,83 +655,782 @@ position: absolute;
       }
     }
   }
-}
 
 .top-banner .carousel-inner>.carousel-item .size-medium img,
 #banner .carousel-inner>.carousel-item .size-medium img {
-  height: 100%;
+  height: auto;
   object-fit: cover;
   width: 100%;
 
 
-  @include media-breakpoint-down(md) {
-    height: 300px !important;
-    min-height: 300px !important;
+    @include media-breakpoint-down(md) {
+      height: 300px !important;
+      min-height: 300px !important;
+    }
+  }
+
+  .top-banner {
+
+    .teaser {
+      margin-top: 40px;
+      //margin-left: -30px;
+
+      @include media-breakpoint-down(md) {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+      }
+
+      .featurette-heading {
+        //font-size: 50px;
+        //text-transform: capitalize;
+
+
+        @include media-breakpoint-down(md) {
+          text-align: left;
+          color: black !important;
+        }
+      }
+
+      p {
+        font-weight: 300;
+        padding: 10px 0;
+
+
+        @include media-breakpoint-down(md) {
+          text-align: left;
+          color: black;
+        }
+      }
+
+      .banner-cta-wrapper {
+        @include media-breakpoint-down(md) {
+          flex-direction: column;
+        }
+
+        .banner-cta {
+          >div {
+            >p {
+              display: block;
+            }
+          }
+
+          .lnk {
+            width: max-content;
+            text-transform: uppercase;
+
+            &:hover {
+
+              text-decoration: none !important;
+            }
+
+
+          }
+
+          &:nth-child(1) {
+            .lnk {
+              @include media-breakpoint-down(md) {
+                background-color: $color-primary !important;
+                border: 1px solid $color-primary !important;
+                color: $color-white !important;
+
+                &:hover {
+                  background-color: $color-white !important;
+                  border: 1px solid $color-primary !important;
+                  color: $color-primary !important;
+                  text-decoration: none !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .theme-banner-light,
+    .theme-banner-default {
+      .banner-cta-wrapper {
+        .banner-cta {
+
+
+
+
+
+          &:nth-of-type(1) {
+
+
+            a {
+              color: white;
+              text-decoration: none;
+              @extend .bttn;
+              @include primary-button;
+
+              // margin-right: 30px;
+              &:hover {
+                @include primary-hover;
+
+                a {
+                  color: $color-primary ;
+                }
+              }
+
+              &:after {
+                @include button-after;
+              }
+            }
+
+
+
+          }
+
+          &:nth-of-type(2) {
+
+            a {
+
+              text-decoration: none;
+              @extend .bttn;
+              @include secondary-button;
+
+              &:hover {
+                @include secondary-hover;
+
+                a {
+                  color: $color-white ;
+                }
+              }
+
+              &:after {
+                @include button-after;
+              }
+
+            }
+
+
+          }
+
+          @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            &:nth-of-type(1) {
+              margin-right: 0;
+            }
+          }
+
+
+        }
+      }
+    }
+
   }
 }
 
-.top-banner {
+// Explore specific.
+.site-explore {
 
-  .teaser {
-    margin-top: 40px;
-    //margin-left: -30px;
+  .top-banner {
 
-    @include media-breakpoint-down(md) {
-      margin-top: 0px !important;
-      margin-left: 0px !important;
-    }
+    // Only if we actually have a banner because top-banner can still be rendered
+    div[role=banner] {
+      // overflow: hidden;
+      //min-height: 440px;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      margin-top: -42px; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
 
-    .featurette-heading {
-      //font-size: 50px;
-      //text-transform: capitalize;
+      .carousel-inner {
+        overflow: inherit !important;
+      }
 
-
-      @include media-breakpoint-down(md) {
-        text-align: left;
-        color: black !important;
+      @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        // in mobile not needed
+        margin-top: 0px;
       }
     }
 
-    p {
-      font-weight: 300;
-      padding: 10px 0;
-
-
-      @include media-breakpoint-down(md) {
-        text-align: left;
-        color: black;
-      }
+    .carousel.slide {
+      padding: 0px;
     }
 
-    .banner-cta-wrapper {
-      @include media-breakpoint-down(md) {
-        flex-direction: column;
-      }
-      .banner-cta {
-        >div {
-          >p {
-            display: block;
+    .carousel-indicators {
+      display: none;
+    }
+  }
+
+  .top-banner,
+  #banner {
+    .carousel-inner {
+
+      //background: $color-grey--500;
+      >.carousel-item {
+
+        //transition: transform .6s ease-in-out;
+        //backface-visibility: hidden;
+        //perspective: 1000px;
+        .theme-default.theme-banner-default.size-default {
+          >img {
+            &.img-fluid {
+              min-height: 450px !important;
+            }
           }
         }
 
-        .lnk {
-          width: max-content;
-          text-transform: uppercase;
+        .size-large {
+          .teaser {
+            .banner-cta-wrapper {
+              @include media-breakpoint-down(md) {
+                flex-direction: column;
+              }
+
+              .banner-cta-title {
+                .lnk {
+                  border: none !important;
+                  padding-left: 0 !important;
+                  padding-right: 0 !important;
+                  margin-right: 0;
+                  margin-left: 0;
+
+                  &:hover {
+                    border: none !important;
+                    background-color: transparent !important;
+                  }
+
+                  @include media-breakpoint-down(md) {
+                    background-color: transparent !important;
+                    color: black !important;
+                    border: none !important;
+
+                    h2 {
+                      color: black !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          img {
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: auto; // removed fixed height for large banner as well
+
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              height: 500px;
+              object-position: 75%;
+            }
+
+            @media (max-width: 767.98px) {
+              height: 300px;
+            }
+
+            @media (max-width: 575.98px) {
+              height: 260px;
+            }
+
+            @media (max-width: 460px) {
+              height: 200px;
+            }
+          }
+        }
+
+        // Use absolutes to center us vertically within the banner.
+        .banner-caption-container {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          display: flex;
+          /* transform: translate(0, -50%); */
+          z-index: 2;
+          flex-direction: column;
+          justify-content: center;
+
+          @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
+            max-width: none;
+            position: static;
+            padding: 0px 15px 15px;
+            width: 100%;
+            transform: none;
+            text-align: center !important;
+            color: $color-body;
+
+            .teaser div {
+              color: $color-body;
+            }
+          }
+
+          .banner-caption-video {
+            padding: 8px;
+            border-radius: 3px;
+            background-color: $background-light-blue;
+            box-shadow: $shadow-1;
+            margin: 20px 0 0 30px;
+
+            @include media-breakpoint-down(md) {
+              max-width: 450px;
+              margin: auto;
+            }
+          }
+        }
+
+        .size-medium {
+          .featurette-heading {
+            font-size: 40px;
+          }
+
+          .banner-cta-title {
+            .lnk {
+              border: none !important;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+
+              &:hover {
+                border: none !important;
+                background-color: transparent !important;
+              }
+
+              @include media-breakpoint-down(md) {
+                background-color: transparent !important;
+                color: black !important;
+                border: none !important;
+
+                h2 {
+                  color: black !important;
+                }
+              }
+            }
+          }
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              height: 380px;
+              object-position: 75%;
+            }
+
+            @media (max-width: 767.98px) {
+              height: 320px;
+            }
+
+            @media (max-width: 575.98px) {
+              height: 280px;
+            }
+
+            @media (max-width: 460px) {
+              height: 200px;
+            }
+          }
+        }
+
+        .size-small {
+          .featurette-heading {
+            font-size: 40px;
+          }
+
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+
+            @media only screen and (max-width: 991.98px) {
+              transform: none;
+              height: 280px;
+              object-position: 75%;
+            }
+
+            @media (max-width: 767.98px) {
+              height: 320px;
+            }
+
+            @media (max-width: 460px) {
+              height: 200px;
+            }
+          }
+        }
+
+        .container {
+          @media only screen and (max-width: 991.98px) {
+            padding: 0;
+            max-width: none;
+          }
+        }
+
+        .theme-banner-default {
+
+          // >picture{
+          //   img{
+          //     left: 0 ;
+          //     right: 0 ;
+          //     margin: 0 auto;
+          //   }
+          // }
+          .banner-caption-container {
+
+            // margin-top: 80px;
+            .container {
+              >.row {
+                >div {
+                  &:nth-child(1) {
+                    margin-top: 40px;
+                  }
+
+                  &:nth-child(2) {
+                    margin-top: 50px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Slider and Hero banner caption text start
+    .theme-dark {
+      .caption {
+        @media only screen and (max-width: 991.98px) {
+          background: $color-primary;
+        }
+
+        @include media-breakpoint-down(md) {
+          background: $color-white;
+        }
+
+        div {
+          color: $color-white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          color: $color-white;
+        }
+
+        a.lnk {
+          border-color: $color-white;
+          background-color: transparent;
+          color: $color-white;
 
           &:hover {
+            border-color: $color-white;
+            background-color: $color-white;
+            color: $color-link-hover-dark;
+            color: $color-primary;
+          }
+        }
+      }
 
-            text-decoration: none !important;
+      p {
+        >a {
+          color: $color-white;
+
+          @include media-breakpoint-down(md) {
+            color: $color-black;
           }
 
-       
+          &:hover {
+            color: $color-primary;
+            text-decoration-color: $color-primary;
+          }
         }
-        &:nth-child(1){
-          .lnk{
+      }
+    }
+
+    .caption {
+      left: auto;
+      padding: 0 15px; // We are a column so add our gutter back.
+      min-height: 150px;
+      margin: 0;
+
+      div {
+        font-family: $font-family--secondary;
+        //font-weight: 400;
+        //font-size: 19px;
+        font-size: 16px;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 19px;
+        }
+      }
+
+      h1 {
+        padding: 20px 6px 10px 0;
+        // font-size: calc(28px + (50 - 28) * ((100vw - 320px) / (1980 - 320)));
+        font-size: 40px;
+        color: $color-black;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 50px;
+        }
+      }
+
+      h2 {
+        font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1980 - 320)));
+        margin-bottom: 10px;
+
+        @media screen and (min-width: 1980px) {
+          font-size: 40px;
+        }
+      }
+
+      h3 {
+        margin: 15px 0;
+        font-size: calc(20px + (28 - 20) * ((100vw - 320px) / (1980 - 320)));
+
+        @media screen and (min-width: 1980px) {
+          font-size: 28px;
+        }
+      }
+
+      .teaser {
+        margin-bottom: 20px;
+      }
+
+      a.lnk {
+        font-size: 14px;
+        color: $color-primary; //mods _link.scss
+        display: inline-block;
+        width: fit-content;
+        border: 1px solid $color-white;
+        border-radius: 3px;
+        padding: 6px 23px;
+        margin: 15px 0 5px 0;
+        text-decoration: none;
+        line-height: 1.5;
+        font-weight: 300;
+        transition: all 0.2s ease;
+        border-color: $color-white;
+        background-color: $color-primary;
+        color: $color-white;
+        background: $color-primary;
+
+        &:hover {
+          border-color: $color-primary;
+          background-color: $color-white;
+          color: $color-primary;
+        }
+
+        @media (max-width: 460px) {
+          margin-top: 7px;
+        }
+
+        span {
+          display: none;
+        }
+
+        .bi {
+          font-size: $font-size-md;
+          border: none;
+          margin-left: 5px;
+        }
+      }
+
+      // Make the cta's 2 columns.
+      .banner-cta-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .banner-cta {
+          width: max-content;
+
+          @media (max-width: 460px) {
+            width: 100%;
+          }
+
+          .lnk {
+            width: max-content;
+          }
+
+          &:first-child {
+            padding-right: 20px;
+
+            @media (max-width: 460px) {
+              padding-right: 0;
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    // Indicators For Both Home and other banner
+    .carousel-indicators {
+      background-color: $color-grey--625;
+      height: $carousel-indicator-height;
+      margin-bottom: 0;
+      width: 100%;
+      left: 0;
+      margin: 0;
+      bottom: 0;
+      display: block;
+
+      li {
+        background: $color-grey--675;
+        width: 33.33%;
+        height: $carousel-indicator-height;
+        margin: 0;
+        display: inline-block;
+        border: none; // added to overwrite new styling from latest BootStrap
+
+        &:nth-child(2) {
+          background: $color-grey--650;
+        }
+
+        &:nth-child(3) {
+          background: $color-grey--625;
+        }
+
+        .progress-bar {
+          height: 100%;
+          background-color: $color-grey--600;
+        }
+      }
+    }
+  }
+
+  .top-banner {
+    .carousel-inner {
+      .size-large {
+        .caption {
+          width: 853px; // 823 + gutter for row
+
+          // JD hack to override col-lg-7 for this large banner unique to Explore
+          @include media-breakpoint-up(md) {
+            flex: 0 0 853px;
+            -webkit-flex: 0 0 853px;
+            max-width: 853px;
+          }
+
+          @include media-breakpoint-down(md) {
+            width: auto !important;
+          }
+
+          .featurette-heading {
+            font-size: 50px !important;
+          }
+
+          .teaser {
+            .featurette-heading {
+              @include media-breakpoint-down(md) {
+                font-size: 50px !important;
+              }
+            }
+
+            >div {
+              >p {
+                font-size: 32px;
+                margin-bottom: 30px;
+
+                @include media-breakpoint-down(md) {
+                  font-size: 16px !important;
+                }
+              }
+            }
+
+            .banner-cta {
+              h2 {
+                font-size: 40px;
+
+                //text-transform: capitalize;
+                @include media-breakpoint-down(md) {
+                  font-size: 30px !important;
+                }
+              }
+
+              >div {
+                >p {
+                  font-size: 16px;
+                  line-height: 24px;
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+
+              .lnk {
+                margin-top: 28px;
+                margin-right: 0;
+                margin-left: 0;
+
+                @include media-breakpoint-down(md) {
+                  margin-top: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .top-banner .carousel-inner>.carousel-item .size-medium img,
+  #banner .carousel-inner>.carousel-item .size-medium img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    @include media-breakpoint-down(md) {
+      height: 300px !important;
+      min-height: 300px !important;
+    }
+  }
+
+  .top-banner {
+    .teaser {
+      margin-top: 40px;
+
+      //margin-left: -30px;
+      @include media-breakpoint-down(md) {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+      }
+
+      .featurette-heading {
+
+        //font-size: 50px;
+        //text-transform: capitalize;
+        @include media-breakpoint-down(md) {
+          text-align: left;
+          color: black !important;
+        }
+      }
+
+      p {
+        font-weight: 300;
+        padding: 10px 0;
+
+        @include media-breakpoint-down(md) {
+          text-align: left;
+          color: black;
+        }
+      }
+
+      .banner-cta-wrapper {
+        .banner-cta {
+          >div {
+            >p {
+              display: block;
+            }
+          }
+
+          .lnk {
+            width: max-content;
+            text-transform: uppercase;
+
+            &:hover {
+              text-decoration: none !important;
+            }
+
             @include media-breakpoint-down(md) {
               background-color: $color-primary !important;
               border: 1px solid $color-primary !important;
               color: $color-white !important;
-  
+
               &:hover {
                 background-color: $color-white !important;
                 border: 1px solid $color-primary !important;
@@ -730,74 +1442,60 @@ position: absolute;
         }
       }
     }
-  }
 
-  .theme-banner-light,.theme-banner-default {
-    .banner-cta-wrapper {
-      .banner-cta {
-
-
-
-
-
-        &:nth-of-type(1) {
-
-
-          a {
-            color: white;
-            text-decoration: none;
-            @extend .bttn;
-          @include primary-button;
-          // margin-right: 30px;
-           &:hover {
-            @include primary-hover;
-
-            a {
-              color: $color-primary ;
-            }
-          }
-
-          &:after {
-            @include button-after;
-          }
-          }
-
-
-
-        }
-
-        &:nth-of-type(2) {
-
-          a {
-
-            text-decoration: none;
-            @extend .bttn;
-          @include secondary-button;
-          &:hover {
-            @include secondary-hover;
-
-            a {
-              color: $color-white ;
-            }
-          }
-
-          &:after {
-            @include button-after;
-          }
-
-          }
-
-
-        }
-
-        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    .theme-banner-light,
+    .theme-banner-default {
+      .banner-cta-wrapper {
+        .banner-cta {
           &:nth-of-type(1) {
-            margin-right: 0;
-          }}
+            a {
+              color: white;
+              text-decoration: none;
+              @extend .bttn;
+              @include primary-button;
 
+              // margin-right: 30px;
+              &:hover {
+                @include primary-hover;
 
+                a {
+                  color: $color-primary ;
+                }
+              }
+
+              &:after {
+                @include button-after;
+              }
+            }
+          }
+
+          &:nth-of-type(2) {
+            a {
+              text-decoration: none;
+              @extend .bttn;
+              @include secondary-button;
+
+              &:hover {
+                @include secondary-hover;
+
+                a {
+                  color: $color-white ;
+                }
+              }
+
+              &:after {
+                @include button-after;
+              }
+            }
+          }
+
+          @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            &:nth-of-type(1) {
+              margin-right: 0;
+            }
+          }
+        }
       }
     }
   }
-
 }

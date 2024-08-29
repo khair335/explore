@@ -511,33 +511,34 @@ export const VideoCard = (props) => {
     const id = video_content?.media_id || video_content?.id
     const url_path = config.video.videoPath(video_content?.account) + "/" + id;
     const target = "_self"
-
-
+    const display_horizontal = props.horizontalDisplay || false;
+    const max_description_chars = props.maxDescChars || 53;
+    const max_title_chars = props.maxTitleChars || 27;
 
     // Remap the data. This should be generic and not specific to brightcove data.
     let data = {
-        title: video_content?.name,
+        title: video_content?.title || video_content?.name,
         sub_title: '',
         description: video_content?.description || video_content?.long_description,
         views: video_content?.views,
         url: url_path,
         id: id,
-        image: video_content?.images?.poster,   // Object
-        image_src: video_content?.poster,       // Url
+        image: video_content?.thumbnail || video_content?.images?.poster,   // Object
+        image_src: video_content?.thumbnail || video_content?.poster,       // Url
         duration: video_content?.duration,
     };
 
     // HACK: for explore site. Broadcom's account has this special custom field and Explore does not.
     if (!video_content?.custom_fields?.where_the_video_should_be_hosted_) { // Could be broadcom or vmware, so check if this exists
         data = {
-            title: video_content?.description,
+            title: video_content?.title || video_content?.description,
             sub_title: video_content?.name,
-            description: video_content?.long_description,
+            description: video_content?.description || video_content?.long_description,
             views: video_content.views,
             url: url_path,
             id: id,
             image: video_content?.images?.poster,
-            image_src: video_content?.poster,
+            image_src: video_content?.thumbnail || video_content?.poster,
             duration: video_content?.duration,
         };
 
@@ -554,27 +555,25 @@ export const VideoCard = (props) => {
         const paddedMinutes = minutes.toString().padStart(2, '0');
         const paddedSeconds = remainingSeconds.toString().padStart(2, '0');
 
-        if (paddedHours == '00' && paddedMinutes != '00' && paddedSeconds != '00') {
+        if (paddedHours == '00' && paddedMinutes != '00') {
             return `${paddedMinutes}:${paddedSeconds}`;
         }
         else if (paddedMinutes == '00' && paddedHours == '00' && paddedSeconds != '00') {
             return `${paddedSeconds} secs`;
         }
-        else {
+        else if (paddedHours != '00'){
             return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
         }
     }
 
-
-
-
     return (
         <div className="VideoCard card">
-            <div className="card-body">
-                <SiteLink to={data.url} target={target} rel="noopener noreferrer" className="video-thumbnail-link">
+            <div className={`card-body ${display_horizontal ? 'card-body-related-videos' : ''}`}>
+                <SiteLink to={data.url} target={target} rel="noopener noreferrer" className={`video-thumbnail-link ${display_horizontal ? 'col-related-videos' : ''}`}>
                     {data.image
                         ? <ImageBase image={data.image} alt={data?.title} className="video-thumbnail" />
                         : <ImageBase src={data.image_src} alt={data?.title} className="video-thumbnail" />}
+                    
                     <div image="" alt="Play button" className="play-button" />
                     <span className="video-duration">{formatMillisecondsToHours(data?.duration)}</span>
                 </SiteLink>
@@ -591,9 +590,9 @@ export const VideoCard = (props) => {
                         </div>
                     }
                     <div>
-                        {data?.title && <SiteLink className='card-video-title' to={data.url} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.title, 27) }}></h5>}</SiteLink>}
+                        {data?.title && <SiteLink className={display_horizontal? 'card-related-video-title':'card-video-title'} to={data.url} target={target}>{<h5 dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.title, max_title_chars) }}></h5>}</SiteLink>}
                     </div>
-                    {data?.description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.description, 53) }}></p>}
+                    {data?.description && <p className='card-video-des' dangerouslySetInnerHTML={{ __html: utils.truncateText(data?.description, max_description_chars) }}></p>}
                 </div>
             </div>
         </div>

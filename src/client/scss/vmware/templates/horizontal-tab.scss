@@ -103,10 +103,10 @@
 
         .lnk {
             margin: 0 !important;
-            @include cta-link-style;
+            //@include cta-link-style;
 
             &:after {
-                @include cta-link-after;
+            //    @include cta-link-after;
             }
         }
         .lnk-image{

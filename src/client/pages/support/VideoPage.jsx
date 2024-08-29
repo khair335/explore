@@ -11,24 +11,21 @@ import PageComponent, { withPageData } from 'routes/page.jsx';
 import SiteLink from "components/SiteLink.jsx";
 import { SubHead } from 'components/subHeader.jsx';
 import { Container, Row, Col, Nav, NavItem, NavLink, TabContent, TabPane, Collapse } from 'reactstrap';
-import Video from 'components/Video.jsx';
+import Video, { getRelatedVideos } from 'components/Video.jsx';
 import Loading from 'components/Loading.jsx';
 import ErrorPage from 'pages/error/ErrorPage.jsx';
 import classnames from 'classnames';
 import { withRouter } from 'routes/withRouter.jsx';
 import ImageBase from 'components/ImageBase.jsx';
+import { VideoCard } from 'templates/cards/CardFactory.jsx';
+
 // import Loading from 'components/Loading.jsx
 // import 'scss/pages/video-page.scss'
 
-// import Speakers from 'components/Speakers.jsx';
-// import Attachments from 'components/Attachments.jsx';
 import '../../scss/vmware/pages/video-page.scss';
 import 'scss/templates/horizontal-tab.scss';
 
-
 import 'scss/pages/microblog.scss'; // this of for copied text
-
-
 
 
 class VideoPage extends PageComponent {
@@ -51,6 +48,7 @@ class VideoPage extends PageComponent {
 			copySuccess: '',
 			activeTab: 'details',
 			relLoading: false,
+			search_url: '',
 		};
 
 		this.copy_tooltip_timeout = 0;
@@ -61,46 +59,58 @@ class VideoPage extends PageComponent {
 
 
 
-	setMediaData(title, description, duration, meta) {
-		// Set our title.
+	setMediaData(data) {
+		const searchUrl = this.generateEncodedTags(data?.customFields) || encodeURIComponent(data?.title);
+		const account = data?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? 'vmware' : 'explore'
+		const finalUrl = `${searchUrl}&account=${account}`;
 
-
-		this.setState({
-			title: title,
-			loading: false,
-			//error: error? true : false,
+		this.setState({ search_url: finalUrl }, () => {
+			if (this.state?.search_url) {
+				this.fetchData();
+			}
 		});
 
+		this.setState({
+			search_url: finalUrl,
+			title: data.title,
+			loading: false,
+			videoDetails: data
+		});
+
+		// Set our title.
+
+		// this.setState({
+		// 	title: data.title,
+		// 	loading: false,
+		// 	//error: error? true : false,
+		// });
 
 		setMeta({
-			title: title,
-			meta_description: description,
+			title: data.title,
+			meta_description: data.description,
 			canonical: window.location.href,
 		});
 
+		// this.setState({
+		// 	videoDetails: data
+		// })
 
-		//Update meta details for VMware and Broadcom
-		if (meta.custom_fields?.where_the_video_should_be_hosted_) {
-			if (!meta.long_description) {
-				meta.long_description = meta.description
-			}
-			meta.description = meta.name
-			meta.name = null;
-		}
-
-
-		this.setState({
-			videoDetails: meta
-		})
 		// Set our browser title.
+		document.title = data.title;
+	}
 
-		if (meta.custom_fields?.where_the_video_should_be_hosted_) {
+	generateEncodedTags(customFields) {
 
-			document.title = title;
+		if (Object.keys(customFields).length === 1 && customFields.hasOwnProperty('where_the_video_should_be_hosted_')) {
+			return '';
 		}
-		else {
-			document.title = 'VMware Explore Video Landing';
-		}
+
+		const encodedTags = Object.entries(customFields)
+			.filter(([key]) => !key.startsWith('speaker')) // Filter out keys that start with 'speaker'
+			.map(([key, value]) => {
+				return value.split(' | ').map(val => `tag%3A${encodeURIComponent(val.trim())}`).join('+');
+			})
+			.join('+');
 	}
 	//for tabs
 	toggle(tab) {
@@ -208,9 +218,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Twitter', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
+						title: this.state?.videoDetails?.title,
 						image: this.state.image,
-						desc: this.state?.videoDetails?.long_description,
+						desc: this.state?.videoDetails?.description,
 						via: this.state.via,
 						platform: 'twitter'
 					}), className: 'bi brcmicon-twitter'
@@ -218,9 +228,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'LinkedIn', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
+						title: this.state?.videoDetails?.title,
 						image: this.state.image,
-						desc: this.state?.videoDetails?.long_description,
+						desc: this.state?.videoDetails?.description,
 						via: this.state.via,
 						platform: 'linkedin'
 					}), className: 'bi brcmicon-linkedin'
@@ -228,9 +238,9 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Facebook', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
+						title: this.state?.videoDetails?.title,
 						image: this.state.image,
-						desc: this.state?.videoDetails?.long_description,
+						desc: this.state?.videoDetails?.description,
 						via: this.state.via,
 						platform: 'facebook'
 					}), className: 'bi brcmicon-facebook'
@@ -238,7 +248,7 @@ class VideoPage extends PageComponent {
 				{
 					name: 'Email', socialLink: this.get_shareLinks({
 						url: shareUrl,
-						title: this.state?.videoDetails?.description,
+						title: this.state?.videoDetails?.title,
 						image: this.state.image,
 						desc: 'Shareable Video Link: ' + shareUrl,
 						via: this.state.via,
@@ -319,79 +329,45 @@ class VideoPage extends PageComponent {
 		);
 	};
 
-
-	componentDidMount() {
-		this.setState({
-			relLoading: true,
-		})
-
-		fetch(`${config.video?.endpoint}/${this.state?.mediaid}/related`, {
-			method: 'get',
-			headers: new Headers({
-				'Accept': `application/json;pk=${config.video.policy_key}`,
-			}),
-		})
-			.then(resp => resp.json())
-			.then(json => {
-
-				let videos = json.videos?.map(video => {
-
-					if (video?.custom_fields?.where_the_video_should_be_hosted_ === "VMware") {
-						if (!video.long_description) {
-							video.long_description = video.description
-						}
-						video.description = video.name
-						video.name = null;
-					}
-					return video;
-				});
-				this.setState({
-					relatedVideos: { videos },
-					relLoading: false,
-
-
-				});
+	componentDidUpdate(prevProps) {
+		const { params: { mediaid } } = this.props;
+		if (mediaid !== prevProps.params.mediaid) {
+			this.setState({
+				mediaid,
+				loading: true,
+				title: 'Loading...',
 			});
-
+		}
 	}
 
-
-	formatMillisecondsToHours(milliseconds) {
-		const seconds = Math.floor(milliseconds / 1000);
-		const hours = Math.floor(seconds / 3600);
-		const minutes = Math.floor((seconds % 3600) / 60);
-		const remainingSeconds = seconds % 60;
-
-		// Pad the minutes and seconds with leading zeros, if required
-		const paddedHours = hours.toString().padStart(2, '0');
-		const paddedMinutes = minutes.toString().padStart(2, '0');
-		const paddedSeconds = remainingSeconds.toString().padStart(2, '0');
-
-		if (paddedHours == '00' && paddedMinutes != '00' && paddedSeconds != '00') {
-			return `${paddedMinutes}:${paddedSeconds}`;
+	componentDidMount() {
+		if (this.state.search_url) {
+			this.fetchData();
 		}
-		else if (paddedMinutes == '00' && paddedHours == '00' && paddedSeconds != '00') {
-			return `${paddedSeconds}`;
+	}
+
+	async fetchData() {
+		if (!this.state.relLoading) {
+			this.setState({
+				relLoading: true,
+			})
+
+			// fetch related videos;
+			const videos = await getRelatedVideos(this.state?.search_url);
+
+			this.setState({
+				relatedVideos: { videos },
+				relLoading: false,
+				loading: false,
+			});
 		}
-		else {
-			return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
-		}
-	};
-
-
-
-
-
-	truncateDescription(text, maxLength) {
-		if (text?.length <= maxLength) return text;
-		return text?.substr(0, maxLength) + '...';
-	};
+	}
 
 	render() {
-
-		const related_videos = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ?
-			this?.state?.relatedVideos?.videos?.filter((video) => video?.custom_fields?.where_the_video_should_be_hosted_ == "VMware")?.slice(0, 3) :
+		const related_videos = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ?
+			this?.state?.relatedVideos?.videos?.filter((video) => video?.isVMWare)?.slice(0, 3) :
 			this.state?.relatedVideos?.videos?.slice(0, 3);
+
 		const settings = {
 			title: "false",
 			duration: "false",
@@ -442,11 +418,11 @@ class VideoPage extends PageComponent {
 
 		let main_url = ''
 
-		if (this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_) {
-			main_title = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
-			main_url = this.state?.videoDetails?.custom_fields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/searchpage' : '/support/video-webinar-library'
+		if (this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_) {
+			main_title = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
+			main_url = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/search' : '/support/video-webinar-library'
 		} else {
-			main_title = 'VMware Explore 2023'
+			main_title = 'VMware Explore'
 			main_url = '/explore/video-library/search'
 		}
 
@@ -455,12 +431,25 @@ class VideoPage extends PageComponent {
 		const sections = [
 			{ name: 'details', text: 'Details' },
 			{ name: 'speakers', text: 'Speakers' },
-			{ name: 'attachments', text: 'Attachments' },
+			{ name: 'presentation', text: 'Presentation' },
 			{ name: 'share', text: 'Share' }
 		];
 
-		const filteredSections = sections?.filter(section => section.name !== 'speakers' && section.name !== 'attachments');
 
+		const speakersArray = [];
+
+		// Iterate over custom_fields to extract speaker objects
+		//Rainfocus limits the maximum number of speakers to 7
+		for (let i = 1; i <= 7; i++) {
+			const speakerKey = `speaker_0${i}`;
+			if (this.state?.videoDetails?.customFields?.[speakerKey]) {
+				speakersArray.push(JSON.parse(this.state?.videoDetails?.customFields[speakerKey]));
+			}
+		}
+
+		const filteredSections = speakersArray.length > 0 && JSON.stringify(this.state?.videoDetails?.link) != '{}' ?
+			sections : speakersArray.length > 0 && JSON.stringify(this.state?.videoDetails?.link) == '{}' ? sections?.filter(section => section.name !== 'presentation') :
+				speakersArray.length == 0 && JSON.stringify(this.state?.videoDetails?.link) != '{}' ? sections?.filter(section => section.name !== 'speakers') : sections?.filter(section => section.name !== 'speakers' && section.name !== 'presentation')
 
 		return (
 			<Container id="Video">
@@ -486,7 +475,7 @@ class VideoPage extends PageComponent {
 											</div>
 											{/* video title */}
 											<div className="col-md-12 col-sm-12 col-xs-12">
-												<h1 className="video-title" dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.description }}></h1>
+												<h1 className="video-title" dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.title }}></h1>
 											</div>
 											{/* tab function */}
 											<div>
@@ -511,7 +500,7 @@ class VideoPage extends PageComponent {
 														<div className='abstract-summary'>
 															<Collapse isOpen={this.state.activeTab === 'details'}>
 																<div className='abstract-fullsummary'>
-																	<p dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.long_description }}></p>
+																	<p dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.description }}></p>
 																</div>
 															</Collapse>
 														</div>
@@ -524,40 +513,44 @@ class VideoPage extends PageComponent {
 																<label>Session Code</label>
 																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.name }}></span>
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.sessiontype && <li>
+															{this.state?.videoDetails?.customFields?.sessiontype && <li>
 																<label>Type</label>
-																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.sessiontype }}></span>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.customFields?.sessiontype }}></span>
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.track && <li>
+															{this.state?.videoDetails?.customFields?.track && <li>
 																<label>Track</label>
-																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.track }}></span>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.customFields?.track }}></span>
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.products && <li>
+															{this.state?.videoDetails?.customFields?.products && <li>
 																<label>Products</label>
-																{this.state?.videoDetails?.custom_fields?.products?.split('|')?.map((item, index) => (
+																{this.state?.videoDetails?.customFields?.products?.split('|')?.map((item, index) => (
 																	<p key={index} dangerouslySetInnerHTML={{ __html: item }}></p>))}
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.level && <li>
+															{this.state?.videoDetails?.customFields?.level && <li>
 																<label>Level</label>
-																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.level }}></span>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.customFields?.level }}></span>
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.event_delivery && <li>
+															{this.state?.videoDetails?.customFields?.event_delivery && <li>
 																<label>Event Delivery</label>
-																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.custom_fields?.event_delivery }}></span>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.customFields?.event_delivery }}></span>
 															</li>}
-															{this.state?.videoDetails?.custom_fields?.audience && <li>
+															{this.state?.videoDetails?.customFields?.audience && <li>
 																<label>Audience</label>
-																{this.state?.videoDetails?.custom_fields?.audience?.split('|')?.map((item, index) => (
+																{this.state?.videoDetails?.customFields?.audience?.split('|')?.map((item, index) => (
 																	<p key={index} dangerouslySetInnerHTML={{ __html: item }}></p>))}
+															</li>}
+															{this.state?.videoDetails?.customFields?.year && <li>
+																<label>Year</label>
+																<span dangerouslySetInnerHTML={{ __html: this.state?.videoDetails?.customFields?.year }}></span>
 															</li>}
 														</ul>
 													</TabPane>
-
-													{this.state?.videoDetails?.custom_fields?.speakers && <TabPane tabId="speakers">
-														<Speakers />
+													{speakersArray.length > 0 && <TabPane tabId="speakers">
+														<Speakers speakers={speakersArray} />
 													</TabPane>}
-													{this.state?.videoDetails?.custom_fields?.attachments && <TabPane tabId="attachments">
-														<Attachments />
+
+													{JSON?.stringify(this.state.videoDetails?.link) != '{}' && <TabPane tabId="presentation">
+														<Presentation presentation={this.state.videoDetails?.link} />
 													</TabPane>}
 													<TabPane tabId="share">
 														{this.renderShareOptions()}
@@ -574,32 +567,9 @@ class VideoPage extends PageComponent {
 												<div className="videos-container-0">
 													<h2>Related Videos</h2>
 													<Loading isLoading={this.state.relLoading}>
-														<div className="videos-container">
-															{related_videos?.map((video, index) => (
-																<div key={index} className="video-item">
-
-
-																	<SiteLink
-																		to={config.video.videoPath(video?.account) + "/" + video?.id}
-
-																		className="video-link"
-
-																		// style={{ backgroundImage: `url("${video.poster}")` }}
-																		target="_self"
-																	>
-																		<ImageBase className="related-image" src={`${video.poster}`} />
-																		<span className="video-duration">{this.formatMillisecondsToHours(parseInt(video?.duration))}</span>																		<div image="" alt="Play button" className="play-button" />
-																	</SiteLink>
-
-
-																	<div className="video-info">
-																		{video?.name && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><span className="video-name">{video?.name}</span></SiteLink>}
-																		{video?.description && <SiteLink to={config.video.videoPath(video?.account) + "/" + video?.id}><h3 className="related-video-link" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.description, 28) }}></h3></SiteLink>}
-																		{video?.long_description && <p className="related-des" dangerouslySetInnerHTML={{ __html: this.truncateDescription(video?.long_description, 120) }}></p>}
-																	</div>
-																</div>
-															))}
-														</div>
+														{related_videos?.map((video, index) => (
+															<VideoCard video={video} key={index} horizontalDisplay={true} maxTitleChars={28} maxDescChars={70} />
+														))}
 													</Loading>
 												</div>
 											</div>
@@ -622,80 +592,73 @@ export default withRouter(VideoPage);
 //speakers code
 
 class Speakers extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			visibleBios: {}, // Object to keep track of which speaker's bio is visible
+		};
+	}
 
-	state = {
-		speakers: [
-			{
-				name: "Dave Mitchell",
-				title: "IBM Cloud Global Solutions",
-				company: "IBM",
-				bio: "Short bio of Dave Mitchell...",
-				image: "/img/video-shareicons/Dave.jpg"
-			},
-			// more speakers here
-			{
-				name: "Dave Mitchell",
-				title: "IBM Cloud Global Solutions",
-				company: "IBM",
-				bio: "Short bio of Dave Mitchell...",
-				image: "/img/video-shareicons/Dave.jpg"
-			}
-		]
-	};
+	toggleBio = (uniqueKey) => {
+        this.setState(prevState => ({
+            visibleBios: {
+                ...prevState.visibleBios,
+                [uniqueKey]: !prevState.visibleBios[uniqueKey],
+            },
+        }));
+    };
 
 	render() {
-		const { speakers } = this.state;
-		const speakerImage = '/img/video-shareicons/Dave.jpg';
-
+		const { speakers } = this.props;
+		const { visibleBios } = this.state;
+		const placeholderImage = '';
 		return (
 			<div className="speakers-section">
-				{speakers.map(speaker => (
-					<div className="speaker-container" key={speaker.name}>
-						<ImageBase src={speaker.image} className="speaker-image" />
+				{speakers.map(speaker => {
+					const uniqueKey = speaker.id || `${speaker.firstName}_${speaker.lastName}`;
+
+					return(
+					<div className="speaker-container" key={uniqueKey}>
+						{speaker.photoUrl ?<ImageBase src={speaker.photoUrl} className="speaker-image"/>: <div className="speaker-image-default"><i className="fas fa-user speaker-image fa-3x"></i></div>}
 						<div className="speaker-details">
-							<h2>{speaker.name}</h2>
-							<p>{speaker.title}</p>
-							<p>{speaker.company}</p>
-							<button className="show-bio" onClick={() => {/* Function to show bio */ }}>Show Bio</button>
+							<h2>{speaker.firstName && <>{speaker.firstName}</>}{speaker.lastName && <> {speaker.lastName}</>}</h2>
+							{speaker.jobTitle && <p>{speaker.jobTitle}</p>}
+							{speaker.companyName && <p>{speaker.companyName}</p>}
+							{speaker.bio && <button
+								className="show-bio"
+								onClick={() => this.toggleBio(uniqueKey)}
+							>
+								{visibleBios[uniqueKey] ? 'Hide Bio' : 'Show Bio'}
+							</button>}
+							{visibleBios[uniqueKey] && speaker.bio && (
+								<div className="bio-description">
+									<p>{speaker.bio}</p>
+								</div>
+							)}
 						</div>
-					</div>
-				))}
+					</div>)
+				})}
 			</div>
 		);
 	}
 }
 
-class Attachments extends Component {
-
-	state = {
-		attachments: [
-			{
-				name: "Presentation",
-				title: "Presentation",
-				bio: "PDF",
-				image: "/img/video-shareicons/pdf-icon.jpg"
-			},
-			// more speakers here
-		]
-	};
+class Presentation extends Component {
 
 	render() {
-		const { attachments } = this.state;
-
+		const { presentation } = this.props;
+		const image_url = "/img/video-shareicons/pdf-icon.jpg"
 		return (
 			<div className="speakers-section">
-				{attachments.map((attachment) => (
-					<div className="speaker-container" key={attachment.name}>
-						<ImageBase image={attachment.image} className="speaker-image" />
-						<div className="speaker-details">
-							<h2>{attachment.name}</h2>
-							<p>{attachment.bio}</p>
-							<SiteLink to='https://static.rainfocus.com/vmware/explore2023bcn/sess/1685730995177001vX71/presrevpdf/NSCB1441BCN_1699457841521001vt3y.pdf' target='_blank'><button className="show-bio" >Download</button>
-							</SiteLink>
+				<div className="speaker-container">
+					<ImageBase src="/img/resource-library/icon Acrobat File PDF.svg" className="speaker-image" />
+					<div className="speaker-details">
+						<h2>Presentation PDF</h2>
+						<SiteLink to={presentation?.url} target='_blank'><button className="show-bio" >Download</button>
+						</SiteLink>
 
-						</div>
 					</div>
-				))}
+				</div>
 			</div>
 		);
 	}

@@ -49,6 +49,20 @@ Go to `http://localhost:3001`. Local development uses a proxy at port 3001. See 
 
 All other enviroment, UI's node server is ran on port `3000`.
 
+### Basic Auth ###
+
+For security we have rotating basic auths. So before each new terminal/powershell session, you need to temporarily set your enviroment variables. This can be set once for each terminal/powershell session.
+
+#### OSX ####
+In terminal
+`export username=####`
+`export password=####`
+
+#### Windows ####
+In powershell
+`$env:username="####"`
+`$env:password="####"`
+
 ### Host ###
 Due to WAF rules blocking localhost, add to your hosts file:
 `127.0.0.1 broadcomdevproxy`

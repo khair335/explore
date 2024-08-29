@@ -169,7 +169,7 @@ class App extends Component {
 			<Fragment>
 
 				{!this.state.error ?
-					<div role="main" id="main">
+					<div role="main" id="main" className={`site-${config?.microsite?.toLowerCase()}`}>
 
 						<RouterProvider router={router} />
 

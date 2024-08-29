@@ -17,14 +17,24 @@ class InPageNavigation extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeSection: null
+			activeSection: null,
+			offset: 0
 		};
 		this.sections = [];
 		this.handleScroll = this.handleScroll.bind(this);
+		
 	}
 
 	componentDidMount() {
 		require('smoothscroll-polyfill').polyfill();
+
+		// get offset based of height of in page nav - RH
+		const divInPageNav =  document.getElementsByClassName("InPageNavigation-section");
+		if (divInPageNav && divInPageNav.length > 0) {
+			// get nav total height
+			const offset = divInPageNav[0].getBoundingClientRect().height;  
+			this.setState({ offset: offset });
+		}
 
 		// Let's scroll to our page after we are loaded.
 		// HACK: Since we can be anywhere on the page and each component can be loaded at different times, let's do a delay
@@ -33,8 +43,11 @@ class InPageNavigation extends Component {
 				let id = window.location.hash.substring(1);		// Remove #.
 				let dom = document.getElementById(decodeURI(id));
 				if (dom) {
-
-					dom.scrollIntoView({
+					// Get the element's position relative to the document
+					const elementPosition = dom.getBoundingClientRect().top + window.pageYOffset;
+			
+					window.scrollTo({
+						top: elementPosition - this.state.offset, // subtract offset from in page nav height - RH
 						behavior: 'smooth'
 					});
 				}
@@ -58,7 +71,7 @@ class InPageNavigation extends Component {
 
 		for (let section of this.sections) {
 			if (section.element) {
-				let offsetTop = section.element.offsetTop;
+				let offsetTop = section.element.offsetTop - this.state.offset; // subtract offset from in page nav height - RH
 				let offsetHeight = section.element.offsetHeight;
 
 				if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
@@ -88,7 +101,7 @@ class InPageNavigation extends Component {
 											bounded={0}
 											to={hash}
 											hash={1}
-
+											offset={this.state.offset}
 										>
 											{/* New Feature for VMware, we can have custom tab titles. */}
 											{item.tab_title || item.section_title || item.content_block_title}

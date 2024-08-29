@@ -1,0 +1,19 @@
+/*
+* components/NoResult.scss
+*/
+// Styling for broadcom custom NoResult
+
+@import "../base/variables";
+@import "../base/buttons";
+
+
+.noresult {
+    ul{
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 35px;
+        li{
+            margin-bottom: 5px;
+        }
+    }
+}

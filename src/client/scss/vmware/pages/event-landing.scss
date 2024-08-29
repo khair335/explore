@@ -32,6 +32,16 @@
     // -----------------------------
     .event-live-pre {
 
+        // Override our parent banner
+        .top-banner .carousel-inner>.carousel-item .theme-dark>img {
+            position: unset;
+            bottom: unset;
+        }
+
+        .banner-caption-container {
+            position: absolute;
+        }
+
         @include media-breakpoint-up(lg) {
             .banner-caption-container {
                 // Override our global.
@@ -48,7 +58,7 @@
             // HACK: We must resize
             .carousel-inner .caption {
                 margin: auto 0;
-                
+
                 h1 {
                     padding-top: 0;
                 }
@@ -58,52 +68,21 @@
                 }
             }
 
+
+
         }
 
-        @include media-breakpoint-only(lg) {
+
+
+        @include media-breakpoint-down(md) {
+            .top-banner .carousel-inner>.carousel-item img {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
             .banner-caption-container {
-                // Override our global.
                 position: relative;
-                
-                // copied from home-hero.scss
-                // .banner-cta-wrapper {
-                //     .banner-cta-links {
-                //         >div {
-                //             >p {
-                //                 display: block;
-                //             }
-                //         }
-
-                //         .lnk {
-                //             width: max-content;
-                //             text-transform: uppercase;
-                //             background-color: $color-primary;
-                //             border: 1px solid $color-primary;
-                //             color: $color-white;
-
-                //             &:hover {
-
-                //                 text-decoration: none;
-                //                 background-color: $color-white;
-                //                 border: 1px solid $color-primary;
-                //                 color: $color-primary;
-                //                 text-decoration: none;
-                //             }
-
-                //         }
-                //     }
-                // }
-
-                // .caption {
-                //     max-width: 100%;
-                //     margin-top: 20px;
-
-                //     h1,
-                //     h2,
-                //     div {
-                //         color: $color-body;
-                //     }
-                // }
             }
         }
 
@@ -116,7 +95,8 @@
                 .event-live-pre-timer-image {
 
                     img {
-                        height: auto;;
+                        height: auto;
+                        ;
                     }
 
                     // Image is way to big in tablet.
@@ -175,6 +155,10 @@
                     object-fit: cover;
                     object-position: center;
                     height: auto;
+
+                    @include media-breakpoint-down(sm) {
+                        height: revert-layer;
+                    }
                 }
             }
 
@@ -210,9 +194,18 @@
     // Post
     // -----------------------------
     .event-live-post {
+        
+        // Hide the background image.
+        @include media-breakpoint-down(md) {
+            .top-banner .carousel-inner>.carousel-item img {
+                display: none;
+            }
+        }
+
         .top-banner {
             .teaser {
                 margin-top: 0;
+
                 .featurette-heading {
                     padding-top: 0;
                 }

@@ -240,12 +240,11 @@ return {
 getVideo(item){
     return {
         "@type": "VideoObject",
-        "name": item.name,
-        "description": item.longDescription,
-        "thumbnailUrl": item.thumbnailSources,
-        "uploadDate": item.updatedAt,
+        "name": item.title,
+        "description": item.description,
+        "thumbnailUrl": item.thumbnail,
+        "uploadDate": item.uploadDate,
         "duration": item.duration,
-        "contentUrl":item.contentUrl,
         "embedUrl":item.embedUrl
     }
 }

@@ -953,7 +953,9 @@ const VMmarkLanding = (props) => {
 		'Server Power-Performance': 'server-power-performance',
 		'Server and Storage Power-Performance': 'server-storage-power-performance',
 		'Performance': 'performance',
-		'Performance Score': 'performance-score'
+		'Performance Score': 'performance-score',
+		'Top Results': 'top-results',
+		'All Results': 'all-results'
 	};
 
 	const tabsMap = {
@@ -962,7 +964,9 @@ const VMmarkLanding = (props) => {
 		'server-power-performance': 'Server Power-Performance',
 		'server-storage-power-performance': 'Server and Storage Power-Performance',
 		'performance': 'Performance',
-		'performance-score': 'Performance Score'
+		'performance-score': 'Performance Score',
+		'top-results': 'Top Results',
+		'all-results': 'All Results'
 	}
 
 	const location = useLocation();
@@ -974,8 +978,8 @@ const VMmarkLanding = (props) => {
 	const tabsData = [
 		{
 			id: '1',
-			title: 'Top Scores',
-			hashValue: 'top-scores',
+			title: 'Top Results',
+			hashValue: 'top-results',
 		},
 		{
 			id: '2',
@@ -1003,8 +1007,8 @@ const VMmarkLanding = (props) => {
 		},
 		{
 			id: '5',
-			title: 'Performance Score',
-			hashValue: 'performance-score',
+			title: props.data.version === '4.0.0' ? 'All Results': 'Performance Score',
+			hashValue: props.data.version === '4.0.0' ? 'all-results': 'performance-score',
 			content: props.data.list?.filter(list => list?.category_name === 'Performance Score'),
 		},
 	];
@@ -1022,7 +1026,10 @@ const VMmarkLanding = (props) => {
 		for (let tab of tabsData) {
 			if (tab.hashValue === 'top-scores' && (props.data?.vmmark_filter || props.data?.spotlight)) {
 				return 'top-scores';
-			} else if (tab.content && tab.content.length > 0) {
+			} else if (tab.hashValue === 'top-results' && (props.data?.vmmark_filter || props.data?.spotlight)) {
+				return 'top-results';
+			} 
+			else if (tab.content && tab.content.length > 0) {
 				return tab.hashValue;
 			}
 		}
@@ -1068,7 +1075,7 @@ const VMmarkLanding = (props) => {
 							<Collapse isOpen={!collapse} className="horizontal-tab-collapse">
 								<Nav tabs>
 									{tabsData.map((tab) => {
-										if (tab.title == "Top Scores" && (props.data?.vmmark_filter || props.data?.spotlight)) {
+										if ((tab.title == "Top Scores" ||tab.title == "Top Results") && (props.data?.vmmark_filter || props.data?.spotlight)) {
 											return (
 												<NavItem key={tab.id}>
 													<NavLink
@@ -1081,7 +1088,21 @@ const VMmarkLanding = (props) => {
 												</NavItem>
 											)
 										}
-										if (tab.title != "Top Scores" && props?.data?.list?.some(item => item.category_name == tab.title)) {
+										if (tab.title != "Top Scores" && props.data.version != "4.0.0" &&  props?.data?.list?.some(item => item.category_name == tab.title)) {
+											return (
+												<NavItem key={tab.id}>
+													<NavLink
+														className={classnames('lnk', activeTab === tab.title ? 'active' : '')}
+														onClick={() => toggleTab(tab.title, tab.hashValue)}
+														href={`#${tab.hashValue}`}
+													>
+														{tab.title}
+													</NavLink>
+												</NavItem>
+											)
+										}
+
+										if (tab.title == "All Results" && props.data.version == "4.0.0") {
 											return (
 												<NavItem key={tab.id}>
 													<NavLink
@@ -1101,7 +1122,7 @@ const VMmarkLanding = (props) => {
 					</div>
 					<TabContent activeTab={activeTab}>
 						{tabsData.map((tab) => (
-							tab.title === 'Top Scores' ? <TabPane key={tab.id} tabId={tab.title}>
+							(tab.title === 'Top Scores' || tab.title === 'Top Results') ? <TabPane key={tab.id} tabId={tab.title}>
 								<TopScores scores={props.data?.vmmark_filter} spotlight={props.data?.spotlight} url={window.location} activeTab={activeTab} location_hash={location_hash} hashFlag={hashFlag} browser_version={props.data.version} />
 							</TabPane>
 								: <TabPane key={tab.id} tabId={tab.title}>

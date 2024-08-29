@@ -179,10 +179,47 @@ export default class BrightcoveVideo extends Component {
                     self.video = video;
 
                     self.player.on('loadedmetadata', () => {
-
                         // Race condition. so wait till the video is loaded.
                         if (self.props.onMediaData) {
-                            self.props.onMediaData(self.video.name, self.video.description, msToTime(Math.round(self.video.duration * 1000)), self.video);          // Translate from brightcove
+
+                            // set name/title
+                            // in vmware BrightCove name is title (where_the_video_should_be_hosted_ custom field only exist in vmware) - RH
+                            // in explore BrightCove name is used as an identifier and description as title - RH
+                            let name = "";
+                            let title = self.video.name;
+                            if (self.video.customFields?.where_the_video_should_be_hosted_ == undefined) {
+                                name = self.video.name; // only show name for Explore Brightcove account - RH
+                                title = self.video.description;
+                            }
+
+                            // set description
+                            let description = self.video.longDescription;
+                            if (description === null || description == '') {
+                                description = self.video.description;
+                            }
+                            description = utils.stripHtml(description).trim();
+
+                            // set duration 
+                            const duration = self.video.duration * 1000; 
+                            // set thumbnail
+                            const thumbnail = self.video.thumbnail;
+                            // set poster
+                            const poster = self.video.poster;
+                            // set uploadDate
+                            const uploadDate = self.video.updatedAt;
+                            // set embedUrl, embedUrl are contained in the video object, but can't access it. creating it manually - RH
+                            const embedUrl = "https://players.brightcove.net/"+self.video.accountId+"/"+config.video.player_id+"/index.html?videoId="+self.video.id;
+                            // set custom fields
+                            const customFields = self.video.customFields;
+
+                            let link = {};
+                            if(self.video.link){
+                                link = self.video.link;
+                            }
+
+                            const data = {name, title, description, duration, thumbnail, poster, uploadDate, embedUrl, customFields, link};
+
+                            self.props.onMediaData(data);
                         }
                     });
                     //deal with error
@@ -296,6 +333,60 @@ export class BrightcoveVideoPlaylist extends Component {
                 return json;
             });
     }
+}
+
+/**
+ *  @brief 
+ *  @details fetch api to get related videos by media id.
+ */
+export async function getBrightcoveRelatedVideos(search_url) {
+    return fetch(`/api/nocache/tools/brightcove/search?q=${search_url}&limit=3`, {
+        method: 'GET',
+        credentials: config.api_credentials,
+        cache: "no-store",
+
+    })
+        .then(resp => resp.json())
+        .then(json => {
+            let videos = json.videos?.map(video => {
+					
+                // set video id
+                const id = video?.id;
+
+                // set name/title
+                // in vmware BrightCove name is title (where_the_video_should_be_hosted_ custom field only exist in vmware) - RH
+                // in explore BrightCove name is used as an identifier and description as title - RH
+                let name = "";
+                let title = video?.name;
+                if (video?.custom_fields?.where_the_video_should_be_hosted_ == undefined) {
+                    name = video?.name; // only show name if it's Explore Brightcove account - RH
+                    title = video?.description;
+                }
+
+                // set description
+                let description = video?.long_description;
+                if (description === null || description == '') {
+                    description = video?.description;
+                }
+                
+                // set duration
+                const duration = video?.duration;
+                // set thumbnail
+                const thumbnail = video?.poster || video?.images?.poster?.src; // use larger image (poster) as thumbnail - RH
+                // set isVMWare bool value
+                const isVMWare = (video?.custom_fields?.where_the_video_should_be_hosted_ == undefined)? false : true;
+
+                //views
+                const views = video?.views;
+                
+                const data = {id, name, title, description, duration, thumbnail, isVMWare, views};
+            
+                return data;
+            });
+
+            return videos;
+        });
+
 }
 
 /**

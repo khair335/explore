@@ -142,7 +142,7 @@ const Events = (props) => {
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 
 	const logo = ">>"
-	const [events, setEvents] = useState(props.events);
+	const [events, setEvents] = useState(props.events?.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)));
 	const [searchTerm, setSearchTerm] = useState('');
 	const [filterString, setFilterString] = useState('');
 	const [isSubmit, setIsSubmit] = useState(false);
