@@ -628,6 +628,43 @@
   &.theme-content-block-gray {
     .ContentCard {
       .container {
+        .theme-card-cta-secondary{
+          .cb-cta-link {
+            gap: 10px !important;
+            justify-content: center;
+  
+            li {
+            
+                .button,
+                .lnk {
+                  @extend .bttn;
+                  @include secondary-button;
+  
+                  &:after {
+                    @include button-after;
+                  }
+  
+  
+  
+                }
+  
+                .link-bttn{
+                    @extend .bttn;
+                  @include secondary-button;
+                    padding: 6px 24px;
+                  &:after {
+                    @include button-after;
+                  }
+                  &:hover{
+                    text-decoration: none;
+                  }
+                    }
+            
+            }
+  
+  
+          }
+        }
         .cb-cta-link {
           gap: 10px !important;
           justify-content: center;
@@ -681,6 +718,7 @@
 
 
         }
+      
         
       }
     }
@@ -775,6 +813,17 @@
       }
     }
 
+  }
+
+  &.theme-content-block-dark{
+    
+      .card-body{
+        a{
+          color: #95d5ef;
+          display: inline;
+        }
+      }
+    
   }
 
   .TestimonialCard {
