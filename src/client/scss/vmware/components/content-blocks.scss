@@ -1544,6 +1544,10 @@
             a {
               margin: 0;
               color: #47B2D3;
+              &:hover{
+                background-color: transparent !important;
+                text-decoration-color: #95d5ef;
+              }
             }
           }
 
