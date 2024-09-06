@@ -33,13 +33,37 @@
 
         .card-body .card-title {
             font-size: 25px;
-            font-weight: 400;
+            font-weight: 300;
+            color: #000;
+        }
+
+        .card-body{
+            img{
+                max-height: 141px;
+                min-height: 141px;
+            }
+            & h5{
+            font-size: 16px;
+            line-height: 24px;
+            }
         }
 
         .card-footer {
             font-size: $font-size-lg;
             font-weight: 400;
             text-transform: uppercase;
+            a,
+            .lnk{
+                @include cta-link-style;
+
+                &:hover {
+                  border: none;
+                }
+      
+                &:after {
+                  @include cta-link-after;
+                }
+            }
         }
     }
     
