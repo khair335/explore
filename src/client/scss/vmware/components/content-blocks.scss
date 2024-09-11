@@ -2618,6 +2618,11 @@
 }
 
 .ContentCardTwoColumn-section {
+  &.theme-content-block-dark{
+    .card-title {
+      color: $color-white !important;
+    }
+  }
   .section-title {
     color: $color-black;
   }
