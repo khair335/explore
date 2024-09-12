@@ -1,6 +1,6 @@
 /**
  *  @file VideoLibrary.jsx
- *  @brief Seen in /support/resources/video-webinar-library
+ *  @brief Seen in /resources/video-library
  */
 import config from 'client/config.js';
 import React, { Component, Fragment } from 'react';
@@ -358,7 +358,7 @@ class VideoLibrary extends Component {
 			breadcrumb = document.getElementsByClassName('breadcumbs-page-links');
 
 		title.innerHTML = 'Video Library';
-		anchor.setAttribute('href', '/support/resources/video-webinar-library');
+		anchor.setAttribute('href', config.video?.videoLibraryPath);
 		channel.innerHTML = newChannel;
 		channel.classList.add('breadcrumbs_current');
 		updateBreadcrumb.classList.add('bc-breadcrumbs_item');
@@ -379,7 +379,6 @@ class VideoLibrary extends Component {
 
 		return (
 			<Container id="library-body">
-
 				<Row id="featured">
 					<Col lg="8" className="fadein" id="media-video" >
 						{this.state.video_id &&

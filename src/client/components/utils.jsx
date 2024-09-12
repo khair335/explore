@@ -166,14 +166,16 @@ export function localizeText(id, defaultText) {
 }
 
 export const filterParams = (updatedValues) => {
-	const newFilter = Object.entries(updatedValues)?.map(([category, values]) => {
-		if (values?.length === 0) return ''; // Skip categories with no values
-		// if (values?.length > 2) return `%3B${category}:${values.join(',')}`;
-		return `%2B${category}:${values.join(',')}`;
-	})?.filter(Boolean)?.join('');
-
+	const newFilter = Object.entries(updatedValues)
+	  ?.map(([category, values]) => {
+		if (values?.length === 0) return '';
+		const quotedValues = values.map(value => `"${value}"`).join(',');
+		return `%2B${category}:${quotedValues}`;
+	  })
+	  ?.filter(Boolean)
+	  ?.join('');
 	return newFilter;
-}
+  };
 
 /**
  *  @brief 

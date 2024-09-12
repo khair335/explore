@@ -31,14 +31,14 @@ const TechnicalPapersLanding = (props) => {
     const location_search = window.location.search;
     let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 
-    const [papers, setPapers] = useState(props.data.technical_papers)
-    const [searchResults, setSearchResults] = useState(papers)
-    const [showData, setShowData] = useState(searchResults)
-    const [products, setProducts] = useState([])
-    const [publisher, setPublisher] = useState([])
-    const [area, setArea] = useState([])
-    const [inputChange, setInputChange] = useState('');
-    const [searchTerm, setSearchTerm] = useState('');
+    const [papers, setPapers] = useState(props.data.technical_papers);
+    const [searchResults, setSearchResults] = useState(papers);
+    const [showData, setShowData] = useState(searchResults);
+    const [products, setProducts] = useState([]);
+    const [publisher, setPublisher] = useState([]);
+    const [area, setArea] = useState([]);
+    const [inputChange, setInputChange] = useState(searchParams.term || '');
+    const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
     const [isSubmit, setIsSubmit] = useState(false);
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(0);
@@ -51,18 +51,18 @@ const TechnicalPapersLanding = (props) => {
 
 
     const [selectedValues, setSelectedValues] = useState({
-        products: [],
-        publisher: [],
-        area: [],
-    })
+        products: searchParams.products || [],
+        publisher: searchParams.publisher || [],
+        area: searchParams.area || [],
+    });
     const filters = [
         { label: "Product", attribute: "products", tags: products },
         { label: "Publisher", attribute: "publisher", tags: publisher },
         { label: "Area", attribute: "area", tags: area },
-    ]
-    const product_json = {}
-    const publisher_json = {}
-    const area_json = {}
+    ];
+    const product_json = {};
+    const publisher_json = {};
+    const area_json = {};
     const keysToDisplay = ["Title", "Publisher", "Date", "Document"];
 
     const headerKeyMap = {
@@ -72,28 +72,7 @@ const TechnicalPapersLanding = (props) => {
         'Document': 'document',
     };
     useEffect(() => {
-        setInputChange(searchParams.term || '');
-        setSearchTerm(searchParams.term || '');
-        const updatedSelectedValues = {};
-
-        if (searchParams.products) {
-            updatedSelectedValues.products = searchParams.products.split(',');
-        } else {
-            updatedSelectedValues.products = [];
-        }
-
-        if (searchParams.publisher) {
-            updatedSelectedValues.publisher = searchParams.publisher.split(',');
-        } else {
-            updatedSelectedValues.publisher = [];
-        }
-
-        if (searchParams.area) {
-            updatedSelectedValues.area = searchParams.publisher.split(',');
-        } else {
-            updatedSelectedValues.area = [];
-        }
-
+        
         const updatedSortConfig = {}
 
         if (searchParams.sortcolumn) {
@@ -108,12 +87,7 @@ const TechnicalPapersLanding = (props) => {
             updatedSortConfig.sortorder = null;
         }
 
-
-        filterParams(updatedSelectedValues);
-
         setSortConfig(updatedSortConfig)
-
-        setSelectedValues(updatedSelectedValues);
 
     }, []);
 
@@ -125,12 +99,13 @@ const TechnicalPapersLanding = (props) => {
         };
 
         Object.keys(selectedValues).forEach(category => {
-            if (selectedValues[category].length > 0) {
-                searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
-            } else {
-                delete searchParams[category?.toLowerCase()];
-            }
-        });
+			const lowerCaseCategory = category?.toLowerCase();
+			if (selectedValues[category].length > 0) {
+			  searchParams[lowerCaseCategory] = selectedValues[category];
+			} else {
+			  delete searchParams[lowerCaseCategory];
+			}
+		  });
 
         Object.keys(sortConfig).forEach(category => {
             if (sortConfig[category]) {
@@ -140,8 +115,8 @@ const TechnicalPapersLanding = (props) => {
             }
         });
 
-
-        navigate({ search: `?${queryString.stringify(searchParams)}` });
+        const queryStringified = queryString.stringify(searchParams, { arrayFormat: 'bracket' });
+        navigate({ search: `?${queryStringified}` });
     }, [sortConfig, selectedValues, searchTerm])
 
     // Init/componentDidMount

@@ -62,7 +62,7 @@ class VideoPage extends PageComponent {
 	setMediaData(data) {
 		const searchUrl = this.generateEncodedTags(data?.customFields) || encodeURIComponent(data?.title);
 		const account = data?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? 'vmware' : 'explore'
-		const finalUrl = `${searchUrl}&account=${account}`;
+		const finalUrl = `${searchUrl}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=3&account=${account}`;
 
 		this.setState({ search_url: finalUrl }, () => {
 			if (this.state?.search_url) {
@@ -362,6 +362,10 @@ class VideoPage extends PageComponent {
 			});
 		}
 	}
+	isValidLinkObject = (link) => {
+		// Check if 'url' is a non-empty string
+		return link && typeof link.url === 'string' && link.url.trim() !== '';
+	};
 
 	render() {
 		const related_videos = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ?
@@ -394,7 +398,7 @@ class VideoPage extends PageComponent {
 			"position": 3,
 			"item": {
 				"name": "Video Library",
-				"url": "support/resources/video-webinar-library",
+				"url": config.video?.videoLibraryPath,
 				"target": "_self"
 			},
 			"show_in_navigation": true
@@ -420,12 +424,11 @@ class VideoPage extends PageComponent {
 
 		if (this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_) {
 			main_title = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? 'VMware' : 'Broadcom'
-			main_url = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/search' : '/support/video-webinar-library'
+			main_url = this.state?.videoDetails?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? '/videos/search' : config.video?.videoLibraryPath
 		} else {
 			main_title = 'VMware Explore'
 			main_url = '/explore/video-library/search'
 		}
-
 
 		// an array for tabs
 		const sections = [
@@ -447,13 +450,12 @@ class VideoPage extends PageComponent {
 			}
 		}
 
-		const filteredSections = speakersArray.length > 0 && JSON.stringify(this.state?.videoDetails?.link) != '{}' ?
-			sections : speakersArray.length > 0 && JSON.stringify(this.state?.videoDetails?.link) == '{}' ? sections?.filter(section => section.name !== 'presentation') :
-				speakersArray.length == 0 && JSON.stringify(this.state?.videoDetails?.link) != '{}' ? sections?.filter(section => section.name !== 'speakers') : sections?.filter(section => section.name !== 'speakers' && section.name !== 'presentation')
+		const filteredSections = speakersArray.length > 0 && this.isValidLinkObject(this.state.videoDetails?.link) ?
+			sections : speakersArray.length > 0 && !this.isValidLinkObject(this.state.videoDetails?.link) ? sections?.filter(section => section.name !== 'presentation') :
+				speakersArray.length == 0 && this.isValidLinkObject(this.state.videoDetails?.link) ? sections?.filter(section => section.name !== 'speakers') : sections?.filter(section => section.name !== 'speakers' && section.name !== 'presentation')
 
 		return (
 			<Container id="Video">
-
 				<Loading isLoading={this.state.loading}>
 					{!this.state.error
 						? <Fragment>
@@ -549,7 +551,7 @@ class VideoPage extends PageComponent {
 														<Speakers speakers={speakersArray} />
 													</TabPane>}
 
-													{JSON?.stringify(this.state.videoDetails?.link) != '{}' && <TabPane tabId="presentation">
+													{this.isValidLinkObject(this.state.videoDetails?.link)&& <TabPane tabId="presentation">
 														<Presentation presentation={this.state.videoDetails?.link} />
 													</TabPane>}
 													<TabPane tabId="share">
@@ -600,13 +602,13 @@ class Speakers extends Component {
 	}
 
 	toggleBio = (uniqueKey) => {
-        this.setState(prevState => ({
-            visibleBios: {
-                ...prevState.visibleBios,
-                [uniqueKey]: !prevState.visibleBios[uniqueKey],
-            },
-        }));
-    };
+		this.setState(prevState => ({
+			visibleBios: {
+				...prevState.visibleBios,
+				[uniqueKey]: !prevState.visibleBios[uniqueKey],
+			},
+		}));
+	};
 
 	render() {
 		const { speakers } = this.props;
@@ -617,26 +619,26 @@ class Speakers extends Component {
 				{speakers.map(speaker => {
 					const uniqueKey = speaker.id || `${speaker.firstName}_${speaker.lastName}`;
 
-					return(
-					<div className="speaker-container" key={uniqueKey}>
-						{speaker.photoUrl ?<ImageBase src={speaker.photoUrl} className="speaker-image"/>: <div className="speaker-image-default"><i className="fas fa-user speaker-image fa-3x"></i></div>}
-						<div className="speaker-details">
-							<h2>{speaker.firstName && <>{speaker.firstName}</>}{speaker.lastName && <> {speaker.lastName}</>}</h2>
-							{speaker.jobTitle && <p>{speaker.jobTitle}</p>}
-							{speaker.companyName && <p>{speaker.companyName}</p>}
-							{speaker.bio && <button
-								className="show-bio"
-								onClick={() => this.toggleBio(uniqueKey)}
-							>
-								{visibleBios[uniqueKey] ? 'Hide Bio' : 'Show Bio'}
-							</button>}
-							{visibleBios[uniqueKey] && speaker.bio && (
-								<div className="bio-description">
-									<p>{speaker.bio}</p>
-								</div>
-							)}
-						</div>
-					</div>)
+					return (
+						<div className="speaker-container" key={uniqueKey}>
+							{speaker.photoUrl ? <ImageBase src={speaker.photoUrl} className="speaker-image" /> : <div className="speaker-image-default"><i className="fas fa-user speaker-image fa-3x"></i></div>}
+							<div className="speaker-details">
+								<h2>{speaker.firstName && <>{speaker.firstName}</>}{speaker.lastName && <> {speaker.lastName}</>}</h2>
+								{speaker.jobTitle && <p>{speaker.jobTitle}</p>}
+								{speaker.companyName && <p>{speaker.companyName}</p>}
+								{speaker.bio && <button
+									className="show-bio"
+									onClick={() => this.toggleBio(uniqueKey)}
+								>
+									{visibleBios[uniqueKey] ? 'Hide Bio' : 'Show Bio'}
+								</button>}
+								{visibleBios[uniqueKey] && speaker.bio && (
+									<div className="bio-description">
+										<p>{speaker.bio}</p>
+									</div>
+								)}
+							</div>
+						</div>)
 				})}
 			</div>
 		);

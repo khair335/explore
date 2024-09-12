@@ -340,7 +340,7 @@ export class BrightcoveVideoPlaylist extends Component {
  *  @details fetch api to get related videos by media id.
  */
 export async function getBrightcoveRelatedVideos(search_url) {
-    return fetch(`/api/nocache/tools/brightcove/search?q=${search_url}&limit=3`, {
+    return fetch(`/api/nocache/tools/brightcove/search?q=${search_url}`, {
         method: 'GET',
         credentials: config.api_credentials,
         cache: "no-store",
