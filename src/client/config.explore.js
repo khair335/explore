@@ -161,7 +161,8 @@ class Config {
 				}
 
 				return '/video';		// Standalone video page.
-			}
+			},
+			videoLibraryPath: '/explore/video-library',
 		};
 
 		// Used to figure out what type of site to one off.

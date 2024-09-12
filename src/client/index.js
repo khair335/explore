@@ -254,7 +254,6 @@ class App extends Component {
 
 
 											<li><hr style={{ border: '1px #666 solid', margin: '2px 0' }} /></li>
-											<li><SiteLink to="/support/resources/video-webinar-library" className="text-light">Video Webinar Library</SiteLink></li>
 											<li><SiteLink to="/support/knowledgebase" className="text-light">Knowledgebase</SiteLink></li>
 											<li><SiteLink to="/support/knowledgebase/1211161472611/-3ware-verify-never-starts.-" className="text-light">Knowledgebase Detail</SiteLink></li>
 											<li><SiteLink to="/support/knowledgebase/1211162068415/firmware-download-resulted-dpc-watchdog-timeout-violation" className="text-light">Knowledgebase Detail Issue</SiteLink></li>

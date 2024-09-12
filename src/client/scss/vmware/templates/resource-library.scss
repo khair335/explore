@@ -290,8 +290,6 @@
                 text-decoration: none;
                 margin-bottom: 0;
                 font-weight: 300;
-                display: flex;
-                align-items: center;
 
                 &:hover {
                     text-decoration: underline;
@@ -313,9 +311,8 @@
             }
 
             .col {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                // display: flex;
+                // align-items: center;
                 padding-left: 24px;
 
                 // padding-right:0px;

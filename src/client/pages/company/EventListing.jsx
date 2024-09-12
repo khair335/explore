@@ -143,21 +143,21 @@ const Events = (props) => {
 
 	const logo = ">>"
 	const [events, setEvents] = useState(props.events?.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)));
-	const [searchTerm, setSearchTerm] = useState('');
+	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
 	const [filterString, setFilterString] = useState('');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [openDropdown, setOpenDropdown] = useState(null);
-	const [inputChange, setInputChange] = useState('');
+	const [inputChange, setInputChange] = useState(searchParams.term || '');
 	const [sortConfig, setSortConfig] = useState({ sortorder: null, sortcolumn: null });
 	const [searchResults, setSearchResults] = useState(events)
 	const [showData, setShowData] = useState(searchResults)
 	const [start, setStart] = useState(0);
 	const [end, setEnd] = useState(0);
 	const [selectedValues, setSelectedValues] = useState({
-		'format': [],
-		'region': [],
-		'event_type': [],
-		'topic': []
+		'format': searchParams.format || [],
+		'region': searchParams.region || [],
+		'event_type': searchParams.event_type || [],
+		'topic': searchParams.topic || []
 	})
 
 	const headerKeyMap = {
@@ -187,35 +187,8 @@ const Events = (props) => {
 	const tabsMap = props.tabsMap
 
 	useEffect(() => {
-		setInputChange(searchParams.term || '');
-		setSearchTerm(searchParams.term || '');
 		setActiveTab(tabsMap[props.location_hash.substring(1)] || tabsMap['upcoming'])
-		setHashFlag(tabsMap[props.location_hash.substring(1)] ? true : false)
-		const updatedSelectedValues = {};
-
-		if (searchParams.format) {
-			updatedSelectedValues.format = searchParams.format;
-		} else {
-			updatedSelectedValues.format = [];
-		}
-
-		if (searchParams.region) {
-			updatedSelectedValues.region = [searchParams.region];
-		} else {
-			updatedSelectedValues.region = [];
-		}
-
-		if (searchParams.event_type) {
-			updatedSelectedValues.event_type = [searchParams.event_type];
-		} else {
-			updatedSelectedValues.sessiontype = [];
-		}
-
-		if (searchParams.topic) {
-			updatedSelectedValues.topic = [searchParams.topic];
-		} else {
-			updatedSelectedValues.topic = [];
-		}
+		setHashFlag(tabsMap[props.location_hash.substring(1)] ? true : false);
 
 		const updatedSortConfig = {}
 
@@ -231,12 +204,7 @@ const Events = (props) => {
 			updatedSortConfig.sortorder = null;
 		}
 
-
-		filterParams(updatedSelectedValues);
-
 		setSortConfig(updatedSortConfig)
-
-		setSelectedValues(updatedSelectedValues);
 
 	}, []);
 
@@ -426,12 +394,13 @@ const Events = (props) => {
 	//Maintaining the statful based on the search term, selectedValues and sorting order
 	useEffect(() => {
 		Object.keys(selectedValues).forEach(category => {
+			const lowerCaseCategory = category?.toLowerCase();
 			if (selectedValues[category].length > 0) {
-				searchParams[category?.toLowerCase()] = selectedValues[category]
+			  searchParams[lowerCaseCategory] = selectedValues[category];
 			} else {
-				delete searchParams[category?.toLowerCase()];
+			  delete searchParams[lowerCaseCategory];
 			}
-		});
+		  });
 
 		if (searchTerm.length > 0) {
 			searchParams['term'] = searchTerm
@@ -453,8 +422,8 @@ const Events = (props) => {
 				hashKey = key;
 			}
 		})
-		// navigate({ hash: `#${hashKey}` });
-		hashFlag ? navigate({ search: `?${queryString.stringify(searchParams)}`, hash: `#${hashKey}` }) : navigate({ search: `?${queryString.stringify(searchParams)}` });
+		const queryStringified = queryString.stringify(searchParams, { arrayFormat: 'bracket' });
+		hashFlag ? navigate({ search: `?${queryStringified}`, hash: `#${hashKey}` }) : navigate({ search: `?${queryStringified}` });
 	}, [selectedValues, searchTerm, sortConfig, activeTab])
 
 	const handleClearInput = () => {

@@ -22,13 +22,12 @@ import { filterParams } from 'components/utils.jsx';
 
 const ExploreSearchVideos = (props) => {
 	const navigate = useNavigate();
-	const location = useLocation();
 	const location_search = window.location.search;
 	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
 	const [openDropdown, setOpenDropdown] = useState(null);
 	const [hasSelectedValues, setHasSelectedValues] = useState(false);
-	const [hasVideos, setHasVideos] = useState(false)
-	const [videos, setVideos] = useState([])
+	const [hasVideos, setHasVideos] = useState(false);
+	const [videos, setVideos] = useState([]);
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const [sortKey, setSortKey] = useState('most-recent');
 	const [videoCount, setVideoCount] = useState('0');
@@ -41,13 +40,13 @@ const ExploreSearchVideos = (props) => {
 	const [loadCount, setLoadCount] = useState(0);
 	// const [selectedYear, setSelectedYear] = useState('2023')
 	const initialValues = {
-		event_delivery: searchParams.event_delivery?.split(',') || [],
-		products: searchParams.products?.split(',') || [],
-		sessiontype: searchParams.sessiontype?.split(',') || [],
-		audience: searchParams.audience?.split(',') || [],
-		track: searchParams.track?.split(',') || [],
-		level: searchParams.level?.split(',') || [],
-		region: searchParams.region?.split(',') || [],
+		event_delivery: searchParams.event_delivery || [],
+		products: searchParams.products || [],
+		sessiontype: searchParams.sessiontype || [],
+		audience: searchParams.audience || [],
+		track: searchParams.track || [],
+		level: searchParams.level || [],
+		region: searchParams.region || [],
 	}
 	const base_url = `/api/nocache/tools/brightcove/search`
 	const [selectedValues, setSelectedValues] = useState(initialValues)
@@ -153,8 +152,8 @@ const ExploreSearchVideos = (props) => {
 
 		if (!props.nofilter) {
 			const url = (searchTerm?.trim()?.length > 0) ?
-				`${base_url}?q=%2B${searchTerm}%20%2Byear:2023%202024%20${filterString}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}` :
-				`${base_url}?q=%2Byear:2023%202024%20${filterString}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}`;
+				`${base_url}?q=%2B${searchTerm}%20%2Byear:2023:2024%20${filterString}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}` :
+				`${base_url}?q=%2Byear:2023:2024%20${filterString}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}`;
 			const final_url = (sortKey !== 'most-recent') ? `${url}&sort=-plays_total&account=explore` : `${url}&sort=-updated_at&account=explore`;
 			fetchData(final_url);
 		} else {
@@ -169,24 +168,29 @@ const ExploreSearchVideos = (props) => {
 
 	useEffect(() => {
 		if (searchTerm.length > 0) {
-			searchParams['term'] = searchTerm
+		  searchParams['term'] = searchTerm;
 		} else {
-			delete searchParams['term']
-		};
-		if (!props.nofilter) {
-			Object.keys(selectedValues).forEach(category => {
-				if (selectedValues[category].length > 0) {
-					searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
-				} else {
-					delete searchParams[category?.toLowerCase()];
-				}
-			});
-
-			// searchParams['year'] = selectedYear;
+		  delete searchParams['term'];
 		}
-
-		navigate({ search: `?${queryString.stringify(searchParams)}` });
-	}, [selectedValues, searchTerm])
+	  
+		if (!props.nofilter) {
+		  Object.keys(selectedValues).forEach(category => {
+			const lowerCaseCategory = category?.toLowerCase();
+			if (selectedValues[category].length > 0) {
+			  // Convert selected values to an array format
+			  searchParams[lowerCaseCategory] = selectedValues[category];
+			} else {
+			  delete searchParams[lowerCaseCategory];
+			}
+		  });
+	  
+		  // searchParams['year'] = selectedYear;
+		}
+	  
+		// Stringify with arrayFormat: 'bracket' to get the desired output
+		const queryStringified = queryString.stringify(searchParams, { arrayFormat: 'bracket' });
+		navigate({ search: `?${queryStringified}` });
+	  }, [selectedValues, searchTerm]);
 
 
 	const toggle = () => {
