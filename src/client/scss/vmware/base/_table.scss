@@ -43,6 +43,9 @@ table {
   }
 
   tbody {
+   > tr:nth-child(even){
+      background-color: #E3E2E3 !important;
+    }
     td {
       border: 0 !important;
       box-shadow: inset 0px -1px 0px 0px $color-grey--50 !important;

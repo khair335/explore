@@ -2379,15 +2379,20 @@
       color: $color-black;
     }
   }
-
+  &.theme-cbl-card-light {
+    .card-title {
+      color: $color-black !important;
+    }
+  }
   &.theme-content-block-imagedark {
     .section-title {
       color: $color-white;
     }
 
     .card-title {
-      color: $color-white;
+      // color: $color-white;
     }
+
 
     &.theme-cbl-card-light {
       .section-title {
@@ -2395,7 +2400,7 @@
       }
 
       .card-title {
-        color: $color-white;
+        color: $color-black !important;
       }
 
       .ImageCard {
