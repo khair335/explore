@@ -44,11 +44,11 @@ table {
 
   tbody {
    > tr:nth-child(even){
-      background-color: #E3E2E3 !important;
+      background-color: $background-light-gray!important;
     }
     td {
       border: 0 !important;
-      box-shadow: inset 0px -1px 0px 0px $color-grey--50 !important;
+      box-shadow: inset 0px -1px 0px 0px $color-grey--100 !important;
       vertical-align: middle !important;
       padding: 25px 0 !important;
 
