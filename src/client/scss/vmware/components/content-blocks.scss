@@ -506,6 +506,16 @@
         }
       }
     }
+    .theme-card-cta-link{
+      a{
+        text-decoration: none;
+        &:hover{
+border: 0;
+text-decoration-color: #04314D;
+text-decoration: underline;
+        }
+      }
+    }
   }
 }
 
@@ -2917,9 +2927,11 @@
       .theme-card-cta-link{
         .cb-cta-link{
           a{
+            text-decoration: none;
             &:hover{
 border: 0;
 text-decoration-color: #04314D;
+text-decoration: underline;
             }
           }
         }
