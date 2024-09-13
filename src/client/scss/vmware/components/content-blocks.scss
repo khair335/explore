@@ -2408,6 +2408,7 @@
           color: $color-black;
         }
       }
+      
     }
   }
 
@@ -2437,6 +2438,11 @@
     }
     .card-title {
       color: $color-white;
+    }
+    &.theme-cbl-card-light {
+      .card-body a{
+        color: $color-white;
+      }
     }
   }
 }
@@ -2905,6 +2911,20 @@
 
 
 
+  }
+  &.theme-cbl-card-transparent{
+    .ContentCardTwoColumn{
+      .theme-card-cta-link{
+        .cb-cta-link{
+          a{
+            &:hover{
+border: 0;
+text-decoration-color: #04314D;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
