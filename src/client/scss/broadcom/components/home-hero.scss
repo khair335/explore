@@ -110,6 +110,11 @@ $carousel-indicator-height: 20px;
         a {
             margin-bottom: 10px; //for CA hero banner with more than one CTA
           }
+
+          .teaser-description {
+            padding-right: .5rem;   // .pr-2
+            margin-bottom: .5rem;   // .mb-2
+          }
       }
        a.lnk {
         font-size: 16px;

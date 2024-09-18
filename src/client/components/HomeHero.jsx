@@ -1,3 +1,4 @@
+import config from 'client/config.js';
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SiteLink from 'components/SiteLink.jsx';
@@ -196,7 +197,7 @@ export default class HomeHero extends Component {
 
 			return {
 				id: hero.content_id,
-				image: hero.hero_image,		//"img/Hero_Broadcom_CAT_1920x455_finalv2.jpg",
+				image: hero.hero_image,		// {src: '/img/banner.jpg', width: 1400, height: 350},   //"img/Hero_Broadcom_CAT_1920x455_finalv2.jpg",
 				progressive_image: image ? `${image}${image.includes('?') ? '&' : '?'}width=${progressive_width}&height=${progressive_height}` : '',
 				alt: utils.getNestedItem(['hero_image', 'alt'], hero) || '',
 				description: hero.description,
@@ -316,14 +317,25 @@ export default class HomeHero extends Component {
 			const size = `size-${item?.size?.toLowerCase() || 'default'}`;
 			const col = item.video ? 6 : 7;		// The caption section size is determined if we have a video or not.
 
+			// JD - Let our parent know how many columns ahead of time.
+			let num_cols = 1;
+			if (item.video) {
+				num_cols++;
+			}
+
+			if (this.props.children) {
+				num_cols++;
+			}
+
 			return (
 				<CarouselItem
 					onExiting={this.onExiting}
 					onExited={this.onExited}
 					key={item.id}
 				>
-					<div className={classnames(theme, size)}>
-						<ImageBase image={item.image} className="img-fluid" progressiveImage={item.progressive_image} />
+					<div className={classnames(theme, size, `num-cols-${num_cols}`)}>
+						<ImageBase image={item.image} className="banner-image img-fluid" progressiveImage={item.progressive_image} 
+							sizes={{ sm: config.media_breakpoints.sm*2, md: config.media_breakpoints.md*2, lg: config.media_breakpoints.lg*2 }}/>
 						{/* hiding with inline style if no data because if you remove CarouselItem from flow it will crash */}
 						<div className="banner-caption-container">
 							<div className="container">													{/* hiding with inline style if no data because if you remove CarouselItem from flow it will crash */}
@@ -331,7 +343,7 @@ export default class HomeHero extends Component {
 									<Col className="caption left text-left" lg={col} style={(item.link || item.caption || item.description || item.links.length > 0) ? { "display": "block" } : hideTeaser}>
 										<div className="teaser">
 											{item.caption && <h1 className="featurette-heading" dangerouslySetInnerHTML={{ __html: item.caption }}></h1>}
-											{item.description && <div className="pr-2 mb-2" dangerouslySetInnerHTML={{ __html: item.description }}></div>}
+											{item.description && <div className="teaser-description" dangerouslySetInnerHTML={{ __html: item.description }}></div>}
 
 											<div className="banner-cta-wrapper">
 												{item.links.map(link => {

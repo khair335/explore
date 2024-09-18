@@ -25,7 +25,7 @@ import { router, useLocationSearch } from 'routes/router.jsx';
 import { withRouter } from 'routes/withRouter.jsx';
 import { localizeText } from 'components/utils.jsx';
 import MultiSelectFilter from 'components/MultiSelectFilter.jsx';
-import { filterParams } from 'components/utils.jsx';
+import { filterParams, buildQueryParams } from 'components/utils.jsx';
 
 
 // TEMP: Using the css classes
@@ -109,11 +109,11 @@ class CaseStudySearch extends Component {
 
 export default function (props) {
 	const search = useLocationSearch();
-	
+
 	const navigate = useNavigate();
 	const location = useLocation();
 	const location_search = window.location.search;
-	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
+	let searchParams = queryString.parse(buildQueryParams(location_search), { arrayFormat: 'bracket' });
 	const [caseStudy, setCaseStudy] = useState(props.data?.cases)
 	const [searchResults, setSearchResults] = useState(caseStudy);
 	const [showData, setShowData] = useState(searchResults);
@@ -126,79 +126,29 @@ export default function (props) {
 	const [products, setProducts] = useState([]);
 	const [geographies, setGeographies] = useState([]);
 	const [customers, setCustomers] = useState([]);
-	const [regions, setRegions] = useState([]);
-	const [countries, setCountries] = useState([]);
 	const [industries, setIndustries] = useState([]);
 	const [selectedValues, setSelectedValues] = useState({
-		solutions: [],
-		products: [],
-		geographies: [],
-		customers: [],
-		// regions: [],
-		// countries: [],
-		industries: [],
-	})
-
-	useEffect(() => {
-		const updatedSelectedValues = {};
-
-		if (searchParams.solutions) {
-			updatedSelectedValues.solutions = searchParams.solutions.split(',');
-		} else {
-			updatedSelectedValues.solutions = [];
-		}
-
-		if (searchParams.products) {
-			updatedSelectedValues.products = searchParams.products.split(',');
-		} else {
-			updatedSelectedValues.products = [];
-		}
-
-		if (searchParams.geographies) {
-			updatedSelectedValues.geographies = searchParams.geographies.split(',');
-		} else {
-			updatedSelectedValues.geographies = [];
-		}
-
-		if (searchParams.customers) {
-			updatedSelectedValues.customers = searchParams.customers.split(',');
-		} else {
-			updatedSelectedValues.customers = [];
-		}
-
-		// if (searchParams.regions) {
-		// 	updatedSelectedValues.regions = searchParams.regions.split(',');
-		// } else {
-		// 	updatedSelectedValues.regions = [];
-		// }
-		// if (searchParams.countries) {
-		// 	updatedSelectedValues.countries = searchParams.countries.split(',');
-		// } else {
-		// 	updatedSelectedValues.countries = [];
-		// }
-
-		if (searchParams.industries) {
-			updatedSelectedValues.industries = searchParams.industries.split(',');
-		} else {
-			updatedSelectedValues.industries = [];
-		}
-
-		filterParams(updatedSelectedValues);
-
-		setSelectedValues(updatedSelectedValues);
-
-	}, []);
+		solutions: searchParams.solutions || [],
+		products: searchParams.products || [],
+		geographies: searchParams.geographies || [],
+		customers: searchParams.customers || [],
+		industries: searchParams.industries || [],
+	});
+	const [sortMode, setSortMode] = useState('a-z');
 
 	useEffect(() => {
 		Object.keys(selectedValues).forEach(category => {
+			const lowerCaseCategory = category?.toLowerCase();
 			if (selectedValues[category].length > 0) {
-				searchParams[category?.toLowerCase()] = selectedValues[category].join(',')
+				// Convert selected values to an array format
+				searchParams[lowerCaseCategory] = selectedValues[category];
 			} else {
-				delete searchParams[category?.toLowerCase()];
+				delete searchParams[lowerCaseCategory];
 			}
 		});
 
-		navigate({ search: `?${queryString.stringify(searchParams)}` });
+		const queryStringified = queryString.stringify(searchParams, { arrayFormat: 'bracket' });
+		navigate({ search: `?${queryStringified}` });
 	}, [selectedValues])
 
 
@@ -207,8 +157,6 @@ export default function (props) {
 		const productsSet = new Set();
 		const geographiesSet = new Set();
 		const customersSet = new Set();
-		// const regionsSet = new Set();
-		// const countriesSet = new Set();
 		const industriesSet = new Set();
 
 		props.data.cases.forEach(item => {
@@ -216,8 +164,6 @@ export default function (props) {
 			item.filters?.products?.forEach(product => productsSet.add(product));
 			item.filters?.geographies?.forEach(geography => geographiesSet.add(geography));
 			item.filters?.customers?.forEach(customer => customersSet.add(customer));
-			// item.filters?.regions?.forEach(region => regionsSet.add(region));
-			// item.filters?.countries?.forEach(country => countriesSet.add(country));
 			item.filters?.industries?.forEach(industry => industriesSet.add(industry));
 		});
 
@@ -225,8 +171,6 @@ export default function (props) {
 		setProducts(Array.from(productsSet))
 		setGeographies(Array.from(geographiesSet))
 		setCustomers(Array.from(customersSet))
-		// setRegions(Array.from(regionsSet))
-		// setCountries(Array.from(countriesSet))
 		setIndustries(Array.from(industriesSet))
 	};
 
@@ -241,14 +185,24 @@ export default function (props) {
 		{ label: "Industry", attribute: "industries", tags: industries },
 		{ label: "Customers", attribute: "customers", tags: customers },
 		{ label: "Geographies", attribute: "geographies", tags: geographies },
-		// { label: "Region", attribute: "regions", tags: regions },
-		// { label: "Country", attribute: "countries", tags: countries },
 	]
 
 	const removeParenthesesContent = (strings) => {
 		const regex = /\s+\([^)]*\)/;
 		return strings.map(str => str.replace(regex, ''));
 	}
+
+	const sortByTitle = (a, b, order = 'asc') => {
+		let a_title = a.title || "";
+		let b_title = b.title || "";
+		return order === 'asc' ? a_title.localeCompare(b_title) : b_title.localeCompare(a_title);
+	};
+	
+	const sortByDate = (a, b, order = 'asc') => {
+		let a_date = new Date(a.updated_date);
+		let b_date = new Date(b.updated_date);
+		return order === 'asc' ? a_date - b_date : b_date - a_date;
+	};
 
 	useEffect(() => {
 		let filteredData = caseStudy?.filter(item => {
@@ -269,27 +223,30 @@ export default function (props) {
 				if (key == "geographies") {
 					return removeParenthesesContent(values).some(selectedValue => item.filters?.geographies?.includes(selectedValue));
 				}
-				// if (key == "regions") {
-				// 	return removeParenthesesContent(values).some(selectedValue => item.filters?.regions?.includes(selectedValue));
-				// }
-				// if (key == "countries") {
-				// 	return removeParenthesesContent(values).some(selectedValue => item.filters?.countries?.includes(selectedValue));
-				// }
 			});
 		});
 
-		setSearchResults(filteredData.sort((a, b) => {
-			let a_title = a.title || "";
-			let b_title = b.title || "";
-			return a_title.localeCompare(b_title);
-		}));
+		if (sortMode === 'a-z') {
+			filteredData = filteredData.sort((a, b) => sortByTitle(a, b, 'asc'));
+		}
+		else if (sortMode === 'z-a') {
+			filteredData = filteredData.sort((a, b) => sortByTitle(a, b, 'desc'));
+		}
+		else if (sortMode === 'newest') {
+			filteredData = filteredData.sort((a, b) => sortByDate(a, b, 'desc'));
+		}
+		else if (sortMode === 'oldest') {
+			filteredData = filteredData.sort((a, b) => sortByDate(a, b, 'asc'));
+		}
+
+		setSearchResults(filteredData);
 
 		const visibleData = filteredData?.slice((currentPage - 1) * resultsPerPage, currentPage * resultsPerPage);
 		setShowData(visibleData);
 		setStart(((currentPage - 1) * resultsPerPage) + 1);
 		setEnd(visibleData?.length < resultsPerPage ? ((currentPage - 1) * resultsPerPage) + visibleData.length : currentPage * resultsPerPage);
 
-	}, [selectedValues, caseStudy, currentPage, resultsPerPage]);
+	}, [selectedValues, caseStudy, currentPage, resultsPerPage, sortMode]);
 
 	useEffect(() => {
 		setTotalPages(Math.ceil(searchResults.length / resultsPerPage));
@@ -301,6 +258,11 @@ export default function (props) {
 
 	const handleClick = (page) => {
 		setCurrentPage(page);
+
+		const firstRow = document.getElementById('first-row');
+		if (firstRow) {
+			firstRow.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 
@@ -757,6 +719,10 @@ export default function (props) {
 				setResultsPerPage(event.target.value);
 			};
 
+			const handleSort = (e) => {
+				setSortMode(e.target.value);
+			};
+
 			const searchCasesVMware = (props) => {
 				return (
 					<Fragment>
@@ -793,9 +759,18 @@ export default function (props) {
 									<option value="40">40</option>
 								</select>
 							</div>
+							<div className="results-dropdown">
+								<span>Sort By:</span>
+								<select value={sortMode} onChange={handleSort} className="dropdown">
+									<option value="a-z">A-Z</option>
+									<option value="z-a">Z-A</option>
+									<option value="newest">Newest</option>
+									<option value="oldest">Oldest</option>
+								</select>
+							</div>
 						</div>
 
-						<Row className="mt-4">
+						<Row className="mt-4" id="first-row">
 							{searchResults.length > 0 ?
 								showData?.map(card => {
 									return transformCard(card)

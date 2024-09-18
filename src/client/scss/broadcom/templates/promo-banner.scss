@@ -1,0 +1,27 @@
+/*
+* templates/promo-banner.scss
+*/
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+// Override our stripe padding.
+.section-striped section.PromoPencil-section {
+    padding: 10px 0;
+}
+
+.PromoPencil-section {
+    background-color: $color-primary;
+    color: $color-white;
+
+    .content-block {
+        margin-bottom: 0; // Clear out our content block margins
+    }
+}
+
+.PromoPencil {
+   
+
+}

@@ -56,7 +56,7 @@
                     }
                 }
                 .secondary {
-                    font-size: $font-size-sm;           //mods button _button.scss
+                    font-size: $font-size-xs1;           //mods button _button.scss
                     margin-right: 15px;
                     font-weight: 500;                   //mods button
                         &:disabled{
@@ -97,7 +97,7 @@
                         border-radius: 4px;
                         padding: 0px;
                         height: 33px;
-                        font-size: $font-size-sm;
+                        font-size: $font-size-xs1;
                         margin: 0px 10px 0px 15px;
                         }
             }
@@ -322,7 +322,7 @@
         position: absolute;
         right: 15px;
         top: 10px;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         opacity: 1;                                 //bootstrap has .close:hover that dims 75%
     }
 }
@@ -349,7 +349,7 @@
 //            tr{
 //                td {
 //                    border-left: 2px solid $color-grey--500 !important;
-//                    font-size: $font-size-md;
+//                    font-size: $font-size-xs;
 //                }
 //            }
 //        }
@@ -721,7 +721,7 @@
 		display: -ms-inline-flexbox;
         display: inline-flex;
         span:not(.bttn) {
-            font-size: $font-size-lg;
+            font-size: $font-size-sm;
             line-height: 45px;
             margin-right: 10px;
             color: $color-secondary--dark;
@@ -821,7 +821,7 @@
 @media screen and (max-width: map-get($grid-breakpoints, sm)){ 
    
     .option{
-        font-size: $font-size-sm;
+        font-size: $font-size-xs1;
     }
     .search-grid{
         .search-grid-row { 
@@ -853,7 +853,7 @@
                     -ms-flex:  0 0 72%; 
                     .option{
                         .sr-only{
-                            font-size: $font-size-sm;
+                            font-size: $font-size-xs1;
                         }
                     }
                 }

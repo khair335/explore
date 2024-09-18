@@ -43,7 +43,7 @@
     }
     .popover-header{
         background-color: transparent;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         padding: 14px;
         border-bottom: 1px solid $color-grey--600;
         font-family: $font-family--primary;
@@ -51,7 +51,7 @@
         font-weight: bold;
     }
     .popover-body{
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         font-family: $font-family--primary;
     }
     &.bs-popover-left, 
@@ -128,7 +128,7 @@
         padding-top: 0;
     }
     .close{                                             //button - @extends .icon-bttn, see _buttons.scss
-        font-size: $font-size-lg + 2;
+        font-size: $font-size-sm + 2;
         opacity: 0.2;
     }
 }

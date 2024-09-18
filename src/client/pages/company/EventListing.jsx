@@ -15,6 +15,7 @@ import queryString from 'query-string';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Label, Table, Pagination, PaginationItem, PaginationLink, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { InfoPopover } from 'components/InfoPopover.jsx';
 import { SelectTypeahead } from 'components/SelectTypeahead.jsx';
+import { filterParams, buildQueryParams } from 'components/utils.jsx';
 import classnames from 'classnames';
 
 import 'scss/pages/event-listing.scss';
@@ -139,7 +140,7 @@ const Events = (props) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const location_search = window.location.search;
-	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
+	let searchParams = queryString.parse(buildQueryParams(location_search), { arrayFormat: 'bracket' });
 
 	const logo = ">>"
 	const [events, setEvents] = useState(props.events?.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)));

@@ -15,7 +15,7 @@ import liveEvents from 'components/liveEvents.js';
 import queryString from 'query-string';
 import Body from 'components/Body.jsx';
 import MultiSelectFilter from 'components/MultiSelectFilter.jsx';
-import { filterParams } from 'components/utils.jsx';
+import { filterParams, buildQueryParams } from 'components/utils.jsx';
 
 
 import 'scss/pages/technical-papers.scss';
@@ -29,7 +29,7 @@ const TechnicalPapersLanding = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
     const location_search = window.location.search;
-    let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
+    let searchParams = queryString.parse(buildQueryParams(location_search), { arrayFormat: 'bracket' });
 
     const [papers, setPapers] = useState(props.data.technical_papers);
     const [searchResults, setSearchResults] = useState(papers);

@@ -14,7 +14,7 @@
     //text-transform: uppercase;
     font-family:$font-family--secondary;
      .bi{
-          font-size: $font-size-sm;
+          font-size: $font-size-xs1;
           margin-left: 5px;
       }
   }
@@ -26,7 +26,7 @@
         thead{
           tr > th{
             background-color: $color-primary;
-            font-size: $font-size-sm + 1;
+            font-size: $font-size-xs1 + 1;
             padding: 15px 13px;
             vertical-align: top;
             color: $color-white;
@@ -37,7 +37,7 @@
         tbody{
           tr > td{
             padding: 15px;
-            font-size: $font-size-md;
+            font-size: $font-size-xs;
           }
           tr:nth-of-type(2n+1){
             background-color: darken($color-white, 2%);

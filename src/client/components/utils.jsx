@@ -177,6 +177,20 @@ export const filterParams = (updatedValues) => {
 	return newFilter;
   };
 
+export const buildQueryParams = (queryString) => {
+	const searchParams = new URLSearchParams(queryString);
+	const updatedParams = new URLSearchParams();
+  
+	for (const [key, value] of searchParams.entries()) {
+	  if (!key.endsWith('[]')) {
+		updatedParams.append(`${key}[]`, value);
+	  } else {
+		updatedParams.append(key, value);
+	  }
+	}
+	return updatedParams.toString();
+  };
+
 /**
  *  @brief 
  *  @details intersectionObserver that adds a css class to an item when in specified part of viewport window

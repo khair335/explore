@@ -149,15 +149,26 @@ class ProgressiveImage extends Component {
 			}
 
 
+			// Let's cap it at the original image size
+			let cap_sizes = sizes || {sm: config.media_breakpoints.sm, md: config.media_breakpoints.md, lg: config.media_breakpoints.lg};
+			if (rest.width && rest.height) {
+				let keys = Object.keys(cap_sizes);
+				for (let i = 0; i < keys.length; i++) {
+					if (cap_sizes[keys[i]] > rest.width) {
+						cap_sizes[keys[i]] = rest.width;
+					}
+				}
+			}
+
 			return (
 				<Fragment>
 					{!this.state.loading &&
 						<picture>
 							<source srcSet={`${this.props.src}`} media={`(min-width: ${config.media_breakpoints.xl}px)`} />
-							<source srcSet={`${path}width=${config.media_breakpoints.lg}`} media={`(min-width: ${config.media_breakpoints.lg}px)`} />
-							<source srcSet={`${path}width=${config.media_breakpoints.md}`} media={`(min-width: ${config.media_breakpoints.md}px)`} />
-							<source srcSet={`${path}width=${config.media_breakpoints.sm}`} media={`(min-width: ${config.media_breakpoints.sm}px)`} />
-							<img {...rest} src={`${path}width=${config.media_breakpoints.sm}`} style={load_style} className={classnames(className, 'fadein')} />
+							<source srcSet={`${path}width=${cap_sizes.lg}`} media={`(min-width: ${config.media_breakpoints.lg}px)`} />
+							<source srcSet={`${path}width=${cap_sizes.md}`} media={`(min-width: ${config.media_breakpoints.md}px)`} />
+							<source srcSet={`${path}width=${cap_sizes.sm}`} media={`(min-width: ${config.media_breakpoints.sm}px)`} />
+							<img {...rest} src={`${path}width=${cap_sizes.sm}`} style={load_style} className={classnames(className, 'fadein')} />
 						</picture>
 					}
 					<img {...rest} src={this.props.progressiveImage} className={className} style={small} />

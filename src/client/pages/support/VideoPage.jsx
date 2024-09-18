@@ -62,7 +62,7 @@ class VideoPage extends PageComponent {
 	setMediaData(data) {
 		const searchUrl = this.generateEncodedTags(data?.customFields) || encodeURIComponent(data?.title);
 		const account = data?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? 'vmware' : 'explore'
-		const finalUrl = `${searchUrl}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=3&account=${account}`;
+		const finalUrl = data?.customFields?.where_the_video_should_be_hosted_ === "VMware" ? `${searchUrl}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&account=${account}` : `%2Byear:2023:2024%20${searchUrl}%20-vod_on_demand_publish:"False"%2Bcomplete:"true"%2Bstate:"ACTIVE"&account=${account}`;
 
 		this.setState({ search_url: finalUrl }, () => {
 			if (this.state?.search_url) {
@@ -353,7 +353,7 @@ class VideoPage extends PageComponent {
 			})
 
 			// fetch related videos;
-			const videos = await getRelatedVideos(this.state?.search_url);
+			const videos = await getRelatedVideos(this.state?.search_url, this.state?.mediaid);
 
 			this.setState({
 				relatedVideos: { videos },

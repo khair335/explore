@@ -12,14 +12,14 @@
     }
     .bc-input{
       padding-right: 50px;
-      font-size: $font-size-lg;
+      font-size: $font-size-sm;
     }
   
     .dropdown-menu{
       max-height: 300px;
       overflow-y: auto;
       width: 100%;
-      font-size: $font-size-md;
+      font-size: $font-size-xs;
       color: $color-secondary;
       padding: 0;
       margin: 1px 0 0 0;
@@ -32,7 +32,7 @@
        // color: currentColor;
        color:$color-primary;
         white-space: normal;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         text-decoration: none;
         text-wrap: balance;
         text-transform: capitalize;

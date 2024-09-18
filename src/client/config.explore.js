@@ -107,45 +107,11 @@ class Config {
 
 
 		this.video = {
-			get account_id() {
-				switch (microsite) {
-					case 'Explore':
-						return '6164421911001';
-					default:
-						return '6415665063001';
-				}
-			},
-
-			get player_id() {
-				switch (microsite) {
-					case 'Explore':
-						return 'lUBT2rAMW';
-					default:
-						return '83iWkhhmz';
-				}
-			},
-
-			get endpoint() {
-				switch (microsite) {
-					case 'Explore':
-						return 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos';
-					default:
-						return 'https://edge.api.brightcove.com/playback/v1/accounts/6415665063001/videos';
-				}
-			},
-
-			get policy_key() {
-				switch (microsite) {
-					case 'Explore':
-						return 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY'; //// Player'BCpkADawqM1f02Ug5FZsWPGRkX0eJFpFKPjbcwb6WPooZk03Sdr08tMqbUOLmmKbNeGyWPvxvKiwR4td1nMCi31tFcV9aaWFVBFx0caTtqQXXymgZweAcKJZ_TyAIgGrtyGlsaGrj5R06LELTw4Uf-XHr3aCDoxioqeTTg';
-					default:
-						return 'BCpkADawqM1Dw0AItnLv1eoTVT5D9tZbwpBSLlUmAMBHznvkeYaGu3CaQldUaWfpjsk7sJckjI5MZq-_uLsCMvarcsXdTg1I9v6zCQYgndn13fJmETygAUj2ooLpj8_Mtz4pVlsk89fW-s8jIxyWA8F6SZv_yw6sBaQ1uuifz8mkidT6wXF0VAXUejU';
-				}
-			},
-
-			get host() {
-				return microsite
-			},
+			account_id: '6164421911001',
+			player_id:  'lUBT2rAMW',
+			endpoint: 'https://edge.api.brightcove.com/playback/v1/accounts/6164421911001/videos',
+			policy_key: 'BCpkADawqM0i5P10P6jV842I08GdA7sw92-GMe8vy83jvi22c7eHC1-l2Bh9IzCv_ZSSba2PQQZTScqi3ptPyoAEdAUHOIZ9SaCOP0RVsA6CzJKnFbCmMoX2XP0PxTtOphJ9UpctmQP-gwAuacS5oSttrFGjWAa0684bFp9WFmfPi4RXRZ8_l14CkTY',
+			host: microsite,
 
 			videoPath: (account) => {
 				//let type = account?.toLowerCase();		// DEPRECATED: We are just going based on microsite
@@ -226,6 +192,7 @@ class Config {
 					this.mybroadcom.forgetUrl = "https://qa-portal.broadcom.com/web/guest/forgot-password";
 					this.mybroadcom.registerUrl = "http://support-gcpqa.broadcom.net:8080/web/ecx/registration";		// 196461: Updated with new Okta login.
 					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user";	// "https://supportqa.broadcom.com/user";
+					this.video.player_id = '0mwwszSze';
 					break;
 				case 'development':
 					//this.video.player_id = 'QCEd4TS1z';

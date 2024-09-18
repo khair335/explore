@@ -23,7 +23,7 @@
         font-size: 22px;
       }
       a{
-        font-size:$font-size-lg;        //same as <a/> _link.scss
+        font-size:$font-size-sm;        //same as <a/> _link.scss
       }
   }
 
@@ -52,7 +52,7 @@
 
   #resultsHeader{
     .btn-group 	label{
-      font-size: $font-size-sm;
+      font-size: $font-size-xs1;
     }
 
     .dropdown-toggle::after{
@@ -71,7 +71,7 @@
       .dropdown-item{
         color: currentColor;
         padding: 5px 20px;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         &:hover{
           color: currentColor;
           background-color: $color-grey--500;
@@ -112,7 +112,7 @@
 		> button {                          //mods button _buttons.scss
 			background: $color-grey--500;
 			padding: 5px 10px;
-			font-size: $font-size-sm;
+			font-size: $font-size-xs1;
 			line-height: 1.5;
 			border-radius: 3px;
 			&:after{
@@ -123,21 +123,21 @@
 		}
 	}
 	label{
-		font-size: $font-size-sm;
+		font-size: $font-size-xs1;
 	}
 	.pagination {
 		> button {                          //mods button _buttons.scss
 			background: $color-grey--500;
 			color: $color-black;
 			padding: 5px 10px;
-			font-size: $font-size-sm;
+			font-size: $font-size-xs1;
 			line-height: 1.5;
 			border-radius: 3px;
 		}
 	}
 	.dropdown-menu{
 		min-width: 1px;
-		font-size: $font-size-md;
+		font-size: $font-size-xs;
 		border-radius: 3px;
 		border-color: $color-grey--600;
 		max-height: 200px;

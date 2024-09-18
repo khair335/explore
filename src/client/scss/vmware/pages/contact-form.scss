@@ -11,7 +11,7 @@
     padding: 20px;
 
     h3 {
-        font-size: $font-size-md; //mods h3 _base.scss
+        font-size: $font-size-xs; //mods h3 _base.scss
         color: $color-primary;
     }
 }
@@ -62,12 +62,12 @@
     //        background-color: darken($color-grey--700, 1%);;
     //        color:$color-black;
     //            .dropdown-item {
-    //                font-size: $font-size-md;
+    //                font-size: $font-size-xs;
     //                padding: 10px;
     //            }
     //    }
     //    .dropdown-item {
-    //        font-size: $font-size-md;
+    //        font-size: $font-size-xs;
     //        padding: 10px;
     //    }
     //}
@@ -92,7 +92,7 @@
 
 // The field description.
 .form-control-description {
-    font-size: $font-size-md;
+    font-size: $font-size-xs;
     margin-top: 10px;
     display: none;
 }
@@ -130,7 +130,7 @@
         height: auto;
         background-color: $color-white;
         border: 1px solid $color-grey--700;
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         box-shadow: none;
         border-radius: 4px;
 

@@ -339,7 +339,7 @@ export class BrightcoveVideoPlaylist extends Component {
  *  @brief 
  *  @details fetch api to get related videos by media id.
  */
-export async function getBrightcoveRelatedVideos(search_url) {
+export async function getBrightcoveRelatedVideos(search_url, videoID) {
     return fetch(`/api/nocache/tools/brightcove/search?q=${search_url}`, {
         method: 'GET',
         credentials: config.api_credentials,
@@ -383,7 +383,7 @@ export async function getBrightcoveRelatedVideos(search_url) {
             
                 return data;
             });
-
+            videos = videos?.filter(video => video?.id != videoID)
             return videos;
         });
 

@@ -533,7 +533,7 @@ export const VideoCard = (props) => {
         data = {
             title: video_content?.title || video_content?.description,
             sub_title: video_content?.name,
-            description: video_content?.description || video_content?.long_description,
+            description: video_content?.long_description || video_content?.description,
             views: video_content.views,
             url: url_path,
             id: id,

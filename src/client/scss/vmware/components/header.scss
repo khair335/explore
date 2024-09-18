@@ -94,7 +94,7 @@
 			border-radius: 4px;
 			height: 30px;
 			min-width: 165px;
-			font-size: $font-size-md;
+			font-size: $font-size-xs;
 			font-weight: 300;            //metro-mod
 			outline: none;
 			border: none;
@@ -215,7 +215,7 @@
 					.headerlanguage, .login-wrap{
 							display: block;
 							color: $color-white;
-							font-size: $font-size-lg;
+							font-size: $font-size-sm;
 							background-color: $color-grey--900;
 							border-bottom: 2px solid $color-black;
 							position: relative;
@@ -229,7 +229,7 @@
 							background-color: $color-grey--900;				// mods icon-bttn _buttons.scss
 							border-radius: 0;								// mods icon-bttn _buttons.scss
 							color: $color-white;							// mods icon-bttn _buttons.scss
-							font-size: $font-size-lg;
+							font-size: $font-size-sm;
 							padding: 0 10px 0 10px;
 							width:100%;
 							text-align: left;
@@ -258,7 +258,7 @@
 								border-bottom: 2px solid $color-grey--500;
 								padding: 12px 15px 12px 25px;
 								color: $color-grey--700;
-								font-size: $font-size-md;
+								font-size: $font-size-xs;
 							}
  						}
 					}
@@ -269,10 +269,10 @@
 						.dropdown-wrapper{
 							padding: 15px;
 							width: 240px;
-							font-size: $font-size-md;
+							font-size: $font-size-xs;
 						
 							.bttn, button{
-								font-size: $font-size-md;		//mods button, .bttn _button.scss
+								font-size: $font-size-xs;		//mods button, .bttn _button.scss
 								margin-right: 0;
 								margin-bottom: 10px;
 							}
@@ -333,7 +333,7 @@
 				margin: 0 !important;
 
 				.dropdown-toggle{								//was this supposed to be dropdown-item ??
-					font-size: $font-size-md;
+					font-size: $font-size-xs;
 					//font-weight: 400;            //metro-mod
 					font-weight: 300;            	//metro-mod
 					letter-spacing: .5px;            //metro-mod
@@ -353,10 +353,10 @@
 				.dropdown-wrapper{
 					padding: 15px;
 					width: 240px;
-					font-size: $font-size-md;
+					font-size: $font-size-xs;
 				
 					.bttn, button{
-						font-size: $font-size-md;					//mods button, .bttn _button.scss
+						font-size: $font-size-xs;					//mods button, .bttn _button.scss
 						margin-right: 0;
 						margin-bottom: 10px;
 					}
@@ -366,13 +366,13 @@
 				}
 
 				.database-wrapper, .login-wrapper, .dropdown-menu .dropdown-item {
-					font-size: $font-size-md;
+					font-size: $font-size-xs;
 				}
 
 				.database-wrapper {
 					button {
 						margin: 10px 10px 10px 0;
-						font-size: $font-size-md;		//mods button, .bttn _button.scss
+						font-size: $font-size-xs;		//mods button, .bttn _button.scss
 					}
 				}
 			}
@@ -412,7 +412,7 @@
 	button, a.bttn {										
 		background-color: transparent;
 		text-transform: capitalize;
-		font-size: $font-size-lg;
+		font-size: $font-size-sm;
 		color: $color-black;
 		font-weight: 200;
 		padding-left: 0 !important; 

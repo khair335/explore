@@ -283,7 +283,7 @@ button {
         border: 1px solid $color-secondary;
         padding: 1px 10px;
         font-weight: 500;
-        font-size: $font-size-sm;
+        font-size: $font-size-xs1;
     }
 
     &.bordr-bttn {
@@ -303,7 +303,7 @@ button {
         background: $color-grey--500;
         color: $color-grey--900;
         padding: 5px 10px;
-        font-size: $font-size-sm;
+        font-size: $font-size-xs1;
         line-height: 1.5;
     }
 
@@ -318,7 +318,7 @@ button {
 
     &.clear-bttn {
         //used for in-page search boxes to clear the contents
-        font-size: $font-size-sm; //AttackSignatures, ThreatList_a2z, blog, download-search
+        font-size: $font-size-xs1; //AttackSignatures, ThreatList_a2z, blog, download-search
         background-color: transparent;
         width: 30px;
         height: 30px;
@@ -342,7 +342,7 @@ button {
 
         .bi {
             color: $color-white;
-            font-size: $font-size-lg;
+            font-size: $font-size-sm;
         }
     }
 
@@ -358,7 +358,7 @@ button {
 
         .bi {
             color: $color-white;
-            font-size: $font-size-lg;
+            font-size: $font-size-sm;
             margin-left: 0;
         }
     }
@@ -372,7 +372,7 @@ button {
 
         .bi {
             color: $color-grey--900;
-            font-size: $font-size-md;
+            font-size: $font-size-xs;
             margin-left: 5px;
             margin-right: 5px;
         }
@@ -388,7 +388,7 @@ button {
 
         .bi {
             color: $color-grey--900;
-            font-size: $font-size-md;
+            font-size: $font-size-xs;
         }
     }
 

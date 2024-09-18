@@ -58,7 +58,7 @@
                 list-style-type: none;
 
                 li label {
-                    font-size: $font-size-lg;
+                    font-size: $font-size-sm;
                     font-weight: 300;
                     margin-bottom: 25px;
                     display: flex;
@@ -119,7 +119,7 @@
             position: relative;
             display: inline-block;
             text-align: left;
-            font-size: $font-size-md;
+            font-size: $font-size-xs;
             ;
             border: 1px solid transparent;
             box-shadow: $shadow-1;
@@ -139,7 +139,7 @@
             }
 
             .link-label {
-                font-size: $font-size-md;
+                font-size: $font-size-xs;
                 position: absolute;
                 bottom: 10px;
             }
@@ -193,7 +193,7 @@
         button.dropdown-toggle {
             background-color: transparent;
             color: $color-black;
-            font-size: $font-size-lg;
+            font-size: $font-size-sm;
             font-weight: 300;
             text-transform: capitalize;
             margin-right: 20px;

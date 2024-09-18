@@ -18,12 +18,12 @@ import { VideoCard } from 'templates/cards/CardFactory.jsx';
 
 import 'scss/pages/explore-search-videos.scss'
 import MultiSelectFilter from 'components/MultiSelectFilter.jsx';
-import { filterParams } from 'components/utils.jsx';
+import { filterParams, buildQueryParams } from 'components/utils.jsx';
 
 const ExploreSearchVideos = (props) => {
 	const navigate = useNavigate();
 	const location_search = window.location.search;
-	let searchParams = queryString.parse(location_search, { arrayFormat: 'bracket' });
+	let searchParams = queryString.parse(buildQueryParams(location_search), { arrayFormat: 'bracket' });
 	const [openDropdown, setOpenDropdown] = useState(null);
 	const [hasSelectedValues, setHasSelectedValues] = useState(false);
 	const [hasVideos, setHasVideos] = useState(false);

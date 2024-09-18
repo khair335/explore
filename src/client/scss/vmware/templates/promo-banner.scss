@@ -1,0 +1,99 @@
+/*
+* templates/promo-banner.scss
+*/
+
+@import "../base/base";
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+// Override our stripe padding.
+.section-striped section.PromoBanner-section {
+    padding: 10px 0;
+}
+
+.PromoBanner-section {
+    background-color: $color-primary;
+    color: $color-white;
+
+    .content-block {
+        margin-bottom: 0; // Clear out our content block margins
+    }
+}
+
+.PromoBanner {
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+
+    .promo-banner-body {
+        text-align: center;
+
+
+        // Clear out our margins
+        p:first-child {
+            margin-top: 0;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .cb-cta-link {
+        margin: 0;
+        margin-top: 16px;
+        justify-content: center;
+
+        .lnk {
+
+            @extend .bttn;
+            @include ghost-button;
+
+            &:after {
+                @include button-after;
+            }
+
+            &:hover {
+                @include ghost-hover;
+
+            }
+        }
+    }
+
+    .VideoLink {
+
+        .link-bttn {
+            @extend .bttn;
+            @include ghost-button;
+
+            &:after {
+                @include button-after;
+            }
+
+            &:hover {
+                @include ghost-hover;
+                text-decoration: none;
+
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+
+        align-items: center;
+        flex-direction: row;
+
+        .promo-banner-body {
+            text-align: left;
+            flex: 1;
+        }
+
+        .cb-cta-link {
+            margin-top: 0;
+        }
+    }
+
+
+
+}

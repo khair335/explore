@@ -48,7 +48,7 @@ label {
 }
 
 body{
-  font-size: $font-size-lg;
+  font-size: $font-size-sm;
   color: $color-body;
   font-family: $font-family--primary;
   min-height: 100%;
@@ -122,7 +122,7 @@ strong{
 
 .bc-input{
   height: 30px;
-  font-size: $font-size-md;
+  font-size: $font-size-xs;
   padding-left: 10px;
   border-radius: 4px;
   border: none;
@@ -406,7 +406,7 @@ text-transform: lowercase;
 
       h4{
         min-height: 25px;
-        font-size: $font-size-lg;             //this is button styling - is this a button? - adding className="bttn secondary" to h4 in template will produce same result
+        font-size: $font-size-sm;             //this is button styling - is this a button? - adding className="bttn secondary" to h4 in template will produce same result
         font-weight: 500;
         font-family: $font-family--secondary;
         color: $color-secondary;
@@ -451,7 +451,7 @@ hr.custom-line-gray {
 	.optanon-cookie-policy-group {
 			margin-bottom: 15px;
 		h2.optanon-cookie-policy-group-name, p.optanon-cookie-policy-cookies-used  {
-			font-size: $font-size-md;
+			font-size: $font-size-xs;
 			margin-bottom: 10px;
 			font-weight: 600;
 		}

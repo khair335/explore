@@ -12,10 +12,38 @@
 .RowOfImages {
     .row-of-image-image {
         display: flex;
-        align-items: center;        // Veritcally align the image.
+        align-items: center; // Veritcally align the image.
 
         .image-wrapper {
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding-bottom: 16px;
+
+            @include media-breakpoint-down(md) {
+                padding-bottom: 48px; // Ensure spacing between stacked items
+            }
+        }
+
+        .rowimage-title {
+            margin-top: 16px; // Ensure proper spacing between image and title
+            margin-bottom: 4px; // Padding between title and name
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: none; // Remove text-transform to let authors control capitalization
+            text-align: left; // Left-align title
+        }
+
+        .rowimage-title:hover {
+            text-decoration: none;
+        }
+
+        .image-description {
+            text-transform: none; // Remove all-caps for the description text (author name)
+            text-align: left; // Left-align description
         }
 
         img {
@@ -23,9 +51,37 @@
             width: 100%;
         }
 
+        .image-wrapper.top-aligned {
+            justify-content: flex-start;
+        }
+        .image-wrapper.centered {
+            justify-content: center;
+        }
+
         @include media-breakpoint-down(lg) {
             margin-bottom: 20px;
 
+        }
+
+        @include media-breakpoint-up(lg) {
+            .image-description{
+                width: 100%;
+            }
+
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        .row-of-image-image {
+            flex-basis: 50%; // Make each image take up half the row
+            max-width: 50%;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .row-of-image-image {
+            flex-basis: 100%; // Full width for extra-small screens
+            max-width: 100%;
         }
     }
 }

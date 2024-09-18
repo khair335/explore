@@ -96,7 +96,7 @@
 #menuWindow {
     .windowControl, .windowView.view_open{
         .menuBack button.back span{font-size: 26px}
-        h4 {font-size: $font-size-lg;}
+        h4 {font-size: $font-size-sm;}
         .menuTitle, .searchTitle {
             h2 {font-size: 26px;}
             h3 {font-size: 22px;}
@@ -104,11 +104,11 @@
     }
     
     .windowView {
-        .results { h4 {font-size: $font-size-lg;}}
+        .results { h4 {font-size: $font-size-sm;}}
         h2, h2 a {font-size: 24px;}
-        h3, h4 a { font-size: $font-size-lg;}
-        .allLinks a {font-size: $font-size-md;}                     //mods _link.scss
-        ul {font-size: $font-size-lg;}
+        h3, h4 a { font-size: $font-size-sm;}
+        .allLinks a {font-size: $font-size-xs;}                     //mods _link.scss
+        ul {font-size: $font-size-sm;}
     
     }
 }
@@ -117,7 +117,7 @@
     #menuWindow {
         .windowControl, .windowView.view_open{
             .menuBack button.back span{font-size: 24px}
-            h4 {font-size: $font-size-md;}
+            h4 {font-size: $font-size-xs;}
             .menuTitle, .searchTitle {
                 h2 {font-size: 24px;}
                 h3 {font-size: 20px;}
@@ -125,11 +125,11 @@
         }
         
         .windowView {
-            .results { h4 {font-size: $font-size-md;}}
+            .results { h4 {font-size: $font-size-xs;}}
             h2, h2 a {font-size: 22px;}
-            h3, h4 a { font-size: $font-size-md;}
-            .allLinks a {font-size: $font-size-sm;}          //mods _link.scss
-            ul, button {font-size: $font-size-md;}
+            h3, h4 a { font-size: $font-size-xs;}
+            .allLinks a {font-size: $font-size-xs1;}          //mods _link.scss
+            ul, button {font-size: $font-size-xs;}
         
         }
     }

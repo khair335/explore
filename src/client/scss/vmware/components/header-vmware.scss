@@ -148,7 +148,7 @@
                 .MainNavExploreItem > a, 
                 .MainNavExploreItem > button,
                 .MainNavExploreItem > .label {
-                font-size: $font-size-lg;
+                font-size: $font-size-sm;
                 color: $color-grey--600;
                 font-weight: 200;
                 text-decoration: none;
@@ -187,7 +187,7 @@
 
             .content-block a.lnk:not(.bttn) {
                 text-decoration: none;
-                font-size: $font-size-md;
+                font-size: $font-size-xs;
                 padding: 16px 0 16px 16px;
             }
 
@@ -222,7 +222,7 @@
             margin-top: 0;
 
             a {
-                font-size: $font-size-md;
+                font-size: $font-size-xs;
                 height: 39px;
                 text-wrap: nowrap;
             }

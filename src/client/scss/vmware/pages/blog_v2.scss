@@ -725,7 +725,7 @@
 
 .blog-artical-wrap {
     //DEPRECATED FROM OLD BLOG - this is the styling for legacy blogs that still have content in the old body rte - see BlogDetail id="articleBody"
-    font-size: $font-size-lg;
+    font-size: $font-size-sm;
     line-height: 1.8;
     margin-top: 24px; //based on line height 1.8 x font 16px = 28px but 28 was a little too much - if line or font sizes change this should too
 
@@ -744,7 +744,7 @@
 
         li {
 
-            font-size: $font-size-lg;
+            font-size: $font-size-sm;
             color: $color-grey--900;
             line-height: 1.8;
         }
@@ -1412,7 +1412,7 @@
     .search-pulldown button,
     #blog-search-box-date {
         font-family: $font-family--secondary;
-        font-size: $font-size-lg;
+        font-size: $font-size-sm;
         font-weight: 400;
     }
 

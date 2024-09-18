@@ -1,0 +1,90 @@
+
+/*
+* base/_typography.scss
+* typeography elements
+* https://www.figma.com/design/KEcwhGUM92TsAY5uL7GOSQ/Unity-Design-Library?node-id=6253-17667&node-type=CANVAS&m=dev
+*/
+@import "../base/variables";
+
+// Body text
+@mixin font-sm {
+	font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-sm;
+	line-height: 24px;
+}
+.font-sm {
+	@include font-sm;
+}
+
+// H6
+@mixin font-md {
+    font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-md;
+	line-height: 24px;
+}
+
+.font-md {
+	@include font-md;
+}
+
+// H5
+@mixin font-lg {
+    font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-lg;
+	line-height: 26px;
+}
+
+.font-lg {
+	@include font-lg;
+}
+
+// H4
+@mixin font-xl {
+    font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-xl;
+	line-height: 33px;
+}
+
+.font-xl {
+	@include font-xl;
+}
+
+// H3
+@mixin font-xl1 {
+    font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-xl1;
+	line-height: 42px;
+}
+
+.font-xl1 {
+	@include font-xl1;
+}
+
+// H2
+@mixin font-xl2 {
+    font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-xl2;
+	line-height: 52px;
+}
+
+.font-xl2 {
+	@include font-xl2;
+}
+
+// H1
+@mixin font-xl3 {
+	font-family: $font-family--primary;
+    font-weight: $font-weight-light;
+	font-size: $font-size-xl3;
+	line-height: 65px;
+}
+
+.font-xl3 {
+	@include font-xl3;
+}

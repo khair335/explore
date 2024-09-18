@@ -128,12 +128,21 @@ $grid-breakpoints: (
 $font-family--primary: "Metropolis", sans-serif;
 $font-family--primeBold: "Metropolis", sans-serif;
 $font-family--secondary: "Metropolis", sans-serif; // see server/views/partials/head.js for font assignment - css file kept with fonts in public
-$font-size-sm: 12px; //not in use for now
-$font-size-md: 14px; //button text, button cta, breadcrumbs, lable, badge, banne title elebrow text,
-$font-size-lg: 16px; // body text, body link, link text
+$font-size-xs1: 12px; // legacy from broadcom that still exists.
+$font-size-xs: 14px; // label, badge, breadcrumbs,
+$font-size-sm: 16px; // body text, body link, link text
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 25px; 
+$font-size-xl1: 32px; 
+$font-size-xl2: 40px;
+$font-size-xl3: 50px;
+
 $font-cta-case: capitalize;
 
 $font-weight-light: 300;
+
+
 
 // LAYOUT
 $padding-default: 20px; // block and card gap
@@ -217,7 +226,7 @@ display: flex;
 	padding-bottom: 2px;
 	//line-height: 1.5;
 	text-transform: normal;
-	text-decoration: underline;
+	//text-decoration: underline;
 	text-underline-offset: 3px;
 	text-decoration-thickness: 1px;
 	display: inline-block;
@@ -238,7 +247,7 @@ display: flex;
 	font-weight: 300;
 	letter-spacing: .25px;
 	border: 0;
-	font-size: 14px;
+	font-size: 16px;
 	padding: 0px 0px;
 	line-height: 1.5;
 	text-transform: uppercase;

@@ -11,7 +11,7 @@
 .download-search-wrapper {
     padding: 20px;
     h3 {
-        font-size: $font-size-md;
+        font-size: $font-size-xs;
         color: $color-primary;
     }
  }
@@ -83,7 +83,7 @@
         .dropdown-item{
             padding: 4px 20px 5px 5px;
             white-space: normal;
-            font-size: $font-size-md;			    //mods _link.scss
+            font-size: $font-size-xs;			    //mods _link.scss
             a{
                 color: $color-grey--800;			//mods _link.scss
                 &:hover{
@@ -123,7 +123,7 @@
         top: 5px;
         right: 5px;
         font-weight: bold;              //mods clear-bttn
-        font-size: $font-size-md;       //mods clear-bttn
+        font-size: $font-size-xs;       //mods clear-bttn
         background-color: transparent;  //mods clear-bttn =>just looked better without the grey circle and that is production version now
     }
 
@@ -144,7 +144,7 @@
         }
       
         .dropdown-item {
-            font-size: $font-size-md;
+            font-size: $font-size-xs;
             display: block;
             padding: 5px 20px;
             white-space: initial;
@@ -182,7 +182,7 @@
 }
 .top-label {
     font-family: $font-family--secondary;
-    font-size:$font-size-lg;
+    font-size:$font-size-sm;
     margin: 0 0 5px 5px;
 }
 @media screen and (max-width: map-get($grid-breakpoints, sm) - 1){

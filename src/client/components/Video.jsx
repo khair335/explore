@@ -389,8 +389,8 @@ export class VideoImage extends PureComponent {
  *  @brief 
  *  @details fetch api to get related videos.
  */
-export async function getRelatedVideos(search_url) {
-    return await getBrightcoveRelatedVideos(search_url);
+export async function getRelatedVideos(search_url, videoID) {
+    return await getBrightcoveRelatedVideos(search_url, videoID);
 }
 
 /**
