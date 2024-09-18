@@ -6,7 +6,7 @@ import PillsFilter from 'components/PillsFilter.jsx';
 import { filterParams } from 'components/utils.jsx';
 import 'scss/components/multi-select-filter.scss';
 
-const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, setVideoIds, setVideos, setLoadCount }) => {
+const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, setVideoIds, setVideos, setLoadCount, searchWord, setSearchWord, searchTerm, setSearchTerm }) => {
     const [hasSelectedValues, setHasSelectedValues] = useState(false);
 
     useEffect(() => {
@@ -36,6 +36,28 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
         handleCheckboxChange(attribute, value);
     };
 
+    useEffect(()=>{
+        if(searchTerm)
+        {handleTerm("term" , searchTerm)}
+    },[searchTerm])
+
+    const handleTerm = (attribute, term) => {
+            setSearchWord((prevSelectedValues) => {
+              const updatedValues = { ...prevSelectedValues };
+              updatedValues[attribute] = updatedValues[attribute] ? [...updatedValues[attribute]] : []; // Explicit shallow copy
+        
+              if (updatedValues[attribute].includes(term)) {
+                updatedValues[attribute] = updatedValues[attribute].filter(val => val !== term);
+              } else {
+                updatedValues[attribute].push(term);
+              }
+
+              setSearchTerm('')
+              return updatedValues;
+            });
+        
+    }
+
     return (
         <div className="multi-select-filter">
             <MultiSelectDropdowns
@@ -49,7 +71,9 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
                 items={items}
                 selectedValues={selectedValues}
                 onRemove={handleRemove}
+                onTermRemove={handleTerm}
                 hasSelectedValues={hasSelectedValues}
+                searchWord={searchWord}
                 placeholder={placeholder}
                 onReset={onReset}
             />
@@ -73,6 +97,10 @@ MultiSelectFilter.propTypes = {
     setVideoIds: PropTypes.func,
     setVideos: PropTypes.func,
     setLoadCount: PropTypes.func,
+    searchWord: PropTypes.object,
+    setSearchWord: PropTypes.func,
+    searchTerm: PropTypes.string,
+    setSearchTerm: PropTypes.func,
 };
 
 export default MultiSelectFilter;

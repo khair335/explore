@@ -499,20 +499,6 @@
           border-color: $color-primary !important;
           background-color: $color-white !important;
           color: $color-primary !important;
-          text-decoration: none !important;
-        }
-        &:after{
-          content: unset !important;
-        }
-      }
-    }
-    .theme-card-cta-link{
-      a{
-        text-decoration: none;
-        &:hover{
-border: 0;
-text-decoration-color: #04314D;
-text-decoration: underline;
         }
       }
     }
@@ -638,43 +624,6 @@ text-decoration: underline;
   &.theme-content-block-gray {
     .ContentCard {
       .container {
-        .theme-card-cta-secondary{
-          .cb-cta-link {
-            gap: 10px !important;
-            justify-content: center;
-  
-            li {
-            
-                .button,
-                .lnk {
-                  @extend .bttn;
-                  @include secondary-button;
-  
-                  &:after {
-                    @include button-after;
-                  }
-  
-  
-  
-                }
-  
-                .link-bttn{
-                    @extend .bttn;
-                  @include secondary-button;
-                    padding: 6px 24px;
-                  &:after {
-                    @include button-after;
-                  }
-                  &:hover{
-                    text-decoration: none;
-                  }
-                    }
-            
-            }
-  
-  
-          }
-        }
         .cb-cta-link {
           gap: 10px !important;
           justify-content: center;
@@ -728,7 +677,6 @@ text-decoration: underline;
 
 
         }
-      
         
       }
     }
@@ -823,17 +771,6 @@ text-decoration: underline;
       }
     }
 
-  }
-
-  &.theme-content-block-dark{
-    
-      .card-body{
-        a{
-          color: #95d5ef;
-          display: inline;
-        }
-      }
-    
   }
 
   .TestimonialCard {
@@ -1554,10 +1491,6 @@ text-decoration: underline;
             a {
               margin: 0;
               color: #47B2D3;
-              &:hover{
-                background-color: transparent !important;
-                text-decoration-color: #95d5ef;
-              }
             }
           }
 
@@ -2389,20 +2322,15 @@ text-decoration: underline;
       color: $color-black;
     }
   }
-  &.theme-cbl-card-light {
-    .card-title {
-      color: $color-black !important;
-    }
-  }
+
   &.theme-content-block-imagedark {
     .section-title {
       color: $color-white;
     }
 
     .card-title {
-      // color: $color-white;
+      color: $color-white;
     }
-
 
     &.theme-cbl-card-light {
       .section-title {
@@ -2410,7 +2338,7 @@ text-decoration: underline;
       }
 
       .card-title {
-        color: $color-black !important;
+        color: $color-white;
       }
 
       .ImageCard {
@@ -2418,7 +2346,6 @@ text-decoration: underline;
           color: $color-black;
         }
       }
-      
     }
   }
 
@@ -2448,11 +2375,6 @@ text-decoration: underline;
     }
     .card-title {
       color: $color-white;
-    }
-    &.theme-cbl-card-light {
-      .card-body a{
-        color: $color-white;
-      }
     }
   }
 }
@@ -2639,11 +2561,6 @@ text-decoration: underline;
 }
 
 .ContentCardTwoColumn-section {
-  &.theme-content-block-dark{
-    .card-title {
-      color: $color-white !important;
-    }
-  }
   .section-title {
     color: $color-black;
   }
@@ -2922,22 +2839,6 @@ text-decoration: underline;
 
 
   }
-  &.theme-cbl-card-transparent{
-    .ContentCardTwoColumn{
-      .theme-card-cta-link{
-        .cb-cta-link{
-          a{
-            text-decoration: none;
-            &:hover{
-border: 0;
-text-decoration-color: #04314D;
-text-decoration: underline;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 .base-info {
@@ -3204,7 +3105,6 @@ text-decoration: underline;
           }
           button{
             height: auto;
-            text-transform: capitalize;
           }
         }
       }
