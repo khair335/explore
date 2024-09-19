@@ -97,3 +97,579 @@
 
 
 }
+
+
+// Promo section for /explore/us
+//  .PromoBanner-section {
+//     .card-title {
+//       color: $color-white;
+//     }
+
+//     background-color: $color-primary;
+
+
+//     .PromoBanner {
+//       .container {
+//         .row {
+//           align-items: center;
+
+//           @media (max-width:767px) {
+//             flex-direction: column;
+//           }
+
+//           >div {
+//             @media (max-width:767px) {
+//               padding: 0;
+//             }
+
+//             &:first-child {
+//                 max-width: calc(70% - 16px) !important;
+//                 width: calc(70% - 16px) !important;
+//                 flex: 0 0 calc(70% - 16px) !important;
+//               @media (max-width:1200px) {
+//                 max-width: 100% !important;
+//                 width: 100% !important;
+
+//                 flex: 0 0 100% !important;
+//               }
+//               @media (max-width:767px) {
+//                 max-width: 100% !important;
+//                 width: 100% !important;
+
+//                 flex: 0 0 100% !important;
+//               }
+
+
+
+//               .ImageCard {
+//                 .card-body {
+//                   @media (max-width:767px) {
+//                     padding: 0;
+//                   }
+
+//                   display: flex;
+//                   flex-wrap: wrap;
+//                   gap:32px;
+//                   >h3~div {
+//                     width: calc(80% - 16px);
+
+//                     margin-top: -0px !important;
+//                     >p{
+//                       margin-top: 82px !important;
+//                       @media (max-width:767px) {
+//                         width: 100% !important;
+//                       margin-top: 0px  !important;
+//                         margin-left: 0;
+//                       }
+//                     }
+
+//                   }
+//                   >.lnk~h3~div {
+//                     width: calc(80% - 16px);
+//                     margin-top: -0px !important;
+//                     >p{
+//                       margin-top: 0px !important;
+//                     }
+
+//                     @media (max-width:767px) {
+//                       width: 100% !important;
+//                       margin-top: 15px !important;
+//                       margin-left: 0;
+//                     }
+
+//                     @media (max-width:1200px) {
+//                       width: 100% !important;
+//                       margin-left: 5px;
+//                       margin-top: 8px !important;
+//                     }
+//                   }
+//                   >div:nth-child(2) {
+
+//                     &.card-text {
+//                       margin-top: -72px !important;
+//                       @media (max-width:767px) {
+//                         margin-top: 20px !important;
+//                         width: 100%;
+//                       }
+
+//                     }
+//                   }
+
+//                   .lnk {
+//                     width: calc(20% - 16px);
+//                     margin: 0;
+
+
+//                     @media (max-width:767px) {
+//                       width: 100%;
+//                     }
+//                   }
+
+//                   .card-title {
+//                     width: calc(80% - 16px) !important;
+//                     padding-top: 0;
+//                     line-height: 24px;
+//                     height: min-content;
+//                     margin: 10px 0 0 0;
+//                     text-align: left;
+//                     @media (max-width:767px) {
+//                         width: 100% !important;
+
+//                       }
+//                     .lnk {
+//                       width: calc(80% - 16px) !important;
+//                       padding-top: 0;
+//                       line-height: 24px;
+//                       height: min-content;
+//                       margin: 0;
+//                       color: $color-white;
+//                       text-decoration: underline;
+
+//                       @media (max-width:767px) {
+//                         width: 100% !important;
+//                         margin-top: 20px;
+//                       }
+
+//                       @media (max-width:1200px) {
+
+//                         margin-top: 20px;
+//                       }
+//                     }
+//                     @media (max-width:1200px) {
+
+//                       margin-top: 0px;
+//                     }
+//                     @media (max-width:767px) {
+//                       width: 100% !important;
+//                       margin-top: 20px;
+//                     }
+
+
+//                   }
+
+//                   >.lnk~.card-text {
+//                     width: calc(80% - 16px);
+//                     margin-left: calc(20% + 16px);
+//                     margin-top: -118px !important;
+//                     @media (max-width:1200px) {
+//                       width: 100% !important;
+
+//                       margin-top: -100px !important;
+//                     }
+//                     @media (max-width:767px) {
+//                       width: 100% !important;
+//                       margin-top: 15px !important;
+//                       margin-left: 0;
+//                     }
+
+
+//                   }
+
+//                 }
+
+//                 .card-footer {
+//                   padding: 0;
+
+//                   .cb-cta-link {
+//                     display: none;
+//                   }
+//                 }
+//               }
+
+//             }
+
+//             &:nth-child(2) {
+//               max-width: calc(30% - 16px) !important;
+//               width: calc(30% - 16px) !important;
+//               min-height: calc(30% - 16px) !important;
+//               flex: 0 0 calc(30% - 16px) !important;
+
+//               @media (max-width:767px) {
+//                 max-width: 100% !important;
+//                 width: 100% !important;
+//                 min-height: 100% !important;
+//                 flex: 0 0 100% !important;
+//               }
+
+//               @media (max-width:1200px) {
+//                 max-width: 100% !important;
+//                 width: 100% !important;
+//                 min-width: 100% !important;
+//                 flex: 0 0 100% !important;
+//               }
+
+//               .ImageCard {
+//                 .card-body {
+
+//                   display: none;
+//                 }
+
+//                 .card-footer {
+//                   @media (max-width:767px) {
+//                     padding: 0;
+//                   }
+
+//                   .cb-cta-link {
+//                     @media (max-width:767px) {
+//                       padding: 0;
+
+//                     }
+
+//                     @media (max-width:1200px) {
+//                       padding: 0;
+//                       flex-direction: row;
+//                       justify-content: flex-start !important;
+//                       margin-left: calc(20% + 16px);
+//                       margin-top: 0;
+//                     }
+//                     @media (max-width:767px) {
+//                       margin-top: 20px;
+//                       margin-left: 0;
+//                     }
+//                     >li {
+//                       width: max-content;
+
+//                       @media (max-width:767px) {
+//                         width: 100%;
+//                       }
+//                     }
+
+//                     .lnk {
+
+
+//                       @extend .bttn;
+//                       @include ghost-button;
+
+//                       &:after {
+//                         @include button-after;
+//                       }
+
+//                       &:hover {
+//                         @include ghost-hover;
+
+//                       }
+//                     }
+//                       .VideoLink {
+
+//                       .link-bttn {
+//                          @extend .bttn;
+//                       @include ghost-button;
+
+//                       &:after {
+//                         @include button-after;
+//                       }
+
+//                       &:hover {
+//                         @include ghost-hover;
+//                         text-decoration: none;
+
+//                       }
+//                       }
+//                     }
+//                   }
+
+//                 }
+
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+
+
+
+//   }
+
+
+.PromoBanner-section {
+    padding-bottom: 30px !important;
+
+    .card-title {
+        color: $color-white;
+    }
+
+    background-color: $color-primary;
+
+
+    .PromoBanner {
+        .container {
+            .row {
+                align-items: center;
+
+                @media (max-width:767px) {
+                    flex-direction: column;
+                }
+
+                >div {
+                    @media (max-width:767px) {
+                        padding: 0;
+                    }
+
+                    &:first-child {
+                        max-width: calc(70% - 16px) !important;
+                        width: calc(70% - 16px) !important;
+                        flex: 0 0 calc(70% - 16px) !important;
+
+                        @media (max-width:1200px) {
+                            max-width: 100% !important;
+                            width: 100% !important;
+
+                            flex: 0 0 100% !important;
+                        }
+
+                        @media (max-width:767px) {
+                            max-width: 100% !important;
+                            width: 100% !important;
+
+                            flex: 0 0 100% !important;
+                        }
+
+
+
+                        .ImageCard {
+                            .card-body {
+                                @media (max-width:767px) {
+                                    padding: 0;
+                                }
+
+                                display: grid;
+                                grid-template-columns: 1fr 5fr;
+                                grid-template-rows: auto auto;
+                                justify-content: space-between;
+                                gap:12px 32px;
+                                padding-right: 0;
+
+                                @media (max-width:767px) {
+                                    display: block;
+
+                                }
+
+                                >h3~div {
+                                    width: calc(80% - 16px);
+
+                                    margin-top: -0px !important;
+
+                                    >p {
+                                        margin-top: 82px !important;
+
+                                        @media (max-width:767px) {
+                                            width: 100% !important;
+                                            margin-top: 0px !important;
+                                            margin-left: 0;
+                                        }
+                                    }
+
+                                }
+
+                                >.lnk~h3~div {
+                                    grid-column: 2;
+                                    /* Child3 in the second column */
+                                    grid-row: 2;
+                                    /* Child3 in the second row */
+
+                                }
+
+                                >div:nth-child(2) {
+
+                                    &.card-text {
+                                        //   margin-top: -72px !important;
+                                        grid-column: 2;
+                                        /* Child3 in the second column */
+                                        grid-row: 2;
+
+                                        /* Child3 in the second row */
+                                        @media (max-width:767px) {
+                                            margin-top: 20px !important;
+                                            width: 100%;
+                                        }
+
+                                    }
+                                }
+
+                                .lnk {
+                                    grid-column: 1;
+                                    grid-row: 1/span 3;
+
+                                    margin: 0;
+
+                                    @media (max-width:767px) {
+                                        width: 100%;
+                                    }
+                                }
+
+                                .card-title {
+                                    grid-column: 2;
+                                    /* Child2 in the second column */
+                                    grid-row: 1;
+                                    /* Child2 in the first row */
+                                    text-align: left;
+                                    margin: 0;
+                                    padding: 0;
+
+                                    @media (max-width:767px) {
+                                        width: 100% !important;
+
+                                    }
+
+                                    .lnk {
+                                        width: calc(80% - 16px) !important;
+                                        padding-top: 0;
+                                        line-height: 24px;
+                                        height: min-content;
+                                        margin: 0;
+                                        color: $color-white;
+                                        text-decoration: underline;
+
+                                        @media (max-width:767px) {
+                                            width: 100% !important;
+                                            margin-top: 20px;
+                                        }
+
+                                        @media (max-width:1200px) {
+
+                                            margin-top: 20px;
+                                        }
+                                    }
+
+                                    @media (max-width:1200px) {
+
+                                        margin-top: 0px;
+                                    }
+
+                                    @media (max-width:767px) {
+                                        width: 100% !important;
+                                        margin-top: 20px;
+                                    }
+
+
+                                }
+
+                                >.lnk~.card-text {
+                                    @media (max-width:767px) {
+                                        width: 100% !important;
+                                        margin-top: 15px !important;
+                                        margin-left: 0;
+                                    }
+
+
+                                }
+
+                            }
+
+                            .card-footer {
+                                padding: 0;
+
+                                .cb-cta-link {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                    }
+
+                    &:nth-child(2) {
+                        max-width: calc(30% - 16px) !important;
+                        width: calc(30% - 16px) !important;
+                        min-height: calc(30% - 16px) !important;
+                        flex: 0 0 calc(30% - 16px) !important;
+
+                        @media (max-width:767px) {
+                            max-width: 100% !important;
+                            width: 100% !important;
+                            min-height: 100% !important;
+                            flex: 0 0 100% !important;
+                        }
+
+                        @media (max-width:1200px) {
+                            max-width: 100% !important;
+                            width: 100% !important;
+                            min-width: 100% !important;
+                            flex: 0 0 100% !important;
+                        }
+
+                        .ImageCard {
+                            .card-body {
+
+                                display: none;
+                            }
+
+                            .card-footer {
+                                @media (max-width:767px) {
+                                    padding: 0;
+                                }
+
+                                .cb-cta-link {
+                                    @media (max-width:767px) {
+                                        padding: 0;
+
+                                    }
+
+                                    @media (max-width:1200px) {
+                                        padding: 0;
+                                        flex-direction: row;
+                                        justify-content: flex-start !important;
+                                        margin-left: calc(20% + 4px);
+                                        margin-top: 0;
+                                    }
+
+                                    @media (max-width:767px) {
+                                        margin-top: 20px;
+                                        margin-left: 0;
+                                    }
+
+                                    >li {
+                                        width: max-content;
+
+                                        @media (max-width:767px) {
+                                            width: 100%;
+                                        }
+                                    }
+
+                                    .lnk {
+
+
+                                        @extend .bttn;
+                                        @include ghost-button;
+
+                                        &:after {
+                                            @include button-after;
+                                        }
+
+                                        &:hover {
+                                            @include ghost-hover;
+
+                                        }
+                                    }
+
+                                    .VideoLink {
+
+                                        .link-bttn {
+                                            @extend .bttn;
+                                            @include ghost-button;
+
+                                            &:after {
+                                                @include button-after;
+                                            }
+
+                                            &:hover {
+                                                @include ghost-hover;
+                                                text-decoration: none;
+
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}

@@ -2593,16 +2593,11 @@
             }
 
             &:first-child {
-              max-width: calc(80% - 16px) !important;
-              width: calc(80% - 16px) !important;
+              max-width: 80% !important;
+              width: 80% !important;
 
-              flex: 0 0 calc(80% - 16px) !important;
-              @media (max-width:1200px) {
-                max-width: 100% !important;
-                width: 100% !important;
+              flex: 0 0 80% !important;
 
-                flex: 0 0 100% !important;
-              }
               @media (max-width:767px) {
                 max-width: 100% !important;
                 width: 100% !important;
@@ -2610,7 +2605,12 @@
                 flex: 0 0 100% !important;
               }
 
-          
+              @media (max-width:1200px) {
+                max-width: 100% !important;
+                width: 100% !important;
+
+                flex: 0 0 100% !important;
+              }
 
               .ImageCard {
                 .card-body {
@@ -2620,9 +2620,8 @@
 
                   display: flex;
                   flex-wrap: wrap;
-                  gap:32px;
                   >h3~div {
-                    width: calc(80% - 16px);
+                    width: 78%;
 
                     margin-top: -0px !important;
                     >p{
@@ -2636,7 +2635,7 @@
 
                   }
                   >.lnk~h3~div {
-                    width: calc(80% - 16px);
+                    width: 78%;
                     margin-top: -0px !important;
                     >p{
                       margin-top: 0px !important;
@@ -2667,9 +2666,8 @@
                   }
 
                   .lnk {
-                    width: calc(20% - 16px);
-                    margin: 0;
-                 
+                    width: 20%;
+                    margin-right: 2%;
 
                     @media (max-width:767px) {
                       width: 100%;
@@ -2677,13 +2675,13 @@
                   }
 
                   .card-title {
-                    width: calc(80% - 16px) !important;
+                    width: 78% !important;
                     padding-top: 0;
                     line-height: 24px;
                     height: min-content;
                     margin: 0;
                     .lnk {
-                      width: calc(80% - 16px) !important;
+                      width: 78% !important;
                       padding-top: 0;
                       line-height: 24px;
                       height: min-content;
@@ -2701,34 +2699,34 @@
                         margin-top: 20px;
                       }
                     }
-                    @media (max-width:1200px) {
 
-                      margin-top: 0px;
-                    }
                     @media (max-width:767px) {
                       width: 100% !important;
                       margin-top: 20px;
                     }
 
-                   
+                    @media (max-width:1200px) {
+
+                      margin-top: 20px;
+                    }
                   }
 
                   >.lnk~.card-text {
-                    width: calc(80% - 16px);
-                    margin-left: calc(20% + 16px);
+                    width: 78%;
+                    margin-left: 22%;
                     margin-top: -48px !important;
-                    @media (max-width:1200px) {
-                      width: 100% !important;
-                    
-                      margin-top: -58px !important;
-                    }
+
                     @media (max-width:767px) {
                       width: 100% !important;
                       margin-top: 15px !important;
                       margin-left: 0;
                     }
 
-                   
+                    @media (max-width:1200px) {
+                      width: 100% !important;
+                      margin-left: 5px;
+                      margin-top: 8px !important;
+                    }
                   }
 
                 }
@@ -2745,10 +2743,10 @@
             }
 
             &:nth-child(2) {
-              max-width: calc(20% - 16px) !important;
-              width: calc(20% - 16px) !important;
-              min-height: calc(20% - 16px) !important;
-              flex: 0 0 calc(20% - 16px) !important;
+              max-width: 20% !important;
+              width: 20% !important;
+              min-height: 20% !important;
+              flex: 0 0 20% !important;
 
               @media (max-width:767px) {
                 max-width: 100% !important;
@@ -2785,13 +2783,8 @@
                       padding: 0;
                       flex-direction: row;
                       justify-content: flex-start;
-                      margin-left: calc(20% + 16px);
-                      margin-top: 0;
                     }
-                    @media (max-width:767px) {
-                      margin-top: 20px;
-                      margin-left: 0;
-                    }
+
                     >li {
                       width: max-content;
 
