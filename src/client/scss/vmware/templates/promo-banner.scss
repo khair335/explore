@@ -445,8 +445,13 @@
 
                                 }
 
+                                /* When child1 is not available, make child2 and child3 span full row width */
+                                &:not(:has(.lnk-image,.lnk))>* {
+                                    grid-column: 1 / span 2 !important;
+                                }
+                               
+
                                 >h3~div {
-                                    width: calc(80% - 16px);
 
                                     margin-top: -0px !important;
 
