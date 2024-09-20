@@ -114,6 +114,16 @@
             .cb-cta-link{
                 margin-left: 0 !important;
             }
+            @media (min-width:1201px) {
+                .card-footer{
+                    padding: 0;
+                   
+                    margin: 0;
+                    .cb-cta-link{
+                        margin-top: 22px !important;
+                    }
+                }
+            }
         }
         .container {
             .row {
