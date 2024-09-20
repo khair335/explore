@@ -393,6 +393,13 @@
 
 
     .PromoBanner {
+              /* When child1 is not available, make child2 and child3 span full row width */
+           
+            &.PropmoBanner-no-image{
+                .cb-cta-link{
+                    margin-left: 0 !important;
+                }
+            }
         .container {
             .row {
                 align-items: center;
