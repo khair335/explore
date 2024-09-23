@@ -3,6 +3,7 @@
  *  @brief Two simple column of text promo
  */
 import config from 'client/config.js';
+import utils from 'components/utils.jsx';
 import React, { Component, PureComponent } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PropTypes from "prop-types";
@@ -31,19 +32,20 @@ class ContentCardTwoColumn extends PureComponent {
 		// Convert our cases into columns.
 		let columns = [];
 		let count = 0;		// Limit to only 2 columns.
-	
-		let promoNoImage ='';
+
+		let noImageClass = '';
 		if (this.props.content_block.columns) {
-		if(this.props?.content_block?.template == "PromoBanner" && this.props?.content_block?.columns[0][0]){
-			promoNoImage =this.props?.content_block.columns[0][0]?.image?.src
-			
-		}
+			// Does an image exists in the first slot? This is used specifically for PromoBanner
+			if (utils.getNestedItem([0, 0, 'image', 'src'], this.props.content_block.columns)) {
+
+				noImageClass = "no-image";
+			}
+
 			// hasImage = this.props.content_block.columns.map((item)=> item.image == null)
 			// CMS2: Apply type of card
 			columns = applyCardTypeToColumns(this.props.content_block.columns, 'ImageCard');
 		}
 
-		// console.log(hasImage)
 
 		// Custom background.
 		let style = {}, theme;
@@ -62,10 +64,10 @@ class ContentCardTwoColumn extends PureComponent {
 		if (this.props.content_block.card_width) {
 			box_size_lg = this.props.content_block.card_width.split("-").map(size => { return Math.round(12 * (parseInt(size, 10) / 100)); });
 		}
-		const promoClass = !promoNoImage && this.props?.content_block?.template == "PromoBanner" &&  "PropmoBanner-no-image"
+
 		return (
 
-			<div className={classnames(promoClass,theme, this.template)} style={style}>
+			<div className={classnames(theme, this.template, noImageClass)} style={style}>
 				<Container>
 					{this.props.content_block.title && <h2 className="content-block-title mb-3" dangerouslySetInnerHTML={{ __html: this.props.content_block.title }} />}
 					{this.props.content_block.body && <p className="mb-3" dangerouslySetInnerHTML={{ __html: this.props.content_block.body }} />}

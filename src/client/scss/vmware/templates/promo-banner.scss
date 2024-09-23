@@ -97,6 +97,7 @@
 
 
 }
+
 .PromoBanner-section {
     padding-bottom: 30px !important;
 
@@ -108,23 +109,26 @@
 
 
     .PromoBanner {
-           /* When child1 is not available, make child2 and child3 span full row width */
-           
-           &.PropmoBanner-no-image{
-            .cb-cta-link{
+        /* When child1 is not available, make child2 and child3 span full row width */
+
+        &.no-image {
+            .cb-cta-link {
                 margin-left: 0 !important;
             }
+
             @media (min-width:1201px) {
-                .card-footer{
+                .card-footer {
                     padding: 0;
-                   
+
                     margin: 0;
-                    .cb-cta-link{
+
+                    .cb-cta-link {
                         margin-top: 22px !important;
                     }
                 }
             }
         }
+
         .container {
             .row {
                 align-items: center;
@@ -176,11 +180,12 @@
                                     display: block;
 
                                 }
+
                                 /* When child1 is not available, make child2 and child3 span full row width */
-                                &:not(:has(.lnk-image,.lnk))>* {
+                                &:not(:has(.lnk-image, .lnk))>* {
                                     grid-column: 1 / span 2 !important;
                                 }
-                               
+
                                 >h3~div {
                                     //width: calc(80% - 16px);
 
