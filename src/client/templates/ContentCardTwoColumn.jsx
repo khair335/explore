@@ -35,13 +35,12 @@ class ContentCardTwoColumn extends PureComponent {
 		let promoNoImage ='';
 		let noImageClass = '';
 		if (this.props.content_block.columns) {
-			// Does an image exists in the first slot? This is used specifically for PromoBanner
-			if(this.props?.content_block?.columns[0][0]){
-			
-				noImageClass =!this.props?.content_block.columns[0][0]?.image?.src && "no-image";
-			}
+			// Does an image exists in the first slot? This is used specifically for PromoBannerে
 			if (utils.getNestedItem([0, 0, 'image', 'src'], this.props.content_block.columns)) {
 
+				noImageClass = "with-image";
+			}
+			else{
 				noImageClass = "no-image";
 			}
 
