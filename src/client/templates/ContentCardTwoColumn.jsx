@@ -32,10 +32,14 @@ class ContentCardTwoColumn extends PureComponent {
 		// Convert our cases into columns.
 		let columns = [];
 		let count = 0;		// Limit to only 2 columns.
-
+		let promoNoImage ='';
 		let noImageClass = '';
 		if (this.props.content_block.columns) {
 			// Does an image exists in the first slot? This is used specifically for PromoBanner
+			if(this.props?.content_block?.columns[0][0]){
+			
+				noImageClass =!this.props?.content_block.columns[0][0]?.image?.src && "no-image";
+			}
 			if (utils.getNestedItem([0, 0, 'image', 'src'], this.props.content_block.columns)) {
 
 				noImageClass = "no-image";
@@ -64,6 +68,7 @@ class ContentCardTwoColumn extends PureComponent {
 		if (this.props.content_block.card_width) {
 			box_size_lg = this.props.content_block.card_width.split("-").map(size => { return Math.round(12 * (parseInt(size, 10) / 100)); });
 		}
+	
 
 		return (
 
