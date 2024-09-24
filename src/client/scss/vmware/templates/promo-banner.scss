@@ -99,8 +99,9 @@
 }
 
 .PromoBanner-section {
-    padding-bottom: 30px !important;
-    padding-top: 30px !important;
+    padding-bottom: 32px !important;
+    padding-top: 32px !important;
+
     .card-title {
         color: $color-white;
     }
@@ -124,6 +125,7 @@
                 }
             }
         }
+
         .cb-cta-link {
             padding: 0 !important;
         }
@@ -174,7 +176,8 @@
                                 justify-content: space-between;
                                 gap:12px 32px;
                                 padding-right: 0;
-padding-top: 0;
+                                padding-top: 0;
+
                                 @media (max-width:767px) {
                                     display: block;
 
@@ -232,6 +235,13 @@ padding-top: 0;
                                     grid-row: 1/span 3;
 
                                     margin: 0;
+
+                                    @media (max-width:1200px) {
+                                        img {
+                                            max-height: 168px;
+                                            object-fit: contain;
+                                        }
+                                    }
 
                                     @media (max-width:767px) {
                                         width: 100%;
@@ -336,6 +346,7 @@ padding-top: 0;
 
                             .card-footer {
                                 padding: 0;
+
                                 @media (max-width:767px) {
                                     padding: 0;
                                 }
