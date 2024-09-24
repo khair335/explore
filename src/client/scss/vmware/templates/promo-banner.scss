@@ -166,21 +166,22 @@
 
                         .ImageCard {
                             .card-body {
-                                @media (max-width:767px) {
-                                    padding: 0;
-                                }
+                                padding: 0;
+                            
 
                                 display: grid;
                                 grid-template-columns: 2fr 5fr;
                                 grid-template-rows: auto auto;
                                 justify-content: space-between;
                                 gap:12px 32px;
-                                padding-right: 0;
-                                padding-top: 0;
+                                @media (max-width:1200px) {
+                                    padding-bottom: 8px;
+
+                                }
 
                                 @media (max-width:767px) {
                                     display: block;
-
+                                    padding-bottom: 0px;
                                 }
 
                                 /* When child1 is not available, make child2 and child3 span full row width */
@@ -361,7 +362,7 @@
                                         padding: 0;
                                         flex-direction: row;
                                         justify-content: flex-start !important;
-                                        margin-left: calc(32% + 4px);
+                                        margin-left: calc(31% + 4px);
                                         margin-top: 0;
                                     }
 
