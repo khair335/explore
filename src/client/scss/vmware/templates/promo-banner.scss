@@ -100,7 +100,7 @@
 
 .PromoBanner-section {
     padding-bottom: 30px !important;
-
+    padding-top: 30px !important;
     .card-title {
         color: $color-white;
     }
@@ -121,12 +121,11 @@
                     padding: 0;
 
                     margin: 0;
-
-                    .cb-cta-link {
-                        margin-top: 22px !important;
-                    }
                 }
             }
+        }
+        .cb-cta-link {
+            padding: 0 !important;
         }
 
         .container {
@@ -175,7 +174,7 @@
                                 justify-content: space-between;
                                 gap:12px 32px;
                                 padding-right: 0;
-
+padding-top: 0;
                                 @media (max-width:767px) {
                                     display: block;
 
@@ -336,6 +335,7 @@
                             }
 
                             .card-footer {
+                                padding: 0;
                                 @media (max-width:767px) {
                                     padding: 0;
                                 }
