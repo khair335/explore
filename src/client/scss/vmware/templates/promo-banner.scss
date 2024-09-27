@@ -192,11 +192,8 @@
                                 >h3~div {
                                     //width: calc(80% - 16px);
 
-                                    margin-top: -0px !important;
-
                                     >p {
-                                        margin-top: 82px !important;
-
+                                    margin-bottom: 0;
                                         @media (max-width:767px) {
                                             width: 100% !important;
                                             margin-top: 0px !important;
@@ -211,7 +208,7 @@
                                     /* Child3 in the second column */
                                     grid-row: 2;
                                     /* Child3 in the second row */
-
+                                    margin-top: 0px !important;
                                 }
 
                                 >div:nth-child(2) {
@@ -221,6 +218,7 @@
                                         grid-column: 2;
                                         /* Child3 in the second column */
                                         grid-row: 2;
+                                        margin-top: 0px !important;
 
                                         /* Child3 in the second row */
                                         @media (max-width:767px) {

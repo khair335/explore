@@ -1129,6 +1129,17 @@
     min-height: 100%;
   }
 
+  .card-text{
+    p{
+      span{
+        display: inline;
+      }
+      a{
+        display: inline
+      }
+    }
+  }
+
   &.theme-content-block-gray {
     .cb-cta-link {
       .lnk {
