@@ -121,11 +121,15 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 			{spotlight?.length > 0 && (
 				<div className="spotlight-card">
 					<div className="spotlight-title">Spotlight</div>
-					{spotlight.length > 3 && (
+					{/* {spotlight.length > 3 && (
 						<div className="expand-icon" onClick={toggleExpand}>
-							{isExpanded ? <div className="dropdown-down"></div> : <div className="dropdown-right"></div>}
+							{isExpanded ? <div className="dropdown-right" ></div> : <div className="dropdown-down"></div>}
 						</div>
-					)}
+					)} */}
+
+					
+
+
 					<div className="spotlight-items">
 						{topItems && topItems?.map((spotlight, index) => (
 							<div key={index} className="spotlight-item">
@@ -145,6 +149,21 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 							</div>
 						))}
 					</div>
+					{spotlight.length > 3 && (
+						<div className="expand-icon" onClick={toggleExpand}>
+							{isExpanded ? (
+								<>
+									<span>SEE LESS</span>
+									<div className="dropdown-right" />
+								</>
+							) : (
+								<>
+									<span>SEE MORE</span>
+									<div className="dropdown-down" />
+								</>
+							)}
+						</div>
+					)}
 				</div>
 			)}
 			<div className="card-container">
@@ -172,13 +191,19 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 								{score.vmmark_list.map((row, rowIndex) => (
 									<tr key={rowIndex}>
 										{Object.keys(row).map((key, keyIndex) => (
-
 											<React.Fragment key={keyIndex}>
 												<td className={key === "date" ? "date-column" : ""}
-													dangerouslySetInnerHTML={{ __html: key === "score" ? row[key]?.split('@')[0] : row[key] }}
-												></td>
+													dangerouslySetInnerHTML={{
+														__html: key === "score" ?
+															(parseFloat(row[key]?.split('@')[0])?.toFixed(2)) :
+															key === "date" ?
+																// Transform the date from yyyy-mm-dd to mm/dd/yyyy
+																new Date(row[key])?.toLocaleDateString('en-us', { year:'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC' })
+																:
+																row[key]
+													}}>
+												</td>
 											</React.Fragment>
-
 										))}
 									</tr>
 								))}
@@ -433,9 +458,9 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		'Total Cores': 'total_cores',
 		'Server Description': 'system_description',
 		'Processor Model': 'processor_model',
+		'Primary Storage': 'primary_storage',
 		'vCenter Server': 'datacenter_management',
-		'Primary Storage': 'type_of_storage',
-		// 'Primary Storage': 'primary_storage',
+		// 'Primary Storage': 'type_of_storage',
 		'Hypervisor': 'hypervisor',
 		'VMmark Version': 'version',
 		'Matched Pair': 'matched_pair',
@@ -516,7 +541,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		} else {
 			const uniqueSet = new Set(existingItems);
 			newItems.forEach(item => uniqueSet.add(item));
-			setter([...uniqueSet]);
+			setter(sortFilters([...uniqueSet]));
 		}
 	};
 
@@ -614,10 +639,10 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		if (localTotalCores.length > 0) newKeysToDisplay.push("Total Cores");
 		if (localSystemDescription.length > 0) newKeysToDisplay.push("Server Description");
 		if (localProcessorModel.length > 0) newKeysToDisplay.push("Processor Model");
-		if (localTypeOfStorage.length > 0) newKeysToDisplay.push("Primary Storage");
+		if (localPrimaryStorage.length > 0) newKeysToDisplay.push("Primary Storage");
+		// if (localTypeOfStorage.length > 0) newKeysToDisplay.push("Primary Storage");
 		if (localHypervisor.length > 0) newKeysToDisplay.push("Hypervisor");
 		if (localdatacenterManagement.length > 0) newKeysToDisplay.push("vCenter Server");
-		// if (localPrimaryStorage.length > 0) newKeysToDisplay.push("Primary Storage");
 		if (localVersion.length > 0) newKeysToDisplay.push("VMmark Version");
 		if (browser_version !== "1.0") newKeysToDisplay.push("Matched Pair");
 		// if (localTotalThreads.length > 0) newKeysToDisplay.push("Total Threads");
@@ -628,18 +653,18 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 		setManageColumns(newKeysToDisplay)
 		setVisibleColumns(new Set(newKeysToDisplay));
 
-		updateUniqueItems(setTotalHosts, totalHosts, sortFilters(localTotalHosts));
-		updateUniqueItems(setPrimaryStorage, primaryStorage, sortFilters(localPrimaryStorage));
-		updateUniqueItems(setTotalSockets, totalSockets, sortFilters(localTotalSockets));
-		updateUniqueItems(setSystemDescription, systemDescription, sortFilters(localSystemDescription));
-		updateUniqueItems(setTotalThreads, totalThreads, sortFilters(localTotalThreads));
-		updateUniqueItems(setVersion, version, sortFilters(localVersion));
-		updateUniqueItems(setTotalCores, totalCores, sortFilters(localTotalCores));
-		updateUniqueItems(setHypervisor, hypervisor, sortFilters(localHypervisor));
-		updateUniqueItems(setSubmitter, submitter, sortFilters(localSubmitter));
-		updateUniqueItems(setProcessorModel, processorModel, sortFilters(localProcessorModel));
-		updateUniqueItems(setTypeOfStorage, typeOfStorage, sortFilters(localTypeOfStorage));
-		updateUniqueItems(setdatacenterManagement, datacenterManagement, sortFilters(localdatacenterManagement));
+		updateUniqueItems(setTotalHosts, totalHosts, localTotalHosts);
+		updateUniqueItems(setPrimaryStorage, primaryStorage, localPrimaryStorage);
+		updateUniqueItems(setTotalSockets, totalSockets, localTotalSockets);
+		updateUniqueItems(setSystemDescription, systemDescription, localSystemDescription);
+		updateUniqueItems(setTotalThreads, totalThreads, localTotalThreads);
+		updateUniqueItems(setVersion, version, localVersion);
+		updateUniqueItems(setTotalCores, totalCores, localTotalCores);
+		updateUniqueItems(setHypervisor, hypervisor, localHypervisor);
+		updateUniqueItems(setSubmitter, submitter, localSubmitter);
+		updateUniqueItems(setProcessorModel, processorModel, localProcessorModel);
+		updateUniqueItems(setTypeOfStorage, typeOfStorage, localTypeOfStorage);
+		updateUniqueItems(setdatacenterManagement, datacenterManagement, localdatacenterManagement);
 	};
 
 
@@ -678,20 +703,20 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 
 
 	const filters = [
+		{ label: "Submitter", attribute: "submitter", tags: submitter },
 		{ label: "Total Hosts", attribute: "total_hosts", tags: totalHosts },
 		// { label: "Primary Storage", attribute: "primary_storage", tags: primaryStorage },
 		{ label: "Total Sockets", attribute: "total_sockets", tags: totalSockets },
-		{ label: "Matched Pair", attribute: "matched_pair", tags: ["Matched Pair", "Not Matched Pair"] },
+		{ label: "Total Cores", attribute: "total_cores", tags: totalCores },
 		{ label: "Server Description", attribute: "system_description", tags: systemDescription },
 		{ label: "Processor Model", attribute: "processor_model", tags: processorModel },
 		{ label: "Primary Storage", attribute: "type_of_storage", tags: typeOfStorage },
+		{ label: "Hypervisor", attribute: "hypervisor", tags: hypervisor },
 		{ label: "vCenter Server", attribute: "datacenter_management", tags: datacenterManagement },
+		{ label: "Version", attribute: "version", tags: version },
+		{ label: "Matched Pair", attribute: "matched_pair", tags: ["Matched Pair", "Not Matched Pair"] },
 		// { label: "Total Threads", attribute: "total_threads", tags: totalThreads },
 		// { label: "Uniform Hosts", attribute: "uniform_hosts", tags: ["False", "True"] },
-		{ label: "Total Cores", attribute: "total_cores", tags: totalCores },
-		{ label: "Hypervisor", attribute: "hypervisor", tags: hypervisor },
-		{ label: "Submitter", attribute: "submitter", tags: submitter },
-		{ label: "Version", attribute: "version", tags: version },
 	]
 
 	const manage_columns = [
@@ -802,12 +827,25 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 			});
 		});
 
+
 		if (searchWord?.term && searchWord.term.length > 0) {
 			filteredData = filteredData?.filter(item =>
-				Object.values(item).some(val =>
-					searchWord.term.some(word =>
-						String(val).toLowerCase().includes(word.toLowerCase())
-					)
+				Object.entries(item).some(([key, val]) =>
+					searchWord.term.some(word => {
+						const searchWords = word.toLowerCase().split(' ');
+
+						const numberPart = searchWords.find(w => !isNaN(w));
+						const keyPart = searchWords.filter(w => isNaN(w)).join(' ');
+
+						const normalizedKey = key.replace(/_/g, ' ').toLowerCase();
+						const normalizedValue = String(val).toLowerCase();
+
+						const keyValueMatch = (normalizedKey === keyPart && normalizedValue === numberPart);
+
+						const generalMatch = String(val).toLowerCase().includes(word.toLowerCase());
+
+						return keyValueMatch || generalMatch;
+					})
 				)
 			);
 		}
@@ -921,6 +959,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 							searchTerm={searchTerm}
 							setSearchTerm={setSearchTerm}
 							onReset={handleReset}
+							description="A vSAN storage result runs all application workload virtual machines on VMware vSAN storage."
 						></MultiSelectFilter>
 					</div>
 				</div>
@@ -1066,14 +1105,19 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 													<td className={className} key={`${item.content_id}-${key}`}>
 														{/* <a href={`/details/${item.content_id}`} target="_blank">det</a> */}
 														<span dangerouslySetInnerHTML={{ __html: displayValue }}></span>
+														{/* <span dangerouslySetInnerHTML={{ __html: parseFloat(displayValue?.split('@')[0])?.toFixed(2) + " @" + displayValue?.split('@')[1] }}></span> */}
 														{item?.disclosure_document?.url && <SiteLink to={item?.disclosure_document?.url} target='__blank'>Details<Icon type="pdf" /></SiteLink>}
 
 													</td>
 												);
 											}
 
-											if (dataKey === 'total_hosts' || dataKey === 'total_sockets' || dataKey === 'total_cores' || dataKey === 'total_threads') {
+											if (dataKey === 'total_hosts' || dataKey === 'total_sockets' || dataKey === 'total_cores') {
 												return <td className={className} key={`${item.content_id}-${key}`}>{displayValue} {key}</td>
+											}
+
+											if (dataKey === 'date') {
+												return <td className={className} key={`${item.content_id}-${key}`} dangerouslySetInnerHTML={{ __html: new Date(displayValue)?.toLocaleDateString('en-us', { year:'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC' }) }}></td>
 											}
 
 											// return <td className={className} key={`${item.content_id}-${key}`}>{displayValue}</td>;

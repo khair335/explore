@@ -43,9 +43,12 @@ table {
   }
 
   tbody {
+   > tr:nth-child(even){
+      background-color: $background-light-gray!important;
+    }
     td {
       border: 0 !important;
-      box-shadow: inset 0px -1px 0px 0px $color-grey--50 !important;
+      box-shadow: inset 0px -1px 0px 0px $color-grey--100 !important;
       vertical-align: middle !important;
       padding: 25px 0 !important;
 
@@ -56,6 +59,29 @@ table {
       p {
         margin-bottom: 0;
       }
+
+      .list-links {
+        list-style-type: none;
+        margin:0
+      }
+      .list-links li {
+        padding-bottom: 12px;
+      }
+      .list-links a {
+        text-decoration: none;
+        padding: 0;
+      }
+      .list-links a:hover {
+        color: #04314D;
+        text-decoration: underline;
+        text-decoration-color: #04314D;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        animation: none !important;
+      }
+
     }
   }
 }

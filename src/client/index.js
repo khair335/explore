@@ -299,11 +299,7 @@ class App extends Component {
 							<button color="primary" id="_debug-menu-toggle" style={{ marginBottom: '0.25rem' }} aria-label="Debug Menu"><i className="fas fa-window-maximize"></i></button>
 						</div>
 					)} */}
-				<div className="scrollto-top-container container">
-					<div className="scrollto-top-wrapper">
-						<ScrollToLink className="scrollto-top btn" to="top" autoappear>Top <span className="bi brcmicon-arrow-circle-right bi-rotate-270"></span></ScrollToLink>
-					</div>
-				</div>
+				
 
 			</Fragment>
 		);

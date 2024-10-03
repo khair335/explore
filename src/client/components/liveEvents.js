@@ -11,9 +11,43 @@ import Video, { VideoLink, VideoPlaylist } from 'components/Video.jsx';
 import { ImageEnlargeModal } from 'components/ImageBase.jsx';
 import { UncontrolledPopover, PopoverBody } from 'reactstrap';
 import { InfoPopover } from 'components/InfoPopover.jsx';
+import InfoModal from 'components/InfoModal.jsx';
+
 
 
 import 'scss/components/blog-tables.scss';
+
+// ----------------
+// B12E-9 Click to enlarge image.
+//-----------------
+const handleModal = () => {
+	let modals = document.querySelectorAll('[data-modal="true"]');
+
+
+	if (modals && modals.length > 0) {
+		modals.forEach(modal => {
+
+			// Do it once, so set us as done.
+			modal.setAttribute('data-modal', 'init');
+
+
+
+			// Create a new container.
+			let container = document.createElement("span");
+			modal.parentNode.insertBefore(container, modal);
+			modal.parentNode.removeChild(modal);
+
+			const root = createRoot(container);
+
+			
+			root.render(
+				<InfoModal>
+					<span dangerouslySetInnerHTML={{ __html: modal.innerHTML }} />
+				</InfoModal>
+			);
+		});
+	}
+}
 
 const handleVideoLink = () => {
 	let videos = document.querySelectorAll('[data-module="videourl"]');
@@ -138,7 +172,7 @@ const handleCollapse = () => {
 				}
 			}
 
-			
+
 
 		});
 	}
@@ -204,7 +238,7 @@ const liveEvents = () => {
 	handleImageEnlarge();
 	handleTooltips();
 	handleCollapse();
-
+	handleModal();
 
 	//<video data-module="video" data-module-type="video-playlist" data-channel-id="a493a97ae5f84508a1e45dd117e99c26" id="playList1211203289657" name="playList1211203289657"></video>
 	let playlists = document.querySelectorAll('[data-module-type="video-playlist"]');

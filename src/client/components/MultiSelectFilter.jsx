@@ -6,7 +6,7 @@ import PillsFilter from 'components/PillsFilter.jsx';
 import { filterParams } from 'components/utils.jsx';
 import 'scss/components/multi-select-filter.scss';
 
-const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, setVideoIds, setVideos, setLoadCount, searchWord, setSearchWord, searchTerm, setSearchTerm }) => {
+const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, setVideoIds, setVideos, setLoadCount, searchWord, setSearchWord, searchTerm, setSearchTerm, description }) => {
     const [hasSelectedValues, setHasSelectedValues] = useState(false);
 
     useEffect(() => {
@@ -66,7 +66,7 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
                 onSelectionChange={handleCheckboxChange}
                 defaultLabel={defaultLabel}
             />
-
+            {description && ((selectedValues?.type_of_storage && selectedValues?.type_of_storage?.includes('vSAN Storage')) || (searchWord['term']?.some(str => /vsan storage/i?.test(str)))) && <span className="vsan-storage">{description}</span>}
             <PillsFilter
                 items={items}
                 selectedValues={selectedValues}
@@ -101,6 +101,7 @@ MultiSelectFilter.propTypes = {
     setSearchWord: PropTypes.func,
     searchTerm: PropTypes.string,
     setSearchTerm: PropTypes.func,
+    description: PropTypes.string,
 };
 
 export default MultiSelectFilter;

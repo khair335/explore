@@ -19,46 +19,31 @@ import 'scss/templates/vertical-tab.scss';
 
 
 const VerticalTab = (props) => {
-
 	const cards = props?.content_block?.cards || [];
-	const getTabTitle = (card => {
+	const getTabTitle = (card) => {
 		if (!card) {
 			return "Invalid card for tab";
 		}
-
 		return card?.tab_title || card?.section_title || card?.title || "missing tab title";
-	});
+	};
 
 	const [active, setActive] = useState(0);
 	const [active_tab_title, setActiveTitle] = useState(getTabTitle(cards[0]));
 	const [collapse, setCollapse] = useState(false);
 	const [activeTab, setActiveTab] = useState('1');
 
-	const [isOpen, setIsOpen] = useState(false);
-	const toggleTab = tab => {
-
-		if (activeTab !== tab) setActiveTab(tab);
-
-	};
-	const toggleAccordion = () => {
-
-		setIsOpen(!isOpen);
-
-	};
-
-
-
-	const handleTabs = (event, index) => {
-		event.preventDefault();
-
-		const tab = event.target.getAttribute('data-tab');
-
+	const handleTabs = (index) => {
 		setActive(index);
 		setActiveTitle(getTabTitle(cards[index]));
-		// setCollapse(true);
 		setCollapse(false);
+	};
 
-	}
+	const handleKeyDown = (event, index) => {
+		// If Enter is pressed, simulate a click on the tab
+		if (event.key === 'Enter') {
+			handleTabs(index);
+		}
+	};
 
 	return (
 		<div className="VerticalTab">
@@ -66,53 +51,41 @@ const VerticalTab = (props) => {
 				{props?.content_block.title && <h3 className="mb-3" dangerouslySetInnerHTML={{ __html: props?.content_block.title }} />}
 				{props?.content_block.body && <p dangerouslySetInnerHTML={{ __html: props?.content_block.body }} />}
 
-
-				<Row className='vertical-container'>
+				<Row className="vertical-container">
 					<Col className="vertical-tab show-collapse-lg">
 						<div className="vertical-tab-collapse-wrapper">
 							<Collapse isOpen={collapse} className={`show-collapse-lg`}>
-								<Nav tabs className='show-collapse-lg'>
-									{cards.map((card, index) =>
+								<Nav tabs className="show-collapse-lg">
+									{cards.map((card, index) => (
 										<NavItem key={card.content_id}>
 											<a
 												className={classnames('lnk', { active: active === index })}
-												onClick={(event) => handleTabs(event, index)} // see handleTabs for gtmevent
+												onClick={() => handleTabs(index)}
 												role="tab"
-												aria-selected={active === index ? "true" : "false"}
+												aria-selected={active === index ? 'true' : 'false'}
+												tabIndex={0} // Make tab focusable
+												onKeyDown={(event) => handleKeyDown(event, index)} // Handle Enter key
 											>
-
-												{getTabTitle(card)} <div className='arrow-icon'>
-													
-													
-													
-													</div></a>
-
-
-
+												{getTabTitle(card)} <div className='arrow-icon'></div>
+											</a>
 										</NavItem>
-
-									)}
+									))}
 								</Nav>
-
 							</Collapse>
-
 						</div>
 					</Col>
 
-					<Col className={`show-collapse-lg`}>
+					<Col className="show-collapse-lg">
 						<TabContent activeTab={active}>
-							{cards.map((card, index) =>
+							{cards.map((card, index) => (
 								<TabPane tabId={index} key={card.content_id}>
 									{getComponentFromTemplate(card.template, card)}
 								</TabPane>
-
-							)}
+							))}
 						</TabContent>
-
 					</Col>
 
 					<Col xs="12" className="d-lg-none">
-
 						<div>
 							{cards.map((card, index) => (
 								<Collapsible key={index} title={getTabTitle(card)}>
@@ -123,26 +96,22 @@ const VerticalTab = (props) => {
 					</Col>
 				</Row>
 
-
-
-
-				{props?.content_block.links &&
+				{props?.content_block.links && (
 					<ul className="cb-cta-link pt-2">
-						{props?.content_block.links.map(link =>
+						{props?.content_block.links.map((link) => (
 							<li key={link.content_id}>
-
-								<SiteLink to={link.url} target={link.target || "_self"} subtype={link.subtype || ""} >{link.title || props.content_block.link_title}</SiteLink>
+								<SiteLink to={link.url} target={link.target || '_self'} subtype={link.subtype || ''}>
+									{link.title || props.content_block.link_title}
+								</SiteLink>
 							</li>
-						)}
+						))}
 					</ul>
-				}
-
-
+				)}
 			</Container>
 		</div>
 	);
+};
 
-}
 
 
 export default withLiveEvents(VerticalTab);

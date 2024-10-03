@@ -55,40 +55,12 @@ body{
   color: $color-grey--900;
   font-family: $font-family--primary;
   min-height: 100%;
-  padding-bottom: $footer-height;    // footer
   position: relative;
   line-height: 1.42857143;
   overflow-y: scroll;
-  // footer heights so we need padding. See heights in Footer.jsx
-
-  &.autopilot-show {
-    padding-bottom: $autopilot-footer-height;
-  }
-
-  @media screen and (min-width: map-get($grid-breakpoints, md)) {
-    padding-bottom: $footer-height-md;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-md;
-    }
-  }
-  @media screen and (min-width: map-get($grid-breakpoints, lg)) {
-    padding-bottom: $footer-height-lg;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-lg;
-    }
-  }
-  @media screen and (min-width: map-get($grid-breakpoints, xl)) {
-    padding-bottom: $footer-height-xl;
-    &.autopilot-show {
-      padding-bottom: $autopilot-footer-height-xl;
-    }
-  }
-
+  
 }
 
-#main {
-  padding-bottom: 60px;   // Add padding so that there's room for the scroll to top and it doesn't hover over content.
-}
 
 #main h4 {
   line-height: 1.8;

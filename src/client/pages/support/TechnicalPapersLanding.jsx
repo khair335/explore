@@ -37,8 +37,8 @@ const TechnicalPapersLanding = (props) => {
     const [products, setProducts] = useState([]);
     const [publisher, setPublisher] = useState([]);
     const [area, setArea] = useState([]);
-    const [inputChange, setInputChange] = useState(searchParams.term || '');
-    const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
+    const [inputChange, setInputChange] = useState(searchParams?.term ? searchParams?.term[0] : '');
+    const [searchTerm, setSearchTerm] = useState(searchParams?.term ? searchParams?.term[0] : '');
     const [isSubmit, setIsSubmit] = useState(false);
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(0);

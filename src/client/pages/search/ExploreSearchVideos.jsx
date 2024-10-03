@@ -33,10 +33,10 @@ const ExploreSearchVideos = (props) => {
 	const [videoCount, setVideoCount] = useState('0');
 	const [limit, setLimit] = useState(12);
 	const [offset, setOffset] = useState(0);
-	const [searchTerm, setSearchTerm] = useState(searchParams.term || '');
+	const [searchTerm, setSearchTerm] = useState(searchParams?.term ? searchParams?.term[0] : '');
 	const [isSubmit, setIsSubmit] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const [inputChange, setInputChange] = useState(searchParams.term || '');
+	const [inputChange, setInputChange] = useState(searchParams?.term ? searchParams?.term[0] : '');
 	const [loadCount, setLoadCount] = useState(0);
 	// const [selectedYear, setSelectedYear] = useState('2023')
 	const initialValues = {
@@ -158,8 +158,8 @@ const ExploreSearchVideos = (props) => {
 			fetchData(final_url);
 		} else {
 			const url = (searchTerm?.trim()?.length > 0) ?
-				`${base_url}?q=%2B${searchTerm}%20%2Bwhere_the_video_should_be_hosted_:vmware&limit=${limit}&offset=${offset}` :
-				`${base_url}?q=%2Bwhere_the_video_should_be_hosted_:vmware&limit=${limit}&offset=${offset}`;
+				`${base_url}?q=%2B${searchTerm}%20%2Bwhere_the_video_should_be_hosted_:vmware%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}` :
+				`${base_url}?q=%2Bwhere_the_video_should_be_hosted_:vmware%2Bcomplete:"true"%2Bstate:"ACTIVE"&limit=${limit}&offset=${offset}`;
 			const final_url = (sortKey !== 'most-recent') ? `${url}&sort=-plays_total&account=vmware` : `${url}&sort=-updated_at&account=vmware`;
 			fetchData(final_url);
 
@@ -252,7 +252,7 @@ const ExploreSearchVideos = (props) => {
 							<MultiSelectFilter
 								items={props.data?.filters?.filter((data) => data.label !== "Year")}
 								defaultLabel="region"
-								placeholder={searchTerm.trim()}
+								placeholder={searchTerm?.trim()}
 								selectedValues={selectedValues}
 								setSelectedValues={setSelectedValues}
 								setFilterString={setFilterString}
@@ -261,7 +261,7 @@ const ExploreSearchVideos = (props) => {
 								setVideos={setVideos}
 								setLoadCount={setLoadCount}
 							></MultiSelectFilter>
-						</div></> || <>{(hasSelectedValues || searchTerm.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear Filters</Button>}</>}
+						</div></> || <>{(hasSelectedValues || searchTerm?.trim()) && <Button className='clear-btn' onClick={handleReset}>Clear Filters</Button>}</>}
 
 				</Container>
 			</div>

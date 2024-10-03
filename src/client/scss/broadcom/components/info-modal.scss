@@ -1,0 +1,14 @@
+/*
+* components/info-modal.scss
+*/
+// Styling for info modals.
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.InfoModal {
+    .icon-bttn {
+        display: inline-block;
+        padding: 0;
+    }
+}

@@ -25,6 +25,9 @@ const Docs = React.lazy(() => import('pages/docs.jsx'));
 // // Stand alone video.
 const VideoPage = React.lazy(() => import('pages/support/VideoPage.jsx'));
 
+// The scroll to top
+import ScrollToLink from "components/ScrollToLink.jsx";
+
 /**
  *  @brief This is so we know to switch pages with out query.
  *  
@@ -114,9 +117,14 @@ const Layout = () => {
                                 <Outlet />
                             </LocationSearchProvider>
                         </PathnameProvider>
+                        <div className="scrollto-top-container container">
+                            <div className="scrollto-top-wrapper">
+                                <ScrollToLink className="scrollto-top btn" to="top" autoappear>Top <span className="bi brcmicon-arrow-circle-right bi-rotate-270"></span></ScrollToLink>
+                            </div>
+                        </div>
+                        <Footer />
                     </Suspense>
                 </div>
-                <Footer />
             </NavigationProvider>
         </>
     );

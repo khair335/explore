@@ -310,27 +310,36 @@
         // box-shadow: $shadow-5
     }
 
+   
+
     .expand-icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+       
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        font-size: 15px;
+        color: $color-primary;
+
+
     }
+
+    
 
     .dropdown-down {
         @include fa-icon-solid($fa-var-chevron-down);
         transition: 0.2s ease-in-out;
-        right: 8px;
-        position: absolute;
-        top: 15px;
+        
+        padding: 3px 0 0 4px;
     }
+
 
     .dropdown-right {
         @include fa-icon-solid($fa-var-chevron-up);
         transition: 0.2s ease-in-out;
-        right: 8px;
-        position: absolute;
-        top: 15px;
+        
+        padding: 3px 0 0 4px;
+
     }
     
     .spotlight-title {

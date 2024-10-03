@@ -256,11 +256,10 @@ text-transform: lowercase;
 .scrollto-top-container {
   position: fixed;
   bottom: 20px;
-  @media screen and (min-width: map-get($grid-breakpoints, md)) {
-    position: static;   // ie11
-    position: sticky;   // All other browsers
-    position: -webkit-sticky; // Safari
-  }
+  
+  // Center the container
+  left: 50%;
+  transform: translateX(-50%);
 
   .scrollto-top-wrapper {
     float: right;

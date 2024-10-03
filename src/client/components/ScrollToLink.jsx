@@ -13,7 +13,7 @@ export default class ScrollToLink extends PureComponent {
 		super(props);
 
 		this.state = {
-			isOn: !this.props.bounded,			// Turn us off if we are bounded by screen size to show.
+			isOn: true, //!this.props.bounded,			// Turn us off if we are bounded by screen size to show.
 			isAppear: this.props.autoappear?false:true,					// Bad grammer. This is used for showing the scroll to top.
 		}
 		
@@ -38,23 +38,23 @@ export default class ScrollToLink extends PureComponent {
 		// hasVScroll = document.body.scrollHeight > document.body.clientHeight;
 		
 		// Backwards compatible. We were trying to fix mobile /products/leds-and-displays/7-segment/surface-mount
-		if (document.body && document.body.scrollHeight) {
-			let body = document.body,
-    		html = document.documentElement;
+		// if (document.body && document.body.scrollHeight) {
+		// 	let body = document.body,
+    	// 	html = document.documentElement;
 
-			let height = Math.max( body.scrollHeight, body.offsetHeight, 
-					   html.clientHeight, html.scrollHeight, html.offsetHeight );
+		// 	let height = Math.max( body.scrollHeight, body.offsetHeight, 
+		// 			   html.clientHeight, html.scrollHeight, html.offsetHeight );
 					   
-			// Now if we are a certiain size larger than our window height.
-			this.setState({
-				isOn: (height > (winHeight + 200)) ? true : false		// Maybe use a log function instead of a fixed number.
-			});
-		}
-		else {
-			this.setState({
-				isOn: (winHeight > 1100) ? true : false
-			});
-		}
+		// 	// Now if we are a certiain size larger than our window height.
+		// 	this.setState({
+		// 		isOn: (height > (winHeight + 200)) ? true : false		// Maybe use a log function instead of a fixed number.
+		// 	});
+		// }
+		// else {
+		// 	this.setState({
+		// 		isOn: (winHeight > 1100) ? true : false
+		// 	});
+		// }
 	}
 	/**
 	 *  @brief We need to poll to see if height changed.

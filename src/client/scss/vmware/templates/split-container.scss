@@ -1,0 +1,110 @@
+/*
+* templates/split-container.scss
+* Styles for SplitContainer template
+*/
+
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/typography";
+
+.SplitContainer {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    column-gap: 124px;
+    row-gap: 32px;
+    padding: 100px 0px;
+    vertical-align: middle;
+
+    .split-container-summary {
+        align-items: flex-start;
+        vertical-align: middle;
+        width: 371px;
+    }
+
+    .split-container-title {
+        @include font-xl1;
+        color: $color-black;
+    }
+
+    .split-container-desc {
+        @include font-sm;
+        padding: 20px 0px;
+    }
+
+    // Horizontally stacked and wrappped CTAs
+    .split-container-cta {
+        display: flex;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 5px;
+    }
+
+    .split-container-cards {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 24px;
+        flex: 1 0 0;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        width: 785px;
+    }
+
+    .split-container-card-cell {
+        border: 1px solid $color-grey--200;
+        height: 158px;
+        width: 317px;
+        padding: 24px;
+        gap: 24px;
+        text-align: center;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+        i {
+            margin: 20%;
+        }
+    }
+}
+
+.split-reverse {
+    flex-direction: row-reverse;
+}
+
+@include media-breakpoint-down(lg) {
+    .SplitContainer {
+        padding: 50px 16px;
+        margin-bottom: 32px;
+
+        .split-container-summary {
+            text-align: center;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .split-container-cta {
+            justify-content: center;
+        }
+
+        .split-container-cards {
+            display: flex;
+            width: 100%;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .split-container-card-cell {
+            width: 317px;
+            display: inline;
+            padding: 32px;
+            gap: 24px;
+            text-align: center;
+        }
+    }
+}
+

@@ -361,6 +361,13 @@
       margin-bottom: 15px;
     }
   }
+  .card-text{
+    p{
+      div{
+        display: inline;
+      }
+    }
+  }
   .section-title {
     padding-bottom: 8px;
   }
@@ -499,6 +506,20 @@
           border-color: $color-primary !important;
           background-color: $color-white !important;
           color: $color-primary !important;
+          text-decoration: none !important;
+        }
+        &:after{
+          content: unset !important;
+        }
+      }
+    }
+    .theme-card-cta-link{
+      a{
+        text-decoration: none;
+        &:hover{
+border: 0;
+text-decoration-color: #04314D;
+text-decoration: underline;
         }
       }
     }
@@ -624,6 +645,43 @@
   &.theme-content-block-gray {
     .ContentCard {
       .container {
+        .theme-card-cta-secondary{
+          .cb-cta-link {
+            gap: 10px !important;
+            justify-content: center;
+  
+            li {
+            
+                .button,
+                .lnk {
+                  @extend .bttn;
+                  @include secondary-button;
+  
+                  &:after {
+                    @include button-after;
+                  }
+  
+  
+  
+                }
+  
+                .link-bttn{
+                    @extend .bttn;
+                  @include secondary-button;
+                    padding: 6px 24px;
+                  &:after {
+                    @include button-after;
+                  }
+                  &:hover{
+                    text-decoration: none;
+                  }
+                    }
+            
+            }
+  
+  
+          }
+        }
         .cb-cta-link {
           gap: 10px !important;
           justify-content: center;
@@ -677,6 +735,7 @@
 
 
         }
+      
         
       }
     }
@@ -771,6 +830,17 @@
       }
     }
 
+  }
+
+  &.theme-content-block-dark{
+    
+      .card-body{
+        a{
+          color: #95d5ef;
+          display: inline;
+        }
+      }
+    
   }
 
   .TestimonialCard {
@@ -1127,17 +1197,6 @@
 
   .card {
     min-height: 100%;
-  }
-
-  .card-text{
-    p{
-      span{
-        display: inline;
-      }
-      a{
-        display: inline
-      }
-    }
   }
 
   &.theme-content-block-gray {
@@ -1502,6 +1561,10 @@
             a {
               margin: 0;
               color: #47B2D3;
+              &:hover{
+                background-color: transparent !important;
+                text-decoration-color: #95d5ef;
+              }
             }
           }
 
@@ -2333,15 +2396,20 @@
       color: $color-black;
     }
   }
-
+  &.theme-cbl-card-light {
+    .card-title {
+      color: $color-black !important;
+    }
+  }
   &.theme-content-block-imagedark {
     .section-title {
       color: $color-white;
     }
 
     .card-title {
-      color: $color-white;
+      // color: $color-white;
     }
+
 
     &.theme-cbl-card-light {
       .section-title {
@@ -2349,7 +2417,7 @@
       }
 
       .card-title {
-        color: $color-white;
+        color: $color-black !important;
       }
 
       .ImageCard {
@@ -2357,6 +2425,7 @@
           color: $color-black;
         }
       }
+      
     }
   }
 
@@ -2386,6 +2455,11 @@
     }
     .card-title {
       color: $color-white;
+    }
+    &.theme-cbl-card-light {
+      .card-body a{
+        color: $color-white;
+      }
     }
   }
 }
@@ -2572,6 +2646,11 @@
 }
 
 .ContentCardTwoColumn-section {
+  &.theme-content-block-dark{
+    .card-title {
+      color: $color-white !important;
+    }
+  }
   .section-title {
     color: $color-black;
   }
@@ -2850,6 +2929,22 @@
 
 
   }
+  &.theme-cbl-card-transparent{
+    .ContentCardTwoColumn{
+      .theme-card-cta-link{
+        .cb-cta-link{
+          a{
+            text-decoration: none;
+            &:hover{
+border: 0;
+text-decoration-color: #04314D;
+text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .base-info {
@@ -3116,6 +3211,7 @@
           }
           button{
             height: auto;
+            text-transform: capitalize;
           }
         }
       }

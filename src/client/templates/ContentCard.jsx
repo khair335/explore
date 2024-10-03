@@ -21,7 +21,7 @@ class ContentCard extends Component {
 		this.cards = null;
 
 		if (this.props.content_block.columns) {
-			this.cards = applyCardTypeToColumns(this.props.content_block.columns, 'ImageCard', this.props.content_block.image_position);			
+			this.cards = applyCardTypeToColumns(this.props.content_block.columns, 'ImageCard', this.props.content_block?.image_position, this.props.content_block?.cards_image_size); // Added image size https://hgsdigitalprojects.atlassian.net/browse/BCV2-31			
 		}
 
 	}

@@ -302,123 +302,123 @@ const NoTemplate = () => {
      */
 const Footer = (props) => {
     let navigation = useBroadcomNavigation();
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     let template = (navigation?.template || "Broadcom") + "Footer";		// Resolve name to local name.
     let FooterTemplate = templates[template] || NoTemplate;
 
 
     // Check on resize of the body.
-    let resizeObserver = null;
-    let observer = null;
+    // let resizeObserver = null;
+    // let observer = null;
 
 
-    const handleScroll = useCallback((event) => {
-        const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
-        const scrollTop = window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
-        let footer_container = document.getElementById('footer');
-        let scroll_offset = 120;        // When to start showing the footer.
+    // const handleScroll = useCallback((event) => {
+    //     const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
+    //     const scrollTop = window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
+    //     let footer_container = document.getElementById('footer');
+    //     let scroll_offset = 120;        // When to start showing the footer.
 
 
-        // Get the actual footer size.
-        if (footer_container && footer_container.offsetHeight > 0) {
-            scroll_offset = footer_container.offsetHeight;
-        }
+    //     // Get the actual footer size.
+    //     if (footer_container && footer_container.offsetHeight > 0) {
+    //         scroll_offset = footer_container.offsetHeight;
+    //     }
 
-        if ((scrollHeight - scrollTop - scroll_offset) <= 0) {
-            setShow(true);
-        }
-        else {
-            setShow(false);
-        }
-    })
+    //     if ((scrollHeight - scrollTop - scroll_offset) <= 0) {
+    //         setShow(true);
+    //     }
+    //     else {
+    //         setShow(false);
+    //     }
+    // })
 
-    useEffect(() => {
-        require('smoothscroll-polyfill').polyfill();
-        window.addEventListener('scroll', handleScroll);
-        /*
-                window.addEventListener('load', (e)=> {             // footer hidden till load complete - google analytics issue
-                    let showFoot = document.querySelector('footer');
-                    showFoot.style.display = 'block';
-                })
+    // useEffect(() => {
+    //     require('smoothscroll-polyfill').polyfill();
+    //     window.addEventListener('scroll', handleScroll);
+    //     /*
+    //             window.addEventListener('load', (e)=> {             // footer hidden till load complete - google analytics issue
+    //                 let showFoot = document.querySelector('footer');
+    //                 showFoot.style.display = 'block';
+    //             })
 
-        */
-        if (typeof ResizeObserver == 'function') {
+    //     */
+    //     if (typeof ResizeObserver == 'function') {
 
-            observer = new MutationObserver((mutationsList, observer) => {
+    //         observer = new MutationObserver((mutationsList, observer) => {
 
-                const loading = document.querySelector('.page-loading');
-                const loaded = document.querySelector('.loaded');
-                if (!loading && loaded) {
-                    // HACK: JD - React still has to render, so we are guessing when it renders the doms.
-                    setTimeout(() => {
-                        const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
-                        if (scrollHeight === 0) {
-                            setShow(true);
-                        }
-                    }, 600);
+    //             const loading = document.querySelector('.page-loading');
+    //             const loaded = document.querySelector('.loaded');
+    //             if (!loading && loaded) {
+    //                 // HACK: JD - React still has to render, so we are guessing when it renders the doms.
+    //                 setTimeout(() => {
+    //                     const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
+    //                     if (scrollHeight === 0) {
+    //                         setShow(true);
+    //                     }
+    //                 }, 600);
 
-                    //observer.disconnect();
-                }
-            });
+    //                 //observer.disconnect();
+    //             }
+    //         });
 
-            resizeObserver = new ResizeObserver(entries => {
+    //         resizeObserver = new ResizeObserver(entries => {
 
-                const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
-                const scrollTop = window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
+    //             const scrollHeight = document.body.scrollHeight - (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);    // Total scrollable - visible window height
+    //             const scrollTop = window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
 
-                // Do we have a scroll bar?
-                const loading = document.querySelector('.page-loading');
-
-
-                if (scrollHeight <= 0) {
-                    // Ignore loading screen
-                    // Just show the scroll bar.
-                    if (!loading) {
-                        setShow(true);
-                    }
-                    else {
-                        // Wait till we are finished loading.
-
-                        // Start observing the target node for configured mutations
-                        observer.observe(document.querySelector('#main'), {
-                            childList: true, subtree: true
-                        });
-                    }
-                }
-                else {
-                    setShow(false);
-                }
-
-            });
-        }
+    //             // Do we have a scroll bar?
+    //             const loading = document.querySelector('.page-loading');
 
 
-        if (observer) {
-            const root = document.querySelector('#root #main');
+    //             if (scrollHeight <= 0) {
+    //                 // Ignore loading screen
+    //                 // Just show the scroll bar.
+    //                 if (!loading) {
+    //                     setShow(true);
+    //                 }
+    //                 else {
+    //                     // Wait till we are finished loading.
 
-            if (root) {
-                observer.observe(root, { attributes: true, childList: true, subtree: false });
-            }
-        }
+    //                     // Start observing the target node for configured mutations
+    //                     observer.observe(document.querySelector('#main'), {
+    //                         childList: true, subtree: true
+    //                     });
+    //                 }
+    //             }
+    //             else {
+    //                 setShow(false);
+    //             }
 
-        if (resizeObserver) {
-            resizeObserver.observe(document.body);
-        }
+    //         });
+    //     }
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
 
-            if (resizeObserver) {
-                resizeObserver.unobserve(document.body);
-            }
+    //     if (observer) {
+    //         const root = document.querySelector('#root #main');
 
-            if (observer) {
-                observer.disconnect();
-            }
-        }
+    //         if (root) {
+    //             observer.observe(root, { attributes: true, childList: true, subtree: false });
+    //         }
+    //     }
 
-    }, []);
+    //     if (resizeObserver) {
+    //         resizeObserver.observe(document.body);
+    //     }
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+
+    //         if (resizeObserver) {
+    //             resizeObserver.unobserve(document.body);
+    //         }
+
+    //         if (observer) {
+    //             observer.disconnect();
+    //         }
+    //     }
+
+    // }, []);
 
 
     const subMenu = useCallback((item) => {

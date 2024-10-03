@@ -237,13 +237,17 @@
 
                                     @media (max-width:1200px) {
                                         img {
-                                            max-height: 168px;
+                                            max-height: 91px;
                                             object-fit: contain;
                                         }
                                     }
 
                                     @media (max-width:767px) {
                                         width: 100%;
+                                        img {
+                                            max-height: 168px;
+                                            object-fit: contain;
+                                        }
                                     }
                                 }
 

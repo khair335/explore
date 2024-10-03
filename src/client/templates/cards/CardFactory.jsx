@@ -105,14 +105,22 @@ ImageCard.propTypes = {
 export class LeftImageCard extends PureComponent {
     render() {
         let url = this.props.data.links && this.props.data.links[0] ? this.props.data.links[0].url : null;
+        let image_col = '3';        // Default logo size 
+        
+        
+        // https://hgsdigitalprojects.atlassian.net/browse/BCV2-31
+        if (this.props.data.image_size === 'image') {
+            image_col = '5';
+        }
 
+        
         return (
 
             <div className="card LeftImageCard">
                 <div className="card-body">
                     <Row>
                         {(this.props.data.image || this.props.data.video) &&
-                            <Col xs="3">
+                            <Col xs={image_col}>
                                 <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
                             </Col>
                         }
@@ -156,6 +164,13 @@ LeftImageCard.propTypes = {
 export class RightImageCard extends PureComponent {
     render() {
         let url = this.props.data.links && this.props.data.links[0] ? this.props.data.links[0].url : null;
+        let image_col = '3';        // Default icon size 
+        
+        
+        // https://hgsdigitalprojects.atlassian.net/browse/BCV2-31
+        if (this.props.data.image_size === 'image') {
+            image_col = '5';
+        }
 
         return (
 
@@ -185,7 +200,7 @@ export class RightImageCard extends PureComponent {
                             </div>
                         </Col>
                         {(this.props.data.image || this.props.data.video) &&
-                            <Col xs="3">
+                            <Col xs={image_col}>
                                 <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
                             </Col>
                         }
@@ -741,7 +756,7 @@ export function applyCardType(card, default_type, image_position) {
  *
  *  @details Details
  */
-export function applyCardTypeToColumns(columns, default_type, image_position) {
+export function applyCardTypeToColumns(columns, default_type, image_position, image_size) {
     let cards = null;
 
     if (columns) {
@@ -750,6 +765,7 @@ export function applyCardTypeToColumns(columns, default_type, image_position) {
             for (let col = 0; col < cards[row].length; col++) {
                 if (cards[row][col]) {
                     cards[row][col].card = applyCardType(cards[row][col], default_type, image_position);
+                    cards[row][col].image_size = image_size || 'icon';     // https://hgsdigitalprojects.atlassian.net/browse/BCV2-31
                 }
 
             }

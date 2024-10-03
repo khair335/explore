@@ -11,11 +11,10 @@ footer {
   background-color: $color-grey--500;
   color: $color-grey--800;
   //padding: 30px 20px 50px;
+  margin-top: 40px;
   padding: 0;
-  position: fixed;
   left: 0;
   right: 0;
-  bottom: -$footer-height; // Hide us first
   transition: bottom 0.4s ease-in-out; // show footer on scroll
   height: $footer-height;
 

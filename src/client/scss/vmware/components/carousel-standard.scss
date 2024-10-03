@@ -168,9 +168,11 @@ $carousel-indicator-padding: 40px;
             >p {
                 text-align: center;
             }
-
+            .testimonial-cta .cb-cta-link{
+                justify-content: center; 
+            }
             .cb-cta-link {
-                justify-content: center;
+                justify-content: flex-start;
 
                 .lnk,
                 .link-bttn {

@@ -56,6 +56,7 @@ const ResourceLibrary = React.lazy(() => import('templates/ResourceLibrary.jsx')
 const RoadmapLibrary = React.lazy(() => import('templates/RoadmapLibrary.jsx'));
 const RowOfImages = React.lazy(() => import('templates/RowOfImages.jsx'));
 const ProductLibrary = React.lazy(()=> import('templates/ProductLibrary.jsx'));
+const SplitContainer = React.lazy(()=> import('templates/SplitContainer.jsx'));
 const PromoPencil = React.lazy(()=> import('templates/PromoPencil.jsx'));
 const PromoBanner = React.lazy(() => import('templates/ContentCardTwoColumn.jsx'));
 
@@ -114,6 +115,7 @@ const templates = {
 	RoadmapLibrary,
 	RowOfImages,
 	ProductLibrary,
+	SplitContainer,
 	PromoPencil,
 	PromoBanner,
 };
