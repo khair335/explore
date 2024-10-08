@@ -27,7 +27,7 @@ $image-height-mobile: #{$video-width-mobile * 0.5625}; // 16:9 ratio
   .top-banner {
 
     margin-top: -$breadcrumb-spacing; // pulls up under breadcrumb (see breadcrumb.scss/#subhead-navigation-section)
-
+    min-height: 40px;
     // Mobile
     @include media-breakpoint-down(sm) {
       margin-top: 0;
