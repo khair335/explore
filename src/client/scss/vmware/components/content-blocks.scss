@@ -2402,7 +2402,13 @@ text-decoration: underline;
     .card-title {
       color: $color-black;
     }
+    &.theme-content-block-imagedark{
+      .card-title {
+        color: $color-white;
+      }
+    }
   }
+
   &.theme-cbl-card-light {
     .card-title {
       color: $color-black !important;
