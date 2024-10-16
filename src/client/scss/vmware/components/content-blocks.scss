@@ -1440,6 +1440,7 @@ text-decoration: underline;
       .VideoLink {
         .link-bttn {
           @include cta-link-style;
+          text-transform: initial;
 
           &:after {
             @include cta-link-after;
@@ -1689,7 +1690,7 @@ text-decoration: underline;
         .card-text{
           .VideoLink{
             .link-bttn{
-              text-transform: capitalize;
+              text-transform: initial;
               text-decoration: underline;
               font-size: 16px;
                 text-underline-offset: 3px;
