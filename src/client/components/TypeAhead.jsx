@@ -98,6 +98,11 @@ export class TypeAhead extends Component {
 			finally(() => {
 				window.location = target.href;		// Delay going to page until we track.
 			});
+
+		// Tell our parent we need to close.
+		if (this.props.onClose) {
+			this.props.onClose();
+		}
 	}
 
 	handleSuggestedClick(doc_id) {
@@ -107,6 +112,11 @@ export class TypeAhead extends Component {
 		// Do we clear on submit?
 		if (this.props.clear) {
 			this.setState({ query: `` });
+		}
+
+		// Tell our parent we need to close.
+		if (this.props.onClose) {
+			this.props.onClose();
 		}
 
 		// Track our click.

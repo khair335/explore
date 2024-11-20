@@ -26,13 +26,13 @@ const NavigationProvider = ({ children }) => {
     const [copyright, setCopyright] = useState('');
     const [loaded, setLoaded] = useState(false);
     const [header, setHeader] = useState({});
-    
+
     const filterNav = (url, title, template) => {
 
-        if (!title) { title = template };																			// sometimes title is null, set to template name
+        if (!title) { title = template ? template : " " };														// sometimes title is null, set to template name, sometimes template is undefined, data is garbage in lower envs
         if (url) {
-            if (url.startsWith("products/") || url.startsWith("https://")) {										// products have to many uppercase exceptions - skip
-                return title																						//		- also links to outside sites dont need a fix
+            if (url.startsWith("products/") || url.startsWith("https://")) {									// products have to many uppercase exceptions - skip
+                return title																				    //		- also links to outside sites dont need a fix
             } else {
                 return utils.titleCase(title)
             }
@@ -40,23 +40,23 @@ const NavigationProvider = ({ children }) => {
         return title;
     }
 
-    const loop = (navItems) => {                                                                                            //loop thru navigation json & unpack
-        if (navItems === null || navItems === undefined || navItems === []) { return };
+    const loop = (navItems) => {                                                                             //loop thru navigation json & unpack
+        if (navItems === null || navItems === undefined || navItems.length <= 0) { return };
         return (navItems.map(item => (
             {
-            id: (item.content_id) ? item.content_id : false,
-            title: filterNav(item.url, item.title, item.template),
-            url: (item.url === "#" || !item.url || item.template === "LabelWithNoURL") ? false : item.url, 		// biz rule: noURL template = its a page for content tree nav but there is no page it should be a label
-            group: (item.group) ? true : false,																	// creates a title with list
-            target: (item.target) ? item.target : false,														// adds target attribute for links
-            abstract: (item.abstract) ? item.abstract : false,
-            show_as_card: (item.show_as_card) ? item.show_as_card : false,
-            links: (item.links) ? item.links : false,
-            links_title: (item.links_group_title) ? item.links_group_title : false,
-            ctas: (item.menu_ctas) ? item.menu_ctas : false,
-            content_block: (item.content_type === "content_block") ? item :false,
-            child: [...(item?.children ? loop(item.children) : [])]                                  		    // children? create a new loop
-        })
+                id: (item.content_id) ? item.content_id : item.title,
+                title: filterNav(item.url, item.title, item.template),
+                url: (item.url === "#" || !item.url || item.template === "LabelWithNoURL") ? false : item.url, 		// biz rule: noURL template = its a page for content tree nav but there is no page it should be a label
+                group: (item.group) ? true : false,																	// creates a title with list
+                target: (item.target) ? item.target : false,														// adds target attribute for links
+                abstract: (item.abstract) ? item.abstract : false,
+                show_as_card: (item.show_as_card) ? item.show_as_card : false,
+                links: (item.links) ? item.links : false,
+                links_title: (item.links_group_title) ? item.links_group_title : false,
+                ctas: (item.menu_ctas) ? item.menu_ctas : false,
+                content_block: (item.content_type === "content_block") ? item : false,
+                child: [...(item?.children?.length > 0 ? loop(item.children) : [])]                                  		    // children? create a new loop
+            })
         ));
     }
 
@@ -93,7 +93,7 @@ const NavigationProvider = ({ children }) => {
                     let nav_queries = '';
                     let path = window.location.pathname.replace(/^\//g, '');
 
-                    
+
                     nav_queries += `&url=${encodeURIComponent(path + window.location.search)}`;
                     nav_queries += `&site=${config.navigation.site}`;
 
@@ -113,7 +113,7 @@ const NavigationProvider = ({ children }) => {
                         setNavigation(loop(allNav));
                         setHeader({
                             abstract: json?.header_logo_abstract,
-                            logo:{
+                            logo: {
                                 src: json?.header_image?.src,
                                 alt: json?.header_image?.alt,
                                 url: json?.header_logo_url,
@@ -145,7 +145,7 @@ const NavigationProvider = ({ children }) => {
 
                     })
                     .catch(error => {
-                        setTimeout(() => { throw error; }); 	
+                        setTimeout(() => { throw error; });
                         setLoaded(true);														// Throw it globally.
                     });
             });
@@ -153,9 +153,9 @@ const NavigationProvider = ({ children }) => {
 
     useEffect(() => {
         // Load only once.
-        if (!loaded && (!navigation || navigation.length <=0)) {
+        if (!loaded && (!navigation || navigation.length <= 0)) {
             loadData();         // Load our data.
-            
+
         }
 
         // Fetch our navigation data.

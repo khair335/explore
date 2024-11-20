@@ -1,5 +1,5 @@
 // HeaderVMWare.jsx 
-// header elements including part of main menu (see components/MainNav.jsx for menu detail)
+// header elements including part of main menu (see components/MainNavVMWare.jsx for menu detail)
 
 
 import config from '../config.js';
@@ -12,67 +12,78 @@ import { Container, Row, Col, Button, Navbar, NavbarBrand, NavbarToggler, Collap
 import { HeaderDatabase } from 'components/HeaderElements.jsx';
 import { ExploreHeaderSecondary } from 'components/HeaderElementsVMware.jsx';
 import classnames from 'classnames';
-import MainNavExplore from 'components/MainNavExplore.jsx'; //MainMenu
+/* import MainNavExplore from 'components/MainNavExplore.jsx'; //MainMenu */
+import MainNavVMWare from 'components/MainNavVMWare.jsx';               //MainMenu
 import ImageBase from 'components/ImageBase.jsx';
 import TypeAhead from '../components/TypeAhead.jsx';
 
-/* import 'scss/components/header.scss'; */
 
 import 'scss/components/header-vmware.scss';
 
 const ExploreHeader = (props) => {
-	const startRef = React.useRef();									//level 1 menu box
-	const bttnRef = React.useRef();										//navbar toggler button
-	const snavRef = React.useRef();
-	const [isOpen, setIsOpen] = useState(false);
+	const startRef = React.useRef();									// level 1 menu box
+	const bttnRef = React.useRef();										// navbar toggler button
+	const snavRef = React.useRef();                                     // secondary nav - language, login, portal, etc.
+	const [isOpen, setIsOpen] = useState(false);                        // Collapse isOpen
+	const [searchOpen, setSearch] = useState(false);                    // searchbox
     const mobile = useMediaQuery({ query: `(max-width: 760px)` });
-	/* const [mobile, setMobile] = useState(false); */
-	const [searchOpen, setSearch] = useState(false);
 
+    let pageChange = document.querySelector('#content-container');
+    let observer = new MutationObserver(function(mutations) {
+        if (mobile && searchOpen && mutations[0].addedNodes.length === 0) {
+			mobileToggle();
+		}
+    });
+
+	
+	useEffect(() => {
+		document.addEventListener('mousedown', handleClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClick);
+        }
+	}, []);
 
 	const handleClick = (e) => {
-		if (!startRef.current.contains(e?.target) && !bttnRef.current.contains(e.target) && !snavRef.current.contains(e.target) && isOpen && mobile) {		// 
+        let hrefEvent = e.target.getAttribute('href');
+        if(mobile && !hrefEvent === null || !hrefEvent === false) {     // new page close menu
+            setTimeout(() => {                                          // delay or page load gets confused
+                mobileCloseMenu();             
+            },380);
+            }
+		if (!startRef.current.contains(e?.target) && !bttnRef.current.contains(e.target) && !snavRef.current.contains(e.target) && isOpen && mobile) {
 			setIsOpen(false);
-		}		//this + eventlistener + startRef & bttnRef are a hack for ipad - closes the menu when you click away becasue bootstrap does not support this
+		}               //this + eventlistener + startRef & bttnRef are a hack for ipad - closes the menu when you click away becasue bootstrap does not support this
 
 	}
 
-	// componentDidMount
-	useEffect(() => {
-		document.addEventListener('mousedown', handleClick);					//hack for closing menu on ipad
-	}, []);
-
-
-	const toggle = () => {									// open / close whole menu body
+	const toggle = () => {									            // open / close whole menu body
 		if (mobile) {
 			mobileToggle();
 		} else {
-            setIsOpen(!isOpen);
+            if(searchOpen) {setSearch(searchOpen => !searchOpen)}
         }
 	}
 
-	const mobileToggle = () => {						/* this bit of craziness here is to close menu on page select in mobile and click away close on ipad */
-        setIsOpen(!isOpen);
-		if (!isOpen) {
-			document.body.style.overflow = 'hidden';
-            setSearch(true);
-		  } else {
-			document.body.style.overflow = 'scroll';
-            setSearch(false);
-		  }
+	const mobileToggle = () => {
+		if (!isOpen) { mobileOpenMenu() } else { mobileCloseMenu() }
 	}
 
-	const handleClose = () => {
-		toggle();
-	}
+    const mobileCloseMenu = () => {
+        document.body.style.overflow = 'scroll';
+        setSearch(false);
+        setIsOpen(false);
+    }
+
+    const mobileOpenMenu = () => {
+        document.body.style.overflow = 'hidden';
+        setIsOpen(true);
+        setSearch(true);
+    }
 
 	const searchBox = () => {
-		setSearch(!searchOpen)
+       setSearch(searchOpen => !searchOpen)
 	}
-
-    const searchSubmit = () => {        //                                onChange={() =>toggle()}
-        if(mobile) {setIsOpen(false)}
-    }
 
 	const handleLogoClick = (gtmevent) => {
 		if (gtmevent) { gtmPushTag(gtmevent) };
@@ -97,14 +108,14 @@ const ExploreHeader = (props) => {
                 </div>
 
                 {props?.headerData.search ?
-                    <div className={classnames('search-box ', { 'hide': searchOpen === false })}>{/*  && !mobile */}
+                    <div className={classnames('search-box ', { 'hide': searchOpen === false })}>
                         <Container>
                             <TypeAhead
                                 className="header-typahead"
                                 endpoint={config.site_search.typeahead_endpoint}
                                 results_page="/site-search"
                                 placeholder="Search"
-                                onClose={() =>toggle()}
+                                onClose={() => toggle()}
                                 clear
                             />
                         </Container>
@@ -128,7 +139,6 @@ const ExploreHeader = (props) => {
                                             </NavbarToggler>
                                         </div>
                                         <NavLink
-                                            // to={config.site !== '"vm" ? props?.headerData.logo?.url}
                                             to={config.site !== "vm" ? props?.headerData.logo?.url : `/`}
                                             className="navbar-brand"
                                             onClick={event => handleLogoClick({ "id": "N001", "link_url": props?.headerData.logo?.url })}
@@ -153,11 +163,8 @@ const ExploreHeader = (props) => {
                                         navbar
                                         tag={'ul'}
                                     >
-                                        <MainNavExplore
+                                        <MainNavVMWare
                                             {...props}
-                                            menuToggle={toggle}
-                                            mobile={mobile}
-                                            search={searchBox}
                                         />
                                     </Nav>
                                     </div>

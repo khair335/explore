@@ -72,9 +72,26 @@ const ExploreHeader = (props) => {
 
 
 	return (
-
 		<Fragment>
 			<div id="header-explore" role="navigation">
+
+			{props?.headerData.search ?
+				<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>
+				<Container>
+					<TypeAhead
+						className="header-typahead"
+						endpoint={config.site_search.typeahead_endpoint}
+						results_page={config.site_search.search_url}
+						placeholder="Search"
+						onClose={() => setSearch(false)}
+						clear
+					/>
+				</Container>
+				</div>
+				:
+				""
+			}
+
 				<Container style={{ position: 'relative' }}>
 					<Navbar color="faded" className="header_nav" light expand="md">
 						<div className="header_logo_wrapper d-flex justify-content-between w-100 align-items-start">
@@ -99,7 +116,6 @@ const ExploreHeader = (props) => {
 								<div className='header_location' dangerouslySetInnerHTML={{ __html: props?.headerData.abstract }}>
 								</div>
 							</div>
-
 						</div>
 
 						<div className="navMenu">
@@ -118,7 +134,6 @@ const ExploreHeader = (props) => {
 											search={searchBox}
 										/>
 									</Nav>
-
 								</div>
 
 								<div className="secondary_nav" ref={snavRef}>
@@ -130,23 +145,15 @@ const ExploreHeader = (props) => {
 											</div>
 										}
 
-										<div>
-											{props?.headerData.search ?
-												<i onClick={searchBox} className={classnames({ 'fa fa-search text-indigo mr-2 mr-lg-0': !searchOpen }, { 'bi brcmicon-window-close primary': searchOpen })} />
-												:
-												""
-											}
-										</div>
-
 										{
 											props?.headerData?.header_links?.map(link => {
 												return (
 												link.sub_navigation.length <= 0 ?
-													<div className='contact header-link'>
+													<div className='contact header-link'  key={link.title}>
 														<SiteLink to={link.url}>{link.title}</SiteLink>
 													</div>
 												:
-													<ul className="login header-link">
+													<ul className="login header-link"  key={link.title}>
 														<li className="login-wrap">
 															<ExploreHeaderSecondary
 																menuToggle={toggle}
@@ -158,24 +165,16 @@ const ExploreHeader = (props) => {
 											}) 
 										}
 
-										{props?.headerData.search ?
-											<div className={classnames('search-box ', { 'hide': !searchOpen && !mobile })}>
-												<TypeAhead
-													className="header-typahead"
-													endpoint={config.site_search.typeahead_endpoint}
-													results_page={config.site_search.search_url}
-													placeholder="Search"
-													onClose={() => setSearch(false)}
-													clear
-												/>
-											</div>
-											:
-											""
-										}
-
 									</div>
 
 									<div className="secondary-nav-cta">
+										<div>
+											{props?.headerData.search ?
+												<i onClick={searchBox} className={classnames({ 'fa fa-search text-indigo mr-2 mr-lg-0': !searchOpen }, { 'bi brcmicon-window-close primary': searchOpen })} />
+												:
+												""
+											}
+										</div>
 										{props?.headerData?.cta?.title ?
 											<SiteLink to={props?.headerData?.cta?.url} className="bttn bttn-primary">{props?.headerData?.cta?.title}</SiteLink>
 											:

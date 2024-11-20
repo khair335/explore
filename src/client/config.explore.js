@@ -292,6 +292,11 @@ class Config {
 			results_url: this.site_search.search_url, 
 		};
 
+		this.resource_search = {
+			endpoint: `https://api.swiftype.com/api/v1/public/engines/search.json?engine_key=${this.swifttype.engine_key}&document_types[]=resources&filters[resources][locale]=${this.locale}${show_china}&facets[resources][]=product_family&facets[resources][]=product&facets[resources][]=category`,
+			document_type: 'resources',
+		},
+
 		this.video_library = {
 			endpoint: 'https://production-ps.lvp.llnw.net/r/PlaylistService/channel/',
 		};

@@ -342,14 +342,14 @@ const Agenda = (props) => {
 									<Nav tabs>
 										{days.map((day, index) =>
 											<NavItem key={day.event_date}>
-												<a
+												<button
 													className={classnames('lnk', { active: active === index })}
 													onClick={(event) => handleTabs(event, index)} // see handleTabs for gtmevent
 													role="tab"
 													aria-selected={active === index ? "true" : "false"}
 												>
 													{displayDay(day.event_date)}
-												</a>
+												</button>
 											</NavItem>
 										)}
 									</Nav>

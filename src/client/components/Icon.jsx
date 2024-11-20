@@ -30,9 +30,8 @@ const Icon = (props) => {
 		case 'youtube':										// Related resource https://cmsstaging.broadcom.com/applications/data-center/cloud-scale-networking
 			icon = "brcmicon-play-circle";
 			break;
-			
 		case 'link':
-			icon = "brcmicon-globe";
+			icon = "brcmicon-link";
 			break
 		case 'zip':
 			icon = "bi brcmicon-file-archive";

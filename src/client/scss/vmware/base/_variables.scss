@@ -278,6 +278,11 @@ height: auto;
 	margin-left: 5px !important;
 }
 
+// --------------------------------------------
+// Tables
+// https://www.figma.com/design/KEcwhGUM92TsAY5uL7GOSQ/VMware-Design-Library?node-id=13576-7777&node-type=frame&m=dev
+// --------------------------------------------
+$table-padding: 20px;
 @mixin basic-table {
 	// stardard table
 	width: 100%;
@@ -288,12 +293,12 @@ height: auto;
 		th,
 		td {
 			border: 0 none;
-			padding-left: 15px;
+			padding-left: $table-padding;
 
 		}
 
 		td {
-			padding: 15px;
+			padding: $table-padding;
 			vertical-align: top;
 			border-bottom: 1px solid $color-grey--100;
 		}
@@ -302,7 +307,7 @@ height: auto;
 
 	thead th {
 		vertical-align: top;
-		padding: 15px;
+		padding: $table-padding;
 		font-size: 24px;
 		font-weight: 300;
 		text-align: center;

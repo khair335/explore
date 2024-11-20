@@ -3,7 +3,7 @@
  *  @brief We combined all three CarouselStandard, CarouselSplit, CarouselFeatured
  */
 import config from 'client/config.js';
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Container, Row, Col, Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
@@ -62,6 +62,10 @@ const Indicators = (props) => {
 }
 
 const CarouselStandard = (props) => {
+	const slideRefs = useRef([]);						// Used to calculate max height.
+	const [minHeight, setMinHeight] = useState(-1);		// -1 is init.
+	
+	
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [animating, setAnimating] = useState(false);
 
@@ -75,6 +79,36 @@ const CarouselStandard = (props) => {
 	const show_split_controls = (featured_card && props.template === "CarouselSplit");
 	const show_controls = !show_split_controls && props.template !== "CarouselFeatured";
 	const indicator_type = props?.content_block?.carousel_indicator || 'Line';
+
+
+	// JD - I attempted to use pure css, but animations were failing on visibility.
+	// https://hgsdigitalprojects.atlassian.net/browse/BCV2-19
+	// Page shift because of different content
+	useEffect(() => {
+
+		let min =  -1;
+		slideRefs?.current?.forEach(slide => {
+			if (slide && slide.parentElement) {
+				let display = slide.parentElement.style.display;
+				slide.parentElement.style.display = 'block';			// Need to be visible to calculate
+				min = Math.max(min, slide.parentElement.clientHeight);
+				slide.parentElement.style.display = display;				
+			}
+
+		});
+
+		slideRefs?.current?.forEach(slide => {
+			slide.style.minHeight = min + 'px';
+		});
+		
+		setMinHeight(min);
+	}, []);
+
+	
+	useEffect(() => {
+		slideRefs.current = slideRefs.current.slice(0, content_blocks.length);
+	}, [content_blocks.length]);
+
 
 	const next = () => {
 		if (animating) return;
@@ -93,19 +127,20 @@ const CarouselStandard = (props) => {
 		setActiveIndex(newIndex);
 	};
 
-	const slides = content_blocks.map((content_block) => {
+	const slides = content_blocks.map((content_block, i) => {
 		return (
 			<CarouselItem
 				onExiting={() => setAnimating(true)}
 				onExited={() => setAnimating(false)}
 				key={content_block.content_id}
+
 			>
-				{getComponentFromTemplate(content_block.template, content_block)}
+				<div ref={el => slideRefs.current[i] = el} >
+					{getComponentFromTemplate(content_block.template, content_block)}
+				</div>
 			</CarouselItem>
 		);
 	}) || [];
-
-
 
 
 	return (
@@ -241,7 +276,7 @@ const CarouselContentBlock = (props) => {
 		content_blocks.forEach(content_block => {
 			if (content_block.template === 'ContentCard' && content_block?.columns?.length < max_cols) {
 				let empties = new Array(max_cols - content_block?.columns?.length);
-				content_block.columns.push(...empties.fill([{'template': 'empty'}]));
+				content_block.columns.push(...empties.fill([{ 'template': 'empty' }]));
 			}
 		});
 

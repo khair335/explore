@@ -143,7 +143,7 @@ class Config {
 					this.mybroadcom.supportLandingUrl = "https://supportqa.broadcom.com/user/user_redirect?dest=user"; // "https://supportqa.broadcom.com/user";
 					break;
 				case 'local':
-					this.swifttype.engine_key = 'mwPxHYJi6gscfAzjVEaY'; // 'myuc5Dc4M6MBzSkEzkxN'; //
+					this.swifttype.engine_key = 'FGq2x_7zpGpZ68xHePFN'; // 'myuc5Dc4M6MBzSkEzkxN'; //
 					// SEE /server/proxy.local.js this.api_url = 'http://cmsgwdev2.aws.broadcom.com/api/';//'http://cmsgwqa.aws.broadcom.com/api/';//'http://cmsgwdev2.aws.broadcom.com/api/';
 					this.media_host = 'http://ichabodgwdev.aws.broadcom.com/'; //'https://dev.aws.broadcom.com/' 	//"https://avagoredo:PA55@dev.aws.broadcom.com/"
 					this.cookie.domain = "localhost";
@@ -256,6 +256,11 @@ class Config {
 			typeahead_endpoint: this.product_search.typeahead_endpoint,
 			results_url: '/broadcom-faceted-search', 
 		};
+
+		this.resource_search = {
+			endpoint: `https://api.swiftype.com/api/v1/public/engines/search.json?engine_key=${this.swifttype.engine_key}&document_types[]=resources&filters[resources][locale]=${this.locale}${show_china}&facets[resources][]=product_family&facets[resources][]=product&facets[resources][]=category`,
+			document_type: 'resources',
+		},
 
 		
 		this.video_library = {

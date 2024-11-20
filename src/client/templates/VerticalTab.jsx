@@ -3,7 +3,7 @@
  *  @brief Boilerplate for component templates.
  */
 import config from 'client/config.js';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
 import SiteLink from 'components/SiteLink.jsx';
 import { withLiveEvents } from 'components/liveEvents.js';
@@ -19,6 +19,12 @@ import 'scss/templates/vertical-tab.scss';
 
 
 const VerticalTab = (props) => {
+
+	const paneRefs = useRef([]);						// Used to calculate max height.	Prevent shifting.
+	const tabContentRef = useRef();
+	const [minHeight, setMinHeight] = useState(0);		// -1 is init.
+
+
 	const cards = props?.content_block?.cards || [];
 	const getTabTitle = (card) => {
 		if (!card) {
@@ -32,6 +38,43 @@ const VerticalTab = (props) => {
 	const [collapse, setCollapse] = useState(false);
 	const [activeTab, setActiveTab] = useState('1');
 
+	// https://hgsdigitalprojects.atlassian.net/browse/BCV2-19
+	// Page shift because of different content
+	useEffect(() => {
+
+		let min = -1;
+		paneRefs?.current?.forEach(pane => {
+			if (pane && pane.parentElement) {
+				let display = pane.style.display;
+				pane.parentElement.style.display = 'block';			// Need to be visible to calculate
+
+				let border = pane.style.border;
+				pane.parentElement.style.border = '1px solid transparent';			// Need to be visible to calculate childrens margins.
+				
+				min = Math.max(min, pane.parentElement.clientHeight);
+				pane.parentElement.style.display = display;
+				pane.parentElement.style.border = border;
+			}
+
+		});
+
+		// Set the min height on the parent.
+		paneRefs?.current?.forEach(pane => {
+			pane.style.minHeight = min + 'px';
+		});
+
+		if (tabContentRef && tabContentRef.current) {
+			tabContentRef.current.style.minHeight = min + 'px';
+		}
+
+		// traverse children because margins aren't accounted for.
+		setMinHeight(min);
+	}, []);
+
+	useEffect(() => {
+		paneRefs.current = paneRefs.current.slice(0, cards.length);
+	}, [cards.length]);
+	
 	const handleTabs = (index) => {
 		setActive(index);
 		setActiveTitle(getTabTitle(cards[index]));
@@ -75,14 +118,18 @@ const VerticalTab = (props) => {
 						</div>
 					</Col>
 
-					<Col className="show-collapse-lg">
-						<TabContent activeTab={active}>
-							{cards.map((card, index) => (
-								<TabPane tabId={index} key={card.content_id}>
-									{getComponentFromTemplate(card.template, card)}
-								</TabPane>
-							))}
-						</TabContent>
+					<Col className={`show-collapse-lg`}>
+							<TabContent activeTab={active} style={{minHeight: minHeight}}>
+								{cards.map((card, index) =>
+									<TabPane tabId={index} key={card.content_id}>
+										<div ref={el => paneRefs.current[index] = el} >
+											{getComponentFromTemplate(card.template, card)}
+										</div>
+									</TabPane>
+
+								)}
+							</TabContent>
+
 					</Col>
 
 					<Col xs="12" className="d-lg-none">
@@ -96,7 +143,10 @@ const VerticalTab = (props) => {
 					</Col>
 				</Row>
 
-				{props?.content_block.links && (
+
+
+
+				{props?.content_block.links &&
 					<ul className="cb-cta-link pt-2">
 						{props?.content_block.links.map((link) => (
 							<li key={link.content_id}>
@@ -106,9 +156,11 @@ const VerticalTab = (props) => {
 							</li>
 						))}
 					</ul>
-				)}
-			</Container>
-		</div>
+				}
+
+
+			</Container >
+		</div >
 	);
 };
 

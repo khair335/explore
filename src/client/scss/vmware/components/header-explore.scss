@@ -91,6 +91,9 @@
         }
       }
 
+      .MainNavExploreItem > button.active::before {
+        border-bottom: 9px solid $color-primary;
+      }
 
 
     }
@@ -124,6 +127,57 @@
     .linkChevron {
       display: none;
     }
+  }
+
+  .search-box {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    padding: 20px 0;
+    background-color: $color-white;
+    z-index: 1;
+    box-shadow: $shadow-3;
+
+    &.hide {
+      display: none
+    }
+  }
+
+  .header-typahead {
+
+    input {
+      height: 38px;
+
+      &:focus, &:active {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .input-group-append {
+      position: absolute;
+      right: 0px;
+
+      button {
+
+        &.search-bttn {
+          background-color: $color-white;
+
+          .bi.brcmicon-search {
+            margin-left: 0;
+            color:$color-primary;
+            font-size:1.5rem;
+          }
+        }
+
+        &.clear-bttn {
+          font-size: 1.5rem;
+         /*  margin-top: 4px; */
+        }
+      }
+
+    }
+
   }
 
   .secondary_nav {
@@ -224,9 +278,13 @@
 
     .secondary-nav-cta {
       position: relative;
-      margin-top: 18px;
       margin-left: auto;
       margin-right: 0;    // Align to the right.
+      margin-top: 28px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
 
       a {
         color: $color-white;
@@ -234,13 +292,19 @@
         padding-right: 20px;
         font-weight: 200;
         font-size: $font-size-sm;
-        display: table-cell;
+        /* display: table-cell; */
         vertical-align: middle;
+        margin-left: 20px;
         /* text-transform: uppercase; */
 
         &:hover {
           color: $color-primary;
         }
+      }
+
+      i {
+        font-size: 1.5rem;
+        color: $color-primary;
       }
     }
 
@@ -282,50 +346,13 @@
       }
     }
 
-    .search-box {
-      position: absolute;
-      top: 26px;
-      width: 100%;
-      border: 1px solid $color-grey--700;
-      &.hide {
-        display: none
-      }
-    }
+
 
     .typeahead.dropdown .bc-input {
       padding-right: 45px;
     }
 
-    .header-typahead {
 
-      input {
-        min-width: 150px;
-        height: 25px;
-      }
-
-      .input-group-append {
-        position: absolute;
-        right: 0px;
-
-        button {
-          height: 25px;
-
-          &.search-bttn {
-            width: 45px;
-            background-color: $color-white;
-
-            .bi.brcmicon-search {
-              margin-left: 0;
-              // margin-right: 10px;
-              color:$color-primary;
-              font-size:1rem;
-            }
-          }
-        }
-
-      }
-
-    }
   }
 
   #menuWindow {     //ALL menuWindow should be fine - this is what was supposed to be added
@@ -361,7 +388,7 @@
 
       div[class*="col-"] {
         padding-top: 20px;
-        padding-bottom: 50px;
+        /* padding-bottom: 50px; */ //this padding added to menu-item-cta as margin so blue shaded column backgrounds hug content - see below
 
         h2.content-block-title {
           text-align: center;
@@ -419,7 +446,7 @@
         flex-direction: row;
         align-items: center;
         border-top: 1px solid $color-grey--200;
-        margin-top: 20px;
+        margin-top: 50px;                 // margin increased by 30 to compensate for div[class*="col-"] losing bottom padding - see above
 
         a.primary-bttn {
             @include primary-button;
@@ -444,6 +471,14 @@
         a.key-link {
           display: inline-block;
           text-decoration: underline;
+          padding-left: 0;
+
+          &:not(:last-child)::after {
+            content: " | ";
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px;
+          }
         }
 
       }
@@ -500,6 +535,11 @@
 
     #header-explore {
       position: static;
+
+      #menuWindow .menuWrapper .content-block a.lnk:not(.bttn) {
+        justify-content: left;
+      }
+      
     }
 
     nav.header_nav {
@@ -527,10 +567,14 @@
           
           ul li {
           border-bottom: none;
+
+          &.link {
+            padding-left: 0;
+          }
         }
 
         a, button, span.label {
-          justify-content: center;
+          justify-content: left;
         }
 
         .back-btn-wrap {
@@ -688,10 +732,10 @@
           }
 
           .search-box {
-            position: relative;
+/*             position: relative;
             top: unset;
             border: 1px solid $color-grey--400;
-            margin-bottom: 20px;
+            margin-bottom: 20px; */
           }
 
           ul.login {

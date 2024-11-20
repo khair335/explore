@@ -127,7 +127,7 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 						</div>
 					)} */}
 
-					
+
 
 
 					<div className="spotlight-items">
@@ -181,8 +181,10 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 						{score.vmmark_list?.length > 0 && <Table>
 							<thead>
 								<tr>
-									{Object?.keys(score?.vmmark_list[0])?.map((key) => (
-										key == 'system_description' ? <th key={key}>Description</th> : <th key={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+									{Object?.keys(score?.vmmark_list[0])?.map((key, index, arr) => (
+										<th key={key} className={classnames(`${key}-col`, {"topscore-description": index === arr.length - 1})}>
+											{key === 'system_description' ? 'Description' : key.charAt(0).toUpperCase() + key.slice(1)}
+										</th>
 									))}
 								</tr>
 							</thead>
@@ -192,17 +194,25 @@ const TopScores = ({ scores, spotlight, url, location_hash, hashFlag, browser_ve
 									<tr key={rowIndex}>
 										{Object.keys(row).map((key, keyIndex) => (
 											<React.Fragment key={keyIndex}>
-												<td className={key === "date" ? "date-column" : ""}
-													dangerouslySetInnerHTML={{
-														__html: key === "score" ?
-															(parseFloat(row[key]?.split('@')[0])?.toFixed(2)) :
-															key === "date" ?
-																// Transform the date from yyyy-mm-dd to mm/dd/yyyy
-																new Date(row[key])?.toLocaleDateString('en-us', { year:'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC' })
-																:
-																row[key]
-													}}>
-												</td>
+												{key === "system_description" ? (
+													<td className={`single-line ${key === "date" ? "date-column" : ""}` } 
+														dangerouslySetInnerHTML={{ __html: row[key] }}>
+													</td>
+												) : (
+													<td className={key === "date" ? "date-column" : "column"} 
+														dangerouslySetInnerHTML={{
+															__html: key === "score" ?
+																(parseFloat(row[key]?.split('@')[0])?.toFixed(2)) :
+																key === "date" ?
+																	// Transform the date from yyyy-mm-dd to mm/dd/yyyy
+																	new Date(row[key])?.toLocaleDateString('en-us', {
+																		year: 'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC'
+																	})
+																	:
+																	row[key]
+														}}>
+													</td>
+												)}
 											</React.Fragment>
 										))}
 									</tr>
@@ -536,11 +546,15 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 	}, [JSON.stringify(selectedValues), searchTerm, JSON.stringify(searchWord), JSON.stringify(sortConfig), activeTab])
 
 	const updateUniqueItems = (setter, existingItems, newItems) => {
-		if (newItems.length === 0) {
+		if (!newItems || newItems.length === 0) {
 			setter([]);
 		} else {
 			const uniqueSet = new Set(existingItems);
-			newItems.forEach(item => uniqueSet.add(item));
+			newItems.forEach(item => {
+				if (item !== null && item !== undefined) {
+					uniqueSet.add(item);
+				}
+			});
 			setter(sortFilters([...uniqueSet]));
 		}
 	};
@@ -553,7 +567,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 			// Function to extract numeric and non-numeric parts
 			const splitMixedValue = (value) => {
 				const regex = /(\d+(\.\d+)?|\D+)/g; // Matches numbers (including floats) and non-numeric parts
-				return value.match(regex) || [];
+				return value?.match(regex) || [];
 			};
 
 			// Function to compare two mixed values (e.g., 'abc 6.5' vs 'abc 6.5 U1')
@@ -766,7 +780,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 
 	const removeParenthesesContent = (strings) => {
 		const regex = /\s+\([^)]*\)/;
-		return strings.map(str => str.replace(regex, ''));
+		return strings?.map(str => str?.replace(regex, ''));
 	}
 
 	function mapSelectionToBoolean(selection) {
@@ -1117,7 +1131,7 @@ const PerformanceOnly = ({ props, currentTab, tabsMapping, location_hash, locati
 											}
 
 											if (dataKey === 'date') {
-												return <td className={className} key={`${item.content_id}-${key}`} dangerouslySetInnerHTML={{ __html: new Date(displayValue)?.toLocaleDateString('en-us', { year:'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC' }) }}></td>
+												return <td className={className} key={`${item.content_id}-${key}`} dangerouslySetInnerHTML={{ __html: new Date(displayValue)?.toLocaleDateString('en-us', { year: 'numeric', month: "2-digit", day: "2-digit", timeZone: 'UTC' }) }}></td>
 											}
 
 											// return <td className={className} key={`${item.content_id}-${key}`}>{displayValue}</td>;

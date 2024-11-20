@@ -6,7 +6,7 @@ import PillsFilter from 'components/PillsFilter.jsx';
 import { filterParams } from 'components/utils.jsx';
 import 'scss/components/multi-select-filter.scss';
 
-const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, setVideoIds, setVideos, setLoadCount, searchWord, setSearchWord, searchTerm, setSearchTerm, description }) => {
+const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, setSelectedValues, setFilterString, onReset, onChange, setVideoIds, setVideos, setLoadCount, searchWord, setSearchWord, searchTerm, setSearchTerm, description }) => {
     const [hasSelectedValues, setHasSelectedValues] = useState(false);
 
     useEffect(() => {
@@ -30,6 +30,9 @@ const MultiSelectFilter = ({ defaultLabel, placeholder, items, selectedValues, s
             if (setFilterString) { setFilterString(filterParams(updatedValues)); }
             return updatedValues;
         });
+
+        // trigger parent event handler
+        onChange();
     };
 
     const handleRemove = (attribute, value) => {

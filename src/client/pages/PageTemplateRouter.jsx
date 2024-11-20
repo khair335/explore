@@ -147,7 +147,7 @@ const TechdocsAtoZ = React.lazy(() => import('pages/AtoZ.jsx'));			//https://www
 const SearchVideos = React.lazy(() => import('pages/search/SearchVideos.jsx'));		// VMWare video search page.
 const TechnicalPapersLanding = React.lazy(() => import('pages/support/TechnicalPapersLanding.jsx'));
 const TrustCenterDetail = React.lazy(() => import('pages/others/TrustCenterDetail.jsx'));
-
+const ResourceLibrary = React.lazy(() => import('pages/resources/ResourceLibrary.jsx'));
 
 
 const templates = {
@@ -259,6 +259,7 @@ const templates = {
 	TechnicalPapersLanding,
 	VMmarkLanding,
 	TrustCenterDetail,
+	ResourceLibrary,
 };
 
 

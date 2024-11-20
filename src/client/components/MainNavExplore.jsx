@@ -37,11 +37,7 @@ export default class MainNavExplore extends Component {
             activeMenu: index
         })
 
-
-
-        if (index === false) { this.menuToggle() }
-
-
+        /* if (index === false) { this.menuToggle() } */
 
 /**
  * creates empty white window under the menu dropdown
@@ -52,25 +48,29 @@ export default class MainNavExplore extends Component {
  */
 
         if(index === false) {
-            let el = document.getElementsByClassName('laurels-window');
-            if(el && el[0]) {
+            let el = document.querySelectorAll('.laurels-window');
+            if(el.length > 0) { 
                 setTimeout(() => {
-                    el[0].parentElement.removeChild(el[0]);
+                    el.forEach(function(win){
+                        win.remove()
+                    });
+                    if(this.props.mobile) {this.searchToggle()};
                 },250);
-            }
+            };
         } else {
             let content = document.getElementById('content');
             const newDiv = document.createElement('div');
             newDiv.classList.add('laurels-window');
             content.insertBefore(newDiv, content.firstChild );
-
-    }
+            if(this.props.mobile) {this.searchToggle()};
+        }
 /*         if (index === false) { 
             this.menuToggle();
-            document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background
+            document.getElementById('content').style.filter = 'blur(0px)';      // unblurs background - this 'feature' was on vmware site, currently not used
         } else {
-            document.getElementById('content').style.filter = 'blur(8px)';      // blurs backgreound when menu flyout/dropdown active - Explore site only right now 
-        } */
+            document.getElementById('content').style.filter = 'blur(8px)';      // blurs background when menu flyout/dropdown active - Explore site only right now 
+        } 
+*/
     }
 
     render() {
@@ -81,7 +81,7 @@ export default class MainNavExplore extends Component {
         return  (
             this.props.navData.map((item, index) => (
 
-                <NavItem key={item.id} className="MainNavExploreItem">
+                <NavItem key={item.title} className="MainNavExploreItem">
                     <MenuItem updateMenu={this.updateMenu}
                         {...this.state}
                         {...this.props}
@@ -96,7 +96,7 @@ export default class MainNavExplore extends Component {
     }
 }
 
-class MenuItem extends Component {// landing page links handled differently - true = handle difference
+class MenuItem extends Component {              // landing page links handled differently - true = handle difference
     constructor(props) {
         super(props);
 
@@ -173,7 +173,7 @@ class MenuWindow extends Component {
 
         this.state = {
             activeLevel_1: this.props.activeLevel_1,                          // which menu item in contorl window is active (false or index of item)
-            //activeLevel_2: this.props.activeLevel_2, //!!!!!!!!!
+            //activeLevel_2: this.props.activeLevel_2,                          //this feature not implemented
             showAllLink: this.props.showAllLink,                                // some menus have all landing page links that are handled separate
             search: this.props.search,                                          // menu-search value
             results: this.props.results,                                        // true = search results, false = default / menu results
@@ -194,97 +194,95 @@ class MenuWindow extends Component {
         document.getElementsByTagName('body')[0].classList.remove("stopBodyScroll")
     }
 
+
 /*     useEffect = () => {
-		document.addEventListener('mousedown', this.handleClick);					//hack for closing menu on ipad
+		document.addEventListener('mousedown', this.handleMenuClick);					// these should replace componentWillMount / Unmount but could not get them to work
         document.addEventListener('keydown', (e) => { if (e.keyCode === 27) this.updateMenuItem(false, this.state) });
         document.getElementsByTagName('body')[0].classList.add("stopBodyScroll") //modal-open
-	} */
+	}
 
-/* 	useEffect = () => {
-		document.removeEventListener('mousedown', this.handleClick);				//hack for closing menu on ipad	
+	useEffect = () => {
+		document.removeEventListener('mousedown', this.handleMenuClick);				//hack for closing menu on ipad	
         document.removeEventListener('keydown', (e) => { if (e.keyCode === 27) this.updateMenuItem(false, this.state) });
         document.getElementsByTagName('body')[0].classList.remove("stopBodyScroll")
-	} */
+	}
+ */
 
-    handleMenuClick(e) {
-        e.preventDefault();
-        if (this.menuRef.current.contains(e.target)) {                           // did we click on something inside the menu?
+handleMenuClick(e) {
+        e.preventDefault(); 
+
+        if (this.menuRef.current != null && this.menuRef.current.contains(e.target)) {                           // did we click on something inside the menu?
             let hrefEvent = e.target.getAttribute('href');
 
-            if (hrefEvent != null && hrefEvent != false) {                      //  some links may have href="#" - we filter these out in index.js/loop and replace with false
+            if (hrefEvent != null && hrefEvent != false) {                      // some links may have href="#" - we filter these out in index.js/loop and replace with false
                 window.setTimeout(() => {                                       // timeout allows the new page click event to clear before updating state -
                     this.updateMenuItem(false, this.state);                     // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
                 }, 400);
             }
         } else {
-            if(e.target.parentElement.classList.contains("MainNavExploreItem")) {
-                    this.setState({
-                        activeLevel_1: false,
-                    }) 
-                if(e.target.classList.contains("active")) {
-                    let el = document.getElementsByClassName('laurels-window');
-                    window.setTimeout(() => {                                       // timeout allows the new page click event to clear before updating state -
-                        this.updateMenuItem(false, this.state);                     // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
-                        el[0].parentElement.removeChild(el[0]);
-                    }, 250);
-                }
+            if(e.target && e.target.classList.contains("active")) {
+                window.setTimeout(() => {                                     // timeout allows the new page click event to clear before updating state -
+                    this.updateMenuItem(false, this.state);                   // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
+                }, 250);
+            } else {
+                window.setTimeout(() => {                                     // timeout allows the new page click event to clear before updating state -
+                    this.updateMenuItem(false, this.state);                   // state update cancels the page call because of the re-render condition (at least i think thats whats happening)
+                }, 250);
             }
-
-            this.updateMenuItem(false, this.state);                              // no, outside click, close window
-        }
+            } 
     }
 
-    handleBack() {                                    // back button in search result window
+    handleBack() {                                                                  // back button
         this.setState({
-            activeLevel_1: false,                           // clear out any menu results
-        })                                                 // no need to save state since this is default state now
+            activeLevel_1: false,                                                   // clear out any menu results
+        })                                                                          // no need to save state since this is default state now
         this.updateMenuItem(false, this.state);
     }
-
 
     render() {
         let item = this.props.navData[this.props.activeMenu]
 
         return (
-            <div id="menuWindow" ref={this.menuRef} className="fadein">
-                <div className='menuWrapper'>
+            <div id="menuWindow" className="fadein">
+                <div className='menuWrapper' ref={this.menuRef}>
                     <Row>
-                        <Col sm="12" md="12" lg="12" className='back-btn-wrap'>
+                        <Col sm="12" md="12" lg="12" className='back-btn-wrap'  key={"back-to-main-btn-wrap"}>
                             <button onClick={() => this.handleBack()} className="back" aria-label="Back to main level navigation">
                                 <span className="bi bi-rotate-180 brcmicon-arrow-circle-right"></span>
                             </button>
                         </Col>
-                        {item.child?.map((level_1, index) => {
+                        {item.child?.map((level_1, index_1) => {
                             return (
-                                <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4" key={level_1.title}>
+                                <Col className={classnames('hi-col', { 'highlight' : level_1.show_as_card })} sm="12" md="4" key={level_1.title ? index_1 + level_1.title : index_1}>
                                     <h4 className={classnames(level_1.title ? "title":"vm-no-title")}>{level_1.title}</h4>
                                     <p className={level_1.abstract ? "" : "hide"} >{level_1?.abstract}</p>
                                         <ul className={classnames({'no-title' : !level_1.title })}>
-                                                {level_1.child?.map((level_2, index) => {
+                                                {level_1.child?.map((level_2, index_2) => {
 
                                                     return(
                                                     <Fragment>
                                                         {level_2.content_block?.content_type === 'content_block' ?
-                                                            <li key={level_2.title}>
-                                                                {getComponentFromTemplate(level_2.content_block.template, level_2.content_block)}
+                                                            <li key={level_2.title ? index_2 + level_2.title : index_2}>
+                                                                <Suspense fallback={<Loading isLoading={true} className="nav-loading" />}>
+                                                                    {getComponentFromTemplate(level_2.content_block.template, level_2.content_block)}
+                                                                </Suspense>
                                                             </li>
                                                         :
                                                             <li className="link" key={level_2.title}>
                                                                 <h5 className={level_2.title ? "" : "hide"}>
                                                                     {level_2.url ? 
-                                                                        <SiteLink to={level_2.url ? level_2.url : "#"}>{level_2.title}</SiteLink>
+                                                                        <SiteLink to={level_2.url ? level_2.url : "#"} key={level_2.title}>{level_2.title}</SiteLink>
                                                                     :
                                                                         <span>{level_2.title}</span>
                                                                     }
-                                                                    
                                                                     </h5>
                                                                 <p className={level_2.abstract ? "" : "hide"} >{level_2.abstract}</p>
                                                                 {level_2.links ? 
                                                                     <Fragment>
-                                                                        <h6 className={level_2.links_title ? "" : "hide"}>{level_2.links_title }</h6>
-                                                                        {level_2.links.map(link => {
+                                                                        <h6 className={level_2.links_title ? "" : "hide"} key={level_2.links_title}>{level_2.links_title}</h6>
+                                                                        {level_2.links.map((link, index_links) => {
                                                                             return(
-                                                                                <SiteLink to={link.url}  className="key-link" key={link.title}>{link.title}</SiteLink>
+                                                                                <SiteLink to={link.url}  className="key-link" key={link.title ? index_links + link.title : index_links}>{link.title}</SiteLink>
                                                                             )
                                                                         })}
                                                                     </Fragment>
@@ -302,7 +300,7 @@ class MenuWindow extends Component {
                             )
                         })}
 
-                        <Col lg="12" md="12" sm="12">
+                        <Col lg="12" md="12" sm="12" key="cta-col">
                             {item?.ctas ?
                                 <div className='menu-item-cta'>
                                     {

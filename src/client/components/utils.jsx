@@ -339,7 +339,7 @@ export function setMeta(data, path) {
 export function encodeTabHash(hash) {
 	// NOTE: Support request 118497. Removed encoding to allow pretty forward slashes.
 	//return encodeURIComponent(hash.toLowerCase().replace(/ /g, '-')).toLowerCase();
-	return hash.toLowerCase().replace(/ /g, '-');
+	return hash ? hash.toLowerCase().replace(/ /g, '-') : '';
 }
 
 export function parseMS(milliseconds) {
@@ -878,6 +878,22 @@ class Utils {
 
 	}
 
+	/**
+	 *  @brief 
+	 *  @details Convert special characters <, >, &, ', and " to their HTML entities (&lt;, &gt;, &amp;, &apos;, &quot;
+	 */
+	escapeHTML(str) {
+		return str.replace(/[&<>"']/g, function(match) {
+		  switch (match) {
+			case '&': return '&amp;';
+			case '<': return '&lt;';
+			case '>': return '&gt;';
+			case '"': return '&quot;';
+			case "'": return '&#39;';
+			default: return match;
+		  }
+		});
+	  }
 
 }
 

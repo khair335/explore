@@ -6,74 +6,120 @@
 @import "../base/base";
 @import "../base/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
-@import "../base/icons";
-@import "../base/link";
+@import "../base/typography";
 
-.HorizontalTab, .tabs {
+.HorizontalTab,
+.tabs {
 
-    .nav-tabs {
-        border-bottom: 0;
-        width: 100%;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    .horizontal-tab-toggle-title {
+        display: none;
+    }
+
+    .horizontal-tab-toggle {
+        display: none;
+    }
+
+    // Horizontal scroll arrows
+    .horizontal-scroll-wrapper {
+        position: relative;
+
+        .arrow {
+            color: $color-primary;
+            position: absolute;
+            top: 0;
+            display: flex;
+            width: 84px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .left-arrow {
+            height: 100%;
+            left: 0;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, #FFF 54.69%);
+        }
+
+        .right-arrow {
+            height: 100%;
+            right: 0;
+            justify-content: flex-end;
+            background: linear-gradient(270deg, #FFF 37.5%, rgba(255, 255, 255, 0.00) 100%);
+        }
+    }
+
+    .horizontal-tab-collapse-wrapper {
+        /* Template has Bootstrap .collapse class so we must explicitly 'display: block' */
+        display: block;
+        overflow-x: scroll;
+        /* Hide scrollbar for IE and Edge */
+        -ms-overflow-style: none;
+        /* Hide scrollbar for Firefox */
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .horizontal-tab-collapse-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .horizontal-tab-collapse {
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem;
+    }
+
+    .nav-tabs {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        display: inline-flex;
+        justify-content: left;
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
 
         >li {
-            // padding-right: 15px;
-            // padding-left: 15px;
-            margin-right: 0px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            border-bottom: 1px solid $color-grey--700;
 
-            // &:after{
-            //     content: "";
-            //     height: 20px;
-            //     width: 1px;
-            //     background-color: $color-grey--600;
-            //     position: absolute;
-            //     right: 0;
-            //     top: 50%;
-            //     transform: translate(0,-50%);
-            // }
-            &:first-child {
-                padding-left: 0;
-            }
-
-            &:last-child {
-                padding-right: 0;
-
-                &:after {
-                    display: none;
-                }
-            }
-
-            a.lnk {
-                //custom button/link  see _link.scss for base
-                line-height: 1.9;
+            button.lnk {
+                @include font-md;
+                background: none !important;
+                color: $color-primary;
+                border: 0px;
+                border-radius: 0 !important;
                 display: inline-block;
-                padding: 5px 30px;
+                padding: 5px 16px;
                 position: relative;
-                border-bottom: 1px solid $color-grey--700;
-                margin: 0px 0px;
+                border-bottom: 2px solid transparent;
                 text-transform: initial;
-                text-decoration: none;
-                font-weight: 300; //normal text font weight
+                white-space: nowrap;
+                height: 40px;
 
                 &:after {
                     content: unset !important;
                 }
 
                 &:hover {
-                    color: $color-primary;
-                    text-decoration: none !important; //mods _link.scss - necessary to keep from having double red lines on hover
-                    border: 0 !important;
-                    border-bottom: 2px solid $color-primary !important;
+                    color: $color-link-hover;
                     cursor: pointer;
                 }
 
-                &.active {
-                    border-bottom: 2px solid $color-primary;
+                &:active {
+                    cursor: grabbing;
+                }
+            }
+
+            button.active {
+                border-color: $color-primary;
+
+                &:hover {
+                    color: $color-link-hover;
+                    border-color: $color-link-hover;
+                    cursor: pointer;
                 }
             }
         }
@@ -86,7 +132,6 @@
     }
 
     .tab-content {
-
 
         .content-block-left,
         .content-block-right {
@@ -103,26 +148,22 @@
 
         .lnk {
             margin: 0 !important;
-            //@include cta-link-style;
-
-            &:after {
-            //    @include cta-link-after;
-            }
         }
-        .lnk-image{
+
+        .lnk-image {
             &:after {
                 content: unset !important;
             }
         }
 
-        .theme-card-cta-link{
+        .theme-card-cta-link {
             .cb-cta-link {
-            a{
-                &:hover{
-                border: 0 !important;
-                text-decoration-color: #04314D;
+                a {
+                    &:hover {
+                        border: 0 !important;
+                        text-decoration-color: $color-primary--dark;
+                    }
                 }
-            }
             }
         }
 
@@ -166,150 +207,12 @@
             }
         }
     }
-    .card{
-            .card-title{
-        .lnk{
-            //text-transform: capitalize;
-            &:after{
-                content: unset !important;
-            }
-        }
-    }
-    }
-    @media (max-width: 767px) {
-        .nav-tabs {
-            >li.nav-item {
-                padding-left: 0;
-                padding-right: 20px;
-                margin-bottom: 12px;
-            }
-        }
-    }
 
-    // Mobile version of tabs. (Duplicate of left-nav)
-    @include media-breakpoint-up(lg) {
-        .horizontal-tab {
-            .horizontal-tab-toggle-title {
-                display: none;
-            }
-
-            .horizontal-tab-toggle {
-                display: none;
-            }
-
-            // Always show us for desktop.
-            .horizontal-tab-collapse.collapse:not(.show) {
-                display: block;
-            }
-        }
-    }
-
-    @include media-breakpoint-down(md) {
-        .horizontal-tab {
-            .horizontal-tab-toggle-title {
-                font-size: 16px;
-                margin: 1em 0;
-            }
-
-            .horizontal-tab-collapse-wrapper {
-
-                box-shadow: 0 6px 12px rgba($color-black, .175);
-                margin-bottom: 3em;
-
-                .horizontal-tab-collapse {
-                    padding: 15px 0; // Let the children have the left/right padding.
-                    max-height: 125px;
-                    overflow-y: auto;
-                }
-
-                // HACK: JD - important the important.
-                .tabs-product {
-                    margin-bottom: 0 !important;
-                }
-
-                .nav-tabs {
-                    margin-top: 0;
-                    flex-direction: column; // Make it verticle.
-
-                    >li,
-                    >li:first-child {
-                        padding-left: 0px;
-                        padding-right: 0px;
-                        margin: 0;
-                        width: 100%;
-                    }
-
-                    // Reverse our look and feel.
-                    >li a {
-                        font-size: 14px;
-                        font-weight: 400;
-                        color: $color-grey--900;
-                        text-transform: initial;
-                        font-family: $font-family--primary;
-                        padding: 0.25rem 1.5rem;
-                        width: 100%;
-                        border: 0;
-                        text-align: left;
-
-                        &:hover {
-                            color: $color-white;
-                            background-color: $color-active;
-                        }
-
-                        &.active {
-                            border: none;
-                            position: relative;
-
-                            &:after {
-                                position: absolute;
-                                top: 6px;
-                                right: 15px;
-                                content: '' !important;
-                                display: block;
-                                width: 0.5em;
-                                height: 1em;
-                                border-style: solid;
-                                border-width: 0 0.26em 0.26em 0;
-                                -webkit-transform: rotate(45deg);
-                                -ms-transform: rotate(45deg);
-                                -o-transform: rotate(45deg);
-                                transform: rotate(45deg);
-
-                            }
-                        }
-                    }
-                }
-            }
-
-            .horizontal-tab-toggle {
-                //this is a button
-                width: 100%;
-
-                border-bottom: 2px solid $color-primary; //mods button
-                padding: 10px 5px 0;
-                color: $color-grey--800; //mods button
-                background-color: transparent; //mods button
-                justify-content: flex-start;
-                border-radius: 0;
-
-                .text-right {
-                    font-size: 18px;
-                    padding-right: 0;
-                }
-
-                i.bi {
-                    color: $color-grey--800;
-                }
-
-                >div {
-                    width: 100%;
-                    flex: 1;
-                }
-
-                &:focus {
-                    border-radius: 0;
-                    border: 0;
-                    border-bottom: 2px solid $color-primary;
+    .card {
+        .card-title {
+            .lnk {
+                &:after {
+                    content: unset !important;
                 }
             }
         }

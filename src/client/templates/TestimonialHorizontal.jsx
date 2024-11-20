@@ -13,6 +13,8 @@ import ImageBase from 'components/ImageBase.jsx';
 import classnames from "classnames";
 import {getCardFromTemplate} from 'templates/cards/CardFactory.jsx';
  
+import 'scss/components/testimonial.scss';
+
 
 class TestimonialHorizontal extends PureComponent {
     constructor(props) {

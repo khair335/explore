@@ -43,17 +43,18 @@ table {
   }
 
   tbody {
-   > tr:nth-child(even){
-      background-color: $background-light-gray!important;
+    >tr:nth-child(even) {
+      background-color: $background-light-gray;
     }
+
     td {
-      border: 0 !important;
-      box-shadow: inset 0px -1px 0px 0px $color-grey--100 !important;
-      vertical-align: middle !important;
-      padding: 25px 0 !important;
+      border: 0;
+      box-shadow: inset 0px -1px 0px 0px $color-grey--100;
+      vertical-align: middle;
+      padding: $table-padding 0;
 
       @media (max-width:767px) {
-        padding: 4px 0 !important;
+        padding: 4px 0;
       }
 
       p {
@@ -62,15 +63,18 @@ table {
 
       .list-links {
         list-style-type: none;
-        margin:0
+        margin: 0
       }
+
       .list-links li {
         padding-bottom: 12px;
       }
+
       .list-links a {
         text-decoration: none;
         padding: 0;
       }
+
       .list-links a:hover {
         color: #04314D;
         text-decoration: underline;
@@ -79,7 +83,7 @@ table {
         text-decoration-style: solid;
         text-decoration-thickness: 2px;
         text-underline-offset: 3px;
-        animation: none !important;
+        animation: none;
       }
 
     }
@@ -142,11 +146,11 @@ table {
   .rTableRow {
     .rTableCell {
 
-      // padding: 10px 0 !important;
+      // padding: 10px 0 ;
 
       @media (max-width:767px) {
         font-size: 10px;
-        // padding: 0 !important;
+        // padding: 0 ;
       }
     }
 
@@ -241,11 +245,11 @@ table {
     }
 
     &.hide {
-      display: none;    //Hide the show more for mobile when showing the collapse
+      display: none; //Hide the show more for mobile when showing the collapse
     }
 
     & span {
-      padding-top: 0 !important;
+      padding-top: 0;
     }
 
     & svg {
@@ -363,17 +367,17 @@ table {
   }
 }
 
- table {
+table {
 
-        tbody {
+  tbody {
 
 
-          tr {
-            td {
-              /* Your styles for the first td child here */
+    tr {
+      td {
+        /* Your styles for the first td child here */
 
-              padding: 20px !important;
-            }
-          }
-        }
+        padding: $table-padding;
       }
+    }
+  }
+}

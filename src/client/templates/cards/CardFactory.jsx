@@ -15,11 +15,14 @@ import Video, { VideoImageModal } from 'components/Video.jsx';
 import classnames from "classnames";
 import { msToTime } from 'components/LibraryElements.jsx';
 import { getComponentFromTemplate } from 'templates/TemplateFactory.jsx';
+import Icon from 'components/Icon.jsx';
 
 
 import 'scss/components/card.scss';
 import 'scss/components/content-blocks.scss';
-import { localeData } from 'moment/moment';
+import 'scss/components/testimonial.scss';
+
+
 
 const ErrorTemplate = (props) => (<div>No card for {props.message}</div>);
 const EmptyCard = (props) => (null); // Used to set empty cards and force number of columns. https://cmsgwdev2.aws.broadcom.com/solutions/category3
@@ -115,10 +118,12 @@ export class LeftImageCard extends PureComponent {
 
         
         return (
-
             <div className="card LeftImageCard">
                 <div className="card-body">
                     <Row>
+                        {(this.props.data.icon) &&
+                            <Col xs="3"><Icon type={this.props.data.icon} className={this.props.data.icon_class} /></Col>
+                        }
                         {(this.props.data.image || this.props.data.video) &&
                             <Col xs={image_col}>
                                 <CardBodyImageVideo image={this.props.data.image} video={this.props.data.video} url={url} inlineVideo={this.props.data.inline_video_display} />
@@ -136,6 +141,7 @@ export class LeftImageCard extends PureComponent {
                             {/*<h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}
 
                             {this.props.data.body && <div className="card-text" dangerouslySetInnerHTML={{ __html: this.props.data.body }} />}
+                            {this.props.data.links &&
                             <div className="card-footer">
                                 <ul className="cb-cta-link">
                                     {this.props.data.links && this.props.data.links.map((link, index) =>
@@ -145,6 +151,7 @@ export class LeftImageCard extends PureComponent {
                                     )}
                                 </ul>
                             </div>
+                            }
                         </Col>
                     </Row>
 

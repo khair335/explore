@@ -39,7 +39,11 @@ base/_reset.scss sets these properties for <a/>:
         animation: none!important; 
     }
 }
-a, a.lnk:not(.bttn) {                       //NOT inline links - bold, 2nd color, 2nd fontfamily, lg size, red line hover, etc. 
+
+// https://hgsdigitalprojects.atlassian.net/browse/BCV2-136
+// The selector a.lnk:not(.bttn) is too absolute causing the use of !important to override
+// https://specificity.keegan.st/
+a {                       //NOT inline links - bold, 2nd color, 2nd fontfamily, lg size, red line hover, etc. 
     @include link-style;                            //see also SiteLink.jsx className (assigns "lnk" to all <a/>)
 }
 

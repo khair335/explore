@@ -39,10 +39,16 @@ var server = http.createServer(function (req, res) {
 	// and then proxy the request.
 
 
-	if (req.url.startsWith('/api') || req.url.startsWith('/media') || req.url.startsWith('/pubdate') || req.url.startsWith('/json')) {				// For local development.
+	if (req.url.startsWith('/api') || req.url.startsWith('/media') || req.url.startsWith('/json')) {				// For local development.
 		proxy.web(req, res, {
 			changeOrigin: true,
 			target: 'https://vmdev-ui.aws.broadcom.com',
+			auth: '${process.env.username}:${process.env.password}',
+		});
+	} else if (req.url.startsWith('/pubdate')) {
+		proxy.web(req, res, {
+			changeOrigin: true,
+			target: 'https://vmdev-qa.aws.broadcom.com',
 			auth: '${process.env.username}:${process.env.password}',
 		});
 	}

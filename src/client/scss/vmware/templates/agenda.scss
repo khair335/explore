@@ -17,6 +17,10 @@ $agenda-color-body: #000000;
 .Agenda {
     color: $agenda-color-body;
 
+    .horizontal-tab {
+        margin-bottom: 28px;        // tab 12 +  16
+    }
+
     .agenda-mobile {
         .agenda-day-title {
 

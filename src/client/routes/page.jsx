@@ -87,7 +87,8 @@ const loadPageData = ({ request }) => {
 	}
 
 	// Scroll to the top for now. SPA we need to scroll into view instead of staying at the bottom.
-	const content_container = document.getElementById("content-container");
+	const content_container = document.getElementById("main");
+	// getElementByID changed from "content-container" to "main" as per BCV2-35 - this will eliminate the scroll to content effect which in mobile would scroll the menu permanently out of reach
 	if (content_container) {
 		
 		content_container.scrollIntoView({

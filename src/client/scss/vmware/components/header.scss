@@ -421,17 +421,21 @@
 			color: $color-primary;
 			border: 0 !important;
 		}
-		&.active::before {
-			content: "";
-			position: absolute;
-			bottom: calc(100% - 46px);
-			-webkit-transform: translateX(-50%);
-			-moz-transform: translateX(-50%);
-			transform: translateX(-50%);
-			border-bottom: 9px solid $color-primary;
-			border-left: 9px solid transparent;
-			border-right: 9px solid transparent;
+		&.active {
+			color:  $color-primary;
+
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: calc(100% - 46px);
+				-webkit-transform: translateX(-50%);
+				-moz-transform: translateX(-50%);
+				transform: translateX(-50%);
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+			}
 		}
 	}
 }
+
 

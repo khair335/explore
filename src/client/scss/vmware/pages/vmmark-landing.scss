@@ -109,7 +109,7 @@
         /* Adjust the gap between cards as needed */
         //   padding: 16px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 20px;
         padding: 20px;
 
@@ -144,9 +144,11 @@
             flex-direction: column;
             min-height: 150px;
 
-
-
-
+            .single-line {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
             .card-title {
                 // background-color: #71a3d9;
@@ -157,6 +159,7 @@
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 0;
+                // padding-left: 16px;
 
                 h4 {
                     line-height: 26px;
@@ -187,12 +190,13 @@
                 font-style: italic;
                 font-weight: 300;
                 padding-top: 4px;
+                // padding-left: 16px;
             }
 
             .date-column {
                 white-space: nowrap;
                 /* Prevents text from wrapping */
-                min-width: 120px;
+                //min-width: 104px;
                 /* Adjust this value based on your specific needs */
             }
 
@@ -208,7 +212,9 @@
                 bottom: 0;
                 margin-left: 24px;
                 margin-bottom: 12px;
-                font-size: $font-size-xs;
+                font-size: $font-size-md;
+                // padding-left: 16px;
+                font-size: 16px !important;
 
                 i {
                     margin-left: 5px;
@@ -223,10 +229,25 @@
 
             .table {
                 margin-top: 10px;
-                margin-bottom: 20px;
+                margin-bottom: 36px;
+                // margin-left: 16px;
+                table-layout: fixed;
+
+                // Set the column widths.
+                .score-col {
+                    width: 56px;
+                }
+
+                .system_description-col {
+                    width: 99%; // The rest of the space.
+                }
+
+                .date-col {
+                    width: 94px;
+                }
 
                 th {
-                    padding: 2px 10px 2px 0px !important;
+                    padding: 2px 10px 2px 0px;
 
                     font-size: 16px;
                     text-align: left;
@@ -236,25 +257,39 @@
                     //     width:30%;
                     // }
 
+                    &:last-child {
+                        padding-right: 0;
+                    }
+
                 }
 
                 td {
-                    padding: 2px 10px 2px 0px !important;
-                    box-shadow: none !important;
+                    padding: 2px 10px 2px 0px;
+                    box-shadow: none;
                     // width:30%;
-                    vertical-align: top !important;
+                    vertical-align: top;
 
                 }
 
                 tbody {
                     tr {
+
+
                         &:nth-child(odd) {
-                            background: transparent !important;
+                            background: transparent;
                         }
 
                         &:nth-child(even) {
-                            background: transparent !important;
+                            background: transparent;
                         }
+
+                        td {
+                            border: none;
+
+                            &:last-child {
+                                padding-right: 0;
+                            }
+                        }                       
                     }
                 }
             }
@@ -310,10 +345,10 @@
         // box-shadow: $shadow-5
     }
 
-   
+
 
     .expand-icon {
-       
+
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -324,12 +359,12 @@
 
     }
 
-    
+
 
     .dropdown-down {
         @include fa-icon-solid($fa-var-chevron-down);
         transition: 0.2s ease-in-out;
-        
+
         padding: 3px 0 0 4px;
     }
 
@@ -337,11 +372,11 @@
     .dropdown-right {
         @include fa-icon-solid($fa-var-chevron-up);
         transition: 0.2s ease-in-out;
-        
+
         padding: 3px 0 0 4px;
 
     }
-    
+
     .spotlight-title {
         font-size: 28px;
         // font-weight: bold;
@@ -363,8 +398,8 @@
         }
 
         td {
-            box-shadow: none !important;
-            vertical-align: top !important;
+            box-shadow: none;
+            vertical-align: top;
         }
     }
 
@@ -901,7 +936,7 @@
 
                 // Make the columns that are sticky have a backround due to the nature
                 tr:nth-child(even) {
-                    background-color: transparent !important; // Important because of our base table is overriding it.
+                    background-color: transparent; // Important because of our base table is overriding it.
 
                     // Make the td the color.
                     td {
@@ -910,13 +945,13 @@
                 }
 
                 tr:nth-child(odd) {
-                    background-color: transparent !important; // Important because of our base table is overriding it.   
+                    background-color: transparent; // Important because of our base table is overriding it.   
 
                 }
 
                 th,
                 td {
-                    padding: 2px 10px !important;
+                    padding: 2px 10px;
                     text-align: left;
                     border-bottom: 1px solid $color-grey--10;
                     width: 160px;
@@ -928,9 +963,9 @@
 
                 td:first-child {
                     text-align: center;
-                    padding: 0 !important;
+                    padding: 0;
 
-                    //box-shadow: none !important;
+                    //box-shadow: none;
                     img {
                         max-height: 50px;
                         display: inline-block;
