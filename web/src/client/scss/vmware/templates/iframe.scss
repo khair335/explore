@@ -1,0 +1,14 @@
+/*
+* templates/iframe.scss
+*/
+
+
+@import "../base/base";
+@import "../base/variables";
+
+.Iframe {
+
+    .embed-responsive-content-block {
+        min-height: 100px;          // For loading.
+    }
+}

@@ -1,0 +1,50 @@
+{
+  "title": "A wall of text",
+  "_type": "page",
+  "_embedded": {
+    "columns": [
+      {
+        "_type": "column",
+        "size": 50,
+        "_embedded": {
+          "title": {
+            "text": "Product 1",
+            "_type": "headline"
+          },
+          "img": {
+            "src": "https://www.broadcom.com/media/1211203316710/9405w-16i_hba_angle.jpg",
+            "alt": "product description in here for alt text",
+            "_type": "image"
+          },
+          "description":{
+            "text":" I am description of one product and I can be long as product description is.",
+            "_type": "description"
+          }
+        }
+      },
+      {
+        "_type": "column",
+        "size": 50,
+        "_embedded": {
+          "title": {
+            "text": "Product 2",
+            "_type": "headline"
+          },
+          "image": {
+            "src": "https://www.broadcom.com/media/1211193506026/megaraid_9365-28i_angle.jpg",
+            "alt": "alt text in here ",
+            "_type": "image"
+          },
+          "description":{
+            "text":" I am description of one product and I can be long as product description is.",
+            "_type": "description"
+          }
+        }
+      }
+    ]
+
+  },
+  "_links": {
+    "self": { "href": "content/imprint.json" }
+  }
+}

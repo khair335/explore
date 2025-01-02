@@ -1,0 +1,365 @@
+map $http_host $authdynamic {
+    default "Restricted Content";
+    "www.broadcom.com"  AUTH_DYNAMIC;
+    "www.broadcom.cn"   AUTH_DYNAMIC;
+    "jp.broadcom.com"   AUTH_DYNAMIC;
+    "docs.broadcom.com"  AUTH_DYNAMIC;
+	"vmprd-ui.aws.broadcom.com" AUTH_DYNAMIC;
+	"vmdr-ui.aws.broadcom.com"  AUTH_DYNAMIC;
+	"vmprd-ui.cloud2.vmware.com" AUTH_DYNAMIC;
+	"vmdr-ui.cloud2.vmware.com"  AUTH_DYNAMIC;
+	"www.vmware.com"  AUTH_DYNAMIC;
+  }
+
+  map $http_host $hcAuthDynamic {
+    default "Restricted Content";
+    "prd-ui.aws.broadcom.com" "off";
+    "dr-ui.aws.broadcom.com"  "off";
+	"vmprd-ui.aws.broadcom.com" "off";
+	"vmdr-ui.aws.broadcom.com"  "off";
+	"vmprd-ui.cloud2.vmware.com" "off";
+	"vmdr-ui.cloud2.vmware.com" "off";
+  }
+
+  map $http_host $vmdomain {
+    default 0;
+    vmdev-ui.aws.broadcom.com 1;
+	vmdev-ui-green-alb.aws.broadcom.com 1;
+	vmdev-ui-blue-alb.aws.broadcom.com 1;
+	vmqa-ui.aws.broadcom.com 1;
+	vmqa-ui-green-alb.aws.broadcom.com 1;
+	vmqa-ui-blue-alb.aws.broadcom.com 1;
+	vmstg-ui.aws.broadcom.com 1;
+	vmstg-ui-green-alb.aws.broadcom.com 1;
+	vmstg-ui-blue-alb.aws.broadcom.com 1;
+	vmdr-ui.aws.broadcom.com 1;
+	vmdr-ui-green-alb.aws.broadcom.com 1;
+	vmdr-ui-blue-alb.aws.broadcom.com 1;
+	vmprd-ui.aws.broadcom.com 1;
+	vmprd-ui-green-alb.aws.broadcom.com 1;
+	vmprd-ui-blue-alb.aws.broadcom.com 1;
+	vmware.com 1;
+	www-stage.vmware.com 1;
+	www.vmware.com 1;
+	vmdev-ui.cloud2.vmware.com 1;
+	vmdev-ui-green-alb.cloud2.vmware.com 1;
+	vmdev-ui-blue-alb.cloud2.vmware.com 1;
+	vmqa-ui.cloud2.vmware.com 1;
+	vmqa-ui-green-alb.cloud2.vmware.com 1;
+	vmqa-ui-blue-alb.cloud2.vmware.com 1;
+	vmstg-ui.cloud2.vmware.com 1;
+	vmstg-ui-green-alb.cloud2.vmware.com 1;
+	vmstg-ui-blue-alb.cloud2.vmware.com 1;
+	cmsstaging.vmware.com 1;
+	vmdr-ui.cloud2.vmware.com 1;
+	vmdr-ui-green-alb.cloud2.vmware.com 1;
+	vmdr-ui-blue-alb.cloud2.vmware.com 1;
+	vmprd-ui.cloud2.vmware.com 1;
+	vmprd-ui-green-alb.cloud2.vmware.com 1;
+	vmprd-ui-blue-alb.cloud2.vmware.com 1;
+  }
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	#auth_basic "Restricted Content";
+	auth_basic $authdynamic;
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name dev-ui.aws.broadcom.com
+				dev-ui-jp.aws.broadcom.com
+				dev-ui-cn.aws.broadcom.com
+				qa-ui.aws.broadcom.com
+				qa-ui-jp.aws.broadcom.com
+				qa-ui-cn.aws.broadcom.com
+				prd-ui.aws.broadcom.com
+				prd-ui-jp.aws.broadcom.com
+				prd-ui-cn.aws.broadcom.com
+				dr-ui.aws.broadcom.com
+				dr-ui-jp.aws.broadcom.com
+				dr-ui-cn.aws.broadcom.com
+				cdntest.aws.broadcom.com
+				cdntestcn.aws.broadcom.com
+				cdntestjp.aws.broadcom.com
+				www.broadcom.com
+                www.broadcom.cn
+                jp.broadcom.com
+                origin.aws.broadcom.com
+                cmsgolive.broadcom.com
+                cmsgolive.broadcom.cn
+                cmsgolivejp.broadcom.com
+				cmsstaging.broadcom.com
+				cmsstagingjp.broadcom.com
+				cmsstaging.broadcom.cn
+				dev-ui-green-alb.aws.broadcom.com
+				dev-ui-blue-alb.aws.broadcom.com
+				qa-ui-green-alb.aws.broadcom.com
+				qa-ui-blue-alb.aws.broadcom.com
+				stg-ui-green-alb.aws.broadcom.com
+				stg-ui-blue-alb.aws.broadcom.com
+				prd-ui-green-alb.aws.broadcom.com
+				prd-ui-blue-alb.aws.broadcom.com
+				dr-ui-green-alb.aws.broadcom.com
+				dr-ui-blue-alb.aws.broadcom.com
+				cdnstage.aws.broadcom.com
+				cdnstagejp.aws.broadcom.com
+				cdnstagecn.aws.broadcom.com
+				vmdev-ui.aws.broadcom.com
+				vmdev-ui-green-alb.aws.broadcom.com
+				vmdev-ui-blue-alb.aws.broadcom.com
+				vmqa-ui.aws.broadcom.com
+				vmqa-ui-green-alb.aws.broadcom.com
+				vmqa-ui-blue-alb.aws.broadcom.com
+				vmstg-ui.aws.broadcom.com
+				vmstg-ui-green-alb.aws.broadcom.com
+				vmstg-ui-blue-alb.aws.broadcom.com
+				vmdr-ui.aws.broadcom.com
+				vmdr-ui-green-alb.aws.broadcom.com
+				vmdr-ui-blue-alb.aws.broadcom.com
+				vmprd-ui.aws.broadcom.com
+				vmprd-ui-green-alb.aws.broadcom.com
+				vmprd-ui-blue-alb.aws.broadcom.com
+				cdnvmtest.aws.broadcom.com
+				cdnvmstage.aws.broadcom.com
+				cdnvmprd.aws.broadcom.com
+				vmdev-ui.cloud2.vmware.com
+				vmdev-ui-green-alb.cloud2.vmware.com
+				vmdev-ui-blue-alb.cloud2.vmware.com
+				vmqa-ui.cloud2.vmware.com
+				vmqa-ui-green-alb.cloud2.vmware.com
+				vmqa-ui-blue-alb.cloud2.vmware.com
+				vmstg-ui.cloud2.vmware.com
+				vmstg-ui-green-alb.cloud2.vmware.com
+				vmstg-ui-blue-alb.cloud2.vmware.com
+				vmdr-ui.cloud2.vmware.com
+				vmdr-ui-green-alb.cloud2.vmware.com
+				vmdr-ui-blue-alb.cloud2.vmware.com
+				vmprd-ui.cloud2.vmware.com
+				vmprd-ui-green-alb.cloud2.vmware.com
+				vmprd-ui-blue-alb.cloud2.vmware.com
+				cmsstaging.vmware.com
+				cdnvmtest.cloud2.vmware.com
+				www-stage.vmware.com
+				www.vmware.com;
+
+	#if ($http_host ~* ^(.*?)\.aws\.broadcom\.com$){
+    #	return 301 $scheme://$1.cloud2.vmware.com$request_uri;
+	#}
+
+	# Adding redirect rule as part of the ticket ID :219341
+    rewrite "^/support/fibre-channel-networking/security-advisories/brocade-security-advisory-[0-9]{4}-[0-9]{3,4}" https://support.broadcom.com$request_uri permanent;
+    rewrite ^/support/fibre-channel-networking/security-advisories(.*) https://support.broadcom.com/web/ecx/security-advisory$1?segment=BSN permanent;
+
+    #Standeardized the redire rule (Ticket ID : 153224)
+	rewrite ^/sw-tech-blog/(.*) https://$http_host/sw-tech-blogs/$1 permanent;
+
+	# Adding redirect rule as part of the ticket ID : 178142
+	rewrite ^/broadcom_blogs/(.*) https://$http_host/blog/$1 permanent;
+	rewrite ^/broadcom-blogs/(.*) https://$http_host/blog/$1 permanent;
+    # rewrite ^/rss/blog https://$http_host/api/nocache/rss/blogs permanent;
+    # rewrite ^/rss/blog/ https://$http_host/api/nocache/rss/blogs permanent;
+
+	if ($request_uri = "/broadcom-blogs"){
+		return 301 https://$http_host/blog/;
+	}
+
+	if ($request_uri = "/broadcom_blogs"){
+		return 301 https://$http_host/blog/;
+	}
+
+    # Adding redirect as part of the ticket ID : 175137
+	if ($request_uri = "/support/security-center/definitions"){
+	    return 301 https://$http_host$request_uri?pid=sep14;
+	}
+	# ID : 188877 - Sunset Okta login and myBroadcom
+	if ($request_uri = "/mybroadcom/login"){
+        return 301 https://support.broadcom.com/user;
+    }
+    if ($request_uri = "/mybroadcom/login/"){
+        return 301 https://support.broadcom.com/user;
+    }
+    if ($request_uri = "/mybroadcom"){
+        return 301 https://support.broadcom.com;
+    }
+    rewrite ^/mybroadcom/login/(.*) https://support.broadcom.com/user permanent;
+    rewrite ^/mybroadcom/login?(.*) https://support.broadcom.com/user permanent;
+    rewrite ^/mybroadcom/logout https://login.broadcom.com/login/signout permanent;
+    rewrite ^/mybroadcom/(.*) https://support.broadcom.com permanent;
+
+    if ($request_uri = "/mybroadcom"){
+        return 301 https://support.broadcom.com;
+    }
+
+    location /docs/ {
+        if ($vmdomain = 0) {
+             return 301 https://DOCS-DOMAIN.broadcom.com$request_uri;
+        }
+		include /etc/nginx/redirects/vm-docs-proxying.conf;
+	}
+
+	if ($http_x_forwarded_proto = "http") {
+      	  return 301 https://$http_host$request_uri;
+  	}
+
+	include /etc/nginx/redirects/redirects_AVAGO.conf;
+	include /etc/nginx/redirects/redirects_vmware.conf;
+	include /etc/nginx/redirects/proxying.conf;
+	include /etc/nginx/redirects/vmware-acs-redirects.conf;
+	#include /etc/nginx/redirects/redirects_limelight_to_brightcove.conf;
+	include /etc/nginx/redirects/vmdocs-proxy.conf;
+
+}
+
+server {
+	listen 443;
+	listen [::]:443;
+	ssl off;
+
+	#auth_basic "Restricted Content";
+	auth_basic $authdynamic;
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name dev-ui.aws.broadcom.com
+				dev-ui-jp.aws.broadcom.com
+				dev-ui-cn.aws.broadcom.com
+				qa-ui.aws.broadcom.com
+				qa-ui-jp.aws.broadcom.com
+				qa-ui-cn.aws.broadcom.com
+				prd-ui.aws.broadcom.com
+				prd-ui-jp.aws.broadcom.com
+				prd-ui-cn.aws.broadcom.com
+				dr-ui.aws.broadcom.com
+				dr-ui-jp.aws.broadcom.com
+				dr-ui-cn.aws.broadcom.com
+				cdntest.aws.broadcom.com
+				cdntestcn.aws.broadcom.com
+				cdntestjp.aws.broadcom.com
+				www.broadcom.com
+                www.broadcom.cn
+                jp.broadcom.com
+                origin.aws.broadcom.com
+                cmsgolive.broadcom.com
+                cmsgolive.broadcom.cn
+                cmsgolivejp.broadcom.com
+				cmsstaging.broadcom.com
+				cmsstagingjp.broadcom.com
+				cmsstaging.broadcom.cn
+				cdnstage.aws.broadcom.com
+				cdnstagejp.aws.broadcom.com
+				cdnstagecn.aws.broadcom.com
+				dev-ui-green-alb.aws.broadcom.com
+				dev-ui-blue-alb.aws.broadcom.com
+				qa-ui-green-alb.aws.broadcom.com
+				qa-ui-blue-alb.aws.broadcom.com
+				stg-ui-green-alb.aws.broadcom.com
+				stg-ui-blue-alb.aws.broadcom.com
+				prd-ui-green-alb.aws.broadcom.com
+				prd-ui-blue-alb.aws.broadcom.com
+				dr-ui-green-alb.aws.broadcom.com
+				dr-ui-blue-alb.aws.broadcom.com
+				vmdev-ui.aws.broadcom.com
+				vmdev-ui-green-alb.aws.broadcom.com
+				vmdev-ui-blue-alb.aws.broadcom.com
+				vmqa-ui.aws.broadcom.com
+				vmqa-ui-green-alb.aws.broadcom.com
+				vmqa-ui-blue-alb.aws.broadcom.com
+				vmstg-ui.aws.broadcom.com
+				vmstg-ui-green-alb.aws.broadcom.com
+				vmstg-ui-blue-alb.aws.broadcom.com
+				vmdr-ui.aws.broadcom.com
+				vmdr-ui-green-alb.aws.broadcom.com
+				vmdr-ui-blue-alb.aws.broadcom.com
+				vmprd-ui.aws.broadcom.com
+				vmprd-ui-green-alb.aws.broadcom.com
+				vmprd-ui-blue-alb.aws.broadcom.com
+				cdnvmtest.aws.broadcom.com
+				cdnvmstage.aws.broadcom.com
+				cdnvmprd.aws.broadcom.com
+				vmdev-ui.cloud2.vmware.com
+				vmdev-ui-green-alb.cloud2.vmware.com
+				vmdev-ui-blue-alb.cloud2.vmware.com
+				vmqa-ui.cloud2.vmware.com
+				vmqa-ui-green-alb.cloud2.vmware.com
+				vmqa-ui-blue-alb.cloud2.vmware.com
+				vmstg-ui.cloud2.vmware.com
+				vmstg-ui-green-alb.cloud2.vmware.com
+				vmstg-ui-blue-alb.cloud2.vmware.com
+				vmdr-ui.cloud2.vmware.com
+				vmdr-ui-green-alb.cloud2.vmware.com
+				vmdr-ui-blue-alb.cloud2.vmware.com
+				vmprd-ui.cloud2.vmware.com
+				vmprd-ui-green-alb.cloud2.vmware.com
+				vmprd-ui-blue-alb.cloud2.vmware.com
+				cmsstaging.vmware.com
+				cdnvmtest.cloud2.vmware.com
+				www-stage.vmware.com
+				www.vmware.com;
+
+	#if ($http_host ~* ^(.*?)\.aws\.broadcom\.com$){
+    #	return 301 $scheme://$1.cloud2.vmware.com$request_uri;
+	#}
+
+	# Adding redirect rule as part of the ticket ID :219341
+    rewrite "^/support/fibre-channel-networking/security-advisories/brocade-security-advisory-[0-9]{4}-[0-9]{3,4}" https://support.broadcom.com$request_uri permanent;
+    rewrite ^/support/fibre-channel-networking/security-advisories(.*) https://support.broadcom.com/web/ecx/security-advisory$1?segment=BSN permanent;
+
+    #Standeardized the redire rule (Ticket ID : 153224)
+	rewrite ^/sw-tech-blog/(.*) https://$http_host/sw-tech-blogs/$1 permanent;
+
+	# Adding redirect rule as part of the ticket ID : 178142
+	rewrite ^/broadcom_blogs/(.*) https://$http_host/blog/$1 permanent;
+	rewrite ^/broadcom-blogs/(.*) https://$http_host/blog/$1 permanent;
+	# rewrite ^/rss/blog https://$http_host/api/nocache/rss/blogs permanent;
+    # rewrite ^/rss/blog/ https://$http_host/api/nocache/rss/blogs permanent;
+
+	if ($request_uri = "/broadcom-blogs"){
+		return 301 https://$http_host/blog/;
+	}
+
+	if ($request_uri = "/broadcom_blogs"){
+		return 301 https://$http_host/blog/;
+	}
+
+    # Adding redirect as part of the ticket ID : 175137
+	if ($request_uri = "/support/security-center/definitions"){
+	    return 301 https://$http_host$request_uri?pid=sep14;
+	}
+	# ID : 188877 - Sunset Okta login and myBroadcom
+	if ($request_uri = "/mybroadcom/login"){
+        return 301 https://support.broadcom.com/user;
+    }
+    if ($request_uri = "/mybroadcom/login/"){
+        return 301 https://support.broadcom.com/user;
+    }
+    if ($request_uri = "/mybroadcom"){
+        return 301 https://support.broadcom.com;
+    }
+    rewrite ^/mybroadcom/login/(.*) https://support.broadcom.com/user permanent;
+    rewrite ^/mybroadcom/login?(.*) https://support.broadcom.com/user permanent;
+    rewrite ^/mybroadcom/logout https://login.broadcom.com/login/signout permanent;
+    rewrite ^/mybroadcom/(.*) https://support.broadcom.com permanent;
+    if ($request_uri = "/mybroadcom"){
+        return 301 https://support.broadcom.com;
+    }
+
+	location /docs/ {
+		if ($vmdomain = 0) {
+             return 301 https://DOCS-DOMAIN.broadcom.com$request_uri;
+        }
+		include /etc/nginx/redirects/vm-docs-proxying.conf;
+	}
+
+	include /etc/nginx/redirects/redirects_AVAGO.conf;
+	include /etc/nginx/redirects/redirects_vmware.conf;
+	include /etc/nginx/redirects/proxying.conf;
+	include /etc/nginx/redirects/vmware-acs-redirects.conf;
+	#include /etc/nginx/redirects/redirects_limelight_to_brightcove.conf;
+	include /etc/nginx/redirects/vmdocs-proxy.conf;
+}

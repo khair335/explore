@@ -1,0 +1,11 @@
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+
+@include media-breakpoint-down(xs) {
+    a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}

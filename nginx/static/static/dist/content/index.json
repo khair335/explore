@@ -1,0 +1,75 @@
+{
+  "title": "A Content-Driven App for POC of headless page",
+  "_type": "page",
+  "_embedded": {
+    "headline": {
+      "text": "Home page CD-POC",
+      "_type": "headline"
+    },
+    "banner": {
+      "size":100,
+      "src": "https://www.broadcom.com/media/1211195138707/hero_brocade_1920x455_final-2.png",
+      "alt": "Great banter here",
+      "_type": "banner"
+    },
+    "teaser":{
+      "text":" The explosive growth of data in cloud and enterprise data centers is driving the need for a higher performance storage interface to speed that critical applications can access data. The MegaRAID SAS 9365-28i, with twenty-eight internal ports in a full-height form factor, delivers two 1.2GHz PowerPC processor cores and a 72-bit DDR4 interface that drives 4GB cache memory.",
+      "_type": "description"
+    },
+    "grid": {
+      "_type": "grid",
+      "_embedded": {
+        "row0": {
+          "_type": "row",
+          "_embedded": {
+            "columns": [
+              {
+                "_type": "column",
+                "size": 50,
+                "_embedded": {
+                  "title": {
+                    "text": "RoboSwitch™-2 accelerates proliferation of TSN Ethernet for Industry 4.0",
+                    "_type": "headline"
+                  },
+                  "img": {
+                    "src": "https://www.broadcom.com/media/1211201340850/roboswitch2_blog_banner.jpg",
+                    "alt": "Cheating spaniards over here",
+                    "_type": "image"
+                  },
+                  "description":{
+                    "text":" The Industrial Automation market (IA) is currently undergoing its fourth evolutional wave, one that scholars are calling Industry 4.0. This process started in the early 19th century with the original industrial revolution, and is now seeing technologies associated with the “Internet of Things” (IoT) adapting to the industrial eco-system, introducing a new term – the “Industrial IoT” or “IIoT” – into our collective, technological lexicon.  ",
+                    "_type": "description"
+                  }
+                }
+              },
+              {
+                "_type": "column",
+                "size": 50,
+                "_embedded": {
+                  "title": {
+                    "text": "Optocouplers for Insulation Resistance Measurement",
+                    "_type": "headline"
+                  },
+                  "image": {
+                    "src": "https://www.broadcom.com/media/1211202083343/optocouplers_blog_banner.jpg",
+                    "alt": "Cheating spaniards over here",
+                    "_type": "image"
+                  },
+                  "description":{
+                    "text":"In high-voltage applications like industrial motor, solar energy generation, and electric vehicle (EV) battery management systems (BMS), the measurement of insulation resistance is critical to determine if the system can be put in operation without serious safety concerns. Under high-voltage conditions, failure of insulation will cause high leakage current, damaging the system and injuring the user.",
+                    "_type":"description"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_links": {
+    "Home": { "href": "content/index.json" },
+    "Product Gallery": { "href": "content/gallery.json" },
+    "Product List": { "href": "content/imprint.json" }
+  }
+}

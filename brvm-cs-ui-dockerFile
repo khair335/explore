@@ -1,0 +1,183 @@
+#FROM 183371538111.dkr.ecr.us-east-1.amazonaws.com/brcm-cs-node:latest
+#From 183371538111.dkr.ecr.us-east-2.amazonaws.com/brvm-cs-node:bullseye-latest
+From 183371538111.dkr.ecr.us-east-2.amazonaws.com/brvm-cs-node:20-bookworm-latest
+#FROM node:14
+
+#RUN groupadd appuser
+#RUN useradd -r -u 11001 -g appuser appuser
+
+ARG envtype
+ARG env
+ARG bcnode
+#RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+#RUN sh nodesource_setup.sh
+#RUN set -x \
+#    && apt-get install nodejs
+
+#ENV NGINX_VERSION 1.13.7-1~stretch
+#ENV NJS_VERSION   1.13.7.0.1.15-1~stretch
+
+
+RUN apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN apt-get update && \
+    apt-get install -y \
+    awscli \
+    && rm -rf /var/lib/apt/lists/*
+
+# add this to install nginx-extras
+RUN apt-get update && apt-get install -y nginx-extras
+
+
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
+
+EXPOSE 80
+# Standard set up Nginx finished
+
+# Expose 443, in case of LTS / HTTPS
+EXPOSE 443
+
+#USER nginx
+
+# Make NGINX run on the foreground
+# RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+# Remove default configuration from Nginx
+# RUN rm /etc/nginx/sites-enabled/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
+# Copy the modified Nginx conf
+COPY nginx/brcm-cs-ui-servers.conf /etc/nginx/brcm-cs-ui-servers.conf
+COPY nginx/brcm-docs-servers.conf /etc/nginx/brcm-docs-servers.conf
+COPY nginx/appserver-ssl.conf /etc/nginx/conf.d/appserver.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+#COPY nginx/appserver.conf /etc/nginx/sites-enabled/default.conf
+
+##### This is UI container.
+COPY nginx/redirects/proxying_api_prod_cache.conf /etc/nginx/redirects/proxying_api.conf
+COPY nginx/redirects/proxying_api_always_cache.conf /etc/nginx/redirects/proxying_api_always_cache.conf
+COPY nginx/redirects/proxying_api_always_cache.conf /etc/nginx/redirects/proxying_api_nav_cache.conf
+COPY nginx/redirects/proxying_api_no_cache.conf /etc/nginx/redirects/proxying_api_no_cache.conf
+COPY nginx/redirects/proxying_api_metadata_cache.conf /etc/nginx/redirects/proxying_api_metadata_cache.conf
+#COPY nginx/redirects/proxying_api_nonprod_cache.conf /etc/nginx/redirects/proxying_api.conf
+COPY nginx/redirects/redirects_proxying_location.conf /etc/nginx/redirects/redirects_proxying_location.conf
+COPY nginx/redirects/redirects_vmware.conf /etc/nginx/redirects/redirects_vmware.conf
+
+#######Commenting all below redirects as part of clean up work ###########
+COPY nginx/redirects/redirects_AVAGO.conf /etc/nginx/redirects/redirects_AVAGO.conf
+COPY nginx/redirects/redirects_limelight_to_brightcove.conf /etc/nginx/redirects/redirects_limelight_to_brightcove.conf
+
+COPY nginx/redirects/nodejsproxy.conf /etc/nginx/redirects/nodejsproxy.conf
+COPY nginx/redirects/docs-proxying.conf /etc/nginx/redirects/docs-proxying.conf
+#COPY nginx/redirects/dev-docs-proxy.conf /etc/nginx/redirects/dev-docs-proxy.conf
+#COPY nginx/redirects/qa-docs-proxy.conf /etc/nginx/redirects/qa-docs-proxy.conf
+#COPY nginx/redirects/stage-docs-proxy.conf /etc/nginx/redirects/stage-docs-proxy.conf
+#COPY nginx/redirects/prod-docs-proxy.conf /etc/nginx/redirects/prod-docs-proxy.conf
+COPY nginx/redirects/prod-docs-proxy_protection.conf /etc/nginx/redirects/prod-docs-proxy_protection.conf
+
+# RUN rm /etc/nginx/conf.d/default.conf
+# Copy the modified Nginx conf
+# COPY nginx/appserver.conf /etc/nginx/conf.d/nginx.conf
+
+
+
+COPY nginx/.htpasswd /etc/nginx/
+COPY nginx/redirects/proxying.conf /etc/nginx/redirects/proxying.conf
+COPY nginx/redirects/vm-docs-proxying.conf /etc/nginx/redirects/vm-docs-proxying.conf
+COPy nginx/redirects/vmdocs-proxy.conf /etc/nginx/redirects/vmdocs-proxy.conf
+COPY nginx/redirects/vmware-acs-redirects.conf /etc/nginx/redirects/vmware-acs-redirects.conf
+#COPY nginx/redirects/proxying_$envtype.conf /etc/nginx/redirects/proxying.conf
+COPY nginx/redirects/proxying_protection.conf /etc/nginx/redirects/proxying_protection.conf
+COPY nginx/redirects/general-security-header.conf /etc/nginx/redirects/general-security-header.conf
+
+COPY nginx/vhosts/* /etc/nginx/sites-available/
+COPY nginx/vhosts/* /etc/nginx/sites-enabled/
+#COPY nginx/vhosts/brcm-cs-ui-vhosts  /etc/nginx/sites-available/
+#COPY nginx/vhosts/brcm-cs-ui-vhosts  /etc/nginx/sites-enabled/
+#COPY nginx/vhosts/brcm-cs-docs-vhosts  /etc/nginx/sites-available/
+#COPY nginx/vhosts/brcm-cs-docs-vhosts  /etc/nginx/sites-enabled/
+#COPY nginx/vhosts/brcm-cs-go-vhosts  /etc/nginx/sites-available/
+#COPY nginx/vhosts/brcm-cs-go-vhosts  /etc/nginx/sites-enabled/
+
+RUN rm /etc/nginx/sites-enabled/default
+
+# Install Supervisord
+RUN apt-get update && apt-get install -y supervisor \
+&& rm -rf /var/lib/apt/lists/*
+# Custom Supervisord config
+COPY brcm-cs-dev-ui-gw_supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN ls -lhtra /etc/supervisor/conf.d/
+
+# By default, allow unlimited file sizes, modify it to limit the file sizes
+# To have a maximum of 1 MB (Nginx's default) change the line to:
+# ENV NGINX_MAX_UPLOAD 1m
+ENV NGINX_MAX_UPLOAD 0
+
+# By default, Nginx will run a single worker process, setting it to auto
+# will create a worker for each CPU core
+ENV NGINX_WORKER_PROCESSES 1
+
+# By default, Nginx listens on port 80.
+# To modify this, change LISTEN_PORT environment variable.
+# (in a Dockerfile or with an option for `docker run`)
+ENV LISTEN_PORT 443
+
+RUN mkdir -p /var/www/cache
+RUN chmod a+rwx /var/www/cache
+
+# Copy username.txt and password.txt to /usr/src/app/
+COPY username.txt /usr/src/app/username.txt
+COPY password.txt /usr/src/app/password.txt
+
+# Copy the entrypoint that will generate Nginx additional configs
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+
+# setting the proxying pass dynamically
+WORKDIR /usr/src/app/nginx/redirects/
+COPY dynamic_proxy.sh /dynamic_proxy.sh
+RUN chmod +x /dynamic_proxy.sh
+RUN /dynamic_proxy.sh
+
+
+WORKDIR /usr/src/app
+
+#COPY requirements.txt ./
+#RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+WORKDIR /usr/src/app/web
+# RUN rm /usr/src/app/web/package-lock.json
+RUN npm install -g npm@6.14.6
+RUN npm install
+EXPOSE 3000
+RUN echo "Environment - $envtype"
+RUN echo "Node - $bcnode" $bcnode
+# RUN npm run build:$envtype
+RUN npm run build:$envtype
+
+WORKDIR /usr/src/app
+
+RUN mkdir -p /usr/src/app/web/public/navigation/
+
+#RUN mkdir -p /var/www/html/
+#RUN touch /var/www/html/test.txt
+RUN chmod a+rwx /var/www/html/
+RUN chmod a+rwx /usr/src/app/web/
+RUN chmod a+rwx /usr/src/app/web/public/img/
+RUN chmod a+rwx /usr/src/app/web/public/navigation/
+
+RUN wget https://github.com/Droplr/aws-env/raw/master/bin/aws-env-linux-amd64 -O /bin/aws-env && chmod +x /bin/aws-env
+
+CMD eval $(/bin/aws-env); /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+#CMD eval $(/bin/aws-env); /entrypoint.sh
+
+RUN node -v
+RUN npm -v

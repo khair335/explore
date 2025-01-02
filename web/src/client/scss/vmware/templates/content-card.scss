@@ -1,0 +1,17 @@
+@import "../base/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+.ContentCard>.container {
+
+    @include media-breakpoint-down(xs) {
+        h2 {
+            font-size: $font-size-xl;
+        }
+
+        h3 {
+            font-size: $font-size-lg;
+        }
+    }
+
+}

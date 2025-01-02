@@ -1,0 +1,105 @@
+
+server {
+	listen 80 ;
+	listen [::]:80;
+
+	root /var/www/html;
+	server_name go.broadcom.com go.aws.broadcom.com;
+
+	location /{
+		rewrite ^/PJV https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm5356x permanent;
+		rewrite ^/pso https://www.broadcom.com/products/broadband/set-top-box/bcm7552 permanent;
+		rewrite ^/9k6 https://www.broadcom.com/products/broadband/set-top-box/bcm7592 permanent;
+		rewrite ^/yyZ https://www.broadcom.com/products/broadband/set-top-box/bcm4528 permanent;
+		rewrite ^/ethernetnic_tg3_rpms https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/bluetooth-drivers https://www.broadcom.com/support/download-search/?pf=Bluetooth+SoCs permanent;
+		rewrite ^/EiU https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm5356x permanent;
+		rewrite ^/A6H https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm47186 permanent;
+		rewrite ^/upa https://www.broadcom.com/products/broadband/set-top-box/bcm7540 permanent;
+		rewrite ^/gW8 https://www.broadcom.com/products/broadband/set-top-box/bcm7400 permanent;
+		rewrite ^/yqR https://www.broadcom.com/products/broadband/set-top-box/bcm7421 permanent;
+		rewrite ^/Ayx https://www.broadcom.com/products/broadband/set-top-box/bcm3461 permanent;
+		rewrite ^/JNt https://www.broadcom.com/products/broadband/set-top-box/bcm7542 permanent;
+		rewrite ^/KUv https://www.broadcom.com/products/broadband/set-top-box/bcm3471 permanent;
+		rewrite ^/Mne https://www.broadcom.com/products/broadband/xpon/bcm60321 permanent;
+		rewrite ^/CQv https://www.broadcom.com/products/broadband/set-top-box/bcm7582 permanent;
+		rewrite ^/hKD https://www.broadcom.com/products/broadband/set-top-box/bcm7582 permanent;
+		rewrite ^/cH9 https://www.broadcom.com/products/broadband/xdsl/bcm65x00-family permanent;
+		rewrite ^/b8k https://www.broadcom.com/products/broadband/set-top-box/bcm7422 permanent;
+		rewrite ^/atEWWv https://www.broadcom.com/products/broadband/set-top-box/bcm7572 permanent;
+		rewrite ^/vtH https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm4717v permanent;
+		rewrite ^/ethernetnic_bnxt_en_rpms https://www.broadcom.com/support/download-search/?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=Ethernet+Controllers permanent;
+		rewrite ^/qDY https://www.broadcom.com/products/broadband/set-top-box/bcm7405 permanent;
+		rewrite ^/mzi https://www.broadcom.com/products/broadband/xdsl/bcm63168 permanent;
+		rewrite ^/NetXtreme https://www.broadcom.com/products/ethernet-connectivity/network-adapters/netxtrem-adapters/ permanent;
+		rewrite ^/OnV https://www.broadcom.com/products/broadband/set-top-box/bcm7358 permanent;
+		rewrite ^/LLk https://www.broadcom.com/products/broadband/cable/modems/bcm3124-3128 permanent;
+		rewrite ^/hCf https://www.broadcom.com/products/broadband/cable/ccap/bcm3383 permanent;
+		rewrite ^/fc-networking https://www.broadcom.com/products/fibre-channel-networking/ permanent;
+		rewrite ^/legal https://www.broadcom.com permanent;
+		rewrite ^/sesc https://www.broadcom.com/products/cyber-security/endpoint/end-user/complete permanent;
+		rewrite ^/sese https://www.broadcom.com/products/cyber-security/endpoint/end-user/enterprise permanent;
+		rewrite ^/ses https://www.broadcom.com/products/cyber-security/endpoint/end-user permanent;
+		rewrite ^/ethernetnic_nxe_rpms https://www.broadcom.com/support/download-search?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=ETHERNET+NETWORK+ADAPTERS&pn=All&pa=Driver&po=Broadcom&dk=&pl= permanent;
+		rewrite ^/sa https://www.broadcom.com/products/cyber-security/network/atp/network-forensics-security-analytics permanent;
+		rewrite ^/ethernetnic_nx1_rpms https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/ethernetnic_nx1_rpms_hpe https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/ethernetnic_nxe_rpms_hpe https://www.broadcom.com/support/download-search?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=Ethernet+Network+Adapters&pn=All&pa=&po=HPE&dk=&pl= permanent;
+		rewrite ^/L24 https://www.broadcom.com/products/broadband/set-top-box/bcm4550 permanent;
+		rewrite ^/kubernetes-monitoring https://www.broadcom.com/info/aiops/kubernetes-monitoring permanent;
+		rewrite ^/(.*) https://www.broadcom.com/? redirect;
+
+	}
+}
+
+server {
+
+	listen 443 ;
+	listen [::]:443;
+	ssl off;
+	root /var/www/html;
+	server_name go.broadcom.com go.aws.broadcom.com;
+  	location /{
+		rewrite ^/PJV https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm5356x permanent;
+		rewrite ^/pso https://www.broadcom.com/products/broadband/set-top-box/bcm7552 permanent;
+		rewrite ^/9k6 https://www.broadcom.com/products/broadband/set-top-box/bcm7592 permanent;
+		rewrite ^/yyZ https://www.broadcom.com/products/broadband/set-top-box/bcm4528 permanent;
+		rewrite ^/ethernetnic_tg3_rpms https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/bluetooth-drivers https://www.broadcom.com/support/download-search/?pf=Bluetooth+SoCs permanent;
+		rewrite ^/EiU https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm5356x permanent;
+		rewrite ^/A6H https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm47186 permanent;
+		rewrite ^/upa https://www.broadcom.com/products/broadband/set-top-box/bcm7540 permanent;
+		rewrite ^/gW8 https://www.broadcom.com/products/broadband/set-top-box/bcm7400 permanent;
+		rewrite ^/yqR https://www.broadcom.com/products/broadband/set-top-box/bcm7421 permanent;
+		rewrite ^/Ayx https://www.broadcom.com/products/broadband/set-top-box/bcm3461 permanent;
+		rewrite ^/JNt https://www.broadcom.com/products/broadband/set-top-box/bcm7542 permanent;
+		rewrite ^/KUv https://www.broadcom.com/products/broadband/set-top-box/bcm3471 permanent;
+		rewrite ^/Mne https://www.broadcom.com/products/broadband/xpon/bcm60321 permanent;
+		rewrite ^/CQv https://www.broadcom.com/products/broadband/set-top-box/bcm7582 permanent;
+		rewrite ^/hKD https://www.broadcom.com/products/broadband/set-top-box/bcm7582 permanent;
+		rewrite ^/cH9 https://www.broadcom.com/products/broadband/xdsl/bcm65x00-family permanent;
+		rewrite ^/b8k https://www.broadcom.com/products/broadband/set-top-box/bcm7422 permanent;
+		rewrite ^/atEWWv https://www.broadcom.com/products/broadband/set-top-box/bcm7572 permanent;
+		rewrite ^/vtH https://www.broadcom.com/products/wireless/wireless-lan-socs/bcm4717v permanent;
+		rewrite ^/ethernetnic_bnxt_en_rpms https://www.broadcom.com/support/download-search/?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=Ethernet+Controllers permanent;
+		rewrite ^/qDY https://www.broadcom.com/products/broadband/set-top-box/bcm7405 permanent;
+		rewrite ^/mzi https://www.broadcom.com/products/broadband/xdsl/bcm63168 permanent;
+		rewrite ^/NetXtreme https://www.broadcom.com/products/ethernet-connectivity/network-adapters/netxtrem-adapters/ permanent;
+		rewrite ^/OnV https://www.broadcom.com/products/broadband/set-top-box/bcm7358 permanent;
+		rewrite ^/LLk https://www.broadcom.com/products/broadband/cable/modems/bcm3124-3128 permanent;
+		rewrite ^/hCf https://www.broadcom.com/products/broadband/cable/ccap/bcm3383 permanent;
+		rewrite ^/fc-networking https://www.broadcom.com/products/fibre-channel-networking/ permanent;
+		rewrite ^/legal https://www.broadcom.com permanent;
+		rewrite ^/sesc https://www.broadcom.com/products/cyber-security/endpoint/end-user/complete permanent;
+		rewrite ^/sese https://www.broadcom.com/products/cyber-security/endpoint/end-user/enterprise permanent;
+		rewrite ^/ses https://www.broadcom.com/products/cyber-security/endpoint/end-user permanent;
+		rewrite ^/ethernetnic_nxe_rpms https://www.broadcom.com/support/download-search?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=ETHERNET+NETWORK+ADAPTERS&pn=All&pa=Driver&po=Broadcom&dk=&pl= permanent;
+		rewrite ^/sa https://www.broadcom.com/products/cyber-security/network/atp/network-forensics-security-analytics permanent;
+		rewrite ^/ethernetnic_nx1_rpms https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/ethernetnic_nx1_rpms_hpe https://www.broadcom.com/support/download-search?pf=Ethernet+Network+Adapters&pn=BCM5719+-+Quad-Port+1GBASE-T&pa=Driver&po=&dk=&pg=Ethernet+Connectivity%2C+Switching%2C+and+PHYs permanent;
+		rewrite ^/ethernetnic_nxe_rpms_hpe https://www.broadcom.com/support/download-search?pg=Ethernet+Connectivity,+Switching,+and+PHYs&pf=Ethernet+Network+Adapters&pn=All&pa=&po=HPE&dk=&pl= permanent;
+		rewrite ^/L24 https://www.broadcom.com/products/broadband/set-top-box/bcm4550 permanent;
+		rewrite ^/kubernetes-monitoring https://www.broadcom.com/info/aiops/kubernetes-monitoring permanent;
+		rewrite ^/(.*) https://www.broadcom.com/? redirect;
+	}
+ }

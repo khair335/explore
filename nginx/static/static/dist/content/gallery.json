@@ -1,0 +1,92 @@
+{
+  "title": "A gallery of images",
+  "_type": "page",
+  "_embedded": {
+    "grid": {
+      "_type": "grid",
+      "_embedded": {
+        "rows": [
+          {
+            "_type": "row",
+            "_embedded": {
+              "columns": [
+                {
+                  "_type": "column",
+                  "size":50,
+                  "offset":0,
+                  "_embedded": {
+                    "one": {
+                      "src": "https://image.shutterstock.com/z/stock-photo-new-english-estate-527201377.jpg",
+                      "alt": "First image",
+                      "_type": "image"
+                    }
+                  }
+                },
+                {
+                  "_type": "column",
+                  "size":50,
+                  "offset":0,
+                  "_embedded": {
+                    "two": {
+                      "src": "https://image.shutterstock.com/z/stock-photo-old-house-in-dinard-brittany-france-350605427.jpg",
+                      "alt": "Second image",
+                      "_type": "image"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "_type": "row",
+            "size":100,
+            "_embedded": {
+              "col0": {
+                "_type": "column",
+                "_embedded": {
+                  "three": {
+                    "src": "https://image.shutterstock.com/z/stock-photo-view-of-medieval-castle-rochepot-from-plane-burgundy-france-732132295.jpg",
+                    "alt": "Third image",
+                    "_type": "image"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "_type": "row",
+            "_embedded": {
+              "columns": [
+                {
+                  "_type": "column",
+                  "size":50,
+                  "_embedded": {
+                    "one": {
+                      "src": "https://image.shutterstock.com/z/stock-photo-new-english-estate-527201377.jpg",
+                      "alt": "First image",
+                      "_type": "image"
+                    }
+                  }
+                },
+                {
+                  "_type": "column",
+                  "size":50,
+                  "_embedded": {
+                    "two": {
+                      "src": "https://image.shutterstock.com/z/stock-photo-old-house-in-dinard-brittany-france-350605427.jpg",
+                      "alt": "Second image",
+                      "_type": "image"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "_links": {
+    "self": { "href": "content/gallery.json" }
+  }
+}

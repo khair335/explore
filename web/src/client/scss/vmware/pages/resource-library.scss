@@ -1,0 +1,152 @@
+/*
+* pages/resource-library.scss
+*/
+// Styling for vnware resource library
+
+@import "../base/variables";
+@import "../base/typography";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../base/buttons";
+
+#ResourceCenter {
+  .page-header {
+    padding-bottom: 22px;  // 30 + body-description 20 + 8 mt-2 = 50  
+  }
+  
+  .page-title {
+    color: $color-black;
+    @include font-xl2;
+  }
+
+  .resources-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-breakpoint-down(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+  }
+
+  .search-bar {
+      max-width: 100%;
+      width: 100%;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-radius: 5px;
+      border: 1px solid $color-grey--400;
+      background-color: $background-color;
+      margin: 16px 0;
+      gap: 10px;
+      padding: 5px 12px 5px 20px;
+
+      input {
+          width: 100%;
+          color: $color-grey--600;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          @include font-md;
+
+          &::placeholder {
+              color: $color-grey--500;
+          }
+      }
+
+      i {
+          color: $color-primary;
+      }
+  }
+
+  .content-block {
+    background-color: $background-light-gray;
+    padding: 48px 0 48px 0;
+  }
+
+
+  .results-summary {
+    padding: 48px 0 16px 0;
+  }
+
+  .results {
+    padding-bottom: 32px;
+
+    .link-bttn {
+      text-transform: capitalize;
+    }
+
+    .card {
+      box-shadow: none;
+      border: 1px solid $color-grey--200;
+      background-color: $color-white;
+      border-radius: 0;
+    }
+    
+    .category-title {
+      color: $color-black;
+      padding-bottom: 20px;
+      @include font-xl;
+    }
+
+    .card .card-title .lnk {
+      @include font-lg;
+    }
+  }
+
+  .no-results {
+    @include font-lg;
+  }
+
+
+  .icon-color {
+    color: $color-primary;
+  }
+
+  .pagination-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .pagination {
+        justify-content: center;
+
+        .page-link {
+            color: $color-primary;
+            font-size: 1.125rem;
+            border: 0;
+            background-color: $color-white;
+            &:hover {
+                background-color: $background-color;
+
+            }
+        }
+
+        [aria-label="Previous"] span {
+            content: "\f053";
+            font-family: 'Font Awesome 6 Free';
+        }
+
+        [aria-label="Next"] span {
+            content: "\f054";
+            font-family: 'Font Awesome 6 Free';
+        }
+
+        .page-item.active .page-link {
+            background-color: $background-color;
+            color: $color-grey--700;
+        }
+    }
+  }
+}
+
+

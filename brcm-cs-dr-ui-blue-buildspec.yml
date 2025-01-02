@@ -1,0 +1,64 @@
+version: 0.2
+
+phases:
+  install:
+    #runtime-versions:
+    #  docker: 18
+    commands:
+    #  - docker login -u hgsdigital -p ElementSolutions115#
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo source version $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - aws --version
+      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - REPOSITORY_URI=183371538111.dkr.ecr.us-east-1.amazonaws.com/brcm-cs-dr-ui-blue-rep
+      #- IMAGE_TAG=latest
+      - IMAGE_TAG=$CODEBUILD_BUILD_NUMBER
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - echo git hash $COMMIT_HASH
+      - IMAGE_TAG_TEMP=${CODEBUILD_BUILD_NUMBER}--${COMMIT_HASH}
+      - echo IMAGE_TAG_TEMP $IMAGE_TAG_TEMP
+      #- IMAGE_TAG=$IMAGE_TAG_TEMP
+      - echo IMAGE_TAG $IMAGE_TAG
+      - aws ecs describe-task-definition --task-definition brcm-cs-dr-ui-blue-td >  brcm-cs-dr-ui-blue-td.json
+      - cat brcm-cs-dr-ui-blue-td.json
+      - REVISION_NUMBER=$(echo $(jq '.taskDefinition.revision+1' brcm-cs-dr-ui-blue-td.json))
+      - echo REVISION_NUMBER $REVISION_NUMBER
+      #- COMMIT_HASH_NEW=$REVISION_NUMBER", "$COMMIT_HASH
+      #- echo COMMIT_HASH_NEW $COMMIT_HASH_NEW
+      - COMMIT_HASH_NEW=$COMMIT_HASH--$REVISION_NUMBER
+      - echo COMMIT_HASH_NEW $COMMIT_HASH_NEW
+      - aws ssm get-parameter --name "/ichabod/csdr/htaccess_username" --query "Parameter.Value" --output text > username.txt
+      - aws ssm get-parameter --name "/ichabod/csdr/htaccess_password" --with-decryption --query "Parameter.Value" --output text > password.txt
+      - export username=$(cat username.txt)
+      - export password=$(cat password.txt)
+      - printf "%s:%s\n" "$username" "$(openssl passwd -apr1 "$password")" > nginx/.htpasswd
+      # pulling docker image from ECR
+      #- docker pull 183371538111.dkr.ecr.us-east-1.amazonaws.com/brcm-cs-node:latest
+      #- docker pull 183371538111.dkr.ecr.us-east-1.amazonaws.com/brcm-cs-node:bullseye-latest
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build --build-arg envtype=dr --build-arg env=dr --build-arg bcnode=blue --file="./brcm-cs-ui-dockerFile" -t $IMAGE_TAG_TEMP -t $COMMIT_HASH_NEW .
+      #- docker build -t $REPOSITORY_URI:latest .
+      #- docker tag $IMAGE_TAG_TEMP $REPOSITORY_URI:$REVISION_NUMBER
+      - docker tag $IMAGE_TAG_TEMP $REPOSITORY_URI:$COMMIT_HASH_NEW
+      - docker tag $COMMIT_HASH_NEW $REPOSITORY_URI:$COMMIT_HASH_NEW
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+     # - docker push 183371538111.dkr.ecr.us-east-1.amazonaws.com/devops_cmsgw:latest
+      - docker push 183371538111.dkr.ecr.us-east-1.amazonaws.com/brcm-cs-dr-ui-blue-rep:$COMMIT_HASH_NEW
+      - docker push $REPOSITORY_URI:$COMMIT_HASH_NEW
+      - echo Docker Image is Pushed
+      - printf '[{"name":"brcm-cs-dr-ui-blue-ecs","imageUri":"%s"}]'  $REPOSITORY_URI:$COMMIT_HASH_NEW >imagedefinitions.json
+      - cat imagedefinitions.json
+artifacts:
+    files:
+      - imagedefinitions.json
+      #- imagedefinitions.json
+    discard-paths: yes
+

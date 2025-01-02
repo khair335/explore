@@ -1,0 +1,31 @@
+ server {
+
+	listen 80 ;
+	listen [::]:80;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name stg-ui.aws.broadcom.com
+				stg-ui-jp.aws.broadcom.com
+				stg-ui-cn.aws.broadcom.com;
+	location / {
+		rewrite ^/(.*) https://cmsstaging.broadcom.com/? redirect;
+	}
+
+}
+server {
+
+	listen 443 ;
+	listen [::]:443;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name stg-ui.aws.broadcom.com
+				stg-ui-jp.aws.broadcom.com
+				stg-ui-cn.aws.broadcom.com;
+	location / {
+		rewrite ^/(.*) https://cmsstaging.broadcom.com/? redirect;
+	}
+  
+
+}

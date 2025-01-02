@@ -1,0 +1,6 @@
+node_modules
+src/server/views/pages/index.ejs
+src/server/views/pages/justheader.ejs
+src/server/views/pages/justfooter.ejs
+src/server/views/pages/justlayout.ejs
+src/server/index.dist.js
