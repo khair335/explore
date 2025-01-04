@@ -840,6 +840,7 @@ text-decoration: underline;
           display: inline;
         }
       }
+      
     
   }
 
@@ -1200,6 +1201,7 @@ text-decoration: underline;
     .card-text{
       a{
         display: inline;
+        text-align: center;
         white-space: initial;
         word-break: break-word;
       }
@@ -3079,6 +3081,12 @@ text-decoration: underline;
 }
 
 .VerticalTab-section {
+  &.theme-content-block-blue,
+  &.theme-cbl-card-transparent{
+    .section-title{
+      color: $color-black;
+    }
+  }
   .VerticalTab {
 
     .video-box{
@@ -3104,7 +3112,7 @@ text-decoration: underline;
 
       .cb-cta-link {
         justify-content: flex-start !important;
-        padding-left: 20px;
+        padding-left: 9px;
       }
     }
     .content-block-center {

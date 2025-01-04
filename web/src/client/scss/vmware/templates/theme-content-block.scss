@@ -52,6 +52,9 @@
 
             .card-text {
                 color: $color-body-dark;
+                *{
+                    color: $color-body-dark;
+                }
             }
         }
     }
@@ -100,6 +103,12 @@
         .card {
             @include theme-light;
             box-shadow: 0 4px 14px 0 rgba(17, 69, 134, 0.10) !important;
+            .card-text{ 
+                a{
+                    display: block;
+                    text-align: center;  
+                }
+            }
         }
     }
 }
